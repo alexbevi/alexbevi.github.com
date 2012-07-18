@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>THAT THING I SENT YOU</title>
+  <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="Blog Archives Recent Posts GitHub Repos Status updating&#8230; @alexbevi on GitHub $.domReady(function(){ if (!window.jXHR){ var jxhr = document. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,13 +18,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://alexbevi.github.com/">
-  <link href="/alexbevi/favicon.png" rel="icon">
-  <link href="/alexbevi/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/alexbevi/javascripts/modernizr-2.0.js"></script>
-  <script src="/alexbevi/javascripts/ender.js"></script>
-  <script src="/alexbevi/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/alexbevi/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link rel="canonical" href="http://alexbevi.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/alexbevi/atom.xml" rel="alternate" title="THAT THING I SENT YOU" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +35,10 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/alexbevi/">My Octopress Blog</a></h1>
+  <img src="images/pp.png" style="display: block; float: right;">
+  <h1><a href="/">THAT THING I SENT YOU</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Did you get that thing I sent you?</h2>
   
 </hgroup>
 
@@ -49,14 +50,14 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:alexbevi.github.com" />
+    <input type="hidden" name="q" value="site:alexbevi.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/alexbevi/">Blog</a></li>
-  <li><a href="/alexbevi/blog/archives">Archives</a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
 </nav>
@@ -67,7 +68,7 @@
   
   <div class="pagination">
     
-    <a href="/alexbevi/blog/archives">Blog Archives</a>
+    <a href="/blog/archives">Blog Archives</a>
     
   </div>
 </div>
@@ -80,6 +81,51 @@
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/alexbevi">@alexbevi</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("alexbevi", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/alexbevi" class="twitter-follow-button" data-show-count="false">Follow @alexbevi</a>
+  
+</section>
 
 
 
@@ -91,7 +137,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Your Name -
+  Copyright &copy; 2012 - Alex Bevilacqua -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
