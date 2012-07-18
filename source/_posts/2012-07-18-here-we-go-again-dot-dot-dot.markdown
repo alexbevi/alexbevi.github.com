@@ -10,6 +10,8 @@ So, another year, another blogging engine, another crack at blogging.
 
 This time around I'm trying out [Octopress](http://octopress.org). There's something very appealing about being able to interact with this blog via rake tasks and [Git](http://git-scm.com).
 
+<!-- more -->
+
 This page was generated using `rake new_post["Here we go again ..."]`
 
 Octopress is essentially [Jekyll](https://github.com/mojombo/jekyll/), which means it can be deployed very easily to either [Github](https://github.com) or [Heroku](http://www.heroku.com).
