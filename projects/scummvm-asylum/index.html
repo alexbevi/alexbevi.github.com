@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>scummvm-asylum - THAT THING I SENT YOU</title>
+  <title>THAT THING I SENT YOU</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="Scummvm-asylum Jul 18th, 2012 Jul 18th, 2012 Tweet Comments Please enable JavaScript to view the comments powered by Disqus. Recent Posts Shoutcast &hellip;">
+  <meta name="description" content="About Sanitarium Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <img src="images/pp.png" style="display: block; float: right;">
+  <img src="/images/pp.png" style="display: block; float: right;">
   <h1><a href="/">THAT THING I SENT YOU</a></h1>
   
     <h2>Did you get that thing I sent you?</h2>
@@ -68,44 +68,64 @@
       <div>
 <article role="article">
   
-  <header>
-    <h1 class="entry-title">Scummvm-asylum</h1>
-    <p class="meta">
+  <h3>About Sanitarium</h3>
 
+<p><a href="https://github.com/alexbevi/scummvm"><img class="right" src="/images/github_logo.png"></a></p>
 
+<p>Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its atmosphere and originality, Sanitarium tells the story of a man named Max Laughton who is suffering from amnesia due to a car accident as he frantically tries to unveil the details of his institutionalization inside a bizarre medieval-styled asylum. The search for his own identity - and &#8220;the truth&#8221; - takes place within the grounds of the sanitarium and inside his own delusions and flashbacks, as he confronts the ghosts of his past. The dark mood and graphics of the game are matched by an equally ominous musical background.</p>
 
+<p>The game uses a bird&#8217;s-eye view perspective and a non-tiled 2D navigational system. Each world and setting carries a distinct atmosphere that presents either the real world, the imaginary world, or a mix of both of the main protagonist. In many cases, it is unclear to the player if the world the character is currently in is real or a product of Max&#8217;s own imagination. This indistinction underlines much of the horror portrayed in the game.</p>
 
+<p>Gamasutra&#8217;s <a href="http://www.gamasutra.com/view/feature/3299/postmortem_dreamforges_sanitarium.php">postmortem</a> provides some interesting insight into the game&#8217;s development.</p>
 
+<h3>Development</h3>
 
+<p>The following is just a copy of what was available on the old <a href="http://code.google.com/p/asylumengine/">Google Code</a> project page.</p>
 
+<h4>October 16, 2009</h4>
 
-  
+<p>Quite a bit of work was done over the summer. Sadly though, progress has ground to a halt for the moment. I&#8217;m going to be unavailable to the project for a while now as I&#8217;ve got very little free time any more due to changes in my &#8220;real&#8221; life (family issues, new contract .. etc).</p>
 
+<p>Figured I&#8217;d update everyone here, as I&#8217;ll still be available, but sadly, won&#8217;t be contributing for the next few months :(</p>
 
-<time datetime="2012-07-18T08:40:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time></p>
-  </header>
-  
-  
+<p>Hopefully someone else can pick up the slack while I fulfil my other obligations.</p>
+
+<h4>July 8, 2009</h4>
+
+<p>Several changes have been made, so it&#8217;s high time to make an update here :)</p>
+
+<p>There is code for scrolling and showing up objects and actors (properly clipped)
+We now have a preliminary script interpreter, so game scripts are read and partially parsed, actors are now drawn in the scene, and there is some interaction with the environment (e.g. &#8220;examine&#8221; actions).
+The movie subtitles (from the vids.cap file) are now working correctly, so the movie code is pretty much complete.
+Scene information is partially read, and the scene hotspots are created correctly.
+The mouse cursor is now initialized and animated properly
+Game texts and game fonts are read correctly (can be seen in the menu)
+There is preliminary code for walking around with the mouse.
+Some of the menu screens are now working (like, for example, the credits screen)</p>
+
+<p><img class="center" src="/images/sntrm3.png"></p>
+
+<h4>June 16, 2009</h4>
+
+<p>The guys have figured out the text options in the menu screen so other than those that require interaction (Save/Load/Settings/Cinematics), we&#8217;re done with the menu. The Credits screen works, as does quit confirmation. The main actor format implementation is starting to take shape.</p>
+
+<p>We&#8217;ve moved beyond the main menu to the first scene (The Tower Cells). The scene is slowly being parsed, as we&#8217;re pulling the background from the parsed scene, as well as the animations.</p>
+
+<p>The main actor format is also underway. We&#8217;ve deduced the contents and have placed a test loop of the actor walking over the background.</p>
+
+<p><img class="center" src="/images/sntrm2.png"></p>
+
+<h4>June 6, 2009</h4>
+
+<p>Resource loading is job one, scene implementation is job two. The various formats (graphics, sounds, music, curors, palettes) are more or less in place.</p>
+
+<p>We&#8217;ve also got the menu up and running, but no event code associated with it (so you can&#8217;t click on anything).</p>
+
+<p><img class="center" src="/images/sntrm1.png"></p>
 
   
     <footer>
-      <p class="meta">
-        
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T08:40:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-      </p>
+      
       
         <div class="sharing">
   
