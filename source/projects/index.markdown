@@ -25,6 +25,7 @@ The following is a collection of my various open source project contributions.
       <div class="caption">
         <h5>ScummVM: Sanitarium Engine</h5>
         <p>
+          <a href="https://github.com/alexbevi/scummvm">Code</a>
           <a href="{{ root_url }}/projects/scummvm-asylum">Details</a>
         </p>
       </div>
