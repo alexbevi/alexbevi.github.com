@@ -14,7 +14,7 @@ The following is a collection of my various open source project contributions.
       <div class="caption">
         <h5>Redmine: Knowledgebase Plugin</h5>
         <p>
-          <a href="projects/redmine-knowledgebase">Details</a>
+          <a href="{{ root_url }}/projects/redmine-knowledgebase">Details</a>
         </p>
       </div>
     </div>
@@ -25,7 +25,7 @@ The following is a collection of my various open source project contributions.
       <div class="caption">
         <h5>ScummVM: Sanitarium Engine</h5>
         <p>
-          <a href="projects/scummvm-asylum">Details</a>
+          <a href="{{ root_url }}/projects/scummvm-asylum">Details</a>
         </p>
       </div>
     </div>
@@ -36,7 +36,7 @@ The following is a collection of my various open source project contributions.
       <div class="caption">
         <h5>Tool Assisted Superplay Editor</h5>
         <p>
-          <a href="projects/tas-editor">Details</a>
+          <a href="{{ root_url }}/projects/tas-editor">Details</a>
         </p>
       </div>
     </div>
@@ -47,7 +47,7 @@ The following is a collection of my various open source project contributions.
       <div class="caption">
         <h5>YAML Auto-translator</h5>
         <p>
-          <a href="projects/translate_yaml">Details</a>
+          <a href="{{ root_url }}/projects/translate_yaml">Details</a>
         </p>
       </div>
     </div>
