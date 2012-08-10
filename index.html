@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>THAT THING I SENT YOU</title>
+  <title>ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="As much as I enjoy Ubuntu, I haven&#8217;t warmed to their Unity desktop. I personally find it&#8217;s too similar to OS X, I don&#8217;t really like &hellip;">
+  <meta name="description" content="Recent Posts Ubuntu 12.04 Desktop WITHOUT Unity Shoutcast Streaming from the Command Line Here we go again ... GitHub Repos Status updating... @ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,23 +24,37 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="THAT THING I SENT YOU" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+    // Avoid conflict with ender.js.
+    jQuery.noConflict();
+</script>
+<!-- jQuery Form Plugin -->
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<!-- jQuery Form Validation Plugin -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script> 
+<script src="/javascripts/google_form.js"></script>
   
 
 </head>
 
 <body   >
   <header role="banner"><hgroup>
-  <img src="/images/pp.png" style="display: block; float: right;">
-  <h1><a href="/">THAT THING I SENT YOU</a></h1>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">mob</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/">ALEX BEVILACQUA</a></h1>
   
-    <h2>Did you get that thing I sent you?</h2>
-  
+  <div class="clear"></div>
 </hgroup>
 
 </header>
@@ -57,157 +71,30 @@
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/projects">Projects</a></li>
+  <li><a href="/contact">Contact</a></li>
 </ul>
 
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/">Ubuntu 12.04 Desktop WITHOUT Unity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-10T08:03:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As much as I enjoy Ubuntu, I haven&#8217;t warmed to their Unity desktop. I personally find it&#8217;s too similar to OS X, I don&#8217;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
-
-<p>Since it&#8217;s based on GTK3, I know you can modify this all, but I&#8217;d rather just use a desktop environment that doesn&#8217;t require that level of tweaking.</p>
-
-<p>Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.</p>
-
-<p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
-
-<p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Shoutcast Streaming From the Command Line</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T08:20:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &#8230; and it turns out there was :)</p>
-
-</div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here We Go Again &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T07:53:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So, another year, another blogging engine, another crack at blogging.</p>
-
-<p>This time around I&#8217;m trying out <a href="http://octopress.org">Octopress</a>. There&#8217;s something very appealing about being able to interact with this blog via rake tasks and <a href="http://git-scm.com">Git</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Read on &rarr;</a>
+      
     </footer>
   
+</article>
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -223,7 +110,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here we go again &#8230;</a>
+        <a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here we go again ...</a>
       </li>
     
   </ul>
@@ -232,7 +119,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/alexbevi">@alexbevi</a> on GitHub
@@ -262,7 +149,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -291,6 +178,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -300,19 +188,6 @@
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'alexbevi';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 
