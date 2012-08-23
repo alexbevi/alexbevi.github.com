@@ -21,6 +21,3 @@ This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and 
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 
 {% img /images/2012-08-23-ss.png %}
-
-Note that this is just a quick sample for Ruby source. If you wanted to search your template files `(haml|erb|rhtml ... etc)`, you could replace the `find` with a `grep -E` :)
-
