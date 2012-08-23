@@ -27,7 +27,7 @@ Translate a source YAML file for I18n app localization.
 
 # C++
 
-## [ScummVM: Sanitarium Engine]({{ root_url }}/projects/scummvm-asylum)
+## [ScummVM: Asylum Engine]({{ root_url }}/projects/scummvm-asylum)
 
 A reimplementation of ASC Games / DreamForge's Sanitarium for the [ScummVM](http://www.scummvm.org) platform.
 
