@@ -7,38 +7,34 @@ footer: true
 
 The following is a collection of my various open source project contributions.
 
-### Redmine: Knowledgebase Plugin
+# RUBY / RAILS
 
-{% img left http://placehold.it/260x180 %}
+## [Redmine: Knowledgebase Plugin]({{ root_url }}/projects/redmine-knowledgebase)
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+A [Redmine](http://www.redmine.org) plugin that adds knowledgebase functionality.
 
-[Details]({{ root_url }}/projects/redmine-knowledgebase)  
-  
-  
-  
-      
-### ScummVM: Sanitarium Engine
+## [Redmine: Dropbox Attachment Storage]({{ root_url }}/projects/redmine-dropbox-attachments)
 
-{% img left http://placehold.it/260x180 %}
+A [Redmine](http://www.redmine.org) plugin that allows attachment storage to be moved to your [Dropbox](http://www.dropbox.com) account.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+## [Exception Logger]({{ root_url }}/projects/exception-logger)
 
-[Details]({{ root_url }}/projects/scummvm-asylum)
-[Code](https://github.com/alexbevi/scummvm)
+A Rails 3 engine that can be added to any project to allow exceptions to be recorded to the database for future analysis.
 
-### Tool Assisted Superplay Editor
+## [YAML Auto-translator]({{ root_url }}/projects/translate-yaml)
 
-{% img left http://placehold.it/260x180 %}
+Translate a source YAML file for I18n app localization.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+# C++
 
-[Details]({{ root_url }}/projects/tas-editor)
+## [ScummVM: Sanitarium Engine]({{ root_url }}/projects/scummvm-asylum)
 
-### YAML Auto-translator
+A reimplementation of ASC Games / DreamForge's Sanitarium for the [ScummVM](http://www.scummvm.org) platform.
 
-{% img left http://placehold.it/260x180 %}
+# .NET
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  
+## [Tool Assisted Superplay Editor]({{ root_url }}/projects/tas-editor)
 
-[Details]({{ root_url }}/projects/translate_yaml)
+An editor for TAS input files.
+
+Currently supports SMV, FCM, GMV, FMV, VBM, M64, MMV, PXM, and PJM file formats.
