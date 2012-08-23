@@ -3,7 +3,7 @@ layout: post
 title: "Keeping Pry Breakpoints out of Git"
 date: 2012-08-23 07:57
 comments: true
-categories: 
+categories: [Ruby, Pry, Git]
 ---
 
 My Ruby workflow as of late has almost always contained [Git](http://www.git-scm.com) for version control, and [Pry](http://pryrepl.org/) for debugging.
