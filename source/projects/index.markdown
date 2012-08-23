@@ -33,7 +33,7 @@ A reimplementation of ASC Games / DreamForge's Sanitarium for the [ScummVM](http
 
 # .NET
 
-## [Tool Assisted Superplay Editor]({{ root_url }}/projects/tas-editor)
+## [Tool Assisted Movie Editor]({{ root_url }}/projects/tas-editor)
 
 An editor for TAS input files.
 
