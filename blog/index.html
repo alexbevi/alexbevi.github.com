@@ -120,35 +120,12 @@
 
 <p>Although it&#8217;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
 
-<p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.</p>
-
-<div><script src='https://gist.github.com/3436040.js?file='></script>
-<noscript><pre><code># Git pre-commit hook
-#
-# Check all Ruby (*.rb) files for Pry breakpoint references
-#
-# Based on http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
-#
-# Intallation:
-#       ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
-#
-FORBIDDEN='binding.pry'
-git diff --cached --name-only | \
-    find -name '*.rb' | \
-    GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
-    echo 'COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting' &amp;&amp; \
-    exit 1</code></pre></noscript></div>
-
-
-<p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made exectuable.</p>
-
-<p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
-
-<p><img src="/images/2012-08-23-ss.png"></p>
-
-<p>Note that this is just a quick sample for Ruby source. If you wanted to search your template files <code>(haml|erb|rhtml ... etc)</code>, you could replace the <code>find</code> with a <code>grep -E</code> :)</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/">Read on &rarr;</a>
+    </footer>
   
 
 

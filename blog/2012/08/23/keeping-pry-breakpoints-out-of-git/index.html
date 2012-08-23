@@ -117,6 +117,9 @@
 
 <p>Although it&#8217;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
 
+<!-- more -->
+
+
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.</p>
 
 <div><script src='https://gist.github.com/3436040.js?file='></script>
