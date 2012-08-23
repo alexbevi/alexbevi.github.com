@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Contact - ALEX BEVILACQUA</title>
+  <title>Keeping Pry Breakpoints out of Git - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="Contact Aug 10th, 2012 Name
-* Email Address
-* Subject
-* Message
-* Aug 10th, 2012 Tweet Recent Posts Keeping Pry Breakpoints out of Git Ubuntu 12.04 &hellip;">
+  <meta name="description" content="My Ruby workflow as of late has almost always contained Git for version control, and Pry for debugging. Although it&#8217;s extremely convenient &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://alexbevi.com/contact/">
+  <link rel="canonical" href="http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -86,71 +82,17 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Contact</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-10T08:48:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time></p>
-  </header>
-  
-  <div class="google-form-wrapper"><p class='success-msg'> </p><form action="https://docs.google.com/spreadsheet/formResponse?formkey=dDVNN1dsOHR2WEs5XzVVNFNCamlHdUE6MQ&amp;embedded=true&amp;ifq" method="POST" id="ss-form">
-
-
-<br><div class="errorbox-good">
-<div class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-title" for="entry_0">Name
-<span class="ss-required-asterisk">*</span></label>
-<label class="ss-q-help" for="entry_0"></label>
-<input type="text" name="entry.0.single" value="" class="ss-q-short" id="entry_0">
-</div></div>
-</div>
-<br><div class="errorbox-good">
-<div class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-title" for="entry_2">Email Address
-<span class="ss-required-asterisk">*</span></label>
-<label class="ss-q-help" for="entry_2"></label>
-<input type="text" name="entry.2.single" value="" class="ss-q-short" id="entry_2">
-</div></div>
-</div>
-<br><div class="errorbox-good">
-<div class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-title" for="entry_3">Subject
-<span class="ss-required-asterisk">*</span></label>
-<label class="ss-q-help" for="entry_3"></label>
-<input type="text" name="entry.3.single" value="" class="ss-q-short" id="entry_3">
-</div></div>
-</div>
-<br><div class="errorbox-good">
-<div class="ss-item ss-item-required ss-paragraph-text"><div class="ss-form-entry">
-<label class="ss-q-title" for="entry_4">Message
-<span class="ss-required-asterisk">*</span></label>
-<label class="ss-q-help" for="entry_4"></label>
-<textarea name="entry.4.single" rows="8" cols="75" class="ss-q-long" id="entry_4"></textarea>
-</div></div>
-</div>
-<br><input type="hidden" name="pageNumber" value="0"><input type="hidden" name="backupCache" value=""><div class="ss-item ss-navigate"><div class="ss-form-entry">
-<input type="submit" name="submit" value="Submit">
-</div></div>
-</form></div>
-
-
-  
-    <footer>
+    
+      
+        <h1 class="entry-title">Keeping Pry Breakpoints Out of Git</h1>
+      
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -162,13 +104,77 @@
   
 
 
-<time datetime="2012-08-10T08:48:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
+<time datetime="2012-08-23T07:57:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
+
+<p>Although it&#8217;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
+
+<p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.</p>
+
+<div><script src='https://gist.github.com/3436040.js?file='></script>
+<noscript><pre><code># Git pre-commit hook
+#
+# Check all Ruby (*.rb) files for Pry breakpoint references
+#
+# Based on http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+#
+# Intallation:
+#       ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
+#
+FORBIDDEN='binding.pry'
+git diff --cached --name-only | \
+    find -name '*.rb' | \
+    GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
+    echo 'COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting' &amp;&amp; \
+    exit 1</code></pre></noscript></div>
+
+
+<p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made exectuable.</p>
+
+<p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
+
+<p><img src="/images/2012-08-23-ss.png"></p>
+
+<p>Note that this is just a quick sample for Ruby source. If you wanted to search your template files <code>(haml|erb|rhtml ... etc)</code>, you could replace the <code>find</code> with a <code>grep -E</code> :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexbevi.com/contact/index.html" data-via="alexbevi" data-counturl="http://alexbevi.com/contact/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Alex Bevilacqua</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-23T07:57:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/" data-via="alexbevi" data-counturl="http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -178,10 +184,21 @@
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left articlenav" href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/" title="Previous Post: Ubuntu 12.04 Desktop WITHOUT Unity">&laquo; Ubuntu 12.04 Desktop WITHOUT Unity</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -282,6 +299,22 @@
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/';
+        var disqus_url = 'http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
