@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/feed" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2012-08-23T10:55:02-04:00</updated>
+  <updated>2012-08-27T20:48:50-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -50,8 +50,6 @@ git diff --cached --name-only | \
 <p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
 
 <p><img src="http://alexbevi.com/images/2012-08-23-ss.png"></p>
-
-<p>Note that this is just a quick sample for Ruby source. If you wanted to search your template files <code>(haml|erb|rhtml ... etc)</code>, you could replace the <code>find</code> with a <code>grep -E</code> :)</p>
 ]]></content>
   </entry>
   
