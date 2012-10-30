@@ -2,74 +2,82 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/</loc>
-        <lastmod>2012-08-10T09:24:19-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/</loc>
-        <lastmod>2012-08-10T09:24:19-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/</loc>
-        <lastmod>2012-08-10T09:24:19-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/</loc>
-        <lastmod>2012-08-27T20:46:33-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/</loc>
-        <lastmod>2012-08-29T13:55:38-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/404.html</loc>
-        <lastmod>2012-08-10T09:24:19-04:00</lastmod>
+        <loc>http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo/</loc>
+        <lastmod>2012-10-30T16:02:09-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/</loc>
-        <lastmod>2012-08-23T10:41:37-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/contact/</loc>
-        <lastmod>2012-08-29T14:31:47-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/</loc>
-        <lastmod>2012-08-29T13:55:38-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/archives/</loc>
-        <lastmod>2012-08-29T13:55:38-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/feed/index.xml</loc>
-        <lastmod>2012-08-10T09:18:43-04:00</lastmod>
+        <loc>http://alexbevi.com/about/</loc>
+        <lastmod>2012-10-30T15:24:40-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/projects/redmine-dropbox-attachments/</loc>
-        <lastmod>2012-08-23T09:45:52-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/projects/</loc>
-        <lastmod>2012-08-23T10:17:25-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/projects/scummvm-asylum/</loc>
-        <lastmod>2012-08-10T09:24:19-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/projects/translate-yaml/</loc>
-        <lastmod>2012-08-23T09:46:00-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/projects/redmine-knowledgebase/</loc>
-        <lastmod>2012-08-23T09:45:49-04:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/projects/exception-logger/</loc>
-        <lastmod>2012-08-23T09:45:55-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/projects/tas-editor/</loc>
-        <lastmod>2012-08-23T10:11:38-04:00</lastmod>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/projects/scummvm-asylum/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/projects/exception-logger/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/projects/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/projects/redmine-knowledgebase/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/projects/translate-yaml/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/feed/index.xml</loc>
+        <lastmod>2012-09-10T14:48:55-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/blog/archives/</loc>
+        <lastmod>2012-10-30T16:02:09-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/blog/</loc>
+        <lastmod>2012-10-30T16:02:09-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/</loc>
+        <lastmod>2012-10-30T16:02:09-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/404.html</loc>
+        <lastmod>2012-10-30T15:11:58-04:00</lastmod>
     </url>
 </urlset>

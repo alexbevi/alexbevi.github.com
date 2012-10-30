@@ -1,101 +1,125 @@
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>ALEX BEVILACQUA</title>
-  <meta name="author" content="Alex Bevilacqua">
+	<meta charset="utf-8">
+	<title>ALEX BEVILACQUA</title>
+	<meta name="author" content="Alex Bevilacqua">
 
-  
-  <meta name="description" content="A couple projects I work on use MongoDB as the database, and I&#8217;m generally not satisfied to use the (often outdated) version that ships with &hellip;">
-  
+	
+	<meta name="description" content="This is pretty much a trasnscription of http://www.psychocats.net/ubuntu/fixsudo, which is just such a good article I wanted to keep a copy for &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://alexbevi.com/blog/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript">
-    // Avoid conflict with ender.js.
-    jQuery.noConflict();
-</script>
-<!-- jQuery Form Plugin -->
-<script src="http://malsup.github.com/jquery.form.js"></script>
-<!-- jQuery Form Validation Plugin -->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script> 
-<script src="/javascripts/google_form.js"></script>
-  
-
+	<link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <div id="logo">
-  	<div id="logoLeft">{</div>
-  	<div id="logoText">alexbevi</div>
-  	<div id="logoRight">}</div>
-  	<div class="clear"></div>
-  </div>
-  <h1><a href="/">ALEX BEVILACQUA</a></h1>
-  
-  <div class="clear"></div>
-</hgroup>
+<body>
+	<header id="header" class="inner"><div style="display: block">
+	<h1><a href="/">ALEX BEVILACQUA</a></h1>
+</div>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul></nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul></div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:alexbevi.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:alexbevi.com">
+	</form>
+</nav>
+<nav id="sub-nav" class="alignleft">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108016523387615065366?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/alexbevi" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/alexbevi" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
 
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:alexbevi.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/blog">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/projects">Projects</a></li>
-  <li><a href="/contact">Contact</a></li>
-</ul>
+	
+		
+<br/>
+<div id="banner" class="inner">
+  <div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/alexbevi">alexbevi</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('alexbevi', 4, false);
+	})(jQuery);
+</script>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
+	
+	<div id="content" class="inner"><div class="blog-index">
   
   
   
     <article>
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">Install Latest MongoDB in Ubuntu</a></h1>
-      
-    
-    
-      <p class="meta">
-        
+	<h1 class="title"><a href="/blog/2012/10/30/fixing-broken-sudo/">Fixing Broken Sudo</a></h1>
+	<div class="entry-content">
+		<p>This is pretty much a trasnscription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
+
+<h2>How does <em>sudo</em> work?</h2>
+
+<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
+
+<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&#8217;s implementation of <em>sudo</em>.</p>
+
+
+		
+		<a href="/blog/2012/10/30/fixing-broken-sudo/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
 
 
 
@@ -107,110 +131,106 @@
   
 
 
-<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-10-30T14:58:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time></div>
+	<div class="tags">
 
-
-  <div class="entry-content"><p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&#8217;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
+</div>
+	
+		<span class="comments"><a href="/blog/2012/10/30/fixing-broken-sudo//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
+    </article>
+  
+  
+    <article>
+      
+	<h1 class="title"><a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">Install Latest MongoDB in Ubuntu</a></h1>
+	<div class="entry-content">
+		<p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&#8217;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
 
 <p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
 
+
+		
+		<a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/bash/'>Bash</a>, <a class='category' href='/blog/categories/mongodb/'>MongoDB</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">Read on &rarr;</a>
-    </footer>
-  
-
-
+	
+		<span class="comments"><a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
     </article>
   
   
     <article>
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/">Keeping Pry Breakpoints Out of Git</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-23T07:57:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
+	<h1 class="title"><a href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/">Keeping Pry Breakpoints Out of Git</a></h1>
+	<div class="entry-content">
+		<p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
 
 <p>Although it&#8217;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
 
+
+		
+		<a href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-23T07:57:00-04:00" pubdate data-updated="true">Aug 23<span>rd</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/pry/'>Pry</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/">Read on &rarr;</a>
-    </footer>
-  
-
-
+	
+		<span class="comments"><a href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
     </article>
   
   
     <article>
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/">Ubuntu 12.04 Desktop WITHOUT Unity</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-10T08:03:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As much as I enjoy Ubuntu, I haven&#8217;t warmed to their Unity desktop. I personally find it&#8217;s too similar to OS X, I don&#8217;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
+	<h1 class="title"><a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/">Ubuntu 12.04 Desktop WITHOUT Unity</a></h1>
+	<div class="entry-content">
+		<p>As much as I enjoy Ubuntu, I haven&#8217;t warmed to their Unity desktop. I personally find it&#8217;s too similar to OS X, I don&#8217;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
 
 <p>Since it&#8217;s based on GTK3, I know you can modify this all, but I&#8217;d rather just use a desktop environment that doesn&#8217;t require that level of tweaking.</p>
 
@@ -219,25 +239,54 @@
 <p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
 
 <p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-10T08:03:00-04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+
+
 </div>
-  
-  
-
-
+	
+		<span class="comments"><a href="/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
     </article>
   
   
     <article>
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Shoutcast Streaming From the Command Line</a></h1>
-      
-    
-    
-      <p class="meta">
-        
+	<h1 class="title"><a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Shoutcast Streaming From the Command Line</a></h1>
+	<div class="entry-content">
+		<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &#8230; and it turns out there was :)</p>
+
+
+		
+		<a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
 
 
 
@@ -249,73 +298,56 @@
   
 
 
-<time datetime="2012-07-18T08:20:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2012-07-18T08:20:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time></div>
+	<div class="tags">
 
 
-  <div class="entry-content"><p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &#8230; and it turns out there was :)</p>
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/shoutcast/'>Shoutcast</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Read on &rarr;</a>
-    </footer>
-  
-
-
+	
+		<span class="comments"><a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
     </article>
   
   
     <article>
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here We Go Again &#8230;</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T07:53:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So, another year, another blogging engine, another crack at blogging.</p>
+	<h1 class="title"><a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here We Go Again &#8230;</a></h1>
+	<div class="entry-content">
+		<p>So, another year, another blogging engine, another crack at blogging.</p>
 
 <p>This time around I&#8217;m trying out <a href="http://octopress.org">Octopress</a>. There&#8217;s something very appealing about being able to interact with this blog via rake tasks and <a href="http://git-scm.com">Git</a>.</p>
 
+
+		
+		<a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T07:53:00-04:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time></div>
+	<div class="tags">
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Read on &rarr;</a>
-    </footer>
-  
-
-
+	
+		<span class="comments"><a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot//blog/index.html#disqus_thread">Comments</a></span>
+	
+</div>
     </article>
   
   <div class="pagination">
@@ -331,6 +363,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/10/30/fixing-broken-sudo/">Fixing Broken Sudo</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">Install Latest MongoDB in Ubuntu</a>
       </li>
     
@@ -344,10 +380,6 @@
     
       <li class="post">
         <a href="/blog/2012/07/18/shoutcast-streaming-from-the-command-line/">Shoutcast Streaming from the Command Line</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/18/here-we-go-again-dot-dot-dot/">Here we go again &#8230;</a>
       </li>
     
   </ul>
@@ -414,16 +446,20 @@
 
   
 </aside>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2012
 
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Alex Bevilacqua -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+    Alex Bevilacqua
 
 </footer>
-  
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
 
 <script type="text/javascript">
       var disqus_shortname = 'alexbevi';
@@ -437,39 +473,6 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
