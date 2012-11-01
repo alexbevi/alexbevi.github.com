@@ -5,7 +5,8 @@ sharing: false
 footer: true
 ---
 
-{% img left /images/headshot.png %}
+{% img right /images/headshot.png Me %}
+
 The name's Alex, and I'm a full time Application Developer at [Astley Gilbert Limited](http://www.astleygilbert.com) in Toronto.
 
 I've been writing software professionally since 2000, and have had the opportunity to flex my creative muscle in a number of lanugages and technologies.
@@ -35,7 +36,7 @@ Though I don't have a lot of free time lately, if the right project for the righ
   </dd>
 </dl>
 
-<HR>
+### CONTACT
 
 Wanna get in touch with me? Fill out this handy-dandy contact form, and if you turn out to be human, I'll get back to you :)
 
