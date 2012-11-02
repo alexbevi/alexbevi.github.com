@@ -4,6 +4,8 @@
 @import "parts";
 @import "plugins";
 
+#header { border-bottom: 0px; }
+
 .google-form-wrapper {
   .error {
     color: red;
@@ -36,5 +38,3 @@
     cursor: pointer;
   }
 }
-
-#header { border-bottom: 0px; }
