@@ -5,7 +5,7 @@ sharing: true
 footer: true
 ---
 
-<a href="https://github.com/alexbevi/scummvm">{% img right /images/github_logo.png %}</a>
+<a href="https://github.com/alexbevi/redmine_dropbox_attachments">{% img right /images/github_logo.png %}</a>
 
 Use [Dropbox](http://www.dropbox.com) as the storage backend for your [Redmine](http://www.redmine.org) installation
 
@@ -57,8 +57,7 @@ This plugin is heavily based on the [Redmine S3](https://github.com/tigrish/redm
 
 I also used the [Redmine DropBox](https://github.com/zuinqstudio/redmine_drop_box) plugin to find some quick answers to interacting with dropbox.
 
-#### About
-
+```
 Copyright (c) 2012 Alex Bevilacqua
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -79,3 +78,4 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
