@@ -7,8 +7,7 @@
 	<meta name="author" content="Alex Bevilacqua">
 
 	
-	<meta name="description" content="
-">
+	<meta name="description" content="Use Dropbox as the storage backend for your Redmine installation Installation To install the plugin, execute the following commands from the root of &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -109,7 +108,81 @@
 	
 	<div id="content" class="inner"><article class="page">
     
-    <div class="entry-content">
+    <div class="entry-content"><p><a href="https://github.com/alexbevi/scummvm"><img class="right" src="/images/github_logo.png"></a></p>
+
+<p>Use <a href="http://www.dropbox.com">Dropbox</a> as the storage backend for your <a href="http://www.redmine.org">Redmine</a> installation</p>
+
+<h4>Installation</h4>
+
+<p>To install the plugin, execute the following commands from the root of your redmine directory:</p>
+
+<pre><code>cd plugins
+git clone git://github.com/alexbevi/redmine_dropbox_attachments.git
+bundle install
+</code></pre>
+
+<p>More information on installing Redmine plugins can be found at <a href="http://www.redmine.org/wiki/redmine/Plugins.">redmine.org</a></p>
+
+<p>After the plugin is installed you will need to restart Redmine for the plugin to be available.</p>
+
+<h4>Configuration</h4>
+
+<p>The plugin must be configured from <code>Administration &gt; Plugins &gt; Dropbox Attachment Storage &gt; Configure</code></p>
+
+<p><img src="https://raw.github.com/alexbevi/redmine_dropbox_attachments/master/screenshot01.png" alt="Screenshot01" /></p>
+
+<h5>Authorization</h5>
+
+<p>Before Redmine can store files on a shared Dropbox folder, it must be authorized. This is done by clicking <em>Authorize Redmine with Dropbox</em>, then selecting <em>Allow</em> from Dropbox&#8217;s authorization page.</p>
+
+<h5>Specifying a Base Directory</h5>
+
+<p>By default, the plugin will write to your Dropbox&#8217;s <code>Apps &gt; redmine_files</code> directory.</p>
+
+<p>If you specify a <em>Base Directory</em> value, that subdirectory will be creted under Apps/redmine_files and used to store attachements for the plugin.</p>
+
+<p><img src="https://raw.github.com/alexbevi/redmine_dropbox_attachments/master/screenshot02.png" alt="Screenshot02" /></p>
+
+<h5>Storing Attachments for Multiple Redmine&#8217;s</h5>
+
+<p>Since you can only register a single instance of this plugin with Dropbox, if you want to store attachments for multiple installations of Redmine, the steps are:</p>
+
+<p>1) Authorize the plugin <em>ONCE</em> with Dropbox</p>
+
+<p>2) Copy the <em>Dropbox Token</em> and <em>Dropbox Secret</em> values from the authorized installation</p>
+
+<p>3) Paste the token/secret values to each additional installation</p>
+
+<p>Note that if you have multiple installations, it&#8217;s a good idea to specify different base directories.</p>
+
+<h4>Acknowledgement</h4>
+
+<p>This plugin is heavily based on the <a href="https://github.com/tigrish/redmine_s3">Redmine S3</a> plugin. Thanks to all the contributors there who&#8217;ve made this such an easy plugin to build ;)</p>
+
+<p>I also used the <a href="https://github.com/zuinqstudio/redmine_drop_box">Redmine DropBox</a> plugin to find some quick answers to interacting with dropbox.</p>
+
+<h4>About</h4>
+
+<p>Copyright (c) 2012 Alex Bevilacqua</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&#8220;Software&#8221;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </div>
 </article>
 
