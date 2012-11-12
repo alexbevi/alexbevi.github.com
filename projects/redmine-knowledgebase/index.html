@@ -7,8 +7,7 @@
 	<meta name="author" content="Alex Bevilacqua">
 
 	
-	<meta name="description" content="
-">
+	<meta name="description" content="This plugin adds generic knowledgebase funcationlity to the redmine project management application. Compatibility The plugin is available in two (2 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -109,7 +108,194 @@
 	
 	<div id="content" class="inner"><article class="page">
     
-    <div class="entry-content">
+    <div class="entry-content"><p><a href="http://flattr.com/thing/890708/alexbeviredmineknowledgebase"><img src="http://api.flattr.com/button/button-static-50x60.png" alt="Flattr this" /></a></p>
+
+<p>This plugin adds generic knowledgebase funcationlity to the redmine project management application.</p>
+
+<h2>Compatibility</h2>
+
+<p>The plugin is available in two (2) versions, which track the Redmine versions to reflect their level of compatibility. If you&#8217;re using Redmine 1.x.x, use a 0.x.x or 1.x.x version of the Knowledgebase; if you&#8217;re using Redmine 2+, use a Knowledgebase version >= 2.</p>
+
+<p>This plugin also incorporates the following libraries directly.</p>
+
+<ul>
+<li><a href="http://rubyforge.org/projects/acts-as-viewed">acts_as_viewed</a></li>
+<li><a href="http://rubyforge.org/projects/acts-as-rated">acts_as_rated</a></li>
+</ul>
+
+
+<p>They do <em>NOT</em> need to be installed manually as they have been <a href="https://github.com/alexbevi/redmine_knowledgebase/commit/18c6fd1dff134e8c1f8578b643dc9ba920b7d854">patched</a> to include Rails 3+ support.</p>
+
+<h2>Introduction</h2>
+
+<p><a href="http://www.redmine.org">Redmine</a> is just plain awesome, and has proven to provide 90% of the functionality I need. The one feature that was missing was a usable knowledgebase component. I&#8217;ve looked at some of the open source solutions available, but couldn&#8217;t find anything that fit my needs exactly. Seeing as Redmine is so easily extended, I figured why not create it for this platform instead of starting yet another project from scratch :P</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Categorization of Articles</li>
+<li>Article ratings</li>
+<li>File attachments</li>
+<li>Article Comments</li>
+<li>Article Tags</li>
+<li>Permissions</li>
+</ul>
+
+
+<h2>Installation</h2>
+
+<p>To install the knowledgebase, execute the following commands from the root of your redmine directory:</p>
+
+<pre><code>git clone git://github.com/alexbevi/redmine_knowledgebase.git plugins/redmine_knowledgebase
+bundle install
+rake redmine:plugins:migrate NAME=redmine_knowledgebase
+</code></pre>
+
+<p>More information on installing Redmine plugins can be found here: <a href="http://www.redmine.org/wiki/redmine/Plugins" title="Redmine Plugins">http://www.redmine.org/wiki/redmine/Plugins</a></p>
+
+<p>After the plugin is installed and the db migration completed, you will
+need to restart Redmine for the plugin to be available.</p>
+
+<h3>Uninstall</h3>
+
+<p><code>rake redmine:plugins:migrate NAME=redmine_knowledgebase VERSION=0</code></p>
+
+<h2>User Guide</h2>
+
+<h3>Overview</h3>
+
+<p>Once the Redmine Knowledgebase Plugin is installed, you will need to add the knowledgebase module to an existing or new project. Once you do so, there will be a Knowledgebase link in the Project menu bar.</p>
+
+<h3>Configuration</h3>
+
+<p>To start using the Knowledgebase plugin, click on the Knowledgebase link
+in the Project menu bar.</p>
+
+<p>This takes you to the default page for
+the Knowledgebase, with this text: <em>&#8220;No articles have been added to the
+knowledgebase yet. Maybe you want to get the ball rolling &#8230;&#8221;</em>. To the
+right is a green circle with a plus (+) sign, and the link to add a New
+Category.</p>
+
+<p>Click on <strong>New Category</strong>. This takes you to the Create Category page.</p>
+
+<ul>
+<li><p><strong>Root Category</strong> - since this is the first category, this is checked by
+default. Root Categories show in the right hand Browse by Category
+sidebar.</p></li>
+<li><p><strong>Title</strong> - give the new category a title relevant to your needs. This title
+will show in the Browse by Category sidebar as a navigation link.</p></li>
+<li><p><strong>Description</strong> - provide a description of the category. This description
+will show on the category main page.</p></li>
+</ul>
+
+
+<p>Click on <strong>Create</strong> to create the new category. You can edit this
+information again once the category is created by using the Edit link on
+the category main page.</p>
+
+<p>The first category created is the Parent Category for all new
+Categories.</p>
+
+<p>You can continue to create as many new categories as needed, and add
+more new categories at any time. See <em>Using
+the Knowledgebase</em> for information on how to create sub-categories and add
+Articles.</p>
+
+<p>Once you have added categories to the Knowledgebase, there will be a
+<em>Jump to Category</em> drop down menu on the Knowledgebase Home page. You can
+use that to navigate to any category or sub-category. You can also
+navigate to categories (not sub-categories) by clicking on the category
+name in the right hand <em>Browse by Category</em> side bar.</p>
+
+<h3>Using the Knowledgebase</h3>
+
+<p>Once you have created categories, you can then add articles and
+sub-categories.</p>
+
+<h4>Creating Sub-categories</h4>
+
+<p>To create a sub-category, click on a root category in the right hand
+<em>Browse by Category</em> sidebar, or use the <em>Jump to Category</em> drop down menu
+from the Knowledgebase Home page.</p>
+
+<p>Once you are on the main page for that category, click on the <strong>New
+Category</strong> link on the right side of the page. This takes you to the
+<em>Create Category</em> page.</p>
+
+<ul>
+<li><p><strong>Root Category</strong> - uncheck this box if you want this to be a sub-category</p></li>
+<li><p><strong>Parent Category</strong> - choose the relevant parent category from the drop down
+menu</p></li>
+<li><p><strong>Title</strong> - give the new sub-category a title relevant to your needs</p></li>
+<li><p><strong>Description</strong> - provide a description for the sub-category. This
+description will appear on the sub-category main page.</p></li>
+</ul>
+
+
+<p>Click on <strong>Create</strong> to create the new sub-category. You can edit this
+information again by using the Edit link on the sub-category main page.</p>
+
+<p>You can have sub-categories of sub-categories.</p>
+
+<p><strong>NOTE</strong> - sub-categories do not appear in the right hand <em>Browse by Category</em>
+side bar. Sub-categories only appear in the <em>Jump to Category</em> drop down
+menu on the Knowledgebase Home page, or in the category main pages.</p>
+
+<p>In the <em>Jump to Category</em> drop down menu, sub-categories are shown with a
+leading > , sub sub-categories with a leading >> , etc.</p>
+
+<h4>Creating Articles</h4>
+
+<p>To create an Article, navigate to a category or sub-category, and click
+on the <strong>Create Article</strong> link. This opens the <em>Create Article</em> page.</p>
+
+<ul>
+<li><p><strong>Category</strong> - select the category or sub-category from the drop down menu</p></li>
+<li><p><strong>Title</strong> - give the article a relevant title</p></li>
+<li><p><strong>Summary</strong> - a short summary of what the article is about. This shows under
+the article on the category or sub-category main page.</p></li>
+<li><p><strong>Content</strong> - the content of the article. The Content section uses the
+Redmine Wiki formatting syntax, so anything that is possible in the
+Redmine Wiki is possible here.</p></li>
+<li><p><strong>Tags</strong> - add tags to the article Separate tags or tag groups with commas. Global tag search is currently not implemented, but is in development. Tag search is currently only available at the Article level.</p></li>
+<li><p><strong>Files</strong> - attach any files or images to the article, along with an Optional description. Note that the maximum size of the files or images that can be uploaded is 5MB.</p></li>
+</ul>
+
+
+<p>Click on <strong>Create</strong> to add the article. Click on <strong>Preview</strong> to see how the article will look and make any necessary changes before adding the article.</p>
+
+<h4>Managing Articles</h4>
+
+<p>Once you click on Create to add the article, you are taken to the article main page. This page shows the name and content of the article, the creator (Added by username), how long ago the article was created, and how many times it has been viewed.</p>
+
+<p>You can also Edit or Delete the article, as well as rate the article. Clicking on any of the tags in the Tags section will search for any other articles with the same tags.</p>
+
+<p>You can also comment on an article by clicking on Add a comment.</p>
+
+<h4>Using Wiki Macros</h4>
+
+<p>You can easily create links to articles and categories from issues or Wiki pages using the macros.</p>
+
+<p>4 macros are available so far:</p>
+
+<ul>
+<li>&#8220; will render a link to the &#8220;kb#<article_id>&#8221; format. (It may change according to your locale).</li>
+<li>&#8220;, identical to the kb macro, will render a link to the &#8220;kb#<article_id>&#8221; format.</li>
+<li>&#8220; will render a link to the &#8220;kb#<article_id>: <article_title>&#8221; format.</li>
+<li>&#8220; will render a link to the &#8221;<category_title>&#8221; format, only renders the title of the category.</li>
+</ul>
+
+
+<h3>Knowledgebase Home Page</h3>
+
+<p>Now that categories and articles have been created, the Home page of the Knowledgebase will show the <em>Newest Articles</em>, <em>Recently Updated Articles</em>, <em>Most Popular Articles</em>, and <em>Top Rated Articles</em>. You can use this page to help navigate the Knowledgebase, as well as using the <em>Jump to Category</em> drop down menu or the <em>Browse by Category</em> menu on the right of the screen. You can reach this page from anywhere inside the Knowledgebase by clicking on the Home link.</p>
+
+<h3>About</h3>
+
+<p>Copyright (c) 2010-2012 Alex Bevilacqua, released under the MIT license</p>
+
+<p>Though I initially wrote this plugin, it would not be possible without the many contributions from the community. See <a href="https://github.com/alexbevi/redmine_knowledgebase/blob/master/AUTHORS">AUTHORS</a> for the full list.</p>
 </div>
 </article>
 
