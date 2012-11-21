@@ -35,6 +35,12 @@
         <lastmod>2012-11-02T08:36:04-04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/
+        </loc>
+        <lastmod>2012-11-21T11:31:10-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://alexbevi.com/about/</loc>
         <lastmod>2012-11-01T14:39:52-04:00</lastmod>
     </url>
@@ -76,15 +82,15 @@
     </url>
     <url>
         <loc>http://alexbevi.com/blog/archives/</loc>
-        <lastmod>2012-11-02T08:36:04-04:00</lastmod>
+        <lastmod>2012-11-21T11:31:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/</loc>
-        <lastmod>2012-11-02T08:36:04-04:00</lastmod>
+        <lastmod>2012-11-21T11:31:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/</loc>
-        <lastmod>2012-11-02T08:36:04-04:00</lastmod>
+        <lastmod>2012-11-21T11:31:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/404.html</loc>
