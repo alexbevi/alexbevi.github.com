@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2012-11-21T11:31:41-05:00</updated>
+  <updated>2012-11-21T11:35:47-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -197,10 +197,13 @@ git push heroku master
 
 <p>This method isn&#8217;t on-par with a self-hosted solution, but it&#8217;s good enough if you don&#8217;t have a VPS in your budget ;)</p>
 
-<blockquote><p><strong>REFERENCES</strong></p>
+<h3>REFERENCES</h3>
 
-<p><a href="http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html">http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html</a>
-<a href="http://bindle.me/blog/index.php/405/running-binaries-on-heroku">http://bindle.me/blog/index.php/405/running-binaries-on-heroku</a></p></blockquote>
+<ul>
+<li><a href="http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html">http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html</a></li>
+<li><a href="http://bindle.me/blog/index.php/405/running-binaries-on-heroku">http://bindle.me/blog/index.php/405/running-binaries-on-heroku</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
