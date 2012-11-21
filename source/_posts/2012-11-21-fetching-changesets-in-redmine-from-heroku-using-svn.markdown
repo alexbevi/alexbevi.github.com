@@ -151,14 +151,14 @@ Once configured, clicking on the *Repository* tab should fetch the changesets an
 {% img center /images/heroku-svn-03.jpg %}
 
 > **NOTE** This can potentially time out on a larger project and require clicking on the *Repository* tab multiple times until all changesets have been fetched and parsed.
->
+
 > **NOTE** Viewing changeset diffs doesn't work
 
 I've used my personal installation as an example at [http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments](http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments).
 
 This method isn't on-par with a self-hosted solution, but it's good enough if you don't have a VPS in your budget ;)
 
-> **REFERENCES**
->
-> [http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html](http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html)
-> [http://bindle.me/blog/index.php/405/running-binaries-on-heroku](http://bindle.me/blog/index.php/405/running-binaries-on-heroku)
+### REFERENCES
+
+* [http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html](http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html)
+* [http://bindle.me/blog/index.php/405/running-binaries-on-heroku](http://bindle.me/blog/index.php/405/running-binaries-on-heroku)
