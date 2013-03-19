@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MongoDB | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2012-11-21T13:11:10-05:00</updated>
+  <updated>2013-03-19T14:36:47-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -27,7 +27,7 @@
 
 <p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
 
-<p><div><script src='https://gist.github.com/3516100.js?file='></script>
+<p><div><script src='https://gist.github.com/3516100.js'></script>
 <noscript><pre><code>#!/bin/bash
 
 PKG=mongodb-linux-x86_64-2.2.0

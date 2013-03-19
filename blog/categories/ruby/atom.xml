@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2012-11-21T13:11:10-05:00</updated>
+  <updated>2013-03-19T14:36:47-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -27,7 +27,7 @@
 
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.</p>
 
-<p><div><script src='https://gist.github.com/3436040.js?file='></script>
+<p><div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook
 #
 # Check all Ruby (*.rb) files for Pry breakpoint references

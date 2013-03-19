@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2012-11-21T13:11:10-05:00</updated>
+  <updated>2013-03-19T14:36:47-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -426,7 +426,7 @@ root  ALL=(ALL:ALL) ALL
 
 <p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
 
-<div><script src='https://gist.github.com/3516100.js?file='></script>
+<div><script src='https://gist.github.com/3516100.js'></script>
 <noscript><pre><code>#!/bin/bash
 
 PKG=mongodb-linux-x86_64-2.2.0
@@ -500,7 +500,7 @@ sudo service mongod start</code></pre></noscript></div>
 
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.</p>
 
-<div><script src='https://gist.github.com/3436040.js?file='></script>
+<div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook
 #
 # Check all Ruby (*.rb) files for Pry breakpoint references
