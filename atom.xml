@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2013-03-26T13:29:03-04:00</updated>
+  <updated>2013-03-26T13:29:59-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -383,20 +383,6 @@ As any programmer knows, the likelihood of new code working properly the first t
 <h2>In for the long haul</h2>
 
 <p>You know the ending to this story: Warcraft eventually shipped only five months later. It seemed an eternity because we worked so many hours each day, encountered so many obstacles, overcame so many challenges, and created something we cared for so passionately. I’ll continue to explore those remaining months in future blog articles, but so much was packed into that time that it’s impossible to squeeze those recollections into this already too long post!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[AS3 Socket Flush Progress: A Different Approach]]></title>
-    <link href="http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/"/>
-    <updated>2013-03-19T14:46:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach</id>
-    <content type="html"><![CDATA[<h2>Requirements</h2>
-
-<ul>
-<li>an FTP server that implements <a href="http://tools.ietf.org/html/rfc3659">RFC 3659</a>, specifically the <a href="http://tools.ietf.org/html/rfc3659">SIZE</a> command.</li>
-</ul>
-
 ]]></content>
   </entry>
   
