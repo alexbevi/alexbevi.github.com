@@ -32,13 +32,23 @@
         <loc>
             http://alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/
         </loc>
-        <lastmod>2013-03-19T14:34:44-04:00</lastmod>
+        <lastmod>2013-03-26T12:51:32-04:00</lastmod>
     </url>
     <url>
         <loc>
             http://alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/
         </loc>
         <lastmod>2013-03-19T14:34:44-04:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/
+        </loc>
+        <lastmod>2013-03-26T12:49:40-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alexbevi.com/blog/2013/03/26/developer-braindump-warcraft/</loc>
+        <lastmod>2013-03-26T13:25:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/about/</loc>
@@ -82,11 +92,11 @@
     </url>
     <url>
         <loc>http://alexbevi.com/blog/archives/</loc>
-        <lastmod>2013-03-19T14:34:44-04:00</lastmod>
+        <lastmod>2013-03-26T13:25:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/blog/</loc>
-        <lastmod>2013-03-19T14:34:44-04:00</lastmod>
+        <lastmod>2013-03-26T13:25:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/search.html</loc>
@@ -94,7 +104,7 @@
     </url>
     <url>
         <loc>http://alexbevi.com/</loc>
-        <lastmod>2013-03-19T14:34:44-04:00</lastmod>
+        <lastmod>2013-03-26T13:25:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://alexbevi.com/404.html</loc>
