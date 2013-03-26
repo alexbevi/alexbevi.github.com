@@ -1,40 +1,9 @@
 @import "compass";
 
+@import "custom/color";
+
 @import "base";
 @import "parts";
 @import "plugins";
 
-#header { border-bottom: 0px; }
-
-.google-form-wrapper {
-  .error {
-    color: red;
-    font-size: 12px;
-  }
-  .errorbox-good {
-    margin-bottom: 20px;
-  }
-  .success-msg {
-    display: none;
-  }
-  .ss-form-entry {
-    label {
-      display:block;
-    }
-    input {
-      display: block;
-      padding: 5px;
-      width: 250px;
-      font: inherit;
-    }
-    textarea {
-      width: 450px;
-      padding: 5px;
-      font: inherit;
-    }
-  }
-  .ss-navigate input {
-    width: auto;
-    cursor: pointer;
-  }
-}
+@import "base/animate";

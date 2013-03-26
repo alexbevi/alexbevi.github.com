@@ -1,17 +1,14 @@
 .post{
-	h1.title, .entry-content{
-		margin-left: 200px;
+	h2.title, .entry-content{
 		@media screen and (max-width: 800px){
 			margin-left: 0;
 		}
 	}
 	.meta{
-		position: absolute;
-		top: 85px;
 		line-height: 2;
-		font-size: 0.9em;
+		font-size: 0.7em;
 		color: $color-gray02;
-		width: 170px;
+		width: 370px;
 		@media screen and (max-width: 800px){
 			margin-top: 15px;
 			position: static;
