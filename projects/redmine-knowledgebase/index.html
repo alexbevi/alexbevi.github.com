@@ -4,84 +4,44 @@
 <head>
 	<meta charset="utf-8">
 	<title>ALEX BEVILACQUA</title>
-    <meta name="author" content="Alex Bevilacqua">
-    
+	<meta name="author" content="Alex Bevilacqua">
+
+	
 	<meta name="description" content="This plugin adds generic knowledgebase funcationlity to the redmine project management application. Compatibility The plugin is available in two (2 &hellip;">
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.ico" rel="shortcut icon">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
-
-    <!-- remove or comment it to disable ajaxification -->   
-    <script src="/javascripts/ajaxify.js"></script>
-   
-    
-    
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-36490021-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-
-
+	
+	<link rel="canonical" href="http://alexbevi.com/projects/redmine-knowledgebase/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
 </head>
 
 
 <body>
-    <div id="wrapper">
-    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
-<h1 class="animated bounceInDown">
-    <div id="headerbg">
-        Alex Bevilacqua
-    </div>
-</h1>
-<br>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("alexbevi@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+</div>
 
-<ul id="social-links" style="text-align:center">
-  
-  <!-- GitHub -->
-  <li>
-  <a href="https://github.com/alexbevi" class="github" title="Github"></a>
-  </li>
-  
-  
-  <!-- Google Plus -->
-  <li>
-  <a href="http://plus.google.com/108016523387615065366?rel=author" class="google" title="Google+"></a>
-  </li>
-  
-  
-  
-  <!-- Twitter -->
-  <li>
-  <a href="http://www.twitter.com/alexbevi" class="twitter" title="Twitter"></a>
-  </li>
-  
-  
-  
-  
-  
-</ul>
-
-
-<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<p class="subtitle"></p>
+<nav id="main-nav"><!-- use full url including 'index.html' for navigation bar if you are using ajax -->
 <ul id="nav">
 	<li id="ajax"><a href="/index.html">Home</a></li>
 	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
@@ -99,15 +59,52 @@
         
 </ul>
 
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108016523387615065366" rel="author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/alexbevi" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/alexbevi" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/alexbevi">alexbevi</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('alexbevi', 4, false);
+	})(jQuery);
+</script>
 
-
-
-</header>
-
-<div id="toload">
-<!-- begin toload --> 
-    <div id="content" class="inner">
-        <article class="page">
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="page">
     
     <div class="entry-content"><p><a href="http://flattr.com/thing/890708/alexbeviredmineknowledgebase"><img src="http://api.flattr.com/button/button-static-50x60.png" alt="Flattr this" /></a></p>
 
@@ -115,7 +112,7 @@
 
 <h2>Compatibility</h2>
 
-<p>The plugin is available in two (2) versions, which track the Redmine versions to reflect their level of compatibility. If you&#8217;re using Redmine 1.x.x, use a 0.x.x or 1.x.x version of the Knowledgebase; if you&#8217;re using Redmine 2+, use a Knowledgebase version >= 2.</p>
+<p>The plugin is available in two (2) versions, which track the Redmine versions to reflect their level of compatibility. If you&rsquo;re using Redmine 1.x.x, use a 0.x.x or 1.x.x version of the Knowledgebase; if you&rsquo;re using Redmine 2+, use a Knowledgebase version >= 2.</p>
 
 <p>This plugin also incorporates the following libraries directly.</p>
 
@@ -129,7 +126,7 @@
 
 <h2>Introduction</h2>
 
-<p><a href="http://www.redmine.org">Redmine</a> is just plain awesome, and has proven to provide 90% of the functionality I need. The one feature that was missing was a usable knowledgebase component. I&#8217;ve looked at some of the open source solutions available, but couldn&#8217;t find anything that fit my needs exactly. Seeing as Redmine is so easily extended, I figured why not create it for this platform instead of starting yet another project from scratch :P</p>
+<p><a href="http://www.redmine.org">Redmine</a> is just plain awesome, and has proven to provide 90% of the functionality I need. The one feature that was missing was a usable knowledgebase component. I&rsquo;ve looked at some of the open source solutions available, but couldn&rsquo;t find anything that fit my needs exactly. Seeing as Redmine is so easily extended, I figured why not create it for this platform instead of starting yet another project from scratch :P</p>
 
 <h2>Features</h2>
 
@@ -173,20 +170,20 @@ need to restart Redmine for the plugin to be available.</p>
 in the Project menu bar.</p>
 
 <p>This takes you to the default page for
-the Knowledgebase, with this text: <em>&#8220;No articles have been added to the
-knowledgebase yet. Maybe you want to get the ball rolling &#8230;&#8221;</em>. To the
+the Knowledgebase, with this text: <em>&ldquo;No articles have been added to the
+knowledgebase yet. Maybe you want to get the ball rolling &hellip;&rdquo;</em>. To the
 right is a green circle with a plus (+) sign, and the link to add a New
 Category.</p>
 
 <p>Click on <strong>New Category</strong>. This takes you to the Create Category page.</p>
 
 <ul>
-<li><p><strong>Root Category</strong> - since this is the first category, this is checked by
+<li><p><strong>Root Category</strong> &ndash; since this is the first category, this is checked by
 default. Root Categories show in the right hand Browse by Category
 sidebar.</p></li>
-<li><p><strong>Title</strong> - give the new category a title relevant to your needs. This title
+<li><p><strong>Title</strong> &ndash; give the new category a title relevant to your needs. This title
 will show in the Browse by Category sidebar as a navigation link.</p></li>
-<li><p><strong>Description</strong> - provide a description of the category. This description
+<li><p><strong>Description</strong> &ndash; provide a description of the category. This description
 will show on the category main page.</p></li>
 </ul>
 
@@ -225,11 +222,11 @@ Category</strong> link on the right side of the page. This takes you to the
 <em>Create Category</em> page.</p>
 
 <ul>
-<li><p><strong>Root Category</strong> - uncheck this box if you want this to be a sub-category</p></li>
-<li><p><strong>Parent Category</strong> - choose the relevant parent category from the drop down
+<li><p><strong>Root Category</strong> &ndash; uncheck this box if you want this to be a sub-category</p></li>
+<li><p><strong>Parent Category</strong> &ndash; choose the relevant parent category from the drop down
 menu</p></li>
-<li><p><strong>Title</strong> - give the new sub-category a title relevant to your needs</p></li>
-<li><p><strong>Description</strong> - provide a description for the sub-category. This
+<li><p><strong>Title</strong> &ndash; give the new sub-category a title relevant to your needs</p></li>
+<li><p><strong>Description</strong> &ndash; provide a description for the sub-category. This
 description will appear on the sub-category main page.</p></li>
 </ul>
 
@@ -239,7 +236,7 @@ information again by using the Edit link on the sub-category main page.</p>
 
 <p>You can have sub-categories of sub-categories.</p>
 
-<p><strong>NOTE</strong> - sub-categories do not appear in the right hand <em>Browse by Category</em>
+<p><strong>NOTE</strong> &ndash; sub-categories do not appear in the right hand <em>Browse by Category</em>
 side bar. Sub-categories only appear in the <em>Jump to Category</em> drop down
 menu on the Knowledgebase Home page, or in the category main pages.</p>
 
@@ -252,15 +249,15 @@ leading > , sub sub-categories with a leading >> , etc.</p>
 on the <strong>Create Article</strong> link. This opens the <em>Create Article</em> page.</p>
 
 <ul>
-<li><p><strong>Category</strong> - select the category or sub-category from the drop down menu</p></li>
-<li><p><strong>Title</strong> - give the article a relevant title</p></li>
-<li><p><strong>Summary</strong> - a short summary of what the article is about. This shows under
+<li><p><strong>Category</strong> &ndash; select the category or sub-category from the drop down menu</p></li>
+<li><p><strong>Title</strong> &ndash; give the article a relevant title</p></li>
+<li><p><strong>Summary</strong> &ndash; a short summary of what the article is about. This shows under
 the article on the category or sub-category main page.</p></li>
-<li><p><strong>Content</strong> - the content of the article. The Content section uses the
+<li><p><strong>Content</strong> &ndash; the content of the article. The Content section uses the
 Redmine Wiki formatting syntax, so anything that is possible in the
 Redmine Wiki is possible here.</p></li>
-<li><p><strong>Tags</strong> - add tags to the article Separate tags or tag groups with commas. Global tag search is currently not implemented, but is in development. Tag search is currently only available at the Article level.</p></li>
-<li><p><strong>Files</strong> - attach any files or images to the article, along with an Optional description. Note that the maximum size of the files or images that can be uploaded is 5MB.</p></li>
+<li><p><strong>Tags</strong> &ndash; add tags to the article Separate tags or tag groups with commas. Global tag search is currently not implemented, but is in development. Tag search is currently only available at the Article level.</p></li>
+<li><p><strong>Files</strong> &ndash; attach any files or images to the article, along with an Optional description. Note that the maximum size of the files or images that can be uploaded is 5MB.</p></li>
 </ul>
 
 
@@ -281,10 +278,10 @@ Redmine Wiki is possible here.</p></li>
 <p>4 macros are available so far:</p>
 
 <ul>
-<li>&#8220; will render a link to the &#8220;kb#<article_id>&#8221; format. (It may change according to your locale).</li>
-<li>&#8220;, identical to the kb macro, will render a link to the &#8220;kb#<article_id>&#8221; format.</li>
-<li>&#8220; will render a link to the &#8220;kb#<article_id>: <article_title>&#8221; format.</li>
-<li>&#8220; will render a link to the &#8221;<category_title>&#8221; format, only renders the title of the category.</li>
+<li>&#8220; will render a link to the &ldquo;kb#&lt;article_id>&rdquo; format. (It may change according to your locale).</li>
+<li>&#8220;, identical to the kb macro, will render a link to the &ldquo;kb#&lt;article_id>&rdquo; format.</li>
+<li>&#8220; will render a link to the &ldquo;kb#&lt;article_id>: &lt;article_title>&rdquo; format.</li>
+<li>&#8220; will render a link to the &ldquo;&lt;category_title>&rdquo; format, only renders the title of the category.</li>
 </ul>
 
 
@@ -294,7 +291,7 @@ Redmine Wiki is possible here.</p></li>
 
 <h3>About</h3>
 
-<p>Copyright (c) 2010-2012 Alex Bevilacqua, released under the MIT license</p>
+<p>Copyright &copy; 2010-2012 Alex Bevilacqua, released under the MIT license</p>
 
 <p>Though I initially wrote this plugin, it would not be possible without the many contributions from the community. See <a href="https://github.com/alexbevi/redmine_knowledgebase/blob/master/AUTHORS">AUTHORS</a> for the full list.</p>
 </div>
@@ -324,10 +321,9 @@ Redmine Wiki is possible here.</p></li>
 </div>
 </section>
 
-
-    </div>
-    <footer id="footer">
-    <div style="display:inline">
+</div>
+			</div>
+			<footer id="footer" class="inner"><div style="display:inline">
     Copyright &copy; 2013
 
     Alex Bevilacqua
@@ -335,9 +331,8 @@ Redmine Wiki is possible here.</p></li>
     Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
 </div>
 
-
-    </footer>
-    <script src="/javascripts/fabric.js"></script>
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
@@ -364,16 +359,21 @@ Redmine Wiki is possible here.</p></li>
 
 
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36490021-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 
-<!-- end toload --> 
-</div>
-</div>
-<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
-/*]]>*/
-</script><!-- remove it to remove the scroll to top button -->
+
+		</div>
+	</div>
 </body>
 </html>

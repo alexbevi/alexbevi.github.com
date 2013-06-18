@@ -4,11 +4,11 @@
   <title><![CDATA[Category: Ruby | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2013-03-26T13:29:59-04:00</updated>
+  <updated>2013-06-18T12:59:55-04:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
-    
+    <email><![CDATA[alexbevi@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -20,12 +20,12 @@
     <id>http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
     <content type="html"><![CDATA[<p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
 
-<p>Although it's extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
+<p>Although it&rsquo;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
 
 <!-- more -->
 
 
-<p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.</p>
+<p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&rsquo;t accidentally still have breakpoints enabled.</p>
 
 <p><div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook

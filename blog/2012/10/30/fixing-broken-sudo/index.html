@@ -4,84 +4,44 @@
 <head>
 	<meta charset="utf-8">
 	<title>Fixing Broken Sudo - ALEX BEVILACQUA</title>
-    <meta name="author" content="Alex Bevilacqua">
-    
-	<meta name="description" content="This is pretty much a transcription of http://www.psychocats.net/ubuntu/fixsudo, which is just such a good article I wanted to keep a copy for &hellip;">
+	<meta name="author" content="Alex Bevilacqua">
+
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Fixing Broken Sudo This is pretty much a transcription of http://www.psychocats.net/ubuntu/fixsudo, which is just such a good article I wanted to &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.ico" rel="shortcut icon">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
-
-    <!-- remove or comment it to disable ajaxification -->   
-    <script src="/javascripts/ajaxify.js"></script>
-   
-    
-    
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-36490021-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-
-
+	
+	<link rel="canonical" href="http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
 </head>
 
 
 <body>
-    <div id="wrapper">
-    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
-<h1 class="animated bounceInDown">
-    <div id="headerbg">
-        Alex Bevilacqua
-    </div>
-</h1>
-<br>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("alexbevi@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+</div>
 
-<ul id="social-links" style="text-align:center">
-  
-  <!-- GitHub -->
-  <li>
-  <a href="https://github.com/alexbevi" class="github" title="Github"></a>
-  </li>
-  
-  
-  <!-- Google Plus -->
-  <li>
-  <a href="http://plus.google.com/108016523387615065366?rel=author" class="google" title="Google+"></a>
-  </li>
-  
-  
-  
-  <!-- Twitter -->
-  <li>
-  <a href="http://www.twitter.com/alexbevi" class="twitter" title="Twitter"></a>
-  </li>
-  
-  
-  
-  
-  
-</ul>
-
-
-<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<p class="subtitle"></p>
+<nav id="main-nav"><!-- use full url including 'index.html' for navigation bar if you are using ajax -->
 <ul id="nav">
 	<li id="ajax"><a href="/index.html">Home</a></li>
 	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
@@ -99,23 +59,60 @@
         
 </ul>
 
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108016523387615065366" rel="author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/alexbevi" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/alexbevi" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/alexbevi">alexbevi</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('alexbevi', 4, false);
+	})(jQuery);
+</script>
 
-
-
-</header>
-
-<div id="toload">
-<!-- begin toload --> 
-    <div id="content" class="inner">
-        <article class="post">
-	<h2 class="title">Fixing Broken Sudo</h2>
-	<div class="entry-content"><p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Fixing Broken Sudo</h1>
+	<div class="entry-content" itemprop="articleBody"><p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
 
 <h2>How does <em>sudo</em> work?</h2>
 
 <p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
 
-<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&#8217;s implementation of <em>sudo</em>.</p>
+<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
 
 <!-- more -->
 
@@ -133,11 +130,11 @@
 
 <p><img class="center" src="/images/fixsudoprecise01.jpg"></p>
 
-<p>If <em>sudo</em> is broken this way, you may notice an error saying you&#8217;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
+<p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
 
 <h2>Booting into recovery mode</h2>
 
-<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&#8217;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
+<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&rsquo;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
 
 <p>If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.</p>
 
@@ -149,7 +146,7 @@
 
 <p><img class="center" src="/images/fixsudoprecise03.jpg"></p>
 
-<p>After you select recovery mode and wait for all the boot-up processes to finish, you&#8217;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
+<p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
 
 <p>The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.</p>
 
@@ -162,7 +159,7 @@
 
 <h3>Case 1</h3>
 
-<p>If you&#8217;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
+<p>If you&rsquo;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
 
 <pre><code>adduser username admin
 </code></pre>
@@ -210,16 +207,16 @@ root  ALL=(ALL:ALL) ALL
 #includedir /etc/sudoers.d
 </code></pre>
 
-<p>When you&#8217;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
+<p>When you&rsquo;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
 
 <h3>Case 3</h3>
 
-<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&#8217;ll want to type</p>
+<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&rsquo;ll want to type</p>
 
 <pre><code>chmod 0440 /etc/sudoers
 </code></pre>
 
-<p>When you&#8217;re done with whatever commands you needed to enter, type</p>
+<p>When you&rsquo;re done with whatever commands you needed to enter, type</p>
 
 <pre><code>exit
 </code></pre>
@@ -232,11 +229,6 @@ root  ALL=(ALL:ALL) ALL
 <p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
 </div>
 
-<div class="meta">
-	
-		<span class="comments"><a href="/blog/2012/10/30/fixing-broken-sudo/#disqus_thread">Comments</a></span>
-	
-</div>
 </article>
 
 	<div class="share">
@@ -258,14 +250,13 @@ root  ALL=(ALL:ALL) ALL
 
 
 <section id="comment">
-    <h2 class="title">Comments</h2>
+    <h1 class="title">Comments</h1>
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
-
-    </div>
-    <footer id="footer">
-    <div style="display:inline">
+</div>
+			</div>
+			<footer id="footer" class="inner"><div style="display:inline">
     Copyright &copy; 2013
 
     Alex Bevilacqua
@@ -273,9 +264,8 @@ root  ALL=(ALL:ALL) ALL
     Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
 </div>
 
-
-    </footer>
-    <script src="/javascripts/fabric.js"></script>
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
@@ -302,16 +292,21 @@ root  ALL=(ALL:ALL) ALL
 
 
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36490021-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 
-<!-- end toload --> 
-</div>
-</div>
-<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
-/*]]>*/
-</script><!-- remove it to remove the scroll to top button -->
+
+		</div>
+	</div>
 </body>
 </html>

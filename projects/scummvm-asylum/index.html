@@ -4,84 +4,44 @@
 <head>
 	<meta charset="utf-8">
 	<title>ALEX BEVILACQUA</title>
-    <meta name="author" content="Alex Bevilacqua">
-    
+	<meta name="author" content="Alex Bevilacqua">
+
+	
 	<meta name="description" content="About Sanitarium Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its &hellip;">
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.ico" rel="shortcut icon">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-    <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
-
-    <!-- remove or comment it to disable ajaxification -->   
-    <script src="/javascripts/ajaxify.js"></script>
-   
-    
-    
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-36490021-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-
-
+	
+	<link rel="canonical" href="http://alexbevi.com/projects/scummvm-asylum/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
 </head>
 
 
 <body>
-    <div id="wrapper">
-    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
-<h1 class="animated bounceInDown">
-    <div id="headerbg">
-        Alex Bevilacqua
-    </div>
-</h1>
-<br>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("alexbevi@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+</div>
 
-<ul id="social-links" style="text-align:center">
-  
-  <!-- GitHub -->
-  <li>
-  <a href="https://github.com/alexbevi" class="github" title="Github"></a>
-  </li>
-  
-  
-  <!-- Google Plus -->
-  <li>
-  <a href="http://plus.google.com/108016523387615065366?rel=author" class="google" title="Google+"></a>
-  </li>
-  
-  
-  
-  <!-- Twitter -->
-  <li>
-  <a href="http://www.twitter.com/alexbevi" class="twitter" title="Twitter"></a>
-  </li>
-  
-  
-  
-  
-  
-</ul>
-
-
-<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
+<p class="subtitle"></p>
+<nav id="main-nav"><!-- use full url including 'index.html' for navigation bar if you are using ajax -->
 <ul id="nav">
 	<li id="ajax"><a href="/index.html">Home</a></li>
 	<li id="ajax"><a href="/blog/archives/index.html">Archives</a></li>
@@ -99,25 +59,62 @@
         
 </ul>
 
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108016523387615065366" rel="author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/alexbevi" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/alexbevi" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/alexbevi">alexbevi</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('alexbevi', 4, false);
+	})(jQuery);
+</script>
 
-
-
-</header>
-
-<div id="toload">
-<!-- begin toload --> 
-    <div id="content" class="inner">
-        <article class="page">
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="page">
     
     <div class="entry-content"><h3>About Sanitarium</h3>
 
 <p><a href="https://github.com/alexbevi/scummvm"><img class="right" src="/images/github_logo.png"></a></p>
 
-<p>Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its atmosphere and originality, Sanitarium tells the story of a man named Max Laughton who is suffering from amnesia due to a car accident as he frantically tries to unveil the details of his institutionalization inside a bizarre medieval-styled asylum. The search for his own identity - and &#8220;the truth&#8221; - takes place within the grounds of the sanitarium and inside his own delusions and flashbacks, as he confronts the ghosts of his past. The dark mood and graphics of the game are matched by an equally ominous musical background.</p>
+<p>Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its atmosphere and originality, Sanitarium tells the story of a man named Max Laughton who is suffering from amnesia due to a car accident as he frantically tries to unveil the details of his institutionalization inside a bizarre medieval-styled asylum. The search for his own identity &ndash; and &ldquo;the truth&rdquo; &ndash; takes place within the grounds of the sanitarium and inside his own delusions and flashbacks, as he confronts the ghosts of his past. The dark mood and graphics of the game are matched by an equally ominous musical background.</p>
 
-<p>The game uses a bird&#8217;s-eye view perspective and a non-tiled 2D navigational system. Each world and setting carries a distinct atmosphere that presents either the real world, the imaginary world, or a mix of both of the main protagonist. In many cases, it is unclear to the player if the world the character is currently in is real or a product of Max&#8217;s own imagination. This indistinction underlines much of the horror portrayed in the game.</p>
+<p>The game uses a bird&rsquo;s-eye view perspective and a non-tiled 2D navigational system. Each world and setting carries a distinct atmosphere that presents either the real world, the imaginary world, or a mix of both of the main protagonist. In many cases, it is unclear to the player if the world the character is currently in is real or a product of Max&rsquo;s own imagination. This indistinction underlines much of the horror portrayed in the game.</p>
 
-<p>Gamasutra&#8217;s <a href="http://www.gamasutra.com/view/feature/3299/postmortem_dreamforges_sanitarium.php">postmortem</a> provides some interesting insight into the game&#8217;s development.</p>
+<p>Gamasutra&rsquo;s <a href="http://www.gamasutra.com/view/feature/3299/postmortem_dreamforges_sanitarium.php">postmortem</a> provides some interesting insight into the game&rsquo;s development.</p>
 
 <h3>Development</h3>
 
@@ -125,18 +122,18 @@
 
 <h4>October 16, 2009</h4>
 
-<p>Quite a bit of work was done over the summer. Sadly though, progress has ground to a halt for the moment. I&#8217;m going to be unavailable to the project for a while now as I&#8217;ve got very little free time any more due to changes in my &#8220;real&#8221; life (family issues, new contract .. etc).</p>
+<p>Quite a bit of work was done over the summer. Sadly though, progress has ground to a halt for the moment. I&rsquo;m going to be unavailable to the project for a while now as I&rsquo;ve got very little free time any more due to changes in my &ldquo;real&rdquo; life (family issues, new contract .. etc).</p>
 
-<p>Figured I&#8217;d update everyone here, as I&#8217;ll still be available, but sadly, won&#8217;t be contributing for the next few months :(</p>
+<p>Figured I&rsquo;d update everyone here, as I&rsquo;ll still be available, but sadly, won&rsquo;t be contributing for the next few months :(</p>
 
 <p>Hopefully someone else can pick up the slack while I fulfil my other obligations.</p>
 
 <h4>July 8, 2009</h4>
 
-<p>Several changes have been made, so it&#8217;s high time to make an update here :)</p>
+<p>Several changes have been made, so it&rsquo;s high time to make an update here :)</p>
 
 <p>There is code for scrolling and showing up objects and actors (properly clipped)
-We now have a preliminary script interpreter, so game scripts are read and partially parsed, actors are now drawn in the scene, and there is some interaction with the environment (e.g. &#8220;examine&#8221; actions).
+We now have a preliminary script interpreter, so game scripts are read and partially parsed, actors are now drawn in the scene, and there is some interaction with the environment (e.g. &ldquo;examine&rdquo; actions).
 The movie subtitles (from the vids.cap file) are now working correctly, so the movie code is pretty much complete.
 Scene information is partially read, and the scene hotspots are created correctly.
 The mouse cursor is now initialized and animated properly
@@ -148,11 +145,11 @@ Some of the menu screens are now working (like, for example, the credits screen)
 
 <h4>June 16, 2009</h4>
 
-<p>The guys have figured out the text options in the menu screen so other than those that require interaction (Save/Load/Settings/Cinematics), we&#8217;re done with the menu. The Credits screen works, as does quit confirmation. The main actor format implementation is starting to take shape.</p>
+<p>The guys have figured out the text options in the menu screen so other than those that require interaction (Save/Load/Settings/Cinematics), we&rsquo;re done with the menu. The Credits screen works, as does quit confirmation. The main actor format implementation is starting to take shape.</p>
 
-<p>We&#8217;ve moved beyond the main menu to the first scene (The Tower Cells). The scene is slowly being parsed, as we&#8217;re pulling the background from the parsed scene, as well as the animations.</p>
+<p>We&rsquo;ve moved beyond the main menu to the first scene (The Tower Cells). The scene is slowly being parsed, as we&rsquo;re pulling the background from the parsed scene, as well as the animations.</p>
 
-<p>The main actor format is also underway. We&#8217;ve deduced the contents and have placed a test loop of the actor walking over the background.</p>
+<p>The main actor format is also underway. We&rsquo;ve deduced the contents and have placed a test loop of the actor walking over the background.</p>
 
 <p><img class="center" src="/images/sntrm2.png"></p>
 
@@ -160,7 +157,7 @@ Some of the menu screens are now working (like, for example, the credits screen)
 
 <p>Resource loading is job one, scene implementation is job two. The various formats (graphics, sounds, music, curors, palettes) are more or less in place.</p>
 
-<p>We&#8217;ve also got the menu up and running, but no event code associated with it (so you can&#8217;t click on anything).</p>
+<p>We&rsquo;ve also got the menu up and running, but no event code associated with it (so you can&rsquo;t click on anything).</p>
 
 <p><img class="center" src="/images/sntrm1.png"></p>
 </div>
@@ -190,10 +187,9 @@ Some of the menu screens are now working (like, for example, the credits screen)
 </div>
 </section>
 
-
-    </div>
-    <footer id="footer">
-    <div style="display:inline">
+</div>
+			</div>
+			<footer id="footer" class="inner"><div style="display:inline">
     Copyright &copy; 2013
 
     Alex Bevilacqua
@@ -201,9 +197,8 @@ Some of the menu screens are now working (like, for example, the credits screen)
     Theme <a href="http://github.com/panks/fabric">fabric</a> by <a href="http://panks.me">Pankaj Kumar</a>
 </div>
 
-
-    </footer>
-    <script src="/javascripts/fabric.js"></script>
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
 <script src="/javascripts/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
@@ -230,16 +225,21 @@ Some of the menu screens are now working (like, for example, the credits screen)
 
 
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-36490021-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 
-<!-- end toload --> 
-</div>
-</div>
-<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
-<script type="text/javascript">
-/*<![CDATA[*/
-;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
-/*]]>*/
-</script><!-- remove it to remove the scroll to top button -->
+
+		</div>
+	</div>
 </body>
 </html>
