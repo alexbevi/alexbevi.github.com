@@ -24,6 +24,9 @@ GEM
     liquid (2.3.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
+    mini_portile (0.5.0)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
@@ -56,6 +59,7 @@ DEPENDENCIES
   haml (~> 3.1.7)
   jekyll (~> 0.12)
   liquid (~> 2.3.0)
+  nokogiri
   pygments.rb (~> 0.3.4)
   rake (~> 0.9)
   rb-fsevent (~> 0.9)

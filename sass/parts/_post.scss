@@ -1,14 +1,17 @@
 .post{
-	h2.title, .entry-content{
+	h1.title, .entry-content{
+		margin-left: 200px;
 		@media screen and (max-width: 800px){
 			margin-left: 0;
 		}
 	}
 	.meta{
+		position: absolute;
+		top: 85px;
 		line-height: 2;
-		font-size: 0.7em;
+		font-size: 0.9em;
 		color: $color-gray02;
-		width: 370px;
+		width: 170px;
 		@media screen and (max-width: 800px){
 			margin-top: 15px;
 			position: static;
@@ -36,5 +39,14 @@
 		.date:before{content: "\f073";}
 		.tags:before{content: "\f02c";}
 		.comments:before{content: "\f075";}
+	}
+  hr{
+		height: 0;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border-left: 0;
+		border-right: 0;
+		border-top: 1px solid #DDD;
+		border-bottom: 1px solid #FFF;
 	}
 }
