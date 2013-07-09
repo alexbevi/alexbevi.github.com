@@ -17,6 +17,11 @@ Strong analytical skills. Compatible team player through complete project cycles
 implementation. Superior documentation generation and management skills. Excellent communications skills.
 Fluent in English; Proficient in French and Hungarian.
 
+## LOCATION
+
+Ajax, ON Canada
+alexbevi@gmail.com
+
 ## TECH
 
 <table cellpadding="5">
