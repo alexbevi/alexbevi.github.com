@@ -19,13 +19,18 @@ jQuery(document).ready(function() {
     submitHandler: function(form) {
       jQuery(form)
         .ajaxSubmit({
-          error : function (data) { //This is strangely working on error only
-            jQuery(form)
+          success: function(data) {
+            if (data) {
+              jQuery(form)
               .hide(200, function() {
                 jQuery(this)
                   .prev('.success-msg')
                   .fadeIn('slow')
               })
+            }
+          },
+          error : function (data) {
+            console.error(data);
           }
         })
     }

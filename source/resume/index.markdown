@@ -1,7 +1,7 @@
 ---
 layout: page
 date: 2013-07-09 09:04
-title: "ALEX BEVILACQUA - RESUME"
+title: "ALEX BEVILACQUA"
 comments: false
 sharing: false
 footer: true
@@ -19,14 +19,14 @@ Fluent in English; Proficient in French and Hungarian.
 
 ## CONTACT
 
-see [/about](my about page) for contact info
+see [my about page](/about) for contact info
 
 ## TECH
 
-<table cellpadding="5">
+<table cellpadding="5" cellspacing="5">
   <tr>
     <th width="100px">Languages / Technologies</th>
-    <td>C#, C++, C, VisualBasic , BASIC, Java, Pascal, Delphi, Python, PERL, 
+    <td>C#, C++, C, VisualBasic, BASIC, Java, Pascal, Delphi, Python, PERL, 
 MXML/ActionScript, HTML, COBOL, JavaScript, VBScript, XML, Ruby, Rails, SQL, 
 Shell Scripting, MongoDB</td>
   </tr>
@@ -40,6 +40,18 @@ Shell Scripting, MongoDB</td>
 Microsoft Visio, Eclipse IDE, Anjuta IDE, MonoDevelop</td>
   </tr>
 </table>
+
+## CONTRACT HISTORY
+
+_Note that due to NDAs, project specifics cannot be listed and some clients cannot be disclosed_
+
+* 2013 - wrote a web scraping platform (Ruby/MongoDB/AWS)
+* 2012 - provided a local utility with some custom CRM solutions (Ruby/Rails)
+* 2010 - wrote a Blackberry Playbook app that interacted with the social feed api
+* 2009 - provided an aquisition audit of a scrapbooking platform written in Java
+* 2009 - created a social platform feed aggregator (Twitter, Facebook, Google News) using Ruby
+* 2008 - provided a social widget management platform (written in Adobe Flex)
+* 2008 - wrote a social streaming solution (written in Adobe Flex)
 
 ## WORK HISTORY
 
@@ -91,17 +103,6 @@ Toronto, ON<br>
 * Wrote the control logic for a number of internal documents, which involved tying a number of Excel
 spreadsheets together using (VBA) to reduce a number of redundancies between documents.
 
-## CONTRACT HISTORY
-
-_Note that due to NDAs, project specifics cannot be listed and some clients cannot be disclosed_
-
-* 2013 - wrote a web scraping platform (Ruby/MongoDB/AWS)
-* 2012 - provided a local utility with some custom CRM solutions (Ruby/Rails)
-* 2010 - wrote a Blackberry Playbook app that interacted with the social feed api
-* 2009 - provided an aquisition audit of a scrapbooking platform written in Java
-* 2009 - created a social platform feed aggregator (Twitter, Facebook, Google News) using Ruby
-* 2008 - provided a social widget management platform (written in Adobe Flex)
-* 2008 - wrote a social streaming solution (written in Adobe Flex)
 
 Software Engineer (Contract)<br>
 **Highpoint Environmental**<br>
