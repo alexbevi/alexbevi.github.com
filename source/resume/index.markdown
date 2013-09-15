@@ -53,6 +53,21 @@ _Note that due to NDAs, project specifics cannot be listed and some clients cann
 * 2008 - provided a social widget management platform (written in Adobe Flex)
 * 2008 - wrote a social streaming solution (written in Adobe Flex)
 
+## OPEN SOURCE PORTFOLOIO
+
+* Redmine Knowledgebase
+    * a plugin that adds a knowledgebase to the [Redmine](http://www.redmine.org) project management system.
+    * https://github.com/alexbevi/redmine_knowledgebase
+
+* Redmine Dropbox Plugin
+    * a plugin that adds dropbox as an attachment storage backend to the [Redmine](http://www.redmine.org) project management system.
+    * https://github.com/alexbevi/redmine_dropbox_attachments
+
+* ScummVM: Asylum Engine
+    * a re-implementation of the asylum engine for [ScummVM](http://scummvm.org), which was used by ASC Games in Sanitarium
+    * https://github.com/alexbevi/scummvm
+
+
 ## WORK HISTORY
 
 Analyst, Online Solutions<br>
@@ -60,6 +75,10 @@ Astley Gilbert Limited<br>
 2003 – Present<br>
 North York, ON
 
+* Overhauled a workflow automation system implementation
+    * reverse engineered all connected processes
+    * documented and mapped related systems
+    * developed a firm understanding of Enfocus Switch, Adobe InDesign scripting, Adobe Acrobat scripting and AppleScript
 * Spearheaded a number of process documentation overhaul initiatives.
 * Created and implemented documentation standards for use by the IT department.
 * Wrote and implemented a number of internal tracking, reporting and ticketing solutions using a variety
