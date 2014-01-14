@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pry | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/pry/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2013-11-05T11:55:58-05:00</updated>
+  <updated>2014-01-13T22:12:22-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -37,11 +37,11 @@
 # Intallation:
 #       ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
 #
-FORBIDDEN='binding.pry'
+FORBIDDEN=&#39;binding.pry&#39;
 git diff --cached --name-only | \
-    find -name '*.rb' | \
-    GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
-    echo 'COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting' &amp;&amp; \
+    find -name &#39;*.rb&#39; | \
+    GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
+    echo &#39;COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting&#39; &amp;&amp; \
     exit 1</code></pre></noscript></div>
 </p>
 

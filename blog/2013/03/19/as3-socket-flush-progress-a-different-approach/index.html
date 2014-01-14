@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ALEX BEVILACQUA</title>
+  <title>AS3 Socket Flush Progress: A Different Approach - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="About Sanitarium Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its &hellip;">
+  <meta name="description" content="Requirements an FTP server that implements RFC 3659, specifically the SIZE command. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://alexbevi.com/projects/scummvm-asylum/">
+  <link rel="canonical" href="http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,70 +80,80 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
-  <h3>About Sanitarium</h3>
-
-<p><a href="https://github.com/alexbevi/scummvm"><img class="right" src="/images/github_logo.png"></a></p>
-
-<p>Sanitarium is a point-and-click adventure game released in 1998 by ASC Games. A psychological thriller often praised for its atmosphere and originality, Sanitarium tells the story of a man named Max Laughton who is suffering from amnesia due to a car accident as he frantically tries to unveil the details of his institutionalization inside a bizarre medieval-styled asylum. The search for his own identity &ndash; and &ldquo;the truth&rdquo; &ndash; takes place within the grounds of the sanitarium and inside his own delusions and flashbacks, as he confronts the ghosts of his past. The dark mood and graphics of the game are matched by an equally ominous musical background.</p>
-
-<p>The game uses a bird&rsquo;s-eye view perspective and a non-tiled 2D navigational system. Each world and setting carries a distinct atmosphere that presents either the real world, the imaginary world, or a mix of both of the main protagonist. In many cases, it is unclear to the player if the world the character is currently in is real or a product of Max&rsquo;s own imagination. This indistinction underlines much of the horror portrayed in the game.</p>
-
-<p>Gamasutra&rsquo;s <a href="http://www.gamasutra.com/view/feature/3299/postmortem_dreamforges_sanitarium.php">postmortem</a> provides some interesting insight into the game&rsquo;s development.</p>
-
-<h3>Development</h3>
-
-<p>The following is just a copy of what was available on the old <a href="http://code.google.com/p/asylumengine/">Google Code</a> project page.</p>
-
-<h4>October 16, 2009</h4>
-
-<p>Quite a bit of work was done over the summer. Sadly though, progress has ground to a halt for the moment. I&rsquo;m going to be unavailable to the project for a while now as I&rsquo;ve got very little free time any more due to changes in my &ldquo;real&rdquo; life (family issues, new contract .. etc).</p>
-
-<p>Figured I&rsquo;d update everyone here, as I&rsquo;ll still be available, but sadly, won&rsquo;t be contributing for the next few months :(</p>
-
-<p>Hopefully someone else can pick up the slack while I fulfil my other obligations.</p>
-
-<h4>July 8, 2009</h4>
-
-<p>Several changes have been made, so it&rsquo;s high time to make an update here :)</p>
-
-<p>There is code for scrolling and showing up objects and actors (properly clipped)
-We now have a preliminary script interpreter, so game scripts are read and partially parsed, actors are now drawn in the scene, and there is some interaction with the environment (e.g. &ldquo;examine&rdquo; actions).
-The movie subtitles (from the vids.cap file) are now working correctly, so the movie code is pretty much complete.
-Scene information is partially read, and the scene hotspots are created correctly.
-The mouse cursor is now initialized and animated properly
-Game texts and game fonts are read correctly (can be seen in the menu)
-There is preliminary code for walking around with the mouse.
-Some of the menu screens are now working (like, for example, the credits screen)</p>
-
-<p><img class="center" src="/images/sntrm3.png"></p>
-
-<h4>June 16, 2009</h4>
-
-<p>The guys have figured out the text options in the menu screen so other than those that require interaction (Save/Load/Settings/Cinematics), we&rsquo;re done with the menu. The Credits screen works, as does quit confirmation. The main actor format implementation is starting to take shape.</p>
-
-<p>We&rsquo;ve moved beyond the main menu to the first scene (The Tower Cells). The scene is slowly being parsed, as we&rsquo;re pulling the background from the parsed scene, as well as the animations.</p>
-
-<p>The main actor format is also underway. We&rsquo;ve deduced the contents and have placed a test loop of the actor walking over the background.</p>
-
-<p><img class="center" src="/images/sntrm2.png"></p>
-
-<h4>June 6, 2009</h4>
-
-<p>Resource loading is job one, scene implementation is job two. The various formats (graphics, sounds, music, curors, palettes) are more or less in place.</p>
-
-<p>We&rsquo;ve also got the menu up and running, but no event code associated with it (so you can&rsquo;t click on anything).</p>
-
-<p><img class="center" src="/images/sntrm1.png"></p>
-
-  
-    <footer>
+  <header>
+    
       
+        <h1 class="entry-title">AS3 Socket Flush Progress: A Different Approach</h1>
       
-        <div class="sharing">
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexbevi.com/projects/scummvm-asylum/index.html" data-via="alexbevi" data-counturl="http://alexbevi.com/projects/scummvm-asylum/index.html" >Tweet</a>
+
+
+<time datetime="2013-03-19T14:46:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Requirements</h2>
+
+<ul>
+<li>an FTP server that implements <a href="http://tools.ietf.org/html/rfc3659">RFC 3659</a>, specifically the <a href="http://tools.ietf.org/html/rfc3659">SIZE</a> command.</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Alex Bevilacqua</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-19T14:46:00-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/air/'>air</a>, <a class='category' href='/blog/categories/as3/'>as3</a>, <a class='category' href='/blog/categories/ftp/'>ftp</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/" data-via="alexbevi" data-counturl="http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -153,9 +163,16 @@ Some of the menu screens are now working (like, for example, the credits screen)
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left articlenav" href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/" title="Previous Post: Fetching Changesets in Redmine from Heroku using Subversion">&laquo; Fetching Changesets in Redmine from Heroku using Subversion</a>
+      
+      
+        <a class="basic-alignment right articlenav" href="/blog/2013/03/26/developer-braindump-warcraft/" title="Next Post: Developer Braindump: Warcraft">Developer Braindump: Warcraft &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -256,8 +273,8 @@ Some of the menu screens are now working (like, for example, the credits screen)
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://alexbevi.com/projects/scummvm-asylum/index.html';
-        var disqus_url = 'http://alexbevi.com/projects/scummvm-asylum/index.html';
+        var disqus_identifier = 'http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/';
+        var disqus_url = 'http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/';
         var disqus_script = 'embed.js';
       
     (function () {
