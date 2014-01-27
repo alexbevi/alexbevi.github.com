@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/feed" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-01-13T22:15:42-05:00</updated>
+  <updated>2014-01-27T16:08:32-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
+    <link href="http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
+    <updated>2014-01-27T15:37:10-05:00</updated>
+    <id>http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
+    <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
+
+<p><img class="left" src="http://alexbevi.com/images/8748OS_mockupcover_normal_0.jpg"></p>
+
+<p>The book is available for <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">pre-order on Packt&rsquo;s site</a>.</p>
+
+<p>Since the book is <em>almost</em> through the first stage of rewrites, I though it might be a good idea to start documenting the process.</p>
+
+<p>What I&rsquo;m going to write about initially are my first impressions on writing a book, as well as a few notes (which may sound like complaints) about what I did &ldquo;wrong&rdquo; and could improve upon in the future.</p>
+
+<!-- more -->
+
+
+<p>Originally, I wasn&rsquo;t sure that I would be a good choice as an author as I didn&rsquo;t have the community recognition that some other plugin developers had, and I hadn&rsquo;t been &ldquo;on the scene&rdquo; for more than a few years.</p>
+
+<p>After much consideration, I decided to dive in and start writing.</p>
+
+<p>The first step was to provide the publisher with a rough outline that also included the page count. Initially, I just threw together a handful of topics that I wanted to cover, then (very generically) estimated how many pages I would need to completely cover those topics.</p>
+
+<p>Once approved, and I actually <em>started</em> writing, I very quickly realized that meeting my page estimates was almost impossible; some chapters would be way too short, and others WAY too long.</p>
+
+<p>I also had to provide a rough outline as to how long I thoght it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.</p>
+
+<p>Writing a technically-oriented book involves a lot more research than you may think (no matter how well you think you know the source material). As such, the further I got into the book, the more time I found myself researching, writing code, testing code, then writing about the code I&rsquo;d built.</p>
+
+<p>This process took a good 3x longer than I anticipated, and as such, my deadlines tended to slip by. As a result, the tentative release date for the final book of January 2014 is not very likely.</p>
+
+<p>I&rsquo;m hoping that this blog post will also serve as a motivator to get my ass in gear and finish the final revisions.</p>
+
+<p>Cheers for now, and I&rsquo;ll post again soon.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Developer Braindump: Warcraft]]></title>
@@ -383,20 +421,6 @@ As any programmer knows, the likelihood of new code working properly the first t
 <h2>In for the long haul</h2>
 
 <p>You know the ending to this story: Warcraft eventually shipped only five months later. It seemed an eternity because we worked so many hours each day, encountered so many obstacles, overcame so many challenges, and created something we cared for so passionately. I’ll continue to explore those remaining months in future blog articles, but so much was packed into that time that it’s impossible to squeeze those recollections into this already too long post!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[AS3 Socket Flush Progress: A Different Approach]]></title>
-    <link href="http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach/"/>
-    <updated>2013-03-19T14:46:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2013/03/19/as3-socket-flush-progress-a-different-approach</id>
-    <content type="html"><![CDATA[<h2>Requirements</h2>
-
-<ul>
-<li>an FTP server that implements <a href="http://tools.ietf.org/html/rfc3659">RFC 3659</a>, specifically the <a href="http://tools.ietf.org/html/rfc3659">SIZE</a> command.</li>
-</ul>
-
 ]]></content>
   </entry>
   
