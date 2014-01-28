@@ -4,7 +4,7 @@
   <title><![CDATA[Category: heroku | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/heroku/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-01-27T16:08:40-05:00</updated>
+  <updated>2014-01-28T11:26:38-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -167,7 +167,7 @@ git push heroku master
 
 <p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration &ndash;> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
 
-<p>{% img center /images/heroku-svn-01.jpg %}</p>
+<p><img class="center" src="/images/heroku-svn-01.jpg"></p>
 
 <h2>Accessing Changesets from GitHub</h2>
 
@@ -177,11 +177,11 @@ git push heroku master
 
 <blockquote><p><strong>NOTE</strong> Leave the <em>Login</em> and <em>Password</em> fields blank unless this is a private repository</p></blockquote>
 
-<p>{% img center /images/heroku-svn-02.jpg %}</p>
+<p><img class="center" src="/images/heroku-svn-02.jpg"></p>
 
 <p>Once configured, clicking on the <em>Repository</em> tab should fetch the changesets and show the source tree</p>
 
-<p>{% img center /images/heroku-svn-03.jpg %}</p>
+<p><img class="center" src="/images/heroku-svn-03.jpg"></p>
 
 <blockquote><p><strong>NOTE</strong> This can potentially time out on a larger project and require clicking on the <em>Repository</em> tab multiple times until all changesets have been fetched and parsed.</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-01-27T16:08:40-05:00</updated>
+  <updated>2014-01-28T11:26:38-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -40,7 +40,7 @@
 </ul>
 
 
-<p>{% img center /images/fixsudoprecise01.jpg %}</p>
+<p><img class="center" src="/images/fixsudoprecise01.jpg"></p>
 
 <p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
 
@@ -52,11 +52,11 @@
 
 <p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
 
-<p>{% img center /images/fixsudoprecise02.jpg %}</p>
+<p><img class="center" src="/images/fixsudoprecise02.jpg"></p>
 
 <p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
 
-<p>{% img center /images/fixsudoprecise03.jpg %}</p>
+<p><img class="center" src="/images/fixsudoprecise03.jpg"></p>
 
 <p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
 
@@ -135,8 +135,8 @@ root  ALL=(ALL:ALL) ALL
 
 <p>This will bring you back to the recovery menu.</p>
 
-<p>{% img center /images/fixsudoprecise04.jpg %}
-{% img center /images/fixsudoprecise05.jpg %}</p>
+<p><img class="center" src="/images/fixsudoprecise04.jpg">
+<img class="center" src="/images/fixsudoprecise05.jpg"></p>
 
 <p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
 ]]></content>
@@ -156,7 +156,61 @@ root  ALL=(ALL:ALL) ALL
 
 <p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
 
-<p>{% gist 3516100 %}</p>
+<p><div><script src='https://gist.github.com/3516100.js'></script>
+<noscript><pre><code>#!/bin/bash
+
+PKG=mongodb-linux-x86_64-2.2.0
+URL=http://fastdl.mongodb.org/linux
+
+if [ -f /etc/init.d/mongod ]
+then
+  echo &quot;mongod already installed ... stopping&quot;
+  sudo service mongod stop
+else
+  echo &quot;installing mongod script&quot;
+  wget https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod
+  sudo mv mongod /etc/init.d/mongod
+  sudo chmod +x /etc/init.d/mongod
+  echo &quot;creating mongodb user&quot;
+  sudo useradd mongodb
+  echo &quot;creating directories&quot;
+  sudo mkdir -p /var/lib/mongodb
+  sudo mkdir -p /var/log/mongodb
+  sudo chown mongodb.mongodb /var/lib/mongodb
+  sudo chown mongodb.mongodb /var/log/mongodb
+  sudo update-rc.d mongod defaults
+fi
+
+wget $URL/$PKG.tgz
+sudo tar -xvzf $PKG.tgz -C /usr/local/
+
+if [ -d /usr/local/mongodb ]
+then
+  echo &quot;removing existing mongodb symlink&quot;
+  sudo rm -rf /usr/local/mongodb
+  sudo ln -s /usr/local/$PKG /usr/local/mongodb
+else
+  echo &quot;creating symlinks&quot;
+  sudo ln -s /usr/local/$PKG /usr/local/mongodb
+  sudo ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
+  sudo ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
+  sudo ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
+  sudo ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
+  sudo ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
+  sudo ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
+  sudo ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
+  sudo ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
+  sudo ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
+  sudo ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
+  sudo ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
+fi
+
+echo &quot;cleaning up&quot;
+rm $PKG.tgz
+
+echo &quot;starting mongod service&quot;
+sudo service mongod start</code></pre></noscript></div>
+</p>
 
 <p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
 ]]></content>
@@ -193,98 +247,190 @@ root  ALL=(ALL:ALL) ALL
 
 <p>I modified it a tiny bit to check for dependencies:</p>
 
-<p>{% codeblock Linux Shoutcast Search and Streaming &ndash; shoutcast.sh lang:bash %}</p>
-
-<h1>!/bin/bash</h1>
-
-<h1>search shoutcast and send url to radiotray or another player</h1>
-
-<h1>needs Bash 4, curl, [radiotray], [xsel to send url to X selection for pasting]</h1>
-
-<h1>(comment out line 53 &ldquo;printf &lsquo;%s&rsquo;&hellip;&rdquo; if you don&rsquo;t use xsel)</h1>
-
-<p>command -v curl > /dev/null 2>&amp;1 || { echo &ldquo;curl required.&rdquo; >&2; exit 1; }
-command -v xsel > /dev/null 2>&amp;1 || { echo &ldquo;xsel required.&rdquo; >&2; exit 1; }
-command -v radiotray > /dev/null 2>&amp;1 || { echo &ldquo;radiotray required.&rdquo; >&2; exit 1; }</p>
-
-<h1>choose player (&amp; options if necessary): radio url will be sent to it.</h1>
-
-<p>radioplay() {</p>
-
-<pre><code>radiotray "$1"
-</code></pre>
-
-<h1>mplayer -playlist &ldquo;$1&rdquo; # replace &lsquo;mplayer -playlist&rsquo; to taste, $1 will hold the url</h1>
-
-<h1>exec mplayer -playlist &ldquo;$1&rdquo; # add &lsquo;exec&rsquo; if you&rsquo;d rather launch player and leave script</h1>
-
-<p>}</p>
-
-<h1>start up radiotray in background if it&rsquo;s not already running</h1>
-
-<h1>Comment out this line if you don&rsquo;t use radiotray.</h1>
-
-<p>pgrep radiotray >/dev/null || ( radiotray >/dev/null 2>&amp;1 &amp; )</p>
-
-<h6>#</h6>
-
-<p>while true
-do
-echo &ldquo;Please enter keyword(s)&rdquo;
-read keyword
-keyword=&ldquo;${keyword// /%20}&rdquo; # escape spaces for url
-results=$( curl -s &ldquo;<a href="http://www.shoutcast.com/Internet-Radio/$keyword">http://www.shoutcast.com/Internet-Radio/$keyword</a>&rdquo; |awk &lsquo;
-BEGIN {</p>
-
-<pre><code>RS="&lt;div class=\"dirlist\"&gt;"
-FS="&gt;"
-</code></pre>
-
-<p>}
-NR &lt; 2 {next}
-{url = name = $2
-sub(/^.<em>title=\&ldquo;/,&rdquo;&ldquo;,name)
-sub(/\&rdquo;.</em>$/,&ldquo;&rdquo;,name)
-sub(/^.<em>href=\&ldquo;/,&rdquo;&ldquo;,url)
-sub(/\&rdquo;.</em>$/,&ldquo;&rdquo;,url)
-print url,name }
-&lsquo; )
-[[ $results ]] || { echo &ldquo;Sorry, no results for $keyword&rdquo;; continue;}</p>
-
-<p>unset list
-declare -A list # make associative array
-while read url name # read in awk&rsquo;s output
-do</p>
-
-<pre><code>list["$name"]="$url"
-</code></pre>
-
-<p>done &lt;&lt;&lt; &ldquo;$results&rdquo;</p>
-
-<p>PS3=&lsquo;Please enter the number of your choice > &rsquo;
-while true
-do</p>
-
-<pre><code>select station in "${!list[@]}" 'Search Again' Quit
-do
-    [[ $station = 'Search Again' ]] &amp;&amp; break 2
-    [[ $station = Quit ]] &amp;&amp; { echo 'Goodbye...'; exit; }
-    [[ $station ]] &amp;&amp; {
-    printf '%s' "${list[$station]}" | xsel --input #--clipboard  # can paste url
-    radioplay "${list[$station]}"
-    break
-    }
-done
-</code></pre>
-
-<p>echo &ldquo;
-Last station chosen was $station ( ${list[$station]} )
-&rdquo;
-done</p>
-
-<p>done # closes loop started at line 18
-exit
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming &ndash; shoutcast.sh </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;search shoutcast and send url to radiotray or another player&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;needs Bash 4, curl, <span class="o">[</span>radiotray<span class="o">]</span>, <span class="o">[</span>xsel to send url to X selection <span class="k">for </span>pasting<span class="o">]</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;<span class="o">(</span>comment out line 53 &amp;ldquo;printf &amp;lsquo;%s&amp;rsquo;&amp;hellip;&amp;rdquo; <span class="k">if </span>you don&amp;rsquo;t use xsel<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;command -v curl &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;curl required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;xsel required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;radiotray required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;choose player <span class="o">(</span>&amp;amp; options <span class="k">if </span>necessary<span class="o">)</span>: radio url will be sent to it.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;radioplay<span class="o">()</span> <span class="o">{</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;radiotray <span class="s2">&quot;$1&quot;</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;mplayer -playlist &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="c"># replace &amp;lsquo;mplayer -playlist&amp;rsquo; to taste, $1 will hold the url&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;exec mplayer -playlist &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="c"># add &amp;lsquo;exec&amp;rsquo; if you&amp;rsquo;d rather launch player and leave script&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;start up radiotray in background <span class="k">if </span>it&amp;rsquo;s not already running&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;Comment out this line <span class="k">if </span>you don&amp;rsquo;t use radiotray.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;&amp;amp;1 &amp;amp; <span class="o">)</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h6&gt;#&lt;/h6&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;while <span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="nb">echo</span> &amp;ldquo;Please enter keyword<span class="o">(</span>s<span class="o">)</span>&amp;rdquo;
+</span><span class='line'><span class="nb">read </span>keyword
+</span><span class='line'><span class="nv">keyword</span><span class="o">=</span>&amp;ldquo;<span class="k">${</span><span class="nv">keyword</span><span class="p">// /%20</span><span class="k">}</span>&amp;rdquo; <span class="c"># escape spaces for url</span>
+</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s &amp;ldquo;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span>&gt;http://www.shoutcast.com/Internet-Radio/<span class="nv">$keyword</span>&lt;/a&gt;&amp;rdquo; |awk &amp;lsquo;
+</span><span class='line'>BEGIN <span class="o">{</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;RS<span class="o">=</span><span class="s2">&quot;&amp;lt;div class=\&quot;dirlist\&quot;&amp;gt;&quot;</span>
+</span><span class='line'><span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;&amp;gt;&quot;</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="o">}</span>
+</span><span class='line'>NR &amp;lt; 2 <span class="o">{</span>next<span class="o">}</span>
+</span><span class='line'><span class="o">{</span><span class="nv">url</span> <span class="o">=</span> <span class="nv">name</span> <span class="o">=</span> <span class="nv">$2</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;title<span class="o">=</span><span class="se">\&amp;</span>ldquo;/,&amp;rdquo;&amp;ldquo;,name<span class="k">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo;.&lt;/em&gt;<span class="nv">$/</span>,&amp;ldquo;&amp;rdquo;,name<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;href<span class="o">=</span><span class="se">\&amp;</span>ldquo;/,&amp;rdquo;&amp;ldquo;,url<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo;.&lt;/em&gt;<span class="nv">$/</span>,&amp;ldquo;&amp;rdquo;,url<span class="o">)</span>
+</span><span class='line'>print url,name <span class="o">}</span>
+</span><span class='line'>&amp;lsquo; <span class="o">)</span>
+</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;Sorry, no results <span class="k">for</span> <span class="nv">$keyword</span>&amp;rdquo;; <span class="k">continue</span>;<span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;unset list
+</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
+</span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&amp;rsquo;s output</span>
+</span><span class='line'><span class="k">do</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;list<span class="o">[</span><span class="s2">&quot;$name&quot;</span><span class="o">]=</span><span class="s2">&quot;$url&quot;</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;done &amp;lt;&amp;lt;&amp;lt; &amp;ldquo;<span class="nv">$results</span>&amp;rdquo;&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;PS3<span class="o">=</span>&amp;lsquo;Please enter the number of your choice &gt; &amp;rsquo;
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;pre&gt;&lt;code&gt;select station in <span class="s2">&quot;${!list[@]}&quot;</span> <span class="s1">&#39;Search Again&#39;</span> Quit
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="s1">&#39;Search Again&#39;</span> <span class="o">]]</span> &amp;amp;&amp;amp; <span class="nb">break </span>2
+</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> &amp;amp;&amp;amp; <span class="o">{</span> <span class="nb">echo</span> <span class="s1">&#39;Goodbye...&#39;</span>; <span class="nb">exit</span>; <span class="o">}</span>
+</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> &amp;amp;&amp;amp; <span class="o">{</span>
+</span><span class='line'>    <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="s2">&quot;${list[$station]}&quot;</span> | xsel --input <span class="c">#--clipboard  # can paste url</span>
+</span><span class='line'>    radioplay <span class="s2">&quot;${list[$station]}&quot;</span>
+</span><span class='line'>    <span class="nb">break</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="k">done</span>
+</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;echo &amp;ldquo;
+</span><span class='line'>Last station chosen was <span class="nv">$station</span> <span class="o">(</span> <span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span> <span class="o">)</span>
+</span><span class='line'>&amp;rdquo;
+</span><span class='line'><span class="k">done</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;done <span class="c"># closes loop started at line 18</span>
+</span><span class='line'><span class="nb">exit</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

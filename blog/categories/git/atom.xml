@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-01-27T16:08:40-05:00</updated>
+  <updated>2014-01-28T11:26:38-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -27,13 +27,29 @@
 
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&rsquo;t accidentally still have breakpoints enabled.</p>
 
-<p>{% gist 3436040 %}</p>
+<p><div><script src='https://gist.github.com/3436040.js'></script>
+<noscript><pre><code># Git pre-commit hook
+#
+# Check all Ruby (*.rb) files for Pry breakpoint references
+#
+# Based on http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+#
+# Intallation:
+#       ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
+#
+FORBIDDEN=&#39;binding.pry&#39;
+git diff --cached --name-only | \
+    find -name &#39;*.rb&#39; | \
+    GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
+    echo &#39;COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting&#39; &amp;&amp; \
+    exit 1</code></pre></noscript></div>
+</p>
 
 <p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made exectuable.</p>
 
 <p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
 
-<p>{% img /images/2012-08-23-ss.png %}</p>
+<p><img src="/images/2012-08-23-ss.png"></p>
 ]]></content>
   </entry>
   
