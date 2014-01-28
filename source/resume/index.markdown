@@ -1,6 +1,5 @@
 ---
 layout: page
-date: 2013-07-09 09:04
 title: "ALEX BEVILACQUA"
 comments: false
 sharing: false
