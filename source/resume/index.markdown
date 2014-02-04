@@ -6,14 +6,12 @@ sharing: false
 footer: true
 ---
 
-An accomplished solutions analyst specializing in Object Oriented Design and Analysis with extensive
-experience in the full life cycle of the software design process, including requirements definition, prototyping, proof of concept, design, interface implementation, testing and maintenance. Eight years experience as a software engineer / solutions analyst. 
+An accomplished solutions analyst specializing in Object Oriented Design and Analysis with extensive experience in the full life cycle of the software design process, including requirements definition, prototyping, proof of concept, design, interface implementation, testing and maintenance. Eight years experience as a software engineer / solutions analyst. 
 
-Primary focus has been on task automation development, document management system implementations
-and data aggregation and reporting services.
+Primary focus has been on task automation development, document management system implementations and data aggregation and reporting services.
 
-Strong analytical skills. Compatible team player through complete project cycles, testing, and final
-implementation. Superior documentation generation and management skills. Excellent communications skills.
+Strong analytical skills. Compatible team player through complete project cycles, testing, and final implementation. Superior documentation generation and management skills. Excellent communications skills.
+
 Fluent in English; Proficient in French and Hungarian.
 
 ## CONTACT
@@ -80,34 +78,24 @@ North York, ON
     * developed a firm understanding of Enfocus Switch, Adobe InDesign scripting, Adobe Acrobat scripting and AppleScript
 * Spearheaded a number of process documentation overhaul initiatives.
 * Created and implemented documentation standards for use by the IT department.
-* Wrote and implemented a number of internal tracking, reporting and ticketing solutions using a variety
-of technologies (.NET, Ruby/Rails, Python, AS3)
-* Generated numerous automation tools to collect data from multiple sources and distill the information
-into reports or spreadsheets
+* Wrote and implemented a number of internal tracking, reporting and ticketing solutions using a variety of technologies (.NET, Ruby/Rails, Python, AS3)
+* Generated numerous automation tools to collect data from multiple sources and distill the information into reports or spreadsheets
 * Wrote and implemented a knowledge base solution to help expedite incident response time.
-* Acted as the lead architect and engineer of the ProjectCentral initiative (an online workflow
-management tool). This solution was written in Flex/C#/MSSQL.
+* Acted as the lead architect and engineer of the ProjectCentral initiative (an online workflow management tool). This solution was written in Flex/C#/MSSQL.
 * Managed a team of two contract developers on the ProjectCentral project.
 * Redesigned the company's website (www.astleygilbert.com) and wrote the template code to be
 applied to each page.
-* Wrote a number of utility applications for the company's website to make customer interaction with
-internal departments/staff more effective and targeted.
-* Created the Project Central Activity Tracker, which was written in Flex/C# (Web Services)/MSSQL. This
-solution obsoleted a number of disparate manual tracking methods and unified them in an online
-application that made the accounting department's reporting cycle for online solutions 80% shorter.
-* Unified Astley Gilbert's 7 branches online project archives through an online tool, thereby reducing
-both redundancy (and saving server space) and fulfilment (by making information more readily
-accessible to staff).
+* Wrote a number of utility applications for the company's website to make customer interaction with internal departments/staff more effective and targeted.
+* Created the Project Central Activity Tracker, which was written in Flex/C# (Web Services)/MSSQL. This solution obsoleted a number of disparate manual tracking methods and unified them in an online application that made the accounting department's reporting cycle for online solutions 80% shorter.
+* Unified Astley Gilbert's 7 branches online project archives through an online tool, thereby reducing both redundancy (and saving server space) and fulfilment (by making information more readily accessible to staff).
 
 Software Engineer<br>
 **Embanet Corporation**<br>
 2002 – 2003<br>
 North York, ON
 
-* Maintained content for a number of online learning management systems (LMS), including Intralearn,
-Blackboard, Jones and FirstClass.
-* Identified process inefficiencies and addressed them with software solutions (most applications were
-written in VB6 or C++).
+* Maintained content for a number of online learning management systems (LMS), including Intralearn, Blackboard, Jones and FirstClass.
+* Identified process inefficiencies and addressed them with software solutions (most applications were written in VB6 or C++).
 * Implemented a number of enhancements to the internal help desk software management system.
 
 
@@ -118,8 +106,7 @@ Toronto, ON<br>
 
 * Assisted in the maintenance of a project library for a data warehousing initiative.
 * Produced document templates for business analysts.
-* Wrote the control logic for a number of internal documents, which involved tying a number of Excel
-spreadsheets together using (VBA) to reduce a number of redundancies between documents.
+* Wrote the control logic for a number of internal documents, which involved tying a number of Excel spreadsheets together using (VBA) to reduce a number of redundancies between documents.
 
 
 Software Engineer (Contract)<br>
@@ -127,10 +114,8 @@ Software Engineer (Contract)<br>
 2006 – 2008<br>
 North York, ON
 
-* Planned and implemented an inventory management solution. The solution (HPINV) was written in C#,
-with a MSSQL back-end. 
-* HPINV automated a number of manual processes by providing management and warehouse staff with
-a more efficient digital workflow.
+* Planned and implemented an inventory management solution. The solution (HPINV) was written in C#, with a MSSQL back-end. 
+* HPINV automated a number of manual processes by providing management and warehouse staff with a more efficient digital workflow.
 
 ## EDUCATION / TRAINING
 

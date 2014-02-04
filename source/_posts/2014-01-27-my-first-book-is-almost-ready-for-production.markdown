@@ -10,7 +10,7 @@ For the last 4 months I've been working with [Packt Publishing](http://www.packt
 
 {% img left /images/8748OS_mockupcover_normal_0.jpg %}
 
-The book is available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
+Although it likely won't be ready until February 2014, the book is now available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
 
 Since the book is *almost* through the first stage of rewrites, I though it might be a good idea to start documenting the process.
 
