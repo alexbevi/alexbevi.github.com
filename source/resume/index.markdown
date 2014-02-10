@@ -6,9 +6,9 @@ sharing: false
 footer: true
 ---
 
-An accomplished solutions analyst specializing in Object Oriented Design and Analysis with extensive experience in the full life cycle of the software design process, including requirements definition, prototyping, proof of concept, design, interface implementation, testing and maintenance. Eight years experience as a software engineer / solutions analyst. 
+An accomplished solutions analyst specializing in Object Oriented Design and Analysis with extensive experience in the full life cycle of the software design process, including requirements definition, prototyping, proof of concept, design, interface implementation, testing and maintenance. Twelve years experience as a software engineer / solutions analyst. 
 
-Primary focus has been on task automation development, document management system implementations and data aggregation and reporting services.
+Primary focus has been on process automation development, document management system implementations and data aggregation and reporting services.
 
 Strong analytical skills. Compatible team player through complete project cycles, testing, and final implementation. Superior documentation generation and management skills. Excellent communications skills.
 

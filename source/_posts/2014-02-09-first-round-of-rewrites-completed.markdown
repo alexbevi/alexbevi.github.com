@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First Round of Rewrites Completed1"
+title: "First Round of Rewrites Completed!"
 date: 2014-02-09 21:48:29 -0500
 comments: true
 categories: [redmine, redmine-plugins, redmine-plugins-book]
