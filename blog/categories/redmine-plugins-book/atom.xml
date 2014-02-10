@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine-plugins-book | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/redmine-plugins-book/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-02-04T08:48:42-05:00</updated>
+  <updated>2014-02-09T21:54:54-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Round of Rewrites Completed1]]></title>
+    <link href="http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
+    <updated>2014-02-09T21:48:29-05:00</updated>
+    <id>http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
+    <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
+
+<p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
+
+<p><a href="http://www.packtpub.com">Packt Publishing</a> has been very patient with me though so I&rsquo;m going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
