@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-02-09T22:55:02-05:00</updated>
+  <updated>2014-02-18T22:12:22-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
+    <link href="http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
+    <updated>2014-02-18T22:08:21-05:00</updated>
+    <id>http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
+    <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
