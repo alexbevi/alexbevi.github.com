@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/feed" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T08:34:57-05:00</updated>
+  <updated>2014-03-03T10:02:38-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[8748OS - Production Timeline]]></title>
+    <title type="html"><![CDATA[Production Timeline]]></title>
     <link href="http://alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
     <updated>2014-03-03T08:22:30-05:00</updated>
     <id>http://alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-    <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> is in the final stages of production.</p>
+    <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
 
 <p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
 
