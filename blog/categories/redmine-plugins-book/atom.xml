@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine-plugins-book | ALEX BEVILACQUA]]></title>
   <link href="http://alexbevi.com/blog/categories/redmine-plugins-book/atom.xml" rel="self"/>
   <link href="http://alexbevi.com/"/>
-  <updated>2014-02-18T22:26:17-05:00</updated>
+  <updated>2014-03-03T08:31:59-05:00</updated>
   <id>http://alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[8748OS - Production Timeline]]></title>
+    <link href="http://alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
+    <updated>2014-03-03T08:22:30-05:00</updated>
+    <id>http://alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
+    <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> is in the final stages of production.</p>
+
+<p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
+
+<!-- more -->
+
+
+<h2>Technical Editing / Copy Editing</h2>
+
+<p>We would be editing chapters for language and content-related clarity. There might be instances when we&rsquo;ll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.</p>
+
+<p>Start of Editing: <em>21st February 2014</em>
+End of Editing: <em>6th March 2014</em></p>
+
+<p>After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as &ldquo;Pre-Finals&rdquo;. This is the stage where-in you will get to see the final chapters as you would see them in the book.</p>
+
+<h2>Schedule for Pre-finals</h2>
+
+<p>2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.</p>
+
+<p>At this stage, you&rsquo;ll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.</p>
+
+<h2>Upload Date</h2>
+
+<p>This is the day when the clubbed book will be finalized and then sent to our printers. We call it the upload day, since the files are transferred to our printers and we cannot make any changes here after.</p>
+
+<p>Current Upload Date: <em>17th March 2014</em></p>
+
+<h2>Publishing Date</h2>
+
+<p>The book gets published and will be available for purchase in five to eight working days from the day of upload.</p>
+
+<p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
