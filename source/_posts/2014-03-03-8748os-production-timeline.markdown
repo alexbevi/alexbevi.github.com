@@ -8,7 +8,9 @@ categories: [redmine, redmine-plugins, redmine-plugins-book]
 
 Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) is in the final stages of production.
 
-Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor:
+Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.
+
+<!-- more -->
 
 ## Technical Editing / Copy Editing
 
