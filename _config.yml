@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://alexbevi.com
+url: http://www.alexbevi.com
 title: ALEX BEVILACQUA
 subtitle: my little corner of the interwebs
 author: Alex Bevilacqua
-simple_search: http://google.com/search
+simple_search: https://www.google.com/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
