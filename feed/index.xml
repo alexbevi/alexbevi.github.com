@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/feed" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/feed" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -14,10 +14,23 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
+    <updated>2014-03-19T06:08:02-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
+    <content type="html"><![CDATA[<p><img class="left" src="images/balloons.png"></p>
+
+<p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
+
+<p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Production Timeline]]></title>
-    <link href="http://alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
+    <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
     <updated>2014-03-03T08:22:30-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
+    <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
     <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
 
 <p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
@@ -62,9 +75,9 @@
   
   <entry>
     <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
-    <link href="http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
+    <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
     <updated>2014-02-18T22:08:21-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
+    <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
     <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
 
 <p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
@@ -73,9 +86,9 @@
   
   <entry>
     <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
-    <link href="http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
+    <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
     <updated>2014-02-09T21:48:29-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
+    <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
     <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
 
 <p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
@@ -86,12 +99,12 @@
   
   <entry>
     <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
-    <link href="http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
+    <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
     <updated>2014-01-27T15:37:10-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
+    <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
     <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
 
-<p><img class="left" src="http://alexbevi.com/images/8748OS_mockupcover_normal_0.jpg"></p>
+<p><img class="left" src="http://www.alexbevi.com/images/8748OS_mockupcover_normal_0.jpg"></p>
 
 <p>Although it likely won&rsquo;t be ready until February 2014, the book is now available for <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">pre-order on Packt&rsquo;s site</a>.</p>
 
@@ -122,9 +135,9 @@
   
   <entry>
     <title type="html"><![CDATA[Developer Braindump: Warcraft]]></title>
-    <link href="http://alexbevi.com/blog/2013/03/26/developer-braindump-warcraft/"/>
+    <link href="http://www.alexbevi.com/blog/2013/03/26/developer-braindump-warcraft/"/>
     <updated>2013-03-26T12:50:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2013/03/26/developer-braindump-warcraft</id>
+    <id>http://www.alexbevi.com/blog/2013/03/26/developer-braindump-warcraft</id>
     <content type="html"><![CDATA[<p>In an effort to centralize some articles about how some classic games were devloped, I&rsquo;ve collected the <a href="http://www.codeofhonor.com/blog/?s=%22The+making+of+Warcraft%22">various parts</a> of <a href="http://www.codeofhonor.com/blog/">Patrick Wyatt&rsquo;s blog</a> series about the intital development of <a href="http://en.wikipedia.org/wiki/Warcraft">Warcraft</a>.</p>
 
 <p>Please note that this version of the series is just meant to capture the content, and not all formatting changes have been captured.</p>
@@ -412,7 +425,7 @@ Another idea much discussed but never implemented was that of having a unit that
 
 <h2>The fog of war</h2>
 
-<p><img src="http://alexbevi.com/images/Warcraft-1-fog-of-war.jpg"></p>
+<p><img src="http://www.alexbevi.com/images/Warcraft-1-fog-of-war.jpg"></p>
 
 <p>One of the ideas drawn from earlier games was that of hiding enemy units from sight of the opposing player. A black graphic overlay hid areas of the game map unless a friendly unit explored the area, which is designed to mimic the imperfect information known by a general about enemy operations and troop movements during real battles.</p>
 
@@ -452,7 +465,7 @@ Another idea much discussed but never implemented was that of having a unit that
 
 <p>And then … crash:</p>
 
-<p><img src="http://alexbevi.com/images/Dos4GW-crash.png"></p>
+<p><img src="http://www.alexbevi.com/images/Dos4GW-crash.png"></p>
 
 <p>Bad news bears – DOS4GW lets us know Warcraft crashed
 As any programmer knows, the likelihood of new code working properly the first time is close to zero, and so it should be no surprise that the game crashed. The game’s graphics scrolled off the top of the monitor and were replaced with the blocky text of the DOS4GW “crash screen” so familiar to gamers in the era before Windows gaming. Now we have the far more sophisticated Windows Error Reporting dialog which enables the player to submit the crash report, though occasionally players see the dreaded “blue screen of death” which is remarkably similar to those of old.</p>
@@ -495,9 +508,9 @@ As any programmer knows, the likelihood of new code working properly the first t
   
   <entry>
     <title type="html"><![CDATA[Fetching Changesets in Redmine from Heroku using Subversion]]></title>
-    <link href="http://alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
+    <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
     <updated>2012-11-21T08:44:00-05:00</updated>
-    <id>http://alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
+    <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
     <content type="html"><![CDATA[<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
 
 <p>Since I&rsquo;m &ldquo;frugal&rdquo;, I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on <a href="http://www.heroku.com">Heroku</a>, my files and attachments on <a href="http://www.dropbox.com">Dropbox</a> and my source on <a href="https://github.com">GitHub</a>.</p>
@@ -653,7 +666,7 @@ git push heroku master
 
 <p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration &ndash;> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
 
-<p><img class="center" src="http://alexbevi.com/images/heroku-svn-01.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-01.jpg"></p>
 
 <h2>Accessing Changesets from GitHub</h2>
 
@@ -663,11 +676,11 @@ git push heroku master
 
 <blockquote><p><strong>NOTE</strong> Leave the <em>Login</em> and <em>Password</em> fields blank unless this is a private repository</p></blockquote>
 
-<p><img class="center" src="http://alexbevi.com/images/heroku-svn-02.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-02.jpg"></p>
 
 <p>Once configured, clicking on the <em>Repository</em> tab should fetch the changesets and show the source tree</p>
 
-<p><img class="center" src="http://alexbevi.com/images/heroku-svn-03.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-03.jpg"></p>
 
 <blockquote><p><strong>NOTE</strong> This can potentially time out on a larger project and require clicking on the <em>Repository</em> tab multiple times until all changesets have been fetched and parsed.</p>
 
@@ -689,9 +702,9 @@ git push heroku master
   
   <entry>
     <title type="html"><![CDATA[Developer Braindump: Tony Tough and the Night of the Roasted Moths]]></title>
-    <link href="http://alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/"/>
+    <link href="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/"/>
     <updated>2012-11-02T08:28:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths</id>
+    <id>http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths</id>
     <content type="html"><![CDATA[<p>The <a href="http://www.scummvm.org">ScummVM</a> project recently added support for <a href="http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths">Tony Tough and the Night of the Roasted Moths</a>.</p>
 
 <p>The original developer, <a href="https://github.com/rasky">Giovanni Bajo</a> appeared on the <a href="http://sourceforge.net/mailarchive/forum.php?forum_name=scummvm-devel">scummvm-devel</a> mailing list and offered some insight into the development of the original engine.</p>
@@ -710,9 +723,9 @@ git push heroku master
   
   <entry>
     <title type="html"><![CDATA[Disable Hot Corner Hover in Linux Mint 13]]></title>
-    <link href="http://alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
+    <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
     <updated>2012-11-02T08:01:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
+    <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
     <content type="html"><![CDATA[<p>I use <a href="http://www.synergy-foss.org">Synergy</a> on all my computers to share a common mouse and keyboard, but I&rsquo;ve found that with Gnome 3 based distributions, the hot corner was causing me some grief.</p>
 
 <p>The beauty of using a Linux-based system though is that you can pretty much change anything you&rsquo;re unhappy with, so that&rsquo;s what I&rsquo;m here to do.</p>
@@ -765,9 +778,9 @@ git push heroku master
   
   <entry>
     <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
-    <link href="http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
+    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
     <updated>2012-10-30T14:58:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
+    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
     <content type="html"><![CDATA[<p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
 
 <h2>How does <em>sudo</em> work?</h2>
@@ -790,7 +803,7 @@ git push heroku master
 </ul>
 
 
-<p><img class="center" src="http://alexbevi.com/images/fixsudoprecise01.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise01.jpg"></p>
 
 <p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
 
@@ -802,11 +815,11 @@ git push heroku master
 
 <p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
 
-<p><img class="center" src="http://alexbevi.com/images/fixsudoprecise02.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise02.jpg"></p>
 
 <p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
 
-<p><img class="center" src="http://alexbevi.com/images/fixsudoprecise03.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise03.jpg"></p>
 
 <p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
 
@@ -885,8 +898,8 @@ root  ALL=(ALL:ALL) ALL
 
 <p>This will bring you back to the recovery menu.</p>
 
-<p><img class="center" src="http://alexbevi.com/images/fixsudoprecise04.jpg">
-<img class="center" src="http://alexbevi.com/images/fixsudoprecise05.jpg"></p>
+<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise04.jpg">
+<img class="center" src="http://www.alexbevi.com/images/fixsudoprecise05.jpg"></p>
 
 <p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
 ]]></content>
@@ -894,9 +907,9 @@ root  ALL=(ALL:ALL) ALL
   
   <entry>
     <title type="html"><![CDATA[Install Latest MongoDB in Ubuntu]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
     <updated>2012-08-29T13:46:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
+    <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
     <content type="html"><![CDATA[<p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
 
 <p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
@@ -968,9 +981,9 @@ sudo service mongod start</code></pre></noscript></div>
   
   <entry>
     <title type="html"><![CDATA[Keeping Pry Breakpoints out of Git]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/"/>
     <updated>2012-08-23T07:57:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
+    <id>http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
     <content type="html"><![CDATA[<p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
 
 <p>Although it&rsquo;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
@@ -1002,15 +1015,15 @@ git diff --cached --name-only | \
 
 <p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
 
-<p><img src="http://alexbevi.com/images/2012-08-23-ss.png"></p>
+<p><img src="http://www.alexbevi.com/images/2012-08-23-ss.png"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
     <updated>2012-08-10T08:03:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
+    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
     <content type="html"><![CDATA[<p>As much as I enjoy Ubuntu, I haven&rsquo;t warmed to their Unity desktop. I personally find it&rsquo;s too similar to OS X, I don&rsquo;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
 
 <p>Since it&rsquo;s based on GTK3, I know you can modify this all, but I&rsquo;d rather just use a desktop environment that doesn&rsquo;t require that level of tweaking.</p>
@@ -1025,9 +1038,9 @@ git diff --cached --name-only | \
   
   <entry>
     <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
-    <link href="http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
+    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
     <updated>2012-07-18T08:20:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
+    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
     <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
 
 <!-- more -->
@@ -1181,9 +1194,9 @@ git diff --cached --name-only | \
   
   <entry>
     <title type="html"><![CDATA[Here we go again ...]]></title>
-    <link href="http://alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/"/>
+    <link href="http://www.alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/"/>
     <updated>2012-07-18T07:53:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot</id>
+    <id>http://www.alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot</id>
     <content type="html"><![CDATA[<p>So, another year, another blogging engine, another crack at blogging.</p>
 
 <p>This time around I&rsquo;m trying out <a href="http://octopress.org">Octopress</a>. There&rsquo;s something very appealing about being able to interact with this blog via rake tasks and <a href="http://git-scm.com">Git</a>.</p>

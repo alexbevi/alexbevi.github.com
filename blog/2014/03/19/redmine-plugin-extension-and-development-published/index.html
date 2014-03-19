@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Fixing Broken Sudo - ALEX BEVILACQUA</title>
+  <title>Redmine Plugin Extension and Development: Published!!! - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="This is pretty much a transcription of http://www.psychocats.net/ubuntu/fixsudo, which is just such a good article I wanted to keep a copy for &hellip;">
+  <meta name="description" content="Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and Redmine Plugin Extension and Development has &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/">
+  <link rel="canonical" href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +87,7 @@
   <header>
     
       
-        <h1 class="entry-title">Fixing Broken Sudo</h1>
+        <h1 class="entry-title">Redmine Plugin Extension and Development: Published!!!</h1>
       
     
     
@@ -104,7 +104,7 @@
   
 
 
-<time datetime="2012-10-30T14:58:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
+<time datetime="2014-03-19T06:08:02-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -113,127 +113,11 @@
   </header>
 
 
-<div class="entry-content"><p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
+<div class="entry-content"><p><img class="left" src="images/balloons.png"></p>
 
-<h2>How does <em>sudo</em> work?</h2>
+<p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
 
-<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
-
-<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
-
-<!-- more -->
-
-
-<h2>Cause and Symptoms</h2>
-
-<p><em>sudo</em> breaks when one or more of the following occurs:</p>
-
-<ul>
-<li>the <code>/etc/sudoers</code> file has been altered to no longer allow users in the admin group to escalate privilege</li>
-<li>the permissions on the <code>/etc/sudoers</code> file are changed to something other than 0440</li>
-<li>a user who should not have been has been taken out of the <em>admin</em> group</li>
-</ul>
-
-
-<p><img class="center" src="/images/fixsudoprecise01.jpg"></p>
-
-<p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
-
-<h2>Booting into recovery mode</h2>
-
-<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&rsquo;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
-
-<p>If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.</p>
-
-<p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
-
-<p><img class="center" src="/images/fixsudoprecise02.jpg"></p>
-
-<p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
-
-<p><img class="center" src="/images/fixsudoprecise03.jpg"></p>
-
-<p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
-
-<p>The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.</p>
-
-<p>In recent versions of Ubuntu, the filesystem is mounted as read-only, so you need to enter the follow command to get it to remount as read-write, which will allow you to make changes:</p>
-
-<pre><code>mount -o rw,remount /
-</code></pre>
-
-<h2>Do the actual repair</h2>
-
-<h3>Case 1</h3>
-
-<p>If you&rsquo;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
-
-<pre><code>adduser username admin
-</code></pre>
-
-<p>where <em>username</em> is your actual username.</p>
-
-<h3>Case 2</h3>
-
-<p>If you had previously edited the /etc/_sudo_ers file and screwed it up, then type</p>
-
-<pre><code>sudo cp /etc/sudoers /etc/sudoers.backup
-sudo nano /etc/sudoers
-</code></pre>
-
-<p>(the proper command is actually <code>sudo visudo</code>, which checks syntax before you save the <code>/etc/sudoers</code> file, but in some older versions of Ubuntu, that command uses the vi editor, which can be confusing to new users, as opposed to nano, which is more straightforward)
-and make it sure it looks like this:</p>
-
-<pre><code>#
-# This file MUST be edited with the 'visudo' command as root.
-#
-# Please consider adding local content in /etc/sudoers.d/ instead of
-# directly modifying this file.
-#
-# See the man page for details on how to write a sudoers file.
-#
-Defaults  env_reset
-Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-# Host alias specification
-
-# User alias specification
-
-# Cmnd alias specification
-
-# User privilege specification
-root  ALL=(ALL:ALL) ALL
-
-# Members of the admin group may gain root privileges
-%admin ALL=(ALL) ALL
-
-# Allow members of group sudo to execute any command
-%sudo ALL=(ALL:ALL) ALL
-
-# See sudoers(5) for more information on "#include" directives:
-
-#includedir /etc/sudoers.d
-</code></pre>
-
-<p>When you&rsquo;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
-
-<h3>Case 3</h3>
-
-<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&rsquo;ll want to type</p>
-
-<pre><code>chmod 0440 /etc/sudoers
-</code></pre>
-
-<p>When you&rsquo;re done with whatever commands you needed to enter, type</p>
-
-<pre><code>exit
-</code></pre>
-
-<p>This will bring you back to the recovery menu.</p>
-
-<p><img class="center" src="/images/fixsudoprecise04.jpg">
-<img class="center" src="/images/fixsudoprecise05.jpg"></p>
-
-<p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
+<p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
 </div>
 
 
@@ -256,21 +140,15 @@ root  ALL=(ALL:ALL) ALL
   
 
 
-<time datetime="2012-10-30T14:58:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
+<time datetime="2014-03-19T06:08:02-04:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -283,10 +161,8 @@ root  ALL=(ALL:ALL) ALL
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" title="Previous Post: Install Latest MongoDB in Ubuntu">&laquo; Install Latest MongoDB in Ubuntu</a>
+        <a class="basic-alignment left articlenav" href="/blog/2014/03/03/8748os-production-timeline/" title="Previous Post: Production Timeline">&laquo; Production Timeline</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/" title="Next Post: Disable Hot Corner Hover in Linux Mint 13">Disable Hot Corner Hover in Linux Mint 13 &raquo;</a>
       
     </p>
   </footer>
@@ -413,8 +289,8 @@ root  ALL=(ALL:ALL) ALL
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/';
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/';
         var disqus_script = 'embed.js';
       
     (function () {

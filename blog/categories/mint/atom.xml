@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mint | ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/blog/categories/mint/atom.xml" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/blog/categories/mint/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disable Hot Corner Hover in Linux Mint 13]]></title>
-    <link href="http://alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
+    <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
     <updated>2012-11-02T08:01:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
+    <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
     <content type="html"><![CDATA[<p>I use <a href="http://www.synergy-foss.org">Synergy</a> on all my computers to share a common mouse and keyboard, but I&rsquo;ve found that with Gnome 3 based distributions, the hot corner was causing me some grief.</p>
 
 <p>The beauty of using a Linux-based system though is that you can pretty much change anything you&rsquo;re unhappy with, so that&rsquo;s what I&rsquo;m here to do.</p>

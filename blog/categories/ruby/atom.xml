@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Keeping Pry Breakpoints out of Git]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/"/>
     <updated>2012-08-23T07:57:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
+    <id>http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
     <content type="html"><![CDATA[<p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
 
 <p>Although it&rsquo;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>

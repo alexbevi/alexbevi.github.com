@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Shoutcast | ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/blog/categories/shoutcast/atom.xml" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/blog/categories/shoutcast/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
-    <link href="http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
+    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
     <updated>2012-07-18T08:20:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
+    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
     <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
 
 <!-- more -->

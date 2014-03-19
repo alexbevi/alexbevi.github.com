@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ubuntu | ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
-    <link href="http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
+    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
     <updated>2012-10-30T14:58:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
+    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
     <content type="html"><![CDATA[<p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
 
 <h2>How does <em>sudo</em> work?</h2>
@@ -144,9 +144,9 @@ root  ALL=(ALL:ALL) ALL
   
   <entry>
     <title type="html"><![CDATA[Install Latest MongoDB in Ubuntu]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
     <updated>2012-08-29T13:46:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
+    <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
     <content type="html"><![CDATA[<p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
 
 <p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
@@ -218,9 +218,9 @@ sudo service mongod start</code></pre></noscript></div>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-    <link href="http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
+    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
     <updated>2012-08-10T08:03:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
+    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
     <content type="html"><![CDATA[<p>As much as I enjoy Ubuntu, I haven&rsquo;t warmed to their Unity desktop. I personally find it&rsquo;s too similar to OS X, I don&rsquo;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
 
 <p>Since it&rsquo;s based on GTK3, I know you can modify this all, but I&rsquo;d rather just use a desktop environment that doesn&rsquo;t require that level of tweaking.</p>
@@ -235,9 +235,9 @@ sudo service mongod start</code></pre></noscript></div>
   
   <entry>
     <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
-    <link href="http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
+    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
     <updated>2012-07-18T08:20:00-04:00</updated>
-    <id>http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
+    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
     <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
 
 <!-- more -->

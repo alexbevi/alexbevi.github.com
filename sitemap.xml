@@ -1,129 +1,139 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/10/30/fixing-broken-sudo/</loc>
-        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/</loc>
+        <loc>http://www.alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
         <loc>
-            http://alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/
+            http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/
+        </loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/</loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/</loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/</loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/</loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/
         </loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
         <loc>
-            http://alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/
+            http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/
         </loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/2013/03/26/developer-braindump-warcraft/</loc>
+        <loc>
+            http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/
+        </loc>
+        <lastmod>2014-01-13T22:05:07-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/blog/2013/03/26/developer-braindump-warcraft/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
         <loc>
-            http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/
+            http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/
         </loc>
         <lastmod>2014-02-04T08:47:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/</loc>
+        <loc>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/</loc>
         <lastmod>2014-02-09T22:06:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/</loc>
+        <loc>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/</loc>
         <lastmod>2014-02-18T22:25:57-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/2014/03/03/8748os-production-timeline/</loc>
+        <loc>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/</loc>
         <lastmod>2014-03-03T10:02:20-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/about/</loc>
+        <loc>
+            http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/
+        </loc>
+        <lastmod>2014-03-19T06:13:07-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.alexbevi.com/about/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/redmine-dropbox-attachments/</loc>
+        <loc>http://www.alexbevi.com/projects/redmine-dropbox-attachments/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/tas-editor/</loc>
+        <loc>http://www.alexbevi.com/projects/tas-editor/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/scummvm-asylum/</loc>
+        <loc>http://www.alexbevi.com/projects/scummvm-asylum/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/exception-logger/</loc>
+        <loc>http://www.alexbevi.com/projects/exception-logger/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/</loc>
+        <loc>http://www.alexbevi.com/projects/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/redmine-knowledgebase/</loc>
+        <loc>http://www.alexbevi.com/projects/redmine-knowledgebase/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/projects/translate-yaml/</loc>
+        <loc>http://www.alexbevi.com/projects/translate-yaml/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/feed/index.xml</loc>
+        <loc>http://www.alexbevi.com/feed/index.xml</loc>
         <lastmod>2012-09-10T14:48:55-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/</loc>
+        <loc>http://www.alexbevi.com/</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/resume/</loc>
+        <loc>http://www.alexbevi.com/resume/</loc>
         <lastmod>2014-02-09T22:54:49-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/archives/</loc>
-        <lastmod>2014-03-03T10:02:20-05:00</lastmod>
+        <loc>http://www.alexbevi.com/blog/archives/</loc>
+        <lastmod>2014-03-19T06:13:07-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/blog/</loc>
-        <lastmod>2014-03-03T10:02:20-05:00</lastmod>
+        <loc>http://www.alexbevi.com/blog/</loc>
+        <lastmod>2014-03-19T06:13:07-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/search.html</loc>
+        <loc>http://www.alexbevi.com/search.html</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/</loc>
-        <lastmod>2014-03-03T10:02:20-05:00</lastmod>
+        <loc>http://www.alexbevi.com/</loc>
+        <lastmod>2014-03-19T06:13:07-04:00</lastmod>
     </url>
     <url>
-        <loc>http://alexbevi.com/404.html</loc>
+        <loc>http://www.alexbevi.com/404.html</loc>
         <lastmod>2014-01-13T22:05:07-05:00</lastmod>
     </url>
 </urlset>

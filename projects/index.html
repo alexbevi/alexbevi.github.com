@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://alexbevi.com/projects/">
+  <link rel="canonical" href="http://www.alexbevi.com/projects/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,9 +64,9 @@
   
 </ul>
   
-<form action="http://google.com/search" method="get">
+<form action="https://www.google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:alexbevi.com" />
+    <input type="hidden" name="q" value="site:www.alexbevi.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -130,9 +130,19 @@
 
 <aside class="sidebar">
   
-    <section>
+    
+<section>
+	<span>
+		<img src="http://www.gravatar.com/avatar/061f509dd4eb594be550fa1db95baa79?s=200" alt="Gravatar of Alex Bevilacqua " title="Gravatar of Alex Bevilacqua" />
+	</span>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/redmine-plugin-extension-and-development-published/">Redmine Plugin Extension and Development: Published!!!</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/03/8748os-production-timeline/">Production Timeline</a>
@@ -148,10 +158,6 @@
     
       <li class="post">
         <a href="/blog/2014/01/27/my-first-book-is-almost-ready-for-production/">My First Book: Almost Ready for Production</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/26/developer-braindump-warcraft/">Developer Braindump: Warcraft</a>
       </li>
     
   </ul>
@@ -197,6 +203,23 @@
   </h1>
 </section>
 
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("alexbevi", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/alexbevi" class="twitter-follow-button" data-show-count="false">Follow @alexbevi</a>
+  
+</section>
 
 
   

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: redmine-plugins | ALEX BEVILACQUA]]></title>
-  <link href="http://alexbevi.com/blog/categories/redmine-plugins/atom.xml" rel="self"/>
-  <link href="http://alexbevi.com/"/>
-  <updated>2014-03-03T10:15:57-05:00</updated>
-  <id>http://alexbevi.com/</id>
+  <link href="http://www.alexbevi.com/blog/categories/redmine-plugins/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-03-19T06:16:02-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
     <email><![CDATA[alex@alexbevi.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Production Timeline]]></title>
-    <link href="http://alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
+    <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
     <updated>2014-03-03T08:22:30-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
+    <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
     <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
 
 <p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
@@ -62,9 +62,9 @@
   
   <entry>
     <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
-    <link href="http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
+    <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
     <updated>2014-02-18T22:08:21-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
+    <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
     <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
 
 <p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
@@ -73,9 +73,9 @@
   
   <entry>
     <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
-    <link href="http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
+    <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
     <updated>2014-02-09T21:48:29-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
+    <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
     <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
 
 <p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
@@ -86,9 +86,9 @@
   
   <entry>
     <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
-    <link href="http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
+    <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
     <updated>2014-01-27T15:37:10-05:00</updated>
-    <id>http://alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
+    <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
     <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
 
 <p><img class="left" src="/images/8748OS_mockupcover_normal_0.jpg"></p>
