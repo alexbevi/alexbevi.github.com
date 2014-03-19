@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-{% img left images/balloons.png %}
+{% img left /images/balloons.png %}
 
 Well, it's official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
