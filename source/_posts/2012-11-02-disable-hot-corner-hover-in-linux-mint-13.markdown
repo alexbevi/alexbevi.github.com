@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "Disable Hot Corner Hover in Linux Mint 13"
+title: "Disable Hot Corner Hover in Linux Mint"
 date: 2012-11-02 08:01
 comments: true
 categories:  [Linux, Mint, Cinnamon]
 ---
+
+**UPDATE** For Linux Mint 16, the `hotCorner` settings have been moved to `/usr/share/cinnamon/js/ui/hotCorner.js`.
 
 I use [Synergy](http://www.synergy-foss.org) on all my computers to share a common mouse and keyboard, but I've found that with Gnome 3 based distributions, the hot corner was causing me some grief.
 
