@@ -28,4 +28,10 @@ The first step is to find the PID of the process we would like:
 
 Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/wiki/Strace) in order to gain a bit more insight into the current process.
 
+    sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
+
 {% img /images/20140602-002.jpg %}
+
+We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
+
+You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
