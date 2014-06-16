@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine-plugins | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/redmine-plugins/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-16T12:52:02-04:00</updated>
+  <updated>2014-06-16T13:04:48-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
+    <updated>2014-03-19T06:08:02-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/balloons.png"></p>
+
+<p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
+
+<p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Production Timeline]]></title>
