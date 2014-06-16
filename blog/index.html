@@ -139,7 +139,14 @@
 
 <p>Now that we have the PID, we can pass this to <a href="http://en.wikipedia.org/wiki/Strace">strace</a> in order to gain a bit more insight into the current process.</p>
 
+<pre><code>sudo strace -p 16544 -s 80 -e write 2&gt;&amp;1 | grep "write(2, \"\["
+</code></pre>
+
 <p><img src="/images/20140602-002.jpg"></p>
+
+<p>We&rsquo;re redirecting the output of <em>strace</em> in order to further filter the results using <a href="http://en.wikipedia.org/wiki/Grep">grep</a>. Depending on what process you&rsquo;re looking to monitor you may need to adjust your grep conditions.</p>
+
+<p>You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)</p>
 </div>
   
   
