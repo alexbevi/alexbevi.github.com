@@ -9,7 +9,7 @@
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and Redmine Plugin Extension and Development has &hellip;">
+  <meta name="description" content="I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well. One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process&#8217; STDOUT</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-02T09:16:54-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
+        
+         | <a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well.</p>
+
+<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
+
+<p><img src="/images/20140602-001.jpg"></p>
+
+<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to followup from another terminal session.</p>
+
+<p>Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the <a href="https://github.com/paul/progress_bar">progress_bar</a> gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.</p>
+
+<p>If I were to execute the task directly, I could watch the progress directly. Since we&rsquo;re running this script remotely though, this information isn&rsquo;t directly accessible.</p>
+
+<p>In order to gain access to the progress info for this taks, we&rsquo;ll need to access the process&#8217; STDOUT from an alternate session.</p>
+
+<p>The first step is to find the PID of the process we would like:</p>
+
+<pre><code>ps aux | grep ruby
+
+&gt;&gt; 1001     16544 67.7 29.4 1319420 506456 ?      Rl   13:00   3:02 ruby rake phoenix:sync_locations_from_csv
+</code></pre>
+
+<p>Now that we have the PID, we can pass this to <a href="http://en.wikipedia.org/wiki/Strace">strace</a> in order to gain a bit more insight into the current process.</p>
+
+<p><img src="/images/20140602-002.jpg"></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,57 +585,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/10/30/fixing-broken-sudo/">Fixing Broken Sudo</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-30T14:58:00-04:00" pubdate data-updated="true">Oct 30<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/10/30/fixing-broken-sudo/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
-
-<h2>How does <em>sudo</em> work?</h2>
-
-<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
-
-<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/10/30/fixing-broken-sudo/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -594,6 +606,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process&#8217; STDOUT</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/19/redmine-plugin-extension-and-development-published/">Redmine Plugin Extension and Development: Published!!!</a>
       </li>
     
@@ -607,10 +623,6 @@
     
       <li class="post">
         <a href="/blog/2014/02/09/first-round-of-rewrites-completed/">First Round of Rewrites Completed!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/27/my-first-book-is-almost-ready-for-production/">My First Book: Almost Ready for Production</a>
       </li>
     
   </ul>

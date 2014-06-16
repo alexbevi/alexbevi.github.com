@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Install Latest MongoDB in Ubuntu - ALEX BEVILACQUA</title>
+  <title>Accessing a running process' STDOUT - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="A couple projects I work on use MongoDB as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with &hellip;">
+  <meta name="description" content="I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well. One &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">
+  <link rel="canonical" href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -87,7 +87,7 @@
   <header>
     
       
-        <h1 class="entry-title">Install Latest MongoDB in Ubuntu</h1>
+        <h1 class="entry-title">Accessing a running process' STDOUT</h1>
       
     
     
@@ -104,7 +104,7 @@
   
 
 
-<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
+<time datetime="2014-06-02T09:16:54-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -113,72 +113,30 @@
   </header>
 
 
-<div class="entry-content"><p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
+<div class="entry-content"><p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well.</p>
 
-<p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
+<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
 
-<!-- more -->
+<p><img src="/images/20140602-001.jpg"></p>
 
+<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to followup from another terminal session.</p>
 
-<p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
+<p>Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the <a href="https://github.com/paul/progress_bar">progress_bar</a> gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.</p>
 
-<div><script src='https://gist.github.com/3516100.js'></script>
-<noscript><pre><code>#!/bin/bash
+<p>If I were to execute the task directly, I could watch the progress directly. Since we&rsquo;re running this script remotely though, this information isn&rsquo;t directly accessible.</p>
 
-PKG=mongodb-linux-x86_64-2.2.0
-URL=http://fastdl.mongodb.org/linux
+<p>In order to gain access to the progress info for this taks, we&rsquo;ll need to access the process&#8217; STDOUT from an alternate session.</p>
 
-if [ -f /etc/init.d/mongod ]
-then
-  echo &quot;mongod already installed ... stopping&quot;
-  sudo service mongod stop
-else
-  echo &quot;installing mongod script&quot;
-  wget https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod
-  sudo mv mongod /etc/init.d/mongod
-  sudo chmod +x /etc/init.d/mongod
-  echo &quot;creating mongodb user&quot;
-  sudo useradd mongodb
-  echo &quot;creating directories&quot;
-  sudo mkdir -p /var/lib/mongodb
-  sudo mkdir -p /var/log/mongodb
-  sudo chown mongodb.mongodb /var/lib/mongodb
-  sudo chown mongodb.mongodb /var/log/mongodb
-  sudo update-rc.d mongod defaults
-fi
+<p>The first step is to find the PID of the process we would like:</p>
 
-wget $URL/$PKG.tgz
-sudo tar -xvzf $PKG.tgz -C /usr/local/
+<pre><code>ps aux | grep ruby
 
-if [ -d /usr/local/mongodb ]
-then
-  echo &quot;removing existing mongodb symlink&quot;
-  sudo rm -rf /usr/local/mongodb
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-else
-  echo &quot;creating symlinks&quot;
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-  sudo ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
-  sudo ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
-  sudo ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
-  sudo ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
-  sudo ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
-  sudo ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
-  sudo ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
-  sudo ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
-  sudo ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
-  sudo ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
-  sudo ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
-fi
+&gt;&gt; 1001     16544 67.7 29.4 1319420 506456 ?      Rl   13:00   3:02 ruby rake phoenix:sync_locations_from_csv
+</code></pre>
 
-echo &quot;cleaning up&quot;
-rm $PKG.tgz
+<p>Now that we have the PID, we can pass this to <a href="http://en.wikipedia.org/wiki/Strace">strace</a> in order to gain a bit more insight into the current process.</p>
 
-echo &quot;starting mongod service&quot;
-sudo service mongod start</code></pre></noscript></div>
-
-
-<p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
+<p><img src="/images/20140602-002.jpg"></p>
 </div>
 
 
@@ -201,12 +159,12 @@ sudo service mongod start</code></pre></noscript></div>
   
 
 
-<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
+<time datetime="2014-06-02T09:16:54-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/bash/'>Bash</a>, <a class='category' href='/blog/categories/mongodb/'>MongoDB</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+    <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/rake/'>rake</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -215,7 +173,7 @@ sudo service mongod start</code></pre></noscript></div>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -228,10 +186,8 @@ sudo service mongod start</code></pre></noscript></div>
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/" title="Previous Post: Keeping Pry Breakpoints out of Git">&laquo; Keeping Pry Breakpoints out of Git</a>
+        <a class="basic-alignment left articlenav" href="/blog/2014/03/19/redmine-plugin-extension-and-development-published/" title="Previous Post: Redmine Plugin Extension and Development: Published!!!">&laquo; Redmine Plugin Extension and Development: Published!!!</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/10/30/fixing-broken-sudo/" title="Next Post: Fixing Broken Sudo">Fixing Broken Sudo &raquo;</a>
       
     </p>
   </footer>
@@ -358,8 +314,8 @@ sudo service mongod start</code></pre></noscript></div>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/';
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/';
         var disqus_script = 'embed.js';
       
     (function () {

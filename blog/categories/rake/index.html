@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Install Latest MongoDB in Ubuntu - ALEX BEVILACQUA</title>
+  <title>Category: rake - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="A couple projects I work on use MongoDB as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with &hellip;">
+  <meta name="description" content="Category: rake">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/">
+  <link rel="canonical" href="http://www.alexbevi.comblog/categories/rake/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,166 +82,36 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      
-        <h1 class="entry-title">Install Latest MongoDB in Ubuntu</h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
-        
-         | <a href="#disqus_thread">Comments</a>
-        
-      </p>
+    <h1 class="entry-title">Category: rake</h1>
     
   </header>
-
-
-<div class="entry-content"><p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
-
-<p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
-
-<!-- more -->
-
-
-<p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
-
-<div><script src='https://gist.github.com/3516100.js'></script>
-<noscript><pre><code>#!/bin/bash
-
-PKG=mongodb-linux-x86_64-2.2.0
-URL=http://fastdl.mongodb.org/linux
-
-if [ -f /etc/init.d/mongod ]
-then
-  echo &quot;mongod already installed ... stopping&quot;
-  sudo service mongod stop
-else
-  echo &quot;installing mongod script&quot;
-  wget https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod
-  sudo mv mongod /etc/init.d/mongod
-  sudo chmod +x /etc/init.d/mongod
-  echo &quot;creating mongodb user&quot;
-  sudo useradd mongodb
-  echo &quot;creating directories&quot;
-  sudo mkdir -p /var/lib/mongodb
-  sudo mkdir -p /var/log/mongodb
-  sudo chown mongodb.mongodb /var/lib/mongodb
-  sudo chown mongodb.mongodb /var/log/mongodb
-  sudo update-rc.d mongod defaults
-fi
-
-wget $URL/$PKG.tgz
-sudo tar -xvzf $PKG.tgz -C /usr/local/
-
-if [ -d /usr/local/mongodb ]
-then
-  echo &quot;removing existing mongodb symlink&quot;
-  sudo rm -rf /usr/local/mongodb
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-else
-  echo &quot;creating symlinks&quot;
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-  sudo ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
-  sudo ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
-  sudo ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
-  sudo ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
-  sudo ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
-  sudo ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
-  sudo ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
-  sudo ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
-  sudo ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
-  sudo ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
-  sudo ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
-fi
-
-echo &quot;cleaning up&quot;
-rm $PKG.tgz
-
-echo &quot;starting mongod service&quot;
-sudo service mongod start</code></pre></noscript></div>
-
-
-<p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Alex Bevilacqua</span></span>
-
-      
-
-
-
-
-
+  <div id="blog-archives" class="category">
 
 
 
   
+  <h2>2014</h2>
+
+<article>
+  
+<h1><a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process' STDOUT</a></h1>
+<time datetime="2014-06-02T09:16:54-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2014</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/rake/'>rake</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
+</footer>
 
 
-<time datetime="2012-08-29T13:46:00-04:00" pubdate data-updated="true">Aug 29<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/bash/'>Bash</a>, <a class='category' href='/blog/categories/mongodb/'>MongoDB</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left articlenav" href="/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/" title="Previous Post: Keeping Pry Breakpoints out of Git">&laquo; Keeping Pry Breakpoints out of Git</a>
-      
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/10/30/fixing-broken-sudo/" title="Next Post: Fixing Broken Sudo">Fixing Broken Sudo &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+
+  
+</article>
 
 </div>
 
@@ -357,10 +227,7 @@ sudo service mongod start</code></pre></noscript></div>
       var disqus_shortname = 'alexbevi';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
+  <title><![CDATA[Category: rake | ALEX BEVILACQUA]]></title>
+  <link href="http://www.alexbevi.com/blog/categories/rake/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
   <updated>2014-06-16T12:44:41-04:00</updated>
   <id>http://www.alexbevi.com/</id>
