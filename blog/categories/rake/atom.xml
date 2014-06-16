@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rake | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/rake/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-16T13:04:48-04:00</updated>
+  <updated>2014-06-16T13:06:35-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
     <updated>2014-06-02T09:16:54-04:00</updated>
     <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
 
 <p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
 
