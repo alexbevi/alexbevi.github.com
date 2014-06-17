@@ -3,7 +3,7 @@ layout: post
 title: "Redmine Plugin Extension and Development: Published!!!"
 date: 2014-03-19 06:08:02 -0400
 comments: true
-categories: 
+categories: [redmine, redmine-plugins, redmine-plugins-book]
 ---
 
 {% img left /images/balloons.png %}

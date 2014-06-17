@@ -6,11 +6,13 @@ comments: true
 categories: [linux, ruby, rake]
 ---
 
-I'm currently doing a lot of scripting at work. Although the primary environment is Windows, i have to manage some Linux processes as well.
+I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
 
 One example is a series of PowerShell scripts I've written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.
 
 {% img /images/20140602-001.jpg %}
+
+<!-- more -->
 
 One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to followup from another terminal session.
 
