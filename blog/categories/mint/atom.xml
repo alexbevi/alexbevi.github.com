@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Mint | ALEX BEVILACQUA]]></title>
+  <title><![CDATA[Category: mint | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/mint/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-17T09:26:36-04:00</updated>
+  <updated>2014-06-23T11:07:55-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -38,29 +38,21 @@
 
 <p>Locate the following section (I just searched for <em>hot-corner</em>)</p>
 
-<p>``` javascript
-this._corner = new Clutter.Rectangle({ name: &lsquo;hot-corner&rsquo;,</p>
-
-<pre><code>                                   width: 1,
-                                   height: 1,
-                                   opacity: 0,
-                                   reactive: true });
+<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: true });
 </code></pre>
-
-<p>```</p>
 
 <p>And change the value of <code>reactive</code> from <em>true</em> to <em>false</em>:</p>
 
-<p>``` javascript
-this._corner = new Clutter.Rectangle({ name: &lsquo;hot-corner&rsquo;,</p>
-
-<pre><code>                                   width: 1,
-                                   height: 1,
-                                   opacity: 0,
-                                   reactive: false });
+<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: false });
 </code></pre>
-
-<p>```</p>
 
 <p>Log off, then back on. Booya!</p>
 ]]></content>

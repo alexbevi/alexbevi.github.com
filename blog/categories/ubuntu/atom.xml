@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ubuntu | ALEX BEVILACQUA]]></title>
+  <title><![CDATA[Category: ubuntu | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-17T09:26:36-04:00</updated>
+  <updated>2014-06-23T11:07:55-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -247,7 +247,7 @@ sudo service mongod start</code></pre></noscript></div>
 
 <p>I modified it a tiny bit to check for dependencies:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming &ndash; shoutcast.sh </span></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -328,17 +328,6 @@ sudo service mongod start</code></pre></noscript></div>
 <span class='line-number'>78</span>
 <span class='line-number'>79</span>
 <span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
@@ -347,85 +336,74 @@ sudo service mongod start</code></pre></noscript></div>
 </span><span class='line'>
 </span><span class='line'>&lt;h1&gt;needs Bash 4, curl, <span class="o">[</span>radiotray<span class="o">]</span>, <span class="o">[</span>xsel to send url to X selection <span class="k">for </span>pasting<span class="o">]</span>&lt;/h1&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;<span class="o">(</span>comment out line 53 &amp;ldquo;printf &amp;lsquo;%s&amp;rsquo;&amp;hellip;&amp;rdquo; <span class="k">if </span>you don&amp;rsquo;t use xsel<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>&lt;h1&gt;<span class="o">(</span>comment out line 53 <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;&amp;</span>hellip<span class="p">;&amp;</span>rdquo<span class="p">;</span> <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use xsel<span class="o">)</span>&lt;/h1&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;command -v curl &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;curl required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;xsel required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;&amp;amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;radiotray required.&amp;rdquo; &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>&lt;p&gt;command -v curl &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>curl required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>xsel required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>radiotray required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;choose player <span class="o">(</span>&amp;amp; options <span class="k">if </span>necessary<span class="o">)</span>: radio url will be sent to it.&lt;/h1&gt;
+</span><span class='line'>&lt;h1&gt;choose player <span class="o">(</span><span class="p">&amp;</span>amp<span class="p">;</span> options <span class="k">if </span>necessary<span class="o">)</span>: radio url will be sent to it.&lt;/h1&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;radioplay<span class="o">()</span> <span class="o">{</span>&lt;/p&gt;
+</span><span class='line'>&lt;p&gt;radioplay<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    radiotray <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;pre&gt;&lt;code&gt;radiotray <span class="s2">&quot;$1&quot;</span>
-</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'>&lt;h1&gt;mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># replace &amp;lsquo;mplayer -playlist&amp;rsquo; to taste, $1 will hold the url&lt;/h1&gt;</span>
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;mplayer -playlist &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="c"># replace &amp;lsquo;mplayer -playlist&amp;rsquo; to taste, $1 will hold the url&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;exec mplayer -playlist &amp;ldquo;<span class="nv">$1</span>&amp;rdquo; <span class="c"># add &amp;lsquo;exec&amp;rsquo; if you&amp;rsquo;d rather launch player and leave script&lt;/h1&gt;</span>
+</span><span class='line'>&lt;h1&gt;exec mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># add &amp;lsquo;exec&amp;rsquo; if you&amp;rsquo;d rather launch player and leave script&lt;/h1&gt;</span>
 </span><span class='line'>
 </span><span class='line'>&lt;p&gt;<span class="o">}</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;start up radiotray in background <span class="k">if </span>it&amp;rsquo;s not already running&lt;/h1&gt;
+</span><span class='line'>&lt;h1&gt;start up radiotray in background <span class="k">if </span>it<span class="p">&amp;</span>rsquo<span class="p">;</span>s not already running&lt;/h1&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;Comment out this line <span class="k">if </span>you don&amp;rsquo;t use radiotray.&lt;/h1&gt;
+</span><span class='line'>&lt;h1&gt;Comment out this line <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use radiotray.&lt;/h1&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;&amp;amp;1 &amp;amp; <span class="o">)</span>&lt;/p&gt;
+</span><span class='line'>&lt;p&gt;pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="p">&amp;</span>amp<span class="p">;</span> <span class="o">)</span>&lt;/p&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;h6&gt;#&lt;/h6&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;p&gt;while <span class="nb">true</span>
 </span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="nb">echo</span> &amp;ldquo;Please enter keyword<span class="o">(</span>s<span class="o">)</span>&amp;rdquo;
+</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Please enter keyword<span class="o">(</span>s<span class="o">)</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
 </span><span class='line'><span class="nb">read </span>keyword
-</span><span class='line'><span class="nv">keyword</span><span class="o">=</span>&amp;ldquo;<span class="k">${</span><span class="nv">keyword</span><span class="p">// /%20</span><span class="k">}</span>&amp;rdquo; <span class="c"># escape spaces for url</span>
-</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s &amp;ldquo;&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span>&gt;http://www.shoutcast.com/Internet-Radio/<span class="nv">$keyword</span>&lt;/a&gt;&amp;rdquo; |awk &amp;lsquo;
-</span><span class='line'>BEGIN <span class="o">{</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;pre&gt;&lt;code&gt;RS<span class="o">=</span><span class="s2">&quot;&amp;lt;div class=\&quot;dirlist\&quot;&amp;gt;&quot;</span>
-</span><span class='line'><span class="nv">FS</span><span class="o">=</span><span class="s2">&quot;&amp;gt;&quot;</span>
-</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;<span class="o">}</span>
-</span><span class='line'>NR &amp;lt; 2 <span class="o">{</span>next<span class="o">}</span>
+</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">keyword</span><span class="p">// /%20</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># escape spaces for url</span>
+</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span>&gt;http://www.shoutcast.com/Internet-Radio/<span class="nv">$keyword</span>&lt;/a&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span>awk <span class="p">&amp;</span>lsquo<span class="p">;</span>
+</span><span class='line'>BEGIN <span class="o">{</span>
+</span><span class='line'>    <span class="nv">RS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;div <span class="nv">class</span><span class="o">=</span><span class="se">\&quot;</span>dirlist<span class="se">\&quot;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>    <span class="nv">FS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>NR <span class="p">&amp;</span>lt<span class="p">;</span> 2 <span class="o">{</span>next<span class="o">}</span>
 </span><span class='line'><span class="o">{</span><span class="nv">url</span> <span class="o">=</span> <span class="nv">name</span> <span class="o">=</span> <span class="nv">$2</span>
-</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;title<span class="o">=</span><span class="se">\&amp;</span>ldquo;/,&amp;rdquo;&amp;ldquo;,name<span class="k">)</span>
-</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo;.&lt;/em&gt;<span class="nv">$/</span>,&amp;ldquo;&amp;rdquo;,name<span class="o">)</span>
-</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;href<span class="o">=</span><span class="se">\&amp;</span>ldquo;/,&amp;rdquo;&amp;ldquo;,url<span class="o">)</span>
-</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo;.&lt;/em&gt;<span class="nv">$/</span>,&amp;ldquo;&amp;rdquo;,url<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;title<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,name<span class="k">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,name<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;href<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,url<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,url<span class="o">)</span>
 </span><span class='line'>print url,name <span class="o">}</span>
-</span><span class='line'>&amp;lsquo; <span class="o">)</span>
-</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> &amp;ldquo;Sorry, no results <span class="k">for</span> <span class="nv">$keyword</span>&amp;rdquo;; <span class="k">continue</span>;<span class="o">}</span>&lt;/p&gt;
+</span><span class='line'><span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">)</span>
+</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Sorry, no results <span class="k">for</span> <span class="nv">$keyword</span><span class="p">&amp;</span>rdquo<span class="p">;;</span> <span class="k">continue</span><span class="p">;</span><span class="o">}</span>&lt;/p&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;p&gt;unset list
 </span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
 </span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&amp;rsquo;s output</span>
-</span><span class='line'><span class="k">do</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;pre&gt;&lt;code&gt;list<span class="o">[</span><span class="s2">&quot;$name&quot;</span><span class="o">]=</span><span class="s2">&quot;$url&quot;</span>
-</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;done &amp;lt;&amp;lt;&amp;lt; &amp;ldquo;<span class="nv">$results</span>&amp;rdquo;&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;PS3<span class="o">=</span>&amp;lsquo;Please enter the number of your choice &gt; &amp;rsquo;
-</span><span class='line'><span class="k">while </span><span class="nb">true</span>
-</span><span class='line'><span class="k">do</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;pre&gt;&lt;code&gt;select station in <span class="s2">&quot;${!list[@]}&quot;</span> <span class="s1">&#39;Search Again&#39;</span> Quit
 </span><span class='line'><span class="k">do</span>
-</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="s1">&#39;Search Again&#39;</span> <span class="o">]]</span> &amp;amp;&amp;amp; <span class="nb">break </span>2
-</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> &amp;amp;&amp;amp; <span class="o">{</span> <span class="nb">echo</span> <span class="s1">&#39;Goodbye...&#39;</span>; <span class="nb">exit</span>; <span class="o">}</span>
-</span><span class='line'>    <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> &amp;amp;&amp;amp; <span class="o">{</span>
-</span><span class='line'>    <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="s2">&quot;${list[$station]}&quot;</span> | xsel --input <span class="c">#--clipboard  # can paste url</span>
-</span><span class='line'>    radioplay <span class="s2">&quot;${list[$station]}&quot;</span>
-</span><span class='line'>    <span class="nb">break</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="k">done</span>
-</span><span class='line'>&lt;/code&gt;&lt;/pre&gt;
+</span><span class='line'><span class="k">    </span>list<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$name</span><span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$url</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="k">done</span> <span class="p">&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$results</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;echo &amp;ldquo;
+</span><span class='line'>&lt;p&gt;PS3<span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>Please enter the number of your choice &gt; <span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    select </span>station in <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="p">!list[@]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> Quit
+</span><span class='line'>    <span class="k">do</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">break </span>2
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Goodbye<span class="p">&amp;</span>hellip<span class="p">;&amp;</span>rsquo<span class="p">;;</span> <span class="nb">exit</span><span class="p">;</span> <span class="o">}</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> xsel <span class="p">&amp;</span>ndash<span class="p">;</span>input <span class="c">#&amp;ndash;clipboard  # can paste url</span>
+</span><span class='line'>        radioplay <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>        <span class="nb">break</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="k">done</span>
+</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>
 </span><span class='line'>Last station chosen was <span class="nv">$station</span> <span class="o">(</span> <span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span> <span class="o">)</span>
-</span><span class='line'>&amp;rdquo;
+</span><span class='line'><span class="p">&amp;</span>rdquo<span class="p">;</span>
 </span><span class='line'><span class="k">done</span>&lt;/p&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;p&gt;done <span class="c"># closes loop started at line 18</span>

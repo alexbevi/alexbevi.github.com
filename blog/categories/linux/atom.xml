@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-17T09:26:36-04:00</updated>
+  <updated>2014-06-23T11:07:55-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -52,6 +52,376 @@
 <p>We&rsquo;re redirecting the output of <em>strace</em> in order to further filter the results using <a href="http://en.wikipedia.org/wiki/Grep">grep</a>. Depending on what process you&rsquo;re looking to monitor you may need to adjust your grep conditions.</p>
 
 <p>You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Disable Hot Corner Hover in Linux Mint]]></title>
+    <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
+    <updated>2012-11-02T08:01:00-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
+    <content type="html"><![CDATA[<p><strong>UPDATE</strong> For Linux Mint 16, the <code>hotCorner</code> settings have been moved to <code>/usr/share/cinnamon/js/ui/hotCorner.js</code>.</p>
+
+<p>I use <a href="http://www.synergy-foss.org">Synergy</a> on all my computers to share a common mouse and keyboard, but I&rsquo;ve found that with Gnome 3 based distributions, the hot corner was causing me some grief.</p>
+
+<p>The beauty of using a Linux-based system though is that you can pretty much change anything you&rsquo;re unhappy with, so that&rsquo;s what I&rsquo;m here to do.</p>
+
+<!-- more -->
+
+
+<p>By default, <a href="http://linuxmint.com">Linux Mint</a> uses the <a href="http://cinnamon.linuxmint.com">Cinnamon</a> desktop, so the configuration file we&rsquo;re looking for is at <code>/usr/share/cinammon/js/ui/layout.js</code>.</p>
+
+<p>For Linux Mint 12, which still used <a href="https://live.gnome.org/GnomeShell">Gnome Shell</a>, the file was at <code>/usr/share/gnome-shell/js/ui/layout.js</code>.</p>
+
+<p>Edit the appropriate file</p>
+
+<pre><code>$ sudo nano /usr/share/cinammon/js/ui/layout.js
+</code></pre>
+
+<p>Locate the following section (I just searched for <em>hot-corner</em>)</p>
+
+<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: true });
+</code></pre>
+
+<p>And change the value of <code>reactive</code> from <em>true</em> to <em>false</em>:</p>
+
+<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: false });
+</code></pre>
+
+<p>Log off, then back on. Booya!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
+    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
+    <updated>2012-10-30T14:58:00-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
+    <content type="html"><![CDATA[<p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
+
+<h2>How does <em>sudo</em> work?</h2>
+
+<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
+
+<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
+
+<!-- more -->
+
+
+<h2>Cause and Symptoms</h2>
+
+<p><em>sudo</em> breaks when one or more of the following occurs:</p>
+
+<ul>
+<li>the <code>/etc/sudoers</code> file has been altered to no longer allow users in the admin group to escalate privilege</li>
+<li>the permissions on the <code>/etc/sudoers</code> file are changed to something other than 0440</li>
+<li>a user who should not have been has been taken out of the <em>admin</em> group</li>
+</ul>
+
+
+<p><img class="center" src="/images/fixsudoprecise01.jpg"></p>
+
+<p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
+
+<h2>Booting into recovery mode</h2>
+
+<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&rsquo;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
+
+<p>If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.</p>
+
+<p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
+
+<p><img class="center" src="/images/fixsudoprecise02.jpg"></p>
+
+<p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
+
+<p><img class="center" src="/images/fixsudoprecise03.jpg"></p>
+
+<p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
+
+<p>The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.</p>
+
+<p>In recent versions of Ubuntu, the filesystem is mounted as read-only, so you need to enter the follow command to get it to remount as read-write, which will allow you to make changes:</p>
+
+<pre><code>mount -o rw,remount /
+</code></pre>
+
+<h2>Do the actual repair</h2>
+
+<h3>Case 1</h3>
+
+<p>If you&rsquo;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
+
+<pre><code>adduser username admin
+</code></pre>
+
+<p>where <em>username</em> is your actual username.</p>
+
+<h3>Case 2</h3>
+
+<p>If you had previously edited the /etc/_sudo_ers file and screwed it up, then type</p>
+
+<pre><code>sudo cp /etc/sudoers /etc/sudoers.backup
+sudo nano /etc/sudoers
+</code></pre>
+
+<p>(the proper command is actually <code>sudo visudo</code>, which checks syntax before you save the <code>/etc/sudoers</code> file, but in some older versions of Ubuntu, that command uses the vi editor, which can be confusing to new users, as opposed to nano, which is more straightforward)
+and make it sure it looks like this:</p>
+
+<pre><code>#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults  env_reset
+Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root  ALL=(ALL:ALL) ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+</code></pre>
+
+<p>When you&rsquo;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
+
+<h3>Case 3</h3>
+
+<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&rsquo;ll want to type</p>
+
+<pre><code>chmod 0440 /etc/sudoers
+</code></pre>
+
+<p>When you&rsquo;re done with whatever commands you needed to enter, type</p>
+
+<pre><code>exit
+</code></pre>
+
+<p>This will bring you back to the recovery menu.</p>
+
+<p><img class="center" src="/images/fixsudoprecise04.jpg">
+<img class="center" src="/images/fixsudoprecise05.jpg"></p>
+
+<p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
+    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
+    <updated>2012-08-10T08:03:00-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
+    <content type="html"><![CDATA[<p>As much as I enjoy Ubuntu, I haven&rsquo;t warmed to their Unity desktop. I personally find it&rsquo;s too similar to OS X, I don&rsquo;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
+
+<p>Since it&rsquo;s based on GTK3, I know you can modify this all, but I&rsquo;d rather just use a desktop environment that doesn&rsquo;t require that level of tweaking.</p>
+
+<p>Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.</p>
+
+<p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
+
+<p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
+    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
+    <updated>2012-07-18T08:20:00-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
+    <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
+
+<!-- more -->
+
+
+<p>After searching around, i found a <a href="http://crunchbanglinux.org/forums/post/150587/#p150587">post on the crunchbang forums</a> that provided exactly the script I was looking for.</p>
+
+<p>I modified it a tiny bit to check for dependencies:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;search shoutcast and send url to radiotray or another player&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;needs Bash 4, curl, <span class="o">[</span>radiotray<span class="o">]</span>, <span class="o">[</span>xsel to send url to X selection <span class="k">for </span>pasting<span class="o">]</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;<span class="o">(</span>comment out line 53 <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;&amp;</span>hellip<span class="p">;&amp;</span>rdquo<span class="p">;</span> <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use xsel<span class="o">)</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;command -v curl &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>curl required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>xsel required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>radiotray required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;choose player <span class="o">(</span><span class="p">&amp;</span>amp<span class="p">;</span> options <span class="k">if </span>necessary<span class="o">)</span>: radio url will be sent to it.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;radioplay<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    radiotray <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># replace &amp;lsquo;mplayer -playlist&amp;rsquo; to taste, $1 will hold the url&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;exec mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># add &amp;lsquo;exec&amp;rsquo; if you&amp;rsquo;d rather launch player and leave script&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;start up radiotray in background <span class="k">if </span>it<span class="p">&amp;</span>rsquo<span class="p">;</span>s not already running&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;Comment out this line <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use radiotray.&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="p">&amp;</span>amp<span class="p">;</span> <span class="o">)</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h6&gt;#&lt;/h6&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;while <span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Please enter keyword<span class="o">(</span>s<span class="o">)</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="nb">read </span>keyword
+</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">keyword</span><span class="p">// /%20</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># escape spaces for url</span>
+</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span>&gt;http://www.shoutcast.com/Internet-Radio/<span class="nv">$keyword</span>&lt;/a&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span>awk <span class="p">&amp;</span>lsquo<span class="p">;</span>
+</span><span class='line'>BEGIN <span class="o">{</span>
+</span><span class='line'>    <span class="nv">RS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;div <span class="nv">class</span><span class="o">=</span><span class="se">\&quot;</span>dirlist<span class="se">\&quot;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>    <span class="nv">FS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>NR <span class="p">&amp;</span>lt<span class="p">;</span> 2 <span class="o">{</span>next<span class="o">}</span>
+</span><span class='line'><span class="o">{</span><span class="nv">url</span> <span class="o">=</span> <span class="nv">name</span> <span class="o">=</span> <span class="nv">$2</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;title<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,name<span class="k">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,name<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;href<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,url<span class="o">)</span>
+</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,url<span class="o">)</span>
+</span><span class='line'>print url,name <span class="o">}</span>
+</span><span class='line'><span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">)</span>
+</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Sorry, no results <span class="k">for</span> <span class="nv">$keyword</span><span class="p">&amp;</span>rdquo<span class="p">;;</span> <span class="k">continue</span><span class="p">;</span><span class="o">}</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;unset list
+</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
+</span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&amp;rsquo;s output</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    </span>list<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$name</span><span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$url</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="k">done</span> <span class="p">&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$results</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;PS3<span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>Please enter the number of your choice &gt; <span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    select </span>station in <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="p">!list[@]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> Quit
+</span><span class='line'>    <span class="k">do</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">break </span>2
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Goodbye<span class="p">&amp;</span>hellip<span class="p">;&amp;</span>rsquo<span class="p">;;</span> <span class="nb">exit</span><span class="p">;</span> <span class="o">}</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> xsel <span class="p">&amp;</span>ndash<span class="p">;</span>input <span class="c">#&amp;ndash;clipboard  # can paste url</span>
+</span><span class='line'>        radioplay <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>        <span class="nb">break</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="k">done</span>
+</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>
+</span><span class='line'>Last station chosen was <span class="nv">$station</span> <span class="o">(</span> <span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span> <span class="o">)</span>
+</span><span class='line'><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="k">done</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;done <span class="c"># closes loop started at line 18</span>
+</span><span class='line'><span class="nb">exit</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

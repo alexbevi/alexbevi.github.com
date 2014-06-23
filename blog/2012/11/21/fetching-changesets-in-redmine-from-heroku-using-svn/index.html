@@ -104,7 +104,7 @@
   
 
 
-<time datetime="2012-11-21T08:44:00-05:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time>
+<time datetime="2012-11-21T08:44:00-05:00" pubdate data-updated="true">Nov 21<sup>st</sup>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -237,12 +237,11 @@ make
 cp subversion/svn/svn /vagrant
 </code></pre>
 
-<blockquote><p><strong>NOTE</strong> stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.</p>
+<blockquote><p><strong>NOTE</strong> stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.
+    vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
+    -rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*</p>
 
-<pre><code>vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
--rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*
-
-vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
+<pre><code>vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
 
 vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
 -rwxr-xr-x 1 vagrant vagrant 4257472 2012-11-21 14:56 subversion/svn/svn*
@@ -266,7 +265,7 @@ git commit -a -m "Adding a Statically Linked Subversion to Redmine"
 git push heroku master
 </code></pre>
 
-<p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration &ndash;> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
+<p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration -> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
 
 <p><img class="center" src="/images/heroku-svn-01.jpg"></p>
 
@@ -321,7 +320,7 @@ git push heroku master
   
 
 
-<time datetime="2012-11-21T08:44:00-05:00" pubdate data-updated="true">Nov 21<span>st</span>, 2012</time>
+<time datetime="2012-11-21T08:44:00-05:00" pubdate data-updated="true">Nov 21<sup>st</sup>, 2012</time>
       
 
 <span class="categories">
@@ -378,6 +377,10 @@ git push heroku master
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Troubleshooting A Mongoid Connection Issue</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process' STDOUT</a>
       </li>
     
@@ -391,10 +394,6 @@ git push heroku master
     
       <li class="post">
         <a href="/blog/2014/02/18/final-rewrites-over-50-percent-done/">Final Rewrites Over 50% Done</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/09/first-round-of-rewrites-completed/">First Round of Rewrites Completed!</a>
       </li>
     
   </ul>

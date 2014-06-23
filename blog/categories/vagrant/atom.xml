@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vagrant | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/vagrant/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-17T09:26:36-04:00</updated>
+  <updated>2014-06-23T11:07:55-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -77,18 +77,15 @@ vagrant init
 
 <p>This will create a <code>Vagrantfile</code> in the current director, which contains configuration information for our build system. In order to tell Vagrant to use the <em>lucid64</em> instace we&rsquo;ve downloaded, the <code>Vagrantfile</code> needs to be edited and the <em>config.vm.box</em> section updated.</p>
 
-<p>``` ruby</p>
+<pre><code class="ruby"># -*- mode: ruby -*-
+# vi: set ft=ruby :
 
-<h1>&ndash;<em>&ndash; mode: ruby &ndash;</em>&ndash;</h1>
-
-<h1>vi: set ft=ruby :</h1>
-
-<p>Vagrant::Config.run do |config|<br/>
-  # &hellip;
+Vagrant::Config.run do |config|  
+  # ...
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = &ldquo;lucid64&rdquo;
-  # &hellip;
-```</p>
+  config.vm.box = "lucid64"
+  # ...
+</code></pre>
 
 <p>Now that everything is ready to go, let&rsquo;s start the instance.</p>
 
@@ -136,12 +133,11 @@ make
 cp subversion/svn/svn /vagrant
 </code></pre>
 
-<blockquote><p><strong>NOTE</strong> stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.</p>
+<blockquote><p><strong>NOTE</strong> stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.
+    vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
+    -rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*</p>
 
-<pre><code>vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
--rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*
-
-vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
+<pre><code>vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
 
 vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
 -rwxr-xr-x 1 vagrant vagrant 4257472 2012-11-21 14:56 subversion/svn/svn*
@@ -165,7 +161,7 @@ git commit -a -m "Adding a Statically Linked Subversion to Redmine"
 git push heroku master
 </code></pre>
 
-<p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration &ndash;> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
+<p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration -> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
 
 <p><img class="center" src="/images/heroku-svn-01.jpg"></p>
 
