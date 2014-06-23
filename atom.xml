@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-23T11:15:00-04:00</updated>
+  <updated>2014-06-23T11:17:03-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,20 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Troubleshooting A Mongoid Connection Issue]]></title>
+    <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
     <link href="http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/"/>
-    <updated>2014-06-23T00:00:00-04:00</updated>
+    <updated>2014-06-23T10:27:58-04:00</updated>
     <id>http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue</id>
-    <content type="html"><![CDATA[<hr />
-
-<p>layout: post
-title: &ldquo;Troubleshooting a Mongoid Connection Issue&rdquo;
-date: 2014-06-23 10:27:58 -0400
-comments: true</p>
-
-<h2>categories: [mongo, mongoid, rails]</h2>
-
-<p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
 
 <p>I&rsquo;m now trying to dive into the issue using GDB directly, which I&rsquo;m starting off following the <a href="http://blog.newrelic.com/2013/04/29/debugging-stuck-ruby-processes-what-to-do-before-you-kill-9/">NewRelic blog post</a> about debugging hung Ruby processes.</p>
 
