@@ -20,7 +20,7 @@ and then tried to get some info from the C-level backtraces via:
 
 This resulted in a lot of information that didn't really help me (at least not immediately):
 
-<-- more -->
+<!--more-->
 
 ```
 Thread 8 (Thread 0x7f032a5e1700 (LWP 9001)):
