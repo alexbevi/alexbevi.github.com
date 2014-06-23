@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mongoid | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/mongoid/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-23T11:18:38-04:00</updated>
+  <updated>2014-06-23T11:24:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -34,7 +34,8 @@
 
 <p>This resulted in a lot of information that didn&rsquo;t really help me (at least not immediately):</p>
 
-<p><-- more --></p>
+<!--more-->
+
 
 <pre><code>Thread 8 (Thread 0x7f032a5e1700 (LWP 9001)):
 #0  0x00007f0329c0ffbd in poll () at ../sysdeps/unix/syscall-template.S:81
