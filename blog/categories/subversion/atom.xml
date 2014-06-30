@@ -4,7 +4,7 @@
   <title><![CDATA[Category: subversion | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/subversion/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-23T11:24:28-04:00</updated>
+  <updated>2014-06-30T14:47:18-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,14 @@
     <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
     <updated>2012-11-21T08:44:00-05:00</updated>
     <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
-    <content type="html"><![CDATA[<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
+    <content type="html"><![CDATA[<h2>UPDATED 2014-06-30</h2>
+
+<p>The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack ;)</p>
+
+<pre><code>heroku config:set BUILDPACK_URL=https://github.com/cucumber-ltd/heroku-buildpack-subversion.git
+</code></pre>
+
+<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
 
 <p>Since I&rsquo;m &ldquo;frugal&rdquo;, I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on <a href="http://www.heroku.com">Heroku</a>, my files and attachments on <a href="http://www.dropbox.com">Dropbox</a> and my source on <a href="https://github.com">GitHub</a>.</p>
 
