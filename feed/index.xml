@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-07T10:16:28-04:00</updated>
+  <updated>2014-07-07T10:18:22-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -1539,9 +1539,7 @@ As any programmer knows, the likelihood of new code working properly the first t
     <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
     <updated>2012-11-21T08:44:00-05:00</updated>
     <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
-    <content type="html"><![CDATA[<h2>UPDATED 2014-06-30</h2>
-
-<p>The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)</p>
+    <content type="html"><![CDATA[<p>[<strong>NOTE</strong>: The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)]</p>
 
 <p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
 
