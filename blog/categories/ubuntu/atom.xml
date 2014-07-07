@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ubuntu | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,128 +18,118 @@
     <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
     <updated>2012-10-30T14:58:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
-    <content type="html"><![CDATA[<p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
+    <content type="html"><![CDATA[This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.
 
-<h2>How does <em>sudo</em> work?</h2>
+## How does _sudo_ work?
 
-<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
+The way that Ubuntu has implemented _sudo_, the `/etc/sudoers` file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the `/etc/groups` file says which users are in the admin group.
 
-<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
+You can read more on [the community documentation](https://help.ubuntu.com/community/RootSudo) about Ubuntu's implementation of _sudo_.
 
 <!-- more -->
 
+## Cause and Symptoms
 
-<h2>Cause and Symptoms</h2>
+_sudo_ breaks when one or more of the following occurs:
 
-<p><em>sudo</em> breaks when one or more of the following occurs:</p>
+* the `/etc/sudoers` file has been altered to no longer allow users in the admin group to escalate privilege
+* the permissions on the `/etc/sudoers` file are changed to something other than 0440
+* a user who should not have been has been taken out of the _admin_ group
 
-<ul>
-<li>the <code>/etc/sudoers</code> file has been altered to no longer allow users in the admin group to escalate privilege</li>
-<li>the permissions on the <code>/etc/sudoers</code> file are changed to something other than 0440</li>
-<li>a user who should not have been has been taken out of the <em>admin</em> group</li>
-</ul>
+<img class="center" src="/images/fixsudoprecise01.jpg">
+
+If _sudo_ is broken this way, you may notice an error saying you're not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.
 
 
-<p><img class="center" src="/images/fixsudoprecise01.jpg"></p>
+## Booting into recovery mode
 
-<p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
+Since fixing _sudo_ involves editing system files, and you would otherwise need _sudo_ to do so, you'll have to boot into recovery mode to gain root (system-wide) access in order to repair _sudo_.
 
-<h2>Booting into recovery mode</h2>
+If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.
 
-<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&rsquo;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
+If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the _Shift_ key.
 
-<p>If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.</p>
+<img class="center" src="/images/fixsudoprecise02.jpg">
 
-<p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
+From the boot menu, select _recovery mode_, which is usually the second boot option.
 
-<p><img class="center" src="/images/fixsudoprecise02.jpg"></p>
+<img class="center" src="/images/fixsudoprecise03.jpg">
 
-<p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
+After you select recovery mode and wait for all the boot-up processes to finish, you'll be presented with a few options. In this case, you want the *Drop to root shell* prompt option so press the Down arrow to get to that option, and then press Enter to select it.
 
-<p><img class="center" src="/images/fixsudoprecise03.jpg"></p>
+The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.
 
-<p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
+In recent versions of Ubuntu, the filesystem is mounted as read-only, so you need to enter the follow command to get it to remount as read-write, which will allow you to make changes:
 
-<p>The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.</p>
+    mount -o rw,remount /
 
-<p>In recent versions of Ubuntu, the filesystem is mounted as read-only, so you need to enter the follow command to get it to remount as read-write, which will allow you to make changes:</p>
+## Do the actual repair
 
-<pre><code>mount -o rw,remount /
-</code></pre>
+### Case 1
 
-<h2>Do the actual repair</h2>
+If you'd removed your last _admin_ user from the _admin_ group, then type
 
-<h3>Case 1</h3>
+    adduser username admin
 
-<p>If you&rsquo;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
+where _username_ is your actual username.
 
-<pre><code>adduser username admin
-</code></pre>
+### Case 2
 
-<p>where <em>username</em> is your actual username.</p>
+If you had previously edited the /etc/_sudo_ers file and screwed it up, then type
 
-<h3>Case 2</h3>
+    sudo cp /etc/sudoers /etc/sudoers.backup
+    sudo nano /etc/sudoers
 
-<p>If you had previously edited the /etc/_sudo_ers file and screwed it up, then type</p>
+(the proper command is actually `sudo visudo`, which checks syntax before you save the `/etc/sudoers` file, but in some older versions of Ubuntu, that command uses the vi editor, which can be confusing to new users, as opposed to nano, which is more straightforward)
+and make it sure it looks like this:
 
-<pre><code>sudo cp /etc/sudoers /etc/sudoers.backup
-sudo nano /etc/sudoers
-</code></pre>
+    #
+    # This file MUST be edited with the 'visudo' command as root.
+    #
+    # Please consider adding local content in /etc/sudoers.d/ instead of
+    # directly modifying this file.
+    #
+    # See the man page for details on how to write a sudoers file.
+    #
+    Defaults  env_reset
+    Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    # Host alias specification
 
-<p>(the proper command is actually <code>sudo visudo</code>, which checks syntax before you save the <code>/etc/sudoers</code> file, but in some older versions of Ubuntu, that command uses the vi editor, which can be confusing to new users, as opposed to nano, which is more straightforward)
-and make it sure it looks like this:</p>
+    # User alias specification
 
-<pre><code>#
-# This file MUST be edited with the 'visudo' command as root.
-#
-# Please consider adding local content in /etc/sudoers.d/ instead of
-# directly modifying this file.
-#
-# See the man page for details on how to write a sudoers file.
-#
-Defaults  env_reset
-Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-# Host alias specification
+    # Cmnd alias specification
 
-# User alias specification
+    # User privilege specification
+    root  ALL=(ALL:ALL) ALL
 
-# Cmnd alias specification
+    # Members of the admin group may gain root privileges
+    %admin ALL=(ALL) ALL
 
-# User privilege specification
-root  ALL=(ALL:ALL) ALL
+    # Allow members of group sudo to execute any command
+    %sudo ALL=(ALL:ALL) ALL
 
-# Members of the admin group may gain root privileges
-%admin ALL=(ALL) ALL
+    # See sudoers(5) for more information on "#include" directives:
 
-# Allow members of group sudo to execute any command
-%sudo ALL=(ALL:ALL) ALL
+    #includedir /etc/sudoers.d
 
-# See sudoers(5) for more information on "#include" directives:
+When you're done making changes, press _Control-X, Y, Enter_.
 
-#includedir /etc/sudoers.d
-</code></pre>
+### Case 3
 
-<p>When you&rsquo;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
+If you are trying to fix the error where it says _sudo_ is mode _____, should be 0440, then you'll want to type
+    
+    chmod 0440 /etc/sudoers
 
-<h3>Case 3</h3>
+When you're done with whatever commands you needed to enter, type
 
-<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&rsquo;ll want to type</p>
+    exit
 
-<pre><code>chmod 0440 /etc/sudoers
-</code></pre>
+This will bring you back to the recovery menu.
 
-<p>When you&rsquo;re done with whatever commands you needed to enter, type</p>
+<img class="center" src="/images/fixsudoprecise04.jpg">
+<img class="center" src="/images/fixsudoprecise05.jpg">
 
-<pre><code>exit
-</code></pre>
-
-<p>This will bring you back to the recovery menu.</p>
-
-<p><img class="center" src="/images/fixsudoprecise04.jpg">
-<img class="center" src="/images/fixsudoprecise05.jpg"></p>
-
-<p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
-]]></content>
+Choose to resume a normal boot. Then you should be able to _sudo_ again.]]></content>
   </entry>
   
   <entry>
@@ -147,16 +137,15 @@ root  ALL=(ALL:ALL) ALL
     <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
     <updated>2012-08-29T13:46:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
-    <content type="html"><![CDATA[<p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
+    <content type="html"><![CDATA[A couple projects I work on use [MongoDB](http://www.mongodb.org/) as the database, and I'm generally not satisfied to use the (often outdated) version that ships with Ubuntu.
 
-<p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
+As a result, I wrote this script to automate fetching, extracting and linking the latest version.
 
 <!-- more -->
 
+To configure the script, just replace the `PKG` information with whatever value is most relevant for your configuration at [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads).
 
-<p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
-
-<p><div><script src='https://gist.github.com/3516100.js'></script>
+<div><script src='https://gist.github.com/3516100.js'></script>
 <noscript><pre><code>#!/bin/bash
 
 PKG=mongodb-linux-x86_64-2.2.0
@@ -210,10 +199,9 @@ rm $PKG.tgz
 
 echo &quot;starting mongod service&quot;
 sudo service mongod start</code></pre></noscript></div>
-</p>
 
-<p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
-]]></content>
+
+Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)'s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
   </entry>
   
   <entry>
@@ -221,16 +209,15 @@ sudo service mongod start</code></pre></noscript></div>
     <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
     <updated>2012-08-10T08:03:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
-    <content type="html"><![CDATA[<p>As much as I enjoy Ubuntu, I haven&rsquo;t warmed to their Unity desktop. I personally find it&rsquo;s too similar to OS X, I don&rsquo;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
+    <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
 
-<p>Since it&rsquo;s based on GTK3, I know you can modify this all, but I&rsquo;d rather just use a desktop environment that doesn&rsquo;t require that level of tweaking.</p>
+Since it's based on GTK3, I know you can modify this all, but I'd rather just use a desktop environment that doesn't require that level of tweaking.
 
-<p>Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.</p>
+Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.
 
-<p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
+Over at the [LinuxBSDOS](http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/) blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.
 
-<p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
-]]></content>
+I found that after doing this, I ended up with no sound. To fix this, [AskUbuntu](http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470) has an article that I found useful.]]></content>
   </entry>
   
   <entry>
@@ -238,16 +225,15 @@ sudo service mongod start</code></pre></noscript></div>
     <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
     <updated>2012-07-18T08:20:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
-    <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
+    <content type="html"><![CDATA[I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
 
 <!-- more -->
 
+After searching around, i found a [post on the crunchbang forums](http://crunchbanglinux.org/forums/post/150587/#p150587) that provided exactly the script I was looking for.
 
-<p>After searching around, i found a <a href="http://crunchbanglinux.org/forums/post/150587/#p150587">post on the crunchbang forums</a> that provided exactly the script I was looking for.</p>
+I modified it a tiny bit to check for dependencies:
 
-<p>I modified it a tiny bit to check for dependencies:</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -316,100 +302,75 @@ sudo service mongod start</code></pre></noscript></div>
 <span class='line-number'>66</span>
 <span class='line-number'>67</span>
 <span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># search shoutcast and send url to radiotray or another player</span>
+</span><span class='line'><span class="c"># needs Bash 4, curl, [radiotray], [xsel to send url to X selection for pasting]</span>
+</span><span class='line'><span class="c"># (comment out line 53 &quot;printf &#39;%s&#39;...&quot; if you don&#39;t use xsel)</span>
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;!/bin/bash&lt;/h1&gt;
+</span><span class='line'><span class="nb">command</span> -v curl &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;curl required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;xsel required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;radiotray required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
 </span><span class='line'>
-</span><span class='line'>&lt;h1&gt;search shoutcast and send url to radiotray or another player&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;needs Bash 4, curl, <span class="o">[</span>radiotray<span class="o">]</span>, <span class="o">[</span>xsel to send url to X selection <span class="k">for </span>pasting<span class="o">]</span>&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;<span class="o">(</span>comment out line 53 <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;&amp;</span>hellip<span class="p">;&amp;</span>rdquo<span class="p">;</span> <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use xsel<span class="o">)</span>&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;command -v curl &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>curl required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>xsel required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>radiotray required.<span class="p">&amp;</span>rdquo<span class="p">;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;choose player <span class="o">(</span><span class="p">&amp;</span>amp<span class="p">;</span> options <span class="k">if </span>necessary<span class="o">)</span>: radio url will be sent to it.&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;radioplay<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    radiotray <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># replace &amp;lsquo;mplayer -playlist&amp;rsquo; to taste, $1 will hold the url&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;exec mplayer -playlist <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$1</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># add &amp;lsquo;exec&amp;rsquo; if you&amp;rsquo;d rather launch player and leave script&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;<span class="o">}</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;start up radiotray in background <span class="k">if </span>it<span class="p">&amp;</span>rsquo<span class="p">;</span>s not already running&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h1&gt;Comment out this line <span class="k">if </span>you don<span class="p">&amp;</span>rsquo<span class="p">;</span>t use radiotray.&lt;/h1&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;<span class="p">&amp;</span>amp<span class="p">;</span>1 <span class="p">&amp;</span>amp<span class="p">;</span> <span class="o">)</span>&lt;/p&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;h6&gt;#&lt;/h6&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;p&gt;while <span class="nb">true</span>
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Please enter keyword<span class="o">(</span>s<span class="o">)</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
-</span><span class='line'><span class="nb">read </span>keyword
-</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">keyword</span><span class="p">// /%20</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># escape spaces for url</span>
-</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span>&gt;http://www.shoutcast.com/Internet-Radio/<span class="nv">$keyword</span>&lt;/a&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span>awk <span class="p">&amp;</span>lsquo<span class="p">;</span>
-</span><span class='line'>BEGIN <span class="o">{</span>
-</span><span class='line'>    <span class="nv">RS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;div <span class="nv">class</span><span class="o">=</span><span class="se">\&quot;</span>dirlist<span class="se">\&quot;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
-</span><span class='line'>    <span class="nv">FS</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>&gt;<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'><span class="c"># choose player (&amp; options if necessary): radio url will be sent to it.</span>
+</span><span class='line'>radioplay<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    radiotray <span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="c">#    mplayer -playlist &quot;$1&quot; # replace &#39;mplayer -playlist&#39; to taste, $1 will hold the url</span>
+</span><span class='line'><span class="c">#    exec mplayer -playlist &quot;$1&quot; # add &#39;exec&#39; if you&#39;d rather launch player and leave script</span>
 </span><span class='line'><span class="o">}</span>
-</span><span class='line'>NR <span class="p">&amp;</span>lt<span class="p">;</span> 2 <span class="o">{</span>next<span class="o">}</span>
-</span><span class='line'><span class="o">{</span><span class="nv">url</span> <span class="o">=</span> <span class="nv">name</span> <span class="o">=</span> <span class="nv">$2</span>
-</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;title<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,name<span class="k">)</span>
-</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,name<span class="o">)</span>
-</span><span class='line'>sub<span class="o">(</span>/^.&lt;em&gt;href<span class="o">=</span><span class="se">\&amp;</span>ldquo<span class="p">;</span>/,<span class="p">&amp;</span>rdquo<span class="p">;&amp;</span>ldquo<span class="p">;</span>,url<span class="o">)</span>
-</span><span class='line'>sub<span class="o">(</span>/<span class="se">\&amp;</span>rdquo<span class="p">;</span>.&lt;/em&gt;<span class="nv">$/</span>,<span class="p">&amp;</span>ldquo<span class="p">;&amp;</span>rdquo<span class="p">;</span>,url<span class="o">)</span>
-</span><span class='line'>print url,name <span class="o">}</span>
-</span><span class='line'><span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">)</span>
-</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Sorry, no results <span class="k">for</span> <span class="nv">$keyword</span><span class="p">&amp;</span>rdquo<span class="p">;;</span> <span class="k">continue</span><span class="p">;</span><span class="o">}</span>&lt;/p&gt;
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;unset list
-</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
-</span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&amp;rsquo;s output</span>
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">    </span>list<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$name</span><span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$url</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
-</span><span class='line'><span class="k">done</span> <span class="p">&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$results</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
+</span><span class='line'><span class="c"># start up radiotray in background if it&#39;s not already running</span>
+</span><span class='line'><span class="c"># Comment out this line if you don&#39;t use radiotray.</span>
+</span><span class='line'>pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;&amp;1 &amp; <span class="o">)</span>
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;PS3<span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>Please enter the number of your choice &gt; <span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="c">##########################################################################</span>
 </span><span class='line'><span class="k">while </span><span class="nb">true</span>
 </span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">    select </span>station in <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="p">!list[@]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> Quit
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Please enter keyword(s)&quot;</span>
+</span><span class='line'><span class="nb">read </span>keyword
+</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="s2">&quot;${keyword// /%20}&quot;</span> <span class="c"># escape spaces for url</span>
+</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span> |awk <span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">BEGIN {</span>
+</span><span class='line'><span class="s1">    RS=&quot;&lt;div class=\&quot;dirlist\&quot;&gt;&quot;</span>
+</span><span class='line'><span class="s1">    FS=&quot;&gt;&quot;</span>
+</span><span class='line'><span class="s1">}</span>
+</span><span class='line'><span class="s1">NR &lt; 2 {next}</span>
+</span><span class='line'><span class="s1">{url = name = $2</span>
+</span><span class='line'><span class="s1">sub(/^.*title=\&quot;/,&quot;&quot;,name)</span>
+</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,name)</span>
+</span><span class='line'><span class="s1">sub(/^.*href=\&quot;/,&quot;&quot;,url)</span>
+</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,url)</span>
+</span><span class='line'><span class="s1">print url,name }</span>
+</span><span class='line'><span class="s1">&#39;</span> <span class="k">)</span>
+</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Sorry, no results for $keyword&quot;</span>; <span class="k">continue</span>;<span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">unset </span>list
+</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
+</span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&#39;s output</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    </span>list<span class="o">[</span><span class="s2">&quot;$name&quot;</span><span class="o">]=</span><span class="s2">&quot;$url&quot;</span>
+</span><span class='line'><span class="k">done</span> &lt;&lt;&lt; <span class="s2">&quot;$results&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">PS3</span><span class="o">=</span><span class="s1">&#39;Please enter the number of your choice &gt; &#39;</span>
+</span><span class='line'><span class="k">while </span><span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="k">    select </span>station in <span class="s2">&quot;${!list[@]}&quot;</span> <span class="s1">&#39;Search Again&#39;</span> Quit
 </span><span class='line'>    <span class="k">do</span>
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Search Again<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">break </span>2
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>Goodbye<span class="p">&amp;</span>hellip<span class="p">;&amp;</span>rsquo<span class="p">;;</span> <span class="nb">exit</span><span class="p">;</span> <span class="o">}</span>
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="o">{</span>
-</span><span class='line'>        <span class="nb">printf</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>%s<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> xsel <span class="p">&amp;</span>ndash<span class="p">;</span>input <span class="c">#&amp;ndash;clipboard  # can paste url</span>
-</span><span class='line'>        radioplay <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="s1">&#39;Search Again&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">break </span>2
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s1">&#39;Goodbye...&#39;</span>; <span class="nb">exit</span>; <span class="o">}</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="s2">&quot;${list[$station]}&quot;</span> | xsel --input <span class="c">#--clipboard  # can paste url</span>
+</span><span class='line'>        radioplay <span class="s2">&quot;${list[$station]}&quot;</span>
 </span><span class='line'>        <span class="nb">break</span>
 </span><span class='line'>        <span class="o">}</span>
 </span><span class='line'>    <span class="k">done</span>
-</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>
-</span><span class='line'>Last station chosen was <span class="nv">$station</span> <span class="o">(</span> <span class="k">${</span><span class="nv">list</span><span class="p">[</span><span class="nv">$station</span><span class="p">]</span><span class="k">}</span> <span class="o">)</span>
-</span><span class='line'><span class="p">&amp;</span>rdquo<span class="p">;</span>
-</span><span class='line'><span class="k">done</span>&lt;/p&gt;
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;</span>
+</span><span class='line'><span class="s2">Last station chosen was $station ( ${list[$station]} )</span>
+</span><span class='line'><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">done</span>
 </span><span class='line'>
-</span><span class='line'>&lt;p&gt;done <span class="c"># closes loop started at line 18</span>
+</span><span class='line'><span class="k">done</span> <span class="c"># closes loop started at line 18</span>
 </span><span class='line'><span class="nb">exit</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
+</span></code></pre></td></tr></table></div></figure></notextile></div>]]></content>
   </entry>
   
 </feed>

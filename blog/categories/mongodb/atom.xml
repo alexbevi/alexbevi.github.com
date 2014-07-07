@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,16 +18,15 @@
     <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
     <updated>2012-08-29T13:46:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
-    <content type="html"><![CDATA[<p>A couple projects I work on use <a href="http://www.mongodb.org/">MongoDB</a> as the database, and I&rsquo;m generally not satisfied to use the (often outdated) version that ships with Ubuntu.</p>
+    <content type="html"><![CDATA[A couple projects I work on use [MongoDB](http://www.mongodb.org/) as the database, and I'm generally not satisfied to use the (often outdated) version that ships with Ubuntu.
 
-<p>As a result, I wrote this script to automate fetching, extracting and linking the latest version.</p>
+As a result, I wrote this script to automate fetching, extracting and linking the latest version.
 
 <!-- more -->
 
+To configure the script, just replace the `PKG` information with whatever value is most relevant for your configuration at [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads).
 
-<p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
-
-<p><div><script src='https://gist.github.com/3516100.js'></script>
+<div><script src='https://gist.github.com/3516100.js'></script>
 <noscript><pre><code>#!/bin/bash
 
 PKG=mongodb-linux-x86_64-2.2.0
@@ -81,10 +80,9 @@ rm $PKG.tgz
 
 echo &quot;starting mongod service&quot;
 sudo service mongod start</code></pre></noscript></div>
-</p>
 
-<p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
-]]></content>
+
+Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)'s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
   </entry>
   
 </feed>

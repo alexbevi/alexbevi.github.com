@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,40 +18,37 @@
     <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
     <updated>2014-06-02T09:16:54-04:00</updated>
     <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
+    <content type="html"><![CDATA[I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
 
-<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
+One example is a series of PowerShell scripts I've written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.
 
-<p><img src="/images/20140602-001.jpg"></p>
+<img src="/images/20140602-001.jpg">
 
 <!-- more -->
 
+One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to followup from another terminal session.
 
-<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to followup from another terminal session.</p>
+Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the [progress_bar](https://github.com/paul/progress_bar) gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.
 
-<p>Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the <a href="https://github.com/paul/progress_bar">progress_bar</a> gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.</p>
+If I were to execute the task directly, I could watch the progress directly. Since we're running this script remotely though, this information isn't directly accessible.
 
-<p>If I were to execute the task directly, I could watch the progress directly. Since we&rsquo;re running this script remotely though, this information isn&rsquo;t directly accessible.</p>
+In order to gain access to the progress info for this taks, we'll need to access the process' STDOUT from an alternate session.
 
-<p>In order to gain access to the progress info for this taks, we&rsquo;ll need to access the process' STDOUT from an alternate session.</p>
+The first step is to find the PID of the process we would like:
 
-<p>The first step is to find the PID of the process we would like:</p>
+    ps aux | grep ruby
 
-<pre><code>ps aux | grep ruby
+    >> 1001     16544 67.7 29.4 1319420 506456 ?      Rl   13:00   3:02 ruby rake phoenix:sync_locations_from_csv
 
-&gt;&gt; 1001     16544 67.7 29.4 1319420 506456 ?      Rl   13:00   3:02 ruby rake phoenix:sync_locations_from_csv
-</code></pre>
+Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/wiki/Strace) in order to gain a bit more insight into the current process.
 
-<p>Now that we have the PID, we can pass this to <a href="http://en.wikipedia.org/wiki/Strace">strace</a> in order to gain a bit more insight into the current process.</p>
+    sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
 
-<pre><code>sudo strace -p 16544 -s 80 -e write 2&gt;&amp;1 | grep "write(2, \"\["
-</code></pre>
+<img src="/images/20140602-002.jpg">
 
-<p><img src="/images/20140602-002.jpg"></p>
+We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
 
-<p>We&rsquo;re redirecting the output of <em>strace</em> in order to further filter the results using <a href="http://en.wikipedia.org/wiki/Grep">grep</a>. Depending on what process you&rsquo;re looking to monitor you may need to adjust your grep conditions.</p>
-
-<p>You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)</p>
+You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
 ]]></content>
   </entry>
   
@@ -60,16 +57,15 @@
     <link href="http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git/"/>
     <updated>2012-08-23T07:57:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/08/23/keeping-pry-breakpoints-out-of-git</id>
-    <content type="html"><![CDATA[<p>My Ruby workflow as of late has almost always contained <a href="http://www.git-scm.com">Git</a> for version control, and <a href="http://pryrepl.org/">Pry</a> for debugging.</p>
+    <content type="html"><![CDATA[My Ruby workflow as of late has almost always contained [Git](http://www.git-scm.com) for version control, and [Pry](http://pryrepl.org/) for debugging.
 
-<p>Although it&rsquo;s extremely convenient during development to add a quick breakpoint using <code>binding.pry</code>, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.</p>
+Although it's extremely convenient during development to add a quick breakpoint using `binding.pry`, it can be a bit frustrating to clients if you accidentally deploy with these breakpoints still intact.
 
 <!-- more -->
 
+After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
-<p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&rsquo;t accidentally still have breakpoints enabled.</p>
-
-<p><div><script src='https://gist.github.com/3436040.js'></script>
+<div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook
 #
 # Check all Ruby (*.rb) files for Pry breakpoint references
@@ -85,13 +81,13 @@ git diff --cached --name-only | \
     GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
     echo &#39;COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting&#39; &amp;&amp; \
     exit 1</code></pre></noscript></div>
-</p>
 
-<p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made exectuable.</p>
 
-<p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
+This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made exectuable.
 
-<p><img src="/images/2012-08-23-ss.png"></p>
+If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
+
+<img src="/images/2012-08-23-ss.png">
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mint | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/mint/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,44 +18,43 @@
     <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
     <updated>2012-11-02T08:01:00-04:00</updated>
     <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
-    <content type="html"><![CDATA[<p><strong>UPDATE</strong> For Linux Mint 16, the <code>hotCorner</code> settings have been moved to <code>/usr/share/cinnamon/js/ui/hotCorner.js</code>.</p>
+    <content type="html"><![CDATA[**UPDATE** For Linux Mint 16, the `hotCorner` settings have been moved to `/usr/share/cinnamon/js/ui/hotCorner.js`.
 
-<p>I use <a href="http://www.synergy-foss.org">Synergy</a> on all my computers to share a common mouse and keyboard, but I&rsquo;ve found that with Gnome 3 based distributions, the hot corner was causing me some grief.</p>
+I use [Synergy](http://www.synergy-foss.org) on all my computers to share a common mouse and keyboard, but I've found that with Gnome 3 based distributions, the hot corner was causing me some grief.
 
-<p>The beauty of using a Linux-based system though is that you can pretty much change anything you&rsquo;re unhappy with, so that&rsquo;s what I&rsquo;m here to do.</p>
+The beauty of using a Linux-based system though is that you can pretty much change anything you're unhappy with, so that's what I'm here to do.
 
 <!-- more -->
 
+By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we're looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
 
-<p>By default, <a href="http://linuxmint.com">Linux Mint</a> uses the <a href="http://cinnamon.linuxmint.com">Cinnamon</a> desktop, so the configuration file we&rsquo;re looking for is at <code>/usr/share/cinammon/js/ui/layout.js</code>.</p>
+For Linux Mint 12, which still used [Gnome Shell](https://live.gnome.org/GnomeShell), the file was at `/usr/share/gnome-shell/js/ui/layout.js`.
 
-<p>For Linux Mint 12, which still used <a href="https://live.gnome.org/GnomeShell">Gnome Shell</a>, the file was at <code>/usr/share/gnome-shell/js/ui/layout.js</code>.</p>
+Edit the appropriate file
 
-<p>Edit the appropriate file</p>
+    $ sudo nano /usr/share/cinammon/js/ui/layout.js
 
-<pre><code>$ sudo nano /usr/share/cinammon/js/ui/layout.js
-</code></pre>
+Locate the following section (I just searched for _hot-corner_)
 
-<p>Locate the following section (I just searched for <em>hot-corner</em>)</p>
-
-<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+``` javascript
+this._corner = new Clutter.Rectangle({ name: 'hot-corner',
                                        width: 1,
                                        height: 1,
                                        opacity: 0,
                                        reactive: true });
-</code></pre>
+```
 
-<p>And change the value of <code>reactive</code> from <em>true</em> to <em>false</em>:</p>
+And change the value of `reactive` from _true_ to _false_:
 
-<pre><code class="javascript">this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+``` javascript
+this._corner = new Clutter.Rectangle({ name: 'hot-corner',
                                        width: 1,
                                        height: 1,
                                        opacity: 0,
                                        reactive: false });
-</code></pre>
+```
 
-<p>Log off, then back on. Booya!</p>
-]]></content>
+Log off, then back on. Booya!]]></content>
   </entry>
   
 </feed>

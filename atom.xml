@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
+    <updated>2014-07-07T09:28:38-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
+    <content type="html"><![CDATA[<p>Back in 2012, I wrote a post about <a href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Redmine and Subversion on Heroku</a> that involved some completed hacks in order to get a working <code>svn</code> binary uploaded as part of your Git payload.</p>
+
+<p>This can be done a lot more cleanly by taking advantage of <a href="https://devcenter.heroku.com/articles/buildpacks">Heroku Buildpacks</a>.</p>
+
+<!-- more -->
+
+
+<p>All of the instructions I provided in my previous post can now be distilled into a single buildpack install command.</p>
+
+<p>If we want to leverage an existing solution, we just add the <a href="https://devcenter.heroku.com/articles/buildpacks">Subversion Buildpack</a> to our app.</p>
+
+<p>The main &ldquo;gotcha&rdquo; here is that we can only have ONE buildpack defined at a time, which is problematic because our app&rsquo;s environment (Ruby, PHP, Node .. etc) is managed as a buildpack (see <a href="https://devcenter.heroku.com/articles/buildpacks">https://devcenter.heroku.com/articles/buildpacks</a> for more details).</p>
+
+<p>In order to get around this limitation though, we can leverage another buildpack, known as the <a href="https://github.com/ddollar/heroku-buildpack-multi">heroku-buildpack-multi</a> buildpack which allows us to define multiple buildpacks.</p>
+
+<p>For our purposes, we&rsquo;re going to add Subversion and Ruby to our app:</p>
+
+<pre><code>$ cd /path/to/app
+
+$ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
+
+$ cat .buildpacks
+https://github.com/cucumber-ltd/heroku-buildpack-subversion.git
+https://github.com/heroku/heroku-buildpack-ruby.git
+
+$ git commit .buildpacks -m "Add Buildpacks"
+$ git push heroku master
+</code></pre>
+
+<p>This has helped me with my Redmine deployment on Heroku. Did it help you at all? Did I get something wrong. Let me know ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
@@ -1503,10 +1541,7 @@ As any programmer knows, the likelihood of new code working properly the first t
     <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
     <content type="html"><![CDATA[<h2>UPDATED 2014-06-30</h2>
 
-<p>The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack ;)</p>
-
-<pre><code>heroku config:set BUILDPACK_URL=https://github.com/cucumber-ltd/heroku-buildpack-subversion.git
-</code></pre>
+<p>The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)</p>
 
 <p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
 

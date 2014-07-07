@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine-plugins | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/redmine-plugins/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-06-30T14:47:18-04:00</updated>
+  <updated>2014-07-07T10:16:28-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,12 +18,11 @@
     <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
     <updated>2014-03-19T06:08:02-04:00</updated>
     <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/balloons.png"></p>
+    <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
 
-<p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
+Well, it's official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
-<p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
-]]></content>
+I plan on doing a "post-mortem" on the process at some point, but for now I'm planning on taking a little time off from writing.]]></content>
   </entry>
   
   <entry>
@@ -31,46 +30,38 @@
     <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
     <updated>2014-03-03T08:22:30-05:00</updated>
     <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-    <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
+    <content type="html"><![CDATA[Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) (code number 8748OS) is in the final stages of production.
 
-<p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
+Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.
 
 <!-- more -->
 
+## Technical Editing / Copy Editing
 
-<h2>Technical Editing / Copy Editing</h2>
+We would be editing chapters for language and content-related clarity. There might be instances when we'll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.
 
-<p>We would be editing chapters for language and content-related clarity. There might be instances when we&rsquo;ll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.</p>
+* Start of Editing: *21st February 2014*
+* End of Editing: *6th March 2014*
 
-<ul>
-<li>Start of Editing: <em>21st February 2014</em></li>
-<li>End of Editing: <em>6th March 2014</em></li>
-</ul>
+After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as "Pre-Finals". This is the stage where-in you will get to see the final chapters as you would see them in the book.
 
+## Schedule for Pre-finals
 
-<p>After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as &ldquo;Pre-Finals&rdquo;. This is the stage where-in you will get to see the final chapters as you would see them in the book.</p>
+2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.
 
-<h2>Schedule for Pre-finals</h2>
+At this stage, you'll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.
 
-<p>2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.</p>
+## Upload Date
 
-<p>At this stage, you&rsquo;ll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.</p>
+This is the day when the clubbed book will be finalized and then sent to our printers. We call it the upload day, since the files are transferred to our printers and we cannot make any changes here after.
 
-<h2>Upload Date</h2>
+* Current Upload Date: *17th March 2014*
 
-<p>This is the day when the clubbed book will be finalized and then sent to our printers. We call it the upload day, since the files are transferred to our printers and we cannot make any changes here after.</p>
+## Publishing Date
 
-<ul>
-<li>Current Upload Date: <em>17th March 2014</em></li>
-</ul>
+The book gets published and will be available for purchase in five to eight working days from the day of upload.
 
-
-<h2>Publishing Date</h2>
-
-<p>The book gets published and will be available for purchase in five to eight working days from the day of upload.</p>
-
-<p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
-]]></content>
+So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!]]></content>
   </entry>
   
   <entry>
@@ -78,9 +69,10 @@
     <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
     <updated>2014-02-18T22:08:21-05:00</updated>
     <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
-    <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
+    <content type="html"><![CDATA[This is just a quick post to update everyone that chapters 1, 2 and 3 of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means *4 MORE CHAPTERS TO GO!!!*
 
-<p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
+Clearly I didn't meet the target I hinted at in my last post, but it was [Family Day](http://www.statutoryholidays.com/family-day.php) here so I took the family away for the long weekend to go skating on the [Rideau Canal](http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway) in Ottawa :)
+
 ]]></content>
   </entry>
   
@@ -89,12 +81,11 @@
     <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
     <updated>2014-02-09T21:48:29-05:00</updated>
     <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
-    <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
+    <content type="html"><![CDATA[This is just a quick update that I've finally finished the first round of rewrites for the upcoming [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) book.
 
-<p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
+The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it's not a primary source of income.
 
-<p><a href="http://www.packtpub.com">Packt Publishing</a> has been very patient with me though so I&rsquo;m going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)</p>
-]]></content>
+[Packt Publishing](http://www.packtpub.com) has been very patient with me though so I'm going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)]]></content>
   </entry>
   
   <entry>
@@ -102,35 +93,33 @@
     <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
     <updated>2014-01-27T15:37:10-05:00</updated>
     <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
-    <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
+    <content type="html"><![CDATA[For the last 4 months I've been working with [Packt Publishing](http://www.packtpub.com) on a book about [Redmine](http://www.redmine.org) plugin extension and development.
 
-<p><img class="left" src="/images/8748OS_mockupcover_normal_0.jpg"></p>
+<img class="left" src="/images/8748OS_mockupcover_normal_0.jpg">
 
-<p>Although it likely won&rsquo;t be ready until February 2014, the book is now available for <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">pre-order on Packt&rsquo;s site</a>.</p>
+Although it likely won't be ready until February 2014, the book is now available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
 
-<p>Since the book is <em>almost</em> through the first stage of rewrites, I though it might be a good idea to start documenting the process.</p>
+Since the book is *almost* through the first stage of rewrites, I though it might be a good idea to start documenting the process.
 
-<p>What I&rsquo;m going to write about initially are my first impressions on writing a book, as well as a few notes (which may sound like complaints) about what I did &ldquo;wrong&rdquo; and could improve upon in the future.</p>
+What I'm going to write about initially are my first impressions on writing a book, as well as a few notes (which may sound like complaints) about what I did "wrong" and could improve upon in the future.
 
 <!-- more -->
 
+Originally, I wasn't sure that I would be a good choice as an author as I didn't have the community recognition that some other plugin developers had, and I hadn't been "on the scene" for more than a few years.
 
-<p>Originally, I wasn&rsquo;t sure that I would be a good choice as an author as I didn&rsquo;t have the community recognition that some other plugin developers had, and I hadn&rsquo;t been &ldquo;on the scene&rdquo; for more than a few years.</p>
+After much consideration, I decided to dive in and start writing.
 
-<p>After much consideration, I decided to dive in and start writing.</p>
+The first step was to provide the publisher with a rough outline that also included the page count. Initially, I just threw together a handful of topics that I wanted to cover, then (very generically) estimated how many pages I would need to completely cover those topics.
 
-<p>The first step was to provide the publisher with a rough outline that also included the page count. Initially, I just threw together a handful of topics that I wanted to cover, then (very generically) estimated how many pages I would need to completely cover those topics.</p>
+Once approved, and I actually *started* writing, I very quickly realized that meeting my page estimates was almost impossible; some chapters would be way too short, and others WAY too long.
 
-<p>Once approved, and I actually <em>started</em> writing, I very quickly realized that meeting my page estimates was almost impossible; some chapters would be way too short, and others WAY too long.</p>
+I also had to provide a rough outline as to how long I thoght it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.
 
-<p>I also had to provide a rough outline as to how long I thoght it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.</p>
+Writing a technically-oriented book involves a lot more research than you may think (no matter how well you think you know the source material). As such, the further I got into the book, the more time I found myself researching, writing code, testing code, then writing about the code I'd built.
 
-<p>Writing a technically-oriented book involves a lot more research than you may think (no matter how well you think you know the source material). As such, the further I got into the book, the more time I found myself researching, writing code, testing code, then writing about the code I&rsquo;d built.</p>
+This process took a good 3x longer than I anticipated, and as such, my deadlines tended to slip by. As a result, the tentative release date for the final book of January 2014 is not very likely.
 
-<p>This process took a good 3x longer than I anticipated, and as such, my deadlines tended to slip by. As a result, the tentative release date for the final book of January 2014 is not very likely.</p>
-
-<p>I&rsquo;m hoping that this blog post will also serve as a motivator to get my ass in gear and finish the final revisions.</p>
-]]></content>
+I'm hoping that this blog post will also serve as a motivator to get my ass in gear and finish the final revisions.]]></content>
   </entry>
   
 </feed>
