@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-15T16:06:19-04:00</updated>
+  <updated>2014-07-15T16:10:25-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -26,26 +26,27 @@ A quick Google search came up dry, so I figured I'd just roll my own.
 
 In order to accomplish this, all that is required is to edit `source/_includes/post/sharing.html`:
 
+
 ```diff
 diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html
 index e32500d..0bdd01e 100644
 --- a/source/_includes/post/sharing.html
 +++ b/source/_includes/post/sharing.html
 @@ -5,6 +5,12 @@
-   
-   <div class="g-plusone" data-size="medium"></div>
-   
-+  
+   {% if site.google_plus_one %}
+   <div class="g-plusone" data-size="{{ site.google_plus_one_size }}"></div>
+   {% endif %}
++  {% if site.linkedin_share %}
 +    <script src="//platform.linkedin.com/in.js" type="text/javascript">
 +    lang: en_US
 +  </script>
-+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/categories/octopress/atom.xml" data-counter="right"></script>
-+  
-   
++  <script type="IN/Share" data-url="{{ site.url }}{{ page.url }}" data-counter="right"></script>
++  {% endif %}
+   {% if site.facebook_like %}
      <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-   
-
+   {% endif %}
 ```
+
 
 The change above adds a snippit of Javascript that passes the current `site.url` and `page.url` in a similar fashion as is done for Twitter.
 
