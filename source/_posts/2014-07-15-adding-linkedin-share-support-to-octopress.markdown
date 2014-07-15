@@ -14,6 +14,7 @@ A quick Google search came up dry, so I figured I'd just roll my own.
 
 In order to accomplish this, all that is required is to edit `source/_includes/post/sharing.html`:
 
+{% raw %}
 ```diff
 diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html
 index e32500d..0bdd01e 100644
@@ -32,8 +33,8 @@ index e32500d..0bdd01e 100644
    {% if site.facebook_like %}
      <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
    {% endif %}
-
 ```
+{% endraw %}
 
 The change above adds a snippit of Javascript that passes the current `site.url` and `page.url` in a similar fashion as is done for Twitter.
 
