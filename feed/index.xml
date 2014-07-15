@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-15T15:53:18-04:00</updated>
+  <updated>2014-07-15T16:06:19-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Adding LinkedIn Share Support to Octopress]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress/"/>
+    <updated>2014-07-15T15:55:14-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress</id>
+    <content type="html"><![CDATA[<p>I was looking for a plugin or an include to easily add <a href="http://www.linkedin.com/">LinkedIn</a> support to the share options for my posts.</p>
+
+<p>A quick Google search came up dry, so I figured I&rsquo;d just roll my own.</p>
+
+<!--more-->
+
+
+<p>In order to accomplish this, all that is required is to edit <code>source/_includes/post/sharing.html</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gh">index e32500d..0bdd01e 100644</span>
+</span><span class='line'><span class="gd">--- a/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gi">+++ b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gu">@@ -5,6 +5,12 @@</span>
+</span><span class='line'>   
+</span><span class='line'>   &lt;div class=&quot;g-plusone&quot; data-size=&quot;medium&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   
+</span><span class='line'><span class="gi">+  </span>
+</span><span class='line'><span class="gi">+    &lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;</span>
+</span><span class='line'><span class="gi">+    lang: en_US</span>
+</span><span class='line'><span class="gi">+  &lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  &lt;script type=&quot;IN/Share&quot; data-url=&quot;http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress/&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  </span>
+</span><span class='line'>   
+</span><span class='line'>     &lt;div class=&quot;fb-like&quot; data-send=&quot;true&quot; data-width=&quot;450&quot; data-show-faces=&quot;false&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The change above adds a snippit of Javascript that passes the current <code>site.url</code> and <code>page.url</code> in a similar fashion as is done for Twitter.</p>
+
+<p>The Javascript source was generated using LinkedIn&rsquo;s <a href="https://developer.linkedin.com/plugins/share-plugin-generator">Share Plugin Generator</a>, so if the format of the one I&rsquo;ve chosen isn&rsquo;t to your liking, you can generate another.</p>
+
+<p>Just in case you want to easily toggle this functionality, I&rsquo;ve also set it up to check for a configuration value in your site&rsquo;s <code>_config.yml</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/_config.yml b/_config.yml</span>
+</span><span class='line'><span class="gh">index f8f825c..2dce55b 100644</span>
+</span><span class='line'><span class="gd">--- a/_config.yml</span>
+</span><span class='line'><span class="gi">+++ b/_config.yml</span>
+</span><span class='line'><span class="gu">@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx</span>
+</span><span class='line'> # Facebook Like
+</span><span class='line'> facebook_like: true
+</span><span class='line'>
+</span><span class='line'><span class="gi">+# LinkedIn Share</span>
+</span><span class='line'><span class="gi">+linkedin_share: true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, the next time your site is regenerated, a LinkedIn share button will be available.</p>
+
+<p>This same method could be used to add pretty much any other social sharing sites you may want, as most should provide some form of widget generator.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First Royalty Statement]]></title>
