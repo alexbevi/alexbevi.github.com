@@ -6,6 +6,8 @@ comments: true
 categories: [redmine, heroku, subversion, vagrant]
 ---
 
+[**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post]({% post_url 2014-07-07-subversion-plus-ruby-on-heroku-via-buildpacks %}) for details)]
+
 I manage my open source and contract development projects using [Redmine](http://www.redmine.org).
 
 Since I'm "frugal", I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on [Heroku](http://www.heroku.com), my files and attachments on [Dropbox](http://www.dropbox.com) and my source on [GitHub](https://github.com).
