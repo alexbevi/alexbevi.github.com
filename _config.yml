@@ -104,4 +104,7 @@ google_analytics_tracking_id: UA-36490021-1
 # Facebook Like
 facebook_like: true
 
+# LinkedIn Share
+linkedin_share: true
+
 gravatar_email: alexbevi@gmail.com
