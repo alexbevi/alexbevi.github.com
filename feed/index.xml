@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-07T12:35:05-04:00</updated>
+  <updated>2014-07-15T14:48:33-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[8748OS First Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
+    <updated>2014-07-15T14:38:35-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
+    <content type="html"><![CDATA[<p>Just a quick update on <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>. I received my first &ldquo;royalty&rdquo; statement today, which basically just inidicates that not enough books have sold to exceed the advance I reveieved initially.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/royalties20140331.png"></p>
+
+<p>(I probably didn&rsquo;t need to redact anything from the image, but it seemed appropriate.)</p>
+
+<p>The deal I had with Packt was that they&rsquo;d front me $600 against future sales, of which my cut is (I believe) ~ 16% of the list price.</p>
+
+<p>Still a ways to go (sales-wise) before I would consider this a &ldquo;profitable&rdquo; venture, but it&rsquo;s nice to see that there is at least some initial interest.</p>
+
+<p>I was approached by Packt a little while back to author another book, but based on the amount of time I invested in this one as well as the sales figures I&rsquo;m sharing here, I don&rsquo;t think it would be a good choice :P</p>
+
+<p>Should I consider writing another book? Any thoughts out there from my fellow denizens of the interwebs?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>

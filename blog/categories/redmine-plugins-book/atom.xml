@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine-plugins-book | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/redmine-plugins-book/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-07T12:35:05-04:00</updated>
+  <updated>2014-07-15T14:48:33-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[8748OS First Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
+    <updated>2014-07-15T14:38:35-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
+    <content type="html"><![CDATA[Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first "royalty" statement today, which basically just inidicates that not enough books have sold to exceed the advance I reveieved initially.
+
+<img class="left" src="/images/royalties20140331.png">
+
+(I probably didn't need to redact anything from the image, but it seemed appropriate.)
+
+The deal I had with Packt was that they'd front me $600 against future sales, of which my cut is (I believe) ~ 16% of the list price.
+
+Still a ways to go (sales-wise) before I would consider this a "profitable" venture, but it's nice to see that there is at least some initial interest.
+
+I was approached by Packt a little while back to author another book, but based on the amount of time I invested in this one as well as the sales figures I'm sharing here, I don't think it would be a good choice :P
+
+Should I consider writing another book? Any thoughts out there from my fellow denizens of the interwebs?
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
@@ -86,40 +108,6 @@ Clearly I didn't meet the target I hinted at in my last post, but it was [Family
 The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it's not a primary source of income.
 
 [Packt Publishing](http://www.packtpub.com) has been very patient with me though so I'm going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
-    <updated>2014-01-27T15:37:10-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
-    <content type="html"><![CDATA[For the last 4 months I've been working with [Packt Publishing](http://www.packtpub.com) on a book about [Redmine](http://www.redmine.org) plugin extension and development.
-
-<img class="left" src="/images/8748OS_mockupcover_normal_0.jpg">
-
-Although it likely won't be ready until February 2014, the book is now available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
-
-Since the book is *almost* through the first stage of rewrites, I though it might be a good idea to start documenting the process.
-
-What I'm going to write about initially are my first impressions on writing a book, as well as a few notes (which may sound like complaints) about what I did "wrong" and could improve upon in the future.
-
-<!-- more -->
-
-Originally, I wasn't sure that I would be a good choice as an author as I didn't have the community recognition that some other plugin developers had, and I hadn't been "on the scene" for more than a few years.
-
-After much consideration, I decided to dive in and start writing.
-
-The first step was to provide the publisher with a rough outline that also included the page count. Initially, I just threw together a handful of topics that I wanted to cover, then (very generically) estimated how many pages I would need to completely cover those topics.
-
-Once approved, and I actually *started* writing, I very quickly realized that meeting my page estimates was almost impossible; some chapters would be way too short, and others WAY too long.
-
-I also had to provide a rough outline as to how long I thoght it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.
-
-Writing a technically-oriented book involves a lot more research than you may think (no matter how well you think you know the source material). As such, the further I got into the book, the more time I found myself researching, writing code, testing code, then writing about the code I'd built.
-
-This process took a good 3x longer than I anticipated, and as such, my deadlines tended to slip by. As a result, the tentative release date for the final book of January 2014 is not very likely.
-
-I'm hoping that this blog post will also serve as a motivator to get my ass in gear and finish the final revisions.]]></content>
   </entry>
   
 </feed>

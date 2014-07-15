@@ -9,7 +9,7 @@
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="The ScummVM project recently added support for Tony Tough and the Night of the Roasted Moths. The original developer, Giovanni Bajo appeared on the &hellip;">
+  <meta name="description" content="[NOTE: The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see this post for details)] I manage &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Fetching Changesets in Redmine from Heroku using Subversion</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-21T08:44:00-05:00" pubdate data-updated="true">Nov 21<sup>st</sup>, 2012</time>
+        
+         | <a href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[<strong>NOTE</strong>: The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)]</p>
+
+<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
+
+<p>Since I&rsquo;m &ldquo;frugal&rdquo;, I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on <a href="http://www.heroku.com">Heroku</a>, my files and attachments on <a href="http://www.dropbox.com">Dropbox</a> and my source on <a href="https://github.com">GitHub</a>.</p>
+
+<p>I also like to link to changesets in my projects, which is easy enough to do when you host the source and the Redmine server on the same machine.</p>
+
+<p>Not so easy with Heroku+GitHub &hellip;. until now!</p>
+
+<p>By the end of this tutorial, we will have:</p>
+
+<ul>
+<li>Setup a build system using Vagrant that matches the Heroku hosting environment</li>
+<li>Compiled a statically linked <a href="http://subversion.apache.org/">Subversion</a> client</li>
+<li>Added the svn client to our Redmine repository and pushed it to Heroku</li>
+<li>Configured a project in Redmine to fetch changesets from GitHub using Subversion</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -488,6 +551,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/15/8748os-first-royalty-statement/">8748OS First Royalty Statement</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">Subversion + Ruby on Heroku via Buildpacks</a>
       </li>
     
@@ -501,10 +568,6 @@
     
       <li class="post">
         <a href="/blog/2014/03/19/redmine-plugin-extension-and-development-published/">Redmine Plugin Extension and Development: Published!!!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/03/8748os-production-timeline/">Production Timeline</a>
       </li>
     
   </ul>
