@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ALEX BEVILACQUA</title>
+  <title>Pipe Command Output to Logentries - ALEX BEVILACQUA</title>
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="Use Dropbox as the storage backend for your Redmine installation Installation To install the plugin, execute the following commands from the root of &hellip;">
+  <meta name="description" content="I&rsquo;ve been using Logentries for a couple of months now to manage variou project logs and have found it to be extremely convenient. If you want &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.alexbevi.com/projects/redmine-dropbox-attachments/">
+  <link rel="canonical" href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,110 +82,91 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
-  <p><a href="https://github.com/alexbevi/redmine_dropbox_attachments"><img class="right" src="/images/github_logo.png"></a></p>
+  <header>
+    
+      
+        <h1 class="entry-title">Pipe Command Output to Logentries</h1>
+      
+    
+    
+      <p class="meta">
+        
 
-<p>Use <a href="http://www.dropbox.com">Dropbox</a> as the storage backend for your <a href="http://www.redmine.org">Redmine</a> installation</p>
 
-<h4>Installation</h4>
 
-<p>To install the plugin, execute the following commands from the root of your redmine directory:</p>
 
-<pre><code>cd plugins
-git clone git://github.com/alexbevi/redmine_dropbox_attachments.git
-bundle install
+
+
+
+
+  
+
+
+<time datetime="2014-07-16T12:06:55-04:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
+
+<p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
+
+<pre><code>COMMAND | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
 </code></pre>
 
-<p>More information on installing Redmine plugins can be found at <a href="http://www.redmine.org/wiki/redmine/Plugins.">redmine.org</a></p>
+<p>Where <code>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</code> is your log token, and <code>COMMAND</code> is whatever your like.</p>
 
-<p>After the plugin is installed you will need to restart Redmine for the plugin to be available.</p>
+<p>For example:</p>
 
-<h4>Configuration</h4>
+<pre><code>lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
+</code></pre>
 
-<p>The plugin must be configured from <code>Administration &gt; Plugins &gt; Dropbox Attachment Storage &gt; Configure</code></p>
+<p><img class="left" src="/images/20140716-logentries.png"></p>
 
-<p><img src="https://raw.github.com/alexbevi/redmine_dropbox_attachments/master/screenshot01.png" alt="Screenshot01" /></p>
+<p>Hopefully this helps someone other than myself :)</p>
+</div>
 
-<h5>Authorization</h5>
 
-<p>Before Redmine can store files on a shared Dropbox folder, it must be authorized. This is done by clicking <em>Authorize Redmine with Dropbox</em>, then selecting <em>Allow</em> from Dropbox&rsquo;s authorization page.</p>
+  <footer>
+    <p class="meta">
+      
+  
 
-<h5>Specifying a Base Directory</h5>
+<span class="byline author vcard">Posted by <span class="fn">Alex Bevilacqua</span></span>
 
-<p>By default, the plugin will write to your Dropbox&rsquo;s <code>Apps &gt; redmine_files</code> directory.</p>
+      
 
-<p>If you specify a <em>Base Directory</em> value, that subdirectory will be creted under Apps/redmine_files and used to store attachements for the plugin.</p>
 
-<p><img src="https://raw.github.com/alexbevi/redmine_dropbox_attachments/master/screenshot02.png" alt="Screenshot02" /></p>
 
-<h5>Storing Attachments for Multiple Redmine&rsquo;s</h5>
 
-<p>Since you can only register a single instance of this plugin with Dropbox, if you want to store attachments for multiple installations of Redmine, the steps are:</p>
 
-<p>1) Authorize the plugin <em>ONCE</em> with Dropbox</p>
 
-<p>2) Copy the <em>Dropbox Token</em> and <em>Dropbox Secret</em> values from the authorized installation</p>
-
-<p>3) Paste the token/secret values to each additional installation</p>
-
-<p>Note that if you have multiple installations, it&rsquo;s a good idea to specify different base directories.</p>
-
-<h4>Acknowledgement</h4>
-
-<p>This plugin is heavily based on the <a href="https://github.com/tigrish/redmine_s3">Redmine S3</a> plugin. Thanks to all the contributors there who&rsquo;ve made this such an easy plugin to build ;)</p>
-
-<p>I also used the <a href="https://github.com/zuinqstudio/redmine_drop_box">Redmine DropBox</a> plugin to find some quick answers to interacting with dropbox.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Copyright (c) 2012 Alex Bevilacqua
-</span><span class='line'>
-</span><span class='line'>Permission is hereby granted, free of charge, to any person obtaining
-</span><span class='line'>a copy of this software and associated documentation files (the
-</span><span class='line'>"Software"), to deal in the Software without restriction, including
-</span><span class='line'>without limitation the rights to use, copy, modify, merge, publish,
-</span><span class='line'>distribute, sublicense, and/or sell copies of the Software, and to
-</span><span class='line'>permit persons to whom the Software is furnished to do so, subject to
-</span><span class='line'>the following conditions:
-</span><span class='line'>
-</span><span class='line'>The above copyright notice and this permission notice shall be
-</span><span class='line'>included in all copies or substantial portions of the Software.
-</span><span class='line'>
-</span><span class='line'>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-</span><span class='line'>EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-</span><span class='line'>MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-</span><span class='line'>NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-</span><span class='line'>LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-</span><span class='line'>OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-</span><span class='line'>WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></code></pre></td></tr></table></div></figure>
 
 
   
-    <footer>
+
+
+<time datetime="2014-07-16T12:06:55-04:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
       
-      
-        <div class="sharing">
+
+<span class="categories">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/projects/redmine-dropbox-attachments/index.html" data-via="alexbevi" data-counturl="http://www.alexbevi.com/projects/redmine-dropbox-attachments/index.html" >Tweet</a>
+    <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/logentries/'>logentries</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -194,16 +175,21 @@ bundle install
     <script src="//platform.linkedin.com/in.js" type="text/javascript">
     lang: en_US
   </script>
-  <script type="IN/Share" data-url="http://www.alexbevi.com/projects/redmine-dropbox-attachments/index.html" data-counter="right"></script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" data-counter="right"></script>
   
   
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left articlenav" href="/blog/2014/07/15/adding-linkedin-share-support-to-octopress/" title="Previous Post: Adding LinkedIn Share Support to Octopress">&laquo; Adding LinkedIn Share Support to Octopress</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -327,8 +313,8 @@ bundle install
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/projects/redmine-dropbox-attachments/index.html';
-        var disqus_url = 'http://www.alexbevi.com/projects/redmine-dropbox-attachments/index.html';
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
         var disqus_script = 'embed.js';
       
     (function () {

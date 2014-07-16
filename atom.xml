@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-15T16:10:25-04:00</updated>
+  <updated>2014-07-16T12:36:16-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
+    <updated>2014-07-16T12:06:55-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
+
+<p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
+
+<pre><code>COMMAND | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
+</code></pre>
+
+<p>Where <code>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</code> is your log token, and <code>COMMAND</code> is whatever your like.</p>
+
+<p>For example:</p>
+
+<pre><code>lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
+</code></pre>
+
+<p><img class="left" src="http://www.alexbevi.com/images/20140716-logentries.png"></p>
+
+<p>Hopefully this helps someone other than myself :)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Adding LinkedIn Share Support to Octopress]]></title>
@@ -2327,26 +2352,6 @@ git diff --cached --name-only | \
 </span><span class='line'><span class="nb">exit</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Here we go again ...]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot/"/>
-    <updated>2012-07-18T07:53:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/07/18/here-we-go-again-dot-dot-dot</id>
-    <content type="html"><![CDATA[<p>So, another year, another blogging engine, another crack at blogging.</p>
-
-<p>This time around I&rsquo;m trying out <a href="http://octopress.org">Octopress</a>. There&rsquo;s something very appealing about being able to interact with this blog via rake tasks and <a href="http://git-scm.com">Git</a>.</p>
-
-<!-- more -->
-
-
-<p>This page was generated using <code>rake new_post["Here we go again ..."]</code></p>
-
-<p>Octopress is essentially <a href="https://github.com/mojombo/jekyll/">Jekyll</a>, which means it can be deployed very easily to either <a href="https://github.com">Github</a> or <a href="http://www.heroku.com">Heroku</a>.</p>
-
-<p>Why all the links you may ask? Because I can write posts using <a href="http://daringfireball.net/projects/markdown">Markdown</a>, and I sometimes mix up the syntax between Markdown and <a href="http://www.textism.com/tools/textile/">Textile</a>, so I&rsquo;m just trying to hammer it into my brain ;)</p>
 ]]></content>
   </entry>
   

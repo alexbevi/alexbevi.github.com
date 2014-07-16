@@ -9,7 +9,7 @@
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="I was looking for a plugin or an include to easily add LinkedIn support to the share options for my posts. A quick Google search came up dry, so I &hellip;">
+  <meta name="description" content="I&rsquo;ve been using Logentries for a couple of months now to manage variou project logs and have found it to be extremely convenient. If you want &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/07/16/pipe-command-output-to-logentries/">Pipe Command Output to Logentries</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-16T12:06:55-04:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+        
+         | <a href="/blog/2014/07/16/pipe-command-output-to-logentries/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
+
+<p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
+
+<pre><code>COMMAND | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
+</code></pre>
+
+<p>Where <code>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</code> is your log token, and <code>COMMAND</code> is whatever your like.</p>
+
+<p>For example:</p>
+
+<pre><code>lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
+</code></pre>
+
+<p><img class="left" src="/images/20140716-logentries.png"></p>
+
+<p>Hopefully this helps someone other than myself :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -515,59 +571,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/01/27/my-first-book-is-almost-ready-for-production/">My First Book: Almost Ready for Production</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-27T15:37:10-05:00" pubdate data-updated="true">Jan 27<sup>th</sup>, 2014</time>
-        
-         | <a href="/blog/2014/01/27/my-first-book-is-almost-ready-for-production/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
-
-<p><img class="left" src="/images/8748OS_mockupcover_normal_0.jpg"></p>
-
-<p>Although it likely won&rsquo;t be ready until February 2014, the book is now available for <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">pre-order on Packt&rsquo;s site</a>.</p>
-
-<p>Since the book is <em>almost</em> through the first stage of rewrites, I though it might be a good idea to start documenting the process.</p>
-
-<p>What I&rsquo;m going to write about initially are my first impressions on writing a book, as well as a few notes (which may sound like complaints) about what I did &ldquo;wrong&rdquo; and could improve upon in the future.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/01/27/my-first-book-is-almost-ready-for-production/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -589,6 +592,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/16/pipe-command-output-to-logentries/">Pipe Command Output to Logentries</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/15/adding-linkedin-share-support-to-octopress/">Adding LinkedIn Share Support to Octopress</a>
       </li>
     
@@ -602,10 +609,6 @@
     
       <li class="post">
         <a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Troubleshooting a Mongoid Connection Issue</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process&#8217; STDOUT</a>
       </li>
     
   </ul>
