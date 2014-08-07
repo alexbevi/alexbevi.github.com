@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-07-16T12:36:16-04:00</updated>
+  <updated>2014-08-06T21:29:08-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
+    <updated>2014-08-06T17:58:55-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.003.png"></p>
+
+<p>I&rsquo;ve played a lot of RPGs over the years (JRPGs mostly) but have somehow managed to hear little to nothing about the <a href="http://en.wikipedia.org/wiki/Fire_Emblem">Fire Emblem</a> series.</p>
+
+<p>My focus was mostly on the Final Fantasy series, as well as other Square-Enix properties so it&rsquo;s possible this is why :P</p>
+
+<p>This post isn&rsquo;t really meant to be a review; it&rsquo;s more just my thoughts on the game right after I finished it as (a) I didn&rsquo;t take any notes, and (b) I started this playthrough over a year ago.</p>
+
+<p>I&rsquo;m using this as an opportunity to get back into writing a bit more frequently, so I apologize in advance if the subject matter isn&rsquo;t covered very well, or if the writing is all over the place.</p>
+
+<p><img class="right" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.004.png"></p>
+
+<p>I managed to complete the game in about 19 hours, so at least I managed to finish over an hour a month (which by gaming standards is terrible, but I&rsquo;m married with kids and have a job so <em>back off!</em> :P).</p>
+
+<p>I played through on my Nexus 7 using <a href="https://play.google.com/store/apps/details?id=com.explusalpha.GbaEmu&amp;hl=en">GBA.emu</a> (which I would highly recommend buying to support the author), as I don&rsquo;t have an actual GBA (and prefer emulated games for convenience).</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.002.png"></p>
+
+<p>The game is turn-based tactical combat. You can buy equipment for your team members at various shops, and there is a &ldquo;world map&rdquo; that ties the various locations together. This makes is seem as though you&rsquo;re playing a board game.</p>
+
+<p>The story is pretty straightforward: a dark force was sealed with a bunch of magic stones which were then distributed for safe keeping. Now someone wants to get these stones and re-awaken the dark force.</p>
+
+<p>The goals of each map are either to defeat an enemy or capture a location. Along the way there are various NPC characters that you can either fight or try to persuade to join you.</p>
+
+<p>Fight outcome is determined purely mathematically (stats, resources, weapon selection, character skill level, enemy skill level, terrain) and is presented as 2 avatars on the map with health guages underneath that deplete based on the result of the last &ldquo;turn&rdquo; of combat.</p>
+
+<p>For some special battles, the characters are shown as their avatar representations and the fights are animated. These fights are generally plot advancement battles.</p>
+
+<p><img class="right" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.005.png"></p>
+
+<p>Once of the main differentiating factors between Fire Emblem and other RPG series is &ldquo;permanent death&rdquo;. Once a character dies on the battle field, there is no way to revive them. This can make the game extremely difficult as you can potentially advance to a point where you cannot continue as you don&rsquo;t have enough players to clear a map without dying.</p>
+
+<p>I found myself abusing save states as I didn&rsquo;t want my characters to die, and I didn&rsquo;t want to restart campaigns once I&rsquo;d progressed beyond a certain point (usually about 10 minutes &hellip;).</p>
+
+<p>Overall I quite enjoyed the game. The story isn&rsquo;t terrible and there are enough characters to keep the campaigns interesting if you want or, if you&rsquo;re like me you stick with a core group of characters that end up being ridiculously over-leveled by the end.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.000.png"></p>
+
+<p>Once you finish the game, the final credits roll an epilogue unfolds that gives some final info about the characters that survived throughout the game. The characters that died in battle are also listed, and it summarizes where they died as well, which I thought was a nice touch.</p>
+
+<p>I will likely take a stab at another entry in this series and take a bit more time (in game, not another year :P) to explore as I missed A LOT.</p>
+
+<p>Once I finished the game I realized there was an entire Extras section where you can manage teams and practice battles (for points I think). Also I had a rogue with a members card and didn&rsquo;t notice any of the &ldquo;?&rdquo; shops until <em>after</em> beating the last area.</p>
+
+<p>I also didn&rsquo;t spend much time in the optional dungeons, though I did use upgrade my characters to new classes whenever possible :) The next time I tackle a Fire Emblem title though I think I&rsquo;ll try to (a) explore more, (b) do more optional/side quests, &copy; NOT restart campaigns once they&rsquo;re underway.</p>
+
+<p>I&rsquo;m currently also midway through a playthrough of <a href="http://en.wikipedia.org/wiki/Robotrek">Robotrek</a> which I&rsquo;ve been working on-again-off-again for about a year as well, so i may try to finish that off for the next <em>Just Finished&trade;</em> post.</p>
+
+<p>If anyone has suggestions for an RPG, leave a comment (currently I&rsquo;m sticking with NES to PSP as the platform range).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
@@ -2196,162 +2253,6 @@ git diff --cached --name-only | \
 <p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
 
 <p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
-    <updated>2012-07-18T08:20:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
-    <content type="html"><![CDATA[<p>I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities &hellip; and it turns out there was :)</p>
-
-<!-- more -->
-
-
-<p>After searching around, i found a <a href="http://crunchbanglinux.org/forums/post/150587/#p150587">post on the crunchbang forums</a> that provided exactly the script I was looking for.</p>
-
-<p>I modified it a tiny bit to check for dependencies:</p>
-
-<figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># search shoutcast and send url to radiotray or another player</span>
-</span><span class='line'><span class="c"># needs Bash 4, curl, [radiotray], [xsel to send url to X selection for pasting]</span>
-</span><span class='line'><span class="c"># (comment out line 53 &quot;printf &#39;%s&#39;...&quot; if you don&#39;t use xsel)</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">command</span> -v curl &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;curl required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;xsel required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
-</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;&amp;1 <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;radiotray required.&quot;</span> &gt;&amp;2; <span class="nb">exit </span>1; <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># choose player (&amp; options if necessary): radio url will be sent to it.</span>
-</span><span class='line'>radioplay<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>    radiotray <span class="s2">&quot;$1&quot;</span>
-</span><span class='line'><span class="c">#    mplayer -playlist &quot;$1&quot; # replace &#39;mplayer -playlist&#39; to taste, $1 will hold the url</span>
-</span><span class='line'><span class="c">#    exec mplayer -playlist &quot;$1&quot; # add &#39;exec&#39; if you&#39;d rather launch player and leave script</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># start up radiotray in background if it&#39;s not already running</span>
-</span><span class='line'><span class="c"># Comment out this line if you don&#39;t use radiotray.</span>
-</span><span class='line'>pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;&amp;1 &amp; <span class="o">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">##########################################################################</span>
-</span><span class='line'><span class="k">while </span><span class="nb">true</span>
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Please enter keyword(s)&quot;</span>
-</span><span class='line'><span class="nb">read </span>keyword
-</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="s2">&quot;${keyword// /%20}&quot;</span> <span class="c"># escape spaces for url</span>
-</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span> |awk <span class="s1">&#39;</span>
-</span><span class='line'><span class="s1">BEGIN {</span>
-</span><span class='line'><span class="s1">    RS=&quot;&lt;div class=\&quot;dirlist\&quot;&gt;&quot;</span>
-</span><span class='line'><span class="s1">    FS=&quot;&gt;&quot;</span>
-</span><span class='line'><span class="s1">}</span>
-</span><span class='line'><span class="s1">NR &lt; 2 {next}</span>
-</span><span class='line'><span class="s1">{url = name = $2</span>
-</span><span class='line'><span class="s1">sub(/^.*title=\&quot;/,&quot;&quot;,name)</span>
-</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,name)</span>
-</span><span class='line'><span class="s1">sub(/^.*href=\&quot;/,&quot;&quot;,url)</span>
-</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,url)</span>
-</span><span class='line'><span class="s1">print url,name }</span>
-</span><span class='line'><span class="s1">&#39;</span> <span class="k">)</span>
-</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Sorry, no results for $keyword&quot;</span>; <span class="k">continue</span>;<span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">unset </span>list
-</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
-</span><span class='line'><span class="k">while </span><span class="nb">read </span>url name <span class="c"># read in awk&#39;s output</span>
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">    </span>list<span class="o">[</span><span class="s2">&quot;$name&quot;</span><span class="o">]=</span><span class="s2">&quot;$url&quot;</span>
-</span><span class='line'><span class="k">done</span> &lt;&lt;&lt; <span class="s2">&quot;$results&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">PS3</span><span class="o">=</span><span class="s1">&#39;Please enter the number of your choice &gt; &#39;</span>
-</span><span class='line'><span class="k">while </span><span class="nb">true</span>
-</span><span class='line'><span class="k">do</span>
-</span><span class='line'><span class="k">    select </span>station in <span class="s2">&quot;${!list[@]}&quot;</span> <span class="s1">&#39;Search Again&#39;</span> Quit
-</span><span class='line'>    <span class="k">do</span>
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="s1">&#39;Search Again&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">break </span>2
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s1">&#39;Goodbye...&#39;</span>; <span class="nb">exit</span>; <span class="o">}</span>
-</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span>
-</span><span class='line'>        <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="s2">&quot;${list[$station]}&quot;</span> | xsel --input <span class="c">#--clipboard  # can paste url</span>
-</span><span class='line'>        radioplay <span class="s2">&quot;${list[$station]}&quot;</span>
-</span><span class='line'>        <span class="nb">break</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="k">done</span>
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;</span>
-</span><span class='line'><span class="s2">Last station chosen was $station ( ${list[$station]} )</span>
-</span><span class='line'><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">done</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">done</span> <span class="c"># closes loop started at line 18</span>
-</span><span class='line'><span class="nb">exit</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
