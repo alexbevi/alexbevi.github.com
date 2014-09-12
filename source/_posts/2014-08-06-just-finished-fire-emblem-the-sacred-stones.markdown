@@ -14,6 +14,8 @@ My focus was mostly on the Final Fantasy series, as well as other Square-Enix pr
 
 This post isn't really meant to be a review; it's more just my thoughts on the game right after I finished it as (a) I didn't take any notes, and (b) I started this playthrough over a year ago.
 
+<!--more-->
+
 I'm using this as an opportunity to get back into writing a bit more frequently, so I apologize in advance if the subject matter isn't covered very well, or if the writing is all over the place.
 
 {% img right /images/fire-emblem-the-sacred-stones.004.png %}
