@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,7 +28,7 @@ Where `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee` is your log token, and `COMMAND` is
 
 For example:
 
-    lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" > /dev/tcp/data.logentries.com/80; done
+    lsblk | while read -r line; do echo &#8220;aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line&#8221; > /dev/tcp/data.logentries.com/80; done
     
 
 <img class="left" src="/images/20140716-logentries.png">
@@ -49,13 +49,13 @@ One example is a series of PowerShell scripts I've written which abstract away v
 
 <!-- more -->
 
-One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to followup from another terminal session.
+One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&#8217;d like to demonstrate how to followup from another terminal session.
 
 Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the [progress_bar](https://github.com/paul/progress_bar) gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.
 
-If I were to execute the task directly, I could watch the progress directly. Since we're running this script remotely though, this information isn't directly accessible.
+If I were to execute the task directly, I could watch the progress directly. Since we&#8217;re running this script remotely though, this information isn&#8217;t directly accessible.
 
-In order to gain access to the progress info for this taks, we'll need to access the process' STDOUT from an alternate session.
+In order to gain access to the progress info for this taks, we&#8217;ll need to access the process&#8217; STDOUT from an alternate session.
 
 The first step is to find the PID of the process we would like:
 
@@ -65,11 +65,11 @@ The first step is to find the PID of the process we would like:
 
 Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/wiki/Strace) in order to gain a bit more insight into the current process.
 
-    sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
+    sudo strace -p 16544 -s 80 -e write 2>&1 | grep &#8220;write(2, &#34;\[&#8221;
 
 <img src="/images/20140602-002.jpg">
 
-We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
+We&#8217;re redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you&#8217;re looking to monitor you may need to adjust your grep conditions.
 
 You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
 ]]></content>
@@ -88,7 +88,7 @@ The beauty of using a Linux-based system though is that you can pretty much chan
 
 <!-- more -->
 
-By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we're looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
+By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we&#8217;re looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
 
 For Linux Mint 12, which still used [Gnome Shell](https://live.gnome.org/GnomeShell), the file was at `/usr/share/gnome-shell/js/ui/layout.js`.
 
@@ -98,23 +98,31 @@ Edit the appropriate file
 
 Locate the following section (I just searched for _hot-corner_)
 
-``` javascript
-this._corner = new Clutter.Rectangle({ name: 'hot-corner',
-                                       width: 1,
-                                       height: 1,
-                                       opacity: 0,
-                                       reactive: true });
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">_corner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Clutter</span><span class="p">.</span><span class="nx">Rectangle</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hot-corner&#39;</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">reactive</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
 And change the value of `reactive` from _true_ to _false_:
 
-``` javascript
-this._corner = new Clutter.Rectangle({ name: 'hot-corner',
-                                       width: 1,
-                                       height: 1,
-                                       opacity: 0,
-                                       reactive: false });
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">_corner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Clutter</span><span class="p">.</span><span class="nx">Rectangle</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hot-corner&#39;</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>                                       <span class="nx">reactive</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Log off, then back on. Booya!]]></content>
   </entry>
@@ -144,12 +152,12 @@ _sudo_ breaks when one or more of the following occurs:
 
 <img class="center" src="/images/fixsudoprecise01.jpg">
 
-If _sudo_ is broken this way, you may notice an error saying you're not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.
+If _sudo_ is broken this way, you may notice an error saying you&#8217;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.
 
 
 ## Booting into recovery mode
 
-Since fixing _sudo_ involves editing system files, and you would otherwise need _sudo_ to do so, you'll have to boot into recovery mode to gain root (system-wide) access in order to repair _sudo_.
+Since fixing _sudo_ involves editing system files, and you would otherwise need _sudo_ to do so, you&#8217;ll have to boot into recovery mode to gain root (system-wide) access in order to repair _sudo_.
 
 If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.
 
@@ -161,7 +169,7 @@ From the boot menu, select _recovery mode_, which is usually the second boot opt
 
 <img class="center" src="/images/fixsudoprecise03.jpg">
 
-After you select recovery mode and wait for all the boot-up processes to finish, you'll be presented with a few options. In this case, you want the *Drop to root shell* prompt option so press the Down arrow to get to that option, and then press Enter to select it.
+After you select recovery mode and wait for all the boot-up processes to finish, you&#8217;ll be presented with a few options. In this case, you want the *Drop to root shell* prompt option so press the Down arrow to get to that option, and then press Enter to select it.
 
 The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.
 
@@ -173,7 +181,7 @@ In recent versions of Ubuntu, the filesystem is mounted as read-only, so you nee
 
 ### Case 1
 
-If you'd removed your last _admin_ user from the _admin_ group, then type
+If you&#8217;d removed your last _admin_ user from the _admin_ group, then type
 
     adduser username admin
 
@@ -190,7 +198,7 @@ If you had previously edited the /etc/_sudo_ers file and screwed it up, then typ
 and make it sure it looks like this:
 
     #
-    # This file MUST be edited with the 'visudo' command as root.
+    # This file MUST be edited with the &#8216;visudo&#8217; command as root.
     #
     # Please consider adding local content in /etc/sudoers.d/ instead of
     # directly modifying this file.
@@ -198,7 +206,7 @@ and make it sure it looks like this:
     # See the man page for details on how to write a sudoers file.
     #
     Defaults  env_reset
-    Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    Defaults  secure_path=&#8221;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#8221;
     # Host alias specification
 
     # User alias specification
@@ -214,19 +222,19 @@ and make it sure it looks like this:
     # Allow members of group sudo to execute any command
     %sudo ALL=(ALL:ALL) ALL
 
-    # See sudoers(5) for more information on "#include" directives:
+    # See sudoers(5) for more information on &#8220;#include&#8221; directives:
 
     #includedir /etc/sudoers.d
 
-When you're done making changes, press _Control-X, Y, Enter_.
+When you&#8217;re done making changes, press _Control-X, Y, Enter_.
 
 ### Case 3
 
-If you are trying to fix the error where it says _sudo_ is mode _____, should be 0440, then you'll want to type
+If you are trying to fix the error where it says _sudo_ is mode _____, should be 0440, then you&#8217;ll want to type
     
     chmod 0440 /etc/sudoers
 
-When you're done with whatever commands you needed to enter, type
+When you&#8217;re done with whatever commands you needed to enter, type
 
     exit
 

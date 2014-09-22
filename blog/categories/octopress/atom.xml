@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -27,45 +27,70 @@ A quick Google search came up dry, so I figured I'd just roll my own.
 In order to accomplish this, all that is required is to edit `source/_includes/post/sharing.html`:
 
 
-```diff
-diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html
-index e32500d..0bdd01e 100644
---- a/source/_includes/post/sharing.html
-+++ b/source/_includes/post/sharing.html
-@@ -5,6 +5,12 @@
-   {% if site.google_plus_one %}
-   <div class="g-plusone" data-size="{{ site.google_plus_one_size }}"></div>
-   {% endif %}
-+  {% if site.linkedin_share %}
-+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
-+    lang: en_US
-+  </script>
-+  <script type="IN/Share" data-url="{{ site.url }}{{ page.url }}" data-counter="right"></script>
-+  {% endif %}
-   {% if site.facebook_like %}
-     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-   {% endif %}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gh">index e32500d..0bdd01e 100644</span>
+</span><span class='line'><span class="gd">--- a/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gi">+++ b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gu">@@ -5,6 +5,12 @@</span>
+</span><span class='line'>   {% if site.google_plus_one %}
+</span><span class='line'>   &lt;div class=&quot;g-plusone&quot; data-size=&quot;{{ site.google_plus_one_size }}&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   {% endif %}
+</span><span class='line'><span class="gi">+  {% if site.linkedin_share %}</span>
+</span><span class='line'><span class="gi">+    &lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;</span>
+</span><span class='line'><span class="gi">+    lang: en_US</span>
+</span><span class='line'><span class="gi">+  &lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  &lt;script type=&quot;IN/Share&quot; data-url=&quot;{{ site.url }}{{ page.url }}&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  {% endif %}</span>
+</span><span class='line'>   {% if site.facebook_like %}
+</span><span class='line'>     &lt;div class=&quot;fb-like&quot; data-send=&quot;true&quot; data-width=&quot;450&quot; data-show-faces=&quot;false&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   {% endif %}
+</span></code></pre></td></tr></table></div></figure>
 
 
 The change above adds a snippit of Javascript that passes the current `site.url` and `page.url` in a similar fashion as is done for Twitter.
 
-The Javascript source was generated using LinkedIn's [Share Plugin Generator](https://developer.linkedin.com/plugins/share-plugin-generator), so if the format of the one I've chosen isn't to your liking, you can generate another.
+The Javascript source was generated using LinkedIn&#8217;s [Share Plugin Generator](https://developer.linkedin.com/plugins/share-plugin-generator), so if the format of the one I&#8217;ve chosen isn&#8217;t to your liking, you can generate another.
 
-Just in case you want to easily toggle this functionality, I've also set it up to check for a configuration value in your site's `_config.yml`:
+Just in case you want to easily toggle this functionality, I&#8217;ve also set it up to check for a configuration value in your site&#8217;s `_config.yml`:
 
-```diff
-diff --git a/_config.yml b/_config.yml
-index f8f825c..2dce55b 100644
---- a/_config.yml
-+++ b/_config.yml
-@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx
- # Facebook Like
- facebook_like: true
- 
-+# LinkedIn Share
-+linkedin_share: true
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/_config.yml b/_config.yml</span>
+</span><span class='line'><span class="gh">index f8f825c..2dce55b 100644</span>
+</span><span class='line'><span class="gd">--- a/_config.yml</span>
+</span><span class='line'><span class="gi">+++ b/_config.yml</span>
+</span><span class='line'><span class="gu">@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx</span>
+</span><span class='line'> # Facebook Like
+</span><span class='line'> facebook_like: true
+</span><span class='line'>
+</span><span class='line'><span class="gi">+# LinkedIn Share</span>
+</span><span class='line'><span class="gi">+linkedin_share: true</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Now, the next time your site is regenerated, a LinkedIn share button will be available.
 

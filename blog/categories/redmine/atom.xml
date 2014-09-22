@@ -4,7 +4,7 @@
   <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Second Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+    <updated>2014-09-22T11:45:14-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+    <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
+
+In the table below, I've added the latest numbers to those from my previous post (/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q1/2014|18|3|18|0|
+|Q2/2014|73|1|33|2|
+
+<!-- more -->
+
+<img class="left" src="/images/royalties20140630.png">
+
+Once again, I&#8217;ve decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
+
+At this rate, it&#8217;s possible I&#8217;ll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
+
+I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
+
+If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
@@ -28,11 +55,11 @@ All of the instructions I provided in my previous post can now be distilled into
 
 If we want to leverage an existing solution, we just add the [Subversion Buildpack](https://devcenter.heroku.com/articles/buildpacks) to our app.
 
-The main "gotcha" here is that we can only have ONE buildpack defined at a time, which is problematic because our app's environment (Ruby, PHP, Node .. etc) is managed as a buildpack (see https://devcenter.heroku.com/articles/buildpacks for more details).
+The main &#8220;gotcha&#8221; here is that we can only have ONE buildpack defined at a time, which is problematic because our app&#8217;s environment (Ruby, PHP, Node .. etc) is managed as a buildpack (see https://devcenter.heroku.com/articles/buildpacks for more details).
 
 In order to get around this limitation though, we can leverage another buildpack, known as the [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) buildpack which allows us to define multiple buildpacks.
 
-For our purposes, we're going to add Subversion and Ruby to our app:
+For our purposes, we&#8217;re going to add Subversion and Ruby to our app:
 
     $ cd /path/to/app
     
@@ -42,7 +69,7 @@ For our purposes, we're going to add Subversion and Ruby to our app:
     https://github.com/cucumber-ltd/heroku-buildpack-subversion.git
     https://github.com/heroku/heroku-buildpack-ruby.git
 
-    $ git commit .buildpacks -m "Add Buildpacks"
+    $ git commit .buildpacks -m &#8220;Add Buildpacks&#8221;
     $ git push heroku master
 
 This has helped me with my Redmine deployment on Heroku. Did it help you at all? Did I get something wrong. Let me know ;)]]></content>
@@ -55,9 +82,9 @@ This has helped me with my Redmine deployment on Heroku. Did it help you at all?
     <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
     <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
 
-Well, it's official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
+Well, it&#8217;s official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
-I plan on doing a "post-mortem" on the process at some point, but for now I'm planning on taking a little time off from writing.]]></content>
+I plan on doing a &#8220;post-mortem&#8221; on the process at some point, but for now I&#8217;m planning on taking a little time off from writing.]]></content>
   </entry>
   
   <entry>
@@ -73,18 +100,18 @@ Since I wanted to share a bit more detail about what went into the production of
 
 ## Technical Editing / Copy Editing
 
-We would be editing chapters for language and content-related clarity. There might be instances when we'll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.
+We would be editing chapters for language and content-related clarity. There might be instances when we&#8217;ll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.
 
 * Start of Editing: *21st February 2014*
 * End of Editing: *6th March 2014*
 
-After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as "Pre-Finals". This is the stage where-in you will get to see the final chapters as you would see them in the book.
+After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as &#8220;Pre-Finals&#8221;. This is the stage where-in you will get to see the final chapters as you would see them in the book.
 
 ## Schedule for Pre-finals
 
 2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.
 
-At this stage, you'll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.
+At this stage, you&#8217;ll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.
 
 ## Upload Date
 
@@ -109,18 +136,6 @@ So all going well, it looks like the book will officially be available by the en
 Clearly I didn't meet the target I hinted at in my last post, but it was [Family Day](http://www.statutoryholidays.com/family-day.php) here so I took the family away for the long weekend to go skating on the [Rideau Canal](http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway) in Ottawa :)
 
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
-    <updated>2014-02-09T21:48:29-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
-    <content type="html"><![CDATA[This is just a quick update that I've finally finished the first round of rewrites for the upcoming [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) book.
-
-The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it's not a primary source of income.
-
-[Packt Publishing](http://www.packtpub.com) has been very patient with me though so I'm going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)]]></content>
   </entry>
   
 </feed>

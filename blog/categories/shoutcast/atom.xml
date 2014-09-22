@@ -4,7 +4,7 @@
   <title><![CDATA[Category: shoutcast | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/shoutcast/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -26,7 +26,7 @@ After searching around, i found a [post on the crunchbang forums](http://crunchb
 
 I modified it a tiny bit to check for dependencies:
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
+<figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -163,7 +163,7 @@ I modified it a tiny bit to check for dependencies:
 </span><span class='line'>
 </span><span class='line'><span class="k">done</span> <span class="c"># closes loop started at line 18</span>
 </span><span class='line'><span class="nb">exit</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>]]></content>
+</span></code></pre></td></tr></table></div></figure>]]></content>
   </entry>
   
 </feed>

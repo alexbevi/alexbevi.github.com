@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -82,7 +82,7 @@ echo &quot;starting mongod service&quot;
 sudo service mongod start</code></pre></noscript></div>
 
 
-Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)'s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
+Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)&#8217;s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
   </entry>
   
 </feed>

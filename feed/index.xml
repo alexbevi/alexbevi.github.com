@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Second Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+    <updated>2014-09-22T11:45:14-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+    <content type="html"><![CDATA[<p>Although I haven&rsquo;t really had much to write about lately, I just got another royalty update from Packt Publishing about <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> so I wanted to share the latest sales figures &hellip; sort of :P</p>
+
+<p>In the table below, I&rsquo;ve added the latest numbers to those from my previous post (/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.</p>
+
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>Ebook Mini</th>
+<th>Subscription Packtlib Mini</th>
+<th>Print Book Mini</th>
+<th>Subscription (3rd Party Mini)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1/2014</td>
+<td>18</td>
+<td>3</td>
+<td>18</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Q2/2014</td>
+<td>73</td>
+<td>1</td>
+<td>33</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- more -->
+
+
+<p><img class="left" src="http://www.alexbevi.com/images/royalties20140630.png"></p>
+
+<p>Once again, I&rsquo;ve decided to remove the actual sales numbers from the statement, but I left in <em>TOTAL ROYALTIES TO BE PAID IN PERIOD</em> section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by <strong>ACTUAL</strong> sales.</p>
+
+<p>At this rate, it&rsquo;s possible I&rsquo;ll see some additional money out of this title by the time 2014 is through .. which would be very exciting.</p>
+
+<p>I&rsquo;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&rsquo;m sure the numbers I&rsquo;m posting here will convince you it&rsquo;s not worth quitting your job and writing full time, but it looks like it <em>could</em> become profitable over time.</p>
+
+<p>If you&rsquo;ve had anything published and are seeing a decent return on your &ldquo;investment&rdquo;, please share in the comments ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
@@ -2239,23 +2292,6 @@ git diff --cached --name-only | \
 <p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
 
 <p><img src="http://www.alexbevi.com/images/2012-08-23-ss.png"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
-    <updated>2012-08-10T08:03:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
-    <content type="html"><![CDATA[<p>As much as I enjoy Ubuntu, I haven&rsquo;t warmed to their Unity desktop. I personally find it&rsquo;s too similar to OS X, I don&rsquo;t really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.</p>
-
-<p>Since it&rsquo;s based on GTK3, I know you can modify this all, but I&rsquo;d rather just use a desktop environment that doesn&rsquo;t require that level of tweaking.</p>
-
-<p>Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.</p>
-
-<p>Over at the <a href="http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/">LinuxBSDOS</a> blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.</p>
-
-<p>I found that after doing this, I ended up with no sound. To fix this, <a href="http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470">AskUbuntu</a> has an article that I found useful.</p>
 ]]></content>
   </entry>
   

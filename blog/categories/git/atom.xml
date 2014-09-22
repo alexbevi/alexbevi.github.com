@@ -4,7 +4,7 @@
   <title><![CDATA[Category: git | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-08-06T21:30:27-04:00</updated>
+  <updated>2014-09-22T12:16:05-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -24,7 +24,7 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 <!-- more -->
 
-After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
+After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.
 
 <div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook

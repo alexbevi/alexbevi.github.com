@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: packt | ALEX BEVILACQUA]]></title>
+  <link href="http://www.alexbevi.com/blog/categories/packt/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-09-22T12:16:05-04:00</updated>
+  <id>http://www.alexbevi.com/</id>
+  <author>
+    <name><![CDATA[Alex Bevilacqua]]></name>
+    <email><![CDATA[alex@alexbevi.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Second Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+    <updated>2014-09-22T11:45:14-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+    <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
+
+In the table below, I've added the latest numbers to those from my previous post (/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q1/2014|18|3|18|0|
+|Q2/2014|73|1|33|2|
+
+<!-- more -->
+
+<img class="left" src="/images/royalties20140630.png">
+
+Once again, I&#8217;ve decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
+
+At this rate, it&#8217;s possible I&#8217;ll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
+
+I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
+
+If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
+  </entry>
+  
+</feed>
