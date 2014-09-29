@@ -46,12 +46,12 @@ module Jekyll
         next if line.empty?
         filename, title = line.split(":")
         title = (title.nil?) ? "" : title.strip
-        gallery << "<a href=<img src=\"#{p.path_for(filename)}\" data-title=\"#{title}\" />"
+        gallery << "<img src=\"#{p.path_for(filename)}\" data-title=\"#{title}\" />"
       end
       gallery << "</div>"
       gallery << "<script>"
-      #gallery << "  Galleria.configure('transition', 'fade');"
-      #gallery << "  Galleria.run('#galleria');"
+      gallery << "  Galleria.configure('transition', 'fade');"
+      gallery << "  Galleria.run('#galleria');"
       gallery << "</script>"
       gallery
     end
