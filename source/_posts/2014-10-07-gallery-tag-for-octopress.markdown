@@ -8,6 +8,8 @@ categories: [octopress, jekyll, plugins]
 
 While working on my post about finishing [Robotrek](http://en.wikipedia.org/wiki/Robotrek), I found that I had taken a lot more screenshots than would fit nicely with the amount of copy I intended to write.
 
+<small>I hope to be done the *just finished ...* article soon-ish ...</small>
+
 Since I didn't really want to discard any, I figured I'd just throw the execss screenshots into a carousel or gallery.
 
 I found [an exellent example](https://gist.github.com/kyv/5667902), but it didn't quite produce the results I was looking for.
@@ -16,7 +18,8 @@ I found [an exellent example](https://gist.github.com/kyv/5667902), but it didn'
 
 I ended up forking the gist in order to implement a Gallery tag for Jekyll/Octopress that could work with the [Galleria](http://galleria.io/) jQuery plugin.
 
-Now I can build a gallery from my extra screenshots by simply adding:
+Now I can build a gallery from my extra screenshots by simply adding
+
 {% raw %}
 ```
 {% galleria %}
@@ -35,7 +38,7 @@ Now I can build a gallery from my extra screenshots by simply adding:
 ```
 {% endraw %}
 
-To my post, which will produce the following gallery:
+to my post, which will produce the following gallery:
 
 {% galleria %}
 /images/robotrek/Robotrek_(USA).000.png
