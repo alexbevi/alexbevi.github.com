@@ -4,7 +4,7 @@
   <title><![CDATA[Category: plugins | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/plugins/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-10-07T08:49:57-04:00</updated>
+  <updated>2014-10-07T08:52:20-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,15 +20,18 @@
     <id>http://www.alexbevi.com/blog/2014/10/07/gallery-tag-for-octopress</id>
     <content type="html"><![CDATA[While working on my post about finishing [Robotrek](http://en.wikipedia.org/wiki/Robotrek), I found that I had taken a lot more screenshots than would fit nicely with the amount of copy I intended to write.
 
-Since I didn't really want to discard any, I figured I'd just throw the execss screenshots into a carousel or gallery.
+<small>I hope to be done the *just finished &#8230;* article soon-ish &#8230;</small>
 
-I found [an exellent example](https://gist.github.com/kyv/5667902), but it didn't quite produce the results I was looking for.
+Since I didn&#8217;t really want to discard any, I figured I&#8217;d just throw the execss screenshots into a carousel or gallery.
+
+I found [an exellent example](https://gist.github.com/kyv/5667902), but it didn&#8217;t quite produce the results I was looking for.
 
 <!-- more -->
 
 I ended up forking the gist in order to implement a Gallery tag for Jekyll/Octopress that could work with the [Galleria](http://galleria.io/) jQuery plugin.
 
-Now I can build a gallery from my extra screenshots by simply adding:
+Now I can build a gallery from my extra screenshots by simply adding
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -58,7 +61,7 @@ Now I can build a gallery from my extra screenshots by simply adding:
 </span><span class='line'>{% endgalleria %}</span></code></pre></td></tr></table></div></figure>
 
 
-To my post, which will produce the following gallery:
+to my post, which will produce the following gallery:
 
 <div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
