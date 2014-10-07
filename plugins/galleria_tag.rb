@@ -1,4 +1,30 @@
+# Title: Galleria Tag for Jekyll
+# Authors: Alex Bevilacqua
+# Description: incorporate the Galleria gallery jquery plugin 
+#
+# Adaption of "Photos tag for Jekyll" by Devin Weaver, and the derived 
+# "Gallery Tag for Jekyll" by Kevin Brown.
+#
+# Installation:
+#
+# {% galleria_includes %}
+#
+# This macro should be added to your `source/_includes/custom/head.html`
+# in order to load the libraries needed by Galleria
+#
+# Usage:
+#
+# Example:
+#
+# {% galleria %}
+# photo1.jpg
+# /path/to/photos/photo2.jpg:title
+# {% endgalleria %}
+#
 module Jekyll
+
+  PLUGIN_GALLERIA_VERSION = "1.4.2"
+  PLUGIN_JQUERY_VERSION   = "2.1.1"
 
   class PhotosUtil
     def initialize(context)
@@ -15,10 +41,10 @@ module Jekyll
   class GalleriaScriptIncludePatch < Liquid::Tag
     def render(context)
       return <<-eof
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
-<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/#{PLUGIN_JQUERY_VERSION}/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
 <style>
   /* This rule is read by Galleria to define the gallery height: */
   #galleria{height:320px}
