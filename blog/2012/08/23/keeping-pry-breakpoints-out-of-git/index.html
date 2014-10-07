@@ -31,6 +31,15 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -124,21 +133,29 @@
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&rsquo;t accidentally still have breakpoints enabled.</p>
 
 <div><script src='https://gist.github.com/3436040.js'></script>
-<noscript><pre><code># Git pre-commit hook
+<noscript><pre><code># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
+# for Pry binding references
 #
-# Check all Ruby (*.rb) files for Pry breakpoint references
+# Installation
 #
-# Based on http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+#   ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
 #
-# Intallation:
-#       ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
+# Based on 
 #
+#   http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+#   http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes
+#   https://gist.github.com/3266940
+#
+FILES_PATTERN=&#39;\.(rb|haml|coffee)(\..+)?$&#39;
 FORBIDDEN=&#39;binding.pry&#39;
+
 git diff --cached --name-only | \
-    find -name &#39;*.rb&#39; | \
+    grep -E $FILES_PATTERN | \
     GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
-    echo &#39;COMMIT REJECTED Found &quot;$FORBIDDEN&quot; references. Please remove them before commiting&#39; &amp;&amp; \
-    exit 1</code></pre></noscript></div>
+    echo &#39;COMMIT REJECTED&#39; &amp;&amp; \
+    exit 1
+
+exit 0</code></pre></noscript></div>
 
 
 <p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made exectuable.</p>
@@ -231,6 +248,10 @@ git diff --cached --name-only | \
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/07/gallery-tag-for-octopress/">Gallery Tag for Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/22/second-royalty-statement/">Second Royalty Statement</a>
       </li>
     
@@ -244,10 +265,6 @@ git diff --cached --name-only | \
     
       <li class="post">
         <a href="/blog/2014/07/15/adding-linkedin-share-support-to-octopress/">Adding LinkedIn Share Support to Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/15/8748os-first-royalty-statement/">First Royalty Statement</a>
       </li>
     
   </ul>
