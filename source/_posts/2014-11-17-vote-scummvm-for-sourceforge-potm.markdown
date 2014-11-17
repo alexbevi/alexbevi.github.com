@@ -12,6 +12,6 @@ They've since moved to [GitHub](https://github.com/scummvm), but SourceForge has
 
 If you've still got an account, or just feel like creating one to show them some love, head on over to the [voting page for POTM](https://sourceforge.net/p/potm/discussion/vote/thread/7a6c5c42/) and reply with `VOTE: scummvm`.
 
-{% img left /images/scummvm-potm-0115-ss.png %}
+{% img /images/scummvm-potm-0115-ss.png %}
 
 They've got my vote ;)
