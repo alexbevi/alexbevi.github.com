@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-10-17T10:53:24-04:00</updated>
+  <updated>2014-11-17T08:59:06-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vote ScummVM for SourceForge POTM]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/"/>
+    <updated>2014-11-17T08:50:15-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm</id>
+    <content type="html"><![CDATA[<p>Although I haven&rsquo;t used my <a href="https://sourceforge.net">SourceForge</a> account in a number of years, when I started working with <a href="http://www.scummvm.org">ScummVM</a>, that&rsquo;s where the code and issue tracker were, so that&rsquo;s where the development community was as well.</p>
+
+<p>They&rsquo;ve since moved to <a href="https://github.com/scummvm">GitHub</a>, but SourceForge has included them in the running for Project of the Month, January 2015.</p>
+
+<p>If you&rsquo;ve still got an account, or just feel like creating one to show them some love, head on over to the <a href="https://sourceforge.net/p/potm/discussion/vote/thread/7a6c5c42/">voting page for POTM</a> and reply with <code>VOTE: scummvm</code>.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/scummvm-potm-0115-ss.png"></p>
+
+<p>They&rsquo;ve got my vote ;)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
@@ -2270,135 +2287,6 @@ git push heroku master
 
 
 <p>Log off, then back on. Booya!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
-    <updated>2012-10-30T14:58:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
-    <content type="html"><![CDATA[<p>This is pretty much a transcription of <a href="http://www.psychocats.net/ubuntu/fixsudo">http://www.psychocats.net/ubuntu/fixsudo</a>, which is just such a good article I wanted to keep a copy for reference.</p>
-
-<h2>How does <em>sudo</em> work?</h2>
-
-<p>The way that Ubuntu has implemented <em>sudo</em>, the <code>/etc/sudoers</code> file says that users in the admin group can (after a password authentication) temporarily escalate to system-wide privileges for particular tasks. And then the <code>/etc/groups</code> file says which users are in the admin group.</p>
-
-<p>You can read more on <a href="https://help.ubuntu.com/community/RootSudo">the community documentation</a> about Ubuntu&rsquo;s implementation of <em>sudo</em>.</p>
-
-<!-- more -->
-
-
-<h2>Cause and Symptoms</h2>
-
-<p><em>sudo</em> breaks when one or more of the following occurs:</p>
-
-<ul>
-<li>the <code>/etc/sudoers</code> file has been altered to no longer allow users in the admin group to escalate privilege</li>
-<li>the permissions on the <code>/etc/sudoers</code> file are changed to something other than 0440</li>
-<li>a user who should not have been has been taken out of the <em>admin</em> group</li>
-</ul>
-
-
-<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise01.jpg"></p>
-
-<p>If <em>sudo</em> is broken this way, you may notice an error saying you&rsquo;re not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.</p>
-
-<h2>Booting into recovery mode</h2>
-
-<p>Since fixing <em>sudo</em> involves editing system files, and you would otherwise need <em>sudo</em> to do so, you&rsquo;ll have to boot into recovery mode to gain root (system-wide) access in order to repair <em>sudo</em>.</p>
-
-<p>If you have a single-boot (Ubuntu is the only operating system on your computer), to get the boot menu to show, you have to hold down the Shift key during bootup.</p>
-
-<p>If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the <em>Shift</em> key.</p>
-
-<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise02.jpg"></p>
-
-<p>From the boot menu, select <em>recovery mode</em>, which is usually the second boot option.</p>
-
-<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise03.jpg"></p>
-
-<p>After you select recovery mode and wait for all the boot-up processes to finish, you&rsquo;ll be presented with a few options. In this case, you want the <em>Drop to root shell</em> prompt option so press the Down arrow to get to that option, and then press Enter to select it.</p>
-
-<p>The root account is the ultimate administrator and can do anything to the Ubuntu installation (including erase it), so please be careful with what commands you enter in the root terminal.</p>
-
-<p>In recent versions of Ubuntu, the filesystem is mounted as read-only, so you need to enter the follow command to get it to remount as read-write, which will allow you to make changes:</p>
-
-<pre><code>mount -o rw,remount /
-</code></pre>
-
-<h2>Do the actual repair</h2>
-
-<h3>Case 1</h3>
-
-<p>If you&rsquo;d removed your last <em>admin</em> user from the <em>admin</em> group, then type</p>
-
-<pre><code>adduser username admin
-</code></pre>
-
-<p>where <em>username</em> is your actual username.</p>
-
-<h3>Case 2</h3>
-
-<p>If you had previously edited the /etc/_sudo_ers file and screwed it up, then type</p>
-
-<pre><code>sudo cp /etc/sudoers /etc/sudoers.backup
-sudo nano /etc/sudoers
-</code></pre>
-
-<p>(the proper command is actually <code>sudo visudo</code>, which checks syntax before you save the <code>/etc/sudoers</code> file, but in some older versions of Ubuntu, that command uses the vi editor, which can be confusing to new users, as opposed to nano, which is more straightforward)
-and make it sure it looks like this:</p>
-
-<pre><code>#
-# This file MUST be edited with the 'visudo' command as root.
-#
-# Please consider adding local content in /etc/sudoers.d/ instead of
-# directly modifying this file.
-#
-# See the man page for details on how to write a sudoers file.
-#
-Defaults  env_reset
-Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-# Host alias specification
-
-# User alias specification
-
-# Cmnd alias specification
-
-# User privilege specification
-root  ALL=(ALL:ALL) ALL
-
-# Members of the admin group may gain root privileges
-%admin ALL=(ALL) ALL
-
-# Allow members of group sudo to execute any command
-%sudo ALL=(ALL:ALL) ALL
-
-# See sudoers(5) for more information on "#include" directives:
-
-#includedir /etc/sudoers.d
-</code></pre>
-
-<p>When you&rsquo;re done making changes, press <em>Control-X, Y, Enter</em>.</p>
-
-<h3>Case 3</h3>
-
-<p>If you are trying to fix the error where it says <em>sudo</em> is mode _____, should be 0440, then you&rsquo;ll want to type</p>
-
-<pre><code>chmod 0440 /etc/sudoers
-</code></pre>
-
-<p>When you&rsquo;re done with whatever commands you needed to enter, type</p>
-
-<pre><code>exit
-</code></pre>
-
-<p>This will bring you back to the recovery menu.</p>
-
-<p><img class="center" src="http://www.alexbevi.com/images/fixsudoprecise04.jpg">
-<img class="center" src="http://www.alexbevi.com/images/fixsudoprecise05.jpg"></p>
-
-<p>Choose to resume a normal boot. Then you should be able to <em>sudo</em> again.</p>
 ]]></content>
   </entry>
   
