@@ -9,7 +9,7 @@
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="Although I haven&rsquo;t used my SourceForge account in a number of years, when I started working with ScummVM, that&rsquo;s where the code and issue &hellip;">
+  <meta name="description" content="I just want to start off by saying how much I LOVE Git. I&rsquo;ve been working with it for a number of years now (coming from Subversion and sharing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +93,68 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-19T13:05:35-05:00" pubdate data-updated="true"></time>
+        
+         | <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just want to start off by saying how much I LOVE <a href="http://git-scm.com">Git</a>. I&rsquo;ve been working with it for a number of years now (coming from <a href="https://subversion.apache.org">Subversion</a> and sharing code on <a href="https://code.google.com">Google Code</a> and <a href="http://sourceforge.net">SourceForge</a>) and have fully embraced <a href="https://github.com">GitHub</a> as the &ldquo;victor&rdquo; (IMHO) for both online source control and collaborative development.</p>
+
+<p>The one &ldquo;downside&rdquo; to GitHub though is that you don&rsquo;t have the ability to manage a private repository for free. They do offer reasonable hosting plans, but I generally use private repos for client work or other professional backups.</p>
+
+<p><a href="https://bitbucket.org">Bitbucket</a> on the other hand offers unlimited private repositories. They limit the collaborative features you have access to, but if you&rsquo;re strictly mirroring or backing up, that&rsquo;s not an issue.</p>
+
+<p>In order to configure your repository to push to both, all you need to do is:</p>
+
+<p><strong>1)</strong> create a new repository on Bitbucket</p>
+
+<p><strong>2a)</strong> edit the <code>.git/config</code> of your local repository</p>
+
+<p><strong>2b)</strong> add a second <code>url</code> entry under the same <strong>remote</strong> as you&rsquo;re already pushing to</p>
+
+<p><img src="/images/20141219-git-001.png"></p>
+
+<p><strong>3)</strong> now to initialze the Bitbucket remote execute <code>git push origin -u --all</code>.</p>
+
+<p><img src="/images/20141219-git-002.png"></p>
+
+<p>This will attempt to push all branches to the remote named <em>origin</em>. Since the version on GitHub is already up to date, the Bitbucket version will be initialized and all changes will be pushed.</p>
+
+<p>Now, whenever you issue a <code>git push</code> command, both remote repositories will receive the changesets!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -575,65 +637,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Troubleshooting a Mongoid Connection Issue</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-23T10:27:58-04:00" pubdate data-updated="true"></time>
-        
-         | <a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
-
-<p>I&rsquo;m now trying to dive into the issue using GDB directly, which I&rsquo;m starting off following the <a href="http://blog.newrelic.com/2013/04/29/debugging-stuck-ruby-processes-what-to-do-before-you-kill-9/">NewRelic blog post</a> about debugging hung Ruby processes.</p>
-
-<p>First, once the process is frozen, I connect using:</p>
-
-<pre><code>sudo gdb -p &lt;pid&gt;
-</code></pre>
-
-<p>and then tried to get some info from the C-level backtraces via:</p>
-
-<pre><code>(gdb) t a a bt
-</code></pre>
-
-<p>This resulted in a lot of information that didn&rsquo;t really help me (at least not immediately):</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -655,6 +658,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/">Vote ScummVM for SourceForge POTM</a>
       </li>
     
@@ -668,10 +675,6 @@
     
       <li class="post">
         <a href="/blog/2014/09/22/second-royalty-statement/">Second Royalty Statement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/">Just Finished - Fire Emblem: The Sacred Stones</a>
       </li>
     
   </ul>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: github | ALEX BEVILACQUA]]></title>
+  <link href="http://www.alexbevi.com/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://www.alexbevi.com/"/>
+  <updated>2014-12-19T13:31:18-05:00</updated>
+  <id>http://www.alexbevi.com/</id>
+  <author>
+    <name><![CDATA[Alex Bevilacqua]]></name>
+    <email><![CDATA[alex@alexbevi.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git Push to GitHub and Bitbucket]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket/"/>
+    <updated>2014-12-19T13:05:35-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket</id>
+    <content type="html"><![CDATA[I just want to start off by saying how much I LOVE [Git](http://git-scm.com). I've been working with it for a number of years now (coming from [Subversion](https://subversion.apache.org) and sharing code on [Google Code](https://code.google.com) and [SourceForge](http://sourceforge.net)) and have fully embraced [GitHub](https://github.com) as the "victor" (IMHO) for both online source control and collaborative development.
+
+The one "downside" to GitHub though is that you don't have the ability to manage a private repository for free. They do offer reasonable hosting plans, but I generally use private repos for client work or other professional backups.
+
+[Bitbucket](https://bitbucket.org) on the other hand offers unlimited private repositories. They limit the collaborative features you have access to, but if you're strictly mirroring or backing up, that's not an issue.
+
+In order to configure your repository to push to both, all you need to do is:
+
+**1)** create a new repository on Bitbucket
+
+**2a)** edit the `.git/config` of your local repository
+
+**2b)** add a second `url` entry under the same **remote** as you're already pushing to
+
+<img src="/images/20141219-git-001.png">
+
+**3)** now to initialze the Bitbucket remote execute `git push origin -u &#8211;all`. 
+
+<img src="/images/20141219-git-002.png">
+
+This will attempt to push all branches to the remote named *origin*. Since the version on GitHub is already up to date, the Bitbucket version will be initialized and all changes will be pushed.
+
+Now, whenever you issue a `git push` command, both remote repositories will receive the changesets!
+]]></content>
+  </entry>
+  
+</feed>

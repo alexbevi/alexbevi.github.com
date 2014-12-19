@@ -9,7 +9,7 @@
   <meta name="author" content="Alex Bevilacqua">
 
   
-  <meta name="description" content="I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well. One &hellip;">
+  <meta name="description" content="I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on localhost. I&rsquo;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +100,65 @@
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Troubleshooting a Mongoid Connection Issue</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-23T10:27:58-04:00" pubdate data-updated="true"></time>
+        
+         | <a href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
+
+<p>I&rsquo;m now trying to dive into the issue using GDB directly, which I&rsquo;m starting off following the <a href="http://blog.newrelic.com/2013/04/29/debugging-stuck-ruby-processes-what-to-do-before-you-kill-9/">NewRelic blog post</a> about debugging hung Ruby processes.</p>
+
+<p>First, once the process is frozen, I connect using:</p>
+
+<pre><code>sudo gdb -p &lt;pid&gt;
+</code></pre>
+
+<p>and then tried to get some info from the C-level backtraces via:</p>
+
+<pre><code>(gdb) t a a bt
+</code></pre>
+
+<p>This resulted in a lot of information that didn&rsquo;t really help me (at least not immediately):</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Accessing a running process&#8217; STDOUT</a></h1>
       
     
@@ -137,6 +196,51 @@
   
     <footer>
       <a rel="full-article" href="/blog/2014/06/02/accessing-stdout-of-a-running-process/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/04/22/a-sample-post/">This is a sample post</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-22T14:40:00-04:00" pubdate data-updated="true"></time>
+        
+         | <a href="/blog/2014/04/22/a-sample-post/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/04/22/a-sample-post/">Read on &rarr;</a>
     </footer>
   
 
@@ -485,104 +589,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/">Developer Braindump: Tony Tough and the Night of the Roasted Moths</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T08:28:00-04:00" pubdate data-updated="true"></time>
-        
-         | <a href="/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The <a href="http://www.scummvm.org">ScummVM</a> project recently added support for <a href="http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths">Tony Tough and the Night of the Roasted Moths</a>.</p>
-
-<p>The original developer, <a href="https://github.com/rasky">Giovanni Bajo</a> appeared on the <a href="http://sourceforge.net/mailarchive/forum.php?forum_name=scummvm-devel">scummvm-devel</a> mailing list and offered some insight into the development of the original engine.</p>
-
-<p>The following is extracted from the <a href="http://sourceforge.net/mailarchive/message.php?msg_id=30015071">original post</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/">Disable Hot Corner Hover in Linux Mint</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T08:01:00-04:00" pubdate data-updated="true"></time>
-        
-         | <a href="/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>UPDATE</strong> For Linux Mint 16, the <code>hotCorner</code> settings have been moved to <code>/usr/share/cinnamon/js/ui/hotCorner.js</code>.</p>
-
-<p>I use <a href="http://www.synergy-foss.org">Synergy</a> on all my computers to share a common mouse and keyboard, but I&rsquo;ve found that with Gnome 3 based distributions, the hot corner was causing me some grief.</p>
-
-<p>The beauty of using a Linux-based system though is that you can pretty much change anything you&rsquo;re unhappy with, so that&rsquo;s what I&rsquo;m here to do.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -606,6 +612,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/">Vote ScummVM for SourceForge POTM</a>
       </li>
     
@@ -619,10 +629,6 @@
     
       <li class="post">
         <a href="/blog/2014/09/22/second-royalty-statement/">Second Royalty Statement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/">Just Finished - Fire Emblem: The Sacred Stones</a>
       </li>
     
   </ul>
