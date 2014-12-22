@@ -115,7 +115,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (~> 4.2.9)
-  compass
+  compass (~> 1.0.1)
   haml (~> 4.0)
   jekyll
   jekyll-sitemap
