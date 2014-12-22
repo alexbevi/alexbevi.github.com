@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-12-19T13:31:18-05:00</updated>
+  <updated>2014-12-22T08:24:24-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Third Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
+    <updated>2014-12-22T08:11:36-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
+    <content type="html"><![CDATA[<p>I&rsquo;d love to say Christmas came early this year, but it looks like sales of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> didn&rsquo;t quite hit the numbers needed to actually result in a royalty cheque. Ah well, there&rsquo;s always Q1 of 2015 :D</p>
+
+<p>I&rsquo;ve added the latest numbers to those from <a href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/">my previous post</a> in order to show the running total of units sold this year.</p>
+
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>Ebook Mini</th>
+<th>Subscription Packtlib Mini</th>
+<th>Print Book Mini</th>
+<th>Subscription (3rd Party Mini)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1/2014</td>
+<td>18</td>
+<td>3</td>
+<td>18</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Q2/2014</td>
+<td>73</td>
+<td>1</td>
+<td>33</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Q3/2014</td>
+<td>25</td>
+<td>2</td>
+<td>24</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- more -->
+
+
+<p><img class="left" src="http://www.alexbevi.com/images/20141222-ss01.png"></p>
+
+<p>The main reason I&rsquo;ve been sharing these numbers (without sharing that actual &ldquo;numbers&rdquo;) is to show prospective authors what types of returns they can potentially expect.</p>
+
+<p>The book I wrote falls into the &ldquo;minibook&rdquo; category, so the returns are lower than a full-on &ldquo;book&rdquo; (I think &lt; 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)</p>
+
+<p>Happy Holidays Everyone!!!</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/20141222-cat.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git Push to GitHub and Bitbucket]]></title>
@@ -2080,201 +2140,6 @@ As any programmer knows, the likelihood of new code working properly the first t
 <h2>In for the long haul</h2>
 
 <p>You know the ending to this story: Warcraft eventually shipped only five months later. It seemed an eternity because we worked so many hours each day, encountered so many obstacles, overcame so many challenges, and created something we cared for so passionately. I’ll continue to explore those remaining months in future blog articles, but so much was packed into that time that it’s impossible to squeeze those recollections into this already too long post!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fetching Changesets in Redmine from Heroku using Subversion]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
-    <updated>2012-11-21T08:44:00-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
-    <content type="html"><![CDATA[<p>[<strong>NOTE</strong>: The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)]</p>
-
-<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
-
-<p>Since I&rsquo;m &ldquo;frugal&rdquo;, I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on <a href="http://www.heroku.com">Heroku</a>, my files and attachments on <a href="http://www.dropbox.com">Dropbox</a> and my source on <a href="https://github.com">GitHub</a>.</p>
-
-<p>I also like to link to changesets in my projects, which is easy enough to do when you host the source and the Redmine server on the same machine.</p>
-
-<p>Not so easy with Heroku+GitHub &hellip;. until now!</p>
-
-<p>By the end of this tutorial, we will have:</p>
-
-<ul>
-<li>Setup a build system using Vagrant that matches the Heroku hosting environment</li>
-<li>Compiled a statically linked <a href="http://subversion.apache.org/">Subversion</a> client</li>
-<li>Added the svn client to our Redmine repository and pushed it to Heroku</li>
-<li>Configured a project in Redmine to fetch changesets from GitHub using Subversion</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h2>Overview</h2>
-
-<p>In 2012, <a href="https://github.com/blog/626-announcing-svn-support">GitHub announced SVN support</a>, which primarly opened the service up to developers who hadn&rsquo;t given up the centralized development model.</p>
-
-<p>As an added bonus, it gave us an alternative view into the commit logs for our projects without the need for a local copy.</p>
-
-<p>In order to proceed, I&rsquo;m making the following assumptions:</p>
-
-<ul>
-<li>You are hosting an instance of Redmine on Heroku</li>
-<li>You are comfortable using <a href="http://git-scm.com">Git</a></li>
-<li>You&rsquo;ve used a <a href="http://debian.org">Debian</a>-based Linux distribution in the past</li>
-<li>You&rsquo;ve used the <a href="http://en.wikipedia.org/wiki/GNU_build_system">GNU Build System</a> before</li>
-<li>You have <a href="http://www.ruby-lang.org">Ruby</a> and <a href="http://rubygems.org">RubyGems</a> configured (if not, <a href="http://rvm.io">RVM</a> is a good place to start)</li>
-<li>You are not crazy enough to try doing this from Windows or OSX ;)</li>
-<li>You have a sense of humour and realize the winky above indicates this guide was written for Linux, but could easily be adapted for any OS</li>
-</ul>
-
-
-<h2>Configuring the Build Environment</h2>
-
-<p>Heroku (as of November, 2012 at least) deploys applications to an Ubuntu 10.04 x86_64 environment, and we&rsquo;re going to be statically linking for that environment, so we need to setup a build system that reflects this requirement.</p>
-
-<p>The most efficient way of doing this is to use <a href="http://vagrantup.com">Vagrant</a> to initialize a bare-bones <a href="http://releases.ubuntu.com/lucid">Ubuntu Lucid</a> system.</p>
-
-<p>Since Rubygems should already be installed, it can be used to quickly setup Vagrant:</p>
-
-<pre><code>gem install vagrant
-</code></pre>
-
-<p>Now, let&rsquo;s fetch a pre-build lucid system (thanks Vagrant!) and initialize it in the current directory:</p>
-
-<pre><code>vagrant box add lucid64 http://files.vagrantup.com/lucid64.box
-vagrant init
-</code></pre>
-
-<p>This will create a <code>Vagrantfile</code> in the current director, which contains configuration information for our build system. In order to tell Vagrant to use the <em>lucid64</em> instace we&rsquo;ve downloaded, the <code>Vagrantfile</code> needs to be edited and the <em>config.vm.box</em> section updated.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- mode: ruby -*-</span>
-</span><span class='line'><span class="c1"># vi: set ft=ruby :</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">Vagrant</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">run</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="c1"># ...</span>
-</span><span class='line'>  <span class="c1"># Every Vagrant virtual environment requires a box to build off of.</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;lucid64&quot;</span>
-</span><span class='line'>  <span class="c1"># ...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that everything is ready to go, let&rsquo;s start the instance.</p>
-
-<pre><code>vagrant up
-</code></pre>
-
-<p>Once vagrant has started the virtual machine, we can access it via ssh using:</p>
-
-<pre><code>vagrant ssh
-</code></pre>
-
-<h2>Building Subversion</h2>
-
-<p>For the purposes of this tutorial, I&rsquo;m going to be using the 1.6 branch of Subversion, which still had the <em>subversion-deps</em> packaged seperately.</p>
-
-<blockquote><p><strong>NOTE</strong> With the 1.7 branch, there is a script that automates the process, and I&rsquo;ll likely update this tutorial at some point to use this.</p></blockquote>
-
-<p>First, we need to get the source:</p>
-
-<pre><code>wget http://subversion.tigris.org/downloads/subversion-deps-1.6.19.tar.bz2
-wget http://subversion.tigris.org/downloads/subversion-1.6.19.tar.bz2
-tar xvf subversion-deps-1.6.19.tar.bz2
-tar xvf subversion-1.6.19.tar.bz2
-cd subversion-1.6.19
-</code></pre>
-
-<p>Second, we&rsquo;ll install any additonal components required to compile successfully:</p>
-
-<pre><code>sudo apt-get install build-essential libxml2-dev
-</code></pre>
-
-<p>Finally, we&rsquo;ll configure the build to exclude as much as possible and to produce a static binary:</p>
-
-<pre><code>./configure --with-ssl \
-            --without-gssapi \
-            --without-swig \
-            --without-neon \
-            --enable-all-static
-make
-</code></pre>
-
-<p>Once the build completes, the only file we&rsquo;re interested in is the <code>svn</code> client, so we&rsquo;ll copy that to the <code>/vagrant</code> directory of our build machine, but first we&rsquo;ll strip it.</p>
-
-<pre><code>strip subversion/svn/svn
-cp subversion/svn/svn /vagrant
-</code></pre>
-
-<blockquote><p><strong>NOTE</strong> stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.
-    vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
-    -rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*</p>
-
-<pre><code>vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
-
-vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
--rwxr-xr-x 1 vagrant vagrant 4257472 2012-11-21 14:56 subversion/svn/svn*
-</code></pre></blockquote>
-
-<p>The <code>/vagrant</code> directory is shared between the host and the guest machine by default, so this gives us access to the Subversion client if we open a new console and access the project folder we started Vagrant in.</p>
-
-<p>Since we&rsquo;re now done, we can end the ssh session and stop the virtual machine</p>
-
-<pre><code>exit
-vagrant halt
-</code></pre>
-
-<h2>Adding Subversion to Redmine</h2>
-
-<p>Go to the root of your local Redmine repository, and create a <code>bin</code> folder. Now copy the <code>svn</code> binary to this folder, add the result to your repository and push to Heroku.</p>
-
-<pre><code>mkdir bin
-cp /path/to/static/svn bin  
-git commit -a -m "Adding a Statically Linked Subversion to Redmine"
-git push heroku master
-</code></pre>
-
-<p>If all went well, when you access the <em>Repositories</em> tab under <em>Administration -> Settings</em>, Subversion should be listed and the version we just uploaded displayed.</p>
-
-<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-01.jpg"></p>
-
-<h2>Accessing Changesets from GitHub</h2>
-
-<p>The final step is to configure an existing project to access a project on GitHub.</p>
-
-<p>First, add a new repository and point it to the GitHub url you would normally use to access the project on the web.</p>
-
-<blockquote><p><strong>NOTE</strong> Leave the <em>Login</em> and <em>Password</em> fields blank unless this is a private repository</p></blockquote>
-
-<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-02.jpg"></p>
-
-<p>Once configured, clicking on the <em>Repository</em> tab should fetch the changesets and show the source tree</p>
-
-<p><img class="center" src="http://www.alexbevi.com/images/heroku-svn-03.jpg"></p>
-
-<blockquote><p><strong>NOTE</strong> This can potentially time out on a larger project and require clicking on the <em>Repository</em> tab multiple times until all changesets have been fetched and parsed.</p>
-
-<p><strong>NOTE</strong> Viewing changeset diffs doesn&rsquo;t work</p></blockquote>
-
-<p>I&rsquo;ve used my personal installation as an example at <a href="http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments">http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments</a>.</p>
-
-<p>This method isn&rsquo;t on-par with a self-hosted solution, but it&rsquo;s good enough if you don&rsquo;t have a VPS in your budget ;)</p>
-
-<h3>REFERENCES</h3>
-
-<ul>
-<li><a href="http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html">http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html</a></li>
-<li><a href="http://bindle.me/blog/index.php/405/running-binaries-on-heroku">http://bindle.me/blog/index.php/405/running-binaries-on-heroku</a></li>
-</ul>
-
 ]]></content>
   </entry>
   

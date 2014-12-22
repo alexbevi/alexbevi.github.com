@@ -4,7 +4,7 @@
   <title><![CDATA[Category: packt | ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/blog/categories/packt/atom.xml" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2014-12-19T13:31:18-05:00</updated>
+  <updated>2014-12-22T08:24:24-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Third Royalty Statement]]></title>
+    <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
+    <updated>2014-12-22T08:11:36-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
+    <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
+
+I've added the latest numbers to those from [my previous post](/blog/2014/09/22/second-royalty-statement/) in order to show the running total of units sold this year.
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q1/2014|18|3|18|0|
+|Q2/2014|73|1|33|2|
+|Q3/2014|25|2|24|4|
+
+<!-- more -->
+
+<img class="left" src="/images/20141222-ss01.png">
+
+The main reason I&#8217;ve been sharing these numbers (without sharing that actual &#8220;numbers&#8221;) is to show prospective authors what types of returns they can potentially expect.
+
+The book I wrote falls into the &#8220;minibook&#8221; category, so the returns are lower than a full-on &#8220;book&#8221; (I think < 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)
+
+Happy Holidays Everyone!!!
+
+<img class="left" src="/images/20141222-cat.png">
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Second Royalty Statement]]></title>
