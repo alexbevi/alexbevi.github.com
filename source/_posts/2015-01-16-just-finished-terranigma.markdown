@@ -17,7 +17,7 @@ I was a big fan of Soul Blazer (less of Illusion of Gaia) so I was really lookin
 
 <!-- more -->
 
-You start off by opening a funky box, which releases Yomi. I don't really know what he is, but the box he's in acts
+You start off by opening a funky box, which releases Yomi. I don't really know what he is, but the box he's in acts as your inventory system, as well as various settings and status pages. This is kind of innovative as it makes interacting with your items, weapons, armour and stats a bit more interesting.
 
 First, you need to save your town, which gets frozen; except for the one guy who conveniently can explain how to unfreeze everyone. 
 
@@ -38,6 +38,8 @@ Second is [Sylvan Castle](http://shrines.rpgclassics.com/snes/terranigma/wsylvai
 {% img  /images/terranigma/Terranigma.048.png %}
 
 Some walkthroughs say your should be at level 21, some say 25. I'm at level 18. Grinding in this game takes a very long time, and I think I'm just going to cut my losses here and move on.
+
+If this were a turned-based RPG, I could blindly button mash my way up a few levels. Oh well.
 
 {% galleria %}
 /images/terranigma/Terranigma.000.png
