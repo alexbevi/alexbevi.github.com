@@ -40,10 +40,12 @@ function addSidebarToggler() {
 
 function testFeatures() {
   var features = ['maskImage'];
-  $(features).map(function(i,feature){
-      Modernizr.addTest(feature,function(){
-         Modernizr.testAllProps(feature)
-      });
+  $(features).map(function(i, feature) {
+    if (Modernizr.testAllProps(feature)) {
+      $('html').addClass(feature);
+    } else {
+      $('html').addClass('no-'+feature);
+    }
   });
   if ("placeholder" in document.createElement("input")) {
     $('html').addClass('placeholder');
