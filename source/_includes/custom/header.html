@@ -1,10 +1,8 @@
-<hgroup>
-  <div id="logo">
-  	<div class="clear"></div>
-  </div>
-  <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
-  {% if site.subtitle %}
-    <h2>{{ site.subtitle }}</h2>
-  {% endif %}
-  <div class="clear"></div>
-</hgroup>
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="{{ root_url }}/" class="site-title">{{ site.title }}</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        {% include site/navigation.html %}
+    </div>
+</div>

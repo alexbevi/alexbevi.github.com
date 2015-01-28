@@ -63,6 +63,8 @@ default_asides: [custom/asides/gravatar.html, asides/recent_posts.html, custom/a
 #   3rd Party Settings    #
 # ----------------------- #
 
+gravatar_email: alexbevi@gmail.com
+
 # Github repositories
 github_user: alexbevi
 github_repo_count: 5
@@ -86,14 +88,6 @@ google_plus_one_size: medium
 googleplus_user: +AlexBevilacqua
 googleplus_hidden: false
 
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
 # Disqus Comments
 disqus_short_name: alexbevi
 disqus_show_comment_count: true
@@ -107,4 +101,39 @@ facebook_like: true
 # LinkedIn Share
 linkedin_share: true
 
-gravatar_email: alexbevi@gmail.com
+# Oscailte Theme Settings
+oscailte:
+    hire: # The "Available for Hire" widget
+        visible:
+            footer: false
+            sidebar: true
+        footer-cols: 6 # Number of columns available for the footer component, max 12
+        available: true # Whether or not you're available for hire
+        vibrant: false # Makes the widget much more noticeable
+        message: "Need a developer?"
+    social:
+        visible: true
+        title: # Defaults to "Follow me!" if not present
+        adn: # App.net
+        coinbase:
+        dribbble:
+        facebook:
+            user: alexbevi
+            app_id: # For enabling Open Graph metadata
+        github:
+            user: alexbevi
+            show_profile_link:
+        googleplus: +alexbevilacqua
+        hackernews:
+        keybase:
+        linkedin:
+        pinterest:
+        reddit:
+        stackoverflow: 195509
+        twitter:
+            user: alexbevi
+            widget: # Shows the Recent Tweets widget in sidebar
+                is_shown:
+                show_profile_link:
+                widget_id:
+        youtube:
