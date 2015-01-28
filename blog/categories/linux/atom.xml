@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
-    <updated>2014-07-16T12:06:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
-    <content type="html"><![CDATA[I've been using [Logentries](https://logentries.com/) for a couple of months now to manage variou project logs and have found it to be extremely convenient.
+    
+    <entry>
+        <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
+        <updated>2014-07-16T12:06:55-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
+        <content type="html"><![CDATA[I've been using [Logentries](https://logentries.com/) for a couple of months now to manage variou project logs and have found it to be extremely convenient.
 
 If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:
 
@@ -34,14 +34,14 @@ For example:
 <img class="left" src="/images/20140716-logentries.png">
 
 Hopefully this helps someone other than myself :)]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Accessing a running process' STDOUT]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
-    <updated>2014-06-02T09:16:54-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
-    <content type="html"><![CDATA[I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Accessing a running process' STDOUT]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
+        <updated>2014-06-02T09:16:54-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
+        <content type="html"><![CDATA[I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
 
 One example is a series of PowerShell scripts I've written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.
 
@@ -73,14 +73,14 @@ We&#8217;re redirecting the output of *strace* in order to further filter the re
 
 You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Disable Hot Corner Hover in Linux Mint]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
-    <updated>2012-11-02T08:01:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
-    <content type="html"><![CDATA[**UPDATE** For Linux Mint 16, the `hotCorner` settings have been moved to `/usr/share/cinnamon/js/ui/hotCorner.js`.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Disable Hot Corner Hover in Linux Mint]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/"/>
+        <updated>2012-11-02T08:01:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13</id>
+        <content type="html"><![CDATA[**UPDATE** For Linux Mint 16, the `hotCorner` settings have been moved to `/usr/share/cinnamon/js/ui/hotCorner.js`.
 
 I use [Synergy](http://www.synergy-foss.org) on all my computers to share a common mouse and keyboard, but I've found that with Gnome 3 based distributions, the hot corner was causing me some grief.
 
@@ -125,14 +125,14 @@ And change the value of `reactive` from _true_ to _false_:
 </span></code></pre></td></tr></table></div></figure>
 
 Log off, then back on. Booya!]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
-    <updated>2012-10-30T14:58:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
-    <content type="html"><![CDATA[This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
+        <updated>2012-10-30T14:58:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
+        <content type="html"><![CDATA[This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.
 
 ## How does _sudo_ work?
 
@@ -244,14 +244,14 @@ This will bring you back to the recovery menu.
 <img class="center" src="/images/fixsudoprecise05.jpg">
 
 Choose to resume a normal boot. Then you should be able to _sudo_ again.]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
-    <updated>2012-08-10T08:03:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
-    <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
+        <updated>2012-08-10T08:03:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
+        <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
 
 Since it's based on GTK3, I know you can modify this all, but I'd rather just use a desktop environment that doesn't require that level of tweaking.
 
@@ -260,6 +260,6 @@ Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distri
 Over at the [LinuxBSDOS](http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/) blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.
 
 I found that after doing this, I ended up with no sound. To fix this, [AskUbuntu](http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470) has an article that I found useful.]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

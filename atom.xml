@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+    </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Just Gave Up On - Terranigma]]></title>
-    <link href="http://www.alexbevi.com/blog/2015/01/16/just-finished-terranigma/"/>
-    <updated>2015-01-16T09:26:52-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2015/01/16/just-finished-terranigma</id>
-    <content type="html"><![CDATA[<p>As someone in their thirties with a family, my personal gaming time is somewhat limited. As a result, I need to be a bit more selective with what I choose to sink any free time into; and <a href="http://en.wikipedia.org/wiki/Grinding_%28video_gaming%29">grinding</a> is not where I want that time to go. I&rsquo;ll get back to this shortly ;)</p>
+    
+    <entry>
+        <title type="html"><![CDATA[Just Gave Up On - Terranigma]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/01/16/just-finished-terranigma/"/>
+        <updated>2015-01-16T09:26:52-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/01/16/just-finished-terranigma</id>
+        <content type="html"><![CDATA[<p>As someone in their thirties with a family, my personal gaming time is somewhat limited. As a result, I need to be a bit more selective with what I choose to sink any free time into; and <a href="http://en.wikipedia.org/wiki/Grinding_%28video_gaming%29">grinding</a> is not where I want that time to go. I&rsquo;ll get back to this shortly ;)</p>
 
 <p>I want to start off by saying I really enjoyed <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>. It&rsquo;s a fun 3rd person action-rpg (similar to <a href="http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past">Link to the Past</a> or <a href="http://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>) that concludes the <em>Quintet</em> triology started by <a href="http://en.wikipedia.org/wiki/Soul_Blazer">Soul Blazer</a> and <a href="http://en.wikipedia.org/wiki/Illusion_of_Gaia">Illusion of Gaia</a>.</p>
 
@@ -61,14 +61,14 @@
 
 <p>From what I played though, Terranigma was a lot of fun. I may come back to this game, but for the moment I&rsquo;ve decided to move along to the next challenge &hellip; <a href="http://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc">Danganronpa</a>. So far &hellip; loving it :D :D :D</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Third Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
-    <updated>2014-12-22T08:11:36-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
-    <content type="html"><![CDATA[<p>I&rsquo;d love to say Christmas came early this year, but it looks like sales of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> didn&rsquo;t quite hit the numbers needed to actually result in a royalty cheque. Ah well, there&rsquo;s always Q1 of 2015 :D</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Third Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
+        <updated>2014-12-22T08:11:36-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
+        <content type="html"><![CDATA[<p>I&rsquo;d love to say Christmas came early this year, but it looks like sales of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> didn&rsquo;t quite hit the numbers needed to actually result in a royalty cheque. Ah well, there&rsquo;s always Q1 of 2015 :D</p>
 
 <p>I&rsquo;ve added the latest numbers to those from <a href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/">my previous post</a> in order to show the running total of units sold this year.</p>
 
@@ -121,14 +121,14 @@
 
 <p><img class="left" src="http://www.alexbevi.com/images/20141222-cat.png"></p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Git Push to GitHub and Bitbucket]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket/"/>
-    <updated>2014-12-19T13:05:35-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket</id>
-    <content type="html"><![CDATA[<p>I just want to start off by saying how much I LOVE <a href="http://git-scm.com">Git</a>. I&rsquo;ve been working with it for a number of years now (coming from <a href="https://subversion.apache.org">Subversion</a> and sharing code on <a href="https://code.google.com">Google Code</a> and <a href="http://sourceforge.net">SourceForge</a>) and have fully embraced <a href="https://github.com">GitHub</a> as the &ldquo;victor&rdquo; (IMHO) for both online source control and collaborative development.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Git Push to GitHub and Bitbucket]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket/"/>
+        <updated>2014-12-19T13:05:35-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket</id>
+        <content type="html"><![CDATA[<p>I just want to start off by saying how much I LOVE <a href="http://git-scm.com">Git</a>. I&rsquo;ve been working with it for a number of years now (coming from <a href="https://subversion.apache.org">Subversion</a> and sharing code on <a href="https://code.google.com">Google Code</a> and <a href="http://sourceforge.net">SourceForge</a>) and have fully embraced <a href="https://github.com">GitHub</a> as the &ldquo;victor&rdquo; (IMHO) for both online source control and collaborative development.</p>
 
 <p>The one &ldquo;downside&rdquo; to GitHub though is that you don&rsquo;t have the ability to manage a private repository for free. They do offer reasonable hosting plans, but I generally use private repos for client work or other professional backups.</p>
 
@@ -152,14 +152,14 @@
 
 <p>Now, whenever you issue a <code>git push</code> command, both remote repositories will receive the changesets!</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vote ScummVM for SourceForge POTM]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/"/>
-    <updated>2014-11-17T08:50:15-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm</id>
-    <content type="html"><![CDATA[<p>Although I haven&rsquo;t used my <a href="https://sourceforge.net">SourceForge</a> account in a number of years, when I started working with <a href="http://www.scummvm.org">ScummVM</a>, that&rsquo;s where the code and issue tracker were, so that&rsquo;s where the development community was as well.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Vote ScummVM for SourceForge POTM]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/"/>
+        <updated>2014-11-17T08:50:15-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/11/17/vote-scummvm-for-sourceforge-potm</id>
+        <content type="html"><![CDATA[<p>Although I haven&rsquo;t used my <a href="https://sourceforge.net">SourceForge</a> account in a number of years, when I started working with <a href="http://www.scummvm.org">ScummVM</a>, that&rsquo;s where the code and issue tracker were, so that&rsquo;s where the development community was as well.</p>
 
 <p>They&rsquo;ve since moved to <a href="https://github.com/scummvm">GitHub</a>, but SourceForge has included them in the running for Project of the Month, January 2015.</p>
 
@@ -169,14 +169,14 @@
 
 <p>They&rsquo;ve got my vote ;)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek/"/>
-    <updated>2014-10-17T09:00:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek</id>
-    <content type="html"><![CDATA[<p>I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation &hellip; and I started playing <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>, which is pretty awesome so far.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek/"/>
+        <updated>2014-10-17T09:00:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek</id>
+        <content type="html"><![CDATA[<p>I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation &hellip; and I started playing <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>, which is pretty awesome so far.</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/robotrek/220px-Robotrekboxart.jpg"></p>
 
@@ -239,14 +239,14 @@
 <script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gallery Tag for Octopress]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/10/07/gallery-tag-for-octopress/"/>
-    <updated>2014-10-07T08:31:08-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/10/07/gallery-tag-for-octopress</id>
-    <content type="html"><![CDATA[<p>While working on my post about finishing <a href="http://en.wikipedia.org/wiki/Robotrek">Robotrek</a>, I found that I had taken a lot more screenshots than would fit nicely with the amount of copy I intended to write.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Gallery Tag for Octopress]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/10/07/gallery-tag-for-octopress/"/>
+        <updated>2014-10-07T08:31:08-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/10/07/gallery-tag-for-octopress</id>
+        <content type="html"><![CDATA[<p>While working on my post about finishing <a href="http://en.wikipedia.org/wiki/Robotrek">Robotrek</a>, I found that I had taken a lot more screenshots than would fit nicely with the amount of copy I intended to write.</p>
 
 <p><small>I hope to be done the <em>just finished &hellip;</em> article soon-ish &hellip;</small></p>
 
@@ -390,14 +390,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 </code></pre></noscript></div>
 
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Second Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
-    <updated>2014-09-22T11:45:14-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
-    <content type="html"><![CDATA[<p>Although I haven&rsquo;t really had much to write about lately, I just got another royalty update from Packt Publishing about <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> so I wanted to share the latest sales figures &hellip; sort of :P</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Second Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+        <updated>2014-09-22T11:45:14-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+        <content type="html"><![CDATA[<p>Although I haven&rsquo;t really had much to write about lately, I just got another royalty update from Packt Publishing about <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> so I wanted to share the latest sales figures &hellip; sort of :P</p>
 
 <p>In the table below, I&rsquo;ve added the latest numbers to those from <a href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/">my previous post</a> in order to show the running total of units sold this year.</p>
 
@@ -443,14 +443,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 
 <p>If you&rsquo;ve had anything published and are seeing a decent return on your &ldquo;investment&rdquo;, please share in the comments ;)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
-    <updated>2014-08-06T17:58:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.003.png"></p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
+        <updated>2014-08-06T17:58:55-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
+        <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/fire-emblem-the-sacred-stones.003.png"></p>
 
 <p>I&rsquo;ve played a lot of RPGs over the years (JRPGs mostly) but have somehow managed to hear little to nothing about the <a href="http://en.wikipedia.org/wiki/Fire_Emblem">Fire Emblem</a> series.</p>
 
@@ -503,14 +503,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 
 <p>If anyone has suggestions for an RPG, leave a comment (currently I&rsquo;m sticking with NES to PSP as the platform range).</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
-    <updated>2014-07-16T12:06:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
+        <updated>2014-07-16T12:06:55-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
+        <content type="html"><![CDATA[<p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
 
 <p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
 
@@ -528,14 +528,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 
 <p>Hopefully this helps someone other than myself :)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Adding LinkedIn Share Support to Octopress]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress/"/>
-    <updated>2014-07-15T15:55:14-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress</id>
-    <content type="html"><![CDATA[<p>I was looking for a plugin or an include to easily add <a href="http://www.linkedin.com/">LinkedIn</a> support to the share options for my posts.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Adding LinkedIn Share Support to Octopress]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress/"/>
+        <updated>2014-07-15T15:55:14-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/15/adding-linkedin-share-support-to-octopress</id>
+        <content type="html"><![CDATA[<p>I was looking for a plugin or an include to easily add <a href="http://www.linkedin.com/">LinkedIn</a> support to the share options for my posts.</p>
 
 <p>A quick Google search came up dry, so I figured I&rsquo;d just roll my own.</p>
 
@@ -614,14 +614,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 
 <p>This same method could be used to add pretty much any other social sharing sites you may want, as most should provide some form of widget generator.</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
-    <updated>2014-07-15T14:38:35-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
-    <content type="html"><![CDATA[<p>Just a quick update on <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>. I received my first royalty statement today, which basically just inidicates that not enough books have sold to exceed the advance I received initially.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[First Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
+        <updated>2014-07-15T14:38:35-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
+        <content type="html"><![CDATA[<p>Just a quick update on <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>. I received my first royalty statement today, which basically just inidicates that not enough books have sold to exceed the advance I received initially.</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/royalties20140331.png"></p>
 
@@ -635,14 +635,14 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 
 <p>Should I consider writing another book? Any thoughts out there from my fellow denizens of the interwebs?</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
-    <updated>2014-07-07T09:28:38-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
-    <content type="html"><![CDATA[<p>Back in 2012, I wrote a post about <a href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Redmine and Subversion on Heroku</a> that involved some funky hacks in order to build a working <code>svn</code> binary that could be uploaded as part of your Git payload.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
+        <updated>2014-07-07T09:28:38-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
+        <content type="html"><![CDATA[<p>Back in 2012, I wrote a post about <a href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Redmine and Subversion on Heroku</a> that involved some funky hacks in order to build a working <code>svn</code> binary that could be uploaded as part of your Git payload.</p>
 
 <p>This can be done a lot more cleanly by taking advantage of <a href="https://devcenter.heroku.com/articles/buildpacks">Heroku Buildpacks</a>.</p>
 
@@ -673,14 +673,14 @@ $ git push heroku master
 
 <p>This has helped me with my Redmine deployment on Heroku. Did it help you at all? Did I get something wrong. Let me know ;)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/"/>
-    <updated>2014-06-23T10:27:58-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/"/>
+        <updated>2014-06-23T10:27:58-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue</id>
+        <content type="html"><![CDATA[<p>I&rsquo;ve been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on <em>localhost</em>. I&rsquo;ve tried posting this on <a href="https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue">stack overflow</a> and <a href="https://github.com/mongoid/moped/issues/274">GitHub</a>, but haven&rsquo;t really gotten anywhere.</p>
 
 <p>I&rsquo;m now trying to dive into the issue using GDB directly, which I&rsquo;m starting off following the <a href="http://blog.newrelic.com/2013/04/29/debugging-stuck-ruby-processes-what-to-do-before-you-kill-9/">NewRelic blog post</a> about debugging hung Ruby processes.</p>
 
@@ -1621,14 +1621,14 @@ $ git push heroku master
 
 <p>Investigating further &hellip;</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Accessing a running process' STDOUT]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
-    <updated>2014-06-02T09:16:54-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Accessing a running process' STDOUT]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process/"/>
+        <updated>2014-06-02T09:16:54-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
+        <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
 
 <p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
 
@@ -1663,14 +1663,14 @@ $ git push heroku master
 
 <p>You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[This is a sample post]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/04/22/a-sample-post/"/>
-    <updated>2014-04-22T14:40:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/04/22/a-sample-post</id>
-    <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[This is a sample post]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/04/22/a-sample-post/"/>
+        <updated>2014-04-22T14:40:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/04/22/a-sample-post</id>
+        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <!-- More -->
 
@@ -1698,27 +1698,27 @@ end
 </div>
 
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
-    <updated>2014-03-19T06:08:02-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/balloons.png"></p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
+        <updated>2014-03-19T06:08:02-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
+        <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/balloons.png"></p>
 
 <p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
 
 <p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Production Timeline]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
-    <updated>2014-03-03T08:22:30-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-    <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Production Timeline]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
+        <updated>2014-03-03T08:22:30-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
+        <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
 
 <p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
 
@@ -1758,38 +1758,38 @@ end
 
 <p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
-    <updated>2014-02-18T22:08:21-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
-    <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
+        <updated>2014-02-18T22:08:21-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
+        <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
 
 <p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
-    <updated>2014-02-09T21:48:29-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
-    <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
+        <updated>2014-02-09T21:48:29-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
+        <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
 
 <p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
 
 <p><a href="http://www.packtpub.com">Packt Publishing</a> has been very patient with me though so I&rsquo;m going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)</p>
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
-    <updated>2014-01-27T15:37:10-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
-    <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[My First Book: Almost Ready for Production]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production/"/>
+        <updated>2014-01-27T15:37:10-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
+        <content type="html"><![CDATA[<p>For the last 4 months I&rsquo;ve been working with <a href="http://www.packtpub.com">Packt Publishing</a> on a book about <a href="http://www.redmine.org">Redmine</a> plugin extension and development.</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/8748OS_mockupcover_normal_0.jpg"></p>
 
@@ -1818,6 +1818,6 @@ end
 
 <p>I&rsquo;m hoping that this blog post will also serve as a motivator to get my ass in gear and finish the final revisions.</p>
 ]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

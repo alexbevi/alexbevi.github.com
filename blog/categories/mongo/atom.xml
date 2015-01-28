@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: mongo | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/mongo/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: mongo | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/mongo/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/"/>
-    <updated>2014-06-23T10:27:58-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue</id>
-    <content type="html"><![CDATA[I've been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on *localhost*. I've tried posting this on [stack overflow](https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue) and [GitHub](https://github.com/mongoid/moped/issues/274), but haven't really gotten anywhere.
+    
+    <entry>
+        <title type="html"><![CDATA[Troubleshooting a Mongoid Connection Issue]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue/"/>
+        <updated>2014-06-23T10:27:58-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/06/23/troubleshooting-a-mongoid-connection-issue</id>
+        <content type="html"><![CDATA[I've been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on *localhost*. I've tried posting this on [stack overflow](https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue) and [GitHub](https://github.com/mongoid/moped/issues/274), but haven't really gotten anywhere.
 
 I'm now trying to dive into the issue using GDB directly, which I'm starting off following the [NewRelic blog post](http://blog.newrelic.com/2013/04/29/debugging-stuck-ruby-processes-what-to-do-before-you-kill-9/) about debugging hung Ruby processes.
 
@@ -950,6 +950,6 @@ This now shows me what&#8217;s going on inside my Ruby process:
 Looks like the whole think started with a [moped](https://github.com/mongoid/moped) socket connection (which makes sense). 
 
 Investigating further &#8230;]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ubuntu | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: ubuntu | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
-    <updated>2012-10-30T14:58:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
-    <content type="html"><![CDATA[This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.
+    
+    <entry>
+        <title type="html"><![CDATA[Fixing Broken Sudo]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo/"/>
+        <updated>2012-10-30T14:58:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/10/30/fixing-broken-sudo</id>
+        <content type="html"><![CDATA[This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.
 
 ## How does _sudo_ work?
 
@@ -130,14 +130,14 @@ This will bring you back to the recovery menu.
 <img class="center" src="/images/fixsudoprecise05.jpg">
 
 Choose to resume a normal boot. Then you should be able to _sudo_ again.]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Install Latest MongoDB in Ubuntu]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
-    <updated>2012-08-29T13:46:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
-    <content type="html"><![CDATA[A couple projects I work on use [MongoDB](http://www.mongodb.org/) as the database, and I'm generally not satisfied to use the (often outdated) version that ships with Ubuntu.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Install Latest MongoDB in Ubuntu]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu/"/>
+        <updated>2012-08-29T13:46:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/08/29/install-latest-mongodb-in-ubuntu</id>
+        <content type="html"><![CDATA[A couple projects I work on use [MongoDB](http://www.mongodb.org/) as the database, and I'm generally not satisfied to use the (often outdated) version that ships with Ubuntu.
 
 As a result, I wrote this script to automate fetching, extracting and linking the latest version.
 
@@ -202,14 +202,14 @@ sudo service mongod start</code></pre></noscript></div>
 
 
 Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)&#8217;s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
-    <updated>2012-08-10T08:03:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
-    <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
+        <updated>2012-08-10T08:03:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
+        <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
 
 Since it's based on GTK3, I know you can modify this all, but I'd rather just use a desktop environment that doesn't require that level of tweaking.
 
@@ -218,14 +218,14 @@ Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distri
 Over at the [LinuxBSDOS](http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/) blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.
 
 I found that after doing this, I ended up with no sound. To fix this, [AskUbuntu](http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470) has an article that I found useful.]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
-    <updated>2012-07-18T08:20:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
-    <content type="html"><![CDATA[I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Shoutcast Streaming from the Command Line]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
+        <updated>2012-07-18T08:20:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
+        <content type="html"><![CDATA[I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
 
 <!-- more -->
 
@@ -371,6 +371,6 @@ I modified it a tiny bit to check for dependencies:
 </span><span class='line'><span class="k">done</span> <span class="c"># closes loop started at line 18</span>
 </span><span class='line'><span class="nb">exit</span>
 </span></code></pre></td></tr></table></div></figure>]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

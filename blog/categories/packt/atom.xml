@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: packt | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/packt/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: packt | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/packt/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Third Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
-    <updated>2014-12-22T08:11:36-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
-    <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
+    
+    <entry>
+        <title type="html"><![CDATA[Third Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
+        <updated>2014-12-22T08:11:36-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
+        <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
 
 I've added the latest numbers to those from [my previous post](/blog/2014/09/22/second-royalty-statement/) in order to show the running total of units sold this year.
 
@@ -40,14 +40,14 @@ Happy Holidays Everyone!!!
 
 <img class="left" src="/images/20141222-cat.png">
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Second Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
-    <updated>2014-09-22T11:45:14-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
-    <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Second Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+        <updated>2014-09-22T11:45:14-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+        <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
 
 In the table below, I've added the latest numbers to those from [my previous post](/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
 
@@ -67,6 +67,6 @@ At this rate, it&#8217;s possible I&#8217;ll see some additional money out of th
 I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
 
 If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

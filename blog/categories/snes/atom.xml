@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: snes | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/snes/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: snes | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/snes/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek/"/>
-    <updated>2014-10-17T09:00:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek</id>
-    <content type="html"><![CDATA[I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation ... and I started playing [Terranigma](http://en.wikipedia.org/wiki/Terranigma), which is pretty awesome so far.
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek/"/>
+        <updated>2014-10-17T09:00:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek</id>
+        <content type="html"><![CDATA[I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation ... and I started playing [Terranigma](http://en.wikipedia.org/wiki/Terranigma), which is pretty awesome so far.
 
 <img class="left" src="/images/robotrek/220px-Robotrekboxart.jpg">
 
@@ -75,6 +75,6 @@ It was fun though, and though I probably won&#8217;t replay this game again in t
 My screenshots are below, though it seems that the emulator I was using ([Snes9x EX](http://www.explusalpha.com/home/snes9x-ex) on my Moto G) overwrote some of my earlier images. Oh well. Enjoy :P
 
 <div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).011.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).012.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).013.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).014.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).015.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).016.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).017.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).018.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).019.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).020.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).021.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).022.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).023.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).024.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).025.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).026.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).027.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).028.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).029.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).030.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).031.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).032.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).033.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).034.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).035.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).036.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).037.png" data-title="" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: sample post | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/sample-post/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: sample post | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/sample-post/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[This is a sample post]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/04/22/a-sample-post/"/>
-    <updated>2014-04-22T14:40:00-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/04/22/a-sample-post</id>
-    <content type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim[^1] veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+    <entry>
+        <title type="html"><![CDATA[This is a sample post]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/04/22/a-sample-post/"/>
+        <updated>2014-04-22T14:40:00-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/04/22/a-sample-post</id>
+        <content type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim[^1] veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <!-- More -->
 
@@ -40,6 +40,6 @@ end
 
 
 [^1]: The footnote [content](http://www.example.com).]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

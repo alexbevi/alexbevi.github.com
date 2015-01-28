@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Third Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
-    <updated>2014-12-22T08:11:36-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
-    <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
+    
+    <entry>
+        <title type="html"><![CDATA[Third Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement/"/>
+        <updated>2014-12-22T08:11:36-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
+        <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
 
 I've added the latest numbers to those from [my previous post](/blog/2014/09/22/second-royalty-statement/) in order to show the running total of units sold this year.
 
@@ -40,14 +40,14 @@ Happy Holidays Everyone!!!
 
 <img class="left" src="/images/20141222-cat.png">
 ]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Second Royalty Statement]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
-    <updated>2014-09-22T11:45:14-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
-    <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Second Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
+        <updated>2014-09-22T11:45:14-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
+        <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
 
 In the table below, I've added the latest numbers to those from [my previous post](/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
 
@@ -67,14 +67,14 @@ At this rate, it&#8217;s possible I&#8217;ll see some additional money out of th
 I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
 
 If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
-    <updated>2014-07-07T09:28:38-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
-    <content type="html"><![CDATA[Back in 2012, I wrote a post about [Redmine and Subversion on Heroku](/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/) that involved some funky hacks in order to build a working `svn` binary that could be uploaded as part of your Git payload.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Subversion + Ruby on Heroku via Buildpacks]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
+        <updated>2014-07-07T09:28:38-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
+        <content type="html"><![CDATA[Back in 2012, I wrote a post about [Redmine and Subversion on Heroku](/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/) that involved some funky hacks in order to build a working `svn` binary that could be uploaded as part of your Git payload.
 
 This can be done a lot more cleanly by taking advantage of [Heroku Buildpacks](https://devcenter.heroku.com/articles/buildpacks).
 
@@ -102,26 +102,26 @@ For our purposes, we&#8217;re going to add Subversion and Ruby to our app:
     $ git push heroku master
 
 This has helped me with my Redmine deployment on Heroku. Did it help you at all? Did I get something wrong. Let me know ;)]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
-    <updated>2014-03-19T06:08:02-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
-    <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Plugin Extension and Development: Published!!!]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
+        <updated>2014-03-19T06:08:02-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
+        <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
 
 Well, it&#8217;s official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
 I plan on doing a &#8220;post-mortem&#8221; on the process at some point, but for now I&#8217;m planning on taking a little time off from writing.]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Production Timeline]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
-    <updated>2014-03-03T08:22:30-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-    <content type="html"><![CDATA[Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) (code number 8748OS) is in the final stages of production.
+    </entry>
+    
+    <entry>
+        <title type="html"><![CDATA[Production Timeline]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
+        <updated>2014-03-03T08:22:30-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
+        <content type="html"><![CDATA[Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) (code number 8748OS) is in the final stages of production.
 
 Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.
 
@@ -153,6 +153,6 @@ This is the day when the clubbed book will be finalized and then sent to our pri
 The book gets published and will be available for purchase in five to eight working days from the day of upload.
 
 So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

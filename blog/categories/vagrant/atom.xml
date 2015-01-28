@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: vagrant | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/vagrant/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: vagrant | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/vagrant/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Fetching Changesets in Redmine from Heroku using Subversion]]></title>
-    <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
-    <updated>2012-11-21T08:44:00-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
-    <content type="html"><![CDATA[[**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post](/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/) for details)]
+    
+    <entry>
+        <title type="html"><![CDATA[Fetching Changesets in Redmine from Heroku using Subversion]]></title>
+        <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
+        <updated>2012-11-21T08:44:00-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
+        <content type="html"><![CDATA[[**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post](/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/) for details)]
 
 I manage my open source and contract development projects using [Redmine](http://www.redmine.org).
 
@@ -183,6 +183,6 @@ This method isn&#8217;t on-par with a self-hosted solution, but it&#8217;s good 
 
 * [http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html](http://rickvanderzwet.blogspot.ca/2007/11/building-static-subversion.html)
 * [http://bindle.me/blog/index.php/405/running-binaries-on-heroku](http://bindle.me/blog/index.php/405/running-binaries-on-heroku)]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

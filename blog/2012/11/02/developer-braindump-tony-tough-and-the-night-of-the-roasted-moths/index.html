@@ -1,37 +1,30 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Developer Braindump: Tony Tough and the Night of the Roasted Moths - ALEX BEVILACQUA</title>
-  <meta name="author" content="Alex Bevilacqua">
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Developer Braindump: Tony Tough and the Night of the Roasted Moths - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="Developer Braindump: Tony Tough and the Night of the Roasted Moths Nov 2nd, 2012 scummvm game-development Comments The ScummVM project recently &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths">
 
-  
-  <meta name="description" content="The ScummVM project recently added support for Tony Tough and the Night of the Roasted Moths. The original developer, Giovanni Bajo appeared on the &hellip;">
-  
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -40,48 +33,21 @@
   #galleria{height:320px}
 </style>
 
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36490021-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+    </head>
 
 
-</head>
+    <body >
 
-<body   >
-  <header role="banner"><hgroup>
-  <div id="logo">
-  	<div class="clear"></div>
-  </div>
-  <h1><a href="/">ALEX BEVILACQUA</a></h1>
-  
-    <h2>my little corner of the interwebs</h2>
-  
-  <div class="clear"></div>
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.alexbevi.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/projects">Projects</a></li>
@@ -89,41 +55,87 @@
 </ul>
 
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
     
-      
-        <h1 class="entry-title">Developer Braindump: Tony Tough and the Night of the Roasted Moths</h1>
-      
+        <h1 class="article__title">Developer Braindump: Tony Tough and the Night of the Roasted Moths</h1>
     
+
     
-      <p class="meta">
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-11-02T08:28:00-04:00" pubdate><i class="fa fa-calendar"></i> Nov 2nd, 2012</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
         
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T08:28:00-04:00" pubdate data-updated="true"></time>
+            
+                <li><a class='category' href='/blog/categories/scummvm/'>scummvm</a></li>
+            
+                <li><a class='category' href='/blog/categories/game-development/'>game-development</a></li>
+            
         
-         | <a href="#disqus_thread">Comments</a>
-        
-      </p>
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
     
-  </header>
+</header>
 
 
-<div class="entry-content"><p>The <a href="http://www.scummvm.org">ScummVM</a> project recently added support for <a href="http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths">Tony Tough and the Night of the Roasted Moths</a>.</p>
+
+
+    <p>The <a href="http://www.scummvm.org">ScummVM</a> project recently added support for <a href="http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths">Tony Tough and the Night of the Roasted Moths</a>.</p>
 
 <p>The original developer, <a href="https://github.com/rasky">Giovanni Bajo</a> appeared on the <a href="http://sourceforge.net/mailarchive/forum.php?forum_name=scummvm-devel">scummvm-devel</a> mailing list and offered some insight into the development of the original engine.</p>
 
@@ -136,111 +148,97 @@
 
 <blockquote><p>I went though the pull review code and of course lots of memories sprang to mind, so I&#8217;m happy to post a few things.</p><p>The game originated in 1996, I was 17 back at the time. Luca Giusti and I wrote the first version of the game engine, and it was based on DOS and 8-bit (palette) graphics, with the venerable Mode X for achieving smooth scrolling and higher resolution (320x240), and compiled sprites (!!!). IIRC Luca wrote the game engine and I wrote the MPAL preprocessor (yuk!), compiler, linker and interpreter. We were a distributed team of 5-6 people working across Italy, and we were using Fidonet and BBS files areas to share files. I live in Florence and one of the artist (Sergio) was in Naples; I still remember that we used a direct modem connection on the phone line (so basically he dialed my home phone number with his modem, to setup a 14.4 kbit connection) and then send me the first 4 room background arts through it; they were an early 8-bit version, but I was in love with them :) I also remember our lead artist (Valerio) sent me the first version of the park map (hand drawn wireframe) by fax; the original thermal paper is now a picture hanging on my home wall :)</p><p>At some point, in 1997, it became clear that we need to gather together to get to a decent point, so we organized a one-week crunch session in a alpine hut in northern italy; we worked 18-20hrs a day for a week, ate lots of pasta, and completed an early version of the first 4 rooms. I remember the game engine was using dirty-rectangles at that time to optimize drawing.</p><p>In 1998 we got a deal with a local publisher (Prograph/Protonic), and part of the team got paid to finish the game. That included myself, but Luca declined (for personal reasons); that meant that I was able to work on the game full-time, while Luca only in his spare time. The publisher insisted on reworking the game with 16-bit graphics, and porting it from DOS to Windows; it wasn&#8217;t trivial to port the existing code (Mode X stuff!), plus Luca couldn&#8217;t handle it in his spare time, so I had to take over the game engine. I wasn&#8217;t familiar with it at all (Luca had written it up until then), and thus decided to rewrite it from scratch. One of the few things that I brought over was the pathfinding code, and in fact I think it&#8217;s quite obvious from its look that it&#8217;s been written by a different hand.</p><p>The game engine is quite easy, as you have seen. I think it&#8217;s been the first real world C++ object-oriented program I have ever written, so it&#8217;s obviously very stretched towards using inheritance everywhere (new toy!). I still remember the joy of finally *understanding* polymorphism, and that&#8217;s when the RMTask base class was born, and the idea of having a list of RMTasks that could be anything by simply reimplementing the draw() call. I saw in the code that the list was called &#8220;OTList&#8221; and, while the name obviously rings a bell to me, I don&#8217;t recall what it means.  BTW, &#8220;RM&#8221; stands for Roasted Moths of course; some classes in the source code begins with &#8220;FP&#8221; instead; that&#8217;s &#8220;Falling Pumpkins&#8221; which was the original title of the game.</p><p>When I reimplemented the game, I went for full screen drawing, without dirty rectangles. I think i was positive that computers were fast enough for it, and in fact it did work quite well. I remember I quite optimized sprite drawing routines; for instance, most sprites are RLE-encoded as a way to quickly skip transparent pixels, and to avoid compiled sprites because there was simply too many sprites to compile them all without having memory issues. The game was running 60 fps on a Pentium 2, so that was good enough for us. The &#8217;30s (sepia) mode was a nice touch, but I remember it was noticeably slower at the time as it was an additional pass over the screen, so the framerate was dropping quite noticeably. </p><p>To build the rooms, setup background animations, decide rectangles of interactions with objects, etc. we built a so-called &#8220;location editor&#8221; (we actually used the word &#8220;location&#8221; for what is usually called &#8220;room&#8221; in adventures), whose source code I think has been lost. It was able to load a .loc file, modify it, and save it back. So both the game and the editor was using the same file format. At some point, we realized that it was better to separate the two formats, because the editor needed more information in basic format, while the game engine might use, for instance, sprites that were already rle-compressed instead of rle-compressing on the fly at load time; so the &#8220;lox&#8221; format was born. I think the game engine still opens the original loc files, but the final game assets only contains lox files.</p><p>One guy in the team (Marco) was one of those magic resources in game teams that is both an artist and a programmer; I think it&#8217;s mostly impossible nowadays, and used to be just rare at the time. So he was in charge of both maintaining the editor *and* drawing the background animations *and* using the editor to insert them into the locations. So that&#8217;s one hell of &#8220;eating multiple levels of dogfood&#8221; :) In fact, he was the one that prodded me to add support for &#8220;slot positions&#8221; to the game engine; with &#8220;slot positions&#8221;, we meant having an optional x,y offset associated to a graphic frame within a animation; I remember we discussed whether this was worth it, but at the end of the day, he was in a better position to know, since he was using the editor after all. Later in the game, it proved *extremely* useful in one specific animation: to animate the beast walking out of its cage. In fact, the game engine has no concept of actors (the only &#8220;actor&#8221; is Tony), so every other actor in the game is just an animated background object; in fact, they just don&#8217;t walk around. So, when the designer required the beast to walk out, Marco faked it through manually settings x,y offsets in the editor within the whole animation, making it scroll away. It took him a while of course, and won the title of &#8220;slot position master&#8221; for this achievement :) </p><p>Stuffing all files in a single compressed &#8220;resource&#8221; file was very common at the time. I don&#8217;t think there was a rationale for doing it, it was just the standard way of doing it. Lucas was doing it, so why shouldn&#8217;t we? :) I think it just looked cool, in a way. We were using LZO as a compressor because it was very fast at decompression; you might have noticed also that LZO is GPL, which means that the game was in blatant violation. I don&#8217;t think I have *knew* what free software was and what a free software license was. I don&#8217;t recall the details, but I wouldn&#8217;t be surprised if I simply altavista&#8217;d for &#8220;fast compression&#8221;, found that source code, downloaded it at 64 kbit/s, and dumped it into the game. I&#8217;m now deep into free software at many levels, I even give talks and do trainings about free software licenses from time to time, so I hope Markus of LZO can forgive the young me for not even realizing what I was doing.</p><p>Speeches gave me quite a few headaches. For a start, I realized that simply exporting all texts from MPAL to a txt/html file wasn&#8217;t enough, because actors need context to meaningfully act. So I ended up writing a program that exported HTML file divided by rooms, with some contexts added, and even manually adding comments to explain them. This has been helpful and was important to get good speeches from them. I remember it was really fun when the actors director called us and played us over the phone the first recordings of character voice tests made by the actors. I think we actually voted between a few options to decide which voice sounded best for Tony. When I got the first speeches files back from them, I had some latency issues, especially when running off CDs. I think I ended up caching the main index in RAM and maybe precaching something (don&#8217;t remember the details). I think I also changed the code so to delay display of subtitles to the moment I could effectively start playing the speech, because it was very unfriendly to first see the text on screen, and the hear the speech 1 second later.</p><p>MPAL was very very basic. I actually didn&#8217;t have a clue how to properly code a VM with bytecode and stuff, and I didn&#8217;t have *any* proper compiler theory training, so in retrospect it&#8217;s amazing I even managed to parse and compile files. So basically MPAL can only assign to variables (which are all globals, plus a weird namespace thingie for locality), call &#8220;custom functions&#8221; (aka C++ code stored in a pointer table) and do basic arithmetic. That&#8217;s it. Not even a proper language, isn&#8217;t it? :) No loop constructors, no ifs, no jumps, nothing. So MPAL was a collection of flat routines, each one associated to a specific verb (action), specific object (eg. door), under a specific condition (eg: when open, that is when global variable room1_door_open==1). Since you couldn&#8217;t have conditions *within* a MPAL routine but only to select *which* routine to run, you can see that cut & paste was a useful tool for scripters :)</p><p>In fact, we didn&#8217;t evolve MPAL much during the main game development. We basically went with what we had on the DOS version, and we were using the same compiler/linker binary for months/years like we had no source code for it. In fact, having written most of it in 1996 (2 yrs before), with zero experience on writing compilers, it was kind of &#8220;magical&#8221; in my eyes that it was somehow working, and I was almost scared to touch it, let alone refactoring. I remember that, near the end of development, the scripts hit some internal hard-coded limit of the compiler (say, too many total variables), and I was terrified to simply open the project in Visual Studio, bump that limit, and recompile everything. In retrospect, I think it was more of a psychological thing, since the compiler worked wonderfully for the whole development and did its job.</p><p>There were no actors in MPAL simply because the game didn&#8217;t really require them, so at some point we decided to simply avoid implementing it and tweak the storyboard accordingly. The game designer, Stefano, wasn&#8217;t very happy about it but we eventually found a deal and I simply added a way to run background tasks in MPAL (actually, through a custom verb &#8220;Idle&#8221;, so not to modify the compiler!), to let actors at least chat and animate in background, but without ever walking. In fact, the game engine had already been designed for multiple actors in mind (this is why you have the RMCharacter class separated from RMTony), but there was nothing in MPAL, and of course development time is limited. </p><p>Given my ignorance of &#8220;advanced&#8221; programming techniques, I think I simply couldn&#8217;t think of how one could execute a linear (blocking) piece of script code without recurring to multi-threading. So I think I didn&#8217;t even explore alternatives to multithreading. Obviously multithreading programming isn&#8217;t easy, so custom C++ functions, called from MPAL, were full of locking issues wrt to the main thread that redraws the screen. The game was developed under Windows 95 and in fact was released before Windows 2000 was out; on the NT kernel, the game didn&#8217;t work too well and crashed often because of race conditions. I see that you debugged and fixed at least few those bugs, well done! Those simply weren&#8217;t triggering on a 9x kernel. </p><p>Another issue with MPAL is that there&#8217;s no way to skip cutscenes; I don&#8217;t remember whether I couldn&#8217;t think of a good way of doing it, or whether all methods I devised would require too much workload on scripters that were already quite full. I think it&#8217;s my #1 technical regret when I see the game, and in fact I would quite love if you found a way to implement it now.</p><p>I think this ends my braindump of today. Feel free to ask questions of course.</p><p>Thanks again for your work!</p><footer><strong>Giovanni Bajo</strong> <cite>2012 October 25</cite></footer></blockquote>
 
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Alex Bevilacqua</span></span>
-
-      
 
 
 
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-02T08:28:00-04:00" pubdate data-updated="true"></time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/game-development/'>game-development</a>, <a class='category' href='/blog/categories/scummvm/'>scummvm</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <script src="//platform.linkedin.com/in.js" type="text/javascript">
-    lang: en_US
-  </script>
-  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/" data-counter="right"></script>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left articlenav" href="/blog/2012/11/02/disable-hot-corner-hover-in-linux-mint-13/" title="Previous Post: Disable Hot Corner Hover in Linux Mint">&laquo; Disable Hot Corner Hover in Linux Mint</a>
-      
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/" title="Next Post: Fetching Changesets in Redmine from Heroku using Subversion">Fetching Changesets in Redmine from Heroku using Subversion &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+</section>
 
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
 </div>
 
-<aside class="sidebar">
-  
+
+        </section>
     
-<section>
-	<span>
-		<img src="http://www.gravatar.com/avatar/061f509dd4eb594be550fa1db95baa79?s=200" alt="Gravatar of Alex Bevilacqua " title="Gravatar of Alex Bevilacqua" style="max-width: none;" />
-	</span>
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        
+        
+        
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
 </section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2015/01/16/just-finished-terranigma/">Just Gave Up On - Terranigma</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/22/third-royalty-statement/">Third Royalty Statement</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/">Vote ScummVM for SourceForge POTM</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/10/17/just-finished-robotrek/">Just Finished - Robotrek</a>
-      </li>
-    
-  </ul>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2015/01/16/just-finished-terranigma/">Just Gave Up On - Terranigma</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2014/12/22/third-royalty-statement/">Third Royalty Statement</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2014/11/17/vote-scummvm-for-sourceforge-potm/">Vote ScummVM for SourceForge POTM</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2014/10/17/just-finished-robotrek/">Just Finished - Robotrek</a>
+        </li>
+        
+    </ul>
 </section>
 <section>
   <h2>Looking for Something to Read?</h1>
@@ -265,15 +263,96 @@
   </script>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/alexbevi">@alexbevi</a> on GitHub
-  
-  <script type="text/javascript">
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
     $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
@@ -290,94 +369,15 @@
             target: '#gh_repos'
         });
     });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/+AlexBevilacqua?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-<section>
-  <h1>Twitter</h1>
-  <a class="twitter-timeline"  href="https://twitter.com/alexbevi"  data-widget-id="448022650414051328">Tweets by @alexbevi</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</section>
-
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Alex Bevilacqua -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'alexbevi';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2012/11/02/developer-braindump-tony-tough-and-the-night-of-the-roasted-moths/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
 </script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
+<script src="/javascripts/github.js"></script>
 
 
 
 
 
-</body>
+
+
+    </body>
+
 </html>

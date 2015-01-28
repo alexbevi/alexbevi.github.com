@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: logentries | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/logentries/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: logentries | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/logentries/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
-    <updated>2014-07-16T12:06:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
-    <content type="html"><![CDATA[I've been using [Logentries](https://logentries.com/) for a couple of months now to manage variou project logs and have found it to be extremely convenient.
+    
+    <entry>
+        <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
+        <updated>2014-07-16T12:06:55-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
+        <content type="html"><![CDATA[I've been using [Logentries](https://logentries.com/) for a couple of months now to manage variou project logs and have found it to be extremely convenient.
 
 If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:
 
@@ -34,6 +34,6 @@ For example:
 <img class="left" src="/images/20140716-logentries.png">
 
 Hopefully this helps someone other than myself :)]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>

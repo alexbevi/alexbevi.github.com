@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: gba | ALEX BEVILACQUA]]></title>
-  <link href="http://www.alexbevi.com/blog/categories/gba/atom.xml" rel="self"/>
-  <link href="http://www.alexbevi.com/"/>
-  <updated>2015-01-27T14:18:34-05:00</updated>
-  <id>http://www.alexbevi.com/</id>
-  <author>
-    <name><![CDATA[Alex Bevilacqua]]></name>
-    <email><![CDATA[alex@alexbevi.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+    <title><![CDATA[Category: gba | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/gba/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-01-28T09:32:47-05:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
-    <updated>2014-08-06T17:58:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
-    <content type="html"><![CDATA[<img class="left" src="/images/fire-emblem-the-sacred-stones.003.png">
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Fire Emblem: The Sacred Stones]]></title>
+        <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
+        <updated>2014-08-06T17:58:55-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
+        <content type="html"><![CDATA[<img class="left" src="/images/fire-emblem-the-sacred-stones.003.png">
 
 I&#8217;ve played a lot of RPGs over the years (JRPGs mostly) but have somehow managed to hear little to nothing about the [Fire Emblem](http://en.wikipedia.org/wiki/Fire_Emblem) series.
 
@@ -69,6 +69,6 @@ I also didn&#8217;t spend much time in the optional dungeons, though I did use u
 I&#8217;m currently also midway through a playthrough of [Robotrek](http://en.wikipedia.org/wiki/Robotrek) which I&#8217;ve been working on-again-off-again for about a year as well, so i may try to finish that off for the next *Just Finished&trade;* post. 
 
 If anyone has suggestions for an RPG, leave a comment (currently I&#8217;m sticking with NES to PSP as the platform range).]]></content>
-  </entry>
-  
+    </entry>
+    
 </feed>
