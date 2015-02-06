@@ -139,7 +139,8 @@
 
 
 
-    <p>I&rsquo;ve been doing a lot of <a href="http://en.wikipedia.org/wiki/Windows_PowerShell">Powershell</a> scripting lately, and one of the features I&rsquo;ve really been pining for is the ability to apply some form of retry logic to either a function or a block.</p>
+    <div class="article__content clearfix">
+        <p>I&rsquo;ve been doing a lot of <a href="http://en.wikipedia.org/wiki/Windows_PowerShell">Powershell</a> scripting lately, and one of the features I&rsquo;ve really been pining for is the ability to apply some form of retry logic to either a function or a block.</p>
 
 <p>Take the following sample:</p>
 
@@ -182,94 +183,11 @@ At line:62 char:9
 
 <p>Now, if this happened to be part of a larger script and we didn&rsquo;t have everything wrapped in a <code>try..catch</code> block, execution could potentially stop there.</p>
 
-<p>Since Powershell supports <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closures</a>, we can write a function that accepts a <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx">script block</a> as a parameter:</p>
-
-<div><script src='https://gist.github.com/34b700ff7c7c53c7780b.js'></script>
-<noscript><pre><code>&lt;#
-This function can be used to pass a ScriptBlock (closure) to be executed and returned.
-
-The operation retried a few times on failure, and if the maximum threshold is surpassed, the operation fails completely.
-
-Params:
-    Command         - The ScriptBlock to be executed
-    RetryDelay      - Number (in seconds) to wait between retries
-                      (default: 5)
-    MaxRetries      - Number of times to retry before accepting failure
-                      (default: 5)
-    VerboseOutput   - More info about internal processing
-                      (default: false)
-Examples:
-
-Execute-With-Retry { $connection.Open() }
-$result = Execute-With-Retry -RetryDelay 1 -MaxRetries 2 { $command.ExecuteReader() }
-#&gt;
-function Execute-With-Retry {
-    [CmdletBinding()]
-    param(    
-    [Parameter(ValueFromPipeline,Mandatory)]
-    $Command,    
-    $RetryDelay = 5,
-    $MaxRetries = 5,
-    $VerboseOutput = $false
-    )
-    
-    $currentRetry = 0
-    $success = $false
-    $cmd = $Command.ToString()
-
-    do {
-        try
-        {
-            $result = &amp; $Command
-            $success = $true
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteDebugLine(&quot;Successfully executed [$cmd]&quot;)
-            }
-
-            return $result
-        }
-        catch [System.Exception]
-        {
-            $currentRetry = $currentRetry + 1
-                        
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteErrorLine(&quot;Failed to execute [$cmd]: &quot; + $_.Exception.Message)
-            }
-            
-            if ($currentRetry -gt $MaxRetries) {                
-                throw &quot;Could not execute [$cmd]. The error: &quot; + $_.Exception.ToString()
-            } else {
-                if ($VerboseOutput -eq $true) {
-                    $Host.UI.WriteDebugLine(&quot;Waiting $RetryDelay second(s) before attempt #$currentRetry of [$cmd]&quot;)
-                }
-                Start-Sleep -s $RetryDelay
-            }
-        }
-    } while (!$success);
-}</code></pre></noscript></div>
+<p>Since Powershell supports <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closures</a>, we can write a function that accepts a <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx">script block</a> as a parameter.</p>
 
 
-<p>Now, if we retrofit our sample above:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">Execute-With-Retry</span> <span class="n">-RetryDelay</span> <span class="n">1</span> <span class="n">-VerboseOutput</span> <span class="nv">$true</span> <span class="p">{</span> <span class="n">RandomlyFail</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<pre><code>Failed to execute [ RandomlyFail ]: OH NOES!!!
-DEBUG: Waiting 1 second(s) before attempt #1 of [ RandomlyFail ]
-Failed to execute [ RandomlyFail ]: OH NOES!!!
-DEBUG: Waiting 1 second(s) before attempt #2 of [ RandomlyFail ]
-Failed to execute [ RandomlyFail ]: OH NOES!!!
-DEBUG: Waiting 1 second(s) before attempt #3 of [ RandomlyFail ]
-Failed to execute [ RandomlyFail ]: OH NOES!!!
-DEBUG: Waiting 1 second(s) before attempt #4 of [ RandomlyFail ]
-W00t!!!
-DEBUG: Successfully executed [ RandomlyFail ]
-</code></pre>
-
-<p>The inspiration for this comes from an excellent article by <a href="http://www.pabich.eu/2010/06/generic-retry-logic-in-powershell.html">Pawel Pabich</a>.</p>
-
+        <a class="btn pull-right" href="/blog/2015/02/06/block-retry-using-powershell/">Read on &rarr;</a>
+    </div>
 
 
         </article>

@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2015-02-06T10:31:16-05:00</updated>
+  <updated>2015-02-06T10:35:43-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -61,7 +61,12 @@ At line:62 char:9
 
 <p>Now, if this happened to be part of a larger script and we didn&rsquo;t have everything wrapped in a <code>try..catch</code> block, execution could potentially stop there.</p>
 
-<p>Since Powershell supports <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closures</a>, we can write a function that accepts a <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx">script block</a> as a parameter:</p>
+<p>Since Powershell supports <a href="http://en.wikipedia.org/wiki/Closure_%28computer_programming%29">closures</a>, we can write a function that accepts a <a href="http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx">script block</a> as a parameter.</p>
+
+<!-- more -->
+
+
+
 
 <div><script src='https://gist.github.com/34b700ff7c7c53c7780b.js'></script>
 <noscript><pre><code>&lt;#

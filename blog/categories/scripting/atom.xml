@@ -4,7 +4,7 @@
     <title><![CDATA[Category: scripting | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/scripting/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-02-06T10:31:16-05:00</updated>
+    <updated>2015-02-06T10:35:43-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -59,7 +59,9 @@ Depending on what the random number we get is, we&#8217;ll get one of two scenar
 
 Now, if this happened to be part of a larger script and we didn&#8217;t have everything wrapped in a `try..catch` block, execution could potentially stop there.
 
-Since Powershell supports [closures](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29), we can write a function that accepts a [script block](http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx) as a parameter:
+Since Powershell supports [closures](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29), we can write a function that accepts a [script block](http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx) as a parameter.
+
+<!-- more -->
 
 <div><script src='https://gist.github.com/34b700ff7c7c53c7780b.js'></script>
 <noscript><pre><code>&lt;#
