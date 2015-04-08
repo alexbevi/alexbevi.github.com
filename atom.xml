@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-02-06T13:42:09-05:00</updated>
+    <updated>2015-04-08T09:54:50-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,53 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Asylum Engine Update]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/04/08/asylum-engine-update/"/>
+        <updated>2015-04-08T09:31:14-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/04/08/asylum-engine-update</id>
+        <content type="html"><![CDATA[<p>It&rsquo;s been a number of years since I had a chance to look at this project, but recently I updated the codebase to the lastest version (sync with upstream <a href="https://github.com/scummvm/scummvm">ScummVM</a>) and found that the videos no longer worked.</p>
+
+<p><img src="http://www.alexbevi.com/images/20150408-004.png"></p>
+
+<p>It turned out to be a pretty simple fix (see <a href="https://github.com/alexbevi/scummvm/commit/1ed45a5802a7ab9603aa72f8e18196e980657c23">commit</a>), but it rekindled my interest in the project.</p>
+
+<p>I added some additional debug output and cleaned up the script debug loop so that there wasn&rsquo;t as much spamming of commands that were waiting for another event.</p>
+
+<p>Also, thanks to <a href="https://github.com/xesf">@xesf</a>, we can now actually proceed up and down stairs via fixes he made to the script processor.</p>
+
+<p><img src="http://www.alexbevi.com/images/20150408-003.png"></p>
+
+<h2>TODO</h2>
+
+<p><strong>better pathfinding</strong></p>
+
+<p><img src="http://www.alexbevi.com/images/20150408-001.png"></p>
+
+<p>The pathfinding in the original engine is a lot smarter and more forgiving than our implementation.</p>
+
+<p><strong>inventory management</strong></p>
+
+<p><img src="http://www.alexbevi.com/images/20150408-002.png"></p>
+
+<p>We can currently pick up an item and remove the graphic from the screen, but there&rsquo;s no way to retrieve/use items once collected.</p>
+
+<p><strong>clean up graphical glitches</strong></p>
+
+<p>There are still a number of clipping issues, as well as incorrect behaviour when Max is standing still (wrong animation might play).</p>
+
+<p><strong>fix encounters</strong></p>
+
+<p><img src="http://www.alexbevi.com/images/20150408-005.png"></p>
+
+<p>Encounters load, but you can&rsquo;t interact with keywords yet.</p>
+
+<p><strong>save/load</strong></p>
+
+<p>There was quite a bit of work done on this, but we still need to verify that everything is being restored properly on load.</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Block Retry using Powershell]]></title>
@@ -1911,19 +1958,6 @@ end
         <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
 
 <p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[First Round of Rewrites Completed!]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed/"/>
-        <updated>2014-02-09T21:48:29-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/02/09/first-round-of-rewrites-completed</id>
-        <content type="html"><![CDATA[<p>This is just a quick update that I&rsquo;ve finally finished the first round of rewrites for the upcoming <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> book.</p>
-
-<p>The issue I was struggling with was little more than a complete lack of motivation. Since I work full time and do contract development on the side (plus have a wife and kids), yet another distraction can be difficult to find time for; especially if it&rsquo;s not a primary source of income.</p>
-
-<p><a href="http://www.packtpub.com">Packt Publishing</a> has been very patient with me though so I&rsquo;m going to try to find the time in the coming week to get through the second round of revisions and rewrites and hopefully get this puppy to market ;)</p>
 ]]></content>
     </entry>
     
