@@ -142,46 +142,16 @@
 
 
 
-    <p>It&rsquo;s been a number of years since I had a chance to look at this project, but recently I updated the codebase to the lastest version (sync with upstream <a href="https://github.com/scummvm/scummvm">ScummVM</a>) and found that the videos no longer worked.</p>
+    <div class="article__content clearfix">
+        <p>It&rsquo;s been a number of years since I had a chance to look at this project, but recently I updated the codebase to the lastest version (sync with upstream <a href="https://github.com/scummvm/scummvm">ScummVM</a>) and found that the videos no longer worked.</p>
 
 <p><img src="/images/20150408-004.png"></p>
 
 <p>It turned out to be a pretty simple fix (see <a href="https://github.com/alexbevi/scummvm/commit/1ed45a5802a7ab9603aa72f8e18196e980657c23">commit</a>), but it rekindled my interest in the project.</p>
 
-<p>I added some additional debug output and cleaned up the script debug loop so that there wasn&rsquo;t as much spamming of commands that were waiting for another event.</p>
 
-<p>Also, thanks to <a href="https://github.com/xesf">@xesf</a>, we can now actually proceed up and down stairs via fixes he made to the script processor.</p>
-
-<p><img src="/images/20150408-003.png"></p>
-
-<h2>TODO</h2>
-
-<p><strong>better pathfinding</strong></p>
-
-<p><img src="/images/20150408-001.png"></p>
-
-<p>The pathfinding in the original engine is a lot smarter and more forgiving than our implementation.</p>
-
-<p><strong>inventory management</strong></p>
-
-<p><img src="/images/20150408-002.png"></p>
-
-<p>We can currently pick up an item and remove the graphic from the screen, but there&rsquo;s no way to retrieve/use items once collected.</p>
-
-<p><strong>clean up graphical glitches</strong></p>
-
-<p>There are still a number of clipping issues, as well as incorrect behaviour when Max is standing still (wrong animation might play).</p>
-
-<p><strong>fix encounters</strong></p>
-
-<p><img src="/images/20150408-005.png"></p>
-
-<p>Encounters load, but you can&rsquo;t interact with keywords yet.</p>
-
-<p><strong>save/load</strong></p>
-
-<p>There was quite a bit of work done on this, but we still need to verify that everything is being restored properly on load.</p>
-
+        <a class="btn pull-right" href="/blog/2015/04/08/asylum-engine-update/">Read on &rarr;</a>
+    </div>
 
 
         </article>

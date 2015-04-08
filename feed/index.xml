@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2015-04-08T09:54:50-04:00</updated>
+  <updated>2015-04-08T09:57:18-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -23,6 +23,9 @@
 <p><img src="http://www.alexbevi.com/images/20150408-004.png"></p>
 
 <p>It turned out to be a pretty simple fix (see <a href="https://github.com/alexbevi/scummvm/commit/1ed45a5802a7ab9603aa72f8e18196e980657c23">commit</a>), but it rekindled my interest in the project.</p>
+
+<!-- more -->
+
 
 <p>I added some additional debug output and cleaned up the script debug loop so that there wasn&rsquo;t as much spamming of commands that were waiting for another event.</p>
 
