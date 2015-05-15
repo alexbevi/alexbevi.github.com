@@ -4,7 +4,7 @@
     <title><![CDATA[Category: cinnamon | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/cinnamon/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -26,7 +26,7 @@ The beauty of using a Linux-based system though is that you can pretty much chan
 
 <!-- more -->
 
-By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we&#8217;re looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
+By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we're looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
 
 For Linux Mint 12, which still used [Gnome Shell](https://live.gnome.org/GnomeShell), the file was at `/usr/share/gnome-shell/js/ui/layout.js`.
 

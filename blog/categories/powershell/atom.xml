@@ -4,7 +4,7 @@
     <title><![CDATA[Category: powershell | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/powershell/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -40,7 +40,7 @@ Take the following sample:
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-Depending on what the random number we get is, we&#8217;ll get one of two scenarios:
+Depending on what the random number we get is, we'll get one of two scenarios:
 
     # Success
     RandomlyFail
@@ -52,12 +52,12 @@ Depending on what the random number we get is, we&#8217;ll get one of two scenar
 
     OH NOES!!!
     At line:62 char:9
-    +         throw &#8220;OH NOES!!!&#8221;
+    +         throw "OH NOES!!!"
     +         ~~~~~~~~~~~~~~~~~~
         + CategoryInfo          : OperationStopped: (OH NOES!!!:String) [], RuntimeException
         + FullyQualifiedErrorId : OH NOES!!!
 
-Now, if this happened to be part of a larger script and we didn&#8217;t have everything wrapped in a `try..catch` block, execution could potentially stop there.
+Now, if this happened to be part of a larger script and we didn't have everything wrapped in a `try..catch` block, execution could potentially stop there.
 
 Since Powershell supports [closures](http://en.wikipedia.org/wiki/Closure_%28computer_programming%29), we can write a function that accepts a [script block](http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/05/closures-in-powershell.aspx) as a parameter.
 

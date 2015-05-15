@@ -4,7 +4,7 @@
     <title><![CDATA[Category: git | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/git/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -34,7 +34,7 @@ In order to configure your repository to push to both, all you need to do is:
 
 <img src="/images/20141219-git-001.png">
 
-**3)** now to initialze the Bitbucket remote execute `git push origin -u &#8211;all`. 
+**3)** now to initialze the Bitbucket remote execute `git push origin -u --all`. 
 
 <img src="/images/20141219-git-002.png">
 
@@ -55,7 +55,7 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 <!-- more -->
 
-After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.
+After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
 <div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
@@ -83,7 +83,7 @@ git diff --cached --name-only | \
 exit 0</code></pre></noscript></div>
 
 
-This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made exectuable.
+This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 

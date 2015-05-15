@@ -4,7 +4,7 @@
     <title><![CDATA[Category: publishing | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/publishing/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,39 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Fourth Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement/"/>
+        <updated>2015-05-14T11:34:45-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement</id>
+        <content type="html"><![CDATA[It's been over a year since this book was published, and I didn't think it would see the type of success it has.
+
+<img class="left" src="/images/20150329-001.png">
+
+Based on this last statement, I'm officially eligible to start collecting royalties off this book.
+
+This will have to wait until next quarter as Packt only pays out if the total proceeds exceed £75; which the USD$78 I earned last quarter doesn't ;)
+
+[Redmine](http://redmine.org) is a very popular open source project management platform, but in order to extend it users need to be familiar with not only the [Ruby](https://www.ruby-lang.org) language, but the [Ruby on Rails](http://rubyonrails.org/) framework as well.
+
+This can be quite the barrier to entry for new developers, as they need to have a fair amount of knowledge coming in.
+
+Based on the sales figures I have access to, as well as feedback and inquiries I've received over the last year, it's safe to say that the Redmine community is thriving :)
+
+I've updated the sales chart with my last royalty statement:
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q1/2014|18|3|18|0|
+|Q2/2014|73|1|33|2|
+|Q3/2014|25|2|24|4|
+|Q4/2014|33|2|31|2|
+
+If you're one of the people that bought the book, please leave a comment and let me know what you thought.
+
+I'm in the process of updating the [knowledgebase plugin](https://github.com/alexbevi/redmine_knowledgebase) that served as the focal point of the book to be compatible with Redmine 3.0 and beyond. If you have any ideas for new features, or feel I should get cracking on the bug fixes, log an issue :)]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Third Royalty Statement]]></title>
@@ -32,9 +65,9 @@ I've added the latest numbers to those from [my previous post](/blog/2014/09/22/
 
 <img class="left" src="/images/20141222-ss01.png">
 
-The main reason I&#8217;ve been sharing these numbers (without sharing that actual &#8220;numbers&#8221;) is to show prospective authors what types of returns they can potentially expect.
+The main reason I've been sharing these numbers (without sharing that actual "numbers") is to show prospective authors what types of returns they can potentially expect.
 
-The book I wrote falls into the &#8220;minibook&#8221; category, so the returns are lower than a full-on &#8220;book&#8221; (I think < 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)
+The book I wrote falls into the "minibook" category, so the returns are lower than a full-on "book" (I think < 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)
 
 Happy Holidays Everyone!!!
 
@@ -60,13 +93,13 @@ In the table below, I've added the latest numbers to those from [my previous pos
 
 <img class="left" src="/images/royalties20140630.png">
 
-Once again, I&#8217;ve decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
+Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
 
-At this rate, it&#8217;s possible I&#8217;ll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
+At this rate, it's possible I'll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
 
-I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
+I'm sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I'm sure the numbers I'm posting here will convince you it's not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
 
-If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
+If you've had anything published and are seeing a decent return on your "investment", please share in the comments ;)]]></content>
     </entry>
     
 </feed>

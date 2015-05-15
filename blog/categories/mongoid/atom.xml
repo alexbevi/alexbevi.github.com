@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongoid | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongoid/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -30,7 +30,7 @@ and then tried to get some info from the C-level backtraces via:
 
     (gdb) t a a bt
 
-This resulted in a lot of information that didn&#8217;t really help me (at least not immediately):
+This resulted in a lot of information that didn't really help me (at least not immediately):
 
 <!--more-->
 
@@ -674,7 +674,7 @@ I then thought I might get a bit more info if I dumped the current Ruby backtrac
 </span><span class='line'>$2 = 2
 </span><span class='line'>(gdb) call (void)rb_backtrace()</span></code></pre></td></tr></table></div></figure>
 
-This now shows me what&#8217;s going on inside my Ruby process:
+This now shows me what's going on inside my Ruby process:
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -949,7 +949,7 @@ This now shows me what&#8217;s going on inside my Ruby process:
 
 Looks like the whole think started with a [moped](https://github.com/mongoid/moped) socket connection (which makes sense). 
 
-Investigating further &#8230;]]></content>
+Investigating further ...]]></content>
     </entry>
     
 </feed>

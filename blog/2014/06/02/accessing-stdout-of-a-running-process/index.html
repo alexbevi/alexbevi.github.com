@@ -9,7 +9,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Accessing a running process&#8217; STDOUT - ALEX BEVILACQUA</title>
+        <title>Accessing a running process' STDOUT - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
         <meta name="description" content="Accessing a running process' STDOUT Jun 2nd, 2014 linux ruby rake Comments I&rsquo;m currently doing a lot of scripting at work. Although the &hellip;">
@@ -90,7 +90,7 @@
                     <article class="article article--single">
     <header class="article__header">
     
-        <h1 class="article__title">Accessing a running process&#8217; STDOUT</h1>
+        <h1 class="article__title">Accessing a running process' STDOUT</h1>
     
 
     
@@ -140,20 +140,20 @@
 
     <p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
 
-<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
+<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.</p>
 
 <p><img src="/images/20140602-001.jpg"></p>
 
 <!-- more -->
 
 
-<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to followup from another terminal session.</p>
+<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to follow-up from another terminal session.</p>
 
 <p>Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the <a href="https://github.com/paul/progress_bar">progress_bar</a> gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.</p>
 
 <p>If I were to execute the task directly, I could watch the progress directly. Since we&rsquo;re running this script remotely though, this information isn&rsquo;t directly accessible.</p>
 
-<p>In order to gain access to the progress info for this taks, we&rsquo;ll need to access the process&#8217; STDOUT from an alternate session.</p>
+<p>In order to gain access to the progress info for this task, we&rsquo;ll need to access the process' STDOUT from an alternate session.</p>
 
 <p>The first step is to find the PID of the process we would like:</p>
 
@@ -262,6 +262,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2015/05/14/fourth-royalty-statement/">Fourth Royalty Statement</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2015/04/08/asylum-engine-update/">Asylum Engine Update</a>
         </li>
         
@@ -277,10 +281,6 @@
             <a href="/blog/2014/12/22/third-royalty-statement/">Third Royalty Statement</a>
         </li>
         
-        <li class="post">
-            <a href="/blog/2014/12/19/git-push-to-github-and-bitbucket/">Git Push to GitHub and Bitbucket</a>
-        </li>
-        
     </ul>
 </section>
 <section>
@@ -290,7 +290,7 @@
   </a>
 
   <ul>
-    <li>Gain access to powerful and useful features by hooking into Redmine&#8217;s underlying infrastructure</li>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
     <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
     <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
   </ul>

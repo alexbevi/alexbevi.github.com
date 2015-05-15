@@ -4,7 +4,7 @@
     <title><![CDATA[Category: logentries | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/logentries/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,7 +28,7 @@ Where `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee` is your log token, and `COMMAND` is
 
 For example:
 
-    lsblk | while read -r line; do echo &#8220;aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line&#8221; > /dev/tcp/data.logentries.com/80; done
+    lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" > /dev/tcp/data.logentries.com/80; done
     
 
 <img class="left" src="/images/20140716-logentries.png">

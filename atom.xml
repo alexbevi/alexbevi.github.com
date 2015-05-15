@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,11 +14,81 @@
 
     
     <entry>
+        <title type="html"><![CDATA[Fourth Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement/"/>
+        <updated>2015-05-14T11:34:45-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement</id>
+        <content type="html"><![CDATA[<p>It&rsquo;s been over a year since this book was published, and I didn&rsquo;t think it would see the type of success it has.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/20150329-001.png"></p>
+
+<p>Based on this last statement, I&rsquo;m officially eligible to start collecting royalties off this book.</p>
+
+<p>This will have to wait until next quarter as Packt only pays out if the total proceeds exceed £75; which the USD$78 I earned last quarter doesn&rsquo;t ;)</p>
+
+<p><a href="http://redmine.org">Redmine</a> is a very popular open source project management platform, but in order to extend it users need to be familiar with not only the <a href="https://www.ruby-lang.org">Ruby</a> language, but the <a href="http://rubyonrails.org/">Ruby on Rails</a> framework as well.</p>
+
+<p>This can be quite the barrier to entry for new developers, as they need to have a fair amount of knowledge coming in.</p>
+
+<p>Based on the sales figures I have access to, as well as feedback and inquiries I&rsquo;ve received over the last year, it&rsquo;s safe to say that the Redmine community is thriving :)</p>
+
+<p>I&rsquo;ve updated the sales chart with my last royalty statement:</p>
+
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>Ebook Mini</th>
+<th>Subscription Packtlib Mini</th>
+<th>Print Book Mini</th>
+<th>Subscription (3rd Party Mini)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1/2014</td>
+<td>18</td>
+<td>3</td>
+<td>18</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Q2/2014</td>
+<td>73</td>
+<td>1</td>
+<td>33</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Q3/2014</td>
+<td>25</td>
+<td>2</td>
+<td>24</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Q4/2014</td>
+<td>33</td>
+<td>2</td>
+<td>31</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>If you&rsquo;re one of the people that bought the book, please leave a comment and let me know what you thought.</p>
+
+<p>I&rsquo;m in the process of updating the <a href="https://github.com/alexbevi/redmine_knowledgebase">knowledgebase plugin</a> that served as the focal point of the book to be compatible with Redmine 3.0 and beyond. If you have any ideas for new features, or feel I should get cracking on the bug fixes, log an issue :)</p>
+]]></content>
+    </entry>
+    
+    <entry>
         <title type="html"><![CDATA[Asylum Engine Update]]></title>
         <link href="http://www.alexbevi.com/blog/2015/04/08/asylum-engine-update/"/>
         <updated>2015-04-08T09:31:14-04:00</updated>
         <id>http://www.alexbevi.com/blog/2015/04/08/asylum-engine-update</id>
-        <content type="html"><![CDATA[<p>It&rsquo;s been a number of years since I had a chance to look at this project, but recently I updated the codebase to the lastest version (sync with upstream <a href="https://github.com/scummvm/scummvm">ScummVM</a>) and found that the videos no longer worked.</p>
+        <content type="html"><![CDATA[<p>It&rsquo;s been a number of years since I had a chance to look at this project, but recently I updated the codebase to the latest version (sync with upstream <a href="https://github.com/scummvm/scummvm">ScummVM</a>) and found that the videos no longer worked.</p>
 
 <p><img src="http://www.alexbevi.com/images/20150408-004.png"></p>
 
@@ -39,7 +109,7 @@
 
 <p><img src="http://www.alexbevi.com/images/20150408-001.png"></p>
 
-<p>The pathfinding in the original engine is a lot smarter and more forgiving than our implementation.</p>
+<p>The path-finding in the original engine is a lot smarter and more forgiving than our implementation.</p>
 
 <p><strong>inventory management</strong></p>
 
@@ -213,7 +283,7 @@ DEBUG: Successfully executed [ RandomlyFail ]
         <id>http://www.alexbevi.com/blog/2015/01/16/just-finished-terranigma</id>
         <content type="html"><![CDATA[<p>As someone in their thirties with a family, my personal gaming time is somewhat limited. As a result, I need to be a bit more selective with what I choose to sink any free time into; and <a href="http://en.wikipedia.org/wiki/Grinding_%28video_gaming%29">grinding</a> is not where I want that time to go. I&rsquo;ll get back to this shortly ;)</p>
 
-<p>I want to start off by saying I really enjoyed <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>. It&rsquo;s a fun 3rd person action-rpg (similar to <a href="http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past">Link to the Past</a> or <a href="http://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>) that concludes the <em>Quintet</em> triology started by <a href="http://en.wikipedia.org/wiki/Soul_Blazer">Soul Blazer</a> and <a href="http://en.wikipedia.org/wiki/Illusion_of_Gaia">Illusion of Gaia</a>.</p>
+<p>I want to start off by saying I really enjoyed <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>. It&rsquo;s a fun 3rd person action-rpg (similar to <a href="http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past">Link to the Past</a> or <a href="http://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>) that concludes the <em>Quintet</em> trilogy started by <a href="http://en.wikipedia.org/wiki/Soul_Blazer">Soul Blazer</a> and <a href="http://en.wikipedia.org/wiki/Illusion_of_Gaia">Illusion of Gaia</a>.</p>
 
 <p>I was a big fan of Soul Blazer (less of Illusion of Gaia) so I was really looking forward to Terranigma. The gameplay is similar (real-time battle) and the themes are similar (restoring the world).</p>
 
@@ -398,13 +468,13 @@ DEBUG: Successfully executed [ RandomlyFail ]
 
 <p>Battles in this game are pretty straightforward. You equip weapons to your robots, then use them in battle either directly, or you can program sequences that allow you to run multiple attacks in succession. This approach can kill enemies faster, but will require you to charge up for longer, and therefore be vulnerable for longer as well.</p>
 
-<p>The fights are extremely repetetive, and it doesn&rsquo;t help that there only appears to be a single battle theme that loops constantly. I played most of the game with the volume off due to this :P</p>
+<p>The fights are extremely repetitive, and it doesn&rsquo;t help that there only appears to be a single battle theme that loops constantly. I played most of the game with the volume off due to this :P</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).010.png"></p>
 
 <p>Once you get to the volcano and find the <em>Sword 4</em> in a chest, the random battles become exceedingly easy (for at least the next &frac34; of the game). This weapon is just ridiculously overpowered at this point and you&rsquo;ll find yourself just spamming it in order to quickly proceed through the story.</p>
 
-<p>Boss battles tend to be very dependant on what level you&rsquo;re at when you enter the fight. Most battles I had to redo at least once as I found I was far too low of a level to have a chance.</p>
+<p>Boss battles tend to be very dependent on what level you&rsquo;re at when you enter the fight. Most battles I had to redo at least once as I found I was far too low of a level to have a chance.</p>
 
 <p><img class="right" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).022.png"></p>
 
@@ -445,7 +515,7 @@ DEBUG: Successfully executed [ RandomlyFail ]
 
 <p>Since I didn&rsquo;t really want to discard any, I figured I&rsquo;d just throw the execss screenshots into a carousel or gallery.</p>
 
-<p>I found <a href="https://gist.github.com/kyv/5667902">an exellent example</a>, but it didn&rsquo;t quite produce the results I was looking for.</p>
+<p>I found <a href="https://gist.github.com/kyv/5667902">an excellent example</a>, but it didn&rsquo;t quite produce the results I was looking for.</p>
 
 <!-- more -->
 
@@ -814,7 +884,7 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
         <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
         <updated>2014-07-15T14:38:35-04:00</updated>
         <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
-        <content type="html"><![CDATA[<p>Just a quick update on <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>. I received my first royalty statement today, which basically just inidicates that not enough books have sold to exceed the advance I received initially.</p>
+        <content type="html"><![CDATA[<p>Just a quick update on <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>. I received my first royalty statement today, which basically just indicates that not enough books have sold to exceed the advance I received initially.</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/royalties20140331.png"></p>
 
@@ -1823,20 +1893,20 @@ $ git push heroku master
         <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
         <content type="html"><![CDATA[<p>I&rsquo;m currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.</p>
 
-<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.</p>
+<p>One example is a series of PowerShell scripts I&rsquo;ve written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.</p>
 
 <p><img src="http://www.alexbevi.com/images/20140602-001.jpg"></p>
 
 <!-- more -->
 
 
-<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to followup from another terminal session.</p>
+<p>One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&rsquo;d like to demonstrate how to follow-up from another terminal session.</p>
 
 <p>Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the <a href="https://github.com/paul/progress_bar">progress_bar</a> gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.</p>
 
 <p>If I were to execute the task directly, I could watch the progress directly. Since we&rsquo;re running this script remotely though, this information isn&rsquo;t directly accessible.</p>
 
-<p>In order to gain access to the progress info for this taks, we&rsquo;ll need to access the process&#8217; STDOUT from an alternate session.</p>
+<p>In order to gain access to the progress info for this task, we&rsquo;ll need to access the process' STDOUT from an alternate session.</p>
 
 <p>The first step is to find the PID of the process we would like:</p>
 
@@ -1855,41 +1925,6 @@ $ git push heroku master
 <p>We&rsquo;re redirecting the output of <em>strace</em> in order to further filter the results using <a href="http://en.wikipedia.org/wiki/Grep">grep</a>. Depending on what process you&rsquo;re looking to monitor you may need to adjust your grep conditions.</p>
 
 <p>You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[This is a sample post]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/04/22/a-sample-post/"/>
-        <updated>2014-04-22T14:40:00-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/04/22/a-sample-post</id>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<!-- More -->
-
-
-<h2>this is a sample header</h2>
-
-<p>Here&rsquo;s some sample code:</p>
-
-<pre><code>def test
-  @answer = 6*9
-  if @answer != 42  # this should never happen
-    raise "Oh no, not again."
-  else
-    print "Don't panic."
-end
-</code></pre>
-
-<p>{:lang=&ldquo;ruby&rdquo;}</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>The footnote <a href="http://www.example.com">content</a>.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
-</ol>
-</div>
-
 ]]></content>
     </entry>
     
@@ -1949,7 +1984,7 @@ end
 
 <p>The book gets published and will be available for purchase in five to eight working days from the day of upload.</p>
 
-<p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
+<p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerely apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
 ]]></content>
     </entry>
     

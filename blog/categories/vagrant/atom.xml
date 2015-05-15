@@ -4,7 +4,7 @@
     <title><![CDATA[Category: vagrant | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/vagrant/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -39,23 +39,23 @@ By the end of this tutorial, we will have:
 
 ## Overview
 
-In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarly opened the service up to developers who hadn&#8217;t given up the centralized development model. 
+In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarily opened the service up to developers who hadn't given up the centralized development model. 
 
 As an added bonus, it gave us an alternative view into the commit logs for our projects without the need for a local copy.
 
-In order to proceed, I&#8217;m making the following assumptions:
+In order to proceed, I'm making the following assumptions:
 
 * You are hosting an instance of Redmine on Heroku
 * You are comfortable using [Git](http://git-scm.com)
-* You&#8217;ve used a [Debian](http://debian.org)-based Linux distribution in the past
-* You&#8217;ve used the [GNU Build System](http://en.wikipedia.org/wiki/GNU_build_system) before
+* You've used a [Debian](http://debian.org)-based Linux distribution in the past
+* You've used the [GNU Build System](http://en.wikipedia.org/wiki/GNU_build_system) before
 * You have [Ruby](http://www.ruby-lang.org) and [RubyGems](http://rubygems.org) configured (if not, [RVM](http://rvm.io) is a good place to start)
 * You are not crazy enough to try doing this from Windows or OSX ;) 
 * You have a sense of humour and realize the winky above indicates this guide was written for Linux, but could easily be adapted for any OS
 
 ## Configuring the Build Environment
 
-Heroku (as of November, 2012 at least) deploys applications to an Ubuntu 10.04 x86_64 environment, and we&#8217;re going to be statically linking for that environment, so we need to setup a build system that reflects this requirement.
+Heroku (as of November, 2012 at least) deploys applications to an Ubuntu 10.04 x86_64 environment, and we're going to be statically linking for that environment, so we need to setup a build system that reflects this requirement.
 
 The most efficient way of doing this is to use [Vagrant](http://vagrantup.com) to initialize a bare-bones [Ubuntu Lucid](http://releases.ubuntu.com/lucid) system.
 
@@ -63,12 +63,12 @@ Since Rubygems should already be installed, it can be used to quickly setup Vagr
 
 	gem install vagrant
 
-Now, let&#8217;s fetch a pre-build lucid system (thanks Vagrant!) and initialize it in the current directory:
+Now, let's fetch a pre-build lucid system (thanks Vagrant!) and initialize it in the current directory:
 
 	vagrant box add lucid64 http://files.vagrantup.com/lucid64.box
 	vagrant init
 
-This will create a `Vagrantfile` in the current director, which contains configuration information for our build system. In order to tell Vagrant to use the _lucid64_ instace we&#8217;ve downloaded, the `Vagrantfile` needs to be edited and the *config.vm.box* section updated.
+This will create a `Vagrantfile` in the current director, which contains configuration information for our build system. In order to tell Vagrant to use the _lucid64_ instace we've downloaded, the `Vagrantfile` needs to be edited and the *config.vm.box* section updated.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -88,7 +88,7 @@ This will create a `Vagrantfile` in the current director, which contains configu
 </span><span class='line'>  <span class="c1"># ...</span>
 </span></code></pre></td></tr></table></div></figure>
 
-Now that everything is ready to go, let&#8217;s start the instance.
+Now that everything is ready to go, let's start the instance.
 
 	vagrant up
 
@@ -98,9 +98,9 @@ Once vagrant has started the virtual machine, we can access it via ssh using:
 
 ## Building Subversion
 
-For the purposes of this tutorial, I&#8217;m going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged seperately. 
+For the purposes of this tutorial, I'm going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged separately. 
 
-> **NOTE** With the 1.7 branch, there is a script that automates the process, and I&#8217;ll likely update this tutorial at some point to use this.
+> **NOTE** With the 1.7 branch, there is a script that automates the process, and I'll likely update this tutorial at some point to use this.
 
 First, we need to get the source:
 	
@@ -110,20 +110,20 @@ First, we need to get the source:
 	tar xvf subversion-1.6.19.tar.bz2
 	cd subversion-1.6.19
 	
-Second, we&#8217;ll install any additonal components required to compile successfully:
+Second, we'll install any additional components required to compile successfully:
 
 	sudo apt-get install build-essential libxml2-dev
 
-Finally, we&#8217;ll configure the build to exclude as much as possible and to produce a static binary:
+Finally, we'll configure the build to exclude as much as possible and to produce a static binary:
 
-	./configure &#8211;with-ssl \
-	            &#8211;without-gssapi \
-	            &#8211;without-swig \
-	            &#8211;without-neon \
-	            &#8211;enable-all-static
+	./configure --with-ssl \
+	            --without-gssapi \
+	            --without-swig \
+	            --without-neon \
+	            --enable-all-static
 	make
 
-Once the build completes, the only file we&#8217;re interested in is the `svn` client, so we&#8217;ll copy that to the `/vagrant` directory of our build machine, but first we&#8217;ll strip it.
+Once the build completes, the only file we're interested in is the `svn` client, so we'll copy that to the `/vagrant` directory of our build machine, but first we'll strip it.
 
 	strip subversion/svn/svn
 	cp subversion/svn/svn /vagrant
@@ -139,7 +139,7 @@ Once the build completes, the only file we&#8217;re interested in is the `svn` c
 
 The `/vagrant` directory is shared between the host and the guest machine by default, so this gives us access to the Subversion client if we open a new console and access the project folder we started Vagrant in.
 
-Since we&#8217;re now done, we can end the ssh session and stop the virtual machine	
+Since we're now done, we can end the ssh session and stop the virtual machine	
 
 	exit
 	vagrant halt
@@ -150,7 +150,7 @@ Go to the root of your local Redmine repository, and create a `bin` folder. Now 
 
 	mkdir bin
 	cp /path/to/static/svn bin	
-	git commit -a -m &#8220;Adding a Statically Linked Subversion to Redmine&#8221;
+	git commit -a -m "Adding a Statically Linked Subversion to Redmine"
 	git push heroku master
 
 If all went well, when you access the *Repositories* tab under *Administration -> Settings*, Subversion should be listed and the version we just uploaded displayed.
@@ -173,11 +173,11 @@ Once configured, clicking on the *Repository* tab should fetch the changesets an
 
 > **NOTE** This can potentially time out on a larger project and require clicking on the *Repository* tab multiple times until all changesets have been fetched and parsed.
 
-> **NOTE** Viewing changeset diffs doesn&#8217;t work
+> **NOTE** Viewing changeset diffs doesn't work
 
-I&#8217;ve used my personal installation as an example at [http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments](http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments).
+I've used my personal installation as an example at [http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments](http://alexbevi-pm.herokuapp.com/projects/redmine-dropbox-attachments).
 
-This method isn&#8217;t on-par with a self-hosted solution, but it&#8217;s good enough if you don&#8217;t have a VPS in your budget ;)
+This method isn't on-par with a self-hosted solution, but it's good enough if you don't have a VPS in your budget ;)
 
 ### REFERENCES
 

@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine-plugins-book | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine-plugins-book/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,39 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Fourth Royalty Statement]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement/"/>
+        <updated>2015-05-14T11:34:45-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement</id>
+        <content type="html"><![CDATA[It's been over a year since this book was published, and I didn't think it would see the type of success it has.
+
+<img class="left" src="/images/20150329-001.png">
+
+Based on this last statement, I'm officially eligible to start collecting royalties off this book.
+
+This will have to wait until next quarter as Packt only pays out if the total proceeds exceed £75; which the USD$78 I earned last quarter doesn't ;)
+
+[Redmine](http://redmine.org) is a very popular open source project management platform, but in order to extend it users need to be familiar with not only the [Ruby](https://www.ruby-lang.org) language, but the [Ruby on Rails](http://rubyonrails.org/) framework as well.
+
+This can be quite the barrier to entry for new developers, as they need to have a fair amount of knowledge coming in.
+
+Based on the sales figures I have access to, as well as feedback and inquiries I've received over the last year, it's safe to say that the Redmine community is thriving :)
+
+I've updated the sales chart with my last royalty statement:
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q1/2014|18|3|18|0|
+|Q2/2014|73|1|33|2|
+|Q3/2014|25|2|24|4|
+|Q4/2014|33|2|31|2|
+
+If you're one of the people that bought the book, please leave a comment and let me know what you thought.
+
+I'm in the process of updating the [knowledgebase plugin](https://github.com/alexbevi/redmine_knowledgebase) that served as the focal point of the book to be compatible with Redmine 3.0 and beyond. If you have any ideas for new features, or feel I should get cracking on the bug fixes, log an issue :)]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Third Royalty Statement]]></title>
@@ -32,9 +65,9 @@ I've added the latest numbers to those from [my previous post](/blog/2014/09/22/
 
 <img class="left" src="/images/20141222-ss01.png">
 
-The main reason I&#8217;ve been sharing these numbers (without sharing that actual &#8220;numbers&#8221;) is to show prospective authors what types of returns they can potentially expect.
+The main reason I've been sharing these numbers (without sharing that actual "numbers") is to show prospective authors what types of returns they can potentially expect.
 
-The book I wrote falls into the &#8220;minibook&#8221; category, so the returns are lower than a full-on &#8220;book&#8221; (I think < 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)
+The book I wrote falls into the "minibook" category, so the returns are lower than a full-on "book" (I think < 100 pages is a minibook), but at this rate, 2015 might result in a non-negative royalty statement that I can share :)
 
 Happy Holidays Everyone!!!
 
@@ -60,13 +93,13 @@ In the table below, I've added the latest numbers to those from [my previous pos
 
 <img class="left" src="/images/royalties20140630.png">
 
-Once again, I&#8217;ve decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
+Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
 
-At this rate, it&#8217;s possible I&#8217;ll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
+At this rate, it's possible I'll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
 
-I&#8217;m sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I&#8217;m sure the numbers I&#8217;m posting here will convince you it&#8217;s not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
+I'm sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I'm sure the numbers I'm posting here will convince you it's not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
 
-If you&#8217;ve had anything published and are seeing a decent return on your &#8220;investment&#8221;, please share in the comments ;)]]></content>
+If you've had anything published and are seeing a decent return on your "investment", please share in the comments ;)]]></content>
     </entry>
     
     <entry>
@@ -74,17 +107,17 @@ If you&#8217;ve had anything published and are seeing a decent return on your &#
         <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
         <updated>2014-07-15T14:38:35-04:00</updated>
         <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
-        <content type="html"><![CDATA[Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just inidicates that not enough books have sold to exceed the advance I received initially.
+        <content type="html"><![CDATA[Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just indicates that not enough books have sold to exceed the advance I received initially.
 
 <img class="left" src="/images/royalties20140331.png">
 
-(I probably didn&#8217;t need to redact anything from the image, but it seemed appropriate.)
+(I probably didn't need to redact anything from the image, but it seemed appropriate.)
 
-The deal I had with Packt was that they&#8217;d front me $600 against future sales, of which my cut is (I believe) ~ 16% of the list price.
+The deal I had with Packt was that they'd front me $600 against future sales, of which my cut is (I believe) ~ 16% of the list price.
 
-Still a ways to go (sales-wise) before I would consider this a &#8220;profitable&#8221; venture, but it&#8217;s nice to see that there is at least some initial interest.
+Still a ways to go (sales-wise) before I would consider this a "profitable" venture, but it's nice to see that there is at least some initial interest.
 
-I was approached by Packt a little while back to author another book, but based on the amount of time I invested in this one as well as the sales figures I&#8217;m sharing here, I don&#8217;t think it would be a good choice :P
+I was approached by Packt a little while back to author another book, but based on the amount of time I invested in this one as well as the sales figures I'm sharing here, I don't think it would be a good choice :P
 
 Should I consider writing another book? Any thoughts out there from my fellow denizens of the interwebs?
 
@@ -98,48 +131,9 @@ Should I consider writing another book? Any thoughts out there from my fellow de
         <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
         <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
 
-Well, it&#8217;s official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
+Well, it's official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
-I plan on doing a &#8220;post-mortem&#8221; on the process at some point, but for now I&#8217;m planning on taking a little time off from writing.]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Production Timeline]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
-        <updated>2014-03-03T08:22:30-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-        <content type="html"><![CDATA[Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) (code number 8748OS) is in the final stages of production.
-
-Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.
-
-<!-- more -->
-
-## Technical Editing / Copy Editing
-
-We would be editing chapters for language and content-related clarity. There might be instances when we&#8217;ll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.
-
-* Start of Editing: *21st February 2014*
-* End of Editing: *6th March 2014*
-
-After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as &#8220;Pre-Finals&#8221;. This is the stage where-in you will get to see the final chapters as you would see them in the book.
-
-## Schedule for Pre-finals
-
-2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.
-
-At this stage, you&#8217;ll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.
-
-## Upload Date
-
-This is the day when the clubbed book will be finalized and then sent to our printers. We call it the upload day, since the files are transferred to our printers and we cannot make any changes here after.
-
-* Current Upload Date: *17th March 2014*
-
-## Publishing Date
-
-The book gets published and will be available for purchase in five to eight working days from the day of upload.
-
-So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerly apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!]]></content>
+I plan on doing a "post-mortem" on the process at some point, but for now I'm planning on taking a little time off from writing.]]></content>
     </entry>
     
 </feed>

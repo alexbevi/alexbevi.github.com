@@ -4,7 +4,7 @@
     <title><![CDATA[Category: shoutcast | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/shoutcast/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line/"/>
         <updated>2012-07-18T08:20:00-04:00</updated>
         <id>http://www.alexbevi.com/blog/2012/07/18/shoutcast-streaming-from-the-command-line</id>
-        <content type="html"><![CDATA[I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
+        <content type="html"><![CDATA[I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarily in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
 
 <!-- more -->
 

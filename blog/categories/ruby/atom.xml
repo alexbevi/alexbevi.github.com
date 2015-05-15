@@ -4,7 +4,7 @@
     <title><![CDATA[Category: ruby | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-04-08T09:57:18-04:00</updated>
+    <updated>2015-05-14T22:22:40-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,19 +20,19 @@
         <id>http://www.alexbevi.com/blog/2014/06/02/accessing-stdout-of-a-running-process</id>
         <content type="html"><![CDATA[I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
 
-One example is a series of PowerShell scripts I've written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.
+One example is a series of PowerShell scripts I've written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.
 
 <img src="/images/20140602-001.jpg">
 
 <!-- more -->
 
-One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I&#8217;d like to demonstrate how to followup from another terminal session.
+One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to follow-up from another terminal session.
 
 Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the [progress_bar](https://github.com/paul/progress_bar) gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.
 
-If I were to execute the task directly, I could watch the progress directly. Since we&#8217;re running this script remotely though, this information isn&#8217;t directly accessible.
+If I were to execute the task directly, I could watch the progress directly. Since we're running this script remotely though, this information isn't directly accessible.
 
-In order to gain access to the progress info for this taks, we&#8217;ll need to access the process&#8217; STDOUT from an alternate session.
+In order to gain access to the progress info for this task, we'll need to access the process' STDOUT from an alternate session.
 
 The first step is to find the PID of the process we would like:
 
@@ -42,11 +42,11 @@ The first step is to find the PID of the process we would like:
 
 Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/wiki/Strace) in order to gain a bit more insight into the current process.
 
-    sudo strace -p 16544 -s 80 -e write 2>&1 | grep &#8220;write(2, &#34;\[&#8221;
+    sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
 
 <img src="/images/20140602-002.jpg">
 
-We&#8217;re redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you&#8217;re looking to monitor you may need to adjust your grep conditions.
+We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
 
 You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
 ]]></content>
@@ -63,7 +63,7 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 <!-- more -->
 
-After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn&#8217;t accidentally still have breakpoints enabled.
+After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
 <div><script src='https://gist.github.com/3436040.js'></script>
 <noscript><pre><code># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
@@ -91,7 +91,7 @@ git diff --cached --name-only | \
 exit 0</code></pre></noscript></div>
 
 
-This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made exectuable.
+This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 
