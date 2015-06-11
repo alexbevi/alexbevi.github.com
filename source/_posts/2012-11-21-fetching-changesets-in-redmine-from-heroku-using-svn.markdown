@@ -27,7 +27,7 @@ By the end of this tutorial, we will have:
 
 ## Overview
 
-In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarly opened the service up to developers who hadn't given up the centralized development model. 
+In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarily opened the service up to developers who hadn't given up the centralized development model. 
 
 As an added bonus, it gave us an alternative view into the commit logs for our projects without the need for a local copy.
 
@@ -79,7 +79,7 @@ Once vagrant has started the virtual machine, we can access it via ssh using:
 
 ## Building Subversion
 
-For the purposes of this tutorial, I'm going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged seperately. 
+For the purposes of this tutorial, I'm going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged separately. 
 
 > **NOTE** With the 1.7 branch, there is a script that automates the process, and I'll likely update this tutorial at some point to use this.
 
@@ -91,7 +91,7 @@ First, we need to get the source:
 	tar xvf subversion-1.6.19.tar.bz2
 	cd subversion-1.6.19
 	
-Second, we'll install any additonal components required to compile successfully:
+Second, we'll install any additional components required to compile successfully:
 
 	sudo apt-get install build-essential libxml2-dev
 

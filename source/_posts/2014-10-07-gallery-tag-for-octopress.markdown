@@ -12,7 +12,7 @@ While working on my post about finishing [Robotrek](http://en.wikipedia.org/wiki
 
 Since I didn't really want to discard any, I figured I'd just throw the execss screenshots into a carousel or gallery.
 
-I found [an exellent example](https://gist.github.com/kyv/5667902), but it didn't quite produce the results I was looking for.
+I found [an excellent example](https://gist.github.com/kyv/5667902), but it didn't quite produce the results I was looking for.
 
 <!-- more -->
 

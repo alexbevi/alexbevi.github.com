@@ -34,13 +34,13 @@ You can sometimes combine scraps with each other to produce weapons, or combine 
 
 Battles in this game are pretty straightforward. You equip weapons to your robots, then use them in battle either directly, or you can program sequences that allow you to run multiple attacks in succession. This approach can kill enemies faster, but will require you to charge up for longer, and therefore be vulnerable for longer as well.
 
-The fights are extremely repetetive, and it doesn't help that there only appears to be a single battle theme that loops constantly. I played most of the game with the volume off due to this :P
+The fights are extremely repetitive, and it doesn't help that there only appears to be a single battle theme that loops constantly. I played most of the game with the volume off due to this :P
 
 {% img left /images/robotrek/Robotrek_(USA).010.png %}
 
 Once you get to the volcano and find the *Sword 4* in a chest, the random battles become exceedingly easy (for at least the next 3/4 of the game). This weapon is just ridiculously overpowered at this point and you'll find yourself just spamming it in order to quickly proceed through the story.
 
-Boss battles tend to be very dependant on what level you're at when you enter the fight. Most battles I had to redo at least once as I found I was far too low of a level to have a chance.
+Boss battles tend to be very dependent on what level you're at when you enter the fight. Most battles I had to redo at least once as I found I was far too low of a level to have a chance.
 
 {% img right /images/robotrek/Robotrek_(USA).022.png %}
 

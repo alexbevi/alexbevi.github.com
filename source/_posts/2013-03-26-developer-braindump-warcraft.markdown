@@ -6,7 +6,7 @@ comments: true
 categories: [game-development]
 ---
 
-In an effort to centralize some articles about how some classic games were devloped, I've collected the [various parts](http://www.codeofhonor.com/blog/?s=%22The+making+of+Warcraft%22) of [Patrick Wyatt's blog](http://www.codeofhonor.com/blog/) series about the intital development of [Warcraft](http://en.wikipedia.org/wiki/Warcraft).
+In an effort to centralize some articles about how some classic games were devloped, I've collected the [various parts](http://www.codeofhonor.com/blog/?s=%22The+making+of+Warcraft%22) of [Patrick Wyatt's blog](http://www.codeofhonor.com/blog/) series about the initial development of [Warcraft](http://en.wikipedia.org/wiki/Warcraft).
 
 Please note that this version of the series is just meant to capture the content, and not all formatting changes have been captured.
 

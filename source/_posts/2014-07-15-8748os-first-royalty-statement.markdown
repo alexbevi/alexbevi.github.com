@@ -6,7 +6,7 @@ comments: true
 categories: [redmine-plugins-book]
 ---
 
-Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just inidicates that not enough books have sold to exceed the advance I received initially.
+Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just indicates that not enough books have sold to exceed the advance I received initially.
 
 {% img left /images/royalties20140331.png %}
 

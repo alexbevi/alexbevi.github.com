@@ -9,7 +9,7 @@ categories: [just-gave-up-on]
 
 As someone in their thirties with a family, my personal gaming time is somewhat limited. As a result, I need to be a bit more selective with what I choose to sink any free time into; and [grinding](http://en.wikipedia.org/wiki/Grinding_%28video_gaming%29) is not where I want that time to go. I'll get back to this shortly ;)
 
-I want to start off by saying I really enjoyed [Terranigma](http://en.wikipedia.org/wiki/Terranigma). It's a fun 3rd person action-rpg (similar to [Link to the Past](http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past) or [Secret of Mana](http://en.wikipedia.org/wiki/Secret_of_Mana)) that concludes the *Quintet* triology started by [Soul Blazer](http://en.wikipedia.org/wiki/Soul_Blazer) and [Illusion of Gaia](http://en.wikipedia.org/wiki/Illusion_of_Gaia).
+I want to start off by saying I really enjoyed [Terranigma](http://en.wikipedia.org/wiki/Terranigma). It's a fun 3rd person action-rpg (similar to [Link to the Past](http://en.wikipedia.org/wiki/The_Legend_of_Zelda:_A_Link_to_the_Past) or [Secret of Mana](http://en.wikipedia.org/wiki/Secret_of_Mana)) that concludes the *Quintet* trilogy started by [Soul Blazer](http://en.wikipedia.org/wiki/Soul_Blazer) and [Illusion of Gaia](http://en.wikipedia.org/wiki/Illusion_of_Gaia).
 
 I was a big fan of Soul Blazer (less of Illusion of Gaia) so I was really looking forward to Terranigma. The gameplay is similar (real-time battle) and the themes are similar (restoring the world).
 

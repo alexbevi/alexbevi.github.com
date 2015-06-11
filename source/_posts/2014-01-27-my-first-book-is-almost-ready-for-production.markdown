@@ -26,7 +26,7 @@ The first step was to provide the publisher with a rough outline that also inclu
 
 Once approved, and I actually *started* writing, I very quickly realized that meeting my page estimates was almost impossible; some chapters would be way too short, and others WAY too long.
 
-I also had to provide a rough outline as to how long I thoght it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.
+I also had to provide a rough outline as to how long I thought it would take me to write each chapter. This step, in retrospect, I wish I had taken more time to properly prepare.
 
 Writing a technically-oriented book involves a lot more research than you may think (no matter how well you think you know the source material). As such, the further I got into the book, the more time I found myself researching, writing code, testing code, then writing about the code I'd built.
 

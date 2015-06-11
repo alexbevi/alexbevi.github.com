@@ -8,19 +8,19 @@ categories: [linux, ruby, rake]
 
 I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
 
-One example is a series of PowerShell scripts I've written which abstract away various ETL tasks tha we need in order to get legacy data extracted, updated and inserted into other databases.
+One example is a series of PowerShell scripts I've written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.
 
 {% img /images/20140602-001.jpg %}
 
 <!-- more -->
 
-One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to followup from another terminal session.
+One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to follow-up from another terminal session.
 
 Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the [progress_bar](https://github.com/paul/progress_bar) gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.
 
 If I were to execute the task directly, I could watch the progress directly. Since we're running this script remotely though, this information isn't directly accessible.
 
-In order to gain access to the progress info for this taks, we'll need to access the process' STDOUT from an alternate session.
+In order to gain access to the progress info for this task, we'll need to access the process' STDOUT from an alternate session.
 
 The first step is to find the PID of the process we would like:
 

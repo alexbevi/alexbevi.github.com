@@ -6,7 +6,7 @@ comments: true
 categories: [Linux, Ubuntu, Shoutcast]
 ---
 
-I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarly in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
+I spend a lot of time working in a terminal, and I like to spend that time listening to music. Since I work primarily in Linux, I was hoping there would be an easy way to merge these two activities ... and it turns out there was :)
 
 <!-- more -->
 
