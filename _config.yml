@@ -124,14 +124,14 @@ oscailte:
         googleplus: +alexbevilacqua
         hackernews:
         keybase:
-        linkedin:
+        linkedin: alexbevi
         pinterest:
-        reddit:
+        reddit: alexbevi
         stackoverflow: 195509
         twitter:
             user: alexbevi
             widget: # Shows the Recent Tweets widget in sidebar
-                is_shown:
-                show_profile_link:
-                widget_id:
+                is_shown: true
+                show_profile_link: true
+                widget_id: 448022650414051328
         youtube:
