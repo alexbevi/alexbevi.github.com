@@ -18,6 +18,12 @@ After hunting around for a bit, I decided to write a pre-commit [hook](http://gi
 
 This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 
+```
+HOOK_URL="https://gist.githubusercontent.com/alexbevi/3436040/raw/pre-commit.sh"
+curl $HOOK_URL > /path/to/source/.git/hooks/pre-commit
+chmod +x /path/to/source/.git/hooks/pre-commit
+```
+
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 
 {% img /images/2012-08-23-ss.png %}
