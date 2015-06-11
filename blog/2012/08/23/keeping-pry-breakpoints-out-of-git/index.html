@@ -175,6 +175,14 @@ exit 0</code></pre></noscript></div>
 
 <p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made executable.</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>HOOK_URL="https://gist.githubusercontent.com/alexbevi/3436040/raw/pre-commit.sh"
+</span><span class='line'>curl $HOOK_URL &gt; /path/to/source/.git/hooks/pre-commit
+</span><span class='line'>chmod +x /path/to/source/.git/hooks/pre-commit</span></code></pre></td></tr></table></div></figure>
+
+
 <p>If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.</p>
 
 <p><img src="/images/2012-08-23-ss.png"></p>
