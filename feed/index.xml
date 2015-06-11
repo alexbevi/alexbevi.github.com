@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2015-05-14T22:22:40-04:00</updated>
+  <updated>2015-06-10T20:42:56-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Just Finished - Breath of Fire]]></title>
+    <link href="http://www.alexbevi.com/blog/2015/06/10/just-finished-breath-of-fire/"/>
+    <updated>2015-06-10T08:34:06-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2015/06/10/just-finished-breath-of-fire</id>
+    <content type="html"><![CDATA[<p>My original plan for my next playthrough was going to be <a href="http://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc">Daganronpa</a>, but after making it to chapter 5, I got caught up in an phone upgrade bricking (at least <a href="http://mobilesyrup.com/2015/01/22/wind-mobile-users-complaining-of-problems-with-moto-x-lollipop-soak-test/">Wind ended up replacing my phone</a>) fiasco and lost all my progress.</p>
+
+<p>I didn&rsquo;t really feel like starting all over again, so I started <a href="http://en.wikipedia.org/wiki/Lufia_II:_Rise_of_the_Sinistrals">Lufia II</a> and the original <a href="http://en.wikipedia.org/wiki/Breath_of_Fire_(video_game">Breath of Fire</a>.</p>
+
+<p>I ended up sticking with Breath of Fire, though I want to get through both Lufia and Lufia II eventually ;)</p>
+
+<p>I wasn&rsquo;t really planning on writing about this game, but decided at the last minute, so all my screenshots are from the very end ;)</p>
+
+<p>I played the Game Boy Advance remake on my phone using <a href="http://www.explusalpha.com/home/gba-emu">GBA.emu</a>. Although I&rsquo;m perfectly capable of compiling from source and side-loading the APK, I bought the version on the Play store as the developer deserves the support.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/bof/bof.005.png"></p>
+
+<p>The story starts off the main character, Ryu&rsquo;s hometown. He is one of the last members of the Light Dragon Clan, and the Dark Dragon Clan has just come to eradicate them.</p>
+
+<p>When they set the town ablaze, Ryu&rsquo;s sister Sara turns everyone to stone and ventures out alone to stop the invasion. She is captured, and the game begins with you setting out to fight the Dark Dragons and get her back.</p>
+
+<!-- more -->
+
+
+<p><img class="right" src="http://www.alexbevi.com/images/bof/bof.006.png"></p>
+
+<p>As you make your way through the game, you meet up with additional character that add a new twist to how you solve puzzles. For example, Bo can hunt animals that appear randomly on the overworld map, Karn can open locked doors, Ox can smash certain walls, Gobi can swim under water and Nina eventually morphs into a bird.</p>
+
+<p>I thought this angle was pretty cool, as it makes the game more of an Action-RPG (ala Zelda or Secret of Mana) than a traditional Final Fantasy style JRPG.</p>
+
+<p>Each character has a unique skill that is required to progress the story at some point, so you feel more attached to them than supporting characters from certain other series.</p>
+
+<p>The combat system is a traditional turn-based, menu-driven, pick your attacks and wait for the enemy implementation. If you&rsquo;ve played any other JRPG from this era, you&rsquo;ll feel right at home.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/bof/bof.000.png"></p>
+
+<p>The main quest progresses in a pretty linear fashion. You&rsquo;re trying to find a bunch of Goddess keys that were used to lock up Tyr long ago, but the Dark dragons are trying to find them as well to let Tyr out to wreak havoc on the world.</p>
+
+<p>You get these keys, fight members of the Dark Dragons, meet characters, unlock more of the map and eventually have to fight Tyr once and for all.</p>
+
+<p>There are side-quests as well that you have to do if you want to learn dragon techniques for Ryu, or fusion techniques for Karn.</p>
+
+<p>If you go to the trouble of getting all the Dragon equipment and finding the final dragon form, Agni, you basically have a Win Stick&trade; for the rest of the game (I highly recommend this :P).</p>
+
+<h3>Summary</h3>
+
+<p>This game wasn&rsquo;t overly difficult, and really didn&rsquo;t take that long to complete.</p>
+
+<p>The learning curve wasn&rsquo;t very steep, but this could just be due to having played a lot of other games from the JRPG, Action RPG genres previously.</p>
+
+<p>Since the majority of games that I play nowadays are from <a href="http://www.square-enix.com/">Square Enix</a>, it was nice to run through something from another publisher.</p>
+
+<p>I really enjoyed this game, and am currently working my way through the sequel, <a href="http://en.wikipedia.org/wiki/Breath_of_Fire_II">Breath of Fire II</a>.</p>
+
+<p>Assuming I don&rsquo;t brick my phone again, hopefully I&rsquo;ll have a review for that next :D.</p>
+
+<div id="galleria"><img src="http://www.alexbevi.com/images/bof/bof.001.png" data-title="" /><img src="http://www.alexbevi.com/images/bof/bof.002.png" data-title="" /><img src="http://www.alexbevi.com/images/bof/bof.003.png" data-title="" /><img src="http://www.alexbevi.com/images/bof/bof.004.png" data-title="" /></div>
+
+
+<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fourth Royalty Statement]]></title>
@@ -1985,17 +2049,6 @@ $ git push heroku master
 <p>The book gets published and will be available for purchase in five to eight working days from the day of upload.</p>
 
 <p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerely apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Final Rewrites Over 50% Done]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done/"/>
-    <updated>2014-02-18T22:08:21-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/02/18/final-rewrites-over-50-percent-done</id>
-    <content type="html"><![CDATA[<p>This is just a quick post to update everyone that chapters 1, 2 and 3 of <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> have been submitted to Packt with final revisions. Chapter 8 as well as the Appendix were accepted after the initial round of rewrites, so that means <em>4 MORE CHAPTERS TO GO!!!</em></p>
-
-<p>Clearly I didn&rsquo;t meet the target I hinted at in my last post, but it was <a href="http://www.statutoryholidays.com/family-day.php">Family Day</a> here so I took the family away for the long weekend to go skating on the <a href="http://www.ncc-ccn.gc.ca/places-to-visit/rideau-canal-skateway">Rideau Canal</a> in Ottawa :)</p>
 ]]></content>
   </entry>
   
