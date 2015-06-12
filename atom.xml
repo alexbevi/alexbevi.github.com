@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-06-11T10:52:12-04:00</updated>
+    <updated>2015-06-12T10:07:45-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,35 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Submit Content to Reddit because people WILL see it]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/06/12/submit-content-to-reddit-because-people-will-see-it/"/>
+        <updated>2015-06-12T09:15:44-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/06/12/submit-content-to-reddit-because-people-will-see-it</id>
+        <content type="html"><![CDATA[<p>I just wanted to share a quick story as someone who occasionally publishes stuff (both in print and in this blog).</p>
+
+<p>I&rsquo;ve never really given <a href="http://www.reddit.com">Reddit</a> a fair chance. Every time I would go there, it seemed like the front page just had random links to news stories, or links to pictures.</p>
+
+<p>I didn&rsquo;t really bother to dive in and actually <em>look</em> for content, or bother to checkout the subreddits to see what sorts of communities I might be more inclined to interact with.</p>
+
+<p>Yesterday, I took a couple of my articles from this blog and submitted them (<a href="http://www.reddit.com/r/JRPG/comments/39dg8d/just_finished_breath_of_fire/">here</a>, <a href="http://www.reddit.com/r/commandline/comments/39fz7c/accessing_a_running_process_stdout/">here</a> and <a href="http://www.reddit.com/r/ruby/comments/39g909/keeping_pry_breakpoints_out_of_git/">here</a>) to see what sort of feedback/engagement I might see.</p>
+
+<p><img src="http://www.alexbevi.com/images/20150612-ga002.png"></p>
+
+<p>Generally, I see anywhere from 5-25 users a day pass through here. That all changed very, VERY quickly once I submitted my content.</p>
+
+<p>Within 12 hours of posting, I&rsquo;d managed to get up to ~ 900 unique users, and by the end of the day, it was over 1000! (<a href="http://knowyourmeme.com/memes/its-over-9000">over 9000</a> would have been sweeter :P)</p>
+
+<p><img src="http://www.alexbevi.com/images/20150612-ga001.png"></p>
+
+<p>I had some really great conversations around my content, and got some useful feedback as well.</p>
+
+<p>I&rsquo;ve posted content to Twitter, LinkedIn, Facebook and elsewhere, but never really got any good engagement. After this experience though, I know the first place I&rsquo;ll be dropping my new articles, and am even slightly more motivated to get them completed as I know what I can expect from the community :)</p>
+
+<p>Please let me know if there are other communities you&rsquo;ve found that generate good conversations around your content.</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Just Finished - Breath of Fire]]></title>
@@ -2002,53 +2031,6 @@ $ git push heroku master
 <p>Well, it&rsquo;s official. The journey I began over six months ago has finally come to an end, and <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> has officially been published :)</p>
 
 <p>I plan on doing a &ldquo;post-mortem&rdquo; on the process at some point, but for now I&rsquo;m planning on taking a little time off from writing.</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Production Timeline]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline/"/>
-        <updated>2014-03-03T08:22:30-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/03/03/8748os-production-timeline</id>
-        <content type="html"><![CDATA[<p>Well, it&rsquo;s been a long (longer than anticipated) journey, but <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> (code number 8748OS) is in the final stages of production.</p>
-
-<p>Since I wanted to share a bit more detail about what went into the production of this book, I&rsquo;m attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.</p>
-
-<!-- more -->
-
-
-<h2>Technical Editing / Copy Editing</h2>
-
-<p>We would be editing chapters for language and content-related clarity. There might be instances when we&rsquo;ll require your assistance while we make any content-related changes. Even if there are no queries, we would be sending our first edited chapter (Per TE) to you to ensure that you are happy with the quality of editing. When chapter are sent across to you, the expected turnaround time will be 24 hours per chapter.</p>
-
-<ul>
-<li>Start of Editing: <em>21st February 2014</em></li>
-<li>End of Editing: <em>6th March 2014</em></li>
-</ul>
-
-
-<p>After the chapters  are edited, they are indexed  and then laid out. The laid out chapters are then sent across to the Proof Reader, who are experts in English language. The Proof read chapters are then finalized and made into what we term as &ldquo;Pre-Finals&rdquo;. This is the stage where-in you will get to see the final chapters as you would see them in the book.</p>
-
-<h2>Schedule for Pre-finals</h2>
-
-<p>2 to 4 Pre-Finals will be sent across to you in a batch. The expected turnaround time will be 24 hours for a batch of two chapters.</p>
-
-<p>At this stage, you&rsquo;ll be expected to just go through the chapters and provide feedback, if any. Any major content changes should be avoided. We plan to start sending these within 7-10 days from today and would continue to do so, until the day the book is clubbed and finalized.</p>
-
-<h2>Upload Date</h2>
-
-<p>This is the day when the clubbed book will be finalized and then sent to our printers. We call it the upload day, since the files are transferred to our printers and we cannot make any changes here after.</p>
-
-<ul>
-<li>Current Upload Date: <em>17th March 2014</em></li>
-</ul>
-
-
-<h2>Publishing Date</h2>
-
-<p>The book gets published and will be available for purchase in five to eight working days from the day of upload.</p>
-
-<p>So all going well, it looks like the book will officially be available by the end of March 2014. For those who were anticipating the original January 2014 release date, I sincerely apologize for the delay. I felt the delay resulted in a more cohesive final product, and hope that it meets (and even exceeds) your expectations!</p>
 ]]></content>
     </entry>
     
