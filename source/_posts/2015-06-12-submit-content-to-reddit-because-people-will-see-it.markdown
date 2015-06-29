@@ -6,7 +6,7 @@ comments: true
 categories: [reddit]
 ---
 
-I just wanted to share a quick story as someone who occasionally publishes stuff (both in print and in this blog).
+I just wanted to share a quick story as someone who occasionally publishes stuff (both in [print](https://www.packtpub.com/big-data-and-business-intelligence/redmine-plugin-extension-and-development) and on the [internets](https://en.wikipedia.org/wiki/Internets)).
 
 I've never really given [Reddit](http://www.reddit.com) a fair chance. Every time I would go there, it seemed like the front page just had random links to news stories, or links to pictures.
 
