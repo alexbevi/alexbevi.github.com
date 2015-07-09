@@ -117,3 +117,11 @@ Overall though, I would recommend this to any JRPG fan as the story is solid, th
 /images/bof2/bof2.051.png
 /images/bof2/bof2.052.png
 {% endgalleria %}
+
+As usual, here's the gallery of screenshots. Let me know which one's your favourite in the comments below ;)
+
+For my next playthrough, I'm working on [Final Fantasy II: Dawn of Souls](http://finalfantasy.wikia.com/wiki/Final_Fantasy_I_%26_II:_Dawn_of_Souls). Shouldn't be too much longer now, as I'm already at the Jade Passage, which I believe is the final section of the game.
+
+Did you like Breath of Fire II? Which is your favourite of the series? What should I play next? Is my writing getting any better? Let me know in the comments below if you have any feedback.
+
+Cheers!
