@@ -9,13 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Pipe Command Output to Logentries - ALEX BEVILACQUA</title>
+        <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Pipe Command Output to Logentries Jul 16th, 2014 linux logentries Comments I&rsquo;ve been using Logentries for a couple of months now to manage &hellip;">
+        <meta name="description" content="I&rsquo;ve recently been working on a number of reviews for old 16-bit JRPGs, and figured I&rsquo;d collect them in one place. I&rsquo;m also &hellip;">
         
         <meta name="viewport" content="width=device-width">
-        <link rel="canonical" href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries">
+        <link rel="canonical" href="http://www.alexbevi.com/reviews">
 
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
         <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
@@ -88,103 +88,61 @@
                 
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
-                    <article class="article article--single">
-    <header class="article__header">
-    
-        <h1 class="article__title">Pipe Command Output to Logentries</h1>
-    
+                    <article class="page">
 
     
-        <div class="article__meta clearfix">
-            
+
+    <p>I&rsquo;ve recently been working on a number of reviews for old 16-bit JRPGs, and figured I&rsquo;d collect them in one place. I&rsquo;m also planning on writing about some of the books I&rsquo;ve been reading and Anime series that I&rsquo;ve been watching.</p>
+
+<h1>Games</h1>
+
+<p>This is the &ldquo;short&rdquo; list of games I plan on covering in the future. Feel free to help me re-order the list by leaving comments ;)</p>
+
+<h2>Never Played/Finished</h2>
+
+<ul>
+<li>Seiken Densetsu III</li>
+<li>Daganronpa</li>
+<li>Breath of Fire III</li>
+<li>Breath of Fire IV</li>
+<li>Final Fantasy V</li>
+<li>Lufia 2</li>
+<li>Lufia</li>
+<li>Etrian Odyssey (all?)</li>
+</ul>
 
 
+<h2>Finished Previously (need to re-play)</h2>
+
+<ul>
+<li>Secret of Mana</li>
+<li>Chrono Trigger</li>
+<li>Final Fantasy IV</li>
+<li>Final Fantasy VI</li>
+</ul>
 
 
+<h1>Anime</h1>
+
+<p>I&rsquo;ve recently finished a few series and want to write reviews.</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Fullmetal_Alchemist:_Brotherhood">Fullmetal Alchemist: Brotherhood</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Darker_than_Black">Darker than Black</a> - Season 1</li>
+<li><a href="https://en.wikipedia.org/wiki/Sword_Art_Online">Sword Art Online</a> - Season 1</li>
+<li><a href="https://en.wikipedia.org/wiki/Attack_on_Titan">Attack on Titan</a></li>
+</ul>
 
 
-    <time class="article__date pull-left" datetime="2014-07-16T12:06:55-04:00" pubdate><i class="fa fa-calendar"></i> Jul 16th, 2014</time>
+<p>And have a few I&rsquo;m interested in as well</p>
 
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-
-            
-                <li><a class='category' href='/blog/categories/linux/'>linux</a></li>
-            
-                <li><a class='category' href='/blog/categories/logentries/'>logentries</a></li>
-            
-        
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
-
-<p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
-
-<pre><code>COMMAND | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
-</code></pre>
-
-<p>Where <code>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</code> is your log token, and <code>COMMAND</code> is whatever your like.</p>
-
-<p>For example:</p>
-
-<pre><code>lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
-</code></pre>
-
-<p><img class="left" src="/images/20140716-logentries.png"></p>
-
-<p>Hopefully this helps someone other than myself :)</p>
+<ul>
+<li>Big O</li>
+</ul>
 
 
 
 </article>
-
-  <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <script src="//platform.linkedin.com/in.js" type="text/javascript">
-    lang: en_US
-  </script>
-  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/" data-counter="right"></script>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
-
-
-<section id="disqus">
-    <h1 class="disqus__title">Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</section>
-
 
                 </div>
 
@@ -365,8 +323,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
+        var disqus_identifier = 'http://www.alexbevi.com/reviews/index.html';
+        var disqus_url = 'http://www.alexbevi.com/reviews/index.html';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -432,8 +390,8 @@
     
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/';
+        var disqus_identifier = 'http://www.alexbevi.com/reviews/index.html';
+        var disqus_url = 'http://www.alexbevi.com/reviews/index.html';
         var disqus_script = 'embed.js';
     
     (function () {

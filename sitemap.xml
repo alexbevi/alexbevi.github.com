@@ -285,105 +285,112 @@
   
   <url>
     <loc>http://www.alexbevi.com/404.html</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/blog/archives/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/blog/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/about/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/redmine-dropbox-attachments/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/tas-editor/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/scummvm-asylum/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/exception-logger/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/redmine-knowledgebase/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/projects/translate-yaml/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/resume/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/blog/categories/</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.alexbevi.com/reviews/</loc>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://www.alexbevi.com/search.html</loc>
-    <lastmod>2015-07-09T09:06:12-04:00</lastmod>
+    <lastmod>2015-07-09T13:04:12-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
