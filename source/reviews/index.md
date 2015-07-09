@@ -1,8 +1,5 @@
 ---
-layout: page
-comments: true
-sharing: true
-footer: true
+layout: page_with_comments
 ---
 
 I've recently been working on a number of reviews for old 16-bit JRPGs, and figured I'd collect them in one place. I'm also planning on writing about some of the books I've been reading and Anime series that I've been watching.
@@ -41,3 +38,13 @@ I've recently finished a few series and want to write reviews.
 And have a few I'm interested in as well
 
 * Big O
+* Accel World
+* Black Lagoon
+* Deadman Wonderland
+* Death Note
+* Log Horizon
+* Trigun
+* Psycho-Pass
+* Noir
+* Last Exile
+* Katanagatari
