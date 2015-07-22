@@ -15,7 +15,7 @@ Originally released for the Super Nintendo Entertainment System in 1994, BoF2 is
 
 You start off as a kid in a small town with your buddy Bow. You go visit the outskirts of town where there is a dragon sleeping and blocking a gate. You're attacked by a demon named Barubary, who knocks the two out then disappears.
 
-The story picks up 10 years later with the two trying to make it as rangers adn taking odd jobs. You take a job trying to find someone's lost pet, and from there, the game begins.
+The story picks up 10 years later with the two trying to make it as rangers and taking odd jobs. You take a job trying to find someone's lost pet, and from there, the game begins.
 
 You save the pet (pig) in an old house where a hermit lives. This house introduces an interesting dynamic to the game as this becomes the location known as TownShip. As you make your may through the game, various people join your town or can be hired to improve it. 
 
