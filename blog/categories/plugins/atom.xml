@@ -4,7 +4,7 @@
     <title><![CDATA[Category: plugins | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/plugins/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2015-08-04T21:04:23-04:00</updated>
+    <updated>2015-09-23T21:57:00-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -63,7 +63,7 @@ Now I can build a gallery from my extra screenshots by simply adding
 
 to my post, which will produce the following gallery:
 
-<div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+<div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="/images/robotrek/Robotrek_(USA).000.png" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="/images/robotrek/Robotrek_(USA).001.png" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="/images/robotrek/Robotrek_(USA).002.png" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="/images/robotrek/Robotrek_(USA).003.png" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="/images/robotrek/Robotrek_(USA).004.png" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="/images/robotrek/Robotrek_(USA).005.png" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="/images/robotrek/Robotrek_(USA).006.png" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="/images/robotrek/Robotrek_(USA).007.png" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="/images/robotrek/Robotrek_(USA).008.png" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="/images/robotrek/Robotrek_(USA).009.png" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="/images/robotrek/Robotrek_(USA).010.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 I've included the gist below. If you want to download and install this yourself, just download the gist to `/path/to/octopress/plugins`.
 
