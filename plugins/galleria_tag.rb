@@ -1,8 +1,8 @@
 # Title: Galleria Tag for Jekyll
 # Authors: Alex Bevilacqua
-# Description: incorporate the Galleria gallery jquery plugin 
+# Description: incorporate the Galleria gallery jquery plugin
 #
-# Adaption of "Photos tag for Jekyll" by Devin Weaver, and the derived 
+# Adaption of "Photos tag for Jekyll" by Devin Weaver, and the derived
 # "Gallery Tag for Jekyll" by Kevin Brown.
 #
 # Installation:
@@ -64,14 +64,14 @@ module Jekyll
       lines = super
       # split the text by newlines
       lines = lines.split("\n")
-      
+
       p = PhotosUtil.new(context)
       gallery = "<div id=\"galleria\">"
 
       lines.each_with_index do |line, i|
         next if line.empty?
         filename, title = line.split(":")
-        title = (title.nil?) ? "" : title.strip
+        title = (title.nil?) ? filename : title.strip
         gallery << "<img src=\"#{p.path_for(filename)}\" data-title=\"#{title}\" />"
       end
       gallery << "</div>"
