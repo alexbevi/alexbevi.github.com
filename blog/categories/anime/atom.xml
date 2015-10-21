@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title><![CDATA[Category: anime | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/anime/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2015-10-20T22:13:52-04:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
+
+    
+    <entry>
+        <title type="html"><![CDATA[October Anime Update]]></title>
+        <link href="http://www.alexbevi.com/blog/2015/10/20/october-anime-update/"/>
+        <updated>2015-10-20T21:20:16-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2015/10/20/october-anime-update</id>
+        <content type="html"><![CDATA[I finally got around to adding an [Anime](/anime) section to this blog where I can track my Plex library.
+
+Since this is the first post, I figure I'll just list of what I've worked my way through in the past six months or so and what's currently on deck.
+
+### Finished
+ 
+These are the series that I've recently completed.
+
+* Fullmetal Alchemist: Brotherhood
+* Darker than Black (Season 1)
+* Sword Art Online (Season 1)
+* Attack on Titan
+* Deadman Wonderland
+
+### On Deck
+
+What I'm either currently watching, or planning on hitting up soon.
+
+* Serial Experiments Lain
+* Legend of Korra (I liked Avatar, so figured ... why not :P)
+* Death Note
+* Big O
+
+### Future
+
+Based on what I'm currently interested in, I'll probably dip my toes in periodically to see if I should pay closer attention to these series soon.
+
+* Elfen Lied
+* Ergo Proxy
+* Technolyze
+* Log Horizon
+* Accel World]]></content>
+    </entry>
+    
+</feed>
