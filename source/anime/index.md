@@ -11,4 +11,4 @@ I figure I'll write some reviews as I get through certain series and share them 
 
 If you think I'm missing anything awesome, let me know in the comments below ;)
 
-<iframe src="anime/plex.html" style="min-height: 600px; height: 100%; width: 100%; border: none"></iframe>
+<iframe src="plex.html" style="min-height: 600px; height: 100%; width: 100%; border: none"></iframe>
