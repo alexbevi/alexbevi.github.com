@@ -22,6 +22,8 @@ Once at the wind shrine, they find that the crystal has shattered and within eac
 
 This introduces you to the job ability system. If you've ever had a chance to play [Final Fantasy III](https://en.wikipedia.org/wiki/Final_Fantasy_III), you've see this system in action, but in FFV, it's done to perfection :)
 
+<!-- more -->
+
 Each character can be assigned to a job class. As they defeat enemies, they gain ability points, which levels up the job class. As the classes level up, you gain abilities associated with that class.
 
 These abilities can then be applied to a character regardless of the class they're assigned to. For example, you can give a white mage black magic abilities (if you've leveled up a black mage for that character).
