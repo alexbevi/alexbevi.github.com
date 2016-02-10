@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2015-11-07T21:37:50-05:00</updated>
+  <updated>2016-02-10T15:54:03-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Identifying failing system.js functions in MongoDb]]></title>
+    <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
+    <updated>2016-02-10T15:17:56-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>laptop<span class="o">(</span>mongod-3.2.1<span class="o">)</span> <span class="nb">test</span>&gt; db.loadServerScripts<span class="o">()</span>
+</span><span class='line'>2016-02-10T15:18:42.322-0500 E QUERY    <span class="o">[</span>thread1<span class="o">]</span> SyntaxError: unterminated string literal :
+</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
+</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
+</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
+</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:1
+</span><span class='line'>
+</span><span class='line'>2016-02-10T15:18:42.323-0500 E QUERY    <span class="o">[</span>thread1<span class="o">]</span> Error: SyntaxError: unterminated string literal :
+</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
+</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
+</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
+</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:1
+</span><span class='line'> :
+</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
+</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
+</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
+</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:15:17:56
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Occasionally we&rsquo;ll run into these scenarios where we need to load the <code>system.js</code> functions into the global context, but for whatever reason one (or more) scripts are borked.</p>
+
+<p>I created on that essentially looks like the following to illustrate this point.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">thisFunctionShouldFail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="err">&quot;</span><span class="nx">Fail</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When you try to execute a <code>db.loadServerScripts()</code> call, the entire process will fail as there is a malformed script.</p>
+
+<p>This is a major pain in the ass when you have large background processes that rely heavily on internal system scripts.</p>
+
+<p>In order to address this, we wrote a small script that you can run against any database to validate the internal scripts:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">testSystemJs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">coll</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">js</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">coll</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="p">{</span><span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>       <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>           <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">coll</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span><span class="p">});</span>
+</span><span class='line'>           <span class="nb">eval</span><span class="p">(</span><span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span><span class='line'>       <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>           <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;LOAD_ERROR: &quot;</span> <span class="o">+</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span><span class="p">);</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now if you run the above, it will give you a bit more context into the failures you may have ;)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">testSystemJs</span><span class="p">()</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T15</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mf">13.086</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">QUERY</span>    <span class="p">[</span><span class="nx">thread1</span><span class="p">]</span> <span class="nx">SyntaxError</span><span class="o">:</span> <span class="nx">unterminated</span> <span class="nx">string</span> <span class="nx">literal</span> <span class="o">:</span>
+</span><span class='line'><span class="nx">testSystemJs</span><span class="o">/&lt;</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">190</span>
+</span><span class='line'><span class="nx">DBQuery</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="err">@</span><span class="nx">src</span><span class="o">/</span><span class="nx">mongo</span><span class="o">/</span><span class="nx">shell</span><span class="o">/</span><span class="nx">query</span><span class="p">.</span><span class="nx">js</span><span class="o">:</span><span class="mi">477</span><span class="o">:</span><span class="mi">1</span>
+</span><span class='line'><span class="nx">testSystemJs</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">66</span>
+</span><span class='line'><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">LOAD_ERROR</span><span class="o">:</span> <span class="nx">thisFunctionShouldFail</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T15</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mf">13.088</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">QUERY</span>    <span class="p">[</span><span class="nx">thread1</span><span class="p">]</span> <span class="nx">SyntaxError</span><span class="o">:</span> <span class="nx">unterminated</span> <span class="nx">string</span> <span class="nx">literal</span> <span class="o">:</span>
+</span><span class='line'><span class="nx">testSystemJs</span><span class="o">/&lt;</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">190</span>
+</span><span class='line'><span class="nx">DBQuery</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="err">@</span><span class="nx">src</span><span class="o">/</span><span class="nx">mongo</span><span class="o">/</span><span class="nx">shell</span><span class="o">/</span><span class="nx">query</span><span class="p">.</span><span class="nx">js</span><span class="o">:</span><span class="mi">477</span><span class="o">:</span><span class="mi">1</span>
+</span><span class='line'><span class="nx">testSystemJs</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">66</span>
+</span><span class='line'><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">LOAD_ERROR</span><span class="o">:</span> <span class="nx">thisFunctionShouldAlsoFail</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m testing this on a mongo 3.2.1 system, but this method should be applicable to older releases as well.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Finished - Final Fantasy V]]></title>
@@ -1391,31 +1516,6 @@ Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScrip
 <p>I&rsquo;m currently also midway through a playthrough of <a href="http://en.wikipedia.org/wiki/Robotrek">Robotrek</a> which I&rsquo;ve been working on-again-off-again for about a year as well, so i may try to finish that off for the next <em>Just Finished&trade;</em> post.</p>
 
 <p>If anyone has suggestions for an RPG, leave a comment (currently I&rsquo;m sticking with NES to PSP as the platform range).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
-    <link href="http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries/"/>
-    <updated>2014-07-16T12:06:55-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2014/07/16/pipe-command-output-to-logentries</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve been using <a href="https://logentries.com/">Logentries</a> for a couple of months now to manage variou project logs and have found it to be extremely convenient.</p>
-
-<p>If you want to retrofit a crontab or any other process to use the Logentries Token-TCP type log, just do the following:</p>
-
-<pre><code>COMMAND | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
-</code></pre>
-
-<p>Where <code>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</code> is your log token, and <code>COMMAND</code> is whatever your like.</p>
-
-<p>For example:</p>
-
-<pre><code>lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" &gt; /dev/tcp/data.logentries.com/80; done
-</code></pre>
-
-<p><img class="left" src="http://www.alexbevi.com/images/20140716-logentries.png"></p>
-
-<p>Hopefully this helps someone other than myself :)</p>
 ]]></content>
   </entry>
   
