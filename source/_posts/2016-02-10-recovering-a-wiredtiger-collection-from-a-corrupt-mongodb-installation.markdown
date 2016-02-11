@@ -6,8 +6,6 @@ comments: true
 categories: [mongodb, wired-tiger, devops]
 ---
 
-{% img right /images/MongoDB-Logo-Knockout.jpg %}
-
 Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
 
 The secondary process failed, and as a result, *everything* was "cleaned" ... aka, we purged an entire dataset.

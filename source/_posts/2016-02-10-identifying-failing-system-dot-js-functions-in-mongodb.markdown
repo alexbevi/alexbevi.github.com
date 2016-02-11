@@ -6,8 +6,6 @@ comments: true
 categories: [mongodb, javascript]
 ---
 
-{% img right /images/MongoDB-Logo-Knockout.jpg %}
-
 ``` bash
 laptop(mongod-3.2.1) test> db.loadServerScripts()
 2016-02-10T15:18:42.322-0500 E QUERY    [thread1] SyntaxError: unterminated string literal :
