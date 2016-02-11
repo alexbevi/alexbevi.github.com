@@ -1,0 +1,854 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Recovering a WiredTiger collection from a corrupt MongoDb Installation - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="Recovering a WiredTiger collection from a corrupt MongoDb Installation Feb 10th, 2016 mongodb wired-tiger devops Comments Recently at work, we &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/anime">Anime</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Recovering a WiredTiger collection from a corrupt MongoDb Installation</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2016-02-10T20:38:38-05:00" pubdate><i class="fa fa-calendar"></i> Feb 10th, 2016</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+                <li><a class='category' href='/blog/categories/wired-tiger/'>wired-tiger</a></li>
+            
+                <li><a class='category' href='/blog/categories/devops/'>devops</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
+
+<p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
+
+<p>This data happens to be on a 5 node replicaset (primary-secondary-secondary-arbiter-hidden), and the hidden node died over the holidays and I waited too long to recover it, so it was unable to ever catch up to the primary (always stuck in a RECOVERING state).</p>
+
+<p>My incredible foresight (&hellip; laziness &hellip; ) resulted in us having a backup of the data ready to be extracted from the out of sync hidden node. All we had to do was start up <strong>mongod</strong> &hellip; right?</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2016-01-29T21:06:05.180-0500 I CONTROL  ***** SERVER RESTARTED *****
+</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1745 port=27021 dbpath=/data 64-bit host=xxx
+</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] db version v3.0.8
+</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] git version: 83d8cc25e00e42856924d84e220fbe4a839e605d
+</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] build info: Linux build3.ny.cbi.10gen.cc 2.6.32-431.3.1.el6.x86_64 #1 SMP Fri Jan 3 21:39:27 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] allocator: tcmalloc
+</span><span class='line'>...
+</span><span class='line'>2016-01-29T21:06:05.315-0500 W -        [initandlisten] Detected unclean shutdown - /data/mongod.lock is not empty.
+</span><span class='line'>2016-01-29T21:06:05.315-0500 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+</span><span class='line'>2016-01-29T21:06:05.324-0500 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=13G,session_max=20000,eviction=(threads_max=4),statistics=(fast),log=(enabled=true,archive=true
+</span><span class='line'>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:724960][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: read checksum error for 4096B block at offset 6
+</span><span class='line'>799360: block header checksum of 1769173605 doesn't match expected checksum of 4176084783
+</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:725067][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: WiredTiger.wt: encountered an illegal file form
+</span><span class='line'>at or internal value
+</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (-31804) [1454119565:725088][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: the process must exit and restart: WT_PANI
+</span><span class='line'>C: WiredTiger library panic
+</span><span class='line'>2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that&rsquo;s not the way MongoDb or WiredTiger works :P. Back to the drawing board.</p>
+
+<!-- more -->
+
+
+<p>I could see that my data directory contained a bunch of <code>collection-*.wt</code> and <code>index-*.wt</code> files, so I assumed these were the WiredTiger collection and index files. These are binary files so <code>grep</code>-ing didn&rsquo;t help me identify the collection I needed.</p>
+
+<p>I wanted to next see if I could just copy the collection&rsquo;s backing file directly to a new (working) MongoDb installation, so I started up a new <code>mongod</code>, created a new collection with a document in it, then copied over any <code>collection-*.wt</code> file to see what would happen.</p>
+
+<p>Guess what &hellip; didn&rsquo;t work.</p>
+
+<p><strong>Identify the WiredTiger collection&rsquo;s backing file</strong></p>
+
+<p>Since we had access to a working node, plus the collection hadn&rsquo;t been droped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>db.getCollection('borkedCollection').stats()
+</span><span class='line'>
+</span><span class='line'>{
+</span><span class='line'>    "ns" : "production.borkedCollection",
+</span><span class='line'>    "count" : 0,
+</span><span class='line'>    "size" : 0,
+</span><span class='line'>    "storageSize" : 1138688,
+</span><span class='line'>    "capped" : false,
+</span><span class='line'>    "wiredTiger" : {
+</span><span class='line'>        "metadata" : {
+</span><span class='line'>            "formatVersion" : 1
+</span><span class='line'>        },
+</span><span class='line'>        "creationString" : "allocation_size=4KB,app_metadata=(formatVersion=1),block_allocation=best,block_compressor=snappy,cache_resident=0,checkpoint=(WiredTigerCheckpoint.5149=(addr=\"01808080808080c0b081e40ebe4855808080e3113fc0e401417fc0\",order=5149,time=1454966060,size=21078016,write_gen=119495)),checkpoint_lsn=(224134,44112768),checksum=on,collator=,columns=,dictionary=0,format=btree,huffman_key=,huffman_value=,id=178668,internal_item_max=0,internal_key_max=0,internal_key_truncate=,internal_page_max=4KB,key_format=q,key_gap=10,leaf_item_max=0,leaf_key_max=0,leaf_page_max=32KB,leaf_value_max=1MB,memory_page_max=10m,os_cache_dirty_max=0,os_cache_max=0,prefix_compression=0,prefix_compression_min=4,split_deepen_min_child=0,split_deepen_per_child=0,split_pct=90,value_format=u,version=(major=1,minor=1)",
+</span><span class='line'>        "type" : "file",
+</span><span class='line'>        "uri" : "statistics:table:collection-7895--1435676552983097781",
+</span><span class='line'>        "LSM" : {
+</span><span class='line'>            //...
+</span><span class='line'>        },
+</span><span class='line'>        "block-manager" : {
+</span><span class='line'>            //...
+</span><span class='line'>        },
+</span><span class='line'>        "btree" : {
+</span><span class='line'>            // ...
+</span><span class='line'>        },
+</span><span class='line'>        // ...
+</span><span class='line'>    },
+</span><span class='line'>    "nindexes" : 4,
+</span><span class='line'>    "totalIndexSize" : 1437696,
+</span><span class='line'>    "indexSizes" : {
+</span><span class='line'>        "_id_" : 212992,
+</span><span class='line'>        // ...
+</span><span class='line'>    },
+</span><span class='line'>    "ok" : 1
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That <code>"uri" : "statistics:table:collection-7895--1435676552983097781"</code> entry looked promising.</p>
+
+<p>I started hunting for a way to extract the data from this file without having to &ldquo;mount&rdquo; the file in another MongoDb installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that <a href="http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage">happened to have a &lsquo;salvage&rsquo; command</a>.</p>
+
+<p><strong>Salvaging the WiredTiger collection</strong></p>
+
+<p>In order to use the <code>wt</code> utility, you have to build it from source. Being comfortable in Linux, this was not daunting ;)</p>
+
+<pre><code>wget http://source.wiredtiger.com/releases/wiredtiger-2.7.0.tar.bz2
+tar xvf wiredtiger-2.7.0.tar.bz2
+cd wiredtiger-2.7.0
+sudo apt-get install libsnappy-dev build-essential
+./configue --enable-snappy
+make
+</code></pre>
+
+<p><strong>NOTE</strong> adding support for Google&rsquo;s <a href="https://github.com/google/snappy">snappy</a> compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.</p>
+
+<p>Now that I had a <code>wt</code> utility, I wanted to test it out on the collection file. It turns out that you need additional supporting files before you can do this. Once I&rsquo;d copied over the necessary files, my working directory (called <code>mongo-bak</code>) looked like this:</p>
+
+<pre><code>-rw-r--r-- 1 root      root      4738772992 Feb  9 14:06 collection-2657--1723320556100349955.wt
+-rw-r--r-- 1 root      root         1155072 Feb  9 14:05 _mdb_catalog.wt
+-rw-r--r-- 1 root      root        26935296 Feb  9 14:05 sizeStorer.wt
+-rw-r--r-- 1 root      root              95 Feb  9 14:05 storage.bson
+-rw-r--r-- 1 root      root              46 Feb  9 14:04 WiredTiger
+-rw-r--r-- 1 root      root             495 Feb  9 14:04 WiredTiger.basecfg
+-rw-r--r-- 1 root      root              21 Feb  9 14:04 WiredTiger.lock
+-rw-r--r-- 1 root      root             916 Feb  9 14:04 WiredTiger.turtle
+-rw-r--r-- 1 root      root        10436608 Feb  9 14:04 WiredTiger.wt
+</code></pre>
+
+<p>Now, from the directory where we compiled WiredTiger, we started salvaging the collection:</p>
+
+<pre><code>./wt -v -h ../mongo-bak -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R salvage collection-2657--1723320556100349955.wt
+</code></pre>
+
+<p>You know it&rsquo;s working if you see output along the lines of:</p>
+
+<pre><code>WT_SESSION.salvage 639400             
+</code></pre>
+
+<p>which I believe is just counting up the number of documents recovered. Once the operation has completed, it will have overwritten the source <code>*.wt</code> collection file with whatever it could salvage.</p>
+
+<p>The only issue is that you still can&rsquo;t load this into MongoDb yet.</p>
+
+<p><strong>Importing the WiredTiger collection via dump/load into MongoDb</strong></p>
+
+<p>In order to get the data into MongoDb, first we need to generate a dump file from the WiredTiger collection file. This is done using the <code>wt</code> utility:</p>
+
+<pre><code>./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R dump -f ../collection.dump collection-2657--1723320556100349955
+</code></pre>
+
+<p>This operation produces no output, so you&rsquo;ll just have to sit tight and wait a while. You can always <code>watch ls -l</code> in another console if you want to make sure it&rsquo;s working ;)</p>
+
+<p>Once completed, you&rsquo;ll have a <code>collection.dump</code> file, but this <em>still</em> can&rsquo;t be loaded directly into MongoDb. You can however, using the <code>wt</code> utility one more time, load the dump back into a WiredTiger collection.</p>
+
+<p>First, let&rsquo;s startup a new <code>mongod</code> instance that we can try this out on.</p>
+
+<pre><code>mongod --dbpath tmp-mongo --storageEngine wiredTiger --nojournal                                  
+</code></pre>
+
+<p>Next, let&rsquo;s connect to this instance via the mongo shell and create a new collection:</p>
+
+<pre><code>use Recovery
+db.borkedCollection.insert({test: 1})
+db.borkedCollection.remove({})
+db.borkedCollection.stats()
+</code></pre>
+
+<p>I&rsquo;ve created a new db called <em>Recovery</em>, and inserted/removed a document so the collection&rsquo;s backing file would be generated. You can use the <code>stats()</code> method to get the collection name, but since we&rsquo;re only using one collection, it&rsquo;s easy enough to find just using <code>ls</code>.</p>
+
+<p>Now we&rsquo;re going to take the backing file name of the collection we just created and use that to load our WiredTiger dump file:</p>
+
+<pre><code>./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R load -f ../collection.dump -r collection-2-880383588247732034
+</code></pre>
+
+<p>Note that we drop the <code>.wt</code> extension from the collection file above. Also, the <code>-h</code> flag needs to point to the directory where our <code>mongod</code> has it&rsquo;s <code>dbPath</code>. Finally, <code>mongod</code> should not be running.</p>
+
+<p>This operation also provides a progress indicator showing how much data has been loaded:</p>
+
+<pre><code>table:collection-4--4286091263744514813: 1386220
+</code></pre>
+
+<p>Once completed, we can start <code>mongod</code> back up, shell in and have a look:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
+</span><span class='line'>MongoDB shell version: 3.2.1
+</span><span class='line'>connecting to: test
+</span><span class='line'>Mongo-Hacker 0.0.9
+</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
+</span><span class='line'>Recovery → 0.087GB
+</span><span class='line'>local    → 0.000GB
+</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
+</span><span class='line'>switched to db Recovery
+</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
+</span><span class='line'>borkedCollection → 0.000MB / 88.801MB
+</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
+</span><span class='line'>0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>WTF? The size looks right, but there are no documents???</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.find({}, {_id: 1})
+</span><span class='line'>{
+</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac74")
+</span><span class='line'>}
+</span><span class='line'>{
+</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac76")
+</span><span class='line'>}
+</span><span class='line'>...
+</span><span class='line'>{
+</span><span class='line'>  "_id": ObjectId("55e07f402e967329c888ac85")
+</span><span class='line'>}
+</span><span class='line'>Fetched 20 record(s) in 29ms -- More[true]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well that&rsquo;s promising, but the collection still hasn&rsquo;t been <em>properly</em> restored yet.</p>
+
+<p><strong>Restoring the MongoDb collection to a usable state</strong></p>
+
+<p>This final part is pretty straightforward, as we&rsquo;re just going to do a <code>mongodump</code>, followed by a <code>mongorestore</code>.</p>
+
+<p><strong>NOTE</strong> The <code>mongodump</code> will fail if you&rsquo;re using a version of MongoDb &lt; 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDb 3.0.9 and the dump operation just returned 0 results.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongodump
+</span><span class='line'>2016-02-10T22:04:00.580-0500    writing Recovery.borkedCollection to 
+</span><span class='line'>2016-02-10T22:04:03.579-0500    Recovery.borkedCollection  268219
+</span><span class='line'>2016-02-10T22:04:06.579-0500    Recovery.borkedCollection  340655
+</span><span class='line'>2016-02-10T22:04:09.579-0500    Recovery.borkedCollection  496787
+</span><span class='line'>2016-02-10T22:04:12.579-0500    Recovery.borkedCollection  670894
+</span><span class='line'>2016-02-10T22:04:15.579-0500    Recovery.borkedCollection  778539
+</span><span class='line'>2016-02-10T22:04:18.579-0500    Recovery.borkedCollection  848525
+</span><span class='line'>2016-02-10T22:04:21.579-0500    Recovery.borkedCollection  991277
+</span><span class='line'>2016-02-10T22:04:24.579-0500    Recovery.borkedCollection  1147718
+</span><span class='line'>2016-02-10T22:04:27.579-0500    Recovery.borkedCollection  1187600
+</span><span class='line'>2016-02-10T22:04:30.579-0500    Recovery.borkedCollection  1353665
+</span><span class='line'>2016-02-10T22:04:33.579-0500    Recovery.borkedCollection  1376255
+</span><span class='line'>2016-02-10T22:04:33.681-0500    Recovery.borkedCollection  1386220
+</span><span class='line'>2016-02-10T22:04:33.682-0500    done dumping Recovery.borkedCollection (1386220 documents)
+</span><span class='line'>
+</span><span class='line'>$ mongorestore --drop
+</span><span class='line'>2016-02-10T22:05:51.959-0500    using default 'dump' directory
+</span><span class='line'>2016-02-10T22:05:51.960-0500    building a list of dbs and collections to restore from dump dir
+</span><span class='line'>2016-02-10T22:05:52.307-0500    reading metadata for Recovery.borkedCollection from dump/Recovery/borkedCollection.metadata.json
+</span><span class='line'>2016-02-10T22:05:52.330-0500    restoring Recovery.borkedCollection from dump/Recovery/borkedCollection.bson
+</span><span class='line'>2016-02-10T22:05:54.962-0500    [#.......................]  Recovery.borkedCollection  32.8 MB/569.8 MB  (5.8%)
+</span><span class='line'>2016-02-10T22:05:57.962-0500    [###.....................]  Recovery.borkedCollection  80.5 MB/569.8 MB  (14.1%)
+</span><span class='line'>2016-02-10T22:06:00.962-0500    [#####...................]  Recovery.borkedCollection  131.5 MB/569.8 MB  (23.1%)
+</span><span class='line'>2016-02-10T22:06:03.962-0500    [#######.................]  Recovery.borkedCollection  178.5 MB/569.8 MB  (31.3%)
+</span><span class='line'>2016-02-10T22:06:06.962-0500    [#########...............]  Recovery.borkedCollection  230.1 MB/569.8 MB  (40.4%)
+</span><span class='line'>2016-02-10T22:06:09.962-0500    [###########.............]  Recovery.borkedCollection  271.6 MB/569.8 MB  (47.7%)
+</span><span class='line'>2016-02-10T22:06:12.962-0500    [#############...........]  Recovery.borkedCollection  320.6 MB/569.8 MB  (56.3%)
+</span><span class='line'>2016-02-10T22:06:15.962-0500    [###############.........]  Recovery.borkedCollection  366.3 MB/569.8 MB  (64.3%)
+</span><span class='line'>2016-02-10T22:06:18.962-0500    [#################.......]  Recovery.borkedCollection  414.9 MB/569.8 MB  (72.8%)
+</span><span class='line'>2016-02-10T22:06:21.962-0500    [###################.....]  Recovery.borkedCollection  464.8 MB/569.8 MB  (81.6%)
+</span><span class='line'>2016-02-10T22:06:24.962-0500    [#####################...]  Recovery.borkedCollection  504.0 MB/569.8 MB  (88.4%)
+</span><span class='line'>2016-02-10T22:06:27.962-0500    [#######################.]  Recovery.borkedCollection  554.5 MB/569.8 MB  (97.3%)
+</span><span class='line'>2016-02-10T22:06:29.082-0500    [########################]  Recovery.borkedCollection  569.8 MB/569.8 MB  (100.0%)
+</span><span class='line'>2016-02-10T22:06:29.082-0500    restoring indexes for collection Recovery.borkedCollection from metadata
+</span><span class='line'>2016-02-10T22:06:29.104-0500    finished restoring Recovery.borkedCollection (1386220 documents)
+</span><span class='line'>2016-02-10T22:06:29.104-0500    done</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we&rsquo;ve dumped and reloaded the collection <em>yet again</em>, we can shell back in and validate that our recovery attempt has succeeded:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
+</span><span class='line'>MongoDB shell version: 3.2.1
+</span><span class='line'>connecting to: test
+</span><span class='line'>Mongo-Hacker 0.0.9
+</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
+</span><span class='line'>Recovery → 0.099GB
+</span><span class='line'>local    → 0.000GB
+</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
+</span><span class='line'>switched to db Recovery
+</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
+</span><span class='line'>borkedCollection → 569.845MB / 88.594MB
+</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
+</span><span class='line'>1386220</span></code></pre></td></tr></table></div></figure>
+
+
+<p>BOOYA! Everything is back and properly accessible.</p>
+
+<p>The <code>mongorestore</code> could actually have been done to the primary node in order to recover the data for production purposes. Once that&rsquo;s done, just recreate the necessary indexes and you&rsquo;re back in business.</p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">Recovering a WiredTiger collection from a corrupt MongoDb Installation</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/">Identifying failing system.js functions in MongoDb</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2015/11/07/just-finished-final-fantasy-v/">Just Finished - Final Fantasy V</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2015/10/20/october-anime-update/">October Anime Update</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2015/09/23/just-finished-lufia-2/">Just Finished - Lufia 2</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- General Ad Unit -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:600px"
+       data-ad-client="ca-pub-6215800856413580"
+       data-ad-slot="4883562355"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>
