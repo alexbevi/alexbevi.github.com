@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2016-02-10T22:36:25-05:00</updated>
+  <updated>2016-02-10T22:45:09-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,9 @@
     <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
     <updated>2016-02-10T20:38:38-05:00</updated>
     <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
-    <content type="html"><![CDATA[<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.alexbevi.com/images/MongoDB-Logo-Knockout.jpg"></p>
+
+<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
 
 <p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
 
@@ -77,7 +79,7 @@
 
 <p><strong>Identify the WiredTiger collection&rsquo;s backing file</strong></p>
 
-<p>Since we had access to a working node, plus the collection hadn&rsquo;t been droped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
+<p>Since we had access to a working node, plus the collection hadn&rsquo;t been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -161,7 +163,7 @@
 tar xvf wiredtiger-2.7.0.tar.bz2
 cd wiredtiger-2.7.0
 sudo apt-get install libsnappy-dev build-essential
-./configue --enable-snappy
+./configure --enable-snappy
 make
 </code></pre>
 
@@ -415,7 +417,9 @@ db.borkedCollection.stats()
     <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
     <updated>2016-02-10T15:17:56-05:00</updated>
     <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+    <content type="html"><![CDATA[<p><img class="right" src="http://www.alexbevi.com/images/MongoDB-Logo-Knockout.jpg"></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>

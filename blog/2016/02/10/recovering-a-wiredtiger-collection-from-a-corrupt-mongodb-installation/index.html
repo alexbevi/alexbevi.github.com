@@ -140,7 +140,9 @@
 
 
 
-    <p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
+    <p><img class="right" src="/images/MongoDB-Logo-Knockout.jpg"></p>
+
+<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
 
 <p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
 
@@ -199,7 +201,7 @@
 
 <p><strong>Identify the WiredTiger collection&rsquo;s backing file</strong></p>
 
-<p>Since we had access to a working node, plus the collection hadn&rsquo;t been droped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
+<p>Since we had access to a working node, plus the collection hadn&rsquo;t been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -283,7 +285,7 @@
 tar xvf wiredtiger-2.7.0.tar.bz2
 cd wiredtiger-2.7.0
 sudo apt-get install libsnappy-dev build-essential
-./configue --enable-snappy
+./configure --enable-snappy
 make
 </code></pre>
 

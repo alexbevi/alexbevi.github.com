@@ -4,7 +4,7 @@
     <title><![CDATA[Category: wired-tiger | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/wired-tiger/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-02-10T22:36:25-05:00</updated>
+    <updated>2016-02-10T22:45:09-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,9 @@
         <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
         <updated>2016-02-10T20:38:38-05:00</updated>
         <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
-        <content type="html"><![CDATA[Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
+        <content type="html"><![CDATA[<img class="right" src="/images/MongoDB-Logo-Knockout.jpg">
+
+Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
 
 The secondary process failed, and as a result, *everything* was "cleaned" ... aka, we purged an entire dataset.
 
@@ -75,7 +77,7 @@ Guess what ... didn't work.
 
 **Identify the WiredTiger collection's backing file**
 
-Since we had access to a working node, plus the collection hadn't been droped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
+Since we had access to a working node, plus the collection hadn't been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -158,7 +160,7 @@ In order to use the `wt` utility, you have to build it from source. Being comfor
     tar xvf wiredtiger-2.7.0.tar.bz2
     cd wiredtiger-2.7.0
     sudo apt-get install libsnappy-dev build-essential
-    ./configue --enable-snappy
+    ./configure --enable-snappy
     make
 
 **NOTE** adding support for Google's [snappy](https://github.com/google/snappy) compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.
