@@ -1,10 +1,12 @@
 ---
 layout: post
-title: "Recovering a WiredTiger collection from a corrupt MongoDb Installation"
+title: "Recovering a WiredTiger collection from a corrupt MongoDB Installation"
 date: 2016-02-10 20:38:38 -0500
 comments: true
 categories: [mongodb, wired-tiger, devops]
 ---
+
+{% img right /images/MongoDB-Logo-Knockout.jpg %}
 
 Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
 
@@ -35,19 +37,19 @@ C: WiredTiger library panic
 2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558
 ```
 
-Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that's not the way MongoDb or WiredTiger works :P. Back to the drawing board.
+Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that's not the way MongoDB or WiredTiger works :P. Back to the drawing board.
 
 <!-- more -->
 
 I could see that my data directory contained a bunch of `collection-*.wt` and `index-*.wt` files, so I assumed these were the WiredTiger collection and index files. These are binary files so `grep`-ing didn't help me identify the collection I needed.
 
-I wanted to next see if I could just copy the collection's backing file directly to a new (working) MongoDb installation, so I started up a new `mongod`, created a new collection with a document in it, then copied over any `collection-*.wt` file to see what would happen.
+I wanted to next see if I could just copy the collection's backing file directly to a new (working) MongoDB installation, so I started up a new `mongod`, created a new collection with a document in it, then copied over any `collection-*.wt` file to see what would happen.
 
 Guess what ... didn't work.
 
 **Identify the WiredTiger collection's backing file**
 
-Since we had access to a working node, plus the collection hadn't been droped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
+Since we had access to a working node, plus the collection hadn't been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
 
 ```
 db.getCollection('borkedCollection').stats()
@@ -88,7 +90,7 @@ db.getCollection('borkedCollection').stats()
 
 That `"uri" : "statistics:table:collection-7895--1435676552983097781"` entry looked promising.
 
-I started hunting for a way to extract the data from this file without having to "mount" the file in another MongoDb installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that [happened to have a 'salvage' command](http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage). 
+I started hunting for a way to extract the data from this file without having to "mount" the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that [happened to have a 'salvage' command](http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage). 
 
 **Salvaging the WiredTiger collection**
 
@@ -98,7 +100,7 @@ In order to use the `wt` utility, you have to build it from source. Being comfor
     tar xvf wiredtiger-2.7.0.tar.bz2
     cd wiredtiger-2.7.0
     sudo apt-get install libsnappy-dev build-essential
-    ./configue --enable-snappy
+    ./configure --enable-snappy
     make
 
 **NOTE** adding support for Google's [snappy](https://github.com/google/snappy) compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.
@@ -125,17 +127,17 @@ You know it's working if you see output along the lines of:
 
 which I believe is just counting up the number of documents recovered. Once the operation has completed, it will have overwritten the source `*.wt` collection file with whatever it could salvage.
 
-The only issue is that you still can't load this into MongoDb yet.
+The only issue is that you still can't load this into MongoDB yet.
 
-**Importing the WiredTiger collection via dump/load into MongoDb**
+**Importing the WiredTiger collection via dump/load into MongoDB**
 
-In order to get the data into MongoDb, first we need to generate a dump file from the WiredTiger collection file. This is done using the `wt` utility:
+In order to get the data into MongoDB, first we need to generate a dump file from the WiredTiger collection file. This is done using the `wt` utility:
 
     ./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R dump -f ../collection.dump collection-2657--1723320556100349955
 
 This operation produces no output, so you'll just have to sit tight and wait a while. You can always `watch ls -l` in another console if you want to make sure it's working ;)
 
-Once completed, you'll have a `collection.dump` file, but this *still* can't be loaded directly into MongoDb. You can however, using the `wt` utility one more time, load the dump back into a WiredTiger collection.
+Once completed, you'll have a `collection.dump` file, but this *still* can't be loaded directly into MongoDB. You can however, using the `wt` utility one more time, load the dump back into a WiredTiger collection.
 
 First, let's startup a new `mongod` instance that we can try this out on.
 
@@ -197,11 +199,11 @@ Fetched 20 record(s) in 29ms -- More[true]
 
 Well that's promising, but the collection still hasn't been *properly* restored yet.
 
-**Restoring the MongoDb collection to a usable state**
+**Restoring the MongoDB collection to a usable state**
 
 This final part is pretty straightforward, as we're just going to do a `mongodump`, followed by a `mongorestore`.
 
-**NOTE** The `mongodump` will fail if you're using a version of MongoDb < 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDb 3.0.9 and the dump operation just returned 0 results.
+**NOTE** The `mongodump` will fail if you're using a version of MongoDB < 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.
 
 ```
 $ mongodump
