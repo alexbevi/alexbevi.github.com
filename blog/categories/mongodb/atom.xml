@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-02-10T22:49:36-05:00</updated>
+    <updated>2016-02-11T11:01:15-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,7 +14,7 @@
 
     
     <entry>
-        <title type="html"><![CDATA[Recovering a WiredTiger collection from a corrupt MongoDB Installation]]></title>
+        <title type="html"><![CDATA[Recovering a WiredTiger collection from a corrupt MongoDB installation]]></title>
         <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
         <updated>2016-02-10T20:38:38-05:00</updated>
         <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
