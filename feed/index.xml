@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2016-02-10T22:48:05-05:00</updated>
+  <updated>2016-02-10T22:49:36-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,9 +18,7 @@
     <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
     <updated>2016-02-10T20:38:38-05:00</updated>
     <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://www.alexbevi.com/images/MongoDB-Logo-Knockout.jpg"></p>
-
-<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
+    <content type="html"><![CDATA[<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
 
 <p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
 
@@ -417,9 +415,7 @@ db.borkedCollection.stats()
     <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
     <updated>2016-02-10T15:17:56-05:00</updated>
     <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://www.alexbevi.com/images/MongoDB-Logo-Knockout.jpg"></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
