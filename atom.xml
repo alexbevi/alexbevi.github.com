@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-02-10T22:31:11-05:00</updated>
+    <updated>2016-02-10T22:36:25-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,7 +14,7 @@
 
     
     <entry>
-        <title type="html"><![CDATA[Recovering a WiredTiger collection from a corrupt MongoDb Installation]]></title>
+        <title type="html"><![CDATA[Recovering a WiredTiger collection from a corrupt MongoDB Installation]]></title>
         <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
         <updated>2016-02-10T20:38:38-05:00</updated>
         <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
@@ -64,14 +64,14 @@
 </span><span class='line'>2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that&rsquo;s not the way MongoDb or WiredTiger works :P. Back to the drawing board.</p>
+<p>Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that&rsquo;s not the way MongoDB or WiredTiger works :P. Back to the drawing board.</p>
 
 <!-- more -->
 
 
 <p>I could see that my data directory contained a bunch of <code>collection-*.wt</code> and <code>index-*.wt</code> files, so I assumed these were the WiredTiger collection and index files. These are binary files so <code>grep</code>-ing didn&rsquo;t help me identify the collection I needed.</p>
 
-<p>I wanted to next see if I could just copy the collection&rsquo;s backing file directly to a new (working) MongoDb installation, so I started up a new <code>mongod</code>, created a new collection with a document in it, then copied over any <code>collection-*.wt</code> file to see what would happen.</p>
+<p>I wanted to next see if I could just copy the collection&rsquo;s backing file directly to a new (working) MongoDB installation, so I started up a new <code>mongod</code>, created a new collection with a document in it, then copied over any <code>collection-*.wt</code> file to see what would happen.</p>
 
 <p>Guess what &hellip; didn&rsquo;t work.</p>
 
@@ -151,7 +151,7 @@
 
 <p>That <code>"uri" : "statistics:table:collection-7895--1435676552983097781"</code> entry looked promising.</p>
 
-<p>I started hunting for a way to extract the data from this file without having to &ldquo;mount&rdquo; the file in another MongoDb installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that <a href="http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage">happened to have a &lsquo;salvage&rsquo; command</a>.</p>
+<p>I started hunting for a way to extract the data from this file without having to &ldquo;mount&rdquo; the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that <a href="http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage">happened to have a &lsquo;salvage&rsquo; command</a>.</p>
 
 <p><strong>Salvaging the WiredTiger collection</strong></p>
 
@@ -192,18 +192,18 @@ make
 
 <p>which I believe is just counting up the number of documents recovered. Once the operation has completed, it will have overwritten the source <code>*.wt</code> collection file with whatever it could salvage.</p>
 
-<p>The only issue is that you still can&rsquo;t load this into MongoDb yet.</p>
+<p>The only issue is that you still can&rsquo;t load this into MongoDB yet.</p>
 
-<p><strong>Importing the WiredTiger collection via dump/load into MongoDb</strong></p>
+<p><strong>Importing the WiredTiger collection via dump/load into MongoDB</strong></p>
 
-<p>In order to get the data into MongoDb, first we need to generate a dump file from the WiredTiger collection file. This is done using the <code>wt</code> utility:</p>
+<p>In order to get the data into MongoDB, first we need to generate a dump file from the WiredTiger collection file. This is done using the <code>wt</code> utility:</p>
 
 <pre><code>./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R dump -f ../collection.dump collection-2657--1723320556100349955
 </code></pre>
 
 <p>This operation produces no output, so you&rsquo;ll just have to sit tight and wait a while. You can always <code>watch ls -l</code> in another console if you want to make sure it&rsquo;s working ;)</p>
 
-<p>Once completed, you&rsquo;ll have a <code>collection.dump</code> file, but this <em>still</em> can&rsquo;t be loaded directly into MongoDb. You can however, using the <code>wt</code> utility one more time, load the dump back into a WiredTiger collection.</p>
+<p>Once completed, you&rsquo;ll have a <code>collection.dump</code> file, but this <em>still</em> can&rsquo;t be loaded directly into MongoDB. You can however, using the <code>wt</code> utility one more time, load the dump back into a WiredTiger collection.</p>
 
 <p>First, let&rsquo;s startup a new <code>mongod</code> instance that we can try this out on.</p>
 
@@ -292,11 +292,11 @@ db.borkedCollection.stats()
 
 <p>Well that&rsquo;s promising, but the collection still hasn&rsquo;t been <em>properly</em> restored yet.</p>
 
-<p><strong>Restoring the MongoDb collection to a usable state</strong></p>
+<p><strong>Restoring the MongoDB collection to a usable state</strong></p>
 
 <p>This final part is pretty straightforward, as we&rsquo;re just going to do a <code>mongodump</code>, followed by a <code>mongorestore</code>.</p>
 
-<p><strong>NOTE</strong> The <code>mongodump</code> will fail if you&rsquo;re using a version of MongoDb &lt; 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDb 3.0.9 and the dump operation just returned 0 results.</p>
+<p><strong>NOTE</strong> The <code>mongodump</code> will fail if you&rsquo;re using a version of MongoDB &lt; 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
