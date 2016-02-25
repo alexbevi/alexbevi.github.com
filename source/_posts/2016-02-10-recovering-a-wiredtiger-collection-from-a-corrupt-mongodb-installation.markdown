@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Recovering a WiredTiger collection from a corrupt MongoDB Installation"
+title: "Recovering a WiredTiger collection from a corrupt MongoDB installation"
 date: 2016-02-10 20:38:38 -0500
 comments: true
 categories: [mongodb, wired-tiger, devops]
