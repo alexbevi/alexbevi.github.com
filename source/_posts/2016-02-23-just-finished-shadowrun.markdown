@@ -4,6 +4,7 @@ title: "Just Finished - Shadowrun"
 date: 2016-02-23 20:20:11 -0500
 comments: true
 categories: [just-finished, rpg, snes]
+published: true
 ---
 
 I had this game finished around Christmas, but I find my motivation for writing these articles is starting to languish. I'm hoping to get that spark back with the next couple of titles i'll be tackling, even though Shadownrun was one of my favourite SNES games of all time.
