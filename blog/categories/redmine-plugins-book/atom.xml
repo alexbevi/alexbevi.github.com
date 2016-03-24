@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine-plugins-book | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine-plugins-book/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-02-24T20:40:47-05:00</updated>
+    <updated>2016-03-23T21:10:28-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,31 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Plugin Extension and Development is Apparently Still Relevant]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/"/>
+        <updated>2016-03-23T20:59:24-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant</id>
+        <content type="html"><![CDATA[For the first five quarters that this book was out in the wild, I was posting publication numbers any time I got a royalty statement from Packt Publishing for [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
+
+I haven't been very active in the [Redmine](http://www.redmine.org/) community in the past year or so as I've been a bit busy with work, contracts and life, but after seeing the last batch of sales figures, it seems people are still interested in this topic.
+
+| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
+|-|----------|--------------------------|---------------|-----------------------------|
+|Q4/2015|30|8|18|3|
+|Q3/2015|24|3|15|4|
+|Q2/2015|30|2|18|3|
+|Q1/2015|90|0|25|2|
+|Q4/2014|33|2|31|2|
+|Q3/2014|25|2|24|4|
+|Q2/2014|73|1|33|2|
+|Q1/2014|18|3|18|0|
+
+As was made clear with the above info, there is steady demand for this book, so there must be quite a few plugin authors out there looking to get started with the Redmine platform.
+
+I'm going to try to get my knowledgebase and dropbox plugins updated in the next couple of months, but if there is anything Redmine-related people might be interested, please leave your comments below ;)]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Fifth Royalty Statement: This time for profit!]]></title>
@@ -126,28 +151,6 @@ At this rate, it's possible I'll see some additional money out of this title by 
 I'm sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I'm sure the numbers I'm posting here will convince you it's not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
 
 If you've had anything published and are seeing a decent return on your "investment", please share in the comments ;)]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[First Royalty Statement]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement/"/>
-        <updated>2014-07-15T14:38:35-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/07/15/8748os-first-royalty-statement</id>
-        <content type="html"><![CDATA[Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just indicates that not enough books have sold to exceed the advance I received initially.
-
-<img class="left" src="/images/royalties20140331.png">
-
-(I probably didn't need to redact anything from the image, but it seemed appropriate.)
-
-The deal I had with Packt was that they'd front me $600 against future sales, of which my cut is (I believe) ~ 16% of the list price.
-
-Still a ways to go (sales-wise) before I would consider this a "profitable" venture, but it's nice to see that there is at least some initial interest.
-
-I was approached by Packt a little while back to author another book, but based on the amount of time I invested in this one as well as the sales figures I'm sharing here, I don't think it would be a good choice :P
-
-Should I consider writing another book? Any thoughts out there from my fellow denizens of the interwebs?
-
-]]></content>
     </entry>
     
 </feed>
