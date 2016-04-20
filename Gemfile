@@ -18,3 +18,4 @@ end
 
 gem 'sinatra', '~> 1.4.2'
 gem 'nokogiri'
+gem 'jekyll-gist'

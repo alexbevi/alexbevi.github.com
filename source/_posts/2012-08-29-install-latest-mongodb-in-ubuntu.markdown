@@ -14,6 +14,6 @@ As a result, I wrote this script to automate fetching, extracting and linking th
 
 To configure the script, just replace the `PKG` information with whatever value is most relevant for your configuration at [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads).
 
-{% gist 3516100 %}
+{% gist alexbevi/3516100 %}
 
 Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)'s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).

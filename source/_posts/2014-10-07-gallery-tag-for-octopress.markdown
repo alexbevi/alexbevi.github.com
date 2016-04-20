@@ -56,4 +56,4 @@ to my post, which will produce the following gallery:
 
 I've included the gist below. If you want to download and install this yourself, just download the gist to `/path/to/octopress/plugins`.
 
-{% gist 1c185c6a037d63f6aec7 %}
+{% gist alexbevi/1c185c6a037d63f6aec7 %}

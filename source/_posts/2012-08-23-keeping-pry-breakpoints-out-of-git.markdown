@@ -14,7 +14,7 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
-{% gist 3436040 %}
+{% gist alexbevi/3436040 %}
 
 This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 
