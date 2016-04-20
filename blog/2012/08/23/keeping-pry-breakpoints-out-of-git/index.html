@@ -149,30 +149,7 @@
 
 <p>After hunting around for a bit, I decided to write a pre-commit <a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">hook</a> that would check the files I was about to check in to ensure that I didn&rsquo;t accidentally still have breakpoints enabled.</p>
 
-<div><script src='https://gist.github.com/3436040.js'></script>
-<noscript><pre><code># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
-# for Pry binding references
-#
-# Installation
-#
-#   ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
-#
-# Based on 
-#
-#   http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
-#   http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes
-#   https://gist.github.com/3266940
-#
-FILES_PATTERN=&#39;\.(rb|haml|coffee)(\..+)?$&#39;
-FORBIDDEN=&#39;binding.pry&#39;
-
-git diff --cached --name-only | \
-    grep -E $FILES_PATTERN | \
-    GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
-    echo &#39;COMMIT REJECTED&#39; &amp;&amp; \
-    exit 1
-
-exit 0</code></pre></noscript></div>
+<script src="https://gist.github.com/alexbevi/3436040.js"> </script>
 
 
 <p>This file just needs to be saved to <code>/path/to/source/.git/hooks/pre-commit</code> and made executable.</p>
@@ -279,6 +256,10 @@ exit 0</code></pre></noscript></div>
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2016/04/19/just-finished-seiken-densetsu-3/">Just Finished - Seiken Densetsu 3</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/">Redmine Plugin Extension and Development is Apparently Still Relevant</a>
         </li>
         
@@ -292,10 +273,6 @@ exit 0</code></pre></noscript></div>
         
         <li class="post">
             <a href="/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/">Identifying failing system.js functions in MongoDb</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2015/11/07/just-finished-final-fantasy-v/">Just Finished - Final Fantasy V</a>
         </li>
         
     </ul>

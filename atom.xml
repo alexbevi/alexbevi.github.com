@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-03-23T21:10:28-04:00</updated>
+    <updated>2016-04-19T22:20:18-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,82 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Seiken Densetsu 3]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3/"/>
+        <updated>2016-04-19T14:30:20-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3</id>
+        <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/sd3/sd3.026.png"></p>
+
+<p><a href="https://en.wikipedia.org/wiki/Seiken_Densetsu_3">Seiken Densetsu 3 (聖剣伝説3)</a> is the third installment in the <a href="https://en.wikipedia.org/wiki/Mana_(series)">Mana series</a>. It&rsquo;s the sequel to <a href="https://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>, which is the entry into the series that most North American gamers would be familiar with.</p>
+
+<p>Once again, I played through this game on my phone using the fantastic <a href="http://www.explusalpha.com/home/snes9x-ex">Snes9x EX</a>. Please support this dev as he provides a fantastic product. For some reason though, most of the screenshots I took came out stretched. This hasn&rsquo;t happened before, and I&rsquo;ve been playing a couple other games that this isn&rsquo;t happening for either, so I&rsquo;ll chalk this up to bad luck :|</p>
+
+<p><img src="http://www.alexbevi.com/images/sd3/sd3.005.png"></p>
+
+<p><em>NOTE</em> I ran these screenshots through <a href="http://pmt.sourceforge.net/pngcrush/">pngcrush</a> (<code>ls *.png | while read line; do pngcrush -ow -brute $line; done</code>) to get the size down a bit ;)</p>
+
+<p>I&rsquo;m leaving these images in here as they were part of my &ldquo;journey&rdquo;, though hopefully they don&rsquo;t deter anyone from playing this game, as the game is <em>fantastic</em>.</p>
+
+<p>First off, if you&rsquo;re a fan of <a href="https://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>, the initial &ldquo;feel&rdquo; of the game will be familiar, as will the art style and sound.</p>
+
+<!-- more -->
+
+
+<p>Whereas SoM had you gradually encounter the two other playable characters at set points in the game, SD3 has you selecting your 3 main characters before you even begin.</p>
+
+<p>I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran&rsquo;s story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.</p>
+
+<p><img src="http://www.alexbevi.com/images/sd3/sd3.004.png"></p>
+
+<p>On this journey, he&rsquo;ll run into the other characters I selected (Kevin and Carlie), and each of their stories will mix into Duran&rsquo;s. This is actually a really cool element of this game as it gives it a lot of replay value. No matter what combination of characters you pick, their stories will all overlap. Also, you&rsquo;ll run into all the other characters you didn&rsquo;t pick, so every character makes an appearance throughout the game.</p>
+
+<p><img class="right" src="http://www.alexbevi.com/images/sd3/sd3.010.png"></p>
+
+<p>You travel around the game mostly on foot initially, but eventually new methods of travel will open up. As with SoM, you can get to certain areas via Cannon Travel (though there&rsquo;s a couple of fetch-quests before you can actually take advantage of this). There&rsquo;s also a ship, a weird turtle thing, and eventually Flammie the dragon.</p>
+
+<p>The combat system is reminiscent of SoM as well, though this time around it feels a lot more &ldquo;button mash-ey&rdquo;. I found that I just spammed the B button throughout most of this game and didn&rsquo;t really use any strategy during combat; aside from healing periodically.</p>
+
+<p><img class="left" src="http://www.alexbevi.com/images/sd3/sd3.014.png"></p>
+
+<p>You get experience by killing enemies, which will allow you to level up your characters. Leveling up lets you increase various stats, that should make your characters perform better in future battles.</p>
+
+<p>As you make your way through the game, you&rsquo;ll start finding these pillars that are guarded by stronger enemies. These are the Mana stones, and apparently contain God-beasts that will be awakened if you shatter the stones.</p>
+
+<p>These stones can also be used to change your character&rsquo;s class. This is another cool aspect of this game, as it give the leveling system a bit more flavour. You can change classes twice in this game; once at level 18, and again at level 38. Each of these classes is aligned with either &ldquo;Light&rdquo; or &ldquo;Dark&rdquo;, and gives the character new skills/improvements.</p>
+
+<p><img src="http://www.alexbevi.com/images/sd3/sd3.017.png"></p>
+
+<p>The game can feel a bit &ldquo;grindy&rdquo; due to the need to constantly trudge back and forth between areas, and there are enemies on each screen. These battles are all avoidable, but you&rsquo;ll want to level up for the boss fights, and eventually the God Beasts.</p>
+
+<p>While you&rsquo;re trekking though, you get to enjoy some really good background music. If you like Secret of Mana, you&rsquo;ll love Seiken Densetsu 3. You can have a listen over at <a href="https://www.youtube.com/watch?v=qrywwZ7oL2w&amp;index=30&amp;list=PL4649F0DBF0FC09E3">YouTube</a> to get an idea what&rsquo;s in store for you ;)</p>
+
+<p><img class="right" src="http://www.alexbevi.com/images/sd3/sd3.031.png"></p>
+
+<p>The artwork is also top notch. It&rsquo;s really a shame this game never made it to North America as this is possibly one of the best looking SNES games out there. The background design, character design and monster sprites are all very, very well done. There is a lot of variety to the various regions of the world.</p>
+
+<p>Once you&rsquo;ve shattered all the Mana stones, you unleash the God Beasts. Their position is shown on the world map, and they can be fought in any order, but it&rsquo;s a good idea to start from the top left of the map and work your way through them sequentially.</p>
+
+<p>I learned this the hard way as I only play this game on occasion, and ended up forgetting where I was. This resulted in A LOT of backtracking to find the last couple of beasts.</p>
+
+<p>I thoroughly enjoyed playing this game and would highly recommend this to anyone out there that likes JRPGs, action RPGs and 8/16-bit gaming in general. The graphics, music and gameplay are all very well done, and the story lines are interesting, even if there is occasionally some cheesy dialog :P</p>
+
+<div id="galleria"><img src="http://www.alexbevi.com/images/sd3/sd3.000.png" data-title="/images/sd3/sd3.000.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.001.png" data-title="/images/sd3/sd3.001.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.002.png" data-title="/images/sd3/sd3.002.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.003.png" data-title="/images/sd3/sd3.003.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.006.png" data-title="/images/sd3/sd3.006.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.007.png" data-title="/images/sd3/sd3.007.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.008.png" data-title="/images/sd3/sd3.008.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.011.png" data-title="/images/sd3/sd3.011.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.012.png" data-title="/images/sd3/sd3.012.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.013.png" data-title="/images/sd3/sd3.013.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.015.png" data-title="/images/sd3/sd3.015.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.016.png" data-title="/images/sd3/sd3.016.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.018.png" data-title="/images/sd3/sd3.018.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.019.png" data-title="/images/sd3/sd3.019.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.020.png" data-title="/images/sd3/sd3.020.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.021.png" data-title="/images/sd3/sd3.021.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.022.png" data-title="/images/sd3/sd3.022.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.023.png" data-title="/images/sd3/sd3.023.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.024.png" data-title="/images/sd3/sd3.024.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.025.png" data-title="/images/sd3/sd3.025.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.027.png" data-title="/images/sd3/sd3.027.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.028.png" data-title="/images/sd3/sd3.028.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.029.png" data-title="/images/sd3/sd3.029.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.030.png" data-title="/images/sd3/sd3.030.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.032.png" data-title="/images/sd3/sd3.032.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.033.png" data-title="/images/sd3/sd3.033.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.034.png" data-title="/images/sd3/sd3.034.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.035.png" data-title="/images/sd3/sd3.035.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.036.png" data-title="/images/sd3/sd3.036.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.037.png" data-title="/images/sd3/sd3.037.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.038.png" data-title="/images/sd3/sd3.038.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.039.png" data-title="/images/sd3/sd3.039.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.040.png" data-title="/images/sd3/sd3.040.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.041.png" data-title="/images/sd3/sd3.041.png" /></div>
+
+
+<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+
+
+<p>I finished this game over a month ago, so I&rsquo;m still pretty slow cranking out these reviews &hellip;</p>
+
+<p>I&rsquo;m currently working my way through <a href="https://en.wikipedia.org/wiki/The_7th_Saga">The 7th Saga</a> for SNES since I clearly need <em>more</em> pain and frustration in my life :P When that game is annoying me, I&rsquo;m also working on Sega Genesis version of <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Shadowrun</a>.</p>
+
+<p>That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I&rsquo;m actually really enjoying it, and it is VERY different the the SNES game of the same name.</p>
+
+<p>Hopefully I&rsquo;ll have more for you in the near(er) future :)</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Redmine Plugin Extension and Development is Apparently Still Relevant]]></title>
@@ -1508,69 +1584,7 @@ At line:62 char:9
 
 
 
-<div><script src='https://gist.github.com/34b700ff7c7c53c7780b.js'></script>
-<noscript><pre><code>&lt;#
-This function can be used to pass a ScriptBlock (closure) to be executed and returned.
-
-The operation retried a few times on failure, and if the maximum threshold is surpassed, the operation fails completely.
-
-Params:
-    Command         - The ScriptBlock to be executed
-    RetryDelay      - Number (in seconds) to wait between retries
-                      (default: 5)
-    MaxRetries      - Number of times to retry before accepting failure
-                      (default: 5)
-    VerboseOutput   - More info about internal processing
-                      (default: false)
-Examples:
-
-Execute-With-Retry { $connection.Open() }
-$result = Execute-With-Retry -RetryDelay 1 -MaxRetries 2 { $command.ExecuteReader() }
-#&gt;
-function Execute-With-Retry {
-    [CmdletBinding()]
-    param(    
-    [Parameter(ValueFromPipeline,Mandatory)]
-    $Command,    
-    $RetryDelay = 5,
-    $MaxRetries = 5,
-    $VerboseOutput = $false
-    )
-    
-    $currentRetry = 0
-    $success = $false
-    $cmd = $Command.ToString()
-
-    do {
-        try
-        {
-            $result = &amp; $Command
-            $success = $true
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteDebugLine(&quot;Successfully executed [$cmd]&quot;)
-            }
-
-            return $result
-        }
-        catch [System.Exception]
-        {
-            $currentRetry = $currentRetry + 1
-                        
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteErrorLine(&quot;Failed to execute [$cmd]: &quot; + $_.Exception.Message)
-            }
-            
-            if ($currentRetry -gt $MaxRetries) {                
-                throw &quot;Could not execute [$cmd]. The error: &quot; + $_.Exception.ToString()
-            } else {
-                if ($VerboseOutput -eq $true) {
-                    $Host.UI.WriteDebugLine(&quot;Waiting $RetryDelay second(s) before attempt #$currentRetry of [$cmd]&quot;)
-                }
-                Start-Sleep -s $RetryDelay
-            }
-        }
-    } while (!$success);
-}</code></pre></noscript></div>
+<script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script>
 
 
 <p>Now, if we retrofit our sample above:</p>
@@ -1751,76 +1765,6 @@ DEBUG: Successfully executed [ RandomlyFail ]
 <p><img src="http://www.alexbevi.com/images/scummvm-potm-0115-ss.png"></p>
 
 <p>They&rsquo;ve got my vote ;)</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Just Finished - Robotrek]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek/"/>
-        <updated>2014-10-17T09:00:00-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/10/17/just-finished-robotrek</id>
-        <content type="html"><![CDATA[<p>I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation &hellip; and I started playing <a href="http://en.wikipedia.org/wiki/Terranigma">Terranigma</a>, which is pretty awesome so far.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/robotrek/220px-Robotrekboxart.jpg"></p>
-
-<p>In my ongoing series of articles about old games that I never got around to playing, today I&rsquo;m going to tackle <a href="http://en.wikipedia.org/wiki/Robotrek">Robotrek</a>.</p>
-
-<p>Robotrek is a silly RPG that revolves around &ldquo;getting to the bottom&rdquo; of a situation involving a group calling themselves the &ldquo;hackers&rdquo; who are disrupting the peace of your home town of Rococo.</p>
-
-<p>The story follows your character, who wants to be an inventor, and right off the bat learns how to make robots. As you progress through the game, you&rsquo;ll eventually be able to build three robots, which can be swapped in an out during battle.</p>
-
-<!-- more -->
-
-
-<p><img class="right" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).012.png"></p>
-
-<p>These robots can be upgraded with better weapons and armour by reading books you find throughout the game.</p>
-
-<p>You&rsquo;ll also learn how to make items and some useful tools that will help you solve various puzzles.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).017.png"></p>
-
-<p>Since you&rsquo;re an inventor in this game, one of your main tasks is to <em>combine</em> items you find in order to potentially make new items. Although this is useful a couple times, I found I didn&rsquo;t really need to use it beyond the first part of the game where you make the drill.</p>
-
-<p>You can sometimes combine scraps with each other to produce weapons, or combine scraps with weapons to produce upgraded weapons, but only trial and error yield results. I couldn&rsquo;t find any information in the game that helped lead you towards proper combinations (and I wanted to avoid walkthroughs).</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).027.png"></p>
-
-<p>Battles in this game are pretty straightforward. You equip weapons to your robots, then use them in battle either directly, or you can program sequences that allow you to run multiple attacks in succession. This approach can kill enemies faster, but will require you to charge up for longer, and therefore be vulnerable for longer as well.</p>
-
-<p>The fights are extremely repetitive, and it doesn&rsquo;t help that there only appears to be a single battle theme that loops constantly. I played most of the game with the volume off due to this :P</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).010.png"></p>
-
-<p>Once you get to the volcano and find the <em>Sword 4</em> in a chest, the random battles become exceedingly easy (for at least the next &frac34; of the game). This weapon is just ridiculously overpowered at this point and you&rsquo;ll find yourself just spamming it in order to quickly proceed through the story.</p>
-
-<p>Boss battles tend to be very dependent on what level you&rsquo;re at when you enter the fight. Most battles I had to redo at least once as I found I was far too low of a level to have a chance.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).022.png"></p>
-
-<p>I found this to be the most true when I got to <strong>De Rose</strong>. This was the boss I reached during my last playthrough, and after grinding for a good 2 hours, I found I just couldn&rsquo;t beat her, gave up and moved on to another game.</p>
-
-<p>This time around, I actually checked a walkthrough, which recommended I be at about level 50 before entering the fight. I was at level 37. I was going to have to grind &hellip; and grinding in this game is TEDIOUS. I ended up grinding to about level 44 before beating her, but this took a good 4-5 hours.</p>
-
-<p>The story progresses: the Hackers leader (a crab) is defeated, Dr. Einst&rsquo;s plot is foiled, a new Hackers leader emerges (Blackmore), the story jumps back and forwards in time, a spaceship emerges so you can visit another planet and you end up having to save the world.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).035.png"></p>
-
-<p>The final battle is against Gateau (the &ldquo;food&rdquo;-naming convention for characters and places is used throughout the game), who had something to do with using the Tetron to build a weapon or something (I can&rsquo;t remember the exact story; play the game for a better description :P).</p>
-
-<p>He takes two forms, but isn&rsquo;t overly difficult to defeat at this point.</p>
-
-<p>Overall, this game was pretty easy. The story progressed in a very linear fashion, and most puzzles were pretty straightforward to solve.</p>
-
-<p>It was fun though, and though I probably won&rsquo;t replay this game again in the future, I&rsquo;m glad that I went through it at least once.</p>
-
-<p>My screenshots are below, though it seems that the emulator I was using (<a href="http://www.explusalpha.com/home/snes9x-ex">Snes9x EX</a> on my Moto G) overwrote some of my earlier images. Oh well. Enjoy :P</p>
-
-<div id="galleria"><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).000.png" data-title="/images/robotrek/Robotrek_(USA).000.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).001.png" data-title="/images/robotrek/Robotrek_(USA).001.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).002.png" data-title="/images/robotrek/Robotrek_(USA).002.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).003.png" data-title="/images/robotrek/Robotrek_(USA).003.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).004.png" data-title="/images/robotrek/Robotrek_(USA).004.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).005.png" data-title="/images/robotrek/Robotrek_(USA).005.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).006.png" data-title="/images/robotrek/Robotrek_(USA).006.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).007.png" data-title="/images/robotrek/Robotrek_(USA).007.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).008.png" data-title="/images/robotrek/Robotrek_(USA).008.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).009.png" data-title="/images/robotrek/Robotrek_(USA).009.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).010.png" data-title="/images/robotrek/Robotrek_(USA).010.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).011.png" data-title="/images/robotrek/Robotrek_(USA).011.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).012.png" data-title="/images/robotrek/Robotrek_(USA).012.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).013.png" data-title="/images/robotrek/Robotrek_(USA).013.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).014.png" data-title="/images/robotrek/Robotrek_(USA).014.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).015.png" data-title="/images/robotrek/Robotrek_(USA).015.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).016.png" data-title="/images/robotrek/Robotrek_(USA).016.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).017.png" data-title="/images/robotrek/Robotrek_(USA).017.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).018.png" data-title="/images/robotrek/Robotrek_(USA).018.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).019.png" data-title="/images/robotrek/Robotrek_(USA).019.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).020.png" data-title="/images/robotrek/Robotrek_(USA).020.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).021.png" data-title="/images/robotrek/Robotrek_(USA).021.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).022.png" data-title="/images/robotrek/Robotrek_(USA).022.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).023.png" data-title="/images/robotrek/Robotrek_(USA).023.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).024.png" data-title="/images/robotrek/Robotrek_(USA).024.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).025.png" data-title="/images/robotrek/Robotrek_(USA).025.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).026.png" data-title="/images/robotrek/Robotrek_(USA).026.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).027.png" data-title="/images/robotrek/Robotrek_(USA).027.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).028.png" data-title="/images/robotrek/Robotrek_(USA).028.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).029.png" data-title="/images/robotrek/Robotrek_(USA).029.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).030.png" data-title="/images/robotrek/Robotrek_(USA).030.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).031.png" data-title="/images/robotrek/Robotrek_(USA).031.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).032.png" data-title="/images/robotrek/Robotrek_(USA).032.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).033.png" data-title="/images/robotrek/Robotrek_(USA).033.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).034.png" data-title="/images/robotrek/Robotrek_(USA).034.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).035.png" data-title="/images/robotrek/Robotrek_(USA).035.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).036.png" data-title="/images/robotrek/Robotrek_(USA).036.png" /><img src="http://www.alexbevi.com/images/robotrek/Robotrek_(USA).037.png" data-title="/images/robotrek/Robotrek_(USA).037.png" /></div>
-
-
-<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
 ]]></content>
     </entry>
     

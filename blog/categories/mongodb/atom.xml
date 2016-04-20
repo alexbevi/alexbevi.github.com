@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-03-23T21:10:28-04:00</updated>
+    <updated>2016-04-19T22:20:18-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -490,61 +490,7 @@ As a result, I wrote this script to automate fetching, extracting and linking th
 
 To configure the script, just replace the `PKG` information with whatever value is most relevant for your configuration at [http://www.mongodb.org/downloads](http://www.mongodb.org/downloads).
 
-<div><script src='https://gist.github.com/3516100.js'></script>
-<noscript><pre><code>#!/bin/bash
-
-PKG=mongodb-linux-x86_64-2.2.0
-URL=http://fastdl.mongodb.org/linux
-
-if [ -f /etc/init.d/mongod ]
-then
-  echo &quot;mongod already installed ... stopping&quot;
-  sudo service mongod stop
-else
-  echo &quot;installing mongod script&quot;
-  wget https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod
-  sudo mv mongod /etc/init.d/mongod
-  sudo chmod +x /etc/init.d/mongod
-  echo &quot;creating mongodb user&quot;
-  sudo useradd mongodb
-  echo &quot;creating directories&quot;
-  sudo mkdir -p /var/lib/mongodb
-  sudo mkdir -p /var/log/mongodb
-  sudo chown mongodb.mongodb /var/lib/mongodb
-  sudo chown mongodb.mongodb /var/log/mongodb
-  sudo update-rc.d mongod defaults
-fi
-
-wget $URL/$PKG.tgz
-sudo tar -xvzf $PKG.tgz -C /usr/local/
-
-if [ -d /usr/local/mongodb ]
-then
-  echo &quot;removing existing mongodb symlink&quot;
-  sudo rm -rf /usr/local/mongodb
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-else
-  echo &quot;creating symlinks&quot;
-  sudo ln -s /usr/local/$PKG /usr/local/mongodb
-  sudo ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
-  sudo ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
-  sudo ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
-  sudo ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
-  sudo ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
-  sudo ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
-  sudo ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
-  sudo ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
-  sudo ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
-  sudo ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
-  sudo ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
-fi
-
-echo &quot;cleaning up&quot;
-rm $PKG.tgz
-
-echo &quot;starting mongod service&quot;
-sudo service mongod start</code></pre></noscript></div>
-
+<script src="https://gist.github.com/alexbevi/3516100.js"> </script>
 
 Note that this script pulls `mongod` from a gist which I created. This script is originally from [Ijonas Kisselbach](https://github.com/ijonas)'s [dotfiles](https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod).]]></content>
     </entry>

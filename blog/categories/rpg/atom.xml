@@ -4,7 +4,7 @@
     <title><![CDATA[Category: rpg | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/rpg/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-03-23T21:10:28-04:00</updated>
+    <updated>2016-04-19T22:20:18-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,77 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Just Finished - Seiken Densetsu 3]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3/"/>
+        <updated>2016-04-19T14:30:20-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3</id>
+        <content type="html"><![CDATA[<img class="left" src="/images/sd3/sd3.026.png">
+
+[Seiken Densetsu 3 (聖剣伝説3)](https://en.wikipedia.org/wiki/Seiken_Densetsu_3) is the third installment in the [Mana series](https://en.wikipedia.org/wiki/Mana_\(series\)). It's the sequel to [Secret of Mana](https://en.wikipedia.org/wiki/Secret_of_Mana), which is the entry into the series that most North American gamers would be familiar with.
+
+Once again, I played through this game on my phone using the fantastic [Snes9x EX](http://www.explusalpha.com/home/snes9x-ex). Please support this dev as he provides a fantastic product. For some reason though, most of the screenshots I took came out stretched. This hasn't happened before, and I've been playing a couple other games that this isn't happening for either, so I'll chalk this up to bad luck :|
+
+<img src="/images/sd3/sd3.005.png">
+
+*NOTE* I ran these screenshots through [pngcrush](http://pmt.sourceforge.net/pngcrush/) (`ls *.png | while read line; do pngcrush -ow -brute $line; done`) to get the size down a bit ;)
+
+I'm leaving these images in here as they were part of my "journey", though hopefully they don't deter anyone from playing this game, as the game is *fantastic*.
+
+First off, if you're a fan of [Secret of Mana](https://en.wikipedia.org/wiki/Secret_of_Mana), the initial "feel" of the game will be familiar, as will the art style and sound.
+
+<!-- more -->
+
+Whereas SoM had you gradually encounter the two other playable characters at set points in the game, SD3 has you selecting your 3 main characters before you even begin.
+
+I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran's story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.
+
+<img src="/images/sd3/sd3.004.png">
+
+On this journey, he'll run into the other characters I selected (Kevin and Carlie), and each of their stories will mix into Duran's. This is actually a really cool element of this game as it gives it a lot of replay value. No matter what combination of characters you pick, their stories will all overlap. Also, you'll run into all the other characters you didn't pick, so every character makes an appearance throughout the game.
+
+<img class="right" src="/images/sd3/sd3.010.png">
+
+You travel around the game mostly on foot initially, but eventually new methods of travel will open up. As with SoM, you can get to certain areas via Cannon Travel (though there's a couple of fetch-quests before you can actually take advantage of this). There's also a ship, a weird turtle thing, and eventually Flammie the dragon.
+
+The combat system is reminiscent of SoM as well, though this time around it feels a lot more "button mash-ey". I found that I just spammed the B button throughout most of this game and didn't really use any strategy during combat; aside from healing periodically.
+
+<img class="left" src="/images/sd3/sd3.014.png">
+
+You get experience by killing enemies, which will allow you to level up your characters. Leveling up lets you increase various stats, that should make your characters perform better in future battles.
+
+As you make your way through the game, you'll start finding these pillars that are guarded by stronger enemies. These are the Mana stones, and apparently contain God-beasts that will be awakened if you shatter the stones.
+
+These stones can also be used to change your character's class. This is another cool aspect of this game, as it give the leveling system a bit more flavour. You can change classes twice in this game; once at level 18, and again at level 38. Each of these classes is aligned with either "Light" or "Dark", and gives the character new skills/improvements.
+
+<img src="/images/sd3/sd3.017.png">
+
+The game can feel a bit "grindy" due to the need to constantly trudge back and forth between areas, and there are enemies on each screen. These battles are all avoidable, but you'll want to level up for the boss fights, and eventually the God Beasts.
+
+While you're trekking though, you get to enjoy some really good background music. If you like Secret of Mana, you'll love Seiken Densetsu 3. You can have a listen over at [YouTube](https://www.youtube.com/watch?v=qrywwZ7oL2w&index=30&list=PL4649F0DBF0FC09E3) to get an idea what's in store for you ;)
+
+<img class="right" src="/images/sd3/sd3.031.png">
+
+The artwork is also top notch. It's really a shame this game never made it to North America as this is possibly one of the best looking SNES games out there. The background design, character design and monster sprites are all very, very well done. There is a lot of variety to the various regions of the world.
+
+Once you've shattered all the Mana stones, you unleash the God Beasts. Their position is shown on the world map, and they can be fought in any order, but it's a good idea to start from the top left of the map and work your way through them sequentially.
+
+I learned this the hard way as I only play this game on occasion, and ended up forgetting where I was. This resulted in A LOT of backtracking to find the last couple of beasts.
+
+I thoroughly enjoyed playing this game and would highly recommend this to anyone out there that likes JRPGs, action RPGs and 8/16-bit gaming in general. The graphics, music and gameplay are all very well done, and the story lines are interesting, even if there is occasionally some cheesy dialog :P
+
+<div id="galleria"><img src="/images/sd3/sd3.000.png" data-title="/images/sd3/sd3.000.png" /><img src="/images/sd3/sd3.001.png" data-title="/images/sd3/sd3.001.png" /><img src="/images/sd3/sd3.002.png" data-title="/images/sd3/sd3.002.png" /><img src="/images/sd3/sd3.003.png" data-title="/images/sd3/sd3.003.png" /><img src="/images/sd3/sd3.006.png" data-title="/images/sd3/sd3.006.png" /><img src="/images/sd3/sd3.007.png" data-title="/images/sd3/sd3.007.png" /><img src="/images/sd3/sd3.008.png" data-title="/images/sd3/sd3.008.png" /><img src="/images/sd3/sd3.011.png" data-title="/images/sd3/sd3.011.png" /><img src="/images/sd3/sd3.012.png" data-title="/images/sd3/sd3.012.png" /><img src="/images/sd3/sd3.013.png" data-title="/images/sd3/sd3.013.png" /><img src="/images/sd3/sd3.015.png" data-title="/images/sd3/sd3.015.png" /><img src="/images/sd3/sd3.016.png" data-title="/images/sd3/sd3.016.png" /><img src="/images/sd3/sd3.018.png" data-title="/images/sd3/sd3.018.png" /><img src="/images/sd3/sd3.019.png" data-title="/images/sd3/sd3.019.png" /><img src="/images/sd3/sd3.020.png" data-title="/images/sd3/sd3.020.png" /><img src="/images/sd3/sd3.021.png" data-title="/images/sd3/sd3.021.png" /><img src="/images/sd3/sd3.022.png" data-title="/images/sd3/sd3.022.png" /><img src="/images/sd3/sd3.023.png" data-title="/images/sd3/sd3.023.png" /><img src="/images/sd3/sd3.024.png" data-title="/images/sd3/sd3.024.png" /><img src="/images/sd3/sd3.025.png" data-title="/images/sd3/sd3.025.png" /><img src="/images/sd3/sd3.027.png" data-title="/images/sd3/sd3.027.png" /><img src="/images/sd3/sd3.028.png" data-title="/images/sd3/sd3.028.png" /><img src="/images/sd3/sd3.029.png" data-title="/images/sd3/sd3.029.png" /><img src="/images/sd3/sd3.030.png" data-title="/images/sd3/sd3.030.png" /><img src="/images/sd3/sd3.032.png" data-title="/images/sd3/sd3.032.png" /><img src="/images/sd3/sd3.033.png" data-title="/images/sd3/sd3.033.png" /><img src="/images/sd3/sd3.034.png" data-title="/images/sd3/sd3.034.png" /><img src="/images/sd3/sd3.035.png" data-title="/images/sd3/sd3.035.png" /><img src="/images/sd3/sd3.036.png" data-title="/images/sd3/sd3.036.png" /><img src="/images/sd3/sd3.037.png" data-title="/images/sd3/sd3.037.png" /><img src="/images/sd3/sd3.038.png" data-title="/images/sd3/sd3.038.png" /><img src="/images/sd3/sd3.039.png" data-title="/images/sd3/sd3.039.png" /><img src="/images/sd3/sd3.040.png" data-title="/images/sd3/sd3.040.png" /><img src="/images/sd3/sd3.041.png" data-title="/images/sd3/sd3.041.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+
+I finished this game over a month ago, so I'm still pretty slow cranking out these reviews ...
+
+I'm currently working my way through [The 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga) for SNES since I clearly need *more* pain and frustration in my life :P When that game is annoying me, I'm also working on Sega Genesis version of [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_\(1994_video_game\)).
+
+That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I'm actually really enjoying it, and it is VERY different the the SNES game of the same name.
+
+Hopefully I'll have more for you in the near(er) future :)
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Just Finished - Shadowrun]]></title>
@@ -394,84 +465,6 @@ I'm thinking the next Final Fantasy I tackle will likely be V, as I haven't prev
 Note that since I've finished the Dawn of Souls version of FFII, I have access to the [Soul of Rebirth](http://finalfantasy.wikia.com/wiki/Soul_of_Rebirth) additional dungeon. 
 
 I'm hoping to actually play this and add to this review, or just publish a minor post to cover what was added therein.]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Just Finished - Breath of Fire 2]]></title>
-        <link href="http://www.alexbevi.com/blog/2015/06/29/just-finished-breath-of-fire-2/"/>
-        <updated>2015-06-29T13:17:02-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2015/06/29/just-finished-breath-of-fire-2</id>
-        <content type="html"><![CDATA[Following on the heels of my playthrough of the original Breath of Fire, I've just finished [Breath of Fire II](https://en.wikipedia.org/wiki/Breath_of_Fire_II).
-
-Originally released for the Super Nintendo Entertainment System in 1994, BoF2 is the direct sequel to the original. Although the protagonist is named the same (Ryu) as in the original, I don't think he's supposed to be the same person (the story takes place hundreds of years after the original).
-
-<img class="left" src="/images/bof2/bof2.000.png">
-
-You start off as a kid in a small town with your buddy Bow. You go visit the outskirts of town where there is a dragon sleeping and blocking a gate. You're attacked by a demon named Barubary, who knocks the two out then disappears.
-
-The story picks up 10 years later with the two trying to make it as rangers and taking odd jobs. You take a job trying to find someone's lost pet, and from there, the game begins.
-
-You save the pet (pig) in an old house where a hermit lives. This house introduces an interesting dynamic to the game as this becomes the location known as TownShip. As you make your may through the game, various people join your town or can be hired to improve it. 
-
-<img class="right" src="/images/bof2/bof2.002.png">
-
-You can recruit builders, weapon/item shop keepers and magicians that teach you new skills and abilities. Also as your party grows, they can be stashed here in a big house and you can go talk to them at any point to get clues as to what needs to be done next.
-
-<!-- more -->
-
-The battle system is the same as the original, and most JRPGs of the era; enemies to the left, characters to the right. A menu system controls your actions, which should all be well known by now (Attack, Defend, Magic, Item, Run).
-
-<img class="left" src="/images/bof2/bof2.028.png">
-
-As you progress, you will learn that Ryu is a member of the Dragon Clan (as was the case in the original BoF as well), and can learn to summon various dragons.
-
-In BoF2, you don't need to venture too far off track in order to get the dragons. You actually get the majority of them in groups of three, which is convenient.
-
-You meet a whole cast of characters that can join your party along the way, and each one has a special overworld ability that helps you progress the story.
-
-For example, Sten can reach across some cliffs to grab a pole and drag the party across, Katt can smash rocks to open up pathways, Rand can roll into a ball and get you across vast stretches of the overworld without being attacked.
-
-This last one is convenient as the random enemy encounter rate is pretty high in this game. I'm really thankful I was playing this on an emulator that supported fast-forwarding, as the majority of the battles I just auto-fought at 800x speed ;)
-
-<img class="right" src="/images/bof2/bof2.012.png">
-
-There are also multiple ways to get around the world. You can walk, ride on a whale, ride on a giant bird, or fly TownShip around. This last one, I didn't actually get to do as I killed the old guy hooked up to the machine on one of the quests :(.
-
-While playing, depending on the decisions you make, you can affect the type of ending you'll get. Like some other RPGs (ex. [Chrono Trigger](https://en.wikipedia.org/wiki/Chrono_Trigger)), there are multiple endings you can get.
-
-I didn't get the best ending, but I didn't get the worst ending either (I chose to go into the gate and fight the end boss).
-
-<img class="left" src="/images/bof2/bof2.038.png">
-
-BoF2 has a lot more "cut scenes" than the original did. I'm not sure if this was the case on the SNES version, but as I was playing the GBA remake, this stood out for me.
-
-The cut-scenes are just still images, but they do provide a nice break from the gameplay and tend to actually contribute to the story at hand (as opposed to just being randomly inserted).
-
-The underlying story of the game is about a religious cult (St. Eva) that is sending souls to the ultimate evil. Once you infiltrate the cult and discover this plot, you can go to the underworld to fight Detheven, but first you have to beat the demon from the beginning of the game: Barubary.
-
-<img class="right" src="/images/bof2/bof2.042.png">
-
-You can choose to fight Barubary alone, or as a group. I believe the choice you make here influences the ending you get, but I'm not positive ...
-
-I went it alone, and found it to be a very long, difficult fight. You basically have to attack once, heal once, repeat.
-
-When I'd knocked off about 3000 points of damage, I finally summoned a dragon to finish him off. This was the recommended strategy as the first few times I fought I used my dragon right away and had my ass kicked shortly thereafter. This [walkthrough](http://shrines.rpgclassics.com/snes/bof2/walkthroughs/bof2walkb.txt) really helped ;)
-
-The final battle with Detheven didn't prove to be all that difficult, and once you defeat him and the credits roll, Ryu chooses to take the form of a dragon and sacrifice himself to seal off the doorway to the underworld.
-
-I quite enjoyed this game, though I did find the battle system to be excruciatingly slow. Without fast-forward on, I doubt I would have finished this game. Also, after a battle completes there is a delay before you can move your characters again, which also made the game feel sluggish.
-
-Overall though, I would recommend this to any JRPG fan as the story is solid, the gameplay is fun, and if you like, you can take a break from the action and go fishing for treasure.
-
-<div id="galleria"><img src="/images/bof2/bof2.001.png" data-title="/images/bof2/bof2.001.png" /><img src="/images/bof2/bof2.003.png" data-title="/images/bof2/bof2.003.png" /><img src="/images/bof2/bof2.005.png" data-title="/images/bof2/bof2.005.png" /><img src="/images/bof2/bof2.006.png" data-title="/images/bof2/bof2.006.png" /><img src="/images/bof2/bof2.007.png" data-title="/images/bof2/bof2.007.png" /><img src="/images/bof2/bof2.008.png" data-title="/images/bof2/bof2.008.png" /><img src="/images/bof2/bof2.009.png" data-title="/images/bof2/bof2.009.png" /><img src="/images/bof2/bof2.010.png" data-title="/images/bof2/bof2.010.png" /><img src="/images/bof2/bof2.011.png" data-title="/images/bof2/bof2.011.png" /><img src="/images/bof2/bof2.013.png" data-title="/images/bof2/bof2.013.png" /><img src="/images/bof2/bof2.014.png" data-title="/images/bof2/bof2.014.png" /><img src="/images/bof2/bof2.015.png" data-title="/images/bof2/bof2.015.png" /><img src="/images/bof2/bof2.016.png" data-title="/images/bof2/bof2.016.png" /><img src="/images/bof2/bof2.017.png" data-title="/images/bof2/bof2.017.png" /><img src="/images/bof2/bof2.018.png" data-title="/images/bof2/bof2.018.png" /><img src="/images/bof2/bof2.019.png" data-title="/images/bof2/bof2.019.png" /><img src="/images/bof2/bof2.020.png" data-title="/images/bof2/bof2.020.png" /><img src="/images/bof2/bof2.021.png" data-title="/images/bof2/bof2.021.png" /><img src="/images/bof2/bof2.022.png" data-title="/images/bof2/bof2.022.png" /><img src="/images/bof2/bof2.023.png" data-title="/images/bof2/bof2.023.png" /><img src="/images/bof2/bof2.024.png" data-title="/images/bof2/bof2.024.png" /><img src="/images/bof2/bof2.025.png" data-title="/images/bof2/bof2.025.png" /><img src="/images/bof2/bof2.026.png" data-title="/images/bof2/bof2.026.png" /><img src="/images/bof2/bof2.027.png" data-title="/images/bof2/bof2.027.png" /><img src="/images/bof2/bof2.029.png" data-title="/images/bof2/bof2.029.png" /><img src="/images/bof2/bof2.030.png" data-title="/images/bof2/bof2.030.png" /><img src="/images/bof2/bof2.031.png" data-title="/images/bof2/bof2.031.png" /><img src="/images/bof2/bof2.032.png" data-title="/images/bof2/bof2.032.png" /><img src="/images/bof2/bof2.033.png" data-title="/images/bof2/bof2.033.png" /><img src="/images/bof2/bof2.034.png" data-title="/images/bof2/bof2.034.png" /><img src="/images/bof2/bof2.035.png" data-title="/images/bof2/bof2.035.png" /><img src="/images/bof2/bof2.036.png" data-title="/images/bof2/bof2.036.png" /><img src="/images/bof2/bof2.037.png" data-title="/images/bof2/bof2.037.png" /><img src="/images/bof2/bof2.039.png" data-title="/images/bof2/bof2.039.png" /><img src="/images/bof2/bof2.040.png" data-title="/images/bof2/bof2.040.png" /><img src="/images/bof2/bof2.041.png" data-title="/images/bof2/bof2.041.png" /><img src="/images/bof2/bof2.043.png" data-title="/images/bof2/bof2.043.png" /><img src="/images/bof2/bof2.044.png" data-title="/images/bof2/bof2.044.png" /><img src="/images/bof2/bof2.045.png" data-title="/images/bof2/bof2.045.png" /><img src="/images/bof2/bof2.046.png" data-title="/images/bof2/bof2.046.png" /><img src="/images/bof2/bof2.047.png" data-title="/images/bof2/bof2.047.png" /><img src="/images/bof2/bof2.048.png" data-title="/images/bof2/bof2.048.png" /><img src="/images/bof2/bof2.049.png" data-title="/images/bof2/bof2.049.png" /><img src="/images/bof2/bof2.050.png" data-title="/images/bof2/bof2.050.png" /><img src="/images/bof2/bof2.051.png" data-title="/images/bof2/bof2.051.png" /><img src="/images/bof2/bof2.052.png" data-title="/images/bof2/bof2.052.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-As usual, here's the gallery of screenshots. Let me know which one's your favourite in the comments below ;)
-
-For my next playthrough, I'm working on [Final Fantasy II: Dawn of Souls](http://finalfantasy.wikia.com/wiki/Final_Fantasy_I_%26_II:_Dawn_of_Souls). Shouldn't be too much longer now, as I'm already at the Jade Passage, which I believe is the final section of the game.
-
-Did you like Breath of Fire II? Which is your favourite of the series? What should I play next? Is my writing getting any better? Let me know in the comments below if you have any feedback.
-
-Cheers!]]></content>
     </entry>
     
 </feed>
