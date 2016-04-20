@@ -20,6 +20,8 @@ I'm leaving these images in here as they were part of my "journey", though hopef
 
 First off, if you're a fan of [Secret of Mana](https://en.wikipedia.org/wiki/Secret_of_Mana), the initial "feel" of the game will be familiar, as will the art style and sound.
 
+<!-- more -->
+
 Whereas SoM had you gradually encounter the two other playable characters at set points in the game, SD3 has you selecting your 3 main characters before you even begin.
 
 I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran's story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.
