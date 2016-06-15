@@ -44,7 +44,7 @@ This reminded me or SAO a bit, but with a lot less "Asuna! Kirito! <repeat>", an
 
 Story was enjoyable. Characters were interesting. I'd recommend it.
 
-**[Darker than Black](http://myanimelist.net/anime/2025/Darker_than_Black__Kuro_no_Keiyakusha) - Season 1/2**
+**[Darker than Black](http://myanimelist.net/anime/2025/Darker_than_Black__Kuro_no_Keiyakusha) - Season 1+2**
 
 REALLY enjoyed this. Good action. Interesting plot. Good dialog. I'd recommend it.
 
