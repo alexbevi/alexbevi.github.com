@@ -10,7 +10,7 @@ It's been a while since I posted the [Seiken Densetsu 3]({% post_url 2016-04-19-
 
 ## Gaming
 
-{% img left /images/shadownrun-gens/shadowrun.015.png %}
+{% img left /images/shadowrun-gens/shadowrun.015.png %}
 
 I'm currently working my way through three games. After finishing the [Shadowrun]({% post_url 2016-02-23-just-finished-shadowrun %}) play-through for SNES, I got some good feedback about the [Genesis version](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)). I decided to give that a go, and I've currently made it to the last boss, but am having no luck beating him.
 
@@ -18,9 +18,11 @@ I'm pretty sure I'm going to have to save up some nuyen and grind it out with so
 
 I really enjoyed that game, but since I've got very limited time decided to move on to the next challenge.
 
-{% img right /images/7th-saga/7th-saga.009.png %}
-
 By challenge, I meant *CHALLENGE*. I decided to give [The 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga) another shot, and have now officially made it MUCH further than I ever have before.
+
+<!-- more -->
+
+{% img right /images/7th-saga/7th-saga.009.png %}
 
 This game was alway brutally hard for me when I was a kid, and it still is. You've got limited inventory for healing items, everything is expensive and the enemies are generally overpowered.
 
