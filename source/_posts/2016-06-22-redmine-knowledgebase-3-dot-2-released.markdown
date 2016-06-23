@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Redmine Knowledgebase 3.2 Released"
+title: "Redmine Knowledgebase 3.2.0 Released"
 date: 2016-06-22 21:33:34 -0400
 comments: true
 categories: [redmine]
@@ -8,7 +8,9 @@ categories: [redmine]
 
 I haven't been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.
 
-I'm pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I'd like to highlight below:
+You can grab a copy of the release [on GitHub](https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0).
+
+I'm pushing out version 3.2.0 of the plugin thanks to the efforts of some very dedicated community members, who I'd like to highlight below:
 
 Thanks to Frederico Camara:
 
@@ -40,6 +42,8 @@ HUGE thanks to Rob Spearman for basically taking over the project and pushing it
 
 * Sort Tags on the index page
 * Added authored view so users can find articles by author easily
+
+<!-- more -->
 
 ## Bug Fixes
 
