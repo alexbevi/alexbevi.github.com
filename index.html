@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="What's Up - May/June 2016 Jun 14th, 2016 waddap Comments It&rsquo;s been a while since I posted the Seiken Densetsu 3 review, so I figured as it &hellip;">
+        <meta name="description" content="Redmine Knowledgebase 3.2 Released Jun 22nd, 2016 redmine Comments I haven&rsquo;t been very actively involved with this plugin or the Redmine &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -90,6 +90,166 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/">Redmine Knowledgebase 3.2 Released</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2016-06-22T21:33:34-04:00" pubdate><i class="fa fa-calendar"></i> Jun 22nd, 2016</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/redmine/'>redmine</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+
+<p>I&rsquo;m pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
+
+<p>Thanks to Frederico Camara:</p>
+
+<ul>
+<li>updating acts_as_rated to work with Redmine 3.2.x</li>
+</ul>
+
+
+<p>Thanks to Eduard Kuleshov:</p>
+
+<ul>
+<li>getting this plugin supported in Redmine 3.0.x</li>
+</ul>
+
+
+<p>Thanks to Axel Kämpfe:</p>
+
+<ul>
+<li>getting this plugin supported in Redmine 3.1.x and 3.2.x</li>
+</ul>
+
+
+<p>HUGE thanks to Rob Spearman for basically taking over the project and pushing it forward:</p>
+
+<h2>New Configuaration options</h2>
+
+<ul>
+<li>Show articles without tabs</li>
+<li>Show attachments before article content</li>
+<li>Show thumbnails for articles in lists</li>
+<li>Show breadcrumbs for articles in lists</li>
+</ul>
+
+
+<h2>New permissions</h2>
+
+<ul>
+<li>Article history will only show up if have view permission</li>
+<li>optional permission for users to manage just their own articles. (#306)</li>
+</ul>
+
+
+<h2>Layout</h2>
+
+<ul>
+<li>Sort Tags on the index page</li>
+<li>Added authored view so users can find articles by author easily</li>
+</ul>
+
+
+<h2>Bug Fixes</h2>
+
+<ul>
+<li>article view counts not updating (#304)</li>
+<li>top rated list not valid (#305)</li>
+<li>ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)</li>
+<li>Error when generating a PDF of an article with pictures (#308)</li>
+<li>500 Internal Server Error - if DELETE category but it&rsquo;s have subcategory (#293)</li>
+</ul>
+
+
+<p>Note that this is a preliminary release as there is one bug in here that I haven&rsquo;t squashed.</p>
+
+<p>When trying to search, you&rsquo;re prompted with a failure similar to:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
+</span><span class='line'>Processing by SearchController#index as HTML
+</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
+</span><span class='line'>  Current user: admin (id=1)
+</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
+</span><span class='line'>
+</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
+</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
+</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:125:in `each'
+</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
+</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
+</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
+</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m pretty sure this has to do with how we&rsquo;re setting up <code>acts_as_searchable</code> in the <code>kb_article</code> model. Any suggestions welcome ;)</p>
+
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -984,128 +1144,6 @@
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2015/08/04/fifth-royalty-statement/">Fifth Royalty Statement: This time for profit!</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2015-08-04T20:49:59-04:00" pubdate><i class="fa fa-calendar"></i> Aug 4th, 2015</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/redmine-plugins-book/'>redmine-plugins-book</a></li>
-            
-                <li><a class='category' href='/blog/categories/redmine/'>redmine</a></li>
-            
-                <li><a class='category' href='/blog/categories/publishing/'>publishing</a></li>
-            
-                <li><a class='category' href='/blog/categories/packt/'>packt</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2015/08/04/fifth-royalty-statement/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p>I&rsquo;ve been meaning to write this post for a long time, as I officially got the royalty statement at the end of June, but I&rsquo;ve been a bit busy with life, contracts and the occasional 16-bit era JRPG &hellip;</p>
-
-<p>As of this quarter, <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a> is officially earning me money!</p>
-
-<p><img class="left" src="/images/royalties-004.png"></p>
-
-<p>Technically, the last statement was <a href="https://en.wiktionary.org/wiki/in_the_black">in the black</a>, however since the terms laid out by Packt Publishing only pays out royalties greater than £75, those earnings were rolled into this quarter.</p>
-
-<p>I&rsquo;ve updated the table below with the numbers from the current quarter, but I&rsquo;d really like to thank everyone who&rsquo;s bought a copy of this book for supporting the <a href="http://www.redmine.org/">Redmine</a> project, and the vibrant plugin development community as well.</p>
-
-<table>
-<thead>
-<tr>
-<th> </th>
-<th>Ebook Mini</th>
-<th>Subscription Packtlib Mini</th>
-<th>Print Book Mini</th>
-<th>Subscription (3rd Party Mini)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Q1/2014</td>
-<td>18</td>
-<td>3</td>
-<td>18</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Q2/2014</td>
-<td>73</td>
-<td>1</td>
-<td>33</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Q3/2014</td>
-<td>25</td>
-<td>2</td>
-<td>24</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Q4/2014</td>
-<td>33</td>
-<td>2</td>
-<td>31</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Q1/2015</td>
-<td>90</td>
-<td>0</td>
-<td>25</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>If you&rsquo;re just venturing onto this blog after having bought the book, please feel free to leave a comment on any of the posts, or just shoot me a message :)</p>
-
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1173,6 +1211,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/">Redmine Knowledgebase 3.2 Released</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2016/06/14/whats-up-may-slash-june-2016/">What's Up - May/June 2016</a>
         </li>
         
@@ -1186,10 +1228,6 @@
         
         <li class="post">
             <a href="/blog/2016/02/23/just-finished-shadowrun/">Just Finished - Shadowrun</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">Recovering a WiredTiger collection from a corrupt MongoDB installation</a>
         </li>
         
     </ul>

@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-06-14T21:59:02-04:00</updated>
+    <updated>2016-06-22T21:41:07-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,97 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Knowledgebase 3.2 Released]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/"/>
+        <updated>2016-06-22T21:33:34-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released</id>
+        <content type="html"><![CDATA[I haven't been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.
+
+I'm pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I'd like to highlight below:
+
+Thanks to Frederico Camara:
+
+* updating acts_as_rated to work with Redmine 3.2.x
+
+Thanks to Eduard Kuleshov:
+
+* getting this plugin supported in Redmine 3.0.x
+
+Thanks to Axel Kämpfe:
+
+* getting this plugin supported in Redmine 3.1.x and 3.2.x
+
+HUGE thanks to Rob Spearman for basically taking over the project and pushing it forward:
+
+## New Configuaration options
+
+* Show articles without tabs
+* Show attachments before article content
+* Show thumbnails for articles in lists
+* Show breadcrumbs for articles in lists
+
+## New permissions
+
+* Article history will only show up if have view permission
+* optional permission for users to manage just their own articles. (#306)
+
+## Layout
+
+* Sort Tags on the index page
+* Added authored view so users can find articles by author easily
+
+## Bug Fixes
+
+* article view counts not updating (#304)
+* top rated list not valid (#305)
+* ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)
+* Error when generating a PDF of an article with pictures (#308)
+* 500 Internal Server Error - if DELETE category but it's have subcategory (#293)
+
+Note that this is a preliminary release as there is one bug in here that I haven't squashed.
+
+When trying to search, you're prompted with a failure similar to:
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
+</span><span class='line'>Processing by SearchController#index as HTML
+</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
+</span><span class='line'>  Current user: admin (id=1)
+</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
+</span><span class='line'>
+</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
+</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
+</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:125:in `each'
+</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
+</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
+</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
+</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
+
+I'm pretty sure this has to do with how we're setting up `acts_as_searchable` in the `kb_article` model. Any suggestions welcome ;)
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Redmine Plugin Extension and Development is Apparently Still Relevant]]></title>
@@ -124,33 +215,6 @@ Happy Holidays Everyone!!!
 
 <img class="left" src="/images/20141222-cat.png">
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Second Royalty Statement]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
-        <updated>2014-09-22T11:45:14-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
-        <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
-
-In the table below, I've added the latest numbers to those from [my previous post](/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
-
-| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
-|-|----------|--------------------------|---------------|-----------------------------|
-|Q1/2014|18|3|18|0|
-|Q2/2014|73|1|33|2|
-
-<!-- more -->
-
-<img class="left" src="/images/royalties20140630.png">
-
-Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
-
-At this rate, it's possible I'll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
-
-I'm sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I'm sure the numbers I'm posting here will convince you it's not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
-
-If you've had anything published and are seeing a decent return on your "investment", please share in the comments ;)]]></content>
     </entry>
     
 </feed>

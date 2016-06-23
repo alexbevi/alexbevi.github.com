@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-06-14T21:59:02-04:00</updated>
+    <updated>2016-06-22T21:41:07-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,119 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Knowledgebase 3.2 Released]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/"/>
+        <updated>2016-06-22T21:33:34-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released</id>
+        <content type="html"><![CDATA[<p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+
+<p>I&rsquo;m pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
+
+<p>Thanks to Frederico Camara:</p>
+
+<ul>
+<li>updating acts_as_rated to work with Redmine 3.2.x</li>
+</ul>
+
+
+<p>Thanks to Eduard Kuleshov:</p>
+
+<ul>
+<li>getting this plugin supported in Redmine 3.0.x</li>
+</ul>
+
+
+<p>Thanks to Axel Kämpfe:</p>
+
+<ul>
+<li>getting this plugin supported in Redmine 3.1.x and 3.2.x</li>
+</ul>
+
+
+<p>HUGE thanks to Rob Spearman for basically taking over the project and pushing it forward:</p>
+
+<h2>New Configuaration options</h2>
+
+<ul>
+<li>Show articles without tabs</li>
+<li>Show attachments before article content</li>
+<li>Show thumbnails for articles in lists</li>
+<li>Show breadcrumbs for articles in lists</li>
+</ul>
+
+
+<h2>New permissions</h2>
+
+<ul>
+<li>Article history will only show up if have view permission</li>
+<li>optional permission for users to manage just their own articles. (#306)</li>
+</ul>
+
+
+<h2>Layout</h2>
+
+<ul>
+<li>Sort Tags on the index page</li>
+<li>Added authored view so users can find articles by author easily</li>
+</ul>
+
+
+<h2>Bug Fixes</h2>
+
+<ul>
+<li>article view counts not updating (#304)</li>
+<li>top rated list not valid (#305)</li>
+<li>ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)</li>
+<li>Error when generating a PDF of an article with pictures (#308)</li>
+<li>500 Internal Server Error - if DELETE category but it&rsquo;s have subcategory (#293)</li>
+</ul>
+
+
+<p>Note that this is a preliminary release as there is one bug in here that I haven&rsquo;t squashed.</p>
+
+<p>When trying to search, you&rsquo;re prompted with a failure similar to:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
+</span><span class='line'>Processing by SearchController#index as HTML
+</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
+</span><span class='line'>  Current user: admin (id=1)
+</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
+</span><span class='line'>
+</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
+</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
+</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:125:in `each'
+</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
+</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
+</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
+</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
+</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
+</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m pretty sure this has to do with how we&rsquo;re setting up <code>acts_as_searchable</code> in the <code>kb_article</code> model. Any suggestions welcome ;)</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[What's Up - May/June 2016]]></title>
@@ -1773,37 +1886,6 @@ DEBUG: Successfully executed [ RandomlyFail ]
 <p>Happy Holidays Everyone!!!</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/20141222-cat.png"></p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Git Push to GitHub and Bitbucket]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket/"/>
-        <updated>2014-12-19T13:05:35-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/12/19/git-push-to-github-and-bitbucket</id>
-        <content type="html"><![CDATA[<p>I just want to start off by saying how much I LOVE <a href="http://git-scm.com">Git</a>. I&rsquo;ve been working with it for a number of years now (coming from <a href="https://subversion.apache.org">Subversion</a> and sharing code on <a href="https://code.google.com">Google Code</a> and <a href="http://sourceforge.net">SourceForge</a>) and have fully embraced <a href="https://github.com">GitHub</a> as the &ldquo;victor&rdquo; (IMHO) for both online source control and collaborative development.</p>
-
-<p>The one &ldquo;downside&rdquo; to GitHub though is that you don&rsquo;t have the ability to manage a private repository for free. They do offer reasonable hosting plans, but I generally use private repos for client work or other professional backups.</p>
-
-<p><a href="https://bitbucket.org">Bitbucket</a> on the other hand offers unlimited private repositories. They limit the collaborative features you have access to, but if you&rsquo;re strictly mirroring or backing up, that&rsquo;s not an issue.</p>
-
-<p>In order to configure your repository to push to both, all you need to do is:</p>
-
-<p><strong>1)</strong> create a new repository on Bitbucket</p>
-
-<p><strong>2a)</strong> edit the <code>.git/config</code> of your local repository</p>
-
-<p><strong>2b)</strong> add a second <code>url</code> entry under the same <strong>remote</strong> as you&rsquo;re already pushing to</p>
-
-<p><img src="http://www.alexbevi.com/images/20141219-git-001.png"></p>
-
-<p><strong>3)</strong> now to initialze the Bitbucket remote execute <code>git push origin -u --all</code>.</p>
-
-<p><img src="http://www.alexbevi.com/images/20141219-git-002.png"></p>
-
-<p>This will attempt to push all branches to the remote named <em>origin</em>. Since the version on GitHub is already up to date, the Bitbucket version will be initialized and all changes will be pushed.</p>
-
-<p>Now, whenever you issue a <code>git push</code> command, both remote repositories will receive the changesets!</p>
 ]]></content>
     </entry>
     
