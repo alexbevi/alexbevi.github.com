@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-06-22T21:50:36-04:00</updated>
+    <updated>2016-06-22T21:57:59-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,7 +14,7 @@
 
     
     <entry>
-        <title type="html"><![CDATA[Redmine Knowledgebase 3.2 Released]]></title>
+        <title type="html"><![CDATA[Redmine Knowledgebase 3.2.0 Released]]></title>
         <link href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/"/>
         <updated>2016-06-22T21:33:34-04:00</updated>
         <id>http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released</id>
@@ -22,7 +22,7 @@
 
 You can grab a copy of the release [on GitHub](https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0).
 
-I'm pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I'd like to highlight below:
+I'm pushing out version 3.2.0 of the plugin thanks to the efforts of some very dedicated community members, who I'd like to highlight below:
 
 Thanks to Frederico Camara:
 
