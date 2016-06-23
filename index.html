@@ -140,7 +140,10 @@
 
 
 
-    <p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+    <div class="article__content clearfix">
+        <p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+
+<p>You can grab a copy of the release <a href="https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0">on GitHub</a>.</p>
 
 <p>I&rsquo;m pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
 
@@ -193,59 +196,9 @@
 </ul>
 
 
-<h2>Bug Fixes</h2>
 
-<ul>
-<li>article view counts not updating (#304)</li>
-<li>top rated list not valid (#305)</li>
-<li>ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)</li>
-<li>Error when generating a PDF of an article with pictures (#308)</li>
-<li>500 Internal Server Error - if DELETE category but it&rsquo;s have subcategory (#293)</li>
-</ul>
-
-
-<p>Note that this is a preliminary release as there is one bug in here that I haven&rsquo;t squashed.</p>
-
-<p>When trying to search, you&rsquo;re prompted with a failure similar to:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
-</span><span class='line'>Processing by SearchController#index as HTML
-</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
-</span><span class='line'>  Current user: admin (id=1)
-</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
-</span><span class='line'>
-</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
-</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
-</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:125:in `each'
-</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
-</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
-</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
-</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I&rsquo;m pretty sure this has to do with how we&rsquo;re setting up <code>acts_as_searchable</code> in the <code>kb_article</code> model. Any suggestions welcome ;)</p>
-
+        <a class="btn pull-right" href="/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/">Read on &rarr;</a>
+    </div>
 
 
         </article>

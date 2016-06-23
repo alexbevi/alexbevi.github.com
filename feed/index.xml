@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2016-06-22T21:41:07-04:00</updated>
+  <updated>2016-06-22T21:50:36-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -19,6 +19,8 @@
     <updated>2016-06-22T21:33:34-04:00</updated>
     <id>http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released</id>
     <content type="html"><![CDATA[<p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+
+<p>You can grab a copy of the release <a href="https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0">on GitHub</a>.</p>
 
 <p>I&rsquo;m pushing out version 3.2 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
 
@@ -69,6 +71,9 @@
 <li>Sort Tags on the index page</li>
 <li>Added authored view so users can find articles by author easily</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>Bug Fixes</h2>
