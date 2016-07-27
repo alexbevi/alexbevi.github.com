@@ -4,7 +4,7 @@ title: "Just Gave Up On - Terranigma"
 date: 2015-01-16 09:26:52 -0500
 comments: true
 published: true
-categories: [just-gave-up-on]
+categories: [just-gave-up-on, snes, rpg]
 ---
 
 As someone in their thirties with a family, my personal gaming time is somewhat limited. As a result, I need to be a bit more selective with what I choose to sink any free time into; and [grinding](http://en.wikipedia.org/wiki/Grinding_%28video_gaming%29) is not where I want that time to go. I'll get back to this shortly ;)

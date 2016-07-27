@@ -29,5 +29,5 @@ find . -type f ! -name '*(U)*' ! -name '*(E)*' -delete
 for f in *"(E)"*; do us=`echo $f | sed -r 's/\(E\)+/\(U\)/g'`; if [ -e "$us" ]; then echo "FOUND $us - removing $f"; rm "$f"; fi; done
 ```
 
-
+If you find yourself with compressed ROM sets and you want to just grab the English ones, this might just come in handy ;)
 
