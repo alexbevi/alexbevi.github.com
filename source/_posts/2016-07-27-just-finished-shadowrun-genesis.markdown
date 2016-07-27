@@ -8,7 +8,7 @@ categories: [just-gave-up-on, rpg, genesis]
 
 {% img left /images/shadowrun-gens/shadowrun.000.png %}
 
-As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can't get through. [Shadowrun]](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)) for the Sega Genesis turned out to be one of those titles.
+As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can't get through. [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)) for the Sega Genesis turned out to be one of those titles.
 
 I've made it all the way to the final boss, and though he doesn't beat me, I empty all my clips (and my runner's clips) into him and just can't seem to kill him and trigger the endgame sequence.
 
@@ -26,7 +26,7 @@ First off, you begin by selecting the type of player you want to run the game as
 
 I chose to run as a Decker, as I wanted to get an idea as to how the matrix sequences differed between the games (plus I'm a programmer and felt drawn to this class :P).
 
-The story starts off with you in [city] at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.
+The story starts off with you at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.
 
 {% img left /images/shadowrun-gens/shadowrun.002.png %}
 

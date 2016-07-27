@@ -12,7 +12,7 @@ I actually finished this game around the end of June, but haven't really had a c
 
 The last time I played through Dragon Quest was likely in the late 80's. I'm pretty sure I either heard about it, or got a copy of it through Nintendo Power, and like most kids in North America at the time, this would have been my first introduction to what would become known as JRPGs.
 
-I decided to go with the SNES re-release of this title for my playthrough as I wanted some updated graphics and music. Although the SNES version was never officially localized for North America, there is an excellent fan translation [source] available.
+I decided to go with the SNES re-release of this title for my playthrough as I wanted some updated graphics and music. Although the SNES version was never officially localized for North America, there is an [excellent fan translation](http://www.romhacking.net/translations/337/) available.
 
 It threw me off a bit when they refer to the legendary hero as Roto (as opposed to Erdrick), but I'm assuming this is a better translation than what we got in the 80's so that's probably what the name should have been in the first place.
 
@@ -59,3 +59,31 @@ I used an emulator to do this, so most of my level grinding was done in fast-for
 If you're playing the "classics", I'd definitely recommend this title. Playing these early games gives you more of an appreciation for the later RPGs, as well as giving you a feel for how it all started.
 
 Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.
+
+{% galleria %}
+ /images/dq1/dq1.000.png
+ /images/dq1/dq1.001.png
+ /images/dq1/dq1.002.png
+ /images/dq1/dq1.003.png
+ /images/dq1/dq1.004.png
+ /images/dq1/dq1.005.png
+ /images/dq1/dq1.006.png
+ /images/dq1/dq1.007.png
+ /images/dq1/dq1.008.png
+ /images/dq1/dq1.009.png
+ /images/dq1/dq1.010.png
+ /images/dq1/dq1.011.png
+ /images/dq1/dq1.012.png
+ /images/dq1/dq1.013.png
+ /images/dq1/dq1.014.png
+ /images/dq1/dq1.015.png
+ /images/dq1/dq1.016.png
+ /images/dq1/dq1.017.png
+ /images/dq1/dq1.018.png
+ /images/dq1/dq1.019.png
+ /images/dq1/dq1.020.png
+ /images/dq1/dq1.021.png
+ /images/dq1/dq1.022.png
+ /images/dq1/dq1.023.png
+ /images/dq1/dq1.024.png
+{% endgalleria %}
