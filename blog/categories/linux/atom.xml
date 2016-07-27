@@ -4,7 +4,7 @@
     <title><![CDATA[Category: linux | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/linux/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-06-22T21:57:59-04:00</updated>
+    <updated>2016-07-27T19:32:04-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,45 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Extracting Best ROM from GoodTools Generated ROM Sets]]></title>
+        <link href="http://www.alexbevi.com/blog/2016/07/25/extracting-best-rom-from-goodtools-generated-rom-sets/"/>
+        <updated>2016-07-25T15:17:38-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2016/07/25/extracting-best-rom-from-goodtools-generated-rom-sets</id>
+        <content type="html"><![CDATA[As a kid of the 80's, I have fond memories of all the old 8-bit and 16-bit consoles that I grew up with.
+
+Although it's easy enough to find ROMs, I tend to find myself going for the [GoodTools](https://en.wikipedia.org/wiki/GoodTools) generated sets more often than not as they're considered "complete".
+
+This is kind of ridiculous as I don't speak Japanese, which constitutes the vast majority of the contents of these sets.
+
+Even though most emulators support compressed ROM sets, I'd prefer to just have the English ROMs available on their own in one place.
+
+As a programmer, I thought "How can I do this in Linux?", but more specifically, "how do I do this from the command line directly?".
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># extract best rom to directory
+</span><span class='line'># best contains !
+</span><span class='line'>7z e "*.7z" -o../../ *[!]*.* -r
+</span><span class='line'>
+</span><span class='line'># purge all non US/European
+</span><span class='line'>find . -type f ! -name '*(U)*' ! -name '*(E)*' -delete
+</span><span class='line'>
+</span><span class='line'># purge duplicates where a (U) exists alongiside an (E)
+</span><span class='line'>for f in *"(E)"*; do us=`echo $f | sed -r 's/\(E\)+/\(U\)/g'`; if [ -e "$us" ]; then echo "FOUND $us - removing $f"; rm "$f"; fi; done</span></code></pre></td></tr></table></div></figure>
+
+If you find yourself with compressed ROM sets and you want to just grab the English ones, this might just come in handy ;)
+
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Pipe Command Output to Logentries]]></title>
@@ -244,22 +283,6 @@ This will bring you back to the recovery menu.
 <img class="center" src="/images/fixsudoprecise05.jpg">
 
 Choose to resume a normal boot. Then you should be able to _sudo_ again.]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Ubuntu 12.04 Desktop WITHOUT Unity]]></title>
-        <link href="http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity/"/>
-        <updated>2012-08-10T08:03:00-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2012/08/10/ubuntu-12-dot-04-desktop-without-unity</id>
-        <content type="html"><![CDATA[As much as I enjoy Ubuntu, I haven't warmed to their Unity desktop. I personally find it's too similar to OS X, I don't really like the launcher with larger icons, the global menu, the shifted window control buttons, notification area changes .. etc.
-
-Since it's based on GTK3, I know you can modify this all, but I'd rather just use a desktop environment that doesn't require that level of tweaking.
-
-Enter Cinnamon. Cinnamon is developed by the Linux Mint team, which has a distribution based on Ubuntu.
-
-Over at the [LinuxBSDOS](http://www.linuxbsdos.com/2012/04/26/install-the-latest-and-greatest-cinnamon-desktop-on-ubuntu-12-04/) blog, there was an article on how to get Cinnamon installed in the latest Ubuntu.
-
-I found that after doing this, I ended up with no sound. To fix this, [AskUbuntu](http://askubuntu.com/questions/135778/no-sound-on-ubuntu-12-04/153470#153470) has an article that I found useful.]]></content>
     </entry>
     
 </feed>
