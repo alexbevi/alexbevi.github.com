@@ -11,11 +11,11 @@ This is the "short" list of games I plan on covering in the future. Feel free to
 
 ## Never Played/Finished
 
-* Seiken Densetsu III
+* <strikeout>Seiken Densetsu III</strikeout>
 * Daganronpa
 * Breath of Fire III, IV
-* Final Fantasy V
-* Lufia, Lufia 2
+* <strikeout>Final Fantasy V</strikeout>
+* Lufia, <strikeout>Lufia 2</strikeout>
 * Etrian Odyssey (all?)
 * Dragon Quest IV, V, VI
 

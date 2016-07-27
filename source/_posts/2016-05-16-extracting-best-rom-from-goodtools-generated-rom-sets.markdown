@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Extracting Best ROM from GoodTools Generated ROM Sets"
-date: 2016-05-16 15:17:38 -0400
+date: 2016-07-25 15:17:38 -0400
 comments: true
 categories: [linux, roms]
-published: false
+published: true
 ---
 
 As a kid of the 80's, I have fond memories of all the old 8-bit and 16-bit consoles that I grew up with.

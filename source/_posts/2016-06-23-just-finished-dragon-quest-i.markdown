@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "Just Finished - Dragon Quest I"
-date: 2016-06-23 22:26:01 -0400
+date: 2016-07-27 22:26:01 -0400
 comments: true
 categories: [just-finished, rgp, jrpg, snes]
 ---
+
+I actually finished this game around the end of June, but haven't really had a chance to write about it until now. I'm currently sitting out by the lake at the cottage and figured it was about time :P
 
 {% img left /images/dq1/dq1.000.png %}
 
@@ -27,6 +29,8 @@ Enemy encounter rates are high. Very high. I think the SNES version actually opt
 The story is pretty simple.
 
 You're the descendant of the legendary hero, and have been tasked with rescuing the princess and defeating the Dragon Lord.
+
+<!-- more -->
 
 {% img left /images/dq1/dq1.001.png %}
 
@@ -55,5 +59,3 @@ I used an emulator to do this, so most of my level grinding was done in fast-for
 If you're playing the "classics", I'd definitely recommend this title. Playing these early games gives you more of an appreciation for the later RPGs, as well as giving you a feel for how it all started.
 
 Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.
-
-
