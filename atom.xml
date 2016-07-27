@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-07-27T19:32:04-04:00</updated>
+    <updated>2016-07-27T19:42:56-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -24,7 +24,7 @@
 
 <p>The last time I played through Dragon Quest was likely in the late 80&rsquo;s. I&rsquo;m pretty sure I either heard about it, or got a copy of it through Nintendo Power, and like most kids in North America at the time, this would have been my first introduction to what would become known as JRPGs.</p>
 
-<p>I decided to go with the SNES re-release of this title for my playthrough as I wanted some updated graphics and music. Although the SNES version was never officially localized for North America, there is an excellent fan translation [source] available.</p>
+<p>I decided to go with the SNES re-release of this title for my playthrough as I wanted some updated graphics and music. Although the SNES version was never officially localized for North America, there is an <a href="http://www.romhacking.net/translations/337/">excellent fan translation</a> available.</p>
 
 <p>It threw me off a bit when they refer to the legendary hero as Roto (as opposed to Erdrick), but I&rsquo;m assuming this is a better translation than what we got in the 80&rsquo;s so that&rsquo;s probably what the name should have been in the first place.</p>
 
@@ -72,6 +72,12 @@
 <p>If you&rsquo;re playing the &ldquo;classics&rdquo;, I&rsquo;d definitely recommend this title. Playing these early games gives you more of an appreciation for the later RPGs, as well as giving you a feel for how it all started.</p>
 
 <p>Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.</p>
+
+<div id="galleria"><img src="http://www.alexbevi.com/images/dq1/dq1.000.png" data-title=" /images/dq1/dq1.000.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.001.png" data-title=" /images/dq1/dq1.001.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.002.png" data-title=" /images/dq1/dq1.002.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.003.png" data-title=" /images/dq1/dq1.003.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.004.png" data-title=" /images/dq1/dq1.004.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.005.png" data-title=" /images/dq1/dq1.005.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.006.png" data-title=" /images/dq1/dq1.006.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.007.png" data-title=" /images/dq1/dq1.007.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.008.png" data-title=" /images/dq1/dq1.008.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.009.png" data-title=" /images/dq1/dq1.009.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.010.png" data-title=" /images/dq1/dq1.010.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.011.png" data-title=" /images/dq1/dq1.011.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.012.png" data-title=" /images/dq1/dq1.012.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.013.png" data-title=" /images/dq1/dq1.013.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.014.png" data-title=" /images/dq1/dq1.014.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.015.png" data-title=" /images/dq1/dq1.015.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.016.png" data-title=" /images/dq1/dq1.016.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.017.png" data-title=" /images/dq1/dq1.017.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.018.png" data-title=" /images/dq1/dq1.018.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.019.png" data-title=" /images/dq1/dq1.019.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.020.png" data-title=" /images/dq1/dq1.020.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.021.png" data-title=" /images/dq1/dq1.021.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.022.png" data-title=" /images/dq1/dq1.022.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.023.png" data-title=" /images/dq1/dq1.023.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.024.png" data-title=" /images/dq1/dq1.024.png" /></div>
+
+
+<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+
 ]]></content>
     </entry>
     
@@ -82,7 +88,7 @@
         <id>http://www.alexbevi.com/blog/2016/07/26/just-finished-shadowrun-genesis</id>
         <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.000.png"></p>
 
-<p>As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can&rsquo;t get through. [Shadowrun]](<a href="https://en.wikipedia.org/wiki/Shadowrun_">https://en.wikipedia.org/wiki/Shadowrun_</a>(1994_video_game)) for the Sega Genesis turned out to be one of those titles.</p>
+<p>As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can&rsquo;t get through. <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Shadowrun</a> for the Sega Genesis turned out to be one of those titles.</p>
 
 <p>I&rsquo;ve made it all the way to the final boss, and though he doesn&rsquo;t beat me, I empty all my clips (and my runner&rsquo;s clips) into him and just can&rsquo;t seem to kill him and trigger the endgame sequence.</p>
 
@@ -101,7 +107,7 @@
 
 <p>I chose to run as a Decker, as I wanted to get an idea as to how the matrix sequences differed between the games (plus I&rsquo;m a programmer and felt drawn to this class :P).</p>
 
-<p>The story starts off with you in [city] at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.</p>
+<p>The story starts off with you at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.</p>
 
 <p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.002.png"></p>
 
