@@ -4,7 +4,7 @@
     <title><![CDATA[Category: adventure | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/adventure/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-11-29T04:36:37-05:00</updated>
+    <updated>2016-11-29T04:38:26-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -23,7 +23,9 @@
 Although I'm a huge fan of the point-and-click adventure genre, I've been primarily focusing on covering 16-bit RPGs in my spare time. I've still got a sizeable backlog to wade through, but when the news dropped that [Warcraft Adventures: Lord of the Clans](https://en.wikipedia.org/wiki/Warcraft_Adventures:_Lord_of_the_Clans) had been leaked, I couldn't resist.
 
 Although no one really got a taste of this game until 2010 when MAN-biker posted some content to Youtube, I'd been inquiring with Blizzard as early as 2008. I still have a copy of the email, so I've trimmed it down a bit and shared it below.
- 
+
+<!-- more --> 
+
 <script src="https://gist.github.com/alexbevi/790743a5b30963103596fa77f04fe75a.js"> </script>
 
 My hope was to get access to the source code for the [ScummVM](http://www.scummvm.org/) team to be able to incorporate as a custom engine.
