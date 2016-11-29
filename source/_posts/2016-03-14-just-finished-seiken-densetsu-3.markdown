@@ -95,6 +95,12 @@ I thoroughly enjoyed playing this game and would highly recommend this to anyone
 /images/sd3/sd3.039.png
 /images/sd3/sd3.040.png
 /images/sd3/sd3.041.png
+/images/sd3/sd3.042.png
+/images/sd3/sd3.043.png
+/images/sd3/sd3.044.png
+/images/sd3/sd3.045.png
+/images/sd3/sd3.046.png
+/images/sd3/sd3.047.png
 {% endgalleria %}
 
 I finished this game over a month ago, so I'm still pretty slow cranking out these reviews ...

@@ -1,0 +1,56 @@
+---
+layout: post
+title: "Summer RPG Update 2016"
+date: 2016-09-05 14:08:29 -0400
+comments: true
+categories: [jrpg, rpg, snes, gba]
+---
+
+I don't really have much progress to report for the last month, so I thought I'd throw out a few of the games I've been working through to see if I can generate any interest in the next article ;)
+
+{% img left /images/goldensun/goldensun.016.png %}
+
+First off, I've been playing through [Golden Sun](https://en.wikipedia.org/wiki/Golden_Sun) for the GBA.
+
+I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2]({% post_url 2015-09-23-just-finished-lufia-2 %}).
+
+I've made it as far as [Kraken](http://goldensun.wikia.com/wiki/Kraken), but I'm finding beating him is proving to be more difficult that I'd expected. Probably going to have to back out and grind for a while, which I don't have a lot of time for ...
+
+{% img right /images/7th-saga/7th-saga.019.png %}
+
+Next, I'm pretty sure I've given up on [the 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga). I'm still at Telaine with a party at level 17, but I'm pretty sure that to progress, there is grinding in my future.
+
+Similar to the situation I'm having above with Golden Sun, i just need to set many hours aside to level up in order to proceed, but with the amount of time I've got these days to devote to these games, that may never happen.
+
+<!-- more -->
+
+Finally, I've decided to bite the bullet and dive into [Super Mario RPG](https://en.wikipedia.org/wiki/Super_Mario_RPG). This, along with Final Fantasy Tactics is one of those games that I've heard nothing but good things about for the last 20 years, but have never bothered to investigate myself.
+
+{% img left /images/mariorpg/mariorpg.011.png %}
+
+I'm currently at level 10 with 3 star pieces recovered and have just rescued Princess Toadstool and had her join the party.
+
+I'm really enjoying the story and gameplay, but since this was developed by Square, I'm not surprised that this is right up my alley :P
+
+I'm most likely going to be able to finish this game off, and then circle back around to Golden Sun, as I really want to beat that game.
+
+Now, assuming I can make some progress on those two games, I'd like to start getting some feedback on where to take this series next.
+
+There are a number of games that I've finished previously that I didn't write about. Some of the more notable ones would be:
+
+* [Mother 3](https://en.wikipedia.org/wiki/Mother_3)
+* Final Fantasy VIII
+* Final Fantasy IX
+* Chrono Trigger
+
+Then there's the list of games that I really want to tackle, but since they all require a sizable time investment I'm not sure which to hit up:
+
+* Xenogears
+* Breath of Fire 3
+* [Shin Megami Tensei: Persona 3](https://en.wikipedia.org/wiki/Shin_Megami_Tensei:_Persona_3) - *I'd likely play the PSP release*
+* [Danganronmpa](https://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc) - *I started this a while back but never finished it*
+* [Shin Megami Tensei 2](https://en.wikipedia.org/wiki/Shin_Megami_Tensei_II) - *There's a great fan translation of the Super Famicom release*
+* [Final Fantasy IV: After Years](https://en.wikipedia.org/wiki/Final_Fantasy_IV:_The_After_Years)
+* [Vagrant Story](https://en.wikipedia.org/wiki/Vagrant_Story)
+
+If you've got any insight into which I should tackle next, feel free to leave me a comment below ;)
