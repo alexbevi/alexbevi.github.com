@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Just Finished - Warcraft Adventures"
-date: 2016-10-05 21:07:22 -0400
+date: 2016-11-29 04:36:22 -0400
 comments: true
 categories: [just-finished, adventure, pc]
 ---
@@ -11,7 +11,9 @@ categories: [just-finished, adventure, pc]
 Although I'm a huge fan of the point-and-click adventure genre, I've been primarily focusing on covering 16-bit RPGs in my spare time. I've still got a sizeable backlog to wade through, but when the news dropped that [Warcraft Adventures: Lord of the Clans](https://en.wikipedia.org/wiki/Warcraft_Adventures:_Lord_of_the_Clans) had been leaked, I couldn't resist.
 
 Although no one really got a taste of this game until 2010 when MAN-biker posted some content to Youtube, I'd been inquiring with Blizzard as early as 2008. I still have a copy of the email, so I've trimmed it down a bit and shared it below.
- 
+
+<!-- more --> 
+
 {% gist alexbevi/790743a5b30963103596fa77f04fe75a %}
 
 My hope was to get access to the source code for the [ScummVM](http://www.scummvm.org/) team to be able to incorporate as a custom engine.
