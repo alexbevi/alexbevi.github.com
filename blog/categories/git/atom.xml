@@ -4,7 +4,7 @@
     <title><![CDATA[Category: git | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/git/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-11-29T04:39:59-05:00</updated>
+    <updated>2017-09-23T22:07:53-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -57,7 +57,29 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
-<script src="https://gist.github.com/alexbevi/3436040.js"> </script>
+<noscript><pre># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
+# for Pry binding references
+#
+# Installation
+#
+#   ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
+#
+# Based on 
+#
+#   http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
+#   http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes
+#   https://gist.github.com/3266940
+#
+FILES_PATTERN=&#39;\.(rb|haml|coffee)(\..+)?$&#39;
+FORBIDDEN=&#39;binding.pry&#39;
+
+git diff --cached --name-only | \
+    grep -E $FILES_PATTERN | \
+    GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
+    echo &#39;COMMIT REJECTED&#39; &amp;&amp; \
+    exit 1
+
+exit 0</pre></noscript><script src="https://gist.github.com/alexbevi/3436040.js"> </script>
 
 This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 

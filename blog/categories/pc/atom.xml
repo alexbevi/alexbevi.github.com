@@ -4,7 +4,7 @@
     <title><![CDATA[Category: pc | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/pc/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-11-29T04:39:59-05:00</updated>
+    <updated>2017-09-23T22:07:53-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -26,7 +26,62 @@ Although no one really got a taste of this game until 2010 when MAN-biker posted
 
 <!-- more --> 
 
-<script src="https://gist.github.com/alexbevi/790743a5b30963103596fa77f04fe75a.js"> </script>
+<noscript><pre>From: alexbevi@gmail.com 
+To: web.support@blizzard.com
+Sent: 12/19/2008 11:58:55 AM
+Subject: [en]Warcraft -- Other
+
+This isn&#39;t really a support question, and I have no idea how to route this
+properly, but the question I want to ask is as follows:
+
+Over the years, I&#39;m sure there have been numerous attempts by fans to get Blizzard 
+to revive the Warcraft Adventures project. The statement made when it was cancelled 
+was that it didn&#39;t meet the quality requirements that Blizzard was trying to keep 
+for it&#39;s users; and over the years, those decisions have resulted in excellent titles.
+
+Regarding Warcraft Adventures though, it&#39;s been 10 years since this project was 
+cancelled. I don&#39;t have any inside information into the level of completion the 
+project was at, but if it was &#39;near&#39; completion, couldn&#39;t this be released to the 
+open-source community to be added to a project such as ScummVM? The benefit here 
+would be positive PR for Blizzard, as well as renewed interest in their catalog of 
+games to a number of new users.
+
+I don&#39;t represent the ScummVM team, but I&#39;d be interested to know what you 
+guys think. -Alex
+
+===============================================================================
+
+From: &lt;petern.support@blizzard.com&gt;
+To: &lt;alexbevi@gmail.com&gt;
+Subject: Re: [en]Warcraft -- Other
+Date: Mon, 22 Dec 2008 18:49:29 -0800
+
+Greetings Alex,
+
+Thank you for emailing the Blizzard technical support department in regards 
+to your question.  I know the same question has been asked by others in the 
+past and unfortunately there just is not information in regards to the game 
+that I have available to give besides what is already available on the internet.  
+Unfortunately I have no way to request any further information about the game or 
+items such as art resources or code from the game. 
+
+The best place I can suggest to post such a request is on our suggestions forum 
+at http://forums.battle.net/board.html?forumId=12016&amp;sid=3000.  This is by employees 
+that have more information, and more access to information than we do here in 
+technical support, if there is a large enough interest in anything then those ideas 
+are passed along to those that may be able to do more.  I cant guarantee anything 
+unfortunately but this is the best location I can suggest to try for such a request.
+
+
+Regards,
+Peter N.
+Technical support
+Blizzard Entertainment
+
+http://www.blizzard.com/support
+
+If you reply, please include all previous text and files related to this e-mail.  
+Please note the Tech support email system does not support read receipts.</pre></noscript><script src="https://gist.github.com/alexbevi/790743a5b30963103596fa77f04fe75a.js"> </script>
 
 My hope was to get access to the source code for the [ScummVM](http://www.scummvm.org/) team to be able to incorporate as a custom engine.
 

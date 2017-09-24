@@ -193,8 +193,118 @@
 
 <p>I&rsquo;ve included the gist below. If you want to download and install this yourself, just download the gist to <code>/path/to/octopress/plugins</code>.</p>
 
-<script src="https://gist.github.com/alexbevi/1c185c6a037d63f6aec7.js"> </script>
+<p><noscript><pre># Title: Galleria Tag for Jekyll</p>
 
+<h1>Authors: Alex Bevilacqua</h1>
+
+<h1>Description: incorporate the Galleria gallery jquery plugin</h1>
+
+<p>#</p>
+
+<h1>Adaption of &quot;Photos tag for Jekyll&quot; by Devin Weaver, and the derived</h1>
+
+<h1>&quot;Gallery Tag for Jekyll&quot; by Kevin Brown.</h1>
+
+<p>#</p>
+
+<h1>Installation:</h1>
+
+<p>#</p>
+
+<h1>{% galleria_includes %}</h1>
+
+<p>#</p>
+
+<h1>This macro should be added to your <code>source/_includes/custom/head.html</code></h1>
+
+<h1>in order to load the libraries needed by Galleria</h1>
+
+<p>#</p>
+
+<h1>Example:</h1>
+
+<p>#</p>
+
+<h1>{% galleria %}</h1>
+
+<h1>photo1.jpg</h1>
+
+<h1>/path/to/photos/photo2.jpg:title</h1>
+
+<h1>{% endgalleria %}</h1>
+
+<p>#
+module Jekyll</p>
+
+<p>  PLUGIN_GALLERIA_VERSION = &quot;1.4.2&quot;
+  PLUGIN_JQUERY_VERSION   = &quot;2.1.1&quot;</p>
+
+<p>  class PhotosUtil
+    def initialize(context)
+      @context = context
+    end</p>
+
+<pre><code>def path_for(filename)
+  filename = filename.strip
+  prefix = (@context.environments.first[&amp;#39;site&amp;#39;][&amp;#39;photos_prefix&amp;#39;] unless filename =~ /^(?:\/|http)/i) || &amp;quot;&amp;quot;
+  &amp;quot;#{prefix}#{filename}&amp;quot;
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  class GalleriaScriptIncludePatch &lt; Liquid::Tag
+    def render(context)
+      return &lt;&lt;-eof
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/#{PLUGIN_JQUERY_VERSION}/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/galleria.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.css&quot; media=&quot;screen, projection&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;style&gt;
+  /<em> This rule is read by Galleria to define the gallery height: </em>/
+  #galleria{height:320px}
+&lt;/style&gt;
+      eof
+    end
+  end</p>
+
+<p>  class GalleriaTag &lt; Liquid::Block
+    def initialize(tag_name, markup, tokens)
+      # No initializing needed
+      super
+    end</p>
+
+<pre><code>def render(context)
+  # Convert the entire content array into one large string
+  lines = super
+  # split the text by newlines
+  lines = lines.split(&amp;quot;\n&amp;quot;)
+
+  p = PhotosUtil.new(context)
+  gallery = &amp;quot;&amp;lt;div id=\&amp;quot;galleria\&amp;quot;&amp;gt;&amp;quot;
+
+  lines.each_with_index do |line, i|
+    next if line.empty?
+    filename, title = line.split(&amp;quot;:&amp;quot;)
+    title = (title.nil?) ? &amp;quot;&amp;quot; : title.strip
+    gallery &amp;lt;&amp;lt; &amp;quot;&amp;lt;img src=\&amp;quot;#{p.path_for(filename)}\&amp;quot; data-title=\&amp;quot;#{title}\&amp;quot; /&amp;gt;&amp;quot;
+  end
+  gallery &amp;lt;&amp;lt; &amp;quot;&amp;lt;/div&amp;gt;&amp;quot;
+  gallery &amp;lt;&amp;lt; &amp;quot;&amp;lt;script&amp;gt;&amp;quot;
+  gallery &amp;lt;&amp;lt; &amp;quot;  Galleria.configure(&amp;#39;transition&amp;#39;, &amp;#39;fade&amp;#39;);&amp;quot;
+  gallery &amp;lt;&amp;lt; &amp;quot;  Galleria.run(&amp;#39;#galleria&amp;#39;);&amp;quot;
+  gallery &amp;lt;&amp;lt; &amp;quot;&amp;lt;/script&amp;gt;&amp;quot;
+  gallery
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>end</p>
+
+<p>Liquid::Template.register_tag(&#39;galleria&#39;, Jekyll::GalleriaTag)
+Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScriptIncludePatch)
+</pre></noscript><script src="https://gist.github.com/alexbevi/1c185c6a037d63f6aec7.js"> </script></p>
 
 
 
@@ -286,6 +396,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2017/09/22/turning-an-old-android-phone-into-a-plex-media-server/">Turning an old Android Phone into a Plex Media Server + PVR</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2016/11/29/just-finished-warcraft-adventures/">Just Finished - Warcraft Adventures</a>
         </li>
         
@@ -299,10 +413,6 @@
         
         <li class="post">
             <a href="/blog/2016/07/26/just-finished-shadowrun-genesis/">Just Gave Up On - Shadowrun (Genesis)</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2016/07/25/extracting-best-rom-from-goodtools-generated-rom-sets/">Extracting Best ROM from GoodTools Generated ROM Sets</a>
         </li>
         
     </ul>

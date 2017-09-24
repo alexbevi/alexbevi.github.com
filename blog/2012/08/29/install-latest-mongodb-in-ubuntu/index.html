@@ -149,8 +149,59 @@
 
 <p>To configure the script, just replace the <code>PKG</code> information with whatever value is most relevant for your configuration at <a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>.</p>
 
-<script src="https://gist.github.com/alexbevi/3516100.js"> </script>
+<p><noscript><pre>#!/bin/bash</p>
 
+<p>PKG=mongodb-linux-x86_64-2.2.0
+URL=<a href="http://fastdl.mongodb.org/linux">http://fastdl.mongodb.org/linux</a></p>
+
+<p>if [ -f /etc/init.d/mongod ]
+then
+  echo &quot;mongod already installed &hellip; stopping&quot;
+  sudo service mongod stop
+else
+  echo &quot;installing mongod script&quot;
+  wget <a href="https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod">https://raw.github.com/gist/3516078/713ad981715236473999f30636bca2ee3dcc5f24/mongod</a>
+  sudo mv mongod /etc/init.d/mongod
+  sudo chmod +x /etc/init.d/mongod
+  echo &quot;creating mongodb user&quot;
+  sudo useradd mongodb
+  echo &quot;creating directories&quot;
+  sudo mkdir -p /var/lib/mongodb
+  sudo mkdir -p /var/log/mongodb
+  sudo chown mongodb.mongodb /var/lib/mongodb
+  sudo chown mongodb.mongodb /var/log/mongodb
+  sudo update-rc.d mongod defaults
+fi</p>
+
+<p>wget $URL/$PKG.tgz
+sudo tar -xvzf $PKG.tgz -C /usr/local/</p>
+
+<p>if [ -d /usr/local/mongodb ]
+then
+  echo &quot;removing existing mongodb symlink&quot;
+  sudo rm -rf /usr/local/mongodb
+  sudo ln -s /usr/local/$PKG /usr/local/mongodb
+else
+  echo &quot;creating symlinks&quot;
+  sudo ln -s /usr/local/$PKG /usr/local/mongodb
+  sudo ln -s /usr/local/mongodb/bin/bsondump /usr/local/bin/bsondump
+  sudo ln -s /usr/local/mongodb/bin/mongo /usr/local/bin/mongo
+  sudo ln -s /usr/local/mongodb/bin/mongod /usr/local/bin/mongod
+  sudo ln -s /usr/local/mongodb/bin/mongodump /usr/local/bin/mongodump
+  sudo ln -s /usr/local/mongodb/bin/mongoexport /usr/local/bin/mongoexport
+  sudo ln -s /usr/local/mongodb/bin/mongofiles /usr/local/bin/mongofiles
+  sudo ln -s /usr/local/mongodb/bin/mongoimport /usr/local/bin/mongoimport
+  sudo ln -s /usr/local/mongodb/bin/mongorestore /usr/local/bin/mongorestore
+  sudo ln -s /usr/local/mongodb/bin/mongos /usr/local/bin/mongos
+  sudo ln -s /usr/local/mongodb/bin/mongosniff /usr/local/bin/mongosniff
+  sudo ln -s /usr/local/mongodb/bin/mongostat /usr/local/bin/mongostat
+fi</p>
+
+<p>echo &quot;cleaning up&quot;
+rm $PKG.tgz</p>
+
+<p>echo &quot;starting mongod service&quot;
+sudo service mongod start</pre></noscript><script src="https://gist.github.com/alexbevi/3516100.js"> </script></p>
 
 <p>Note that this script pulls <code>mongod</code> from a gist which I created. This script is originally from <a href="https://github.com/ijonas">Ijonas Kisselbach</a>&rsquo;s <a href="https://raw.github.com/ijonas/dotfiles/master/etc/init.d/mongod">dotfiles</a>.</p>
 
@@ -244,6 +295,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2017/09/22/turning-an-old-android-phone-into-a-plex-media-server/">Turning an old Android Phone into a Plex Media Server + PVR</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2016/11/29/just-finished-warcraft-adventures/">Just Finished - Warcraft Adventures</a>
         </li>
         
@@ -257,10 +312,6 @@
         
         <li class="post">
             <a href="/blog/2016/07/26/just-finished-shadowrun-genesis/">Just Gave Up On - Shadowrun (Genesis)</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2016/07/25/extracting-best-rom-from-goodtools-generated-rom-sets/">Extracting Best ROM from GoodTools Generated ROM Sets</a>
         </li>
         
     </ul>

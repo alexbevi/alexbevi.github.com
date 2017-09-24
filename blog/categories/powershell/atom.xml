@@ -4,7 +4,7 @@
     <title><![CDATA[Category: powershell | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/powershell/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2016-11-29T04:39:59-05:00</updated>
+    <updated>2017-09-23T22:07:53-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -63,7 +63,68 @@ Since Powershell supports [closures](http://en.wikipedia.org/wiki/Closure_%28com
 
 <!-- more -->
 
-<script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script>
+<noscript><pre>&lt;#
+This function can be used to pass a ScriptBlock (closure) to be executed and returned.
+
+The operation retried a few times on failure, and if the maximum threshold is surpassed, the operation fails completely.
+
+Params:
+    Command         - The ScriptBlock to be executed
+    RetryDelay      - Number (in seconds) to wait between retries
+                      (default: 5)
+    MaxRetries      - Number of times to retry before accepting failure
+                      (default: 5)
+    VerboseOutput   - More info about internal processing
+                      (default: false)
+Examples:
+
+Execute-With-Retry { $connection.Open() }
+$result = Execute-With-Retry -RetryDelay 1 -MaxRetries 2 { $command.ExecuteReader() }
+#&gt;
+function Execute-With-Retry {
+    [CmdletBinding()]
+    param(    
+    [Parameter(ValueFromPipeline,Mandatory)]
+    $Command,    
+    $RetryDelay = 5,
+    $MaxRetries = 5,
+    $VerboseOutput = $false
+    )
+    
+    $currentRetry = 0
+    $success = $false
+    $cmd = $Command.ToString()
+
+    do {
+        try
+        {
+            $result = &amp; $Command
+            $success = $true
+            if ($VerboseOutput -eq $true) {
+                $Host.UI.WriteDebugLine(&quot;Successfully executed [$cmd]&quot;)
+            }
+
+            return $result
+        }
+        catch [System.Exception]
+        {
+            $currentRetry = $currentRetry + 1
+                        
+            if ($VerboseOutput -eq $true) {
+                $Host.UI.WriteErrorLine(&quot;Failed to execute [$cmd]: &quot; + $_.Exception.Message)
+            }
+            
+            if ($currentRetry -gt $MaxRetries) {                
+                throw &quot;Could not execute [$cmd]. The error: &quot; + $_.Exception.ToString()
+            } else {
+                if ($VerboseOutput -eq $true) {
+                    $Host.UI.WriteDebugLine(&quot;Waiting $RetryDelay second(s) before attempt #$currentRetry of [$cmd]&quot;)
+                }
+                Start-Sleep -s $RetryDelay
+            }
+        }
+    } while (!$success);
+}</pre></noscript><script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script>
 
 Now, if we retrofit our sample above:
 
