@@ -4,7 +4,7 @@
     <title><![CDATA[Category: android | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/android/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2017-09-23T22:07:53-04:00</updated>
+    <updated>2017-10-03T21:00:28-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -99,11 +99,13 @@ Sonarr can be installed from a repository list, so we'll just set that up on our
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y libmono-cil-dev mono-devel libcurl4-openssl-dev
 </span><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+</span><span class='line'>
 </span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;deb http://apt.sonarr.tv/ master main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/sonarr.list
 </span><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get instal -y nzbdrone
+</span><span class='line'>sudo apt-get install -y nzbdrone
 </span></code></pre></td></tr></table></div></figure>
 <img class="center" src="/images/moto-plex/moto-plex-004.png">
 
@@ -152,6 +154,12 @@ First, let's install whatever we can from our existing SSH session:
 </span><span class='line'>sudo apt-get install -y curl oracle-java8-installer transmission
 </span><span class='line'>curl -L -O https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/filebot_4.7.9_armhf.deb
 </span><span class='line'>sudo dpkg -i  filebot_4.7.9_armhf.deb
+</span></code></pre></td></tr></table></div></figure>
+
+**NOTE:** if you get an error installing the key via `apt-key`, try the following:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 </span></code></pre></td></tr></table></div></figure>
 
 In order to use Filebot, we'll need a script we can call from Transmission. The script I'm working with is as follows:

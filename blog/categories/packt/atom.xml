@@ -4,7 +4,7 @@
     <title><![CDATA[Category: packt | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/packt/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2017-09-23T22:07:53-04:00</updated>
+    <updated>2017-10-03T21:00:28-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,26 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Redmine Plugin Extension and Development Still In Demand]]></title>
+        <link href="http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/"/>
+        <updated>2017-10-03T20:38:12-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand</id>
+        <content type="html"><![CDATA[It's been a [while](/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.
+
+I have been sharing sales numbers whenever possible as a way of (hopefully) encouraging other authors to see that there is some money out there, even for obscure niche topics.
+
+
+| |Ebook|Print|
+|-|-----|-----|
+|Q2/2017|17|12|
+|Q1/2017|16|8|
+
+This isn't a super lucrative endeavour, but considering I published this book three years ago and it's still in demand, I can't complain.
+
+If I had more time on my hands I might look into writing about something a bit more "in demand", like [Docker](https://www.docker.com/) or [.NET Core](https://www.microsoft.com/net/core) (random topics I'm currently interested in :P).]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Redmine Plugin Extension and Development is Apparently Still Relevant]]></title>
@@ -124,33 +144,6 @@ Happy Holidays Everyone!!!
 
 <img class="left" src="/images/20141222-cat.png">
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Second Royalty Statement]]></title>
-        <link href="http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement/"/>
-        <updated>2014-09-22T11:45:14-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
-        <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
-
-In the table below, I've added the latest numbers to those from [my previous post](/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
-
-| |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
-|-|----------|--------------------------|---------------|-----------------------------|
-|Q1/2014|18|3|18|0|
-|Q2/2014|73|1|33|2|
-
-<!-- more -->
-
-<img class="left" src="/images/royalties20140630.png">
-
-Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
-
-At this rate, it's possible I'll see some additional money out of this title by the time 2014 is through .. which would be very exciting.
-
-I'm sure there are others out there who have been approached by technical publications and asked to write about some topic or other. I'm sure the numbers I'm posting here will convince you it's not worth quitting your job and writing full time, but it looks like it *could* become profitable over time.
-
-If you've had anything published and are seeing a decent return on your "investment", please share in the comments ;)]]></content>
     </entry>
     
 </feed>

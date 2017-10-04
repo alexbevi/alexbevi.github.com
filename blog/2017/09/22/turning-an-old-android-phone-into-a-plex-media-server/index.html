@@ -53,7 +53,6 @@
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/reviews">Reviews</a></li>
   <li><a href="/projects">Projects</a></li>
-  <li><a href="/anime">Anime</a></li>
   <li><a href="/about">About Me</a></li>
 </ul>
 
@@ -225,11 +224,13 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y libmono-cil-dev mono-devel libcurl4-openssl-dev
 </span><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+</span><span class='line'>
 </span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;deb http://apt.sonarr.tv/ master main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/sonarr.list
 </span><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get instal -y nzbdrone
+</span><span class='line'>sudo apt-get install -y nzbdrone
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -281,6 +282,13 @@
 </span><span class='line'>sudo apt-get install -y curl oracle-java8-installer transmission
 </span><span class='line'>curl -L -O https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/filebot_4.7.9_armhf.deb
 </span><span class='line'>sudo dpkg -i  filebot_4.7.9_armhf.deb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>NOTE:</strong> if you get an error installing the key via <code>apt-key</code>, try the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -410,6 +418,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/">Redmine Plugin Extension and Development Still In Demand</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2017/09/22/turning-an-old-android-phone-into-a-plex-media-server/">Turning an old Android Phone into a Plex Media Server + PVR</a>
         </li>
         
@@ -423,10 +435,6 @@
         
         <li class="post">
             <a href="/blog/2016/07/27/just-finished-dragon-quest-i/">Just Finished - Dragon Quest I</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2016/07/26/just-finished-shadowrun-genesis/">Just Gave Up On - Shadowrun (Genesis)</a>
         </li>
         
     </ul>
