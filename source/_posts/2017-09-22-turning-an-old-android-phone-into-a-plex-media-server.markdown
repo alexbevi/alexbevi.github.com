@@ -81,9 +81,10 @@ Sonarr can be installed from a repository list, so we'll just set that up on our
 ```
 sudo apt-get install -y libmono-cil-dev mono-devel libcurl4-openssl-dev
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+
 sudo echo "deb http://apt.sonarr.tv/ master main" | sudo tee /etc/apt/sources.list.d/sonarr.list
 sudo apt-get update
-sudo apt-get instal -y nzbdrone
+sudo apt-get install -y nzbdrone
 ```
 {% img center /images/moto-plex/moto-plex-004.png %}
 
@@ -126,6 +127,12 @@ sudo apt-get update
 sudo apt-get install -y curl oracle-java8-installer transmission
 curl -L -O https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/filebot_4.7.9_armhf.deb
 sudo dpkg -i  filebot_4.7.9_armhf.deb
+```
+
+**NOTE:** if you get an error installing the key via `apt-key`, try the following:
+
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
 ```
 
 In order to use Filebot, we'll need a script we can call from Transmission. The script I'm working with is as follows:
