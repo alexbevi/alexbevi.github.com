@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title><![CDATA[Category: general | ALEX BEVILACQUA]]></title>
+    <link href="http://www.alexbevi.com/blog/categories/general/atom.xml" rel="self"/>
+    <link href="http://www.alexbevi.com/"/>
+    <updated>2018-04-25T15:39:11-04:00</updated>
+    <id>http://www.alexbevi.com/</id>
+    <author>
+        <name><![CDATA[Alex Bevilacqua]]></name>
+        <email><![CDATA[alex@alexbevi.com]]></email>
+      </author>
+    <generator uri="http://octopress.org/">Octopress</generator>
+
+    
+    <entry>
+        <title type="html"><![CDATA[Setting up domain forwarding in hover.com]]></title>
+        <link href="http://www.alexbevi.com/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/"/>
+        <updated>2018-04-25T15:27:08-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com</id>
+        <content type="html"><![CDATA[I've known for a long time that when you navigate to my domain directly at [alexbevi.com](http://alexbevi.com) that you would be redirected to a [Hover](https://www.hover.com) placeholder page.
+
+I've meant to add a domain redirect for a long time but just never got around to it ... until now.
+
+If you log into your Hover control console at `https://www.hover.com/control_panel/domain/<your domain>`, you can just add the forward from the *Mangage Forwards* section.
+
+* Click **Create a Forward**
+* Select from the dropdown list
+* Enter the full url (http://...) you would like requests to your domain to go to
+* Click **Save Forward**
+
+After about 15 minutes this will be active and all requests to your domain will redirect to the url you've selected.
+
+<img class="center" src="/images/alexbevi-forward.png">
+]]></content>
+    </entry>
+    
+</feed>

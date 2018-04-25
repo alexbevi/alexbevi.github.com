@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/</loc>
+<lastmod>2018-04-25T15:27:08-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/</loc>
 <lastmod>2017-10-03T20:38:12-04:00</lastmod>
 </url>
@@ -428,6 +432,9 @@
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/categories/plex/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/blog/categories/general/</loc>
 </url>
 <url>
 <loc>http://www.alexbevi.com/anime/plex.html</loc>
