@@ -144,7 +144,7 @@
 
 <h3>Postmortem</h3>
 
-<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM).</p>
+<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
 
 <p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
 
