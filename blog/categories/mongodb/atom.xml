@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2018-05-28T09:59:05-04:00</updated>
+    <updated>2018-05-28T10:00:31-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -64,17 +64,13 @@ The way the review report is generated is still extremely inefficient, but if we
 
 Here are some lessons we learned as a result of this investigation:
 
-**Measure Everything**
-Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.
+**Measure Everything** &mdash; Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.
 
-**Understand Your Tech**
-Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.
+**Understand Your Tech**  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.
 
-**Document Everything**
-As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of "application development".
+**Document Everything**  &mdash; As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of "application development".
 
-**Ask For Help**
-When it becomes necessary to step outside your comfort zone to solve a problem, a fresh perspective can be welcome.
+**Ask For Help** &mdash; When it becomes necessary to step outside your comfort zone to solve a problem, a fresh perspective can be welcome.
 
 Hopefully this journey benefits someone else in a similar situation.]]></content>
     </entry>
