@@ -5,7 +5,7 @@ date: 2018-05-28 09:14:03 -0400
 comments: true
 categories:  [mongodb]
 ---
-The following is an edited exerpt from an email I sent out internally about a performance issue we've been experiencing for serveral years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
+The following is an edited exerpt from an email I sent out internally about a performance issue we've been experiencing for several years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
 
 ### Postmortem
 
@@ -13,7 +13,7 @@ Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enab
 
 Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.
 
-The only major upgrade came in the form of a migration from 2.2 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension ("Group", "Company", "Country", "State", "City").
+The only major upgrade came in the form of a migration from 2.6 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension ("Group", "Company", "Country", "State", "City").
 
 {% img center /images/20180528-mongo-001.png %}
 
