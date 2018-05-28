@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2018-05-28T09:33:56-04:00</updated>
+    <updated>2018-05-28T09:47:56-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/"/>
         <updated>2018-05-28T09:14:03-04:00</updated>
         <id>http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue</id>
-        <content type="html"><![CDATA[<p>The following is an edited exerpt from an email I sent out internally about a performance issue we&rsquo;ve been experiencing for serveral years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+        <content type="html"><![CDATA[<p>The following is an edited exerpt from an email I sent out internally about a performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
@@ -26,7 +26,7 @@
 
 <p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
 
-<p>The only major upgrade came in the form of a migration from 2.2 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension (&ldquo;Group&rdquo;, &ldquo;Company&rdquo;, &ldquo;Country&rdquo;, &ldquo;State&rdquo;, &ldquo;City&rdquo;).</p>
+<p>The only major upgrade came in the form of a migration from 2.6 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension (&ldquo;Group&rdquo;, &ldquo;Company&rdquo;, &ldquo;Country&rdquo;, &ldquo;State&rdquo;, &ldquo;City&rdquo;).</p>
 
 <p><img class="center" src="http://www.alexbevi.com/images/20180528-mongo-001.png"></p>
 
@@ -352,8 +352,8 @@ When it becomes necessary to step outside your comfort zone to solve a problem, 
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x61;&#x6c;&#x65;&#120;&#x62;&#x65;&#x76;&#x69;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x61;&#108;&#101;&#120;&#x62;&#x65;&#x76;&#105;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;</a>
-To: <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#119;&#x65;&#x62;&#x2e;&#x73;&#117;&#112;&#x70;&#111;&#114;&#116;&#x40;&#98;&#108;&#x69;&#x7a;&#x7a;&#x61;&#x72;&#x64;&#46;&#99;&#111;&#109;">&#119;&#x65;&#x62;&#46;&#x73;&#x75;&#112;&#112;&#111;&#x72;&#x74;&#x40;&#x62;&#x6c;&#105;&#x7a;&#x7a;&#97;&#114;&#x64;&#46;&#x63;&#x6f;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#97;&#108;&#101;&#120;&#98;&#x65;&#118;&#105;&#x40;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#97;&#108;&#x65;&#120;&#x62;&#x65;&#118;&#x69;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a>
+To: <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#119;&#101;&#98;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#64;&#98;&#x6c;&#x69;&#x7a;&#x7a;&#97;&#x72;&#x64;&#x2e;&#x63;&#x6f;&#109;">&#119;&#101;&#98;&#46;&#115;&#x75;&#x70;&#x70;&#x6f;&#x72;&#116;&#64;&#x62;&#108;&#105;&#122;&#x7a;&#97;&#114;&#x64;&#x2e;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
