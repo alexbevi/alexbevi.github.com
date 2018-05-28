@@ -135,7 +135,7 @@
 
 
 
-    <p>The following is an edited exerpt from an email I sent out internally about a performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+    <p>The following is an edited exerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
@@ -152,7 +152,9 @@
 <!-- more -->
 
 
-<p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it block the primary, which in turn affects the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
+<p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
+
+<p><strong>Note</strong> As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
 
 <p>This type of cascading failure was almost exclusively seen when the review report was being generated in the morning.</p>
 
@@ -162,9 +164,9 @@
 
 <p>You’ll notice that cache usage hits a certain point on the primary (left) server after which we have to kill the instance. The replication lag on the secondaries is also inconsistent, which would lead us to believe that the consumption rates from the primary are being affected by either network performance or disk performance.</p>
 
-<p>In the absence of DevOps, DBAs or Infrastructure Engineers, the Phoenix and TransparenSee teams have spent a significant amount of time learning to tune and troubleshoot this installation. Due to lack of specialization though occasionally issues may be misdiagnosed.</p>
+<p>In the absence of dedicated DevOps, DBAs or Infrastructure Engineers, the development teams have spent a significant amount of time learning to tune and troubleshoot this installation. Due to lack of specialization though occasionally issues may be misdiagnosed.</p>
 
-<p>We completed a significant upgrade on Tuesday that brings our cluster up to mongodb-server 3.4.15 (from 3.0.15). The 3.0 series was first introduced in March 2015, with an end of life of February 2018. As no further security updates are being released, we’ve been coordinating tests with the TransparenSee teams for the past 12 months in order to prepare for a major upgrade.</p>
+<p>We completed a significant upgrade on Tuesday that brings our cluster up to mongodb-server 3.4.15 (from 3.0.15). The 3.0 series was first introduced in March 2015, with an end of life of February 2018. As no further security updates are being released, we’ve been coordinating tests with the product development teams for the past 12 months in order to prepare for a major upgrade.</p>
 
 <p>This involved the deprecation of client-side javascript calls, as well as rewriting several map/reduce operations as aggregation pipelines to ensure when the transition happened there was no sudden outage.</p>
 
@@ -184,7 +186,7 @@
 Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.</p>
 
 <p><strong>Understand Your Tech</strong>
-Whether you’re using hosted, provisioned, on-prem, containerized, paas or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
+Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
 
 <p><strong>Document Everything</strong>
 As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
