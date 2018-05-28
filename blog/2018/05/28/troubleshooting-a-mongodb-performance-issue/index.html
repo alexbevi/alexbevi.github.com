@@ -12,7 +12,7 @@
         <title>Troubleshooting a MongoDb Performance Issue - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments The following is an edited exerpt from an email I sent out internally &hellip;">
+        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments The following is an edited excerpt from an email I sent out internally &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue">
@@ -135,7 +135,7 @@
 
 
 
-    <p>The following is an edited exerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+    <p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
@@ -154,7 +154,7 @@
 
 <p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
 
-<p><strong>Note</strong> As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
+<p><strong>Note</strong> &mdash; As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
 
 <p>This type of cascading failure was almost exclusively seen when the review report was being generated in the morning.</p>
 
@@ -186,7 +186,7 @@
 
 <p><strong>Understand Your Tech</strong>  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
 
-<p><strong>Document Everything</strong>  &mdash; As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
+<p><strong>Document Everything</strong>  &mdash; As discoveries are made, write them down and share them. Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
 
 <p><strong>Ask For Help</strong> &mdash; When it becomes necessary to step outside your comfort zone to solve a problem, a fresh perspective can be welcome.</p>
 

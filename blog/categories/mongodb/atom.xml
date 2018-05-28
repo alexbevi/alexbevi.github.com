@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2018-05-28T10:00:31-04:00</updated>
+    <updated>2018-05-28T10:18:50-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/"/>
         <updated>2018-05-28T09:14:03-04:00</updated>
         <id>http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue</id>
-        <content type="html"><![CDATA[The following is an edited exerpt from an email I sent out internally about an intermittent performance issue we've been experiencing for several years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
+        <content type="html"><![CDATA[The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we've been experiencing for several years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
 
 ### Postmortem
 
@@ -36,7 +36,7 @@ This chart (48 hours sampled from 1 week ago) shows *Cache Usage* spiking and *R
 
 This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.
 
-**Note** As of MongoDb 4.0, [non-blocking secondary reads](https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed) have been added to address these types of latency issues.
+**Note** &mdash; As of MongoDb 4.0, [non-blocking secondary reads](https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed) have been added to address these types of latency issues.
 
 This type of cascading failure was almost exclusively seen when the review report was being generated in the morning.
 
@@ -68,7 +68,7 @@ Here are some lessons we learned as a result of this investigation:
 
 **Understand Your Tech**  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.
 
-**Document Everything**  &mdash; As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of "application development".
+**Document Everything**  &mdash; As discoveries are made, write them down and share them. Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of "application development".
 
 **Ask For Help** &mdash; When it becomes necessary to step outside your comfort zone to solve a problem, a fresh perspective can be welcome.
 
