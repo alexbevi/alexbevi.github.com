@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Setting up domain forwarding in hover.com Apr 25th, 2018 general Comments I&rsquo;ve known for a long time that when you navigate to my domain &hellip;">
+        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments The following is an edited exerpt from an email I sent out internally &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -89,6 +89,78 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDb Performance Issue</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2018-05-28T09:14:03-04:00" pubdate><i class="fa fa-calendar"></i> May 28th, 2018</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <div class="article__content clearfix">
+        <p>The following is an edited exerpt from an email I sent out internally about a performance issue we&rsquo;ve been experiencing for serveral years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+
+<h3>Postmortem</h3>
+
+<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM).</p>
+
+<p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
+
+<p>The only major upgrade came in the form of a migration from 2.2 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension (&ldquo;Group&rdquo;, &ldquo;Company&rdquo;, &ldquo;Country&rdquo;, &ldquo;State&rdquo;, &ldquo;City&rdquo;).</p>
+
+<p><img class="center" src="/images/20180528-mongo-001.png"></p>
+
+<p>This chart (48 hours sampled from 1 week ago) shows <em>Cache Usage</em> spiking and <em>Replication Lag</em> spiking. The cache spikes occur as new writes trigger index activity, which invalidates (dirties) cached memory and causes cache eviction.</p>
+
+
+        <a class="btn pull-right" href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Read on &rarr;</a>
+    </div>
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -347,7 +419,7 @@
 
 
 
-    <time class="article__date pull-left" datetime="2016-11-29T03:36:22-05:00" pubdate><i class="fa fa-calendar"></i> Nov 29th, 2016</time>
+    <time class="article__date pull-left" datetime="2016-11-29T04:36:22-04:00" pubdate><i class="fa fa-calendar"></i> Nov 29th, 2016</time>
 
 
 
@@ -846,78 +918,6 @@
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2016/06/14/whats-up-may-slash-june-2016/">What's Up - May/June 2016</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2016-06-14T20:38:02-04:00" pubdate><i class="fa fa-calendar"></i> Jun 14th, 2016</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/waddap/'>waddap</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2016/06/14/whats-up-may-slash-june-2016/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <div class="article__content clearfix">
-        <p>It&rsquo;s been a while since I posted the <a href="/blog/2016/04/19/just-finished-seiken-densetsu-3/">Seiken Densetsu 3</a> review, so I figured as it might be a while before I get around to posting more content, I&rsquo;ll just throw up a quick update.</p>
-
-<h2>Gaming</h2>
-
-<p><img class="left" src="/images/shadowrun-gens/shadowrun.015.png"></p>
-
-<p>I&rsquo;m currently working my way through three games. After finishing the <a href="/blog/2016/02/23/just-finished-shadowrun/">Shadowrun</a> play-through for SNES, I got some good feedback about the <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Genesis version</a>. I decided to give that a go, and I&rsquo;ve currently made it to the last boss, but am having no luck beating him.</p>
-
-<p>I&rsquo;m pretty sure I&rsquo;m going to have to save up some nuyen and grind it out with some better runners in order to be able to beat Thon. This is a bit of a pain in the ass, and is the reason I ended up abandoning <a href="/blog/2015/01/16/just-finished-terranigma/">Terranigma</a> previously.</p>
-
-<p>I really enjoyed that game, but since I&rsquo;ve got very limited time decided to move on to the next challenge.</p>
-
-<p>By challenge, I meant <em>CHALLENGE</em>. I decided to give <a href="https://en.wikipedia.org/wiki/The_7th_Saga">The 7th Saga</a> another shot, and have now officially made it MUCH further than I ever have before.</p>
-
-
-        <a class="btn pull-right" href="/blog/2016/06/14/whats-up-may-slash-june-2016/">Read on &rarr;</a>
-    </div>
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -985,6 +985,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDb Performance Issue</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/">Setting up domain forwarding in hover.com</a>
         </li>
         
@@ -998,10 +1002,6 @@
         
         <li class="post">
             <a href="/blog/2016/11/29/just-finished-warcraft-adventures/">Just Finished - Warcraft Adventures</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2016/09/05/summer-update-2016/">Summer RPG Update 2016</a>
         </li>
         
     </ul>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/</loc>
+<lastmod>2018-05-28T09:14:03-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/</loc>
 <lastmod>2018-04-25T15:27:08-04:00</lastmod>
 </url>
@@ -14,7 +18,7 @@
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/2016/11/29/just-finished-warcraft-adventures/</loc>
-<lastmod>2016-11-29T03:36:22-05:00</lastmod>
+<lastmod>2016-11-29T04:36:22-04:00</lastmod>
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/2016/09/05/summer-update-2016/</loc>
@@ -62,7 +66,7 @@
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/2015/11/07/just-finished-final-fantasy-v/</loc>
-<lastmod>2015-11-07T19:15:57-05:00</lastmod>
+<lastmod>2015-11-07T20:15:57-04:00</lastmod>
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/2015/10/20/october-anime-update/</loc>

@@ -1,0 +1,518 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Troubleshooting a MongoDb Performance Issue - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments The following is an edited exerpt from an email I sent out internally &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Troubleshooting a MongoDb Performance Issue</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2018-05-28T09:14:03-04:00" pubdate><i class="fa fa-calendar"></i> May 28th, 2018</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p>The following is an edited exerpt from an email I sent out internally about a performance issue we&rsquo;ve been experiencing for serveral years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+
+<h3>Postmortem</h3>
+
+<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM).</p>
+
+<p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
+
+<p>The only major upgrade came in the form of a migration from 2.2 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension (&ldquo;Group&rdquo;, &ldquo;Company&rdquo;, &ldquo;Country&rdquo;, &ldquo;State&rdquo;, &ldquo;City&rdquo;).</p>
+
+<p><img class="center" src="/images/20180528-mongo-001.png"></p>
+
+<p>This chart (48 hours sampled from 1 week ago) shows <em>Cache Usage</em> spiking and <em>Replication Lag</em> spiking. The cache spikes occur as new writes trigger index activity, which invalidates (dirties) cached memory and causes cache eviction.</p>
+
+<!-- more -->
+
+
+<p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it block the primary, which in turn affects the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
+
+<p>This type of cascading failure was almost exclusively seen when the review report was being generated in the morning.</p>
+
+<p><img class="center" src="/images/20180528-mongo-002.png"></p>
+
+<p>This chart (48 hours sampled from 2 weeks ago) shows similar behaviour. The vertical lines show points at which we were forced to restart instances or cycle the primary server in order to recover resources.</p>
+
+<p>You’ll notice that cache usage hits a certain point on the primary (left) server after which we have to kill the instance. The replication lag on the secondaries is also inconsistent, which would lead us to believe that the consumption rates from the primary are being affected by either network performance or disk performance.</p>
+
+<p>In the absence of DevOps, DBAs or Infrastructure Engineers, the Phoenix and TransparenSee teams have spent a significant amount of time learning to tune and troubleshoot this installation. Due to lack of specialization though occasionally issues may be misdiagnosed.</p>
+
+<p>We completed a significant upgrade on Tuesday that brings our cluster up to mongodb-server 3.4.15 (from 3.0.15). The 3.0 series was first introduced in March 2015, with an end of life of February 2018. As no further security updates are being released, we’ve been coordinating tests with the TransparenSee teams for the past 12 months in order to prepare for a major upgrade.</p>
+
+<p>This involved the deprecation of client-side javascript calls, as well as rewriting several map/reduce operations as aggregation pipelines to ensure when the transition happened there was no sudden outage.</p>
+
+<p>Now that we’ve been running 3.4 in production for a few days I checked the same 48 hour sample and found something interesting …</p>
+
+<p><img class="center" src="/images/20180528-mongo-003.png"></p>
+
+<p>The cache usage has remained steady since we turned the instances on. The replication lag also hasn’t gone much higher than a minute in the past few days (this could creep up to over an hour in the past!).</p>
+
+<p>These samples include report generation for all products as well, so they represent the same load. We’ll have to continue to monitor this, but the initial results seem to show that a lot of the pain we’ve been suffering through may have stemmed from outdated software.</p>
+
+<p>The way the review report is generated is still extremely inefficient, but if we continue seeing results like this for the foreseeable future then the urgency of redesigning that product drops and can be properly managed.</p>
+
+<p>Here are some lessons we learned as a result of this investigation:</p>
+
+<p><strong>Measure Everything</strong>
+Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.</p>
+
+<p><strong>Understand Your Tech</strong>
+Whether you’re using hosted, provisioned, on-prem, containerized, paas or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
+
+<p><strong>Document Everything</strong>
+As discoveries are made, write them down and share them (hence this long winded email). Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
+
+<p><strong>Ask For Help</strong>
+When it becomes necessary to step outside your comfort zone to solve a problem, a fresh perspective can be welcome.</p>
+
+<p>Hopefully this journey benefits someone else in a similar situation.</p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDb Performance Issue</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/">Setting up domain forwarding in hover.com</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/">Redmine Plugin Extension and Development Still In Demand</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2017/09/22/turning-an-old-android-phone-into-a-plex-media-server/">Turning an old Android Phone into a Plex Media Server + PVR</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2016/11/29/just-finished-warcraft-adventures/">Just Finished - Warcraft Adventures</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- General Ad Unit -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:300px;height:600px"
+       data-ad-client="ca-pub-6215800856413580"
+       data-ad-slot="4883562355"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>
