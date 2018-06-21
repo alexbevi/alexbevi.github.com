@@ -12,7 +12,7 @@
         <title>Troubleshooting a MongoDb Performance Issue - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments The following is an edited excerpt from an email I sent out internally &hellip;">
+        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments UPDATE (2018-06-21): As we were running MongoDb 3.0.15 while all these &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue">
@@ -135,7 +135,9 @@
 
 
 
-    <p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
+    <p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDb 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
+
+<p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
@@ -156,7 +158,7 @@
 
 <p><strong>Note</strong> &mdash; As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
 
-<p>This type of cascading failure was almost exclusively seen when the review report was being generated in the morning.</p>
+<p>This type of cascading failure was almost exclusively seen when a large batch process was being run in the morning directly on the primary mongod instance in the mornings..</p>
 
 <p><img class="center" src="/images/20180528-mongo-002.png"></p>
 
