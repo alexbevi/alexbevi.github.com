@@ -5,9 +5,9 @@ date: 2018-05-28 09:14:03 -0400
 comments: true
 categories:  [mongodb]
 ---
-**UPDATE (2018-06-28):** *I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDb team is even with these one-off type issues :)*
+**UPDATE (2018-06-28):** *I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDb team is even with these one-off type issues :). Thanks Sue!*
 
-**UPDATE (2018-06-21):** *As we were running MongoDb 3.0.15 while all these issues were going on it's entirely possible that the [optimizations made to the write-ahead log of WiredTiger](https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2) may have also contributed to this improvement in performance :). Thanks Sue!*
+**UPDATE (2018-06-21):** *As we were running MongoDb 3.0.15 while all these issues were going on it's entirely possible that the [optimizations made to the write-ahead log of WiredTiger](https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2) may have also contributed to this improvement in performance :)*
 
 The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we've been experiencing for several years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
 
