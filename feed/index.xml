@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2018-07-09T09:18:21-04:00</updated>
+  <updated>2018-07-10T05:20:54-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,19 +14,19 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Troubleshooting a MongoDb Performance Issue]]></title>
+    <title type="html"><![CDATA[Troubleshooting a MongoDB Performance Issue]]></title>
     <link href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/"/>
     <updated>2018-05-28T09:14:03-04:00</updated>
     <id>http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue</id>
-    <content type="html"><![CDATA[<p><strong>UPDATE (2018-06-28):</strong> <em>I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDb team is even with these one-off type issues :). Thanks Sue!</em></p>
+    <content type="html"><![CDATA[<p><strong>UPDATE (2018-06-28):</strong> <em>I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDB team is even with these one-off type issues :). Thanks Sue!</em></p>
 
-<p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDb 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
+<p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDB 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
 
 <p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
-<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
+<p>Our MongoDB cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
 
 <p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
 
@@ -41,7 +41,7 @@
 
 <p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
 
-<p><strong>Note</strong> &mdash; As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
+<p><strong>Note</strong> &mdash; As of MongoDB 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
 
 <p>This type of cascading failure was almost exclusively seen when a large batch process was being run in the morning directly on the primary mongod instance in the mornings..</p>
 
@@ -71,7 +71,7 @@
 
 <p><strong>Measure Everything</strong> &mdash; Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.</p>
 
-<p><strong>Understand Your Tech</strong>  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
+<p><strong>Understand Your Tech</strong>  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDB was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
 
 <p><strong>Document Everything</strong>  &mdash; As discoveries are made, write them down and share them. Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
 
@@ -354,8 +354,8 @@
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#97;&#108;&#x65;&#x78;&#98;&#101;&#118;&#105;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#97;&#108;&#x65;&#x78;&#x62;&#x65;&#x76;&#x69;&#x40;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#x63;&#111;&#109;</a>
-To: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#119;&#101;&#98;&#x2e;&#x73;&#x75;&#112;&#112;&#111;&#x72;&#x74;&#x40;&#98;&#108;&#105;&#122;&#122;&#97;&#114;&#100;&#x2e;&#x63;&#111;&#x6d;">&#119;&#101;&#98;&#46;&#115;&#x75;&#x70;&#112;&#111;&#x72;&#x74;&#x40;&#98;&#x6c;&#x69;&#122;&#x7a;&#97;&#x72;&#x64;&#46;&#99;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#97;&#x6c;&#x65;&#120;&#98;&#x65;&#118;&#x69;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#108;&#101;&#x78;&#98;&#101;&#118;&#x69;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>
+To: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#119;&#x65;&#98;&#x2e;&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#64;&#x62;&#x6c;&#x69;&#x7a;&#x7a;&#x61;&#114;&#100;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#101;&#98;&#x2e;&#x73;&#117;&#112;&#112;&#111;&#114;&#x74;&#x40;&#98;&#x6c;&#105;&#122;&#x7a;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -1576,7 +1576,7 @@ db.borkedCollection.stats()
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Identifying failing system.js functions in MongoDb]]></title>
+    <title type="html"><![CDATA[Identifying failing system.js functions in MongoDB]]></title>
     <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
     <updated>2016-02-10T15:17:56-05:00</updated>
     <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>

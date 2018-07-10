@@ -9,10 +9,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Troubleshooting a MongoDb Performance Issue - ALEX BEVILACQUA</title>
+        <title>Troubleshooting a MongoDB Performance Issue - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Troubleshooting a MongoDb Performance Issue May 28th, 2018 mongodb Comments UPDATE (2018-06-28): I actually sent a link to this article to the &hellip;">
+        <meta name="description" content="Troubleshooting a MongoDB Performance Issue May 28th, 2018 mongodb Comments UPDATE (2018-06-28): I actually sent a link to this article to the &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue">
@@ -91,7 +91,7 @@
                     <article class="article article--single">
     <header class="article__header">
     
-        <h1 class="article__title">Troubleshooting a MongoDb Performance Issue</h1>
+        <h1 class="article__title">Troubleshooting a MongoDB Performance Issue</h1>
     
 
     
@@ -135,15 +135,15 @@
 
 
 
-    <p><strong>UPDATE (2018-06-28):</strong> <em>I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDb team is even with these one-off type issues :). Thanks Sue!</em></p>
+    <p><strong>UPDATE (2018-06-28):</strong> <em>I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDB team is even with these one-off type issues :). Thanks Sue!</em></p>
 
-<p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDb 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
+<p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDB 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
 
 <p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
 
 <h3>Postmortem</h3>
 
-<p>Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
+<p>Our MongoDB cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
 
 <p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
 
@@ -158,7 +158,7 @@
 
 <p>This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.</p>
 
-<p><strong>Note</strong> &mdash; As of MongoDb 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
+<p><strong>Note</strong> &mdash; As of MongoDB 4.0, <a href="https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed">non-blocking secondary reads</a> have been added to address these types of latency issues.</p>
 
 <p>This type of cascading failure was almost exclusively seen when a large batch process was being run in the morning directly on the primary mongod instance in the mornings..</p>
 
@@ -188,7 +188,7 @@
 
 <p><strong>Measure Everything</strong> &mdash; Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.</p>
 
-<p><strong>Understand Your Tech</strong>  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
+<p><strong>Understand Your Tech</strong>  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDB was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.</p>
 
 <p><strong>Document Everything</strong>  &mdash; As discoveries are made, write them down and share them. Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of &ldquo;application development&rdquo;.</p>
 
@@ -286,7 +286,7 @@
     <ul class="divided">
         
         <li class="post">
-            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDb Performance Issue</a>
+            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDB Performance Issue</a>
         </li>
         
         <li class="post">
