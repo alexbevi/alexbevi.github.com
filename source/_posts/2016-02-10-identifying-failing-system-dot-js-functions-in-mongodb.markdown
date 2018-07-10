@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Identifying failing system.js functions in MongoDb"
+title: "Identifying failing system.js functions in MongoDB"
 date: 2016-02-10 15:17:56 -0500
 comments: true
 categories: [mongodb, javascript]
@@ -50,7 +50,7 @@ var testSystemJs = function() {
            var func = coll.findOne({_id: doc._id});
            eval(func.value);
        } catch (ex) {
-           print("LOAD_ERROR: " + doc._id);       
+           print("LOAD_ERROR: " + doc._id);
        }
     });
 }

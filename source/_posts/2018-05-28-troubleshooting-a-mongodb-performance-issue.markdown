@@ -1,19 +1,19 @@
 ---
 layout: post
-title: "Troubleshooting a MongoDb Performance Issue"
+title: "Troubleshooting a MongoDB Performance Issue"
 date: 2018-05-28 09:14:03 -0400
 comments: true
 categories:  [mongodb]
 ---
-**UPDATE (2018-06-28):** *I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDb team is even with these one-off type issues :). Thanks Sue!*
+**UPDATE (2018-06-28):** *I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDB team is even with these one-off type issues :). Thanks Sue!*
 
-**UPDATE (2018-06-21):** *As we were running MongoDb 3.0.15 while all these issues were going on it's entirely possible that the [optimizations made to the write-ahead log of WiredTiger](https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2) may have also contributed to this improvement in performance :)*
+**UPDATE (2018-06-21):** *As we were running MongoDB 3.0.15 while all these issues were going on it's entirely possible that the [optimizations made to the write-ahead log of WiredTiger](https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2) may have also contributed to this improvement in performance :)*
 
 The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we've been experiencing for several years now. The daily processing challenges we've been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.
 
 ### Postmortem
 
-Our MongoDb cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).
+Our MongoDB cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).
 
 Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.
 
@@ -27,7 +27,7 @@ This chart (48 hours sampled from 1 week ago) shows *Cache Usage* spiking and *R
 
 This slows down the speed at which the secondaries can request data from the primary, which spikes the lag. When the secondaries request more data, it would lock up the primary, which in turn affected the primary server’s ability to ingest new content and write it to disk. The read/write buffers back up and new write requests are throttled.
 
-**Note** &mdash; As of MongoDb 4.0, [non-blocking secondary reads](https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed) have been added to address these types of latency issues.
+**Note** &mdash; As of MongoDB 4.0, [non-blocking secondary reads](https://www.mongodb.com/blog/post/mongodb-40-release-candidate-0-has-landed) have been added to address these types of latency issues.
 
 This type of cascading failure was almost exclusively seen when a large batch process was being run in the morning directly on the primary mongod instance in the mornings..
 
@@ -57,7 +57,7 @@ Here are some lessons we learned as a result of this investigation:
 
 **Measure Everything** &mdash; Without proper telemetry in place, not only is it difficult to identify negative trends, but it’s almost impossible to showcase the success of any change or action.
 
-**Understand Your Tech**  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDb was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.
+**Understand Your Tech**  &mdash; Whether you’re using hosted, provisioned, on-premise, containerized, PAAS or some other solution as part of the application architecture, make sure you really understand how to use it, and how to support it. When MongoDB was introduced to the project it was done so to fill a specific need. Once that need was filled, resourcing discussions surrounding maintainability and support should likely have been prioritized.
 
 **Document Everything**  &mdash; As discoveries are made, write them down and share them. Knowledge sharing is even more important when you’re dealing with issues that go beyond the standard requirements of "application development".
 
