@@ -7,7 +7,7 @@ footer: true
 
 {% img right /images/headshot.png Me %}
 
-The name's Alex, and I'm currently a System Architect at [DAC Group](http://www.dacgroup.com) in Toronto.
+The name's Alex, and I'm currently a Technical Services Engineer at [MongoDB](https://www.mongodb.com/) in Toronto.
 
 I've been writing software professionally since 2000, and have had the opportunity to flex my creative muscle in a number of languages and technologies.
 
