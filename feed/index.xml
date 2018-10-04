@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2018-08-23T07:32:40-04:00</updated>
+  <updated>2018-10-03T22:45:56-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,100 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Technical Services Engineering at MongoDB]]></title>
+    <link href="http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb/"/>
+    <updated>2018-10-01T15:39:28-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb</id>
+    <content type="html"><![CDATA[<p>The goal of this post is to provide a first hand account of what it means to be a <em>Technical Services Engineer</em> at <a href="https://www.mongodb.com/careers/jobs/791258">MongoDB</a>, as well as what the journey getting to this point has looked like for me.</p>
+
+<h3>WHO AM I?</h3>
+
+<p>I have been working in Application Development and Software Engineering for nearly two decades. I started off writing desktop applications in VB6, then eventually in VB.NET, C++ and C#. When it was time to shift focus to web development I started off with HTML/JS/CSS (as we all do :P), then eventually Flash/AS3, Flex, Python, Ruby/Rails and Node.js.</p>
+
+<p>I love solving problems programatically, and especially enjoy identifying opportunities for automation which can be addressed through custom tooling.</p>
+
+<p>This led me down an informal DevOps track, as I was finding there was a need for optimization in the infrastructure layers that my applications were deployed to. This led me deeper into Linux internals, system administration and network operations.</p>
+
+<p>While I was gaining these new skill-sets my primary focus was always on application development and delivery. Before coming to MongoDB I was working as a Development Lead / System Architect, but I found that my focus was always being drawn back to solving performance challenges at the infrastructure level.</p>
+
+<!-- MORE -->
+
+
+<h3>WHY MONOGODB?</h3>
+
+<p>I started working with MongoDB on a number of &ldquo;hobby&rdquo; projects around 2012. At the time I really only had experience with RDBMS', but due to the unstructured nature of the data I was working with decided to give this new technology a whirl.</p>
+
+<p>I fell in love with the database almost immediately, and have since carried it forward to multiple new employers, as well as contract opportunities and consulting engagements.</p>
+
+<p>The low barrier to entry from a development bootstrapping perspective made it the ideal backend for proof-of-concept development through to production deployment.</p>
+
+<p>As a result of this increased activity with MongoDB, I found my self doing a lot more investigation into <a href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">performance issues</a> and <a href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">internals</a> (links are to blog posts of challenges I encountered and resolved).</p>
+
+<h3>WHY TECHNICAL SERVICES?</h3>
+
+<p>This was initially very challenging for me, as I had pre-conceived notions as to what &ldquo;technical services&rdquo; actually implied. The first thoughts that popped in my head were &ldquo;technical support&rdquo;, &ldquo;client support&rdquo;, &ldquo;call center style support&rdquo;, etc.</p>
+
+<p>While researching this position I came across a blog post from about six years ago by a MongoDB employee who blogged about his experience as a Support Engineer (in this <a href="http://blog.markofu.com/2012/07/being-support-engineer-10gen-part-1.html">two</a> <a href="http://blog.markofu.com/2012/10/being-support-engineer-10gen-part-2.html">part</a> series).</p>
+
+<p>I found his reasons for joining MongoDB (10gen at the time), description of what kinds of challenges the job poses on a daily basis and how there is a constant push for self improvement and continuing education to align with what I was looking for in a new opportunity.</p>
+
+<h3>WHAT&rsquo;S A TECHNICAL SERVICES ENGINEER ON PAPER</h3>
+
+<p>To answer this question, let&rsquo;s start off by analyzing the <a href="https://www.mongodb.com/careers/jobs/791258">job posting</a> that kicked off this journey for me in the first place.</p>
+
+<p><img src="http://www.alexbevi.com/images/why_tse/why_tse_001.png"></p>
+
+<p>So they&rsquo;re looking for people that are able to solve problems and communicate clearly. This could be a call center gig after all &hellip; oh wait, <em>experts in MongoDB related database servers, drivers, tools, services</em> &hellip; hrm, maybe there&rsquo;s a bit more to this.</p>
+
+<p><img src="http://www.alexbevi.com/images/why_tse/why_tse_002.png"></p>
+
+<p><em>Architecture, performance, recovery, security</em>, those are a lot more complex than what you would face in a traditional support role. What really sold me though was the <em>contribute to internal projects</em> statement, as this aligned perfectly with my desire for process improvement through custom tooling.</p>
+
+<p><img src="http://www.alexbevi.com/images/why_tse/why_tse_003.png"></p>
+
+<p>By the time I got to this point in the job posting I was already sold. MongoDB is either trying to staff their first tier support with ridiculously over-qualified employees, or Technical Services really isn&rsquo;t what I would have thought.</p>
+
+<p>I was sold. I proceeded to fill out the application, attach my resume and cover letter and crossed my fingers.</p>
+
+<h3>WHAT&rsquo;S A TECHNICAL SERVICES ENGINEER IN PRACTICE</h3>
+
+<p>After working with other TSEs for the past two months and having had an opportunity to handle some of my own cases I think I can shed a bit of light on what this role really entails.</p>
+
+<h4>HOW IS IT A SUPPORT ROLE?</h4>
+
+<p>A Technical Services Engineer interacts with MongoDB&rsquo;s clients via a support queue. This allows incoming &ldquo;cases&rdquo; to be prioritized and categorized to allow engineers to quickly identify what form of subject matter expertise may be required (ex: <code>Indexing</code>, <code>Replication</code>, <code>Sharding</code>, <code>Performance</code>, <code>Networking</code>, etc).</p>
+
+<p>As a TSE you&rsquo;re responsible for claiming cases from a queue and providing feedback in a timely fashion that is clear, concise and technically accurate.</p>
+
+<h4>HOW IS IT AN ENGINEERING ROLE?</h4>
+
+<p>Here&rsquo;s the juicy part of this job. Although replying to client requests is the &ldquo;deliverable&rdquo; for a TSE, how you go about reproducing their issues requires a very deep understanding of MongoDB internals, software engineering, network engineering, infrastructure architecture and technical troubleshooting.</p>
+
+<p>If a client is experiencing a performance related issue, you have an opportunity to replicate this behavior locally or in the cloud in any way you choose. You can write your own scripts, write your own tools, parse and analyze logs, consult with other TSEs, etc.</p>
+
+<p>With each case you learn more about the inner working of the database, the tools, the drivers and OS level performance.</p>
+
+<h3>CONCLUSION?</h3>
+
+<p>I&rsquo;m leaving the closing section here as a question, as the TSE role continues to be redefined and refined as new MongoDB products come on board and new challenges present themselves.</p>
+
+<p>What will likely remain constant though is the need for new engineers to have the following characteristics:</p>
+
+<ul>
+<li>a passion for continuing technical education</li>
+<li>a willingness to step outside their comfort zone</li>
+<li>an interest in software engineering</li>
+<li>an interest in network operations</li>
+</ul>
+
+
+<p>I encourage you to check out the available <a href="https://www.mongodb.com/careers/departments/engineering">engineering</a> jobs if what I&rsquo;ve described here interests you (I swear HR is not putting me up to this &hellip;) as we could use more engineers like you in our ranks :)</p>
+
+<p>Feel free to leave a comment below or shoot me an email at <a href="mailto:alex@alexbevi.com">alex@alexbevi.com</a> if you have any questions.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello MongoDB]]></title>
@@ -373,8 +467,8 @@
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#x3a;&#97;&#x6c;&#x65;&#x78;&#98;&#x65;&#118;&#105;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#97;&#x6c;&#x65;&#120;&#x62;&#x65;&#x76;&#x69;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>
-To: <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#119;&#x65;&#x62;&#x2e;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#64;&#x62;&#x6c;&#x69;&#122;&#x7a;&#x61;&#x72;&#x64;&#46;&#x63;&#111;&#x6d;">&#119;&#x65;&#x62;&#46;&#x73;&#x75;&#112;&#x70;&#111;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#x7a;&#x7a;&#97;&#x72;&#100;&#46;&#x63;&#111;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#97;&#x6c;&#x65;&#120;&#98;&#101;&#118;&#105;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#108;&#x65;&#120;&#98;&#101;&#x76;&#105;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a>
+To: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#x77;&#x65;&#98;&#x2e;&#115;&#x75;&#x70;&#112;&#111;&#x72;&#x74;&#64;&#98;&#x6c;&#105;&#x7a;&#122;&#97;&#x72;&#x64;&#46;&#99;&#111;&#x6d;">&#x77;&#x65;&#x62;&#46;&#115;&#117;&#x70;&#x70;&#x6f;&#x72;&#116;&#64;&#98;&#x6c;&#105;&#x7a;&#122;&#x61;&#x72;&#100;&#x2e;&#x63;&#x6f;&#x6d;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -1842,160 +1936,6 @@ being my favourite song from this game ;)</p>
 <li>Accel World</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Lufia 2]]></title>
-    <link href="http://www.alexbevi.com/blog/2015/09/23/just-finished-lufia-2/"/>
-    <updated>2015-09-23T20:04:59-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2015/09/23/just-finished-lufia-2</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://www.alexbevi.com/images/lufia2/lufia2.000.png"></p>
-
-<p>This review has been a long time coming; a <em>VERY</em> long time coming. I heard about <a href="https://en.wikipedia.org/wiki/Lufia_II:_Rise_of_the_Sinistrals">Lufia 2: Rise of the Sinistrals</a> when I was still in high school, and have been meaning to play it ever since.</p>
-
-<p>Back then, I was just starting to get into JRPGs (though I probably just thought they were RPGs at the time) and was completely infatuated with anything that Square or Enix could crank out (except for <a href="https://en.wikipedia.org/wiki/EarthBound">Earthbound</a>, which is still one of my all-time faves).</p>
-
-<p>In the decade(s) since my teens, I&rsquo;ve picked up Lufia 2 a good dozen times, but have never really given it a fair shake. This time around though, since I&rsquo;m doing this &ldquo;Just Finished&rdquo; series, I thought I&rsquo;d finally sit down and do a full playthrough.</p>
-
-<p>For anyone that has not played this game: PLAY IT! Lufia 2 is now in the top 10 of my favourite 16-bit JRPGs of all time. Hopefully after reading my synopsis here, anyone that was on the fence will also take the plunge (you&rsquo;ll thank me later!).</p>
-
-<!-- more -->
-
-
-<h2>Overview</h2>
-
-<p>Lufia 2 (aka. Estpolis Denki II, aka. エストポリス伝記II) is a hybrid of traditional JRPG and <a href="https://en.wikipedia.org/wiki/Action_role-playing_game">Action RPG</a>. You control one to four characters at a time throughout the adventure, with enemy encounters being handled via fade-away to a turn-based combat system.</p>
-
-<p>It turns out you (Maxim) are destined to fight the Sinistrals, so you embark on a journey to save the world. Cliché? Yup :P</p>
-
-<p>Don&rsquo;t get me wrong, I love a good &ldquo;destined to save the world&rdquo; story, but after playing a handful of JRPGs in succession, I was getting a bit numb to the same story over and over again.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/lufia2/lufia2.026.png"></p>
-
-<p>I decided to give this a fair chance though, and went along with it. I had never played the original <a href="https://en.wikipedia.org/wiki/Lufia">Lufia</a> for more than 5-10 minutes, but I do remember the intro segment where you have the four heroes already in the Fortress of Doom getting ready to fight the Sinistrals.</p>
-
-<p>I&rsquo;m going to skip around a bit here because I just want to cover one thing, which is the end of the game &hellip; first. The final battle with Daos for Maxim, Artea, Guy and Selan is the EXACT scene from the first game. This made me REALLY want to go back and play the first game, as I now had a connection with the characters.</p>
-
-<p>Also, I thought I was a really cool transition as it tied the two games together seamlessly.</p>
-
-<h3>Combat</h3>
-
-<p><img class="left" src="http://www.alexbevi.com/images/lufia2/lufia2.032.png"></p>
-
-<p>Enemy encounters on the overworld are random. As you&rsquo;re walking around, suddenly the screen will zoom in and boom, it&rsquo;s go time! For anyone familiar with JRPGs, this is pretty common.</p>
-
-<p>Unlike traditional RPGs, Lufia 2 doesn&rsquo;t have &ldquo;random&rdquo; encounters in dungeons. All enemies are visible as you explore the dungeons, and though most will chase you, a lot of these battles can be avoided if you so choose.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/lufia2/lufia2.005.png"></p>
-
-<p>Once a battle is initiated, as opposed to a text-based menu of <code>Fight | Magic | Item | Run</code> as you might see in some games, you&rsquo;re presented with an icon cross (reminiscent of <a href="http://www.alexbevi.com/blog/2015/06/10/just-finished-breath-of-fire/">Breath of Fire</a>).</p>
-
-<p>Aside from the standard Attack, Item and Magic options, there is also and Abilities option for each party member. This additional entry gives each character access to various offensive or defensive abilities that are linked to their weapons and armour. This adds another dimension to battles as you have to keep track of what skills are linked to your equipment (don&rsquo;t just hit &lsquo;optimize&rsquo; each time) as weaker items may provide added benefits against certain enemies.</p>
-
-<h3>Puzzles</h3>
-
-<p><img class="left" src="http://www.alexbevi.com/images/lufia2/lufia2.004.png"></p>
-
-<p>What I really enjoyed about this game from the moment I entered the first dungeon was the puzzles. Littered throughout each dungeon are puzzles that you need to solve in order to open a door and proceed.</p>
-
-<p>Generally, these puzzles aren&rsquo;t all that complex, but they break up the dungeons a bit so it doesn&rsquo;t feel monotonous as you basically do the same things over and over in order to progress the story.</p>
-
-<p>As you move further through the game, you also collect various key items, that can be used in order to help solve the various puzzles (bombs, arrows, hook shot, etc.)</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/lufia2/lufia2.021.png"></p>
-
-<p>These add another dimension to the puzzles that keeps them interesting. I honestly didn&rsquo;t find most puzzles to be very challenging, but I will admit to having to use a walkthrough for at least 2 of them &hellip; (thankfully there are excellent <a href="http://shrines.rpgclassics.com/snes/lufia2/puzzles.shtml">guides on rpgclassics</a> for just these instances where you need a tiny bit of help)</p>
-
-<h3>Party</h3>
-
-<p>Your party is made up of Maxim, and at various points Tia, Guy, Selan, Dekar and Arty.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/lufia2/lufia2.019.png"></p>
-
-<p>Tia is from your home village and follows you on the initial leg of the quest. You think she&rsquo;s going to end up being Maxim&rsquo;s love interest, but that changes once Selan enters the story ;)</p>
-
-<p>Maxim and Selan fall in love, get married, and have a baby. This all happens around the mid-point of the game, acting as a bit of an intermission. Once they have the kid, they decide to go back out and fight so that the world is safe for their baby (and everyone else &hellip; I guess).</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/lufia2/lufia2.028.png"></p>
-
-<p>Guy joins as he&rsquo;s a good fighter and wants to help defeat the Sinistrals. Dekar&rsquo;s reasons are basically the same.</p>
-
-<h3>Capsule Monsters</h3>
-
-<p>Your party can also include capsule monsters. These are optional encounters throughout the game that if you seek out result in an additional character being able to join you in battle.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/lufia2/lufia2.018.png"></p>
-
-<p>Each monster has an elemental affiliation, and can level up with you as you fight enemies. If the capsule monster dies in battle though, they respawn for the next fight, so there&rsquo;s no need to worry about their health (you can&rsquo;t heal them). They do tend to run from a lot of battles automatically though, which can be annoying.</p>
-
-<p>Capsule monsters can also be made stronger by leveling them up through feeding them weapons, armour and items.</p>
-
-<p>This got a bit annoying as I had to hear a lot of &ldquo;Yuk"s from the monsters while trying to find the right items to feed them.</p>
-
-<h3>Music</h3>
-
-<p>I just quickly wanted to touch on the music in this game. For a JRPG not composed by <a href="http://vgmdb.net/artist/77">Nobuo</a>, the soundtrack is pretty solid.</p>
-
-<p>If you&rsquo;ve got a minute, check out a couple of songs below to get a taste of what&rsquo;s in store for you ;)</p>
-
-<ul>
-<li><a href="https://www.youtube.com/watch?v=-Fzm2O4Zt-k&amp;index=44&amp;list=PL6BB4862ADAA12E48">Final Battle</a></li>
-<li><a href="https://www.youtube.com/watch?v=7E-AD-OUxKg&amp;list=PL6BB4862ADAA12E48&amp;index=10">Peace of Mind</a></li>
-<li><a href="https://www.youtube.com/watch?v=Fk3omXPfuVM&amp;list=PL6BB4862ADAA12E48&amp;index=41">The Lost World</a></li>
-<li><a href="https://www.youtube.com/watch?v=BLIrE5ivseQ&amp;list=PL6BB4862ADAA12E48&amp;index=46">Battle Theme 3</a></li>
-</ul>
-
-
-<p>In case you&rsquo;re wondering, composition credit goes to <a href="http://vgmdb.net/artist/313">Yasunori Shiono</a>.</p>
-
-<h3>Ancient Cave</h3>
-
-<p>This is a completely optional dungeon, but if you&rsquo;re going to play Lufia 2, you HAVE to try and clear it ;)</p>
-
-<p>The ancient cave is 99 randomly generated floors, and you start the cave at level 1 (no matter where you actually are in the game). As you level up and descend further into the cave, you find various treasures and spells that you can only use within the cave.</p>
-
-<p>If you warp out, you lose all experience and items you&rsquo;ve found; aside from items in blue chests (which are few).</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/lufia2/lufia2.038.png"></p>
-
-<p>Once you make it to the last level of the cave, you fight the Master Jelly. This is a brutal fight, as you only have 3 turns in order to beat him, and if you don&rsquo;t, he just runs and that&rsquo;s the end of it (you have to warp out).</p>
-
-<p>Note that I basically cheated to beat him. If you can kill your entire party before he runs, you&rsquo;ll actually win the fight.</p>
-
-<p>I did this, but I didn&rsquo;t find all the Iris Treasures in the cave so it didn&rsquo;t really matter.</p>
-
-<h2>Summary</h2>
-
-<p>As great as you probably think I think this game is by now, it is not without its faults.</p>
-
-<p>First off, this game is <em>extremely</em> linear. The plot progresses as follows:</p>
-
-<ul>
-<li>Go to <tower name> tower to find <plot point></li>
-<li>Climb tower and fight enemy</li>
-<li>Go back to town to learn where next town is</li>
-<li>Go to shrine to advance to next town</li>
-</ul>
-
-
-<p>Sure you get a boat at a certain point and it &ldquo;opens&rdquo; up the map, but you still basically go from town to town and tower to tower without much variety.</p>
-
-<p>Also, it may be that I&rsquo;m just a bit more experienced in the genre and know how to level grind, but I found this game to be very, very easy. By the final dungeon, every battle was essentially the same (the final boss included): fight, fight, valor, fight.</p>
-
-<p>All in all though, I really enjoyed this game. Although the story seemed like it was going to be pretty basic at the outset turned out the be really compelling.</p>
-
-<p>There was actually quite a bit of character development. I think this is why at the end when you realize you&rsquo;re basically setting up the intro of Lufia I, you really want to go back and play that game to see if the story continues to be as strong.</p>
-
-<p>I&rsquo;ll probably give this game another run through in a few years, as it really was enjoyable. I tend to do this with RPGs i enjoy as I forget specifics of the story over the years and enjoy rediscovering them. Final Fantasy IV and VI have had this treatment now probably a good 4-5 times each ;)</p>
-
-<div id="galleria"><img src="http://www.alexbevi.com/images/lufia2/lufia2.001.png" data-title="/images/lufia2/lufia2.001.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.002.png" data-title="/images/lufia2/lufia2.002.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.003.png" data-title="/images/lufia2/lufia2.003.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.006.png" data-title="/images/lufia2/lufia2.006.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.007.png" data-title="/images/lufia2/lufia2.007.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.008.png" data-title="/images/lufia2/lufia2.008.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.009.png" data-title="/images/lufia2/lufia2.009.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.010.png" data-title="/images/lufia2/lufia2.010.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.011.png" data-title="/images/lufia2/lufia2.011.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.012.png" data-title="/images/lufia2/lufia2.012.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.013.png" data-title="/images/lufia2/lufia2.013.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.014.png" data-title="/images/lufia2/lufia2.014.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.015.png" data-title="/images/lufia2/lufia2.015.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.016.png" data-title="/images/lufia2/lufia2.016.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.017.png" data-title="/images/lufia2/lufia2.017.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.020.png" data-title="/images/lufia2/lufia2.020.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.022.png" data-title="/images/lufia2/lufia2.022.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.023.png" data-title="/images/lufia2/lufia2.023.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.024.png" data-title="/images/lufia2/lufia2.024.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.025.png" data-title="/images/lufia2/lufia2.025.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.027.png" data-title="/images/lufia2/lufia2.027.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.029.png" data-title="/images/lufia2/lufia2.029.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.030.png" data-title="/images/lufia2/lufia2.030.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.031.png" data-title="/images/lufia2/lufia2.031.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.033.png" data-title="/images/lufia2/lufia2.033.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.034.png" data-title="/images/lufia2/lufia2.034.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.035.png" data-title="/images/lufia2/lufia2.035.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.036.png" data-title="/images/lufia2/lufia2.036.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.037.png" data-title="/images/lufia2/lufia2.037.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.039.png" data-title="/images/lufia2/lufia2.039.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.040.png" data-title="/images/lufia2/lufia2.040.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.041.png" data-title="/images/lufia2/lufia2.041.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.042.png" data-title="/images/lufia2/lufia2.042.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.043.png" data-title="/images/lufia2/lufia2.043.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.044.png" data-title="/images/lufia2/lufia2.044.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.045.png" data-title="/images/lufia2/lufia2.045.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.046.png" data-title="/images/lufia2/lufia2.046.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.047.png" data-title="/images/lufia2/lufia2.047.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.048.png" data-title="/images/lufia2/lufia2.048.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.049.png" data-title="/images/lufia2/lufia2.049.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.050.png" data-title="/images/lufia2/lufia2.050.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.051.png" data-title="/images/lufia2/lufia2.051.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.052.png" data-title="/images/lufia2/lufia2.052.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.053.png" data-title="/images/lufia2/lufia2.053.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.054.png" data-title="/images/lufia2/lufia2.054.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.055.png" data-title="/images/lufia2/lufia2.055.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.056.png" data-title="/images/lufia2/lufia2.056.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.057.png" data-title="/images/lufia2/lufia2.057.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.058.png" data-title="/images/lufia2/lufia2.058.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.059.png" data-title="/images/lufia2/lufia2.059.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.060.png" data-title="/images/lufia2/lufia2.060.png" /><img src="http://www.alexbevi.com/images/lufia2/lufia2.061.png" data-title="/images/lufia2/lufia2.061.png" /></div>
-
-
-<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-
-<p><br/></p>
 ]]></content>
   </entry>
   

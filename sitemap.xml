@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb/</loc>
+<lastmod>2018-10-01T15:39:28-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2018/08/14/hello-mongodb/</loc>
 <lastmod>2018-08-14T15:31:04-04:00</lastmod>
 </url>
