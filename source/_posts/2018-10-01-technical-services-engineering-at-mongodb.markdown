@@ -54,7 +54,7 @@ So they're looking for people that are able to solve problems and communicate cl
 
 By the time I got to this point in the job posting I was already sold. MongoDB is either trying to staff their first tier support with ridiculously over-qualified employees, or Technical Services really isn't what I would have thought.
 
-I was sold. I proceeded to fill out the application, attach my resume and cover letter and crossed my fingers.
+I proceeded to fill out the application, attach my resume and cover letter and crossed my fingers.
 
 ### WHAT'S A TECHNICAL SERVICES ENGINEER IN PRACTICE
 
