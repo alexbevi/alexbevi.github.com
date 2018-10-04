@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2018-10-04T10:32:02-04:00</updated>
+    <updated>2018-10-04T15:31:54-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -82,7 +82,9 @@ As a TSE you're responsible for claiming cases from a queue and providing feedba
 
 Here's the juicy part of this job. Although replying to client requests is the "deliverable" for a TSE, how you go about reproducing their issues requires a very deep understanding of MongoDB internals, software engineering, network engineering, infrastructure architecture and technical troubleshooting.
 
-If a client is experiencing a performance related issue, you have an opportunity to replicate this behavior locally or in the cloud in any way you choose. You can write your own scripts, write your own tools, parse and analyze logs, consult with other TSEs, etc.
+Depending on the type of issue, a reproduction is likely in store. These involve recreating the environment (locally or in the cloud) to either benchmark or replicate the identified client challenge. There is a vast library of tools available to TSEs for these types of tasks, but on some occasions the right tool for the job may not exist.
+
+In these cases, you have an opportunity to write your own scripts or tools to parse logs, measure performance, record telemetry or verify a hypothesis. Although MongoDB doesn't require TSEs to have any programming experience, for those like me that come from product engineering it's refreshing to know there's still an opportunity to scratch the development itch.
 
 With each case you learn more about the inner working of the database, the tools, the drivers and OS level performance.
 
