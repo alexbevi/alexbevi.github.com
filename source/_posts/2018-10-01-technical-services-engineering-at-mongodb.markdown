@@ -87,6 +87,6 @@ What will likely remain constant though is the need for new engineers to have th
 * an interest in software engineering
 * an interest in network operations
 
-I encourage you to check out the available [engineering](https://www.mongodb.com/careers/departments/engineering) jobs if what I've described here interests you (I swear HR is not putting me up to this ...) as we could use more engineers like you in our ranks :)
+I encourage you to check out MongoDB's [available jobs](https://grnh.se/a463664f1) if what I've described here interests you (I swear HR is not putting me up to this ...) as we could use more engineers like you in our ranks :)
 
 Feel free to leave a comment below or shoot me an email at [alex@alexbevi.com](mailto:alex@alexbevi.com) if you have any questions.
