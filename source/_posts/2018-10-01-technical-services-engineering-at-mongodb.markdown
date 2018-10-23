@@ -20,7 +20,7 @@ While I was gaining these new skill-sets my primary focus was always on applicat
 
 <!-- MORE -->
 
-### WHY MONOGODB?
+### WHY MONGODB?
 
 I started working with MongoDB on a number of "hobby" projects around 2012. At the time I really only had experience with RDBMS', but due to the unstructured nature of the data I was working with decided to give this new technology a whirl.
 
