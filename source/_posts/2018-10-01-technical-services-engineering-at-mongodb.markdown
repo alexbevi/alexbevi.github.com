@@ -10,9 +10,9 @@ The goal of this post is to provide a first hand account of what it means to be 
 
 ### WHO AM I?
 
-I have been working in Application Development and Software Engineering for nearly two decades. I started off writing desktop applications in VB6, then eventually in VB.NET, C++ and C#. When it was time to shift focus to web development I started off with HTML/JS/CSS (as we all do :P), then eventually Flash/AS3, Flex, Python, Ruby/Rails and Node.js.
+I have been working in Application Development and Software Engineering for nearly two decades. I started off writing desktop applications in QuickBASIC and Turbo Pascal, then eventually in VB6, VB.NET, C++ and C#. When it was time to shift focus to web development I started off with HTML/JS/CSS (as we all do :P), then eventually Flash/AS3, Flex, Python, Ruby/Rails and Node.js.
 
-I love solving problems programatically, and especially enjoy identifying opportunities for automation which can be addressed through custom tooling.
+I started writing software when I was a kid. First I wrote some automation tools for my mom's business. I then moved on to building tools to help me cheat at various games I was playing at the time, and eventually got more into emulator programming and reverse engineering. I guess you could say I've always loved solving problems programmatically, and especially enjoyed identifying opportunities for automation and custom tooling.
 
 This led me down an informal DevOps track, as I was finding there was a need for optimization in the infrastructure layers that my applications were deployed to. This led me deeper into Linux internals, system administration and network operations.
 
