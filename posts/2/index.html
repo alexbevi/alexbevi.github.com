@@ -706,7 +706,14 @@
 
 
     <div class="article__content clearfix">
-        <p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
+        <blockquote>
+April, 1 2019: I've received a <em>LOT</em> of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a <tt>--repair</tt> flag in 4.0.3 that simplifies this process significantly.
+
+I would recommend reading their <a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown">"Recover a Standalone after an Unexpected Shutdown"</a> tutorial to see if it applies to your recovery scenario.
+</blockquote>
+
+
+<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
 
 <p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
 
