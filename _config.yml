@@ -11,6 +11,7 @@ description:
 
 gems:
   - jekyll-gist
+  - jekyll-last-modified-at
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

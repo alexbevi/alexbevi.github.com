@@ -28,5 +28,6 @@
         <a class="btn pull-right" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
     </div>
 {% else %}
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: {{ page.last_modified_at | date: '%b %d, %Y' }}</em></small></p>
     {{ content }}
 {% endif %}

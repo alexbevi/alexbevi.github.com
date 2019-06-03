@@ -6,6 +6,13 @@ comments: true
 categories: [mongodb, wired-tiger, devops]
 ---
 
+<blockquote>
+April, 1 2019: I've received a <em>LOT</em> of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a <tt>--repair</tt> flag in 4.0.3 that simplifies this process significantly.
+
+I would recommend reading their <a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown">"Recover a Standalone after an Unexpected Shutdown"</a> tutorial to see if it applies to your recovery scenario.
+</blockquote>
+
+
 Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
 
 The secondary process failed, and as a result, *everything* was "cleaned" ... aka, we purged an entire dataset.
@@ -88,7 +95,7 @@ db.getCollection('borkedCollection').stats()
 
 That `"uri" : "statistics:table:collection-7895--1435676552983097781"` entry looked promising.
 
-I started hunting for a way to extract the data from this file without having to "mount" the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that [happened to have a 'salvage' command](http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage). 
+I started hunting for a way to extract the data from this file without having to "mount" the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that [happened to have a 'salvage' command](http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage).
 
 **Salvaging the WiredTiger collection**
 
@@ -121,7 +128,7 @@ Now, from the directory where we compiled WiredTiger, we started salvaging the c
 
 You know it's working if you see output along the lines of:
 
-    WT_SESSION.salvage 639400             
+    WT_SESSION.salvage 639400
 
 which I believe is just counting up the number of documents recovered. Once the operation has completed, it will have overwritten the source `*.wt` collection file with whatever it could salvage.
 
@@ -139,7 +146,7 @@ Once completed, you'll have a `collection.dump` file, but this *still* can't be 
 
 First, let's startup a new `mongod` instance that we can try this out on.
 
-    mongod --dbpath tmp-mongo --storageEngine wiredTiger --nojournal                                  
+    mongod --dbpath tmp-mongo --storageEngine wiredTiger --nojournal
 
 Next, let's connect to this instance via the mongo shell and create a new collection:
 
@@ -205,7 +212,7 @@ This final part is pretty straightforward, as we're just going to do a `mongodum
 
 ```
 $ mongodump
-2016-02-10T22:04:00.580-0500    writing Recovery.borkedCollection to 
+2016-02-10T22:04:00.580-0500    writing Recovery.borkedCollection to
 2016-02-10T22:04:03.579-0500    Recovery.borkedCollection  268219
 2016-02-10T22:04:06.579-0500    Recovery.borkedCollection  340655
 2016-02-10T22:04:09.579-0500    Recovery.borkedCollection  496787
