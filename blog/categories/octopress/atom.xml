@@ -4,7 +4,7 @@
     <title><![CDATA[Category: octopress | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/octopress/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:57:12-05:00</updated>
+    <updated>2020-01-17T09:18:39-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -32,43 +32,121 @@ I ended up forking the gist in order to implement a Gallery tag for Jekyll/Octop
 
 Now I can build a gallery from my extra screenshots by simply adding
 
-{% raw %}
-```
-{% galleria %}
-/images/robotrek/Robotrek_(USA).000.png
-/images/robotrek/Robotrek_(USA).001.png
-/images/robotrek/Robotrek_(USA).002.png
-/images/robotrek/Robotrek_(USA).003.png
-/images/robotrek/Robotrek_(USA).004.png
-/images/robotrek/Robotrek_(USA).005.png
-/images/robotrek/Robotrek_(USA).006.png
-/images/robotrek/Robotrek_(USA).007.png
-/images/robotrek/Robotrek_(USA).008.png
-/images/robotrek/Robotrek_(USA).009.png
-/images/robotrek/Robotrek_(USA).010.png
-{% endgalleria %}
-```
-{% endraw %}
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{% galleria %}
+</span><span class='line'>/images/robotrek/Robotrek_(USA).000.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).001.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).002.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).003.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).004.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).005.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).006.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).007.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).008.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).009.png
+</span><span class='line'>/images/robotrek/Robotrek_(USA).010.png
+</span><span class='line'>{% endgalleria %}</span></code></pre></td></tr></table></div></figure>
+
 
 to my post, which will produce the following gallery:
 
-{% galleria %}
-/images/robotrek/Robotrek_(USA).000.png
-/images/robotrek/Robotrek_(USA).001.png
-/images/robotrek/Robotrek_(USA).002.png
-/images/robotrek/Robotrek_(USA).003.png
-/images/robotrek/Robotrek_(USA).004.png
-/images/robotrek/Robotrek_(USA).005.png
-/images/robotrek/Robotrek_(USA).006.png
-/images/robotrek/Robotrek_(USA).007.png
-/images/robotrek/Robotrek_(USA).008.png
-/images/robotrek/Robotrek_(USA).009.png
-/images/robotrek/Robotrek_(USA).010.png
-{% endgalleria %}
+<div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="/images/robotrek/Robotrek_(USA).000.png" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="/images/robotrek/Robotrek_(USA).001.png" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="/images/robotrek/Robotrek_(USA).002.png" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="/images/robotrek/Robotrek_(USA).003.png" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="/images/robotrek/Robotrek_(USA).004.png" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="/images/robotrek/Robotrek_(USA).005.png" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="/images/robotrek/Robotrek_(USA).006.png" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="/images/robotrek/Robotrek_(USA).007.png" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="/images/robotrek/Robotrek_(USA).008.png" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="/images/robotrek/Robotrek_(USA).009.png" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="/images/robotrek/Robotrek_(USA).010.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 I've included the gist below. If you want to download and install this yourself, just download the gist to `/path/to/octopress/plugins`.
 
-{% gist alexbevi/1c185c6a037d63f6aec7 %}]]></content>
+<noscript><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src data:; connect-src &#39;self&#39;&quot;&gt;
+    &lt;title&gt;Site not found &amp;middot; GitHub Pages&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+      }
+
+      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+      a { color: #4183c4; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+      ul { list-style: none; margin: 25px 0; padding: 0; }
+      li { display: table-cell; font-weight: bold; width: 1%; }
+
+      .logo { display: inline-block; margin-top: 35px; }
+      .logo-img-2x { display: none; }
+      @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+        .logo-img-1x { display: none; }
+        .logo-img-2x { display: inline-block; }
+      }
+
+      #suggestions {
+        margin-top: 35px;
+        color: #ccc;
+      }
+      #suggestions a {
+        color: #666666;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+
+      &lt;h1&gt;404&lt;/h1&gt;
+      &lt;p&gt;&lt;strong&gt;There isn&#39;t a GitHub Pages site here.&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;
+        If you&#39;re trying to publish one,
+        &lt;a href=&quot;https://help.github.com/pages/&quot;&gt;read the full documentation&lt;/a&gt;
+        to learn how to set up &lt;strong&gt;GitHub Pages&lt;/strong&gt;
+        for your repository, organization, or user account.
+      &lt;/p&gt;
+
+      &lt;div id=&quot;suggestions&quot;&gt;
+        &lt;a href=&quot;https://githubstatus.com&quot;&gt;GitHub Status&lt;/a&gt; &amp;mdash;
+        &lt;a href=&quot;https://twitter.com/githubstatus&quot;&gt;@githubstatus&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;a href=&quot;/&quot; class=&quot;logo logo-img-1x&quot;&gt;
+        &lt;img width=&quot;32&quot; height=&quot;32&quot; title=&quot;&quot; alt=&quot;&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=&quot;&gt;
+      &lt;/a&gt;
+
+      &lt;a href=&quot;/&quot; class=&quot;logo logo-img-2x&quot;&gt;
+        &lt;img width=&quot;32&quot; height=&quot;32&quot; title=&quot;&quot; alt=&quot;&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mM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&quot;&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></noscript><script src="https://gist.github.com/alexbevi/1c185c6a037d63f6aec7.js"> </script>]]></content>
     </entry>
     
     <entry>
@@ -84,27 +162,43 @@ A quick Google search came up dry, so I figured I'd just roll my own.
 
 In order to accomplish this, all that is required is to edit `source/_includes/post/sharing.html`:
 
-{% raw %}
-```diff
-diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html
-index e32500d..0bdd01e 100644
---- a/source/_includes/post/sharing.html
-+++ b/source/_includes/post/sharing.html
-@@ -5,6 +5,12 @@
-   {% if site.google_plus_one %}
-   <div class="g-plusone" data-size="{{ site.google_plus_one_size }}"></div>
-   {% endif %}
-+  {% if site.linkedin_share %}
-+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
-+    lang: en_US
-+  </script>
-+  <script type="IN/Share" data-url="{{ site.url }}{{ page.url }}" data-counter="right"></script>
-+  {% endif %}
-   {% if site.facebook_like %}
-     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-   {% endif %}
-```
-{% endraw %}
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gh">index e32500d..0bdd01e 100644</span>
+</span><span class='line'><span class="gd">--- a/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gi">+++ b/source/_includes/post/sharing.html</span>
+</span><span class='line'><span class="gu">@@ -5,6 +5,12 @@</span>
+</span><span class='line'>   {% if site.google_plus_one %}
+</span><span class='line'>   &lt;div class=&quot;g-plusone&quot; data-size=&quot;{{ site.google_plus_one_size }}&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   {% endif %}
+</span><span class='line'><span class="gi">+  {% if site.linkedin_share %}</span>
+</span><span class='line'><span class="gi">+    &lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;</span>
+</span><span class='line'><span class="gi">+    lang: en_US</span>
+</span><span class='line'><span class="gi">+  &lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  &lt;script type=&quot;IN/Share&quot; data-url=&quot;{{ site.url }}{{ page.url }}&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="gi">+  {% endif %}</span>
+</span><span class='line'>   {% if site.facebook_like %}
+</span><span class='line'>     &lt;div class=&quot;fb-like&quot; data-send=&quot;true&quot; data-width=&quot;450&quot; data-show-faces=&quot;false&quot;&gt;&lt;/div&gt;
+</span><span class='line'>   {% endif %}
+</span></code></pre></td></tr></table></div></figure>
+
 
 The change above adds a snippit of Javascript that passes the current `site.url` and `page.url` in a similar fashion as is done for Twitter.
 
@@ -112,18 +206,27 @@ The Javascript source was generated using LinkedIn's [Share Plugin Generator](ht
 
 Just in case you want to easily toggle this functionality, I've also set it up to check for a configuration value in your site's `_config.yml`:
 
-```diff
-diff --git a/_config.yml b/_config.yml
-index f8f825c..2dce55b 100644
---- a/_config.yml
-+++ b/_config.yml
-@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx
- # Facebook Like
- facebook_like: true
- 
-+# LinkedIn Share
-+linkedin_share: true
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/_config.yml b/_config.yml</span>
+</span><span class='line'><span class="gh">index f8f825c..2dce55b 100644</span>
+</span><span class='line'><span class="gd">--- a/_config.yml</span>
+</span><span class='line'><span class="gi">+++ b/_config.yml</span>
+</span><span class='line'><span class="gu">@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx</span>
+</span><span class='line'> # Facebook Like
+</span><span class='line'> facebook_like: true
+</span><span class='line'>
+</span><span class='line'><span class="gi">+# LinkedIn Share</span>
+</span><span class='line'><span class="gi">+linkedin_share: true</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Now, the next time your site is regenerated, a LinkedIn share button will be available.
 

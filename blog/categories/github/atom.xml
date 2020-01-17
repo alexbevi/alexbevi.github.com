@@ -4,7 +4,7 @@
     <title><![CDATA[Category: github | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/github/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:57:12-05:00</updated>
+    <updated>2020-01-17T09:18:39-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -32,11 +32,11 @@ In order to configure your repository to push to both, all you need to do is:
 
 **2b)** add a second `url` entry under the same **remote** as you're already pushing to
 
-{% img /images/20141219-git-001.png %}
+<img src="/images/20141219-git-001.png">
 
 **3)** now to initialze the Bitbucket remote execute `git push origin -u --all`. 
 
-{% img /images/20141219-git-002.png %}
+<img src="/images/20141219-git-002.png">
 
 This will attempt to push all branches to the remote named *origin*. Since the version on GitHub is already up to date, the Bitbucket version will be initialized and all changes will be pushed.
 

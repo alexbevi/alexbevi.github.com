@@ -4,7 +4,7 @@
     <title><![CDATA[Category: shoutcast | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/shoutcast/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:57:12-05:00</updated>
+    <updated>2020-01-17T09:18:39-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -26,76 +26,144 @@ After searching around, i found a [post on the crunchbang forums](http://crunchb
 
 I modified it a tiny bit to check for dependencies:
 
-{% codeblock Linux Shoutcast Search and Streaming - shoutcast.sh lang:bash %}
-#!/bin/bash
-# search shoutcast and send url to radiotray or another player
-# needs Bash 4, curl, [radiotray], [xsel to send url to X selection for pasting]
-# (comment out line 53 "printf '%s'..." if you don't use xsel)
-
-command -v curl > /dev/null 2>&1 || { echo "curl required." >&2; exit 1; }
-command -v xsel > /dev/null 2>&1 || { echo "xsel required." >&2; exit 1; }
-command -v radiotray > /dev/null 2>&1 || { echo "radiotray required." >&2; exit 1; }
-
-# choose player (& options if necessary): radio url will be sent to it.
-radioplay() {
-    radiotray "$1"
-#    mplayer -playlist "$1" # replace 'mplayer -playlist' to taste, $1 will hold the url
-#    exec mplayer -playlist "$1" # add 'exec' if you'd rather launch player and leave script
-}
-
-# start up radiotray in background if it's not already running
-# Comment out this line if you don't use radiotray.
-pgrep radiotray >/dev/null || ( radiotray >/dev/null 2>&1 & )
-
-##########################################################################
-while true
-do
-echo "Please enter keyword(s)"
-read keyword
-keyword="${keyword// /%20}" # escape spaces for url
-results=$( curl -s "http://www.shoutcast.com/Internet-Radio/$keyword" |awk '
-BEGIN {
-    RS="<div class=\"dirlist\">"
-    FS=">"
-}
-NR < 2 {next}
-{url = name = $2
-sub(/^.*title=\"/,"",name)
-sub(/\".*$/,"",name)
-sub(/^.*href=\"/,"",url)
-sub(/\".*$/,"",url)
-print url,name }
-' )
-[[ $results ]] || { echo "Sorry, no results for $keyword"; continue;}
-
-unset list
-declare -A list # make associative array
-while read url name # read in awk's output
-do
-    list["$name"]="$url"
-done <<< "$results"
-
-PS3='Please enter the number of your choice > '
-while true
-do
-    select station in "${!list[@]}" 'Search Again' Quit
-    do
-        [[ $station = 'Search Again' ]] && break 2
-        [[ $station = Quit ]] && { echo 'Goodbye...'; exit; }
-        [[ $station ]] && {
-        printf '%s' "${list[$station]}" | xsel --input #--clipboard  # can paste url
-        radioplay "${list[$station]}"
-        break
-        }
-    done
-echo "
-Last station chosen was $station ( ${list[$station]} )
-"
-done
-
-done # closes loop started at line 18
-exit
-{% endcodeblock %}]]></content>
+<figure class='code'><figcaption><span>Linux Shoutcast Search and Streaming - shoutcast.sh </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># search shoutcast and send url to radiotray or another player</span>
+</span><span class='line'><span class="c"># needs Bash 4, curl, [radiotray], [xsel to send url to X selection for pasting]</span>
+</span><span class='line'><span class="c"># (comment out line 53 &quot;printf &#39;%s&#39;...&quot; if you don&#39;t use xsel)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">command</span> -v curl &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;curl required.&quot;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v xsel &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;xsel required.&quot;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="nb">command</span> -v radiotray &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;radiotray required.&quot;</span> &gt;<span class="p">&amp;</span>2<span class="p">;</span> <span class="nb">exit </span>1<span class="p">;</span> <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># choose player (&amp; options if necessary): radio url will be sent to it.</span>
+</span><span class='line'>radioplay<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    radiotray <span class="s2">&quot;$1&quot;</span>
+</span><span class='line'><span class="c">#    mplayer -playlist &quot;$1&quot; # replace &#39;mplayer -playlist&#39; to taste, $1 will hold the url</span>
+</span><span class='line'><span class="c">#    exec mplayer -playlist &quot;$1&quot; # add &#39;exec&#39; if you&#39;d rather launch player and leave script</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># start up radiotray in background if it&#39;s not already running</span>
+</span><span class='line'><span class="c"># Comment out this line if you don&#39;t use radiotray.</span>
+</span><span class='line'>pgrep radiotray &gt;/dev/null <span class="o">||</span> <span class="o">(</span> radiotray &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span> <span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">##########################################################################</span>
+</span><span class='line'><span class="k">while</span> <span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Please enter keyword(s)&quot;</span>
+</span><span class='line'><span class="nb">read </span>keyword
+</span><span class='line'><span class="nv">keyword</span><span class="o">=</span><span class="s2">&quot;${keyword// /%20}&quot;</span> <span class="c"># escape spaces for url</span>
+</span><span class='line'><span class="nv">results</span><span class="o">=</span><span class="k">$(</span> curl -s <span class="s2">&quot;http://www.shoutcast.com/Internet-Radio/$keyword&quot;</span> <span class="p">|</span>awk <span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">BEGIN {</span>
+</span><span class='line'><span class="s1">    RS=&quot;&lt;div class=\&quot;dirlist\&quot;&gt;&quot;</span>
+</span><span class='line'><span class="s1">    FS=&quot;&gt;&quot;</span>
+</span><span class='line'><span class="s1">}</span>
+</span><span class='line'><span class="s1">NR &lt; 2 {next}</span>
+</span><span class='line'><span class="s1">{url = name = $2</span>
+</span><span class='line'><span class="s1">sub(/^.*title=\&quot;/,&quot;&quot;,name)</span>
+</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,name)</span>
+</span><span class='line'><span class="s1">sub(/^.*href=\&quot;/,&quot;&quot;,url)</span>
+</span><span class='line'><span class="s1">sub(/\&quot;.*$/,&quot;&quot;,url)</span>
+</span><span class='line'><span class="s1">print url,name }</span>
+</span><span class='line'><span class="s1">&#39;</span> <span class="k">)</span>
+</span><span class='line'><span class="o">[[</span> <span class="nv">$results</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Sorry, no results for $keyword&quot;</span><span class="p">;</span> <span class="k">continue</span><span class="p">;</span><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">unset </span>list
+</span><span class='line'><span class="nb">declare</span> -A list <span class="c"># make associative array</span>
+</span><span class='line'><span class="k">while</span> <span class="nb">read </span>url name <span class="c"># read in awk&#39;s output</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'>    list<span class="o">[</span><span class="s2">&quot;$name&quot;</span><span class="o">]=</span><span class="s2">&quot;$url&quot;</span>
+</span><span class='line'><span class="k">done</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;$results&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">PS3</span><span class="o">=</span><span class="s1">&#39;Please enter the number of your choice &gt; &#39;</span>
+</span><span class='line'><span class="k">while</span> <span class="nb">true</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'>    <span class="k">select</span> station in <span class="s2">&quot;${!list[@]}&quot;</span> <span class="s1">&#39;Search Again&#39;</span> Quit
+</span><span class='line'>    <span class="k">do</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> <span class="s1">&#39;Search Again&#39;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">break </span>2
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">=</span> Quit <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s1">&#39;Goodbye...&#39;</span><span class="p">;</span> <span class="nb">exit</span><span class="p">;</span> <span class="o">}</span>
+</span><span class='line'>        <span class="o">[[</span> <span class="nv">$station</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nb">printf</span> <span class="s1">&#39;%s&#39;</span> <span class="s2">&quot;${list[$station]}&quot;</span> <span class="p">|</span> xsel --input <span class="c">#--clipboard  # can paste url</span>
+</span><span class='line'>        radioplay <span class="s2">&quot;${list[$station]}&quot;</span>
+</span><span class='line'>        <span class="nb">break</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="k">done</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;</span>
+</span><span class='line'><span class="s2">Last station chosen was $station ( ${list[$station]} )</span>
+</span><span class='line'><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">done</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">done</span> <span class="c"># closes loop started at line 18</span>
+</span><span class='line'><span class="nb">exit</span>
+</span></code></pre></td></tr></table></div></figure>]]></content>
     </entry>
     
 </feed>

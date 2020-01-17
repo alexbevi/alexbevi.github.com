@@ -4,7 +4,7 @@
     <title><![CDATA[Category: heroku | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/heroku/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:57:12-05:00</updated>
+    <updated>2020-01-17T09:18:39-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/"/>
         <updated>2014-07-07T09:28:38-04:00</updated>
         <id>http://www.alexbevi.com/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks</id>
-        <content type="html"><![CDATA[Back in 2012, I wrote a post about [Redmine and Subversion on Heroku]({% post_url 2012-11-21-fetching-changesets-in-redmine-from-heroku-using-svn %}) that involved some funky hacks in order to build a working `svn` binary that could be uploaded as part of your Git payload.
+        <content type="html"><![CDATA[Back in 2012, I wrote a post about [Redmine and Subversion on Heroku](/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/) that involved some funky hacks in order to build a working `svn` binary that could be uploaded as part of your Git payload.
 
 This can be done a lot more cleanly by taking advantage of [Heroku Buildpacks](https://devcenter.heroku.com/articles/buildpacks).
 
@@ -53,7 +53,7 @@ This has helped me with my Redmine deployment on Heroku. Did it help you at all?
         <link href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/"/>
         <updated>2012-11-21T08:44:00-05:00</updated>
         <id>http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn</id>
-        <content type="html"><![CDATA[[**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post]({% post_url 2014-07-07-subversion-plus-ruby-on-heroku-via-buildpacks %}) for details)]
+        <content type="html"><![CDATA[[**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post](/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/) for details)]
 
 I manage my open source and contract development projects using [Redmine](http://www.redmine.org).
 
@@ -105,16 +105,23 @@ Now, let's fetch a pre-build lucid system (thanks Vagrant!) and initialize it in
 
 This will create a `Vagrantfile` in the current director, which contains configuration information for our build system. In order to tell Vagrant to use the _lucid64_ instace we've downloaded, the `Vagrantfile` needs to be edited and the *config.vm.box* section updated.
 
-``` ruby
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-Vagrant::Config.run do |config|  
-  # ...
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "lucid64"
-  # ...
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- mode: ruby -*-</span>
+</span><span class='line'><span class="c1"># vi: set ft=ruby :</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Vagrant</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">run</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># ...</span>
+</span><span class='line'>  <span class="c1"># Every Vagrant virtual environment requires a box to build off of.</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;lucid64&quot;</span>
+</span><span class='line'>  <span class="c1"># ...</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Now that everything is ready to go, let's start the instance.
 
@@ -183,7 +190,7 @@ Go to the root of your local Redmine repository, and create a `bin` folder. Now 
 
 If all went well, when you access the *Repositories* tab under *Administration -> Settings*, Subversion should be listed and the version we just uploaded displayed.
 
-{% img center /images/heroku-svn-01.jpg %}
+<img class="center" src="/images/heroku-svn-01.jpg">
 
 ## Accessing Changesets from GitHub
 
@@ -193,11 +200,11 @@ First, add a new repository and point it to the GitHub url you would normally us
 
 > **NOTE** Leave the *Login* and *Password* fields blank unless this is a private repository
 
-{% img center /images/heroku-svn-02.jpg %}
+<img class="center" src="/images/heroku-svn-02.jpg">
 
 Once configured, clicking on the *Repository* tab should fetch the changesets and show the source tree
 
-{% img center /images/heroku-svn-03.jpg %}
+<img class="center" src="/images/heroku-svn-03.jpg">
 
 > **NOTE** This can potentially time out on a larger project and require clicking on the *Repository* tab multiple times until all changesets have been fetched and parsed.
 
