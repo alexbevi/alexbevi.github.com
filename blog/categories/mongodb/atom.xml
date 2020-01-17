@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T09:18:39-05:00</updated>
+    <updated>2020-01-17T09:19:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -122,7 +122,8 @@ are being introduced that reduce the "hacks" or "workarounds" we've had to do in
 
 If you're looking for more MongoDB tips and tricks, head on over to Asya's [Stupid Tricks With MongoDB](http://www.kamsky.org/stupid-tricks-with-mongodb).
 
-Let me know in the comments below if you have any questions, or if you found this useful.]]></content>
+Let me know in the comments below if you have any questions, or if you found this useful.
+]]></content>
     </entry>
     
     <entry>
