@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2019-04-01T17:17:17-04:00</updated>
+    <updated>2020-01-17T07:32:47-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,112 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Current Date Math in MongoDB Aggregations]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/01/17/current-date-math-in-mongodb-aggregations/"/>
+        <updated>2020-01-17T06:30:17-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/01/17/current-date-math-in-mongodb-aggregations</id>
+        <content type="html"><![CDATA[A challenge that I've had in the past while working with my data in MongoDB has been how to incorporate
+date math into my aggregations.
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975da0&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-08T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+Given the 3 documents we've setup above, if I wanted to filter a pipeline to only [`$match`](https://docs.mongodb.com/manual/reference/operator/aggregation/match)
+documents that are newer than 1 week old, I would have to resort to using Javascript:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to a new Javascript Date object set to</span>
+</span><span class='line'><span class="c1">// 7 days from the current date</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">7</span><span class="p">))</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+Now if your pipeline is running in a non-Javascript environment, the `new Date()` call within the pipeline
+would likely throw an exception.
+
+If you're working with MongoDB 4.2 or newer though, a new [`$$NOW` aggregation variable](https://docs.mongodb.com/manual/reference/aggregation-variables/#variable.NOW
+) is available that can be combined with existing pipeline operators to [`$subtract`](https://docs.mongodb.com/manual/reference/operator/aggregation/subtract/index.html
+) the number of milliseconds in the number of days to filter from the current date:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to the number of milliseconds in</span>
+</span><span class='line'><span class="c1">// 7 days subtracted from the current</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">$expr</span><span class="o">:</span>
+</span><span class='line'>    <span class="p">{</span> <span class="nx">$let</span><span class="o">:</span>
+</span><span class='line'>      <span class="p">{</span> <span class="nx">vars</span><span class="o">:</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">start</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span> <span class="nx">$subtract</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$$NOW&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">86400000</span><span class="p">)]</span> <span class="p">}</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="k">in</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$lastUpdated&quot;</span><span class="p">,</span> <span class="s2">&quot;$$start&quot;</span><span class="p">]</span> <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Technical Services Engineering at MongoDB]]></title>
@@ -209,7 +315,7 @@ This data happens to be on a 5 node replicaset (primary-secondary-secondary-arbi
 
 My incredible foresight (... laziness ... ) resulted in us having a backup of the data ready to be extracted from the out of sync hidden node. All we had to do was start up **mongod** ... right?
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -227,24 +333,25 @@ My incredible foresight (... laziness ... ) resulted in us having a backup of th
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2016-01-29T21:06:05.180-0500 I CONTROL  ***** SERVER RESTARTED *****
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1745 port=27021 dbpath=/data 64-bit host=xxx
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] db version v3.0.8
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] git version: 83d8cc25e00e42856924d84e220fbe4a839e605d
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] build info: Linux build3.ny.cbi.10gen.cc 2.6.32-431.3.1.el6.x86_64 #1 SMP Fri Jan 3 21:39:27 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] allocator: tcmalloc
-</span><span class='line'>...
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W -        [initandlisten] Detected unclean shutdown - /data/mongod.lock is not empty.
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
-</span><span class='line'>2016-01-29T21:06:05.324-0500 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=13G,session_max=20000,eviction=(threads_max=4),statistics=(fast),log=(enabled=true,archive=true
-</span><span class='line'>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:724960][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: read checksum error for 4096B block at offset 6
-</span><span class='line'>799360: block header checksum of 1769173605 doesn't match expected checksum of 4176084783
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:725067][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: WiredTiger.wt: encountered an illegal file form
-</span><span class='line'>at or internal value
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (-31804) [1454119565:725088][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: the process must exit and restart: WT_PANI
-</span><span class='line'>C: WiredTiger library panic
-</span><span class='line'>2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.180</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="o">*****</span> <span class="nx">SERVER</span> <span class="nx">RESTARTED</span> <span class="o">*****</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.241</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">MongoDB</span> <span class="nx">starting</span> <span class="o">:</span> <span class="nx">pid</span><span class="o">=</span><span class="mi">1745</span> <span class="nx">port</span><span class="o">=</span><span class="mi">27021</span> <span class="nx">dbpath</span><span class="o">=</span><span class="err">/data 64-bit host=xxx</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.241</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">db</span> <span class="nx">version</span> <span class="nx">v3</span><span class="p">.</span><span class="mf">0.8</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.241</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">git</span> <span class="nx">version</span><span class="o">:</span> <span class="mi">83</span><span class="nx">d8cc25e00e42856924d84e220fbe4a839e605d</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.241</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">build</span> <span class="nx">info</span><span class="o">:</span> <span class="nx">Linux</span> <span class="nx">build3</span><span class="p">.</span><span class="nx">ny</span><span class="p">.</span><span class="nx">cbi</span><span class="p">.</span><span class="mi">10</span><span class="nx">gen</span><span class="p">.</span><span class="nx">cc</span> <span class="mf">2.6</span><span class="p">.</span><span class="mi">32</span><span class="o">-</span><span class="mf">431.3</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="nx">el6</span><span class="p">.</span><span class="nx">x86_64</span> <span class="err">#</span><span class="mi">1</span> <span class="nx">SMP</span> <span class="nx">Fri</span> <span class="nx">Jan</span> <span class="mi">3</span> <span class="mi">21</span><span class="o">:</span><span class="mi">39</span><span class="o">:</span><span class="mi">27</span> <span class="nx">UTC</span> <span class="mi">2014</span> <span class="nx">x86_64</span> <span class="nx">BOOST_LIB_VERSION</span><span class="o">=</span><span class="mi">1</span><span class="nx">_49</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.241</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">CONTROL</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">allocator</span><span class="o">:</span> <span class="nx">tcmalloc</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.315</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">W</span> <span class="o">-</span>        <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">Detected</span> <span class="nx">unclean</span> <span class="nx">shutdown</span> <span class="o">-</span> <span class="err">/data/mongod.lock is not empty.</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.315</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">W</span> <span class="nx">STORAGE</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">Recovering</span> <span class="nx">data</span> <span class="nx">from</span> <span class="nx">the</span> <span class="nx">last</span> <span class="nx">clean</span> <span class="nx">checkpoint</span><span class="p">.</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.324</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="nx">STORAGE</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">wiredtiger_open</span> <span class="nx">config</span><span class="o">:</span> <span class="nx">create</span><span class="p">,</span><span class="nx">cache_size</span><span class="o">=</span><span class="mi">13</span><span class="nx">G</span><span class="p">,</span><span class="nx">session_max</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span><span class="nx">eviction</span><span class="o">=</span><span class="p">(</span><span class="nx">threads_max</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span><span class="nx">statistics</span><span class="o">=</span><span class="p">(</span><span class="nx">fast</span><span class="p">),</span><span class="nx">log</span><span class="o">=</span><span class="p">(</span><span class="nx">enabled</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="nx">archive</span><span class="o">=</span><span class="kc">true</span>
+</span><span class='line'><span class="p">,</span><span class="nx">path</span><span class="o">=</span><span class="nx">journal</span><span class="p">,</span><span class="nx">compressor</span><span class="o">=</span><span class="nx">snappy</span><span class="p">),</span><span class="nx">file_manager</span><span class="o">=</span><span class="p">(</span><span class="nx">close_idle_time</span><span class="o">=</span><span class="mi">100000</span><span class="p">),</span><span class="nx">checkpoint</span><span class="o">=</span><span class="p">(</span><span class="nx">wait</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="nx">log_size</span><span class="o">=</span><span class="mi">2</span><span class="nx">GB</span><span class="p">),</span><span class="nx">statistics_log</span><span class="o">=</span><span class="p">(</span><span class="nx">wait</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.725</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">STORAGE</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">WiredTiger</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">[</span><span class="mi">1454119565</span><span class="o">:</span><span class="mi">724960</span><span class="p">][</span><span class="mi">1745</span><span class="o">:</span><span class="mh">0x7f2ac9534bc0</span><span class="p">],</span> <span class="nx">file</span><span class="o">:</span><span class="nx">WiredTiger</span><span class="p">.</span><span class="nx">wt</span><span class="p">,</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="o">:</span> <span class="nx">read</span> <span class="nx">checksum</span> <span class="nx">error</span> <span class="k">for</span> <span class="mi">4096</span><span class="nx">B</span> <span class="nx">block</span> <span class="nx">at</span> <span class="nx">offset</span> <span class="mi">6</span>
+</span><span class='line'><span class="mi">799360</span><span class="o">:</span> <span class="nx">block</span> <span class="nx">header</span> <span class="nx">checksum</span> <span class="nx">of</span> <span class="mi">1769173605</span> <span class="nx">doesn</span><span class="err">&#39;</span><span class="nx">t</span> <span class="nx">match</span> <span class="nx">expected</span> <span class="nx">checksum</span> <span class="nx">of</span> <span class="mi">4176084783</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.725</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">STORAGE</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">WiredTiger</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">[</span><span class="mi">1454119565</span><span class="o">:</span><span class="mi">725067</span><span class="p">][</span><span class="mi">1745</span><span class="o">:</span><span class="mh">0x7f2ac9534bc0</span><span class="p">],</span> <span class="nx">file</span><span class="o">:</span><span class="nx">WiredTiger</span><span class="p">.</span><span class="nx">wt</span><span class="p">,</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="o">:</span> <span class="nx">WiredTiger</span><span class="p">.</span><span class="nx">wt</span><span class="o">:</span> <span class="nx">encountered</span> <span class="nx">an</span> <span class="nx">illegal</span> <span class="nx">file</span> <span class="nx">form</span>
+</span><span class='line'><span class="nx">at</span> <span class="nx">or</span> <span class="nx">internal</span> <span class="nx">value</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.725</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">STORAGE</span>  <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">WiredTiger</span> <span class="p">(</span><span class="o">-</span><span class="mi">31804</span><span class="p">)</span> <span class="p">[</span><span class="mi">1454119565</span><span class="o">:</span><span class="mi">725088</span><span class="p">][</span><span class="mi">1745</span><span class="o">:</span><span class="mh">0x7f2ac9534bc0</span><span class="p">],</span> <span class="nx">file</span><span class="o">:</span><span class="nx">WiredTiger</span><span class="p">.</span><span class="nx">wt</span><span class="p">,</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="o">:</span> <span class="nx">the</span> <span class="nx">process</span> <span class="nx">must</span> <span class="nx">exit</span> <span class="nx">and</span> <span class="nx">restart</span><span class="o">:</span> <span class="nx">WT_PANI</span>
+</span><span class='line'><span class="nx">C</span><span class="o">:</span> <span class="nx">WiredTiger</span> <span class="nx">library</span> <span class="nx">panic</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span><span class="nx">T21</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">05.725</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">I</span> <span class="o">-</span>        <span class="p">[</span><span class="nx">initandlisten</span><span class="p">]</span> <span class="nx">Fatal</span> <span class="nx">Assertion</span> <span class="mi">28558</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that's not the way MongoDB or WiredTiger works :P. Back to the drawing board.
 
@@ -260,7 +367,7 @@ Guess what ... didn't work.
 
 Since we had access to a working node, plus the collection hadn't been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -294,40 +401,41 @@ Since we had access to a working node, plus the collection hadn't been dropped (
 <span class='line-number'>32</span>
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.getCollection('borkedCollection').stats()
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">getCollection</span><span class="p">(</span><span class="s1">&#39;borkedCollection&#39;</span><span class="p">).</span><span class="nx">stats</span><span class="p">()</span>
 </span><span class='line'>
-</span><span class='line'>{
-</span><span class='line'>    "ns" : "production.borkedCollection",
-</span><span class='line'>    "count" : 0,
-</span><span class='line'>    "size" : 0,
-</span><span class='line'>    "storageSize" : 1138688,
-</span><span class='line'>    "capped" : false,
-</span><span class='line'>    "wiredTiger" : {
-</span><span class='line'>        "metadata" : {
-</span><span class='line'>            "formatVersion" : 1
-</span><span class='line'>        },
-</span><span class='line'>        "creationString" : "allocation_size=4KB,app_metadata=(formatVersion=1),block_allocation=best,block_compressor=snappy,cache_resident=0,checkpoint=(WiredTigerCheckpoint.5149=(addr=\"01808080808080c0b081e40ebe4855808080e3113fc0e401417fc0\",order=5149,time=1454966060,size=21078016,write_gen=119495)),checkpoint_lsn=(224134,44112768),checksum=on,collator=,columns=,dictionary=0,format=btree,huffman_key=,huffman_value=,id=178668,internal_item_max=0,internal_key_max=0,internal_key_truncate=,internal_page_max=4KB,key_format=q,key_gap=10,leaf_item_max=0,leaf_key_max=0,leaf_page_max=32KB,leaf_value_max=1MB,memory_page_max=10m,os_cache_dirty_max=0,os_cache_max=0,prefix_compression=0,prefix_compression_min=4,split_deepen_min_child=0,split_deepen_per_child=0,split_pct=90,value_format=u,version=(major=1,minor=1)",
-</span><span class='line'>        "type" : "file",
-</span><span class='line'>        "uri" : "statistics:table:collection-7895--1435676552983097781",
-</span><span class='line'>        "LSM" : {
-</span><span class='line'>            //...
-</span><span class='line'>        },
-</span><span class='line'>        "block-manager" : {
-</span><span class='line'>            //...
-</span><span class='line'>        },
-</span><span class='line'>        "btree" : {
-</span><span class='line'>            // ...
-</span><span class='line'>        },
-</span><span class='line'>        // ...
-</span><span class='line'>    },
-</span><span class='line'>    "nindexes" : 4,
-</span><span class='line'>    "totalIndexSize" : 1437696,
-</span><span class='line'>    "indexSizes" : {
-</span><span class='line'>        "_id_" : 212992,
-</span><span class='line'>        // ...
-</span><span class='line'>    },
-</span><span class='line'>    "ok" : 1
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;ns&quot;</span> <span class="o">:</span> <span class="s2">&quot;production.borkedCollection&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;count&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;size&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;storageSize&quot;</span> <span class="o">:</span> <span class="mi">1138688</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;capped&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;wiredTiger&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;metadata&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;formatVersion&quot;</span> <span class="o">:</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="s2">&quot;creationString&quot;</span> <span class="o">:</span> <span class="s2">&quot;allocation_size=4KB,app_metadata=(formatVersion=1),block_allocation=best,block_compressor=snappy,cache_resident=0,checkpoint=(WiredTigerCheckpoint.5149=(addr=\&quot;01808080808080c0b081e40ebe4855808080e3113fc0e401417fc0\&quot;,order=5149,time=1454966060,size=21078016,write_gen=119495)),checkpoint_lsn=(224134,44112768),checksum=on,collator=,columns=,dictionary=0,format=btree,huffman_key=,huffman_value=,id=178668,internal_item_max=0,internal_key_max=0,internal_key_truncate=,internal_page_max=4KB,key_format=q,key_gap=10,leaf_item_max=0,leaf_key_max=0,leaf_page_max=32KB,leaf_value_max=1MB,memory_page_max=10m,os_cache_dirty_max=0,os_cache_max=0,prefix_compression=0,prefix_compression_min=4,split_deepen_min_child=0,split_deepen_per_child=0,split_pct=90,value_format=u,version=(major=1,minor=1)&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;uri&quot;</span> <span class="o">:</span> <span class="s2">&quot;statistics:table:collection-7895--1435676552983097781&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;LSM&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="s2">&quot;block-manager&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="s2">&quot;btree&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">// ...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s2">&quot;nindexes&quot;</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;totalIndexSize&quot;</span> <span class="o">:</span> <span class="mi">1437696</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;indexSizes&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;_id_&quot;</span> <span class="o">:</span> <span class="mi">212992</span><span class="p">,</span>
+</span><span class='line'>        <span class="c1">// ...</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="s2">&quot;ok&quot;</span> <span class="o">:</span> <span class="mi">1</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 That `"uri" : "statistics:table:collection-7895--1435676552983097781"` entry looked promising.
 
@@ -405,7 +513,7 @@ This operation also provides a progress indicator showing how much data has been
 
 Once completed, we can start `mongod` back up, shell in and have a look:
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -418,23 +526,24 @@ Once completed, we can start `mongod` back up, shell in and have a look:
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
-</span><span class='line'>MongoDB shell version: 3.2.1
-</span><span class='line'>connecting to: test
-</span><span class='line'>Mongo-Hacker 0.0.9
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
-</span><span class='line'>Recovery → 0.087GB
-</span><span class='line'>local    → 0.000GB
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
-</span><span class='line'>switched to db Recovery
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
-</span><span class='line'>borkedCollection → 0.000MB / 88.801MB
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
-</span><span class='line'>0</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span> <span class="nx">mongo</span>
+</span><span class='line'><span class="nx">MongoDB</span> <span class="nx">shell</span> <span class="nx">version</span><span class="o">:</span> <span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span>
+</span><span class='line'><span class="nx">connecting</span> <span class="nx">to</span><span class="o">:</span> <span class="nx">test</span>
+</span><span class='line'><span class="nx">Mongo</span><span class="o">-</span><span class="nx">Hacker</span> <span class="mf">0.0</span><span class="p">.</span><span class="mi">9</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">dbs</span>
+</span><span class='line'><span class="nx">Recovery</span> <span class="err">→</span> <span class="mf">0.087</span><span class="nx">GB</span>
+</span><span class='line'><span class="nx">local</span>    <span class="err">→</span> <span class="mf">0.000</span><span class="nx">GB</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">use</span> <span class="nx">Recovery</span>
+</span><span class='line'><span class="nx">switched</span> <span class="nx">to</span> <span class="nx">db</span> <span class="nx">Recovery</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Recovery</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">collections</span>
+</span><span class='line'><span class="nx">borkedCollection</span> <span class="err">→</span> <span class="mf">0.000</span><span class="nx">MB</span> <span class="o">/</span> <span class="mf">88.801</span><span class="nx">MB</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Recovery</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nx">borkedCollection</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span>
+</span><span class='line'><span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
 
 WTF? The size looks right, but there are no documents???
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -446,18 +555,19 @@ WTF? The size looks right, but there are no documents???
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.find({}, {_id: 1})
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac74")
-</span><span class='line'>}
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac76")
-</span><span class='line'>}
-</span><span class='line'>...
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f402e967329c888ac85")
-</span><span class='line'>}
-</span><span class='line'>Fetched 20 record(s) in 29ms -- More[true]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Recovery</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nx">borkedCollection</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="p">{</span><span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55e07f3b2e967329c888ac74&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55e07f3b2e967329c888ac76&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;55e07f402e967329c888ac85&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">Fetched</span> <span class="mi">20</span> <span class="nx">record</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="k">in</span> <span class="mi">29</span><span class="nx">ms</span> <span class="o">--</span> <span class="nx">More</span><span class="p">[</span><span class="kc">true</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Well that's promising, but the collection still hasn't been *properly* restored yet.
 
@@ -467,7 +577,7 @@ This final part is pretty straightforward, as we're just going to do a `mongodum
 
 **NOTE** The `mongodump` will fail if you're using a version of MongoDB < 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -504,47 +614,48 @@ This final part is pretty straightforward, as we're just going to do a `mongodum
 <span class='line-number'>35</span>
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongodump
-</span><span class='line'>2016-02-10T22:04:00.580-0500    writing Recovery.borkedCollection to
-</span><span class='line'>2016-02-10T22:04:03.579-0500    Recovery.borkedCollection  268219
-</span><span class='line'>2016-02-10T22:04:06.579-0500    Recovery.borkedCollection  340655
-</span><span class='line'>2016-02-10T22:04:09.579-0500    Recovery.borkedCollection  496787
-</span><span class='line'>2016-02-10T22:04:12.579-0500    Recovery.borkedCollection  670894
-</span><span class='line'>2016-02-10T22:04:15.579-0500    Recovery.borkedCollection  778539
-</span><span class='line'>2016-02-10T22:04:18.579-0500    Recovery.borkedCollection  848525
-</span><span class='line'>2016-02-10T22:04:21.579-0500    Recovery.borkedCollection  991277
-</span><span class='line'>2016-02-10T22:04:24.579-0500    Recovery.borkedCollection  1147718
-</span><span class='line'>2016-02-10T22:04:27.579-0500    Recovery.borkedCollection  1187600
-</span><span class='line'>2016-02-10T22:04:30.579-0500    Recovery.borkedCollection  1353665
-</span><span class='line'>2016-02-10T22:04:33.579-0500    Recovery.borkedCollection  1376255
-</span><span class='line'>2016-02-10T22:04:33.681-0500    Recovery.borkedCollection  1386220
-</span><span class='line'>2016-02-10T22:04:33.682-0500    done dumping Recovery.borkedCollection (1386220 documents)
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span> <span class="nx">mongodump</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">00.580</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">writing</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="nx">to</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">03.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">268219</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">06.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">340655</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">09.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">496787</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">12.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">670894</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">15.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">778539</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">18.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">848525</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">21.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">991277</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">24.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">1147718</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">27.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">1187600</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">30.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">1353665</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">33.579</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">1376255</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">33.681</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mi">1386220</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mf">33.682</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">done</span> <span class="nx">dumping</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="p">(</span><span class="mi">1386220</span> <span class="nx">documents</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>$ mongorestore --drop
-</span><span class='line'>2016-02-10T22:05:51.959-0500    using default 'dump' directory
-</span><span class='line'>2016-02-10T22:05:51.960-0500    building a list of dbs and collections to restore from dump dir
-</span><span class='line'>2016-02-10T22:05:52.307-0500    reading metadata for Recovery.borkedCollection from dump/Recovery/borkedCollection.metadata.json
-</span><span class='line'>2016-02-10T22:05:52.330-0500    restoring Recovery.borkedCollection from dump/Recovery/borkedCollection.bson
-</span><span class='line'>2016-02-10T22:05:54.962-0500    [#.......................]  Recovery.borkedCollection  32.8 MB/569.8 MB  (5.8%)
-</span><span class='line'>2016-02-10T22:05:57.962-0500    [###.....................]  Recovery.borkedCollection  80.5 MB/569.8 MB  (14.1%)
-</span><span class='line'>2016-02-10T22:06:00.962-0500    [#####...................]  Recovery.borkedCollection  131.5 MB/569.8 MB  (23.1%)
-</span><span class='line'>2016-02-10T22:06:03.962-0500    [#######.................]  Recovery.borkedCollection  178.5 MB/569.8 MB  (31.3%)
-</span><span class='line'>2016-02-10T22:06:06.962-0500    [#########...............]  Recovery.borkedCollection  230.1 MB/569.8 MB  (40.4%)
-</span><span class='line'>2016-02-10T22:06:09.962-0500    [###########.............]  Recovery.borkedCollection  271.6 MB/569.8 MB  (47.7%)
-</span><span class='line'>2016-02-10T22:06:12.962-0500    [#############...........]  Recovery.borkedCollection  320.6 MB/569.8 MB  (56.3%)
-</span><span class='line'>2016-02-10T22:06:15.962-0500    [###############.........]  Recovery.borkedCollection  366.3 MB/569.8 MB  (64.3%)
-</span><span class='line'>2016-02-10T22:06:18.962-0500    [#################.......]  Recovery.borkedCollection  414.9 MB/569.8 MB  (72.8%)
-</span><span class='line'>2016-02-10T22:06:21.962-0500    [###################.....]  Recovery.borkedCollection  464.8 MB/569.8 MB  (81.6%)
-</span><span class='line'>2016-02-10T22:06:24.962-0500    [#####################...]  Recovery.borkedCollection  504.0 MB/569.8 MB  (88.4%)
-</span><span class='line'>2016-02-10T22:06:27.962-0500    [#######################.]  Recovery.borkedCollection  554.5 MB/569.8 MB  (97.3%)
-</span><span class='line'>2016-02-10T22:06:29.082-0500    [########################]  Recovery.borkedCollection  569.8 MB/569.8 MB  (100.0%)
-</span><span class='line'>2016-02-10T22:06:29.082-0500    restoring indexes for collection Recovery.borkedCollection from metadata
-</span><span class='line'>2016-02-10T22:06:29.104-0500    finished restoring Recovery.borkedCollection (1386220 documents)
-</span><span class='line'>2016-02-10T22:06:29.104-0500    done</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="nx">$</span> <span class="nx">mongorestore</span> <span class="o">--</span><span class="nx">drop</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">51.959</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">using</span> <span class="k">default</span> <span class="s1">&#39;dump&#39;</span> <span class="nx">directory</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">51.960</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">building</span> <span class="nx">a</span> <span class="nx">list</span> <span class="nx">of</span> <span class="nx">dbs</span> <span class="nx">and</span> <span class="nx">collections</span> <span class="nx">to</span> <span class="nx">restore</span> <span class="nx">from</span> <span class="nx">dump</span> <span class="nx">dir</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">52.307</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">reading</span> <span class="nx">metadata</span> <span class="k">for</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="nx">from</span> <span class="nx">dump</span><span class="o">/</span><span class="nx">Recovery</span><span class="o">/</span><span class="nx">borkedCollection</span><span class="p">.</span><span class="nx">metadata</span><span class="p">.</span><span class="nx">json</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">52.330</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">restoring</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="nx">from</span> <span class="nx">dump</span><span class="o">/</span><span class="nx">Recovery</span><span class="o">/</span><span class="nx">borkedCollection</span><span class="p">.</span><span class="nx">bson</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">54.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#</span><span class="p">.......................]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">32.8</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">5.8</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mf">57.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">###</span><span class="p">.....................]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">80.5</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">14.1</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">00.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#####</span><span class="p">...................]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">131.5</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">23.1</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">03.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#######</span><span class="p">.................]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">178.5</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">31.3</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">06.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#########</span><span class="p">...............]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">230.1</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">40.4</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">09.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">###########</span><span class="p">.............]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">271.6</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">47.7</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">12.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#############</span><span class="p">...........]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">320.6</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">56.3</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">15.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">###############</span><span class="p">.........]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">366.3</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">64.3</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">18.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#################</span><span class="p">.......]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">414.9</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">72.8</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">21.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">###################</span><span class="p">.....]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">464.8</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">81.6</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">24.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#####################</span><span class="p">...]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">504.0</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">88.4</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">27.962</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">#######################</span><span class="p">.]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">554.5</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">97.3</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">29.082</span><span class="o">-</span><span class="mi">0500</span>    <span class="p">[</span><span class="err">########################</span><span class="p">]</span>  <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span>  <span class="mf">569.8</span> <span class="nx">MB</span><span class="o">/</span><span class="mf">569.8</span> <span class="nx">MB</span>  <span class="p">(</span><span class="mf">100.0</span><span class="o">%</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">29.082</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">restoring</span> <span class="nx">indexes</span> <span class="k">for</span> <span class="nx">collection</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="nx">from</span> <span class="nx">metadata</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">29.104</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">finished</span> <span class="nx">restoring</span> <span class="nx">Recovery</span><span class="p">.</span><span class="nx">borkedCollection</span> <span class="p">(</span><span class="mi">1386220</span> <span class="nx">documents</span><span class="p">)</span>
+</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T22</span><span class="o">:</span><span class="mi">06</span><span class="o">:</span><span class="mf">29.104</span><span class="o">-</span><span class="mi">0500</span>    <span class="nx">done</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Now that we've dumped and reloaded the collection *yet again*, we can shell back in and validate that our recovery attempt has succeeded:
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -557,107 +668,24 @@ Now that we've dumped and reloaded the collection *yet again*, we can shell back
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
-</span><span class='line'>MongoDB shell version: 3.2.1
-</span><span class='line'>connecting to: test
-</span><span class='line'>Mongo-Hacker 0.0.9
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
-</span><span class='line'>Recovery → 0.099GB
-</span><span class='line'>local    → 0.000GB
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
-</span><span class='line'>switched to db Recovery
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
-</span><span class='line'>borkedCollection → 569.845MB / 88.594MB
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
-</span><span class='line'>1386220</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span> <span class="nx">mongo</span>
+</span><span class='line'><span class="nx">MongoDB</span> <span class="nx">shell</span> <span class="nx">version</span><span class="o">:</span> <span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span>
+</span><span class='line'><span class="nx">connecting</span> <span class="nx">to</span><span class="o">:</span> <span class="nx">test</span>
+</span><span class='line'><span class="nx">Mongo</span><span class="o">-</span><span class="nx">Hacker</span> <span class="mf">0.0</span><span class="p">.</span><span class="mi">9</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">dbs</span>
+</span><span class='line'><span class="nx">Recovery</span> <span class="err">→</span> <span class="mf">0.099</span><span class="nx">GB</span>
+</span><span class='line'><span class="nx">local</span>    <span class="err">→</span> <span class="mf">0.000</span><span class="nx">GB</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">use</span> <span class="nx">Recovery</span>
+</span><span class='line'><span class="nx">switched</span> <span class="nx">to</span> <span class="nx">db</span> <span class="nx">Recovery</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Recovery</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">collections</span>
+</span><span class='line'><span class="nx">borkedCollection</span> <span class="err">→</span> <span class="mf">569.845</span><span class="nx">MB</span> <span class="o">/</span> <span class="mf">88.594</span><span class="nx">MB</span>
+</span><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">Recovery</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nx">borkedCollection</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span>
+</span><span class='line'><span class="mi">1386220</span>
+</span></code></pre></td></tr></table></div></figure>
 
 BOOYA! Everything is back and properly accessible.
 
 The `mongorestore` could actually have been done to the primary node in order to recover the data for production purposes. Once that's done, just recreate the necessary indexes and you're back in business.]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Identifying failing system.js functions in MongoDB]]></title>
-        <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
-        <updated>2016-02-10T15:17:56-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>
-        <content type="html"><![CDATA[``` bash
-laptop(mongod-3.2.1) test> db.loadServerScripts()
-2016-02-10T15:18:42.322-0500 E QUERY    [thread1] SyntaxError: unterminated string literal :
-DB.prototype.loadServerScripts/<@src/mongo/shell/db.js:1158:9
-DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-@(shell):1:1
-
-2016-02-10T15:18:42.323-0500 E QUERY    [thread1] Error: SyntaxError: unterminated string literal :
-DB.prototype.loadServerScripts/<@src/mongo/shell/db.js:1158:9
-DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-@(shell):1:1
- :
-DB.prototype.loadServerScripts/<@src/mongo/shell/db.js:1158:9
-DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-@(shell):1:15:17:56
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>Occasionally we'll run into these scenarios where we need to load the `system.js` functions into the global context, but for whatever reason one (or more) scripts are borked.
-</span><span class='line'>
-</span><span class='line'>I created on that essentially looks like the following to illustrate this point.
-</span></code></pre></td></tr></table></div></figure> javascript
-var thisFunctionShouldFail = function() {
-    return "Fail
-}
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>When you try to execute a `db.loadServerScripts()` call, the entire process will fail as there is a malformed script.
-</span><span class='line'>
-</span><span class='line'>This is a major pain in the ass when you have large background processes that rely heavily on internal system scripts.
-</span><span class='line'>
-</span><span class='line'>In order to address this, we wrote a small script that you can run against any database to validate the internal scripts:
-</span></code></pre></td></tr></table></div></figure> javascript
-var testSystemJs = function() {
-    var coll = db.system.js;
-    coll.find({}, {_id: 1}).forEach(function(doc) {
-       try {
-           var func = coll.findOne({_id: doc._id});
-           eval(func.value);
-       } catch (ex) {
-           print("LOAD_ERROR: " + doc._id);
-       }
-    });
-}
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>Now if you run the above, it will give you a bit more context into the failures you may have ;)
-</span></code></pre></td></tr></table></div></figure>
-laptop(mongod-3.2.1) test> testSystemJs()
-2016-02-10T15:52:13.086-0500 E QUERY    [thread1] SyntaxError: unterminated string literal :
-testSystemJs/<@(shell):1:190
-DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-testSystemJs@(shell):1:66
-@(shell):1:1
-
-LOAD_ERROR: thisFunctionShouldFail
-2016-02-10T15:52:13.088-0500 E QUERY    [thread1] SyntaxError: unterminated string literal :
-testSystemJs/<@(shell):1:190
-DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-testSystemJs@(shell):1:66
-@(shell):1:1
-
-LOAD_ERROR: thisFunctionShouldAlsoFail
-```
-
-I'm testing this on a mongo 3.2.1 system, but this method should be applicable to older releases as well.]]></content>
     </entry>
     
 </feed>

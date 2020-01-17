@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Developer Braindump: Tony Tough and the Night of the Roasted Moths Nov 2nd, 2012 scummvm game-development Comments The ScummVM project recently &hellip;">
+        <meta name="description" content="Fetching Changesets in Redmine from Heroku using Subversion Nov 21st, 2012 redmine heroku subversion vagrant Comments [NOTE: The method described &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/posts/6">
@@ -89,6 +89,90 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Fetching Changesets in Redmine from Heroku using Subversion</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2012-11-21T08:44:00-05:00" pubdate><i class="fa fa-calendar"></i> Nov 21st, 2012</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/redmine/'>redmine</a></li>
+            
+                <li><a class='category' href='/blog/categories/heroku/'>heroku</a></li>
+            
+                <li><a class='category' href='/blog/categories/subversion/'>subversion</a></li>
+            
+                <li><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <div class="article__content clearfix">
+        <p>[<strong>NOTE</strong>: The method described below should still work, but it&rsquo;s much easier to just use a Heroku buildpack (see <a href="/blog/2014/07/07/subversion-plus-ruby-on-heroku-via-buildpacks/">this post</a> for details)]</p>
+
+<p>I manage my open source and contract development projects using <a href="http://www.redmine.org">Redmine</a>.</p>
+
+<p>Since I&rsquo;m &ldquo;frugal&rdquo;, I tend to try to push the free hosting envelope as far as possible. As a result, I have my Redmine deployment on <a href="http://www.heroku.com">Heroku</a>, my files and attachments on <a href="http://www.dropbox.com">Dropbox</a> and my source on <a href="https://github.com">GitHub</a>.</p>
+
+<p>I also like to link to changesets in my projects, which is easy enough to do when you host the source and the Redmine server on the same machine.</p>
+
+<p>Not so easy with Heroku+GitHub &hellip;. until now!</p>
+
+<p>By the end of this tutorial, we will have:</p>
+
+<ul>
+<li>Setup a build system using Vagrant that matches the Heroku hosting environment</li>
+<li>Compiled a statically linked <a href="http://subversion.apache.org/">Subversion</a> client</li>
+<li>Added the svn client to our Redmine repository and pushed it to Heroku</li>
+<li>Configured a project in Redmine to fetch changesets from GitHub using Subversion</li>
+</ul>
+
+
+
+        <a class="btn pull-right" href="/blog/2012/11/21/fetching-changesets-in-redmine-from-heroku-using-svn/">Read on &rarr;</a>
+    </div>
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -673,6 +757,10 @@
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineering at MongoDB</a>
         </li>
         
@@ -686,10 +774,6 @@
         
         <li class="post">
             <a href="/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/">Setting up domain forwarding in hover.com</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/">Redmine Plugin Extension and Development Still In Demand</a>
         </li>
         
     </ul>

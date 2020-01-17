@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2019-04-01T17:17:17-04:00</updated>
+  <updated>2020-01-17T07:32:47-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Current Date Math in MongoDB Aggregations]]></title>
+    <link href="http://www.alexbevi.com/blog/2020/01/17/current-date-math-in-mongodb-aggregations/"/>
+    <updated>2020-01-17T06:30:17-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2020/01/17/current-date-math-in-mongodb-aggregations</id>
+    <content type="html"><![CDATA[<p>A challenge that I&rsquo;ve had in the past while working with my data in MongoDB has been how to incorporate
+date math into my aggregations.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975da0&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-08T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Given the 3 documents we&rsquo;ve setup above, if I wanted to filter a pipeline to only <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/match"><code>$match</code></a>
+documents that are newer than 1 week old, I would have to resort to using Javascript:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to a new Javascript Date object set to</span>
+</span><span class='line'><span class="c1">// 7 days from the current date</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">7</span><span class="p">))</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now if your pipeline is running in a non-Javascript environment, the <code>new Date()</code> call within the pipeline
+would likely throw an exception.</p>
+
+<p>If you&rsquo;re working with MongoDB 4.2 or newer though, a new <a href="https://docs.mongodb.com/manual/reference/aggregation-variables/#variable.NOW"><code>$$NOW</code> aggregation variable</a> is available that can be combined with existing pipeline operators to <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/subtract/index.html"><code>$subtract</code></a> the number of milliseconds in the number of days to filter from the current date:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to the number of milliseconds in</span>
+</span><span class='line'><span class="c1">// 7 days subtracted from the current</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">$expr</span><span class="o">:</span>
+</span><span class='line'>    <span class="p">{</span> <span class="nx">$let</span><span class="o">:</span>
+</span><span class='line'>      <span class="p">{</span> <span class="nx">vars</span><span class="o">:</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">start</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span> <span class="nx">$subtract</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$$NOW&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">86400000</span><span class="p">)]</span> <span class="p">}</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="k">in</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$lastUpdated&quot;</span><span class="p">,</span> <span class="s2">&quot;$$start&quot;</span><span class="p">]</span> <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Technical Services Engineering at MongoDB]]></title>
@@ -469,8 +576,8 @@
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#97;&#108;&#101;&#x78;&#x62;&#101;&#118;&#105;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#109;">&#x61;&#x6c;&#x65;&#x78;&#98;&#x65;&#118;&#105;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;</a>
-To: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x77;&#101;&#98;&#x2e;&#115;&#117;&#112;&#x70;&#x6f;&#114;&#x74;&#64;&#98;&#x6c;&#105;&#122;&#122;&#x61;&#114;&#x64;&#x2e;&#x63;&#x6f;&#x6d;">&#x77;&#101;&#98;&#x2e;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#64;&#98;&#108;&#x69;&#x7a;&#122;&#x61;&#114;&#x64;&#46;&#99;&#x6f;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x61;&#108;&#101;&#120;&#x62;&#101;&#118;&#x69;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;">&#x61;&#x6c;&#x65;&#x78;&#x62;&#101;&#x76;&#x69;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a>
+To: <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x77;&#101;&#x62;&#x2e;&#x73;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#64;&#x62;&#x6c;&#x69;&#x7a;&#122;&#97;&#114;&#x64;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#x65;&#98;&#x2e;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#64;&#x62;&#x6c;&#x69;&#122;&#x7a;&#x61;&#114;&#100;&#x2e;&#99;&#x6f;&#x6d;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -1895,55 +2002,6 @@ being my favourite song from this game ;)</p>
 
 
 <script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[October Anime Update]]></title>
-    <link href="http://www.alexbevi.com/blog/2015/10/20/october-anime-update/"/>
-    <updated>2015-10-20T21:20:16-04:00</updated>
-    <id>http://www.alexbevi.com/blog/2015/10/20/october-anime-update</id>
-    <content type="html"><![CDATA[<p>I finally got around to adding an <a href="http://www.alexbevi.com/anime">Anime</a> section to this blog where I can track my Plex library.</p>
-
-<p>Since this is the first post, I figure I&rsquo;ll just list of what I&rsquo;ve worked my way through in the past six months or so and what&rsquo;s currently on deck.</p>
-
-<h3>Finished</h3>
-
-<p>These are the series that I&rsquo;ve recently completed.</p>
-
-<ul>
-<li>Fullmetal Alchemist: Brotherhood</li>
-<li>Darker than Black (Season 1)</li>
-<li>Sword Art Online (Season 1)</li>
-<li>Attack on Titan</li>
-<li>Deadman Wonderland</li>
-</ul>
-
-
-<h3>On Deck</h3>
-
-<p>What I&rsquo;m either currently watching, or planning on hitting up soon.</p>
-
-<ul>
-<li>Serial Experiments Lain</li>
-<li>Legend of Korra (I liked Avatar, so figured &hellip; why not :P)</li>
-<li>Death Note</li>
-<li>Big O</li>
-</ul>
-
-
-<h3>Future</h3>
-
-<p>Based on what I&rsquo;m currently interested in, I&rsquo;ll probably dip my toes in periodically to see if I should pay closer attention to these series soon.</p>
-
-<ul>
-<li>Elfen Lied</li>
-<li>Ergo Proxy</li>
-<li>Technolyze</li>
-<li>Log Horizon</li>
-<li>Accel World</li>
-</ul>
 
 ]]></content>
   </entry>
