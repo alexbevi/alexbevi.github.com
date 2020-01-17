@@ -13,7 +13,6 @@ group :development do
   gem 'sass-globbing', '~> 1.0.0'
   gem 'rb-fsevent', '~> 0.9'
   gem 'stringex', '~> 1.4.0'
-  gem 'pry'
   gem 'guard'
   gem 'guard-livereload'
 end

@@ -1,5 +1,4 @@
 require './plugins/pygments_code'
-
 module BacktickCodeBlock
   AllOptions = /([^\s]+)\s+(.+?)\s+(https?:\/\/\S+|\/\S+)\s*(.+)?/i
   LangCaption = /([^\s]+)\s*(.+)?/i
