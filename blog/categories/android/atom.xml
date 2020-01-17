@@ -4,7 +4,7 @@
     <title><![CDATA[Category: android | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/android/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:37:26-05:00</updated>
+    <updated>2020-01-17T07:57:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -24,7 +24,7 @@ This time around I wanted to see if I could take my old [Moto X (2014)](http://w
 
 I didn't want to just see if I could install Plex though; I wanted to see if it would be possible to actually run a PMS instance along with [Sonarr](https://sonarr.tv/) to download content automatically for shows I'm interested in.
 
-<img class="center" src="/images/moto-plex/moto-plex-003.png">
+{% img center /images/moto-plex/moto-plex-003.png %}
 
 This introduced a couple of challenges, as Sonarr would need to be run using [Mono](http://www.mono-project.com/) (as it's a .NET project), I'd need a Bittorrent client to actually download the content, and I'd likely need to be running a [Jackett](https://github.com/Jackett/Jackett) service to allow Sonarr to process request through sites like The Pirate Bay.
 
@@ -38,7 +38,7 @@ Note that this process (with some minor changes) can be used to get a Plex + Son
 
 This was the easiest part, as it simply required rooting the device so we could install [SuperSU](https://download.chainfire.eu/696/supersu/).
 
-<img class="right" src="/images/moto-plex/moto-plex-001.png">
+{% img right /images/moto-plex/moto-plex-001.png %}
 
 With a factory reset instance and root access, the next step was to install [BusyBox](https://play.google.com/store/apps/details?id=stericson.busybox&hl=en) and [Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy&hl=en).
 
@@ -50,7 +50,7 @@ First, select the repository you'd like. For my phone I went with **ubuntu-lxde_
 
 Under the properties for the repository (the settings icon in the lower right next to the *Stop* button) I set the *Installation type* to **Directory**. This setting allows use to have access to all available storage on our device. The first time I tried this I used the default of **File**, which only gave me 2GB of storage to play with. Once the base installation was done, there wasn't enough space left for me to do much. I tried tweaking the *Image Size (MB)* setting and starting over but it didn't make a difference. Your milage may vary, so feel free to try other configurations.
 
-<img class="left" src="/images/moto-plex/moto-plex-002.png">
+{% img left /images/moto-plex/moto-plex-002.png %}
 
 Next, from the top-right menu you need to *Install* the selected repository. This will do the basic installation of the Linux distribution you selected and pre-configure it for SSH and VNC access.
 
@@ -62,29 +62,25 @@ We've now got Linux running alongside Android on our phone. Let's SSH into it an
 
 There isn't an official ARM distribution of Plex, but thanks to some great work by [Jan Friedrich](https://github.com/uglymagoo/plexmediaserver-installer), we can easily patch the Plex NAS distribution for ARM or ARM64.
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y fakeroot git
-</span><span class='line'>git clone https://github.com/uglymagoo/plexmediaserver-installer
-</span><span class='line'><span class="nb">cd </span>plexmediaserver-installer
-</span><span class='line'>mkdir ../plex-installer<span class="p">;</span> git archive master <span class="p">|</span> tar -x -C ../plex-installer/
-</span><span class='line'><span class="nb">cd</span> ..<span class="p">;</span> fakeroot dpkg-deb --build plex-installer ./
-</span></code></pre></td></tr></table></div></figure>
+``` bash
+sudo apt-get install -y fakeroot git
+git clone https://github.com/uglymagoo/plexmediaserver-installer
+cd plexmediaserver-installer
+mkdir ../plex-installer; git archive master | tar -x -C ../plex-installer/
+cd ..; fakeroot dpkg-deb --build plex-installer ./
+```
 
 This will create a Debian package that can be installed directly. For me, it produced `plexmediaserver-installer_1.9.1.4272-b207937f1-2_armhf.deb`, so installation was done using:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo dpkg -i plexmediaserver-installer_1.9.1.4272-b207937f1-2_armhf.deb
-</span></code></pre></td></tr></table></div></figure>
+```
+sudo dpkg -i plexmediaserver-installer_1.9.1.4272-b207937f1-2_armhf.deb
+```
 
 Then, to start up your Plex Media Server:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>start_pms
-</span></code></pre></td></tr></table></div></figure>
+```
+start_pms
+```
 
 You can verify it by going to http://phone-ip:32400/web/index.html.
 
@@ -94,20 +90,15 @@ I'm not going to set anything up here yet as we first need our media source avai
 
 Sonarr can be installed from a repository list, so we'll just set that up on our phone. Sonarr will also require Mono to be installed, which luckily for us is also available from Ubuntu compiled for armhf.
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y libmono-cil-dev mono-devel libcurl4-openssl-dev
-</span><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
-</span><span class='line'>
-</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;deb http://apt.sonarr.tv/ master main&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/sonarr.list
-</span><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get install -y nzbdrone
-</span></code></pre></td></tr></table></div></figure>
-<img class="center" src="/images/moto-plex/moto-plex-004.png">
+```
+sudo apt-get install -y libmono-cil-dev mono-devel libcurl4-openssl-dev
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+
+sudo echo "deb http://apt.sonarr.tv/ master main" | sudo tee /etc/apt/sources.list.d/sonarr.list
+sudo apt-get update
+sudo apt-get install -y nzbdrone
+```
+{% img center /images/moto-plex/moto-plex-004.png %}
 
 
 Before we configure Sonarr, we'll setup Jackett. Jackett can be used to connect a torrent search site as a [Torznab feed](https://github.com/Sonarr/Sonarr/wiki/Supported-Indexers#torznab) to Sonarr.
@@ -116,15 +107,15 @@ For the purposes of this test I just setup The Pirate Bay, but Jackett supports 
 
 To start Jackett, we'll need to run it using Mono:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mono --debug ~/Jackett/JackettConsole.exe
-</span></code></pre></td></tr></table></div></figure>
+```
+mono --debug ~/Jackett/JackettConsole.exe
+```
 
 Jackett will be available at http://phone-ip:9117. Once you've configured a search site in Jackett, you can start Sonarr and begin configuration.
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mono --debug ~/Jackett/JackettConsole.exe
-</span></code></pre></td></tr></table></div></figure>
+```
+mono --debug ~/Jackett/JackettConsole.exe
+```
 
 Sonarr will start up at http://phone-ip:8989. First we'll setup an *Indexer* (from *Settings -> Indexers*). This is where we'll plug in the details we configured in Jackett. You'll need exact url from Jackett, as well as the API key. This information is all easy to find from the Jackett interface.
 
@@ -140,35 +131,28 @@ Both of these are going to be a bit challenging, as [Filebot](https://www.filebo
 
 First, let's install whatever we can from our existing SSH session:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main&quot;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list
-</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main&quot;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list
-</span><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-</span><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get install -y curl oracle-java8-installer transmission
-</span><span class='line'>curl -L -O https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/filebot_4.7.9_armhf.deb
-</span><span class='line'>sudo dpkg -i  filebot_4.7.9_armhf.deb
-</span></code></pre></td></tr></table></div></figure>
+```
+sudo echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | sudo tee -a /etc/apt/sources.list
+sudo echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+sudo apt-get update
+sudo apt-get install -y curl oracle-java8-installer transmission
+curl -L -O https://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.7.9/filebot_4.7.9_armhf.deb
+sudo dpkg -i  filebot_4.7.9_armhf.deb
+```
 
 **NOTE:** if you get an error installing the key via `apt-key`, try the following:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-</span></code></pre></td></tr></table></div></figure>
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+```
 
 In order to use Filebot, we'll need a script we can call from Transmission. The script I'm working with is as follows:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'>filebot -non-strict -script fn:amc --output /home/android/Media --log-file /home/android/amc.log --action move --conflict auto --def <span class="nv">music</span><span class="o">=</span>n --def <span class="nv">subtitles</span><span class="o">=</span>n --def <span class="nv">artwork</span><span class="o">=</span>y --def <span class="nv">backdrops</span><span class="o">=</span>n --def <span class="nv">clean</span><span class="o">=</span>y <span class="s2">&quot;seriesFormat= /home/android/Media/TV/{n}/{fn}&quot;</span> <span class="s2">&quot;ut_dir=$TR_TORRENT_DIR/$TR_TORRENT_NAME&quot;</span> <span class="s2">&quot;ut_kind=multi&quot;</span> <span class="s2">&quot;ut_title=$TR_TORRENT_NAME&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
+```
+#!/bin/bash
+filebot -non-strict -script fn:amc --output /home/android/Media --log-file /home/android/amc.log --action move --conflict auto --def music=n --def subtitles=n --def artwork=y --def backdrops=n --def clean=y "seriesFormat= /home/android/Media/TV/{n}/{fn}" "ut_dir=$TR_TORRENT_DIR/$TR_TORRENT_NAME" "ut_kind=multi" "ut_title=$TR_TORRENT_NAME"
+```
 
 This script assumes that (a) your home directory is `/home/android`, and (b) you will be storing your media for Plex at `/home/android/Media/TV`. Feel free to modify the values to fit your particular installation.
 
@@ -176,7 +160,7 @@ Let's save this script as **transmission-postprocess** and make it executable us
 
 Next, we'll need to actually VNC into our Linux distro. This is due to Transmission being a GTK application so we'll need to interact with it in a desktop environment.
 
-<img class="center" src="/images/moto-plex/moto-plex-005.png">
+{% img center /images/moto-plex/moto-plex-005.png %}
 
 From the desktop, launch Transmission and go to *Edit -> Preferences*. We want to do two things now:
 
@@ -185,7 +169,7 @@ From the desktop, launch Transmission and go to *Edit -> Preferences*. We want t
 
 ## Putting It All Together
 
-<img class="center" src="/images/moto-plex/moto-plex-006.png">
+{% img center /images/moto-plex/moto-plex-006.png %}
 <small>open in new tab to see full size</small>
 
 Going back to our Plex Media Server url, we can now setup a library that points to our downloaded media directory.

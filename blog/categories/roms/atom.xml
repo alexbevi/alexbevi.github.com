@@ -4,7 +4,7 @@
     <title><![CDATA[Category: roms | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/roms/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:37:26-05:00</updated>
+    <updated>2020-01-17T07:57:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,24 +28,17 @@ Even though most emulators support compressed ROM sets, I'd prefer to just have 
 
 As a programmer, I thought "How can I do this in Linux?", but more specifically, "how do I do this from the command line directly?".
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># extract best rom to directory
-</span><span class='line'># best contains !
-</span><span class='line'>7z e "*.7z" -o../../ *[!]*.* -r
-</span><span class='line'>
-</span><span class='line'># purge all non US/European
-</span><span class='line'>find . -type f ! -name '*(U)*' ! -name '*(E)*' -delete
-</span><span class='line'>
-</span><span class='line'># purge duplicates where a (U) exists alongiside an (E)
-</span><span class='line'>for f in *"(E)"*; do us=`echo $f | sed -r 's/\(E\)+/\(U\)/g'`; if [ -e "$us" ]; then echo "FOUND $us - removing $f"; rm "$f"; fi; done</span></code></pre></td></tr></table></div></figure>
+```
+# extract best rom to directory
+# best contains !
+7z e "*.7z" -o../../ *[!]*.* -r
+
+# purge all non US/European
+find . -type f ! -name '*(U)*' ! -name '*(E)*' -delete
+
+# purge duplicates where a (U) exists alongiside an (E)
+for f in *"(E)"*; do us=`echo $f | sed -r 's/\(E\)+/\(U\)/g'`; if [ -e "$us" ]; then echo "FOUND $us - removing $f"; rm "$f"; fi; done
+```
 
 If you find yourself with compressed ROM sets and you want to just grab the English ones, this might just come in handy ;)
 

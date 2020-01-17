@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:37:26-05:00</updated>
+    <updated>2020-01-17T07:57:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/"/>
         <updated>2017-10-03T20:38:12-04:00</updated>
         <id>http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand</id>
-        <content type="html"><![CDATA[It's been a [while](/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.
+        <content type="html"><![CDATA[It's been a [while]({% post_url 2016-03-23-redmine-plugin-extension-and-development-is-apparently-still-relevant %}) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.
 
 I have been sharing sales numbers whenever possible as a way of (hopefully) encouraging other authors to see that there is some money out there, even for obscure niche topics.
 
@@ -89,40 +89,25 @@ Note that this is a preliminary release as there is one bug in here that I haven
 
 When trying to search, you're prompted with a failure similar to:
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
-</span><span class='line'>Processing by SearchController#index as HTML
-</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
-</span><span class='line'>  Current user: admin (id=1)
-</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
-</span><span class='line'>
-</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
-</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
-</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:125:in `each'
-</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
-</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
-</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
-</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
+```
+Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
+Processing by SearchController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"stuff"}
+  Current user: admin (id=1)
+Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
+
+NoMethodError (undefined method `where' for #<Hash:0x000000096b0d60>):
+  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
+  lib/redmine/search.rb:127:in `block in load_result_ids'
+  lib/redmine/search.rb:125:in `each'
+  lib/redmine/search.rb:125:in `load_result_ids'
+  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
+  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
+  lib/redmine/search.rb:99:in `result_ids'
+  lib/redmine/search.rb:70:in `result_count'
+  app/controllers/search_controller.rb:65:in `index'
+  lib/redmine/sudo_mode.rb:63:in `sudo_mode'
+```
 
 I'm pretty sure this has to do with how we're setting up `acts_as_searchable` in the `kb_article` model. Any suggestions welcome ;)
 ]]></content>
@@ -162,7 +147,7 @@ I'm going to try to get my knowledgebase and dropbox plugins updated in the next
 
 As of this quarter, [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) is officially earning me money!
 
-<img class="left" src="/images/royalties-004.png">
+{% img left /images/royalties-004.png %}
 
 Technically, the last statement was [in the black](https://en.wiktionary.org/wiki/in_the_black), however since the terms laid out by Packt Publishing only pays out royalties greater than £75, those earnings were rolled into this quarter.
 
@@ -186,7 +171,7 @@ If you're just venturing onto this blog after having bought the book, please fee
         <id>http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement</id>
         <content type="html"><![CDATA[It's been over a year since this book was published, and I didn't think it would see the type of success it has.
 
-<img class="left" src="/images/20150329-001.png">
+{% img left /images/20150329-001.png %}
 
 Based on this last statement, I'm officially eligible to start collecting royalties off this book.
 

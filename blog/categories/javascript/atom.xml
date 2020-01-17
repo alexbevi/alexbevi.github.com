@@ -4,7 +4,7 @@
     <title><![CDATA[Category: javascript | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/javascript/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:37:26-05:00</updated>
+    <updated>2020-01-17T07:57:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -36,31 +36,25 @@ DB.prototype.loadServerScripts/<@src/mongo/shell/db.js:1158:9
 DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
 DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
 @(shell):1:15:17:56
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>Occasionally we'll run into these scenarios where we need to load the `system.js` functions into the global context, but for whatever reason one (or more) scripts are borked.
-</span><span class='line'>
-</span><span class='line'>I created on that essentially looks like the following to illustrate this point.
-</span></code></pre></td></tr></table></div></figure> javascript
+```
+
+Occasionally we'll run into these scenarios where we need to load the `system.js` functions into the global context, but for whatever reason one (or more) scripts are borked.
+
+I created on that essentially looks like the following to illustrate this point.
+
+``` javascript
 var thisFunctionShouldFail = function() {
     return "Fail
 }
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>When you try to execute a `db.loadServerScripts()` call, the entire process will fail as there is a malformed script.
-</span><span class='line'>
-</span><span class='line'>This is a major pain in the ass when you have large background processes that rely heavily on internal system scripts.
-</span><span class='line'>
-</span><span class='line'>In order to address this, we wrote a small script that you can run against any database to validate the internal scripts:
-</span></code></pre></td></tr></table></div></figure> javascript
+```
+
+When you try to execute a `db.loadServerScripts()` call, the entire process will fail as there is a malformed script.
+
+This is a major pain in the ass when you have large background processes that rely heavily on internal system scripts.
+
+In order to address this, we wrote a small script that you can run against any database to validate the internal scripts:
+
+``` javascript
 var testSystemJs = function() {
     var coll = db.system.js;
     coll.find({}, {_id: 1}).forEach(function(doc) {
@@ -72,11 +66,11 @@ var testSystemJs = function() {
        }
     });
 }
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>Now if you run the above, it will give you a bit more context into the failures you may have ;)
-</span></code></pre></td></tr></table></div></figure>
+```
+
+Now if you run the above, it will give you a bit more context into the failures you may have ;)
+
+```
 laptop(mongod-3.2.1) test> testSystemJs()
 2016-02-10T15:52:13.086-0500 E QUERY    [thread1] SyntaxError: unterminated string literal :
 testSystemJs/<@(shell):1:190

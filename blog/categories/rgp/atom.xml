@@ -4,7 +4,7 @@
     <title><![CDATA[Category: rgp | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/rgp/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-17T07:37:26-05:00</updated>
+    <updated>2020-01-17T07:57:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,7 +20,7 @@
         <id>http://www.alexbevi.com/blog/2016/07/27/just-finished-dragon-quest-i</id>
         <content type="html"><![CDATA[I actually finished this game around the end of June, but haven't really had a chance to write about it until now. I'm currently sitting out by the lake at the cottage and figured it was about time :P
 
-<img class="left" src="/images/dq1/dq1.000.png">
+{% img left /images/dq1/dq1.000.png %}
 
 The last time I played through Dragon Quest was likely in the late 80's. I'm pretty sure I either heard about it, or got a copy of it through Nintendo Power, and like most kids in North America at the time, this would have been my first introduction to what would become known as JRPGs.
 
@@ -28,7 +28,7 @@ I decided to go with the SNES re-release of this title for my playthrough as I w
 
 It threw me off a bit when they refer to the legendary hero as Roto (as opposed to Erdrick), but I'm assuming this is a better translation than what we got in the 80's so that's probably what the name should have been in the first place.
 
-<img class="right" src="/images/dq1/dq1.001.png">
+{% img right /images/dq1/dq1.001.png %}
 
 Dragon Quest was essentially the first JRPG. As a result, there are a lot of concepts introduced here that would be adapted and refined by other titles and series over the years. This means that some parts of this game feel a bit rough or unbalanced.
 
@@ -44,7 +44,7 @@ You're the descendant of the legendary hero, and have been tasked with rescuing 
 
 <!-- more -->
 
-<img class="left" src="/images/dq1/dq1.001.png">
+{% img left /images/dq1/dq1.001.png %}
 
 To defeat the Dragon Lord, you need to get three pieces of equipment of the legendary hero which are scattered across the world.
 
@@ -58,7 +58,7 @@ I think it's kind of cool that the first time you leave the castle you can see t
 
 You interact with NPCs and the world via a command menu. One of the nice additions to the SNES version is that you no longer have to use a STAIRS command to go up and down stairs; just walk over them.
 
-<img class="right" src="/images/dq1/dq1.012.png">
+{% img right /images/dq1/dq1.012.png %}
 
 As you roam around the overworld and dungeouns, you'll get into random encounters. You interact with these using a command menu as well, where you can select to either attack, use magic, use an item, or run. 
 
@@ -72,7 +72,33 @@ If you're playing the "classics", I'd definitely recommend this title. Playing t
 
 Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.
 
-<div id="galleria"><img src="/images/dq1/dq1.000.png" data-title=" /images/dq1/dq1.000.png" /><img src="/images/dq1/dq1.001.png" data-title=" /images/dq1/dq1.001.png" /><img src="/images/dq1/dq1.002.png" data-title=" /images/dq1/dq1.002.png" /><img src="/images/dq1/dq1.003.png" data-title=" /images/dq1/dq1.003.png" /><img src="/images/dq1/dq1.004.png" data-title=" /images/dq1/dq1.004.png" /><img src="/images/dq1/dq1.005.png" data-title=" /images/dq1/dq1.005.png" /><img src="/images/dq1/dq1.006.png" data-title=" /images/dq1/dq1.006.png" /><img src="/images/dq1/dq1.007.png" data-title=" /images/dq1/dq1.007.png" /><img src="/images/dq1/dq1.008.png" data-title=" /images/dq1/dq1.008.png" /><img src="/images/dq1/dq1.009.png" data-title=" /images/dq1/dq1.009.png" /><img src="/images/dq1/dq1.010.png" data-title=" /images/dq1/dq1.010.png" /><img src="/images/dq1/dq1.011.png" data-title=" /images/dq1/dq1.011.png" /><img src="/images/dq1/dq1.012.png" data-title=" /images/dq1/dq1.012.png" /><img src="/images/dq1/dq1.013.png" data-title=" /images/dq1/dq1.013.png" /><img src="/images/dq1/dq1.014.png" data-title=" /images/dq1/dq1.014.png" /><img src="/images/dq1/dq1.015.png" data-title=" /images/dq1/dq1.015.png" /><img src="/images/dq1/dq1.016.png" data-title=" /images/dq1/dq1.016.png" /><img src="/images/dq1/dq1.017.png" data-title=" /images/dq1/dq1.017.png" /><img src="/images/dq1/dq1.018.png" data-title=" /images/dq1/dq1.018.png" /><img src="/images/dq1/dq1.019.png" data-title=" /images/dq1/dq1.019.png" /><img src="/images/dq1/dq1.020.png" data-title=" /images/dq1/dq1.020.png" /><img src="/images/dq1/dq1.021.png" data-title=" /images/dq1/dq1.021.png" /><img src="/images/dq1/dq1.022.png" data-title=" /images/dq1/dq1.022.png" /><img src="/images/dq1/dq1.023.png" data-title=" /images/dq1/dq1.023.png" /><img src="/images/dq1/dq1.024.png" data-title=" /images/dq1/dq1.024.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
+{% galleria %}
+ /images/dq1/dq1.000.png
+ /images/dq1/dq1.001.png
+ /images/dq1/dq1.002.png
+ /images/dq1/dq1.003.png
+ /images/dq1/dq1.004.png
+ /images/dq1/dq1.005.png
+ /images/dq1/dq1.006.png
+ /images/dq1/dq1.007.png
+ /images/dq1/dq1.008.png
+ /images/dq1/dq1.009.png
+ /images/dq1/dq1.010.png
+ /images/dq1/dq1.011.png
+ /images/dq1/dq1.012.png
+ /images/dq1/dq1.013.png
+ /images/dq1/dq1.014.png
+ /images/dq1/dq1.015.png
+ /images/dq1/dq1.016.png
+ /images/dq1/dq1.017.png
+ /images/dq1/dq1.018.png
+ /images/dq1/dq1.019.png
+ /images/dq1/dq1.020.png
+ /images/dq1/dq1.021.png
+ /images/dq1/dq1.022.png
+ /images/dq1/dq1.023.png
+ /images/dq1/dq1.024.png
+{% endgalleria %}]]></content>
     </entry>
     
 </feed>
