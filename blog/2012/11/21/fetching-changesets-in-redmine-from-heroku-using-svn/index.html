@@ -272,7 +272,7 @@ cp subversion/svn/svn /vagrant
     vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
     -rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*</p>
 
-<pre><code>vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
+<pre><code>vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn
 
 vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
 -rwxr-xr-x 1 vagrant vagrant 4257472 2012-11-21 14:56 subversion/svn/svn*
@@ -291,7 +291,7 @@ vagrant halt
 <p>Go to the root of your local Redmine repository, and create a <code>bin</code> folder. Now copy the <code>svn</code> binary to this folder, add the result to your repository and push to Heroku.</p>
 
 <pre><code>mkdir bin
-cp /path/to/static/svn bin  
+cp /path/to/static/svn bin
 git commit -a -m "Adding a Statically Linked Subversion to Redmine"
 git push heroku master
 </code></pre>
@@ -420,6 +420,10 @@ git push heroku master
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
         </li>
         
@@ -433,10 +437,6 @@ git push heroku master
         
         <li class="post">
             <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDB Performance Issue</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/">Setting up domain forwarding in hover.com</a>
         </li>
         
     </ul>

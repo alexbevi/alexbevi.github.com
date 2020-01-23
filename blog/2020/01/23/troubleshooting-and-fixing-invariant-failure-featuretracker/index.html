@@ -1,0 +1,712 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup Jan 23rd, 2020 mongodb Comments Last Updated: Jan 23, 2020 I &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2020-01-23T05:34:53-05:00" pubdate><i class="fa fa-calendar"></i> Jan 23rd, 2020</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 23, 2020</em></small></p>
+    <p>I recently found myself troubleshooting another <a href="https://www.mongodb.com/">MongoDB</a> startup issue due to potential corruption within a <a href="https://docs.mongodb.com/manual/core/wiredtiger/">WiredTiger</a> file. As I have previously covered this topic (see <a href="/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">&ldquo;Recovering a WiredTiger collection from a corrupt MongoDB installation&rdquo;</a>), I wanted to share the diagnostic and troubleshooting journey in case it helps anyone who experiences this issue in the future.</p>
+
+<p>To ensure I could troubleshoot this issue in isolation, I first collected a backup of the necessary files from the affected installation as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -czvf metadata.tar.gz --exclude<span class="o">=</span>WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once I had this backup I extracted it to a new location, then using <a href="https://github.com/aheckmann/m">m</a> to select the versions of MongoDB to use tried to startup a standalone instance to see if I could reproduce the issue:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p /tmp/repro
+</span><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'><span class="c"># move archive from earlier to the new directory first</span>
+</span><span class='line'>tar xvf metadata.tar.gz
+</span><span class='line'><span class="c"># This is the version of MongoDB reported to be crashing</span>
+</span><span class='line'>m 3.4.18
+</span><span class='line'>mongod --dbpath .
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once the <code>mongod</code> started, we were able to see the failure and the process aborts (clipped log sample below).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>2020-01-23T03:58:19.828-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> db version v3.4.18
+</span><span class='line'>2020-01-23T03:58:19.828-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> git version: 4410706bef6463369ea2f42399e9843903b31923
+</span><span class='line'>...
+</span><span class='line'>2020-01-23T03:58:20.187-0500 I -        <span class="o">[</span>initandlisten<span class="o">]</span> Invariant failure !_featureTracker src/mongo/db/storage/kv/kv_catalog.cpp 305
+</span><span class='line'>2020-01-23T03:58:20.187-0500 I -        <span class="o">[</span>initandlisten<span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>***aborting after invariant<span class="o">()</span> failure
+</span><span class='line'>
+</span><span class='line'>2020-01-23T03:58:20.198-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Got signal: <span class="m">6</span> <span class="o">(</span>Aborted<span class="o">)</span>.
+</span><span class='line'>...
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo15printStackTraceERSo+0x41<span class="o">)</span> <span class="o">[</span>0x55bb45c92111<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x153F329<span class="o">)</span> <span class="o">[</span>0x55bb45c91329<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x153F80D<span class="o">)</span> <span class="o">[</span>0x55bb45c9180d<span class="o">]</span>
+</span><span class='line'> libpthread.so.0<span class="o">(</span>+0x12890<span class="o">)</span> <span class="o">[</span>0x7f5b7bee5890<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>gsignal+0xC7<span class="o">)</span> <span class="o">[</span>0x7f5b7bb20e97<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>abort+0x141<span class="o">)</span> <span class="o">[</span>0x7f5b7bb22801<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo17invariantOKFailedEPKcRKNS_6StatusES1_j+0x0<span class="o">)</span> <span class="o">[</span>0x55bb44f5b234<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo9KVCatalog4initEPNS_16OperationContextE+0x568<span class="o">)</span> <span class="o">[</span>0x55bb458db5e8<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo15KVStorageEngineC1EPNS_8KVEngineERKNS_22KVStorageEngineOptionsE+0x807<span class="o">)</span> <span class="o">[</span>0x55bb458e79f7<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x124DFFA<span class="o">)</span> <span class="o">[</span>0x55bb4599fffa<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo20ServiceContextMongoD29initializeGlobalStorageEngineEv+0x697<span class="o">)</span> <span class="o">[</span>0x55bb45891627<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x7F62AC<span class="o">)</span> <span class="o">[</span>0x55bb44f482ac<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>main+0x96B<span class="o">)</span> <span class="o">[</span>0x55bb44f66a6b<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>__libc_start_main+0xE7<span class="o">)</span> <span class="o">[</span>0x7f5b7bb03b97<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x86FFB1<span class="o">)</span> <span class="o">[</span>0x55bb44fc1fb1<span class="o">]</span>
+</span><span class='line'>-----  END BACKTRACE  -----
+</span><span class='line'>Aborted <span class="o">(</span>core dumped<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p>The <code>mongod</code> is failing to startup successfully due to an invariant failure during <code>KVCatalog::init</code>. We are able to determine this as the <code>mongod</code> log above tells us:</p>
+
+<ol>
+<li>The MongoDB version in used (3.4.18)</li>
+<li>The path to the source file where the failure occurred (file: <code>src/mongo/db/storage/kv/kv_catalog.cpp</code>, line: 305)</li>
+</ol>
+
+
+<p>As MongoDB is open source, we can view the source for this release by going to <a href="https://github.com/mongodb/mongo/blob/r3.4.18/src/mongo/db/storage/kv/kv_catalog.cpp#L305,">https://github.com/mongodb/mongo/blob/r3.4.18/src/mongo/db/storage/kv/kv_catalog.cpp#L305,</a> which will show us the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">FeatureTracker</span><span class="o">::</span><span class="n">isFeatureDocument</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// There should be at most one version document in the catalog.</span>
+</span><span class='line'>    <span class="n">invariant</span><span class="p">(</span><span class="o">!</span><span class="n">_featureTracker</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Initialize the feature tracker and skip over the version document because it doesn&#39;t</span>
+</span><span class='line'>    <span class="c1">// correspond to a namespace entry.</span>
+</span><span class='line'>    <span class="n">_featureTracker</span> <span class="o">=</span> <span class="n">FeatureTracker</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">opCtx</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">record</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The comment preceding the invariant<sup id="f1"><a href="#fn1">1</a></sup> indicates that there&rsquo;s only one feature document to be present in the catalog, but what&rsquo;s the catalog?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ls -l *catalog*
+</span><span class='line'>-rw-r--r-- <span class="m">1</span> alex <span class="m">249856</span> Jan <span class="m">23</span> 03:58 _mdb_catalog.wt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As there&rsquo;s only one file that contains the word &ldquo;catalog&rdquo; this is good a place as any to start. The <code>_mdb_catalog</code> is a WiredTiger file, so to interact with it directly (outside of MongoDB) we will need to use the <a href="http://source.wiredtiger.com/mongodb-3.4/command_line.html">WiredTiger command line utility</a>, also know as <code>wt</code>.</p>
+
+<p>The documentation link for <code>mongodb-3.4</code> points us to WiredTiger 2.9.2, so following the <a href="http://source.wiredtiger.com/mongodb-3.4/build-posix.html">build and installation instructions</a> we compile a <code>wt</code> binary with support for the snappy compressor. This is due to MongoDB&rsquo;s WiredTiger storage engine using snappy as the default block compressor (see <a href="https://docs.mongodb.com/manual/core/wiredtiger/#compression">&ldquo;Compression&rdquo;</a>).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'>git clone git://github.com/wiredtiger/wiredtiger.git
+</span><span class='line'><span class="nb">cd </span>wiredtiger
+</span><span class='line'>git checkout 2.9.2
+</span><span class='line'>sh autogen.sh
+</span><span class='line'><span class="c"># ensure you have the necessary development headers for the snapy compression</span>
+</span><span class='line'><span class="c"># library before compiling</span>
+</span><span class='line'>./configure --enable-snappy <span class="o">&amp;&amp;</span> make
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once we&rsquo;ve successfully build the <code>wt</code> utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for teh feature document.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'><span class="c"># to shorten the amount of typing required, wrap the wt utility invocation in</span>
+</span><span class='line'><span class="c"># a function we can call instead</span>
+</span><span class='line'>WT<span class="o">()</span> <span class="o">{</span> /tmp/repro/wiredtiger/wt -v -C <span class="s2">&quot;extensions=[\&quot;/tmp/repro/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so\&quot;]&quot;</span> <span class="nv">$@</span><span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="c"># write the catalog dump out to a file</span>
+</span><span class='line'>WT dump _mdb_catalog &gt; dump.txt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>NOTE: If you receive the following error, just re-run the command.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">[</span>1579773800:589375<span class="o">][</span>9348:0x7fc9a8e17140<span class="o">]</span>, txn-recover: Recovery failed: WT_RUN_RECOVERY: recovery must be run to <span class="k">continue</span>
+</span><span class='line'>wt: WT_RUN_RECOVERY: recovery must be run to <span class="k">continue</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This error is due to the presence of content in the <code>journal/</code> that was created when we last ran the <code>mongod</code>.</p>
+
+<p>With the catalog dumped we can now search it for the feature document:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep isFeatureDoc dump.txt -B <span class="m">1</span> -n
+</span><span class='line'>
+</span><span class='line'>935-<span class="se">\c</span>2<span class="se">\e</span>5
+</span><span class='line'>936:C<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>8isFeatureDoc<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>ans<span class="se">\0</span>0<span class="se">\1</span>2nonRepairable<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\1</span>2repairable<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0
+</span><span class='line'>937-<span class="se">\c</span>2<span class="se">\e</span>6
+</span><span class='line'>938:C<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>8isFeatureDoc<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>ans<span class="se">\0</span>0<span class="se">\1</span>2nonRepairable<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\1</span>2repairable<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>INTERESTING! I&rsquo;m not really sure how the catalog was able to get into a state where two feature documents exist, but since we have a dump of the catalog let&rsquo;s try to remove one of those entries and then load the dump back into the catalog.</p>
+
+<p>As the results appear to be identical, we&rsquo;ll just drop the first one and then try to load it back into the catalog.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># remove lines 935-936 and overwrite the file</span>
+</span><span class='line'>sed -i -e <span class="s1">&#39;935,936d&#39;</span> dump.txt
+</span><span class='line'><span class="c"># drop the contents of the _mdb_catalog table</span>
+</span><span class='line'>WT truncate _mdb_catalog
+</span><span class='line'><span class="c"># reload the table from the dump file</span>
+</span><span class='line'>WT load -f dump.txt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the table loaded successfully the output of the command should be something like <code>table:_mdb_catalog: 822</code>.</p>
+
+<p>With a reloaded catalog, let&rsquo;s try spinning up the <code>mongod</code> again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>2020-01-23T05:24:54.911-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> db version v3.4.18
+</span><span class='line'>...
+</span><span class='line'>2020-01-23T05:24:56.247-0500 E STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span> no cursor <span class="k">for</span> uri: table:SomeCollection/collection/34-1349843775853912065
+</span><span class='line'>2020-01-23T05:24:56.247-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Invalid access at address: 0x58
+</span><span class='line'>2020-01-23T05:24:56.259-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Got signal: <span class="m">11</span> <span class="o">(</span>Segmentation fault<span class="o">)</span>.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>SUCCESS! The <code>mongod</code> is still crashing as the backing files for the database don&rsquo;t exist, but we should now be able to take our recovered files back to our node that was previously failing.</p>
+
+<p>From our recovered directory compress the following files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -czvf recovered.tar.gz --exclude<span class="o">=</span>WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that if the <code>mongod</code> fails to start with the recovered files you may have to clear out the <code>journal/</code> directory.</p>
+
+<p>Hopefully this helps someone someday ;)</p>
+
+<hr/>
+
+
+<p><small><b id="fn">1</b> An invariant is a condition to test, that on failure will log the test condition, source file and line of code. <a href="#f1">↩</a></small></p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available hire--vibrant">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineering at MongoDB</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/08/14/hello-mongodb/">Hello MongoDB</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDB Performance Issue</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6215800856413580",
+            enable_page_level_ads: true
+       });
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>
