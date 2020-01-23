@@ -27,7 +27,7 @@ By the end of this tutorial, we will have:
 
 ## Overview
 
-In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarily opened the service up to developers who hadn't given up the centralized development model. 
+In 2012, [GitHub announced SVN support](https://github.com/blog/626-announcing-svn-support), which primarily opened the service up to developers who hadn't given up the centralized development model.
 
 As an added bonus, it gave us an alternative view into the commit logs for our projects without the need for a local copy.
 
@@ -38,7 +38,7 @@ In order to proceed, I'm making the following assumptions:
 * You've used a [Debian](http://debian.org)-based Linux distribution in the past
 * You've used the [GNU Build System](http://en.wikipedia.org/wiki/GNU_build_system) before
 * You have [Ruby](http://www.ruby-lang.org) and [RubyGems](http://rubygems.org) configured (if not, [RVM](http://rvm.io) is a good place to start)
-* You are not crazy enough to try doing this from Windows or OSX ;) 
+* You are not crazy enough to try doing this from Windows or OSX ;)
 * You have a sense of humour and realize the winky above indicates this guide was written for Linux, but could easily be adapted for any OS
 
 ## Configuring the Build Environment
@@ -62,7 +62,7 @@ This will create a `Vagrantfile` in the current director, which contains configu
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|  
+Vagrant::Config.run do |config|
   # ...
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "lucid64"
@@ -73,24 +73,24 @@ Now that everything is ready to go, let's start the instance.
 
 	vagrant up
 
-Once vagrant has started the virtual machine, we can access it via ssh using:	
-	
+Once vagrant has started the virtual machine, we can access it via ssh using:
+
 	vagrant ssh
 
 ## Building Subversion
 
-For the purposes of this tutorial, I'm going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged separately. 
+For the purposes of this tutorial, I'm going to be using the 1.6 branch of Subversion, which still had the _subversion-deps_ packaged separately.
 
 > **NOTE** With the 1.7 branch, there is a script that automates the process, and I'll likely update this tutorial at some point to use this.
 
 First, we need to get the source:
-	
+
 	wget http://subversion.tigris.org/downloads/subversion-deps-1.6.19.tar.bz2
 	wget http://subversion.tigris.org/downloads/subversion-1.6.19.tar.bz2
 	tar xvf subversion-deps-1.6.19.tar.bz2
 	tar xvf subversion-1.6.19.tar.bz2
 	cd subversion-1.6.19
-	
+
 Second, we'll install any additional components required to compile successfully:
 
 	sudo apt-get install build-essential libxml2-dev
@@ -112,15 +112,15 @@ Once the build completes, the only file we're interested in is the `svn` client,
 > **NOTE** stripping the binary reduces the overall size from ~ 12 MB to ~ 4 MB, which is important since we have limited space on Heroku.
 	vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
 	-rwxr-xr-x 1 vagrant vagrant 12060462 2012-11-21 14:37 subversion/svn/svn*
->	
-	vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn   
->	
+>
+	vagrant@lucid64:~/subversion-1.6.19$ strip subversion/svn/svn
+>
 	vagrant@lucid64:~/subversion-1.6.19$ ls -l subversion/svn/svn
 	-rwxr-xr-x 1 vagrant vagrant 4257472 2012-11-21 14:56 subversion/svn/svn*
 
 The `/vagrant` directory is shared between the host and the guest machine by default, so this gives us access to the Subversion client if we open a new console and access the project folder we started Vagrant in.
 
-Since we're now done, we can end the ssh session and stop the virtual machine	
+Since we're now done, we can end the ssh session and stop the virtual machine
 
 	exit
 	vagrant halt
@@ -130,7 +130,7 @@ Since we're now done, we can end the ssh session and stop the virtual machine
 Go to the root of your local Redmine repository, and create a `bin` folder. Now copy the `svn` binary to this folder, add the result to your repository and push to Heroku.
 
 	mkdir bin
-	cp /path/to/static/svn bin	
+	cp /path/to/static/svn bin
 	git commit -a -m "Adding a Statically Linked Subversion to Redmine"
 	git push heroku master
 
