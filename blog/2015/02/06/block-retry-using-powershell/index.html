@@ -186,72 +186,7 @@ At line:62 char:9
 <!-- more -->
 
 
-<p><noscript><pre>&lt;#
-This function can be used to pass a ScriptBlock (closure) to be executed and returned.</p>
-
-<p>The operation retried a few times on failure, and if the maximum threshold is surpassed, the operation fails completely.</p>
-
-<p>Params:
-    Command         - The ScriptBlock to be executed
-    RetryDelay      - Number (in seconds) to wait between retries
-                      (default: 5)
-    MaxRetries      - Number of times to retry before accepting failure
-                      (default: 5)
-    VerboseOutput   - More info about internal processing
-                      (default: false)
-Examples:</p>
-
-<p>Execute-With-Retry { $connection.Open() }
-$result = Execute-With-Retry -RetryDelay 1 -MaxRetries 2 { $command.ExecuteReader() }</p>
-
-<h1>&gt;</h1>
-
-<p>function Execute-With-Retry {
-    [CmdletBinding()]
-    param(  <br/>
-    [Parameter(ValueFromPipeline,Mandatory)]
-    $Command,  <br/>
-    $RetryDelay = 5,
-    $MaxRetries = 5,
-    $VerboseOutput = $false
-    )</p>
-
-<pre><code>$currentRetry = 0
-$success = $false
-$cmd = $Command.ToString()
-
-do {
-    try
-    {
-        $result = &amp;amp; $Command
-        $success = $true
-        if ($VerboseOutput -eq $true) {
-            $Host.UI.WriteDebugLine(&amp;quot;Successfully executed [$cmd]&amp;quot;)
-        }
-
-        return $result
-    }
-    catch [System.Exception]
-    {
-        $currentRetry = $currentRetry + 1
-
-        if ($VerboseOutput -eq $true) {
-            $Host.UI.WriteErrorLine(&amp;quot;Failed to execute [$cmd]: &amp;quot; + $_.Exception.Message)
-        }
-
-        if ($currentRetry -gt $MaxRetries) {                
-            throw &amp;quot;Could not execute [$cmd]. The error: &amp;quot; + $_.Exception.ToString()
-        } else {
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteDebugLine(&amp;quot;Waiting $RetryDelay second(s) before attempt #$currentRetry of [$cmd]&amp;quot;)
-            }
-            Start-Sleep -s $RetryDelay
-        }
-    }
-} while (!$success);
-</code></pre>
-
-<p>}</pre></noscript><script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script></p>
+<p>true<script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script></p>
 
 <p>Now, if we retrofit our sample above:</p>
 

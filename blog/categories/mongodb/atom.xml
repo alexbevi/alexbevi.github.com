@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-23T05:56:29-05:00</updated>
+    <updated>2020-01-23T06:20:11-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -156,7 +156,7 @@ The documentation link for `mongodb-3.4` points us to WiredTiger 2.9.2, so follo
 </span><span class='line'><span class="nb">cd </span>wiredtiger
 </span><span class='line'>git checkout 2.9.2
 </span><span class='line'>sh autogen.sh
-</span><span class='line'><span class="c"># ensure you have the necessary development headers for the snapy compression</span>
+</span><span class='line'><span class="c"># ensure you have the necessary development headers for the snappy compression</span>
 </span><span class='line'><span class="c"># library before compiling</span>
 </span><span class='line'>./configure --enable-snappy <span class="o">&amp;&amp;</span> make
 </span></code></pre></td></tr></table></div></figure>
