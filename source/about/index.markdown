@@ -7,7 +7,7 @@ footer: true
 
 {% img right /images/headshot.png Me %}
 
-The name's Alex, and I'm currently a Technical Services Engineer at [MongoDB](https://www.mongodb.com/) in Toronto.
+The name's Alex, and I'm currently a Senior Technical Services Engineer at [MongoDB](https://www.mongodb.com/) in Toronto.
 
 I've been writing software professionally since 2000, and have had the opportunity to flex my creative muscle in a number of languages and technologies.
 
@@ -42,4 +42,4 @@ Though I don't have a lot of free time lately, if the right project for the righ
 
 Wanna get in touch with me? Fill out this handy-dandy contact form, and if you turn out to be human, I'll get back to you :)
 
-{% google_form dDVNN1dsOHR2WEs5XzVVNFNCamlHdUE6MQ  %}
+{% google_form dDVNN1dsOHR2WEs5XzVVNFNCamlHdUE6MQ %}

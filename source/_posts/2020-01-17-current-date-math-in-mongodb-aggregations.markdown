@@ -67,3 +67,10 @@ db.foo.aggregate(
 { "_id" : ObjectId("5e219c6ecc99b35bb2975d9f"), "lastUpdated" : ISODate("2020-01-12T11:37:18.522Z") }
 */
 ```
+
+I hope you find this as useful as I did. With each major release of MongoDB new features and functionality
+are being introduced that reduce the "hacks" or "workarounds" we've had to do in the past.
+
+If you're looking for more MongoDB tips and tricks, head on over to Asya's [Stupid Tricks With MongoDB](http://www.kamsky.org/stupid-tricks-with-mongodb).
+
+Let me know in the comments below if you have any questions, or if you found this useful.

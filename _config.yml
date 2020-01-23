@@ -105,37 +105,44 @@ linkedin_share: true
 
 # Oscailte Theme Settings
 oscailte:
-    hire: # The "Available for Hire" widget
-        visible:
-            footer: false
-            sidebar: true
-        footer-cols: 6 # Number of columns available for the footer component, max 12
-        available: true # Whether or not you're available for hire
-        vibrant: false # Makes the widget much more noticeable
-        message: "Need a developer?"
-    social:
-        visible: true
-        title: # Defaults to "Follow me!" if not present
-        adn: # App.net
-        coinbase:
-        dribbble:
-        facebook:
-            user: alexbevi
-            app_id: # For enabling Open Graph metadata
-        github:
-            user: alexbevi
-            show_profile_link:
-        googleplus: +alexbevilacqua
-        hackernews:
-        keybase:
-        linkedin: alexbevi
-        pinterest:
-        reddit: alexbevi
-        stackoverflow: 195509
-        twitter:
-            user: alexbevi
-            widget: # Shows the Recent Tweets widget in sidebar
-                is_shown: true
-                show_profile_link: true
-                widget_id: 448022650414051328
-        youtube:
+  hire: # The "Available for Hire" widget
+    visible:
+      footer: false
+      sidebar: true
+    footer-cols: 6 # Number of columns available for the footer component, max 12
+    available: true # Whether or not you're available for hire
+    vibrant: true # Makes the widget much more noticeable
+    message: "Need a developer?"
+  strings:
+    skip_to_main_content: "Skip to main content"
+    x_minute_read: "$x$ minute read"
+    hero_title: "Welcome to Oscailte!<br> A powerful, clean, and responsive Jekyll theme."
+    recent_posts: "Recent posts"
+    view_all: "View all"
+    read_full: "Read full"
+  social:
+    visible: true
+    title: # Defaults to "Follow me!" if not present
+    adn: # App.net
+    coinbase:
+    dribbble:
+    facebook:
+      user: alexbevi
+      app_id: # For enabling Open Graph metadata
+    github:
+      user: alexbevi
+      show_profile_link:
+    googleplus: +alexbevilacqua
+    hackernews:
+    keybase:
+    linkedin: alexbevi
+    pinterest:
+    reddit: alexbevi
+    stackoverflow: 195509
+    twitter:
+      user: alexbevi
+      widget: # Shows the Recent Tweets widget in sidebar
+        is_shown: true
+        show_profile_link: true
+        widget_id: 448022650414051328
+    youtube:
