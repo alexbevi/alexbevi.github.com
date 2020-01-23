@@ -304,7 +304,7 @@
 </span><span class='line'><span class="c"># a function we can call instead</span>
 </span><span class='line'>WT<span class="o">()</span> <span class="o">{</span> /tmp/repro/wiredtiger/wt -v -C <span class="s2">&quot;extensions=[\&quot;/tmp/repro/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so\&quot;]&quot;</span> <span class="nv">$@</span><span class="p">;</span> <span class="o">}</span>
 </span><span class='line'><span class="c"># write the catalog dump out to a file</span>
-</span><span class='line'>WT dump _mdb_catalog &gt; dump.txt
+</span><span class='line'>WT dump _mdb_catalog &gt; dump.dat
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -327,7 +327,7 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep isFeatureDoc dump.txt -B <span class="m">1</span> -n
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep isFeatureDoc dump.dat -B <span class="m">1</span> -n
 </span><span class='line'>
 </span><span class='line'>935-<span class="se">\c</span>2<span class="se">\e</span>5
 </span><span class='line'>936:C<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>8isFeatureDoc<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>ans<span class="se">\0</span>0<span class="se">\1</span>2nonRepairable<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\1</span>2repairable<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0
@@ -347,11 +347,11 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># remove lines 935-936 and overwrite the file</span>
-</span><span class='line'>sed -i -e <span class="s1">&#39;935,936d&#39;</span> dump.txt
+</span><span class='line'>sed -i -e <span class="s1">&#39;935,936d&#39;</span> dump.dat
 </span><span class='line'><span class="c"># drop the contents of the _mdb_catalog table</span>
 </span><span class='line'>WT truncate _mdb_catalog
 </span><span class='line'><span class="c"># reload the table from the dump file</span>
-</span><span class='line'>WT load -f dump.txt
+</span><span class='line'>WT load -f dump.dat
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -385,7 +385,7 @@
 
 <p>Hopefully this helps someone someday ;)</p>
 
-<p><code>&lt;SHAMELESS_PLUG&gt;</code>If you enjoyed this post and like solving these types of problems, <a href="https://grnh.se/dcd90aac1">MongoDB is hiring!</a><code>&lt;/SHAMELESS_PLUG&gt;</code></p>
+<p><em>If you enjoyed this post and like solving these types of problems, <a href="https://grnh.se/dcd90aac1">MongoDB is hiring!</a></em></p>
 
 <hr/>
 
