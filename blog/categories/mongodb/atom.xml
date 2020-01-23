@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-23T05:48:16-05:00</updated>
+    <updated>2020-01-23T05:56:29-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -161,7 +161,7 @@ The documentation link for `mongodb-3.4` points us to WiredTiger 2.9.2, so follo
 </span><span class='line'>./configure --enable-snappy <span class="o">&amp;&amp;</span> make
 </span></code></pre></td></tr></table></div></figure>
 
-Once we've successfully build the `wt` utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for teh feature document.
+Once we've successfully build the `wt` utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for the feature document.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -249,8 +249,10 @@ Note that if the `mongod` fails to start with the recovered files you may have t
 
 Hopefully this helps someone someday ;)
 
+`<SHAMELESS_PLUG>`If you enjoyed this post and like solving these types of problems, [MongoDB is hiring!](https://grnh.se/dcd90aac1)`</SHAMELESS_PLUG>`
+
 <hr/>
-<small><b id="fn">1</b> An invariant is a condition to test, that on failure will log the test condition, source file and line of code. [↩](#f1)</small>
+<small><b id="fn1">1</b> An invariant is a condition to test, that on failure will log the test condition, source file and line of code. [↩](#f1)</small>
 ]]></content>
     </entry>
     
