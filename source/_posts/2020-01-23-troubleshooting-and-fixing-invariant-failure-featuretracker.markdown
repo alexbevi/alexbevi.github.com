@@ -95,12 +95,12 @@ git clone git://github.com/wiredtiger/wiredtiger.git
 cd wiredtiger
 git checkout 2.9.2
 sh autogen.sh
-# ensure you have the necessary development headers for the snapy compression
+# ensure you have the necessary development headers for the snappy compression
 # library before compiling
 ./configure --enable-snappy && make
 ```
 
-Once we've successfully build the `wt` utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for teh feature document.
+Once we've successfully build the `wt` utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for the feature document.
 
 ```bash
 cd /tmp/repro
@@ -108,7 +108,7 @@ cd /tmp/repro
 # a function we can call instead
 WT() { /tmp/repro/wiredtiger/wt -v -C "extensions=[\"/tmp/repro/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so\"]" $@; }
 # write the catalog dump out to a file
-WT dump _mdb_catalog > dump.txt
+WT dump _mdb_catalog > dump.dat
 ```
 
 NOTE: If you receive the following error, just re-run the command.
@@ -123,7 +123,7 @@ This error is due to the presence of content in the `journal/` that was created 
 With the catalog dumped we can now search it for the feature document:
 
 ```bash
-grep isFeatureDoc dump.txt -B 1 -n
+grep isFeatureDoc dump.dat -B 1 -n
 
 935-\c2\e5
 936:C\00\00\00\08isFeatureDoc\00\01\0ans\00\12nonRepairable\00\00\00\00\00\00\00\00\00\12repairable\00\01\00\00\00\00\00\00\00\00
@@ -137,11 +137,11 @@ As the results appear to be identical, we'll just drop the first one and then tr
 
 ```bash
 # remove lines 935-936 and overwrite the file
-sed -i -e '935,936d' dump.txt
+sed -i -e '935,936d' dump.dat
 # drop the contents of the _mdb_catalog table
 WT truncate _mdb_catalog
 # reload the table from the dump file
-WT load -f dump.txt
+WT load -f dump.dat
 ```
 
 If the table loaded successfully the output of the command should be something like `table:_mdb_catalog: 822`.
@@ -168,5 +168,7 @@ Note that if the `mongod` fails to start with the recovered files you may have t
 
 Hopefully this helps someone someday ;)
 
+<em>If you enjoyed this post and like solving these types of problems, [MongoDB is hiring!](https://grnh.se/dcd90aac1)</em>
+
 <hr/>
-<small><b id="fn">1</b> An invariant is a condition to test, that on failure will log the test condition, source file and line of code. [↩](#f1)</small>
+<small><b id="fn1">1</b> An invariant is a condition to test, that on failure will log the test condition, source file and line of code. [↩](#f1)</small>
