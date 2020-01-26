@@ -1,0 +1,712 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>What is MongoDB FTDC (aka. diagnostic.data) - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="What is MongoDB FTDC (aka. diagnostic.data) Jan 26th, 2020 mongodb Comments Last Updated: Jan 26, 2020 What is MongoDB FTDC (aka. diagnostic.data) &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">What is MongoDB FTDC (aka. diagnostic.data)</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2020-01-26T18:14:50-05:00" pubdate><i class="fa fa-calendar"></i> Jan 26th, 2020</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 26, 2020</em></small></p>
+    <h1>What is MongoDB FTDC (aka. <code>diagnostic.data</code>)</h1>
+
+<p><a href="https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture">Full Time Diagnostic Data Capture (FTDC)</a> was introduced in MongoDB 3.2 (via <a href="https://jira.mongodb.org/browse/SERVER-19585">SERVER-19585</a>), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.</p>
+
+<p>On log rotation or startup, a <code>mongod</code> or <code>mongos</code> will collect and log:</p>
+
+<ul>
+<li><a href="https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/"><code>getCmdLineOpts</code></a>: <code>db.adminCommand({getCmdLineOpts: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/buildInfo/"><code>buildInfo</code></a>: <code>db.adminCommand({buildInfo: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/hostInfo/"><code>hostInfo</code></a>: <code>db.adminCommand({hostInfo: true})</code></li>
+</ul>
+
+
+<p>As configured by <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis"><code>diagnosticDataCollectionPeriodMillis</code></a> and defaulting to every 1 second, FTDC will collect to output of the following commands:</p>
+
+<ul>
+<li><a href="https://docs.mongodb.com/manual/reference/command/serverStatus/"><code>serverStatus</code></a>: <code>db.serverStatus({tcmalloc: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a>: <code>rs.status()</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/collStats/"><code>collStats</code></a> for the <a href="https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs"><code>local.oplog.rs</code></a> collection (<a href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod">mongod</a> only)</li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats"><code>connPoolStats</code></a> (<a href="https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos">mongos</a> only)</li>
+</ul>
+
+
+<p>When FTDC is enabled (per <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionEnabled"><code>diagnosticDataCollectionEnabled</code></a>), the <code>metrics.xxxxxxx</code> files will be stored in <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionDirectoryPath"><code>diagnosticDataCollectionDirectoryPath</code></a> which by default is the <em>diagnostic.data</em> directory within the <a href="https://docs.mongodb.com/manual/reference/configuration-options/#systemLog.path"><code>systemLog.path</code></a>.</p>
+
+<p>With <a href="https://jira.mongodb.org/browse/SERVER-21818">SERVER-21818</a> (introduced in MongoDB 3.2.13) and <a href="https://jira.mongodb.org/browse/SERVER-31400">SERVER-31400</a> (introduced in MongoDB 3.4.16) the diagnostic data capture scope was broadened to not only include internal diagnostic commands but system metrics as well. Depending on the host operating system, the diagnostic data may include one or more of the following statistics:</p>
+
+<ul>
+<li>CPU utilization (ex: <a href="http://www.linuxhowtos.org/System/procstat.htm"><code>/proc/stat</code></a>)</li>
+<li>Memory utilization (ex: <a href="https://www.thegeekdiary.com/understanding-proc-meminfo-file-analyzing-memory-utilization-in-linux/"><code>/proc/meminfo</code></a>)</li>
+<li>Disk utilization related to performance (ex: <a href="https://www.kernel.org/doc/Documentation/block/stat.txt"><code>*/sys/block/\*/stat*</code></a>)</li>
+<li>Network performance statistics (<a href="https://unix.stackexchange.com/questions/435579/is-there-documentation-for-proc-net-netstat-and-proc-net-snmp"><code>/proc/net/netstat</code></a>)</li>
+</ul>
+
+
+<p>The <code>metrics.xxxxxxx</code> files in the <code>diagnostic.data</code> directory contain only statistics about the performance of the system and the database. They are stored in a compressed format, and are not human-readable.</p>
+
+<p>Just a quick note regarding privacy, regardless of the version, the data in <em>diagnostic.data</em> never contains:</p>
+
+<ul>
+<li>Samples of queries, query predicates, or query results</li>
+<li>Data sampled from any end-user collection or index</li>
+<li>System or MongoDB user credentials or security certificates</li>
+</ul>
+
+
+<p>FTDC data contains certain host machine information such as hostnames, operating system information, and the options or settings used to start the <code>mongod</code> or <code>mongos</code>. This information may be considered protected or confidential by some organizations or regulatory bodies, but is not typically considered to be <a href="https://en.wikipedia.org/wiki/Personal_data">Personally Identifiable Information (PII)</a>.</p>
+
+<p>If you want to have a closer look at the diagnostic data collection process, you can inspect the <a href="https://github.com/mongodb/mongo/tree/master/src/mongo/db/ftdc">FTDC code</a>.</p>
+
+<h2>FTDC Structure</h2>
+
+<!-- MORE -->
+
+
+<p>There are two types of FTDC documents: a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L136">BSON metadata document</a>, or a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L150">BSON metric chunk</a>.</p>
+
+<p>Each document is made up of an <code>_id</code>, a <code>type</code> and either a <code>doc</code> or <code>data</code> field. The <code>type</code> field is used to identify the document type:</p>
+
+<ul>
+<li>0: Metadata Document</li>
+<li>1: Metric Chunk</li>
+</ul>
+
+
+<p>The <code>doc</code> or <code>data</code> fields will contain &ldquo;samples&rdquo; in the form of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">started</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="err">//</span> <span class="err">name</span> <span class="err">is</span> <span class="err">from</span> <span class="err">name()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">started</span>
+</span><span class='line'>        <span class="nt">&quot;data&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>  <span class="err">//</span> <span class="err">data</span> <span class="err">comes</span> <span class="err">from</span> <span class="err">collect()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
+</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>  <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">ended</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="err">...</span> <span class="err">//</span> <span class="err">more</span> <span class="err">than</span> <span class="err">1</span> <span class="err">collector</span> <span class="err">be</span> <span class="err">sampled</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">ended</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Samples are <a href="https://github.com/mongodb/mongo/blob/f922827d45ce752e148185dfa3a785f7c9cf29fd/src/mongo/db/ftdc/collector.h#L110">collected by <code>FTDCCollectorInterface</code></a> instances.</p>
+
+<h3>Metadata Document</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;doc&quot;</span><span class="p">:</span>  <span class="err">Object&lt;Sample&gt;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On log rotation or startup, the first FTDC entry will be collected and stored. This is a BSON document that contains information sampled by running <a href="https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/"><code>getCmdLineOpts</code></a>, <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/"><code>buildInfo</code></a> and <a href="https://docs.mongodb.com/manual/reference/command/hostInfo/"><code>hostInfo</code></a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;buildInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;getCmdLineOpts&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;hostInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sample will be stored in the <code>doc</code> field of the metadata document.</p>
+
+<h3>Metric Chunk</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="err">BinData(...)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>During each collection interval (as configured by <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis"><code>diagnosticDataCollectionPeriodMillis</code></a>), a metric chunk will be created and a sample will be collected, compressed and stored to the <code>data</code> document as Binary Data.</p>
+
+<p>This sample can contain the results of internal commands such as <a href="https://docs.mongodb.com/manual/reference/command/serverStatus/"><code>serverStatus</code></a>,<a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a>, <a href="https://docs.mongodb.com/manual/reference/command/collStats/"><code>collStats</code></a> for the <a href="https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs"><code>local.oplog.rs</code></a> collection or <a href="https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats"><code>connPoolStats</code></a>, as well as external system metrics.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;serverStatus&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;connPoolStats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;systemMetrics&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Working with FTDC</h2>
+
+<p>FTDC files, such as the <code>metrics.2019-10-28T19-02-23Z-00000</code> sample we&rsquo;ll be working with below are just <a href="http://bsonspec.org/">BSON</a> files. As such, the <a href="https://docs.mongodb.com/manual/reference/program/bsondump/"><code>bsondump</code></a> utility can be used to inspect the contents:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">METRICS=metrics.</span><span class="mi">2019-10-28</span><span class="err">T</span><span class="mi">19-02-23</span><span class="err">Z</span><span class="mi">-00000</span>
+</span><span class='line'><span class="err">bsondump</span> <span class="err">--quiet</span> <span class="err">$METRICS</span> <span class="err">|</span> <span class="err">less</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="/images/ftdc-001.png"></p>
+
+<p><code>bsondump</code> will default to emitting JSON, so we can interact with this using the <a href=""><code>jq</code></a> utility. For example, if we only want to review the <em>Metadata Document</em> this could be done as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type == 0)&#39;</span> <span class="p">|</span> less
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;0&quot;)&#39;</span> <span class="p">|</span> less
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="/images/ftdc-002.png"></p>
+
+<p>Working with <em>Metric Chunks</em> is a little more complicated as they are actually zlib compressed BSON documents.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type == 1)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot;&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;1&quot;)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot; .base64&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You eagle-eyed Rubyists will notice that we&rsquo;re clipping the first 4 bytes from the binary data we&rsquo;re reading from STDIN. This is to drop the header before we try to decompress the stream.</p>
+
+<p>If you don&rsquo;t do this <a href="https://www.zlib.net/">zlib</a> will complain and fail:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span><span class='line'>        1: from -e:1:in <span class="sb">`</span>&lt;main&gt;<span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">-e:1:in `inflate&#39;</span>: incorrect header check <span class="o">(</span>Zlib::DataError<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The binary data has now been decompressed, and being BSON data we run it through <code>bsondump</code> again and voila:</p>
+
+<p><img src="/images/ftdc-003.png"></p>
+
+<p>Hopefully this helps shed some light on what FTDC data is and what it contains. In a future post we&rsquo;ll look into doing something useful with this treasure trove of telemetry our clusters are generating every 1 second or so.</p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available hire--vibrant">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineering at MongoDB</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/08/14/hello-mongodb/">Hello MongoDB</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6215800856413580",
+            enable_page_level_ads: true
+       });
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

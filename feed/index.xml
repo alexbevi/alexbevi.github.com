@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2020-01-23T20:53:40-05:00</updated>
+  <updated>2020-01-26T18:26:56-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,267 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What is MongoDB FTDC (aka. diagnostic.data)]]></title>
+    <link href="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/"/>
+    <updated>2020-01-26T18:14:50-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data</id>
+    <content type="html"><![CDATA[<h1>What is MongoDB FTDC (aka. <code>diagnostic.data</code>)</h1>
+
+<p><a href="https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture">Full Time Diagnostic Data Capture (FTDC)</a> was introduced in MongoDB 3.2 (via <a href="https://jira.mongodb.org/browse/SERVER-19585">SERVER-19585</a>), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.</p>
+
+<p>On log rotation or startup, a <code>mongod</code> or <code>mongos</code> will collect and log:</p>
+
+<ul>
+<li><a href="https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/"><code>getCmdLineOpts</code></a>: <code>db.adminCommand({getCmdLineOpts: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/buildInfo/"><code>buildInfo</code></a>: <code>db.adminCommand({buildInfo: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/hostInfo/"><code>hostInfo</code></a>: <code>db.adminCommand({hostInfo: true})</code></li>
+</ul>
+
+
+<p>As configured by <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis"><code>diagnosticDataCollectionPeriodMillis</code></a> and defaulting to every 1 second, FTDC will collect to output of the following commands:</p>
+
+<ul>
+<li><a href="https://docs.mongodb.com/manual/reference/command/serverStatus/"><code>serverStatus</code></a>: <code>db.serverStatus({tcmalloc: true})</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a>: <code>rs.status()</code></li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/collStats/"><code>collStats</code></a> for the <a href="https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs"><code>local.oplog.rs</code></a> collection (<a href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod">mongod</a> only)</li>
+<li><a href="https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats"><code>connPoolStats</code></a> (<a href="https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos">mongos</a> only)</li>
+</ul>
+
+
+<p>When FTDC is enabled (per <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionEnabled"><code>diagnosticDataCollectionEnabled</code></a>), the <code>metrics.xxxxxxx</code> files will be stored in <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionDirectoryPath"><code>diagnosticDataCollectionDirectoryPath</code></a> which by default is the <em>diagnostic.data</em> directory within the <a href="https://docs.mongodb.com/manual/reference/configuration-options/#systemLog.path"><code>systemLog.path</code></a>.</p>
+
+<p>With <a href="https://jira.mongodb.org/browse/SERVER-21818">SERVER-21818</a> (introduced in MongoDB 3.2.13) and <a href="https://jira.mongodb.org/browse/SERVER-31400">SERVER-31400</a> (introduced in MongoDB 3.4.16) the diagnostic data capture scope was broadened to not only include internal diagnostic commands but system metrics as well. Depending on the host operating system, the diagnostic data may include one or more of the following statistics:</p>
+
+<ul>
+<li>CPU utilization (ex: <a href="http://www.linuxhowtos.org/System/procstat.htm"><code>/proc/stat</code></a>)</li>
+<li>Memory utilization (ex: <a href="https://www.thegeekdiary.com/understanding-proc-meminfo-file-analyzing-memory-utilization-in-linux/"><code>/proc/meminfo</code></a>)</li>
+<li>Disk utilization related to performance (ex: <a href="https://www.kernel.org/doc/Documentation/block/stat.txt"><code>*/sys/block/\*/stat*</code></a>)</li>
+<li>Network performance statistics (<a href="https://unix.stackexchange.com/questions/435579/is-there-documentation-for-proc-net-netstat-and-proc-net-snmp"><code>/proc/net/netstat</code></a>)</li>
+</ul>
+
+
+<p>The <code>metrics.xxxxxxx</code> files in the <code>diagnostic.data</code> directory contain only statistics about the performance of the system and the database. They are stored in a compressed format, and are not human-readable.</p>
+
+<p>Just a quick note regarding privacy, regardless of the version, the data in <em>diagnostic.data</em> never contains:</p>
+
+<ul>
+<li>Samples of queries, query predicates, or query results</li>
+<li>Data sampled from any end-user collection or index</li>
+<li>System or MongoDB user credentials or security certificates</li>
+</ul>
+
+
+<p>FTDC data contains certain host machine information such as hostnames, operating system information, and the options or settings used to start the <code>mongod</code> or <code>mongos</code>. This information may be considered protected or confidential by some organizations or regulatory bodies, but is not typically considered to be <a href="https://en.wikipedia.org/wiki/Personal_data">Personally Identifiable Information (PII)</a>.</p>
+
+<p>If you want to have a closer look at the diagnostic data collection process, you can inspect the <a href="https://github.com/mongodb/mongo/tree/master/src/mongo/db/ftdc">FTDC code</a>.</p>
+
+<h2>FTDC Structure</h2>
+
+<!-- MORE -->
+
+
+<p>There are two types of FTDC documents: a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L136">BSON metadata document</a>, or a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L150">BSON metric chunk</a>.</p>
+
+<p>Each document is made up of an <code>_id</code>, a <code>type</code> and either a <code>doc</code> or <code>data</code> field. The <code>type</code> field is used to identify the document type:</p>
+
+<ul>
+<li>0: Metadata Document</li>
+<li>1: Metric Chunk</li>
+</ul>
+
+
+<p>The <code>doc</code> or <code>data</code> fields will contain &ldquo;samples&rdquo; in the form of:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">started</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="err">//</span> <span class="err">name</span> <span class="err">is</span> <span class="err">from</span> <span class="err">name()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">started</span>
+</span><span class='line'>        <span class="nt">&quot;data&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>  <span class="err">//</span> <span class="err">data</span> <span class="err">comes</span> <span class="err">from</span> <span class="err">collect()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
+</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>  <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">ended</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="err">...</span> <span class="err">//</span> <span class="err">more</span> <span class="err">than</span> <span class="err">1</span> <span class="err">collector</span> <span class="err">be</span> <span class="err">sampled</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">ended</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Samples are <a href="https://github.com/mongodb/mongo/blob/f922827d45ce752e148185dfa3a785f7c9cf29fd/src/mongo/db/ftdc/collector.h#L110">collected by <code>FTDCCollectorInterface</code></a> instances.</p>
+
+<h3>Metadata Document</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;doc&quot;</span><span class="p">:</span>  <span class="err">Object&lt;Sample&gt;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On log rotation or startup, the first FTDC entry will be collected and stored. This is a BSON document that contains information sampled by running <a href="https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/"><code>getCmdLineOpts</code></a>, <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/"><code>buildInfo</code></a> and <a href="https://docs.mongodb.com/manual/reference/command/hostInfo/"><code>hostInfo</code></a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;buildInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;getCmdLineOpts&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;hostInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sample will be stored in the <code>doc</code> field of the metadata document.</p>
+
+<h3>Metric Chunk</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="err">BinData(...)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>During each collection interval (as configured by <a href="https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis"><code>diagnosticDataCollectionPeriodMillis</code></a>), a metric chunk will be created and a sample will be collected, compressed and stored to the <code>data</code> document as Binary Data.</p>
+
+<p>This sample can contain the results of internal commands such as <a href="https://docs.mongodb.com/manual/reference/command/serverStatus/"><code>serverStatus</code></a>,<a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a>, <a href="https://docs.mongodb.com/manual/reference/command/collStats/"><code>collStats</code></a> for the <a href="https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs"><code>local.oplog.rs</code></a> collection or <a href="https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats"><code>connPoolStats</code></a>, as well as external system metrics.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;serverStatus&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;connPoolStats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;systemMetrics&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Working with FTDC</h2>
+
+<p>FTDC files, such as the <code>metrics.2019-10-28T19-02-23Z-00000</code> sample we&rsquo;ll be working with below are just <a href="http://bsonspec.org/">BSON</a> files. As such, the <a href="https://docs.mongodb.com/manual/reference/program/bsondump/"><code>bsondump</code></a> utility can be used to inspect the contents:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">METRICS=metrics.</span><span class="mi">2019-10-28</span><span class="err">T</span><span class="mi">19-02-23</span><span class="err">Z</span><span class="mi">-00000</span>
+</span><span class='line'><span class="err">bsondump</span> <span class="err">--quiet</span> <span class="err">$METRICS</span> <span class="err">|</span> <span class="err">less</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/ftdc-001.png"></p>
+
+<p><code>bsondump</code> will default to emitting JSON, so we can interact with this using the <a href=""><code>jq</code></a> utility. For example, if we only want to review the <em>Metadata Document</em> this could be done as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type == 0)&#39;</span> <span class="p">|</span> less
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;0&quot;)&#39;</span> <span class="p">|</span> less
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/ftdc-002.png"></p>
+
+<p>Working with <em>Metric Chunks</em> is a little more complicated as they are actually zlib compressed BSON documents.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type == 1)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot;&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;1&quot;)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot; .base64&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You eagle-eyed Rubyists will notice that we&rsquo;re clipping the first 4 bytes from the binary data we&rsquo;re reading from STDIN. This is to drop the header before we try to decompress the stream.</p>
+
+<p>If you don&rsquo;t do this <a href="https://www.zlib.net/">zlib</a> will complain and fail:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span><span class='line'>        1: from -e:1:in <span class="sb">`</span>&lt;main&gt;<span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">-e:1:in `inflate&#39;</span>: incorrect header check <span class="o">(</span>Zlib::DataError<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The binary data has now been decompressed, and being BSON data we run it through <code>bsondump</code> again and voila:</p>
+
+<p><img src="http://www.alexbevi.com/images/ftdc-003.png"></p>
+
+<p>Hopefully this helps shed some light on what FTDC data is and what it contains. In a future post we&rsquo;ll look into doing something useful with this treasure trove of telemetry our clusters are generating every 1 second or so.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup]]></title>
@@ -846,8 +1107,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#97;&#108;&#101;&#120;&#x62;&#x65;&#118;&#105;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#101;&#x78;&#x62;&#101;&#118;&#105;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a>
-To: <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x77;&#101;&#x62;&#46;&#x73;&#117;&#x70;&#112;&#x6f;&#114;&#x74;&#x40;&#x62;&#x6c;&#105;&#122;&#x7a;&#x61;&#x72;&#100;&#x2e;&#99;&#x6f;&#x6d;">&#119;&#101;&#x62;&#46;&#115;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#98;&#108;&#x69;&#x7a;&#x7a;&#97;&#114;&#100;&#x2e;&#99;&#111;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x61;&#108;&#101;&#x78;&#98;&#101;&#118;&#x69;&#x40;&#103;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#97;&#x6c;&#x65;&#x78;&#98;&#101;&#118;&#105;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a>
+To: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x77;&#x65;&#98;&#46;&#x73;&#117;&#112;&#112;&#x6f;&#x72;&#116;&#x40;&#98;&#108;&#105;&#x7a;&#122;&#x61;&#114;&#x64;&#46;&#99;&#x6f;&#109;">&#119;&#101;&#x62;&#x2e;&#x73;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#64;&#x62;&#x6c;&#105;&#122;&#122;&#x61;&#x72;&#100;&#x2e;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -2071,131 +2332,6 @@ db.borkedCollection.stats()
 <p>BOOYA! Everything is back and properly accessible.</p>
 
 <p>The <code>mongorestore</code> could actually have been done to the primary node in order to recover the data for production purposes. Once that&rsquo;s done, just recreate the necessary indexes and you&rsquo;re back in business.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Identifying failing system.js functions in MongoDB]]></title>
-    <link href="http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb/"/>
-    <updated>2016-02-10T15:17:56-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2016/02/10/identifying-failing-system-dot-js-functions-in-mongodb</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>laptop<span class="o">(</span>mongod-3.2.1<span class="o">)</span> <span class="nb">test</span>&gt; db.loadServerScripts<span class="o">()</span>
-</span><span class='line'>2016-02-10T15:18:42.322-0500 E QUERY    <span class="o">[</span>thread1<span class="o">]</span> SyntaxError: unterminated string literal :
-</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
-</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:1
-</span><span class='line'>
-</span><span class='line'>2016-02-10T15:18:42.323-0500 E QUERY    <span class="o">[</span>thread1<span class="o">]</span> Error: SyntaxError: unterminated string literal :
-</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
-</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:1
-</span><span class='line'> :
-</span><span class='line'>DB.prototype.loadServerScripts/&lt;@src/mongo/shell/db.js:1158:9
-</span><span class='line'>DBQuery.prototype.forEach@src/mongo/shell/query.js:477:1
-</span><span class='line'>DB.prototype.loadServerScripts@src/mongo/shell/db.js:1157:5
-</span><span class='line'>@<span class="o">(</span>shell<span class="o">)</span>:1:15:17:56
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Occasionally we&rsquo;ll run into these scenarios where we need to load the <code>system.js</code> functions into the global context, but for whatever reason one (or more) scripts are borked.</p>
-
-<p>I created on that essentially looks like the following to illustrate this point.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">thisFunctionShouldFail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="err">&quot;</span><span class="nx">Fail</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When you try to execute a <code>db.loadServerScripts()</code> call, the entire process will fail as there is a malformed script.</p>
-
-<p>This is a major pain in the ass when you have large background processes that rely heavily on internal system scripts.</p>
-
-<p>In order to address this, we wrote a small script that you can run against any database to validate the internal scripts:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">testSystemJs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>    <span class="kd">var</span> <span class="nx">coll</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">system</span><span class="p">.</span><span class="nx">js</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">coll</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="p">{</span><span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>       <span class="k">try</span> <span class="p">{</span>
-</span><span class='line'>           <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">coll</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span><span class="p">});</span>
-</span><span class='line'>           <span class="nb">eval</span><span class="p">(</span><span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-</span><span class='line'>       <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>           <span class="nx">print</span><span class="p">(</span><span class="s2">&quot;LOAD_ERROR: &quot;</span> <span class="o">+</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">_id</span><span class="p">);</span>
-</span><span class='line'>       <span class="p">}</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now if you run the above, it will give you a bit more context into the failures you may have ;)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">laptop</span><span class="p">(</span><span class="nx">mongod</span><span class="o">-</span><span class="mf">3.2</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="nx">test</span><span class="o">&gt;</span> <span class="nx">testSystemJs</span><span class="p">()</span>
-</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T15</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mf">13.086</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">QUERY</span>    <span class="p">[</span><span class="nx">thread1</span><span class="p">]</span> <span class="nx">SyntaxError</span><span class="o">:</span> <span class="nx">unterminated</span> <span class="nx">string</span> <span class="nx">literal</span> <span class="o">:</span>
-</span><span class='line'><span class="nx">testSystemJs</span><span class="o">/&lt;</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">190</span>
-</span><span class='line'><span class="nx">DBQuery</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="err">@</span><span class="nx">src</span><span class="o">/</span><span class="nx">mongo</span><span class="o">/</span><span class="nx">shell</span><span class="o">/</span><span class="nx">query</span><span class="p">.</span><span class="nx">js</span><span class="o">:</span><span class="mi">477</span><span class="o">:</span><span class="mi">1</span>
-</span><span class='line'><span class="nx">testSystemJs</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">66</span>
-</span><span class='line'><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">LOAD_ERROR</span><span class="o">:</span> <span class="nx">thisFunctionShouldFail</span>
-</span><span class='line'><span class="mi">2016</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">10</span><span class="nx">T15</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mf">13.088</span><span class="o">-</span><span class="mi">0500</span> <span class="nx">E</span> <span class="nx">QUERY</span>    <span class="p">[</span><span class="nx">thread1</span><span class="p">]</span> <span class="nx">SyntaxError</span><span class="o">:</span> <span class="nx">unterminated</span> <span class="nx">string</span> <span class="nx">literal</span> <span class="o">:</span>
-</span><span class='line'><span class="nx">testSystemJs</span><span class="o">/&lt;</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">190</span>
-</span><span class='line'><span class="nx">DBQuery</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="err">@</span><span class="nx">src</span><span class="o">/</span><span class="nx">mongo</span><span class="o">/</span><span class="nx">shell</span><span class="o">/</span><span class="nx">query</span><span class="p">.</span><span class="nx">js</span><span class="o">:</span><span class="mi">477</span><span class="o">:</span><span class="mi">1</span>
-</span><span class='line'><span class="nx">testSystemJs</span><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">66</span>
-</span><span class='line'><span class="err">@</span><span class="p">(</span><span class="nx">shell</span><span class="p">)</span><span class="o">:</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">LOAD_ERROR</span><span class="o">:</span> <span class="nx">thisFunctionShouldAlsoFail</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I&rsquo;m testing this on a mongo 3.2.1 system, but this method should be applicable to older releases as well.</p>
 ]]></content>
   </entry>
   
