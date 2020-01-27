@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-27T09:21:53-05:00</updated>
+    <updated>2020-01-27T09:30:59-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,7 +28,7 @@ On log rotation or startup, a `mongod` or `mongos` will collect and log:
 - [`buildInfo`](https://docs.mongodb.com/manual/reference/command/buildInfo/): `db.adminCommand({buildInfo: true})`
 - [`hostInfo`](https://docs.mongodb.com/manual/reference/command/hostInfo/): `db.adminCommand({hostInfo: true})`
 
-As configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis) and defaulting to every 1 second, FTDC will collect to output of the following commands:
+As configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis) and defaulting to every 1 second, FTDC will collect the output of the following commands:
 
 - [`serverStatus`](https://docs.mongodb.com/manual/reference/command/serverStatus/): `db.serverStatus({tcmalloc: true})`
 - [`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/): `rs.status()`
