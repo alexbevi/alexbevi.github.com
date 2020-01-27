@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-27T05:25:12-05:00</updated>
+    <updated>2020-01-27T09:03:45-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -167,9 +167,9 @@ This sample can contain the results of internal commands such as [`serverStatus`
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-## Working with FTDC
+## Decoding FTDC `metrics.xxxxxxx` files
 
-FTDC files, such as the `metrics.2019-10-28T19-02-23Z-00000` sample we'll be working with below are just [BSON](http://bsonspec.org/) files. As such, the [`bsondump`](https://docs.mongodb.com/manual/reference/program/bsondump/) utility can be used to inspect the contents:
+FTDC files, such as the `metrics.2019-10-28T19-02-23Z-00000` example file we'll be working with below are just [BSON](http://bsonspec.org/) files. As such, the [`bsondump`](https://docs.mongodb.com/manual/reference/program/bsondump/) utility can be used to inspect the contents:
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
