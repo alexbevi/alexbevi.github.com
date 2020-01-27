@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-27T05:12:19-05:00</updated>
+    <updated>2020-01-27T05:25:12-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -105,7 +105,7 @@ Samples are [collected by `FTDCCollectorInterface`](https://github.com/mongodb/m
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
 </span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
 </span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;doc&quot;</span><span class="o">:</span>  <span class="nb">Object</span><span class="o">&lt;</span><span class="nx">Sample</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="s2">&quot;doc&quot;</span><span class="o">:</span>  <span class="p">{</span> <span class="p">..</span> <span class="p">}</span> <span class="cm">/* Samples from collectors */</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
