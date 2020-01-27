@@ -12,7 +12,7 @@
         <title>What is MongoDB FTDC (aka. diagnostic.data) - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="What is MongoDB FTDC (aka. diagnostic.data) Jan 26th, 2020 mongodb Comments Last Updated: Jan 26, 2020 What is MongoDB FTDC (aka. diagnostic.data) &hellip;">
+        <meta name="description" content="What is MongoDB FTDC (aka. diagnostic.data) Jan 26th, 2020 mongodb Comments Last Updated: Jan 27, 2020 What is MongoDB FTDC (aka. diagnostic.data) &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data">
@@ -135,7 +135,7 @@
 
 
 
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 26, 2020</em></small></p>
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 27, 2020</em></small></p>
     <h1>What is MongoDB FTDC (aka. <code>diagnostic.data</code>)</h1>
 
 <p><a href="https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture">Full Time Diagnostic Data Capture (FTDC)</a> was introduced in MongoDB 3.2 (via <a href="https://jira.mongodb.org/browse/SERVER-19585">SERVER-19585</a>), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.</p>
@@ -214,16 +214,16 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">started</span>
-</span><span class='line'>  <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="err">//</span> <span class="err">name</span> <span class="err">is</span> <span class="err">from</span> <span class="err">name()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="c1">// Time at which all collecting started</span>
+</span><span class='line'>  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="c1">// name is from name() in FTDCCollectorInterface</span>
 </span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>        <span class="nt">&quot;start&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">started</span>
-</span><span class='line'>        <span class="nt">&quot;data&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>  <span class="err">//</span> <span class="err">data</span> <span class="err">comes</span> <span class="err">from</span> <span class="err">collect()</span> <span class="err">in</span> <span class="err">FTDCCollectorInterface</span>
-</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>  <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">name()</span> <span class="err">collection</span> <span class="err">ended</span>
+</span><span class='line'>        <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="c1">// Time at which name() collection started</span>
+</span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>  <span class="c1">// data comes from collect() in FTDCCollectorInterface</span>
+</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>  <span class="c1">// Time at which name() collection ended</span>
 </span><span class='line'>  <span class="p">},</span>
-</span><span class='line'>  <span class="err">...</span> <span class="err">//</span> <span class="err">more</span> <span class="err">than</span> <span class="err">1</span> <span class="err">collector</span> <span class="err">be</span> <span class="err">sampled</span>
-</span><span class='line'>  <span class="nt">&quot;end&quot;</span> <span class="p">:</span> <span class="err">DateTime</span> <span class="err">//</span> <span class="err">Time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">all</span> <span class="err">collecting</span> <span class="err">ended</span>
+</span><span class='line'>  <span class="p">...</span> <span class="c1">// more than 1 collector be sampled</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="c1">// Time at which all collecting ended</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -237,10 +237,10 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;doc&quot;</span><span class="p">:</span>  <span class="err">Object&lt;Sample&gt;</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;doc&quot;</span><span class="o">:</span>  <span class="nb">Object</span><span class="o">&lt;</span><span class="nx">Sample</span><span class="o">&gt;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -255,13 +255,13 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;buildInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;getCmdLineOpts&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;hostInfo&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;buildInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;getCmdLineOpts&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;hostInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -275,10 +275,10 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;_id&quot;</span><span class="p">:</span>  <span class="err">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="err">BinData(...)</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="nx">BinData</span><span class="p">(...)</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -295,13 +295,13 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">//</span> <span class="err">example</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="err">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;serverStatus&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;connPoolStats&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;systemMetrics&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="err">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="err">DateTime</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;serverStatus&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;connPoolStats&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;systemMetrics&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -312,8 +312,8 @@
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">METRICS=metrics.</span><span class="mi">2019-10-28</span><span class="err">T</span><span class="mi">19-02-23</span><span class="err">Z</span><span class="mi">-00000</span>
-</span><span class='line'><span class="err">bsondump</span> <span class="err">--quiet</span> <span class="err">$METRICS</span> <span class="err">|</span> <span class="err">less</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">METRICS</span><span class="o">=</span><span class="nx">metrics</span><span class="p">.</span><span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">28</span><span class="nx">T19</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">23</span><span class="nx">Z</span><span class="o">-</span><span class="mi">00000</span>
+</span><span class='line'><span class="nx">bsondump</span> <span class="o">--</span><span class="nx">quiet</span> <span class="nx">$METRICS</span> <span class="o">|</span> <span class="nx">less</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
