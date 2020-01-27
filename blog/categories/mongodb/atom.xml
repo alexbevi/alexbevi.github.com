@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-27T09:03:45-05:00</updated>
+    <updated>2020-01-27T09:21:53-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -195,7 +195,7 @@ FTDC files, such as the `metrics.2019-10-28T19-02-23Z-00000` example file we'll 
 
 <img src="/images/ftdc-002.png">
 
-Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk, though the following command can be altered to navigate to other chunks as needed:
+Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk and the [Ruby](https://www.ruby-lang.org/en/) interpreter to decompress the zlib data. Note that the following command can be altered to navigate to other chunks (not only the first) as needed:
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
