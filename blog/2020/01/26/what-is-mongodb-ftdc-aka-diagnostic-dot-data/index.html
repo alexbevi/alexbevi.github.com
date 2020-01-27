@@ -191,7 +191,7 @@
 <!-- MORE -->
 
 
-<p>There are two types of FTDC documents: a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L136">BSON metadata document</a>, or a <a href="https://github.com/mongodb/mongo/blob/134a4083953270e8a11430395357fb70a29047ad/src/mongo/db/ftdc/util.h#L150">BSON metric chunk</a>.</p>
+<p>There are two types of FTDC documents: a <a href="https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/util.h#L136">BSON metadata document</a>, or a <a href="https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/util.h#L150">BSON metric chunk</a>.</p>
 
 <p>Each document is made up of an <code>_id</code>, a <code>type</code> and either a <code>doc</code> or <code>data</code> field. The <code>type</code> field is used to identify the document type:</p>
 
@@ -215,12 +215,12 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="c1">// Time at which all collecting started</span>
-</span><span class='line'>  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="c1">// name is from name() in FTDCCollectorInterface</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which all collecting started */</span>
+</span><span class='line'>  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="cm">/* name is from name() in FTDCCollectorInterface */</span>
 </span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>        <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="c1">// Time at which name() collection started</span>
-</span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>  <span class="c1">// data comes from collect() in FTDCCollectorInterface</span>
-</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>  <span class="c1">// Time at which name() collection ended</span>
+</span><span class='line'>        <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which name() collection started */</span>
+</span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>   <span class="cm">/* data comes from collect() in FTDCCollectorInterface */</span>
+</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>   <span class="cm">/* Time at which name() collection ended */</span>
 </span><span class='line'>  <span class="p">},</span>
 </span><span class='line'>  <span class="p">...</span> <span class="c1">// more than 1 collector be sampled</span>
 </span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="c1">// Time at which all collecting ended</span>
@@ -228,7 +228,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Samples are <a href="https://github.com/mongodb/mongo/blob/f922827d45ce752e148185dfa3a785f7c9cf29fd/src/mongo/db/ftdc/collector.h#L110">collected by <code>FTDCCollectorInterface</code></a> instances.</p>
+<p>Samples are <a href="https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/collector.h#L110">collected by <code>FTDCCollectorInterface</code></a> instances.</p>
 
 <h3>Metadata Document</h3>
 
