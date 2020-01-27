@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-27T05:10:51-05:00</updated>
+    <updated>2020-01-27T05:12:19-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -88,8 +88,8 @@ The `doc` or `data` fields will contain "samples" in the form of:
 </span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>   <span class="cm">/* data comes from collect() in FTDCCollectorInterface */</span>
 </span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>   <span class="cm">/* Time at which name() collection ended */</span>
 </span><span class='line'>  <span class="p">},</span>
-</span><span class='line'>  <span class="p">...</span> <span class="c1">// more than 1 collector be sampled</span>
-</span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="c1">// Time at which all collecting ended</span>
+</span><span class='line'>  <span class="p">...</span> <span class="cm">/* more than 1 collector be sampled */</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="cm">/* Time at which all collecting ended */</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
