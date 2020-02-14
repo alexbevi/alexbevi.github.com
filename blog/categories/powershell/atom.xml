@@ -4,7 +4,7 @@
     <title><![CDATA[Category: powershell | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/powershell/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -22,23 +22,16 @@
 
 Take the following sample:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="k">function</span> <span class="n">RandomlyFail</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="nv">$rnd</span> <span class="p">=</span> <span class="nb">Get-Random</span> <span class="n">-minimum</span> <span class="n">1</span> <span class="n">-maximum</span> <span class="n">3</span>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$rnd</span> <span class="o">-eq</span> <span class="n">2</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">throw</span> <span class="s2">&quot;OH NOES!!!&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="nv">$Host</span><span class="p">.</span><span class="n">UI</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s2">&quot;W00t!!!&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+``` powershell
+function RandomlyFail
+{
+    $rnd = Get-Random -minimum 1 -maximum 3
+    if ($rnd -eq 2) {
+        throw "OH NOES!!!"
+    }
+    $Host.UI.WriteLine("W00t!!!")
+}
+```
 
 Depending on what the random number we get is, we'll get one of two scenarios:
 
@@ -63,74 +56,13 @@ Since Powershell supports [closures](http://en.wikipedia.org/wiki/Closure_%28com
 
 <!-- more -->
 
-<noscript><pre>&lt;#
-This function can be used to pass a ScriptBlock (closure) to be executed and returned.
-
-The operation retried a few times on failure, and if the maximum threshold is surpassed, the operation fails completely.
-
-Params:
-    Command         - The ScriptBlock to be executed
-    RetryDelay      - Number (in seconds) to wait between retries
-                      (default: 5)
-    MaxRetries      - Number of times to retry before accepting failure
-                      (default: 5)
-    VerboseOutput   - More info about internal processing
-                      (default: false)
-Examples:
-
-Execute-With-Retry { $connection.Open() }
-$result = Execute-With-Retry -RetryDelay 1 -MaxRetries 2 { $command.ExecuteReader() }
-#&gt;
-function Execute-With-Retry {
-    [CmdletBinding()]
-    param(    
-    [Parameter(ValueFromPipeline,Mandatory)]
-    $Command,    
-    $RetryDelay = 5,
-    $MaxRetries = 5,
-    $VerboseOutput = $false
-    )
-    
-    $currentRetry = 0
-    $success = $false
-    $cmd = $Command.ToString()
-
-    do {
-        try
-        {
-            $result = &amp; $Command
-            $success = $true
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteDebugLine(&quot;Successfully executed [$cmd]&quot;)
-            }
-
-            return $result
-        }
-        catch [System.Exception]
-        {
-            $currentRetry = $currentRetry + 1
-                        
-            if ($VerboseOutput -eq $true) {
-                $Host.UI.WriteErrorLine(&quot;Failed to execute [$cmd]: &quot; + $_.Exception.Message)
-            }
-            
-            if ($currentRetry -gt $MaxRetries) {                
-                throw &quot;Could not execute [$cmd]. The error: &quot; + $_.Exception.ToString()
-            } else {
-                if ($VerboseOutput -eq $true) {
-                    $Host.UI.WriteDebugLine(&quot;Waiting $RetryDelay second(s) before attempt #$currentRetry of [$cmd]&quot;)
-                }
-                Start-Sleep -s $RetryDelay
-            }
-        }
-    } while (!$success);
-}</pre></noscript><script src="https://gist.github.com/alexbevi/34b700ff7c7c53c7780b.js"> </script>
+{% gist alexbevi/34b700ff7c7c53c7780b %}
 
 Now, if we retrofit our sample above:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">Execute-With-Retry</span> <span class="n">-RetryDelay</span> <span class="n">1</span> <span class="n">-VerboseOutput</span> <span class="nv">$true</span> <span class="p">{</span> <span class="n">RandomlyFail</span> <span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+``` powershell
+Execute-With-Retry -RetryDelay 1 -VerboseOutput $true { RandomlyFail }
+```
 
     Failed to execute [ RandomlyFail ]: OH NOES!!!
     DEBUG: Waiting 1 second(s) before attempt #1 of [ RandomlyFail ]

@@ -4,7 +4,7 @@
     <title><![CDATA[Category: gba | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/gba/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,15 +20,15 @@
         <id>http://www.alexbevi.com/blog/2016/09/05/summer-update-2016</id>
         <content type="html"><![CDATA[I don't really have much progress to report for the last month, so I thought I'd throw out a few of the games I've been working through to see if I can generate any interest in the next article ;)
 
-<img class="left" src="/images/goldensun/goldensun.016.png">
+{% img left /images/goldensun/goldensun.016.png %}
 
 First off, I've been playing through [Golden Sun](https://en.wikipedia.org/wiki/Golden_Sun) for the GBA.
 
-I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2](/blog/2015/09/23/just-finished-lufia-2/).
+I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2]({% post_url 2015-09-23-just-finished-lufia-2 %}).
 
 I've made it as far as [Kraken](http://goldensun.wikia.com/wiki/Kraken), but I'm finding beating him is proving to be more difficult that I'd expected. Probably going to have to back out and grind for a while, which I don't have a lot of time for ...
 
-<img class="right" src="/images/7th-saga/7th-saga.019.png">
+{% img right /images/7th-saga/7th-saga.019.png %}
 
 Next, I'm pretty sure I've given up on [the 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga). I'm still at Telaine with a party at level 17, but I'm pretty sure that to progress, there is grinding in my future.
 
@@ -38,7 +38,7 @@ Similar to the situation I'm having above with Golden Sun, i just need to set ma
 
 Finally, I've decided to bite the bullet and dive into [Super Mario RPG](https://en.wikipedia.org/wiki/Super_Mario_RPG). This, along with Final Fantasy Tactics is one of those games that I've heard nothing but good things about for the last 20 years, but have never bothered to investigate myself.
 
-<img class="left" src="/images/mariorpg/mariorpg.011.png">
+{% img left /images/mariorpg/mariorpg.011.png %}
 
 I'm currently at level 10 with 3 star pieces recovered and have just rescued Princess Toadstool and had her join the party.
 
@@ -74,7 +74,7 @@ If you've got any insight into which I should tackle next, feel free to leave me
         <link href="http://www.alexbevi.com/blog/2015/11/07/just-finished-final-fantasy-v/"/>
         <updated>2015-11-07T20:15:57-04:00</updated>
         <id>http://www.alexbevi.com/blog/2015/11/07/just-finished-final-fantasy-v</id>
-        <content type="html"><![CDATA[<img class="right" src="/images/ffv/ffv.001.png">
+        <content type="html"><![CDATA[{% img right /images/ffv/ffv.001.png %}
 
 I've been waiting write this review for a very long time. I love the Final Fantasy series, and although I got the original back in '90, I didn't really fall in love with the series until I played IV for the SNES. Then I played VI. Then I was REALLY hooked.
 
@@ -84,7 +84,7 @@ The game starts off with the king of Tycoon heading off to check on the wind cry
 
 The king's daughter, Lenna, heads out to find her father and runs into Bartz and Galuf. They team up and the adventure begins.
 
-<img class="left" src="/images/ffv/ffv.003.png">
+{% img left /images/ffv/ffv.003.png %}
 
 Once at the wind shrine, they find that the crystal has shattered and within each shard is the power of a job class.
 
@@ -98,14 +98,14 @@ These abilities can then be applied to a character regardless of the class they'
 
 This gives you a lot of control over how you build your characters as the game progresses.
 
-<img class="right" src="/images/ffv/ffv.002.png">
+{% img right /images/ffv/ffv.002.png %}
 
 The storytelling in this game is very well done. Although the plot is pretty standard Final Fantasy fare (crystals, amnesia, evil emperor, main characters dying), the writing was pretty good and the character emotion pop-ups added a nice touch as well.
 
 I enjoyed the elements of comedy they tried to incorporate into some of the scenarios and characters. After playing this game, Gilgamesh is probably my new favourite non-player character in the series. This might also have to do with [Clash on the Big Bridge](https://www.youtube.com/watch?v=6CMTXyExkeI)
 being my favourite song from this game ;)
 
-<img class="left" src="/images/ffv/ffv.022.png">
+{% img left /images/ffv/ffv.022.png %}
 
 The battle system is the same as in FFIV ([Active Time Battle system](http://finalfantasy.wikia.com/wiki/Battle_System#Active_Time_Battle)). You can fight, use items, or up to 2 abilities you've learned from gaining AP and leveling up your classes.
 
@@ -113,7 +113,7 @@ I didn't find the battles overly difficult during this play-through, but I've be
 
 So as you progress through the game, you discover that the ultimate evil, Exdeath, was banished to your world by the four warriors of dawn. Now you and your party need to become the new warriors of dawn to fight him again.
 
-<img class="right" src="/images/ffv/ffv.046.png">
+{% img right /images/ffv/ffv.046.png %}
 
 You have to get the ultimate weapons for each character class, you can go on some side quests to get some powerful summons and eventually go after Exdeath.
 
@@ -123,7 +123,7 @@ I found that magic and summons in this game proved to be effective until the ver
 
 I thought the story was really compelling, and I found the whole alternate worlds overlapping "thing" to be a nice twist, though it felt a bit like what happened in FF III. Actually, just like FF III, you even have to race a chocobo around the world to get an item ...
 
-<img class="left" src="/images/ffv/ffv.037.png">
+{% img left /images/ffv/ffv.037.png %}
 
 I teared up (just a bit) when Galuf's flame was extinguished by Exdeath. I was a bit worried that since this game follows FF IV it was possible they would do the whole "everyone who died is magically back to fight again for no reason" that happened with Yang, Cid, Edward, Tellah ... etc. Fortunately (?), this wasn't the case and it's actually a very emotional point in the story.
 
@@ -137,7 +137,57 @@ Feel free to leave me some feedback on whether or not I should continue the abov
 
 Cheers!
 
-<div id="galleria"><img src="/images/ffv/ffv.000.png" data-title="/images/ffv/ffv.000.png" /><img src="/images/ffv/ffv.004.png" data-title="/images/ffv/ffv.004.png" /><img src="/images/ffv/ffv.005.png" data-title="/images/ffv/ffv.005.png" /><img src="/images/ffv/ffv.006.png" data-title="/images/ffv/ffv.006.png" /><img src="/images/ffv/ffv.007.png" data-title="/images/ffv/ffv.007.png" /><img src="/images/ffv/ffv.008.png" data-title="/images/ffv/ffv.008.png" /><img src="/images/ffv/ffv.009.png" data-title="/images/ffv/ffv.009.png" /><img src="/images/ffv/ffv.010.png" data-title="/images/ffv/ffv.010.png" /><img src="/images/ffv/ffv.011.png" data-title="/images/ffv/ffv.011.png" /><img src="/images/ffv/ffv.012.png" data-title="/images/ffv/ffv.012.png" /><img src="/images/ffv/ffv.013.png" data-title="/images/ffv/ffv.013.png" /><img src="/images/ffv/ffv.014.png" data-title="/images/ffv/ffv.014.png" /><img src="/images/ffv/ffv.015.png" data-title="/images/ffv/ffv.015.png" /><img src="/images/ffv/ffv.016.png" data-title="/images/ffv/ffv.016.png" /><img src="/images/ffv/ffv.017.png" data-title="/images/ffv/ffv.017.png" /><img src="/images/ffv/ffv.018.png" data-title="/images/ffv/ffv.018.png" /><img src="/images/ffv/ffv.019.png" data-title="/images/ffv/ffv.019.png" /><img src="/images/ffv/ffv.020.png" data-title="/images/ffv/ffv.020.png" /><img src="/images/ffv/ffv.021.png" data-title="/images/ffv/ffv.021.png" /><img src="/images/ffv/ffv.023.png" data-title="/images/ffv/ffv.023.png" /><img src="/images/ffv/ffv.024.png" data-title="/images/ffv/ffv.024.png" /><img src="/images/ffv/ffv.025.png" data-title="/images/ffv/ffv.025.png" /><img src="/images/ffv/ffv.026.png" data-title="/images/ffv/ffv.026.png" /><img src="/images/ffv/ffv.027.png" data-title="/images/ffv/ffv.027.png" /><img src="/images/ffv/ffv.028.png" data-title="/images/ffv/ffv.028.png" /><img src="/images/ffv/ffv.029.png" data-title="/images/ffv/ffv.029.png" /><img src="/images/ffv/ffv.030.png" data-title="/images/ffv/ffv.030.png" /><img src="/images/ffv/ffv.031.png" data-title="/images/ffv/ffv.031.png" /><img src="/images/ffv/ffv.032.png" data-title="/images/ffv/ffv.032.png" /><img src="/images/ffv/ffv.033.png" data-title="/images/ffv/ffv.033.png" /><img src="/images/ffv/ffv.034.png" data-title="/images/ffv/ffv.034.png" /><img src="/images/ffv/ffv.035.png" data-title="/images/ffv/ffv.035.png" /><img src="/images/ffv/ffv.036.png" data-title="/images/ffv/ffv.036.png" /><img src="/images/ffv/ffv.038.png" data-title="/images/ffv/ffv.038.png" /><img src="/images/ffv/ffv.039.png" data-title="/images/ffv/ffv.039.png" /><img src="/images/ffv/ffv.040.png" data-title="/images/ffv/ffv.040.png" /><img src="/images/ffv/ffv.041.png" data-title="/images/ffv/ffv.041.png" /><img src="/images/ffv/ffv.042.png" data-title="/images/ffv/ffv.042.png" /><img src="/images/ffv/ffv.043.png" data-title="/images/ffv/ffv.043.png" /><img src="/images/ffv/ffv.044.png" data-title="/images/ffv/ffv.044.png" /><img src="/images/ffv/ffv.045.png" data-title="/images/ffv/ffv.045.png" /><img src="/images/ffv/ffv.047.png" data-title="/images/ffv/ffv.047.png" /><img src="/images/ffv/ffv.048.png" data-title="/images/ffv/ffv.048.png" /><img src="/images/ffv/ffv.049.png" data-title="/images/ffv/ffv.049.png" /><img src="/images/ffv/ffv.050.png" data-title="/images/ffv/ffv.050.png" /><img src="/images/ffv/ffv.051.png" data-title="/images/ffv/ffv.051.png" /><img src="/images/ffv/ffv.052.png" data-title="/images/ffv/ffv.052.png" /><img src="/images/ffv/ffv.053.png" data-title="/images/ffv/ffv.053.png" /><img src="/images/ffv/ffv.054.png" data-title="/images/ffv/ffv.054.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
+{% galleria %}
+/images/ffv/ffv.000.png
+/images/ffv/ffv.004.png
+/images/ffv/ffv.005.png
+/images/ffv/ffv.006.png
+/images/ffv/ffv.007.png
+/images/ffv/ffv.008.png
+/images/ffv/ffv.009.png
+/images/ffv/ffv.010.png
+/images/ffv/ffv.011.png
+/images/ffv/ffv.012.png
+/images/ffv/ffv.013.png
+/images/ffv/ffv.014.png
+/images/ffv/ffv.015.png
+/images/ffv/ffv.016.png
+/images/ffv/ffv.017.png
+/images/ffv/ffv.018.png
+/images/ffv/ffv.019.png
+/images/ffv/ffv.020.png
+/images/ffv/ffv.021.png
+/images/ffv/ffv.023.png
+/images/ffv/ffv.024.png
+/images/ffv/ffv.025.png
+/images/ffv/ffv.026.png
+/images/ffv/ffv.027.png
+/images/ffv/ffv.028.png
+/images/ffv/ffv.029.png
+/images/ffv/ffv.030.png
+/images/ffv/ffv.031.png
+/images/ffv/ffv.032.png
+/images/ffv/ffv.033.png
+/images/ffv/ffv.034.png
+/images/ffv/ffv.035.png
+/images/ffv/ffv.036.png
+/images/ffv/ffv.038.png
+/images/ffv/ffv.039.png
+/images/ffv/ffv.040.png
+/images/ffv/ffv.041.png
+/images/ffv/ffv.042.png
+/images/ffv/ffv.043.png
+/images/ffv/ffv.044.png
+/images/ffv/ffv.045.png
+/images/ffv/ffv.047.png
+/images/ffv/ffv.048.png
+/images/ffv/ffv.049.png
+/images/ffv/ffv.050.png
+/images/ffv/ffv.051.png
+/images/ffv/ffv.052.png
+/images/ffv/ffv.053.png
+/images/ffv/ffv.054.png
+{% endgalleria %}]]></content>
     </entry>
     
     <entry>
@@ -145,7 +195,7 @@ Cheers!
         <link href="http://www.alexbevi.com/blog/2015/07/22/just-finished-final-fantasy-ii/"/>
         <updated>2015-07-22T13:21:52-04:00</updated>
         <id>http://www.alexbevi.com/blog/2015/07/22/just-finished-final-fantasy-ii</id>
-        <content type="html"><![CDATA[<img class="center" src="/images/ff2/ff2-box.jpg">
+        <content type="html"><![CDATA[{% img center /images/ff2/ff2-box.jpg %}
 
 I'm excited to finally be able to review this game, as it's the direct sequel to the game that got me into RPGs way back in 1990-91.
 
@@ -165,7 +215,7 @@ The story is pretty standard JRPG fare. The Emperor of Palamecia is trying to ta
 
 Leon goes missing. The party wants to find him. Off they go.
 
-<img class="left" src="/images/ff2/ff2.010.png">
+{%img left /images/ff2/ff2.010.png %}
 
 You'll meet various characters along the way that will join your party and fight with you. (**SPOILERS!** they usually die by sacrificing themselves so you can continue the quest ...)
 
@@ -173,19 +223,19 @@ As you go along, you find out more about the Emperors plan, fight with the Dark 
 
 <h4>What's Cool</h4>
 
-<img class="right" src="/images/ff2/ff2.004.png">
+{% img right /images/ff2/ff2.004.png %}
 
 FFII introduces a couple of interesting gameplay elements that were not reused in any future entries in the series.
 
 First, key character conversations allowed you to *Learn* keywords, which you could then *Ask* other key characters about. This mechanic helps advance the story as you have to ask various characters about plot points you learn as you go, and they then point you in the direction of your next objective.
 
-<img class="left" src="/images/ff2/ff2.009.png">
+{% img left /images/ff2/ff2.009.png %}
 
 FFII has multiple modes of travel on the overworld. As with the original, there are ships and an airship, but FFII introduces the [chocobo](https://en.wikipedia.org/wiki/Chocobo).
 
 There is also a bunch of "cut-scenes" added to this incarnation (which would not have been available in the original NES version). These are nice as they aren't excessive or long, but help advance the plot.
 
-<img class="right" src="/images/ff2/ff2.005.png">
+{%img right /images/ff2/ff2.005.png %}
 
 Instead of leveling up your characters by fighting and gaining EXP, FFII opted for a system where the more you use a skill, the better you get at it.
 
@@ -197,11 +247,11 @@ I thought this was a very interesting mechanic, and I'm not really sure why this
 
 <h4>What's Not Cool</h4>
 
-<img class="left" src="/images/ff2/ff2.019.png">
+{% img left /images/ff2/ff2.019.png %}
 
 For some reason, this installation in the series decided to introduce an Inn system that charged based on how much healing you required. This proved to be a bit annoying until you realize it's a LOT cheaper to just use cure spells to get everyone's HP back up, THEN rest at the inn ;)
 
-<img class="right" src="/images/ff2/ff2.031.png">
+{% img right /images/ff2/ff2.031.png %}
 
 Another annoyance is that throughout the game, in *any* dungeon you visit, there are doors that lead to empty rooms. LOTS of doors that lead to empty rooms. What's annoying is that these rooms have higher encounter rates, so the first step you take to head back towards the exit generally results in a battle.
 
@@ -221,7 +271,39 @@ I'm glad I jumped back into the Final Fantasy series for a bit; especially with 
 
 I'm thinking the next Final Fantasy I tackle will likely be V, as I haven't previously finished this (though I've gotten close). Not sure when that'll happen, because I'm currently balls-deep in [Lufia II](https://en.wikipedia.org/wiki/Lufia_II:_Rise_of_the_Sinistrals) ;)
 
-<div id="galleria"><img src="/images/ff2/ff2.000.png" data-title="/images/ff2/ff2.000.png" /><img src="/images/ff2/ff2.001.png" data-title="/images/ff2/ff2.001.png" /><img src="/images/ff2/ff2.002.png" data-title="/images/ff2/ff2.002.png" /><img src="/images/ff2/ff2.003.png" data-title="/images/ff2/ff2.003.png" /><img src="/images/ff2/ff2.006.png" data-title="/images/ff2/ff2.006.png" /><img src="/images/ff2/ff2.007.png" data-title="/images/ff2/ff2.007.png" /><img src="/images/ff2/ff2.008.png" data-title="/images/ff2/ff2.008.png" /><img src="/images/ff2/ff2.011.png" data-title="/images/ff2/ff2.011.png" /><img src="/images/ff2/ff2.012.png" data-title="/images/ff2/ff2.012.png" /><img src="/images/ff2/ff2.013.png" data-title="/images/ff2/ff2.013.png" /><img src="/images/ff2/ff2.014.png" data-title="/images/ff2/ff2.014.png" /><img src="/images/ff2/ff2.015.png" data-title="/images/ff2/ff2.015.png" /><img src="/images/ff2/ff2.016.png" data-title="/images/ff2/ff2.016.png" /><img src="/images/ff2/ff2.017.png" data-title="/images/ff2/ff2.017.png" /><img src="/images/ff2/ff2.018.png" data-title="/images/ff2/ff2.018.png" /><img src="/images/ff2/ff2.020.png" data-title="/images/ff2/ff2.020.png" /><img src="/images/ff2/ff2.021.png" data-title="/images/ff2/ff2.021.png" /><img src="/images/ff2/ff2.022.png" data-title="/images/ff2/ff2.022.png" /><img src="/images/ff2/ff2.023.png" data-title="/images/ff2/ff2.023.png" /><img src="/images/ff2/ff2.024.png" data-title="/images/ff2/ff2.024.png" /><img src="/images/ff2/ff2.025.png" data-title="/images/ff2/ff2.025.png" /><img src="/images/ff2/ff2.026.png" data-title="/images/ff2/ff2.026.png" /><img src="/images/ff2/ff2.027.png" data-title="/images/ff2/ff2.027.png" /><img src="/images/ff2/ff2.028.png" data-title="/images/ff2/ff2.028.png" /><img src="/images/ff2/ff2.029.png" data-title="/images/ff2/ff2.029.png" /><img src="/images/ff2/ff2.030.png" data-title="/images/ff2/ff2.030.png" /><img src="/images/ff2/ff2.032.png" data-title="/images/ff2/ff2.032.png" /><img src="/images/ff2/ff2.033.png" data-title="/images/ff2/ff2.033.png" /><img src="/images/ff2/ff2.034.png" data-title="/images/ff2/ff2.034.png" /><img src="/images/ff2/ff2.035.png" data-title="/images/ff2/ff2.035.png" /><img src="/images/ff2/ff2.036.png" data-title="/images/ff2/ff2.036.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+{% galleria %}
+/images/ff2/ff2.000.png
+/images/ff2/ff2.001.png
+/images/ff2/ff2.002.png
+/images/ff2/ff2.003.png
+/images/ff2/ff2.006.png
+/images/ff2/ff2.007.png
+/images/ff2/ff2.008.png
+/images/ff2/ff2.011.png
+/images/ff2/ff2.012.png
+/images/ff2/ff2.013.png
+/images/ff2/ff2.014.png
+/images/ff2/ff2.015.png
+/images/ff2/ff2.016.png
+/images/ff2/ff2.017.png
+/images/ff2/ff2.018.png
+/images/ff2/ff2.020.png
+/images/ff2/ff2.021.png
+/images/ff2/ff2.022.png
+/images/ff2/ff2.023.png
+/images/ff2/ff2.024.png
+/images/ff2/ff2.025.png
+/images/ff2/ff2.026.png
+/images/ff2/ff2.027.png
+/images/ff2/ff2.028.png
+/images/ff2/ff2.029.png
+/images/ff2/ff2.030.png
+/images/ff2/ff2.032.png
+/images/ff2/ff2.033.png
+/images/ff2/ff2.034.png
+/images/ff2/ff2.035.png
+/images/ff2/ff2.036.png
+{% endgalleria %}
 <br />
 
 Note that since I've finished the Dawn of Souls version of FFII, I have access to the [Soul of Rebirth](http://finalfantasy.wikia.com/wiki/Soul_of_Rebirth) additional dungeon. 
@@ -234,7 +316,7 @@ I'm hoping to actually play this and add to this review, or just publish a minor
         <link href="http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones/"/>
         <updated>2014-08-06T17:58:55-04:00</updated>
         <id>http://www.alexbevi.com/blog/2014/08/06/just-finished-fire-emblem-the-sacred-stones</id>
-        <content type="html"><![CDATA[<img class="left" src="/images/fire-emblem-the-sacred-stones.003.png">
+        <content type="html"><![CDATA[{% img left /images/fire-emblem-the-sacred-stones.003.png %}
 
 I've played a lot of RPGs over the years (JRPGs mostly) but have somehow managed to hear little to nothing about the [Fire Emblem](http://en.wikipedia.org/wiki/Fire_Emblem) series.
 
@@ -246,13 +328,13 @@ This post isn't really meant to be a review; it's more just my thoughts on the g
 
 I'm using this as an opportunity to get back into writing a bit more frequently, so I apologize in advance if the subject matter isn't covered very well, or if the writing is all over the place.
 
-<img class="right" src="/images/fire-emblem-the-sacred-stones.004.png">
+{% img right /images/fire-emblem-the-sacred-stones.004.png %}
 
 I managed to complete the game in about 19 hours, so at least I managed to finish over an hour a month (which by gaming standards is terrible, but I'm married with kids and have a job so *back off!* :P).
 
 I played through on my Nexus 7 using [GBA.emu](https://play.google.com/store/apps/details?id=com.explusalpha.GbaEmu&hl=en) (which I would highly recommend buying to support the author), as I don't have an actual GBA (and prefer emulated games for convenience).
 
-<img class="left" src="/images/fire-emblem-the-sacred-stones.002.png">
+{% img left /images/fire-emblem-the-sacred-stones.002.png %}
 
 The game is turn-based tactical combat. You can buy equipment for your team members at various shops, and there is a "world map" that ties the various locations together. This makes is seem as though you're playing a board game.
 
@@ -264,7 +346,7 @@ Fight outcome is determined purely mathematically (stats, resources, weapon sele
 
 For some special battles, the characters are shown as their avatar representations and the fights are animated. These fights are generally plot advancement battles.
 
-<img class="right" src="/images/fire-emblem-the-sacred-stones.005.png">
+{% img right /images/fire-emblem-the-sacred-stones.005.png %}
 
 Once of the main differentiating factors between Fire Emblem and other RPG series is "permanent death". Once a character dies on the battle field, there is no way to revive them. This can make the game extremely difficult as you can potentially advance to a point where you cannot continue as you don't have enough players to clear a map without dying.
 
@@ -272,7 +354,7 @@ I found myself abusing save states as I didn't want my characters to die, and I 
 
 Overall I quite enjoyed the game. The story isn't terrible and there are enough characters to keep the campaigns interesting if you want or, if you're like me you stick with a core group of characters that end up being ridiculously over-leveled by the end.
 
-<img class="left" src="/images/fire-emblem-the-sacred-stones.000.png">
+{% img left /images/fire-emblem-the-sacred-stones.000.png %}
 
 Once you finish the game, the final credits roll an epilogue unfolds that gives some final info about the characters that survived throughout the game. The characters that died in battle are also listed, and it summarizes where they died as well, which I thought was a nice touch.
 

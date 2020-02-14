@@ -4,7 +4,7 @@
     <title><![CDATA[Category: publishing | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/publishing/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand/"/>
         <updated>2017-10-03T20:38:12-04:00</updated>
         <id>http://www.alexbevi.com/blog/2017/10/03/redmine-plugin-extension-and-development-still-in-demand</id>
-        <content type="html"><![CDATA[It's been a [while](/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.
+        <content type="html"><![CDATA[It's been a [while]({% post_url 2016-03-23-redmine-plugin-extension-and-development-is-apparently-still-relevant %}) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.
 
 I have been sharing sales numbers whenever possible as a way of (hopefully) encouraging other authors to see that there is some money out there, even for obscure niche topics.
 
@@ -42,7 +42,7 @@ If I had more time on my hands I might look into writing about something a bit m
 
 As of this quarter, [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) is officially earning me money!
 
-<img class="left" src="/images/royalties-004.png">
+{% img left /images/royalties-004.png %}
 
 Technically, the last statement was [in the black](https://en.wiktionary.org/wiki/in_the_black), however since the terms laid out by Packt Publishing only pays out royalties greater than £75, those earnings were rolled into this quarter.
 
@@ -66,7 +66,7 @@ If you're just venturing onto this blog after having bought the book, please fee
         <id>http://www.alexbevi.com/blog/2015/05/14/fourth-royalty-statement</id>
         <content type="html"><![CDATA[It's been over a year since this book was published, and I didn't think it would see the type of success it has.
 
-<img class="left" src="/images/20150329-001.png">
+{% img left /images/20150329-001.png %}
 
 Based on this last statement, I'm officially eligible to start collecting royalties off this book.
 
@@ -99,7 +99,7 @@ I'm in the process of updating the [knowledgebase plugin](https://github.com/ale
         <id>http://www.alexbevi.com/blog/2014/12/22/third-royalty-statement</id>
         <content type="html"><![CDATA[I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D
 
-I've added the latest numbers to those from [my previous post](/blog/2014/09/22/second-royalty-statement/) in order to show the running total of units sold this year.
+I've added the latest numbers to those from [my previous post]({% post_url 2014-09-22-second-royalty-statement %}) in order to show the running total of units sold this year.
 
 | |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
 |-|----------|--------------------------|---------------|-----------------------------|
@@ -109,7 +109,7 @@ I've added the latest numbers to those from [my previous post](/blog/2014/09/22/
 
 <!-- more -->
 
-<img class="left" src="/images/20141222-ss01.png">
+{% img left /images/20141222-ss01.png %}
 
 The main reason I've been sharing these numbers (without sharing that actual "numbers") is to show prospective authors what types of returns they can potentially expect.
 
@@ -117,7 +117,7 @@ The book I wrote falls into the "minibook" category, so the returns are lower th
 
 Happy Holidays Everyone!!!
 
-<img class="left" src="/images/20141222-cat.png">
+{% img left /images/20141222-cat.png %}
 ]]></content>
     </entry>
     
@@ -128,7 +128,7 @@ Happy Holidays Everyone!!!
         <id>http://www.alexbevi.com/blog/2014/09/22/second-royalty-statement</id>
         <content type="html"><![CDATA[Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
 
-In the table below, I've added the latest numbers to those from [my previous post](/blog/2014/07/15/8748os-first-royalty-statement/) in order to show the running total of units sold this year.
+In the table below, I've added the latest numbers to those from [my previous post]({% post_url 2014-07-15-8748os-first-royalty-statement %}) in order to show the running total of units sold this year.
 
 | |Ebook Mini|Subscription Packtlib Mini|Print Book Mini|Subscription (3rd Party Mini)|
 |-|----------|--------------------------|---------------|-----------------------------|
@@ -137,7 +137,7 @@ In the table below, I've added the latest numbers to those from [my previous pos
 
 <!-- more -->
 
-<img class="left" src="/images/royalties20140630.png">
+{% img left /images/royalties20140630.png %}
 
 Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
 

@@ -4,7 +4,7 @@
     <title><![CDATA[Category: logentries | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/logentries/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -31,7 +31,7 @@ For example:
     lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" > /dev/tcp/data.logentries.com/80; done
     
 
-<img class="left" src="/images/20140716-logentries.png">
+{% img left /images/20140716-logentries.png %}
 
 Hopefully this helps someone other than myself :)]]></content>
     </entry>

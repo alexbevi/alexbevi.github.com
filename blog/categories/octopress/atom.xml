@@ -4,7 +4,7 @@
     <title><![CDATA[Category: octopress | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/octopress/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -32,129 +32,43 @@ I ended up forking the gist in order to implement a Gallery tag for Jekyll/Octop
 
 Now I can build a gallery from my extra screenshots by simply adding
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{% galleria %}
-</span><span class='line'>/images/robotrek/Robotrek_(USA).000.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).001.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).002.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).003.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).004.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).005.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).006.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).007.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).008.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).009.png
-</span><span class='line'>/images/robotrek/Robotrek_(USA).010.png
-</span><span class='line'>{% endgalleria %}</span></code></pre></td></tr></table></div></figure>
-
+{% raw %}
+```
+{% galleria %}
+/images/robotrek/Robotrek_(USA).000.png
+/images/robotrek/Robotrek_(USA).001.png
+/images/robotrek/Robotrek_(USA).002.png
+/images/robotrek/Robotrek_(USA).003.png
+/images/robotrek/Robotrek_(USA).004.png
+/images/robotrek/Robotrek_(USA).005.png
+/images/robotrek/Robotrek_(USA).006.png
+/images/robotrek/Robotrek_(USA).007.png
+/images/robotrek/Robotrek_(USA).008.png
+/images/robotrek/Robotrek_(USA).009.png
+/images/robotrek/Robotrek_(USA).010.png
+{% endgalleria %}
+```
+{% endraw %}
 
 to my post, which will produce the following gallery:
 
-<div id="galleria"><img src="/images/robotrek/Robotrek_(USA).000.png" data-title="/images/robotrek/Robotrek_(USA).000.png" /><img src="/images/robotrek/Robotrek_(USA).001.png" data-title="/images/robotrek/Robotrek_(USA).001.png" /><img src="/images/robotrek/Robotrek_(USA).002.png" data-title="/images/robotrek/Robotrek_(USA).002.png" /><img src="/images/robotrek/Robotrek_(USA).003.png" data-title="/images/robotrek/Robotrek_(USA).003.png" /><img src="/images/robotrek/Robotrek_(USA).004.png" data-title="/images/robotrek/Robotrek_(USA).004.png" /><img src="/images/robotrek/Robotrek_(USA).005.png" data-title="/images/robotrek/Robotrek_(USA).005.png" /><img src="/images/robotrek/Robotrek_(USA).006.png" data-title="/images/robotrek/Robotrek_(USA).006.png" /><img src="/images/robotrek/Robotrek_(USA).007.png" data-title="/images/robotrek/Robotrek_(USA).007.png" /><img src="/images/robotrek/Robotrek_(USA).008.png" data-title="/images/robotrek/Robotrek_(USA).008.png" /><img src="/images/robotrek/Robotrek_(USA).009.png" data-title="/images/robotrek/Robotrek_(USA).009.png" /><img src="/images/robotrek/Robotrek_(USA).010.png" data-title="/images/robotrek/Robotrek_(USA).010.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
+{% galleria %}
+/images/robotrek/Robotrek_(USA).000.png
+/images/robotrek/Robotrek_(USA).001.png
+/images/robotrek/Robotrek_(USA).002.png
+/images/robotrek/Robotrek_(USA).003.png
+/images/robotrek/Robotrek_(USA).004.png
+/images/robotrek/Robotrek_(USA).005.png
+/images/robotrek/Robotrek_(USA).006.png
+/images/robotrek/Robotrek_(USA).007.png
+/images/robotrek/Robotrek_(USA).008.png
+/images/robotrek/Robotrek_(USA).009.png
+/images/robotrek/Robotrek_(USA).010.png
+{% endgalleria %}
 
 I've included the gist below. If you want to download and install this yourself, just download the gist to `/path/to/octopress/plugins`.
 
-<noscript><pre># Title: Galleria Tag for Jekyll
-# Authors: Alex Bevilacqua
-# Description: incorporate the Galleria gallery jquery plugin 
-#
-# Adaption of &quot;Photos tag for Jekyll&quot; by Devin Weaver, and the derived 
-# &quot;Gallery Tag for Jekyll&quot; by Kevin Brown.
-#
-# Installation:
-#
-# {% galleria_includes %}
-#
-# This macro should be added to your `source/_includes/custom/head.html`
-# in order to load the libraries needed by Galleria
-#
-# Example:
-#
-# {% galleria %}
-# photo1.jpg
-# /path/to/photos/photo2.jpg:title
-# {% endgalleria %}
-#
-module Jekyll
-
-  PLUGIN_GALLERIA_VERSION = &quot;1.4.2&quot;
-  PLUGIN_JQUERY_VERSION   = &quot;2.1.1&quot;
-
-  class PhotosUtil
-    def initialize(context)
-      @context = context
-    end
-
-    def path_for(filename)
-      filename = filename.strip
-      prefix = (@context.environments.first[&#39;site&#39;][&#39;photos_prefix&#39;] unless filename =~ /^(?:\/|http)/i) || &quot;&quot;
-      &quot;#{prefix}#{filename}&quot;
-    end
-  end
-
-  class GalleriaScriptIncludePatch &lt; Liquid::Tag
-    def render(context)
-      return &lt;&lt;-eof
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/#{PLUGIN_JQUERY_VERSION}/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/galleria.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.css&quot; media=&quot;screen, projection&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
-&lt;style&gt;
-  /* This rule is read by Galleria to define the gallery height: */
-  #galleria{height:320px}
-&lt;/style&gt;
-      eof
-    end
-  end
-
-  class GalleriaTag &lt; Liquid::Block
-    def initialize(tag_name, markup, tokens)
-      # No initializing needed
-      super
-    end
-
-    def render(context)
-      # Convert the entire content array into one large string
-      lines = super
-      # split the text by newlines
-      lines = lines.split(&quot;\n&quot;)
-      
-      p = PhotosUtil.new(context)
-      gallery = &quot;&lt;div id=\&quot;galleria\&quot;&gt;&quot;
-
-      lines.each_with_index do |line, i|
-        next if line.empty?
-        filename, title = line.split(&quot;:&quot;)
-        title = (title.nil?) ? &quot;&quot; : title.strip
-        gallery &lt;&lt; &quot;&lt;img src=\&quot;#{p.path_for(filename)}\&quot; data-title=\&quot;#{title}\&quot; /&gt;&quot;
-      end
-      gallery &lt;&lt; &quot;&lt;/div&gt;&quot;
-      gallery &lt;&lt; &quot;&lt;script&gt;&quot;
-      gallery &lt;&lt; &quot;  Galleria.configure(&#39;transition&#39;, &#39;fade&#39;);&quot;
-      gallery &lt;&lt; &quot;  Galleria.run(&#39;#galleria&#39;);&quot;
-      gallery &lt;&lt; &quot;&lt;/script&gt;&quot;
-      gallery
-    end
-  end
-
-end
-
-Liquid::Template.register_tag(&#39;galleria&#39;, Jekyll::GalleriaTag)
-Liquid::Template.register_tag(&#39;galleria_includes&#39;, Jekyll::GalleriaScriptIncludePatch)
-</pre></noscript><script src="https://gist.github.com/alexbevi/1c185c6a037d63f6aec7.js"> </script>]]></content>
+{% gist alexbevi/1c185c6a037d63f6aec7 %}]]></content>
     </entry>
     
     <entry>
@@ -170,43 +84,27 @@ A quick Google search came up dry, so I figured I'd just roll my own.
 
 In order to accomplish this, all that is required is to edit `source/_includes/post/sharing.html`:
 
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html</span>
-</span><span class='line'><span class="gh">index e32500d..0bdd01e 100644</span>
-</span><span class='line'><span class="gd">--- a/source/_includes/post/sharing.html</span>
-</span><span class='line'><span class="gi">+++ b/source/_includes/post/sharing.html</span>
-</span><span class='line'><span class="gu">@@ -5,6 +5,12 @@</span>
-</span><span class='line'>   {% if site.google_plus_one %}
-</span><span class='line'>   &lt;div class=&quot;g-plusone&quot; data-size=&quot;{{ site.google_plus_one_size }}&quot;&gt;&lt;/div&gt;
-</span><span class='line'>   {% endif %}
-</span><span class='line'><span class="gi">+  {% if site.linkedin_share %}</span>
-</span><span class='line'><span class="gi">+    &lt;script src=&quot;//platform.linkedin.com/in.js&quot; type=&quot;text/javascript&quot;&gt;</span>
-</span><span class='line'><span class="gi">+    lang: en_US</span>
-</span><span class='line'><span class="gi">+  &lt;/script&gt;</span>
-</span><span class='line'><span class="gi">+  &lt;script type=&quot;IN/Share&quot; data-url=&quot;{{ site.url }}{{ page.url }}&quot; data-counter=&quot;right&quot;&gt;&lt;/script&gt;</span>
-</span><span class='line'><span class="gi">+  {% endif %}</span>
-</span><span class='line'>   {% if site.facebook_like %}
-</span><span class='line'>     &lt;div class=&quot;fb-like&quot; data-send=&quot;true&quot; data-width=&quot;450&quot; data-show-faces=&quot;false&quot;&gt;&lt;/div&gt;
-</span><span class='line'>   {% endif %}
-</span></code></pre></td></tr></table></div></figure>
-
+{% raw %}
+```diff
+diff --git a/source/_includes/post/sharing.html b/source/_includes/post/sharing.html
+index e32500d..0bdd01e 100644
+--- a/source/_includes/post/sharing.html
++++ b/source/_includes/post/sharing.html
+@@ -5,6 +5,12 @@
+   {% if site.google_plus_one %}
+   <div class="g-plusone" data-size="{{ site.google_plus_one_size }}"></div>
+   {% endif %}
++  {% if site.linkedin_share %}
++    <script src="//platform.linkedin.com/in.js" type="text/javascript">
++    lang: en_US
++  </script>
++  <script type="IN/Share" data-url="{{ site.url }}{{ page.url }}" data-counter="right"></script>
++  {% endif %}
+   {% if site.facebook_like %}
+     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+   {% endif %}
+```
+{% endraw %}
 
 The change above adds a snippit of Javascript that passes the current `site.url` and `page.url` in a similar fashion as is done for Twitter.
 
@@ -214,27 +112,18 @@ The Javascript source was generated using LinkedIn's [Share Plugin Generator](ht
 
 Just in case you want to easily toggle this functionality, I've also set it up to check for a configuration value in your site's `_config.yml`:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gh">diff --git a/_config.yml b/_config.yml</span>
-</span><span class='line'><span class="gh">index f8f825c..2dce55b 100644</span>
-</span><span class='line'><span class="gd">--- a/_config.yml</span>
-</span><span class='line'><span class="gi">+++ b/_config.yml</span>
-</span><span class='line'><span class="gu">@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx</span>
-</span><span class='line'> # Facebook Like
-</span><span class='line'> facebook_like: true
-</span><span class='line'>
-</span><span class='line'><span class="gi">+# LinkedIn Share</span>
-</span><span class='line'><span class="gi">+linkedin_share: true</span>
-</span></code></pre></td></tr></table></div></figure>
+```diff
+diff --git a/_config.yml b/_config.yml
+index f8f825c..2dce55b 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx
+ # Facebook Like
+ facebook_like: true
+ 
++# LinkedIn Share
++linkedin_share: true
+```
 
 Now, the next time your site is regenerated, a LinkedIn share button will be available.
 

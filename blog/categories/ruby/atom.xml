@@ -4,7 +4,7 @@
     <title><![CDATA[Category: ruby | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/ruby/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -22,7 +22,7 @@
 
 One example is a series of PowerShell scripts I've written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.
 
-<img src="/images/20140602-001.jpg">
+{% img /images/20140602-001.jpg %}
 
 <!-- more -->
 
@@ -44,7 +44,7 @@ Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/w
 
     sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
 
-<img src="/images/20140602-002.jpg">
+{% img /images/20140602-002.jpg %}
 
 We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
 
@@ -65,42 +65,19 @@ Although it's extremely convenient during development to add a quick breakpoint 
 
 After hunting around for a bit, I decided to write a pre-commit [hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) that would check the files I was about to check in to ensure that I didn't accidentally still have breakpoints enabled.
 
-<noscript><pre># Git pre-commit hook to check all staged Ruby (*.rb/haml/coffee) files 
-# for Pry binding references
-#
-# Installation
-#
-#   ln -s /path/to/pre-commit.sh /path/to/project/.git/hooks/pre-commit
-#
-# Based on 
-#
-#   http://codeinthehole.com/writing/tips-for-using-a-git-pre-commit-hook/
-#   http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes
-#   https://gist.github.com/3266940
-#
-FILES_PATTERN=&#39;\.(rb|haml|coffee)(\..+)?$&#39;
-FORBIDDEN=&#39;binding.pry&#39;
-
-git diff --cached --name-only | \
-    grep -E $FILES_PATTERN | \
-    GREP_COLOR=&#39;4;5;37;41&#39; xargs grep --color --with-filename -n $FORBIDDEN &amp;&amp; \
-    echo &#39;COMMIT REJECTED&#39; &amp;&amp; \
-    exit 1
-
-exit 0</pre></noscript><script src="https://gist.github.com/alexbevi/3436040.js"> </script>
+{% gist alexbevi/3436040 %}
 
 This file just needs to be saved to `/path/to/source/.git/hooks/pre-commit` and made executable.
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HOOK_URL="https://gist.githubusercontent.com/alexbevi/3436040/raw/pre-commit.sh"
-</span><span class='line'>curl $HOOK_URL &gt; /path/to/source/.git/hooks/pre-commit
-</span><span class='line'>chmod +x /path/to/source/.git/hooks/pre-commit</span></code></pre></td></tr></table></div></figure>
+```
+HOOK_URL="https://gist.githubusercontent.com/alexbevi/3436040/raw/pre-commit.sh"
+curl $HOOK_URL > /path/to/source/.git/hooks/pre-commit
+chmod +x /path/to/source/.git/hooks/pre-commit
+```
 
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 
-<img src="/images/2012-08-23-ss.png">
+{% img /images/2012-08-23-ss.png %}
 ]]></content>
     </entry>
     

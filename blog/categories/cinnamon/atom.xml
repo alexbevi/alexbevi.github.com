@@ -4,7 +4,7 @@
     <title><![CDATA[Category: cinnamon | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/cinnamon/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:20:29-05:00</updated>
+    <updated>2020-02-14T11:39:42-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -36,31 +36,23 @@ Edit the appropriate file
 
 Locate the following section (I just searched for _hot-corner_)
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">_corner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Clutter</span><span class="p">.</span><span class="nx">Rectangle</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hot-corner&#39;</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">reactive</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
+``` javascript
+this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: true });
+```
 
 And change the value of `reactive` from _true_ to _false_:
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">_corner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Clutter</span><span class="p">.</span><span class="nx">Rectangle</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hot-corner&#39;</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>                                       <span class="nx">reactive</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
+``` javascript
+this._corner = new Clutter.Rectangle({ name: 'hot-corner',
+                                       width: 1,
+                                       height: 1,
+                                       opacity: 0,
+                                       reactive: false });
+```
 
 Log off, then back on. Booya!]]></content>
     </entry>
