@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:50:04-05:00</updated>
+    <updated>2020-02-14T12:08:54-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/"/>
         <updated>2020-02-13T12:34:49-05:00</updated>
         <id>http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</id>
-        <content type="html"><![CDATA[Sometimes our replica sets fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:
+        <content type="html"><![CDATA[Sometimes our replica set members fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:
 
 1. Clones all databases except the local database. To clone, the `mongod` scans every collection in each source database and inserts all data into its own copies of these collections.
 2. Applies all changes to the data set. Using the oplog from the source, the `mongod` updates its data set to reflect the current state of the replica set.

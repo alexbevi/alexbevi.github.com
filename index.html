@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="MongoDB Initial Sync Progress Monitoring Feb 13th, 2020 mongodb Comments Sometimes our replica sets fall off the oplog and the node needs to be &hellip;">
+        <meta name="description" content="MongoDB Initial Sync Progress Monitoring Feb 13th, 2020 mongodb Comments Sometimes our replica set members fall off the oplog and the node needs to &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -140,7 +140,7 @@
 
 
     <div class="article__content clearfix">
-        <p>Sometimes our replica sets fall off the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and the node needs to be resynced. When this happens, an <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">Initial Sync</a> is required, which does the following:</p>
+        <p>Sometimes our replica set members fall off the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and the node needs to be resynced. When this happens, an <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">Initial Sync</a> is required, which does the following:</p>
 
 <ol>
 <li>Clones all databases except the local database. To clone, the <code>mongod</code> scans every collection in each source database and inserts all data into its own copies of these collections.</li>
