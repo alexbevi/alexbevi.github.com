@@ -4,7 +4,7 @@
     <title><![CDATA[Category: just-gave-up-on | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/just-gave-up-on/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:39:42-05:00</updated>
+    <updated>2020-02-14T11:44:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2016/07/26/just-finished-shadowrun-genesis/"/>
         <updated>2016-07-26T05:25:39-04:00</updated>
         <id>http://www.alexbevi.com/blog/2016/07/26/just-finished-shadowrun-genesis</id>
-        <content type="html"><![CDATA[{% img left /images/shadowrun-gens/shadowrun.000.png %}
+        <content type="html"><![CDATA[<img class="left" src="/images/shadowrun-gens/shadowrun.000.png">
 
 **UPDATE: 2016-09-05** - It was pointed out on [the Reddit thread](https://www.reddit.com/r/rpg_gamers/comments/4uxq5n/just_gave_up_on_shadowrun_genesis) and in the comments below that I might have used a cheat which prevented finishing the game. I didn't think I'd used one, but I think while doing research for the article i may have been testing it out :(
 
@@ -38,7 +38,7 @@ Regardless, I've gone through enough of this game to be able to write about it, 
 
 <!-- more -->
 
-{% img right /images/shadowrun-gens/shadowrun.001.png %}
+<img class="right" src="/images/shadowrun-gens/shadowrun.001.png">
 
 This iteration of Shadowrun doesn't resemble the Super Nintendo's version of this title at all.
 
@@ -48,7 +48,7 @@ I chose to run as a Decker, as I wanted to get an idea as to how the matrix sequ
 
 The story starts off with you at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.
 
-{% img left /images/shadowrun-gens/shadowrun.002.png %}
+<img class="left" src="/images/shadowrun-gens/shadowrun.002.png">
 
 A good chunk of the game is presented through these conversation views.
 
@@ -58,7 +58,7 @@ Your character can walk around the initial city and go in and out of various bui
 
 Some buildings will warn you that they contain ghouls. These buildings are where you can go to do some level grinding, or if you're on a run that has you clearing out ghouls, earn some money.
 
-{% img right /images/shadowrun-gens/shadowrun.006.png %}
+<img class="right" src="/images/shadowrun-gens/shadowrun.006.png">
 
 To level grind, you'll just be earning karma points which can be applied to the various stats your character has. These stats affect your weapons skills, magic skills, tech/computer skills or your aptitude with various weapon classes.
 
@@ -66,7 +66,7 @@ Although I started out as a Decker, I found myself maxing out my weapon skills e
 
 On the subject of shadowruns, the way you earn money (nuyen) in this game is by taking on various jobs (runs) from Mr. Johnson's. There are one or more Mr. Johnson's in each city you visit and they offer you work. Initially the types of work are either "escort <name> to <location>", "take package to <location>" or "clear out ghouls from abandoned building".
 
-{% img left /images/shadowrun-gens/shadowrun.011.png %}
+<img class="left" src="/images/shadowrun-gens/shadowrun.011.png">
 
 I found that the easiest runs to make money at early on where the ghoul runs. You basically just go into the building, find some ghouls and start running in circles. They'll just follow you so you can pick them off one at a time.
 
@@ -84,7 +84,7 @@ These characters can also be hired to assist you on your runs. Each one has two 
 
 I found I didn't really hire anyone until I hit the endgame as I didn't really need the help. If you're playing through the game as a shaman or samurai and don't bother upgrading your computer skills, it may be easier to hire a good decker than to upgrade your own stats and get a cyberdeck.
 
-{% img right /images/shadowrun-gens/shadowrun.009.png %}
+<img class="right" src="/images/shadowrun-gens/shadowrun.009.png">
 
 You'll meet new Mr. Johnson's who offer more difficult missions that involve traveling between the various cities in order to do more difficult quests such as infiltrating corporations to either steal secrets or extract employees, or running the matrix.
 
@@ -94,7 +94,7 @@ When infiltrating corporations, you'll need to be able to have electronics skill
 
 The infiltration jobs have you going through multiple floors of these buildings, with each floor having guards to deal with, security cameras to avoid and wall safes to plunder.
 
-{% img left /images/shadowrun-gens/shadowrun.015.png %}
+<img class="left" src="/images/shadowrun-gens/shadowrun.015.png">
 
 It helps to have computer skills when doing these runs as you can hack the computers to disable cameras, turn off alarms and open doors.
 
@@ -108,7 +108,7 @@ The fighting itself is pretty repetitive, but the concept is fun.
 
 There are various types of components within a matrix system. You have to hack each of these as you move deeper into the system. The end goal is usually to hit a data store and download or delete a file.
 
-{% img left /images/shadowrun-gens/shadowrun.021.png %}
+<img class="left" src="/images/shadowrun-gens/shadowrun.021.png">
 
 One way to easily earn money is to hack into a system, download the maximum number of data files then try to sell them to a contact in [city]. Near the end of the game i was able to get upwards of 10K for some files, which made upgrading my equipment a lot easier to do ;)
 
@@ -122,28 +122,7 @@ If you haven't given this game a shot, I would highly recommend it. It turned ou
 
 If you have any recommendations for other games in this genre I should check out, or if you want to share your opinion on this or the SNES title, please feel free to leave me a comment.
 
-{% galleria %}
-/images/shadowrun-gens/shadowrun.003.png
-/images/shadowrun-gens/shadowrun.004.png
-/images/shadowrun-gens/shadowrun.005.png
-/images/shadowrun-gens/shadowrun.007.png
-/images/shadowrun-gens/shadowrun.008.png
-/images/shadowrun-gens/shadowrun.010.png
-/images/shadowrun-gens/shadowrun.012.png
-/images/shadowrun-gens/shadowrun.013.png
-/images/shadowrun-gens/shadowrun.014.png
-/images/shadowrun-gens/shadowrun.015.png
-/images/shadowrun-gens/shadowrun.016.png
-/images/shadowrun-gens/shadowrun.017.png
-/images/shadowrun-gens/shadowrun.018.png
-/images/shadowrun-gens/shadowrun.019.png
-/images/shadowrun-gens/shadowrun.020.png
-/images/shadowrun-gens/shadowrun.022.png
-/images/shadowrun-gens/shadowrun.023.png
-/images/shadowrun-gens/shadowrun.024.png
-/images/shadowrun-gens/shadowrun.025.png
-/images/shadowrun-gens/shadowrun.026.png
-{% endgalleria %}]]></content>
+<div id="galleria"><img src="/images/shadowrun-gens/shadowrun.003.png" data-title="/images/shadowrun-gens/shadowrun.003.png" /><img src="/images/shadowrun-gens/shadowrun.004.png" data-title="/images/shadowrun-gens/shadowrun.004.png" /><img src="/images/shadowrun-gens/shadowrun.005.png" data-title="/images/shadowrun-gens/shadowrun.005.png" /><img src="/images/shadowrun-gens/shadowrun.007.png" data-title="/images/shadowrun-gens/shadowrun.007.png" /><img src="/images/shadowrun-gens/shadowrun.008.png" data-title="/images/shadowrun-gens/shadowrun.008.png" /><img src="/images/shadowrun-gens/shadowrun.010.png" data-title="/images/shadowrun-gens/shadowrun.010.png" /><img src="/images/shadowrun-gens/shadowrun.012.png" data-title="/images/shadowrun-gens/shadowrun.012.png" /><img src="/images/shadowrun-gens/shadowrun.013.png" data-title="/images/shadowrun-gens/shadowrun.013.png" /><img src="/images/shadowrun-gens/shadowrun.014.png" data-title="/images/shadowrun-gens/shadowrun.014.png" /><img src="/images/shadowrun-gens/shadowrun.015.png" data-title="/images/shadowrun-gens/shadowrun.015.png" /><img src="/images/shadowrun-gens/shadowrun.016.png" data-title="/images/shadowrun-gens/shadowrun.016.png" /><img src="/images/shadowrun-gens/shadowrun.017.png" data-title="/images/shadowrun-gens/shadowrun.017.png" /><img src="/images/shadowrun-gens/shadowrun.018.png" data-title="/images/shadowrun-gens/shadowrun.018.png" /><img src="/images/shadowrun-gens/shadowrun.019.png" data-title="/images/shadowrun-gens/shadowrun.019.png" /><img src="/images/shadowrun-gens/shadowrun.020.png" data-title="/images/shadowrun-gens/shadowrun.020.png" /><img src="/images/shadowrun-gens/shadowrun.022.png" data-title="/images/shadowrun-gens/shadowrun.022.png" /><img src="/images/shadowrun-gens/shadowrun.023.png" data-title="/images/shadowrun-gens/shadowrun.023.png" /><img src="/images/shadowrun-gens/shadowrun.024.png" data-title="/images/shadowrun-gens/shadowrun.024.png" /><img src="/images/shadowrun-gens/shadowrun.025.png" data-title="/images/shadowrun-gens/shadowrun.025.png" /><img src="/images/shadowrun-gens/shadowrun.026.png" data-title="/images/shadowrun-gens/shadowrun.026.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
     </entry>
     
     <entry>
@@ -157,7 +136,7 @@ I want to start off by saying I really enjoyed [Terranigma](http://en.wikipedia.
 
 I was a big fan of Soul Blazer (less of Illusion of Gaia) so I was really looking forward to Terranigma. The gameplay is similar (real-time battle) and the themes are similar (restoring the world).
 
-{% img /images/terranigma/Terranigma.000.png %}
+<img src="/images/terranigma/Terranigma.000.png">
 
 <!-- more -->
 
@@ -165,7 +144,7 @@ You start off by opening a funky box, which releases Yomi. I don't really know w
 
 First, you need to save your town, which gets frozen; except for the one guy who conveniently can explain how to unfreeze everyone. 
 
-{% img /images/terranigma/Terranigma.002.png %}
+<img src="/images/terranigma/Terranigma.002.png">
 
 You go off to five different towers in order to "free" some of the villagers (kind of like you do in the dungeons of Soul Blazer ...) who can then help you proceed through the remaining towers.
 
@@ -175,68 +154,17 @@ WRONG!
 
 I got stuck twice since I tried doing this without a walkthrough. The first place was Louran, since I forgot to pick up the scarf you needed in order to prove to the dog you knew his owner. I was stuck here for a very, very long time ...
 
-{% img /images/terranigma/Terranigma.002.png %}
+<img src="/images/terranigma/Terranigma.002.png">
 
 Second is [Sylvan Castle](http://shrines.rpgclassics.com/snes/terranigma/wsylvain.shtml) in Spain. This is where I've officially given up. I made it through the castle with no issues, but once you get to the boss, she just decimates you. 
 
-{% img  /images/terranigma/Terranigma.048.png %}
+<img src="/images/terranigma/Terranigma.048.png">
 
 Some walkthroughs say your should be at level 21, some say 25. I'm at level 18. Grinding in this game takes a very long time, and I think I'm just going to cut my losses here and move on.
 
 If this were a turned-based RPG, I could blindly button mash my way up a few levels. Oh well.
 
-{% galleria %}
-/images/terranigma/Terranigma.000.png
-/images/terranigma/Terranigma.001.png
-/images/terranigma/Terranigma.002.png
-/images/terranigma/Terranigma.003.png
-/images/terranigma/Terranigma.004.png
-/images/terranigma/Terranigma.005.png
-/images/terranigma/Terranigma.006.png
-/images/terranigma/Terranigma.007.png
-/images/terranigma/Terranigma.008.png
-/images/terranigma/Terranigma.009.png
-/images/terranigma/Terranigma.010.png
-/images/terranigma/Terranigma.011.png
-/images/terranigma/Terranigma.012.png
-/images/terranigma/Terranigma.013.png
-/images/terranigma/Terranigma.014.png
-/images/terranigma/Terranigma.015.png
-/images/terranigma/Terranigma.016.png
-/images/terranigma/Terranigma.017.png
-/images/terranigma/Terranigma.018.png
-/images/terranigma/Terranigma.019.png
-/images/terranigma/Terranigma.020.png
-/images/terranigma/Terranigma.021.png
-/images/terranigma/Terranigma.022.png
-/images/terranigma/Terranigma.023.png
-/images/terranigma/Terranigma.024.png
-/images/terranigma/Terranigma.025.png
-/images/terranigma/Terranigma.026.png
-/images/terranigma/Terranigma.027.png
-/images/terranigma/Terranigma.028.png
-/images/terranigma/Terranigma.029.png
-/images/terranigma/Terranigma.030.png
-/images/terranigma/Terranigma.031.png
-/images/terranigma/Terranigma.032.png
-/images/terranigma/Terranigma.033.png
-/images/terranigma/Terranigma.034.png
-/images/terranigma/Terranigma.035.png
-/images/terranigma/Terranigma.036.png
-/images/terranigma/Terranigma.037.png
-/images/terranigma/Terranigma.038.png
-/images/terranigma/Terranigma.039.png
-/images/terranigma/Terranigma.040.png
-/images/terranigma/Terranigma.041.png
-/images/terranigma/Terranigma.042.png
-/images/terranigma/Terranigma.043.png
-/images/terranigma/Terranigma.044.png
-/images/terranigma/Terranigma.045.png
-/images/terranigma/Terranigma.046.png
-/images/terranigma/Terranigma.047.png
-/images/terranigma/Terranigma.048.png
-/images/terranigma/Terranigma.049.png
-{% endgalleria %}
+<div id="galleria"><img src="/images/terranigma/Terranigma.000.png" data-title="/images/terranigma/Terranigma.000.png" /><img src="/images/terranigma/Terranigma.001.png" data-title="/images/terranigma/Terranigma.001.png" /><img src="/images/terranigma/Terranigma.002.png" data-title="/images/terranigma/Terranigma.002.png" /><img src="/images/terranigma/Terranigma.003.png" data-title="/images/terranigma/Terranigma.003.png" /><img src="/images/terranigma/Terranigma.004.png" data-title="/images/terranigma/Terranigma.004.png" /><img src="/images/terranigma/Terranigma.005.png" data-title="/images/terranigma/Terranigma.005.png" /><img src="/images/terranigma/Terranigma.006.png" data-title="/images/terranigma/Terranigma.006.png" /><img src="/images/terranigma/Terranigma.007.png" data-title="/images/terranigma/Terranigma.007.png" /><img src="/images/terranigma/Terranigma.008.png" data-title="/images/terranigma/Terranigma.008.png" /><img src="/images/terranigma/Terranigma.009.png" data-title="/images/terranigma/Terranigma.009.png" /><img src="/images/terranigma/Terranigma.010.png" data-title="/images/terranigma/Terranigma.010.png" /><img src="/images/terranigma/Terranigma.011.png" data-title="/images/terranigma/Terranigma.011.png" /><img src="/images/terranigma/Terranigma.012.png" data-title="/images/terranigma/Terranigma.012.png" /><img src="/images/terranigma/Terranigma.013.png" data-title="/images/terranigma/Terranigma.013.png" /><img src="/images/terranigma/Terranigma.014.png" data-title="/images/terranigma/Terranigma.014.png" /><img src="/images/terranigma/Terranigma.015.png" data-title="/images/terranigma/Terranigma.015.png" /><img src="/images/terranigma/Terranigma.016.png" data-title="/images/terranigma/Terranigma.016.png" /><img src="/images/terranigma/Terranigma.017.png" data-title="/images/terranigma/Terranigma.017.png" /><img src="/images/terranigma/Terranigma.018.png" data-title="/images/terranigma/Terranigma.018.png" /><img src="/images/terranigma/Terranigma.019.png" data-title="/images/terranigma/Terranigma.019.png" /><img src="/images/terranigma/Terranigma.020.png" data-title="/images/terranigma/Terranigma.020.png" /><img src="/images/terranigma/Terranigma.021.png" data-title="/images/terranigma/Terranigma.021.png" /><img src="/images/terranigma/Terranigma.022.png" data-title="/images/terranigma/Terranigma.022.png" /><img src="/images/terranigma/Terranigma.023.png" data-title="/images/terranigma/Terranigma.023.png" /><img src="/images/terranigma/Terranigma.024.png" data-title="/images/terranigma/Terranigma.024.png" /><img src="/images/terranigma/Terranigma.025.png" data-title="/images/terranigma/Terranigma.025.png" /><img src="/images/terranigma/Terranigma.026.png" data-title="/images/terranigma/Terranigma.026.png" /><img src="/images/terranigma/Terranigma.027.png" data-title="/images/terranigma/Terranigma.027.png" /><img src="/images/terranigma/Terranigma.028.png" data-title="/images/terranigma/Terranigma.028.png" /><img src="/images/terranigma/Terranigma.029.png" data-title="/images/terranigma/Terranigma.029.png" /><img src="/images/terranigma/Terranigma.030.png" data-title="/images/terranigma/Terranigma.030.png" /><img src="/images/terranigma/Terranigma.031.png" data-title="/images/terranigma/Terranigma.031.png" /><img src="/images/terranigma/Terranigma.032.png" data-title="/images/terranigma/Terranigma.032.png" /><img src="/images/terranigma/Terranigma.033.png" data-title="/images/terranigma/Terranigma.033.png" /><img src="/images/terranigma/Terranigma.034.png" data-title="/images/terranigma/Terranigma.034.png" /><img src="/images/terranigma/Terranigma.035.png" data-title="/images/terranigma/Terranigma.035.png" /><img src="/images/terranigma/Terranigma.036.png" data-title="/images/terranigma/Terranigma.036.png" /><img src="/images/terranigma/Terranigma.037.png" data-title="/images/terranigma/Terranigma.037.png" /><img src="/images/terranigma/Terranigma.038.png" data-title="/images/terranigma/Terranigma.038.png" /><img src="/images/terranigma/Terranigma.039.png" data-title="/images/terranigma/Terranigma.039.png" /><img src="/images/terranigma/Terranigma.040.png" data-title="/images/terranigma/Terranigma.040.png" /><img src="/images/terranigma/Terranigma.041.png" data-title="/images/terranigma/Terranigma.041.png" /><img src="/images/terranigma/Terranigma.042.png" data-title="/images/terranigma/Terranigma.042.png" /><img src="/images/terranigma/Terranigma.043.png" data-title="/images/terranigma/Terranigma.043.png" /><img src="/images/terranigma/Terranigma.044.png" data-title="/images/terranigma/Terranigma.044.png" /><img src="/images/terranigma/Terranigma.045.png" data-title="/images/terranigma/Terranigma.045.png" /><img src="/images/terranigma/Terranigma.046.png" data-title="/images/terranigma/Terranigma.046.png" /><img src="/images/terranigma/Terranigma.047.png" data-title="/images/terranigma/Terranigma.047.png" /><img src="/images/terranigma/Terranigma.048.png" data-title="/images/terranigma/Terranigma.048.png" /><img src="/images/terranigma/Terranigma.049.png" data-title="/images/terranigma/Terranigma.049.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 From what I played though, Terranigma was a lot of fun. I may come back to this game, but for the moment I've decided to move along to the next challenge ... [Danganronpa](http://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc). So far ... loving it :D :D :D]]></content>
     </entry>

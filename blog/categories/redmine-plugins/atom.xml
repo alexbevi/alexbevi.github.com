@@ -4,7 +4,7 @@
     <title><![CDATA[Category: redmine-plugins | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/redmine-plugins/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:39:42-05:00</updated>
+    <updated>2020-02-14T11:44:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published/"/>
         <updated>2014-03-19T06:08:02-04:00</updated>
         <id>http://www.alexbevi.com/blog/2014/03/19/redmine-plugin-extension-and-development-published</id>
-        <content type="html"><![CDATA[{% img left /images/balloons.png %}
+        <content type="html"><![CDATA[<img class="left" src="/images/balloons.png">
 
 Well, it's official. The journey I began over six months ago has finally come to an end, and [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) has officially been published :)
 
@@ -95,7 +95,7 @@ The issue I was struggling with was little more than a complete lack of motivati
         <id>http://www.alexbevi.com/blog/2014/01/27/my-first-book-is-almost-ready-for-production</id>
         <content type="html"><![CDATA[For the last 4 months I've been working with [Packt Publishing](http://www.packtpub.com) on a book about [Redmine](http://www.redmine.org) plugin extension and development.
 
-{% img left /images/8748OS_mockupcover_normal_0.jpg %}
+<img class="left" src="/images/8748OS_mockupcover_normal_0.jpg">
 
 Although it likely won't be ready until February 2014, the book is now available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
 

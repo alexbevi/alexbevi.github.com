@@ -4,7 +4,7 @@
     <title><![CDATA[Category: jrpg | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/jrpg/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:39:42-05:00</updated>
+    <updated>2020-02-14T11:44:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,15 +20,15 @@
         <id>http://www.alexbevi.com/blog/2016/09/05/summer-update-2016</id>
         <content type="html"><![CDATA[I don't really have much progress to report for the last month, so I thought I'd throw out a few of the games I've been working through to see if I can generate any interest in the next article ;)
 
-{% img left /images/goldensun/goldensun.016.png %}
+<img class="left" src="/images/goldensun/goldensun.016.png">
 
 First off, I've been playing through [Golden Sun](https://en.wikipedia.org/wiki/Golden_Sun) for the GBA.
 
-I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2]({% post_url 2015-09-23-just-finished-lufia-2 %}).
+I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2](/blog/2015/09/23/just-finished-lufia-2/).
 
 I've made it as far as [Kraken](http://goldensun.wikia.com/wiki/Kraken), but I'm finding beating him is proving to be more difficult that I'd expected. Probably going to have to back out and grind for a while, which I don't have a lot of time for ...
 
-{% img right /images/7th-saga/7th-saga.019.png %}
+<img class="right" src="/images/7th-saga/7th-saga.019.png">
 
 Next, I'm pretty sure I've given up on [the 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga). I'm still at Telaine with a party at level 17, but I'm pretty sure that to progress, there is grinding in my future.
 
@@ -38,7 +38,7 @@ Similar to the situation I'm having above with Golden Sun, i just need to set ma
 
 Finally, I've decided to bite the bullet and dive into [Super Mario RPG](https://en.wikipedia.org/wiki/Super_Mario_RPG). This, along with Final Fantasy Tactics is one of those games that I've heard nothing but good things about for the last 20 years, but have never bothered to investigate myself.
 
-{% img left /images/mariorpg/mariorpg.011.png %}
+<img class="left" src="/images/mariorpg/mariorpg.011.png">
 
 I'm currently at level 10 with 3 star pieces recovered and have just rescued Princess Toadstool and had her join the party.
 
@@ -76,7 +76,7 @@ If you've got any insight into which I should tackle next, feel free to leave me
         <id>http://www.alexbevi.com/blog/2016/07/27/just-finished-dragon-quest-i</id>
         <content type="html"><![CDATA[I actually finished this game around the end of June, but haven't really had a chance to write about it until now. I'm currently sitting out by the lake at the cottage and figured it was about time :P
 
-{% img left /images/dq1/dq1.000.png %}
+<img class="left" src="/images/dq1/dq1.000.png">
 
 The last time I played through Dragon Quest was likely in the late 80's. I'm pretty sure I either heard about it, or got a copy of it through Nintendo Power, and like most kids in North America at the time, this would have been my first introduction to what would become known as JRPGs.
 
@@ -84,7 +84,7 @@ I decided to go with the SNES re-release of this title for my playthrough as I w
 
 It threw me off a bit when they refer to the legendary hero as Roto (as opposed to Erdrick), but I'm assuming this is a better translation than what we got in the 80's so that's probably what the name should have been in the first place.
 
-{% img right /images/dq1/dq1.001.png %}
+<img class="right" src="/images/dq1/dq1.001.png">
 
 Dragon Quest was essentially the first JRPG. As a result, there are a lot of concepts introduced here that would be adapted and refined by other titles and series over the years. This means that some parts of this game feel a bit rough or unbalanced.
 
@@ -100,7 +100,7 @@ You're the descendant of the legendary hero, and have been tasked with rescuing 
 
 <!-- more -->
 
-{% img left /images/dq1/dq1.001.png %}
+<img class="left" src="/images/dq1/dq1.001.png">
 
 To defeat the Dragon Lord, you need to get three pieces of equipment of the legendary hero which are scattered across the world.
 
@@ -114,7 +114,7 @@ I think it's kind of cool that the first time you leave the castle you can see t
 
 You interact with NPCs and the world via a command menu. One of the nice additions to the SNES version is that you no longer have to use a STAIRS command to go up and down stairs; just walk over them.
 
-{% img right /images/dq1/dq1.012.png %}
+<img class="right" src="/images/dq1/dq1.012.png">
 
 As you roam around the overworld and dungeouns, you'll get into random encounters. You interact with these using a command menu as well, where you can select to either attack, use magic, use an item, or run. 
 
@@ -128,33 +128,7 @@ If you're playing the "classics", I'd definitely recommend this title. Playing t
 
 Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.
 
-{% galleria %}
- /images/dq1/dq1.000.png
- /images/dq1/dq1.001.png
- /images/dq1/dq1.002.png
- /images/dq1/dq1.003.png
- /images/dq1/dq1.004.png
- /images/dq1/dq1.005.png
- /images/dq1/dq1.006.png
- /images/dq1/dq1.007.png
- /images/dq1/dq1.008.png
- /images/dq1/dq1.009.png
- /images/dq1/dq1.010.png
- /images/dq1/dq1.011.png
- /images/dq1/dq1.012.png
- /images/dq1/dq1.013.png
- /images/dq1/dq1.014.png
- /images/dq1/dq1.015.png
- /images/dq1/dq1.016.png
- /images/dq1/dq1.017.png
- /images/dq1/dq1.018.png
- /images/dq1/dq1.019.png
- /images/dq1/dq1.020.png
- /images/dq1/dq1.021.png
- /images/dq1/dq1.022.png
- /images/dq1/dq1.023.png
- /images/dq1/dq1.024.png
-{% endgalleria %}]]></content>
+<div id="galleria"><img src="/images/dq1/dq1.000.png" data-title=" /images/dq1/dq1.000.png" /><img src="/images/dq1/dq1.001.png" data-title=" /images/dq1/dq1.001.png" /><img src="/images/dq1/dq1.002.png" data-title=" /images/dq1/dq1.002.png" /><img src="/images/dq1/dq1.003.png" data-title=" /images/dq1/dq1.003.png" /><img src="/images/dq1/dq1.004.png" data-title=" /images/dq1/dq1.004.png" /><img src="/images/dq1/dq1.005.png" data-title=" /images/dq1/dq1.005.png" /><img src="/images/dq1/dq1.006.png" data-title=" /images/dq1/dq1.006.png" /><img src="/images/dq1/dq1.007.png" data-title=" /images/dq1/dq1.007.png" /><img src="/images/dq1/dq1.008.png" data-title=" /images/dq1/dq1.008.png" /><img src="/images/dq1/dq1.009.png" data-title=" /images/dq1/dq1.009.png" /><img src="/images/dq1/dq1.010.png" data-title=" /images/dq1/dq1.010.png" /><img src="/images/dq1/dq1.011.png" data-title=" /images/dq1/dq1.011.png" /><img src="/images/dq1/dq1.012.png" data-title=" /images/dq1/dq1.012.png" /><img src="/images/dq1/dq1.013.png" data-title=" /images/dq1/dq1.013.png" /><img src="/images/dq1/dq1.014.png" data-title=" /images/dq1/dq1.014.png" /><img src="/images/dq1/dq1.015.png" data-title=" /images/dq1/dq1.015.png" /><img src="/images/dq1/dq1.016.png" data-title=" /images/dq1/dq1.016.png" /><img src="/images/dq1/dq1.017.png" data-title=" /images/dq1/dq1.017.png" /><img src="/images/dq1/dq1.018.png" data-title=" /images/dq1/dq1.018.png" /><img src="/images/dq1/dq1.019.png" data-title=" /images/dq1/dq1.019.png" /><img src="/images/dq1/dq1.020.png" data-title=" /images/dq1/dq1.020.png" /><img src="/images/dq1/dq1.021.png" data-title=" /images/dq1/dq1.021.png" /><img src="/images/dq1/dq1.022.png" data-title=" /images/dq1/dq1.022.png" /><img src="/images/dq1/dq1.023.png" data-title=" /images/dq1/dq1.023.png" /><img src="/images/dq1/dq1.024.png" data-title=" /images/dq1/dq1.024.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
     </entry>
     
     <entry>
@@ -162,13 +136,13 @@ Have you had a chance to play this title? How do you think it holds up nowadays,
         <link href="http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3/"/>
         <updated>2016-04-19T14:30:20-04:00</updated>
         <id>http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3</id>
-        <content type="html"><![CDATA[{% img left /images/sd3/sd3.026.png %}
+        <content type="html"><![CDATA[<img class="left" src="/images/sd3/sd3.026.png">
 
 [Seiken Densetsu 3 (聖剣伝説3)](https://en.wikipedia.org/wiki/Seiken_Densetsu_3) is the third installment in the [Mana series](https://en.wikipedia.org/wiki/Mana_\(series\)). It's the sequel to [Secret of Mana](https://en.wikipedia.org/wiki/Secret_of_Mana), which is the entry into the series that most North American gamers would be familiar with.
 
 Once again, I played through this game on my phone using the fantastic [Snes9x EX](http://www.explusalpha.com/home/snes9x-ex). Please support this dev as he provides a fantastic product. For some reason though, most of the screenshots I took came out stretched. This hasn't happened before, and I've been playing a couple other games that this isn't happening for either, so I'll chalk this up to bad luck :|
 
-{% img /images/sd3/sd3.005.png %}
+<img src="/images/sd3/sd3.005.png">
 
 *NOTE* I ran these screenshots through [pngcrush](http://pmt.sourceforge.net/pngcrush/) (`ls *.png | while read line; do pngcrush -ow -brute $line; done`) to get the size down a bit ;)
 
@@ -182,17 +156,17 @@ Whereas SoM had you gradually encounter the two other playable characters at set
 
 I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran's story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.
 
-{% img /images/sd3/sd3.004.png %}
+<img src="/images/sd3/sd3.004.png">
 
 On this journey, he'll run into the other characters I selected (Kevin and Carlie), and each of their stories will mix into Duran's. This is actually a really cool element of this game as it gives it a lot of replay value. No matter what combination of characters you pick, their stories will all overlap. Also, you'll run into all the other characters you didn't pick, so every character makes an appearance throughout the game.
 
-{% img right /images/sd3/sd3.010.png %}
+<img class="right" src="/images/sd3/sd3.010.png">
 
 You travel around the game mostly on foot initially, but eventually new methods of travel will open up. As with SoM, you can get to certain areas via Cannon Travel (though there's a couple of fetch-quests before you can actually take advantage of this). There's also a ship, a weird turtle thing, and eventually Flammie the dragon.
 
 The combat system is reminiscent of SoM as well, though this time around it feels a lot more "button mash-ey". I found that I just spammed the B button throughout most of this game and didn't really use any strategy during combat; aside from healing periodically.
 
-{% img left /images/sd3/sd3.014.png %}
+<img class="left" src="/images/sd3/sd3.014.png">
 
 You get experience by killing enemies, which will allow you to level up your characters. Leveling up lets you increase various stats, that should make your characters perform better in future battles.
 
@@ -200,13 +174,13 @@ As you make your way through the game, you'll start finding these pillars that a
 
 These stones can also be used to change your character's class. This is another cool aspect of this game, as it give the leveling system a bit more flavour. You can change classes twice in this game; once at level 18, and again at level 38. Each of these classes is aligned with either "Light" or "Dark", and gives the character new skills/improvements.
 
-{% img /images/sd3/sd3.017.png %}
+<img src="/images/sd3/sd3.017.png">
 
 The game can feel a bit "grindy" due to the need to constantly trudge back and forth between areas, and there are enemies on each screen. These battles are all avoidable, but you'll want to level up for the boss fights, and eventually the God Beasts.
 
 While you're trekking though, you get to enjoy some really good background music. If you like Secret of Mana, you'll love Seiken Densetsu 3. You can have a listen over at [YouTube](https://www.youtube.com/watch?v=qrywwZ7oL2w&index=30&list=PL4649F0DBF0FC09E3) to get an idea what's in store for you ;)
 
-{% img right /images/sd3/sd3.031.png %}
+<img class="right" src="/images/sd3/sd3.031.png">
 
 The artwork is also top notch. It's really a shame this game never made it to North America as this is possibly one of the best looking SNES games out there. The background design, character design and monster sprites are all very, very well done. There is a lot of variety to the various regions of the world.
 
@@ -216,48 +190,7 @@ I learned this the hard way as I only play this game on occasion, and ended up f
 
 I thoroughly enjoyed playing this game and would highly recommend this to anyone out there that likes JRPGs, action RPGs and 8/16-bit gaming in general. The graphics, music and gameplay are all very well done, and the story lines are interesting, even if there is occasionally some cheesy dialog :P
 
-{% galleria %}
-/images/sd3/sd3.000.png
-/images/sd3/sd3.001.png
-/images/sd3/sd3.002.png
-/images/sd3/sd3.003.png
-/images/sd3/sd3.006.png
-/images/sd3/sd3.007.png
-/images/sd3/sd3.008.png
-/images/sd3/sd3.011.png
-/images/sd3/sd3.012.png
-/images/sd3/sd3.013.png
-/images/sd3/sd3.015.png
-/images/sd3/sd3.016.png
-/images/sd3/sd3.018.png
-/images/sd3/sd3.019.png
-/images/sd3/sd3.020.png
-/images/sd3/sd3.021.png
-/images/sd3/sd3.022.png
-/images/sd3/sd3.023.png
-/images/sd3/sd3.024.png
-/images/sd3/sd3.025.png
-/images/sd3/sd3.027.png
-/images/sd3/sd3.028.png
-/images/sd3/sd3.029.png
-/images/sd3/sd3.030.png
-/images/sd3/sd3.032.png
-/images/sd3/sd3.033.png
-/images/sd3/sd3.034.png
-/images/sd3/sd3.035.png
-/images/sd3/sd3.036.png
-/images/sd3/sd3.037.png
-/images/sd3/sd3.038.png
-/images/sd3/sd3.039.png
-/images/sd3/sd3.040.png
-/images/sd3/sd3.041.png
-/images/sd3/sd3.042.png
-/images/sd3/sd3.043.png
-/images/sd3/sd3.044.png
-/images/sd3/sd3.045.png
-/images/sd3/sd3.046.png
-/images/sd3/sd3.047.png
-{% endgalleria %}
+<div id="galleria"><img src="/images/sd3/sd3.000.png" data-title="/images/sd3/sd3.000.png" /><img src="/images/sd3/sd3.001.png" data-title="/images/sd3/sd3.001.png" /><img src="/images/sd3/sd3.002.png" data-title="/images/sd3/sd3.002.png" /><img src="/images/sd3/sd3.003.png" data-title="/images/sd3/sd3.003.png" /><img src="/images/sd3/sd3.006.png" data-title="/images/sd3/sd3.006.png" /><img src="/images/sd3/sd3.007.png" data-title="/images/sd3/sd3.007.png" /><img src="/images/sd3/sd3.008.png" data-title="/images/sd3/sd3.008.png" /><img src="/images/sd3/sd3.011.png" data-title="/images/sd3/sd3.011.png" /><img src="/images/sd3/sd3.012.png" data-title="/images/sd3/sd3.012.png" /><img src="/images/sd3/sd3.013.png" data-title="/images/sd3/sd3.013.png" /><img src="/images/sd3/sd3.015.png" data-title="/images/sd3/sd3.015.png" /><img src="/images/sd3/sd3.016.png" data-title="/images/sd3/sd3.016.png" /><img src="/images/sd3/sd3.018.png" data-title="/images/sd3/sd3.018.png" /><img src="/images/sd3/sd3.019.png" data-title="/images/sd3/sd3.019.png" /><img src="/images/sd3/sd3.020.png" data-title="/images/sd3/sd3.020.png" /><img src="/images/sd3/sd3.021.png" data-title="/images/sd3/sd3.021.png" /><img src="/images/sd3/sd3.022.png" data-title="/images/sd3/sd3.022.png" /><img src="/images/sd3/sd3.023.png" data-title="/images/sd3/sd3.023.png" /><img src="/images/sd3/sd3.024.png" data-title="/images/sd3/sd3.024.png" /><img src="/images/sd3/sd3.025.png" data-title="/images/sd3/sd3.025.png" /><img src="/images/sd3/sd3.027.png" data-title="/images/sd3/sd3.027.png" /><img src="/images/sd3/sd3.028.png" data-title="/images/sd3/sd3.028.png" /><img src="/images/sd3/sd3.029.png" data-title="/images/sd3/sd3.029.png" /><img src="/images/sd3/sd3.030.png" data-title="/images/sd3/sd3.030.png" /><img src="/images/sd3/sd3.032.png" data-title="/images/sd3/sd3.032.png" /><img src="/images/sd3/sd3.033.png" data-title="/images/sd3/sd3.033.png" /><img src="/images/sd3/sd3.034.png" data-title="/images/sd3/sd3.034.png" /><img src="/images/sd3/sd3.035.png" data-title="/images/sd3/sd3.035.png" /><img src="/images/sd3/sd3.036.png" data-title="/images/sd3/sd3.036.png" /><img src="/images/sd3/sd3.037.png" data-title="/images/sd3/sd3.037.png" /><img src="/images/sd3/sd3.038.png" data-title="/images/sd3/sd3.038.png" /><img src="/images/sd3/sd3.039.png" data-title="/images/sd3/sd3.039.png" /><img src="/images/sd3/sd3.040.png" data-title="/images/sd3/sd3.040.png" /><img src="/images/sd3/sd3.041.png" data-title="/images/sd3/sd3.041.png" /><img src="/images/sd3/sd3.042.png" data-title="/images/sd3/sd3.042.png" /><img src="/images/sd3/sd3.043.png" data-title="/images/sd3/sd3.043.png" /><img src="/images/sd3/sd3.044.png" data-title="/images/sd3/sd3.044.png" /><img src="/images/sd3/sd3.045.png" data-title="/images/sd3/sd3.045.png" /><img src="/images/sd3/sd3.046.png" data-title="/images/sd3/sd3.046.png" /><img src="/images/sd3/sd3.047.png" data-title="/images/sd3/sd3.047.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 I finished this game over a month ago, so I'm still pretty slow cranking out these reviews ...
 
@@ -274,7 +207,7 @@ Hopefully I'll have more for you in the near(er) future :)
         <link href="http://www.alexbevi.com/blog/2015/11/07/just-finished-final-fantasy-v/"/>
         <updated>2015-11-07T20:15:57-04:00</updated>
         <id>http://www.alexbevi.com/blog/2015/11/07/just-finished-final-fantasy-v</id>
-        <content type="html"><![CDATA[{% img right /images/ffv/ffv.001.png %}
+        <content type="html"><![CDATA[<img class="right" src="/images/ffv/ffv.001.png">
 
 I've been waiting write this review for a very long time. I love the Final Fantasy series, and although I got the original back in '90, I didn't really fall in love with the series until I played IV for the SNES. Then I played VI. Then I was REALLY hooked.
 
@@ -284,7 +217,7 @@ The game starts off with the king of Tycoon heading off to check on the wind cry
 
 The king's daughter, Lenna, heads out to find her father and runs into Bartz and Galuf. They team up and the adventure begins.
 
-{% img left /images/ffv/ffv.003.png %}
+<img class="left" src="/images/ffv/ffv.003.png">
 
 Once at the wind shrine, they find that the crystal has shattered and within each shard is the power of a job class.
 
@@ -298,14 +231,14 @@ These abilities can then be applied to a character regardless of the class they'
 
 This gives you a lot of control over how you build your characters as the game progresses.
 
-{% img right /images/ffv/ffv.002.png %}
+<img class="right" src="/images/ffv/ffv.002.png">
 
 The storytelling in this game is very well done. Although the plot is pretty standard Final Fantasy fare (crystals, amnesia, evil emperor, main characters dying), the writing was pretty good and the character emotion pop-ups added a nice touch as well.
 
 I enjoyed the elements of comedy they tried to incorporate into some of the scenarios and characters. After playing this game, Gilgamesh is probably my new favourite non-player character in the series. This might also have to do with [Clash on the Big Bridge](https://www.youtube.com/watch?v=6CMTXyExkeI)
 being my favourite song from this game ;)
 
-{% img left /images/ffv/ffv.022.png %}
+<img class="left" src="/images/ffv/ffv.022.png">
 
 The battle system is the same as in FFIV ([Active Time Battle system](http://finalfantasy.wikia.com/wiki/Battle_System#Active_Time_Battle)). You can fight, use items, or up to 2 abilities you've learned from gaining AP and leveling up your classes.
 
@@ -313,7 +246,7 @@ I didn't find the battles overly difficult during this play-through, but I've be
 
 So as you progress through the game, you discover that the ultimate evil, Exdeath, was banished to your world by the four warriors of dawn. Now you and your party need to become the new warriors of dawn to fight him again.
 
-{% img right /images/ffv/ffv.046.png %}
+<img class="right" src="/images/ffv/ffv.046.png">
 
 You have to get the ultimate weapons for each character class, you can go on some side quests to get some powerful summons and eventually go after Exdeath.
 
@@ -323,7 +256,7 @@ I found that magic and summons in this game proved to be effective until the ver
 
 I thought the story was really compelling, and I found the whole alternate worlds overlapping "thing" to be a nice twist, though it felt a bit like what happened in FF III. Actually, just like FF III, you even have to race a chocobo around the world to get an item ...
 
-{% img left /images/ffv/ffv.037.png %}
+<img class="left" src="/images/ffv/ffv.037.png">
 
 I teared up (just a bit) when Galuf's flame was extinguished by Exdeath. I was a bit worried that since this game follows FF IV it was possible they would do the whole "everyone who died is magically back to fight again for no reason" that happened with Yang, Cid, Edward, Tellah ... etc. Fortunately (?), this wasn't the case and it's actually a very emotional point in the story.
 
@@ -337,57 +270,7 @@ Feel free to leave me some feedback on whether or not I should continue the abov
 
 Cheers!
 
-{% galleria %}
-/images/ffv/ffv.000.png
-/images/ffv/ffv.004.png
-/images/ffv/ffv.005.png
-/images/ffv/ffv.006.png
-/images/ffv/ffv.007.png
-/images/ffv/ffv.008.png
-/images/ffv/ffv.009.png
-/images/ffv/ffv.010.png
-/images/ffv/ffv.011.png
-/images/ffv/ffv.012.png
-/images/ffv/ffv.013.png
-/images/ffv/ffv.014.png
-/images/ffv/ffv.015.png
-/images/ffv/ffv.016.png
-/images/ffv/ffv.017.png
-/images/ffv/ffv.018.png
-/images/ffv/ffv.019.png
-/images/ffv/ffv.020.png
-/images/ffv/ffv.021.png
-/images/ffv/ffv.023.png
-/images/ffv/ffv.024.png
-/images/ffv/ffv.025.png
-/images/ffv/ffv.026.png
-/images/ffv/ffv.027.png
-/images/ffv/ffv.028.png
-/images/ffv/ffv.029.png
-/images/ffv/ffv.030.png
-/images/ffv/ffv.031.png
-/images/ffv/ffv.032.png
-/images/ffv/ffv.033.png
-/images/ffv/ffv.034.png
-/images/ffv/ffv.035.png
-/images/ffv/ffv.036.png
-/images/ffv/ffv.038.png
-/images/ffv/ffv.039.png
-/images/ffv/ffv.040.png
-/images/ffv/ffv.041.png
-/images/ffv/ffv.042.png
-/images/ffv/ffv.043.png
-/images/ffv/ffv.044.png
-/images/ffv/ffv.045.png
-/images/ffv/ffv.047.png
-/images/ffv/ffv.048.png
-/images/ffv/ffv.049.png
-/images/ffv/ffv.050.png
-/images/ffv/ffv.051.png
-/images/ffv/ffv.052.png
-/images/ffv/ffv.053.png
-/images/ffv/ffv.054.png
-{% endgalleria %}]]></content>
+<div id="galleria"><img src="/images/ffv/ffv.000.png" data-title="/images/ffv/ffv.000.png" /><img src="/images/ffv/ffv.004.png" data-title="/images/ffv/ffv.004.png" /><img src="/images/ffv/ffv.005.png" data-title="/images/ffv/ffv.005.png" /><img src="/images/ffv/ffv.006.png" data-title="/images/ffv/ffv.006.png" /><img src="/images/ffv/ffv.007.png" data-title="/images/ffv/ffv.007.png" /><img src="/images/ffv/ffv.008.png" data-title="/images/ffv/ffv.008.png" /><img src="/images/ffv/ffv.009.png" data-title="/images/ffv/ffv.009.png" /><img src="/images/ffv/ffv.010.png" data-title="/images/ffv/ffv.010.png" /><img src="/images/ffv/ffv.011.png" data-title="/images/ffv/ffv.011.png" /><img src="/images/ffv/ffv.012.png" data-title="/images/ffv/ffv.012.png" /><img src="/images/ffv/ffv.013.png" data-title="/images/ffv/ffv.013.png" /><img src="/images/ffv/ffv.014.png" data-title="/images/ffv/ffv.014.png" /><img src="/images/ffv/ffv.015.png" data-title="/images/ffv/ffv.015.png" /><img src="/images/ffv/ffv.016.png" data-title="/images/ffv/ffv.016.png" /><img src="/images/ffv/ffv.017.png" data-title="/images/ffv/ffv.017.png" /><img src="/images/ffv/ffv.018.png" data-title="/images/ffv/ffv.018.png" /><img src="/images/ffv/ffv.019.png" data-title="/images/ffv/ffv.019.png" /><img src="/images/ffv/ffv.020.png" data-title="/images/ffv/ffv.020.png" /><img src="/images/ffv/ffv.021.png" data-title="/images/ffv/ffv.021.png" /><img src="/images/ffv/ffv.023.png" data-title="/images/ffv/ffv.023.png" /><img src="/images/ffv/ffv.024.png" data-title="/images/ffv/ffv.024.png" /><img src="/images/ffv/ffv.025.png" data-title="/images/ffv/ffv.025.png" /><img src="/images/ffv/ffv.026.png" data-title="/images/ffv/ffv.026.png" /><img src="/images/ffv/ffv.027.png" data-title="/images/ffv/ffv.027.png" /><img src="/images/ffv/ffv.028.png" data-title="/images/ffv/ffv.028.png" /><img src="/images/ffv/ffv.029.png" data-title="/images/ffv/ffv.029.png" /><img src="/images/ffv/ffv.030.png" data-title="/images/ffv/ffv.030.png" /><img src="/images/ffv/ffv.031.png" data-title="/images/ffv/ffv.031.png" /><img src="/images/ffv/ffv.032.png" data-title="/images/ffv/ffv.032.png" /><img src="/images/ffv/ffv.033.png" data-title="/images/ffv/ffv.033.png" /><img src="/images/ffv/ffv.034.png" data-title="/images/ffv/ffv.034.png" /><img src="/images/ffv/ffv.035.png" data-title="/images/ffv/ffv.035.png" /><img src="/images/ffv/ffv.036.png" data-title="/images/ffv/ffv.036.png" /><img src="/images/ffv/ffv.038.png" data-title="/images/ffv/ffv.038.png" /><img src="/images/ffv/ffv.039.png" data-title="/images/ffv/ffv.039.png" /><img src="/images/ffv/ffv.040.png" data-title="/images/ffv/ffv.040.png" /><img src="/images/ffv/ffv.041.png" data-title="/images/ffv/ffv.041.png" /><img src="/images/ffv/ffv.042.png" data-title="/images/ffv/ffv.042.png" /><img src="/images/ffv/ffv.043.png" data-title="/images/ffv/ffv.043.png" /><img src="/images/ffv/ffv.044.png" data-title="/images/ffv/ffv.044.png" /><img src="/images/ffv/ffv.045.png" data-title="/images/ffv/ffv.045.png" /><img src="/images/ffv/ffv.047.png" data-title="/images/ffv/ffv.047.png" /><img src="/images/ffv/ffv.048.png" data-title="/images/ffv/ffv.048.png" /><img src="/images/ffv/ffv.049.png" data-title="/images/ffv/ffv.049.png" /><img src="/images/ffv/ffv.050.png" data-title="/images/ffv/ffv.050.png" /><img src="/images/ffv/ffv.051.png" data-title="/images/ffv/ffv.051.png" /><img src="/images/ffv/ffv.052.png" data-title="/images/ffv/ffv.052.png" /><img src="/images/ffv/ffv.053.png" data-title="/images/ffv/ffv.053.png" /><img src="/images/ffv/ffv.054.png" data-title="/images/ffv/ffv.054.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>]]></content>
     </entry>
     
     <entry>
@@ -395,7 +278,7 @@ Cheers!
         <link href="http://www.alexbevi.com/blog/2015/09/23/just-finished-lufia-2/"/>
         <updated>2015-09-23T20:04:59-04:00</updated>
         <id>http://www.alexbevi.com/blog/2015/09/23/just-finished-lufia-2</id>
-        <content type="html"><![CDATA[{% img right /images/lufia2/lufia2.000.png %}
+        <content type="html"><![CDATA[<img class="right" src="/images/lufia2/lufia2.000.png">
 
 This review has been a long time coming; a *VERY* long time coming. I heard about [Lufia 2: Rise of the Sinistrals](https://en.wikipedia.org/wiki/Lufia_II:_Rise_of_the_Sinistrals) when I was still in high school, and have been meaning to play it ever since.
 
@@ -415,7 +298,7 @@ It turns out you (Maxim) are destined to fight the Sinistrals, so you embark on 
 
 Don't get me wrong, I love a good "destined to save the world" story, but after playing a handful of JRPGs in succession, I was getting a bit numb to the same story over and over again.
 
-{%img left /images/lufia2/lufia2.026.png %}
+<img class="left" src="/images/lufia2/lufia2.026.png">
 
 I decided to give this a fair chance though, and went along with it. I had never played the original [Lufia](https://en.wikipedia.org/wiki/Lufia) for more than 5-10 minutes, but I do remember the intro segment where you have the four heroes already in the Fortress of Doom getting ready to fight the Sinistrals.
 
@@ -425,21 +308,21 @@ Also, I thought I was a really cool transition as it tied the two games together
 
 ### Combat
 
-{% img left /images/lufia2/lufia2.032.png %}
+<img class="left" src="/images/lufia2/lufia2.032.png">
 
 Enemy encounters on the overworld are random. As you're walking around, suddenly the screen will zoom in and boom, it's go time! For anyone familiar with JRPGs, this is pretty common.
 
 Unlike traditional RPGs, Lufia 2 doesn't have "random" encounters in dungeons. All enemies are visible as you explore the dungeons, and though most will chase you, a lot of these battles can be avoided if you so choose.
 
-{% img right /images/lufia2/lufia2.005.png %}
+<img class="right" src="/images/lufia2/lufia2.005.png">
 
-Once a battle is initiated, as opposed to a text-based menu of `Fight | Magic | Item | Run` as you might see in some games, you're presented with an icon cross (reminiscent of [Breath of Fire]({% post_url 2015-06-10-just-finished-breath-of-fire %})).
+Once a battle is initiated, as opposed to a text-based menu of `Fight | Magic | Item | Run` as you might see in some games, you're presented with an icon cross (reminiscent of [Breath of Fire](/blog/2015/06/10/just-finished-breath-of-fire/)).
 
 Aside from the standard Attack, Item and Magic options, there is also and Abilities option for each party member. This additional entry gives each character access to various offensive or defensive abilities that are linked to their weapons and armour. This adds another dimension to battles as you have to keep track of what skills are linked to your equipment (don't just hit 'optimize' each time) as weaker items may provide added benefits against certain enemies.
 
 ### Puzzles
 
-{% img left /images/lufia2/lufia2.004.png %}
+<img class="left" src="/images/lufia2/lufia2.004.png">
 
 What I really enjoyed about this game from the moment I entered the first dungeon was the puzzles. Littered throughout each dungeon are puzzles that you need to solve in order to open a door and proceed.
 
@@ -447,7 +330,7 @@ Generally, these puzzles aren't all that complex, but they break up the dungeons
 
 As you move further through the game, you also collect various key items, that can be used in order to help solve the various puzzles (bombs, arrows, hook shot, etc.)
 
-{% img right /images/lufia2/lufia2.021.png %}
+<img class="right" src="/images/lufia2/lufia2.021.png">
 
 These add another dimension to the puzzles that keeps them interesting. I honestly didn't find most puzzles to be very challenging, but I will admit to having to use a walkthrough for at least 2 of them ... (thankfully there are excellent [guides on rpgclassics](http://shrines.rpgclassics.com/snes/lufia2/puzzles.shtml) for just these instances where you need a tiny bit of help)
 
@@ -455,13 +338,13 @@ These add another dimension to the puzzles that keeps them interesting. I honest
 
 Your party is made up of Maxim, and at various points Tia, Guy, Selan, Dekar and Arty.
 
-{%img left /images/lufia2/lufia2.019.png %}
+<img class="left" src="/images/lufia2/lufia2.019.png">
 
 Tia is from your home village and follows you on the initial leg of the quest. You think she's going to end up being Maxim's love interest, but that changes once Selan enters the story ;)
 
 Maxim and Selan fall in love, get married, and have a baby. This all happens around the mid-point of the game, acting as a bit of an intermission. Once they have the kid, they decide to go back out and fight so that the world is safe for their baby (and everyone else ... I guess).
 
-{% img right /images/lufia2/lufia2.028.png %}
+<img class="right" src="/images/lufia2/lufia2.028.png">
 
 Guy joins as he's a good fighter and wants to help defeat the Sinistrals. Dekar's reasons are basically the same.
 
@@ -469,7 +352,7 @@ Guy joins as he's a good fighter and wants to help defeat the Sinistrals. Dekar'
 
 Your party can also include capsule monsters. These are optional encounters throughout the game that if you seek out result in an additional character being able to join you in battle.
 
-{%img left /images/lufia2/lufia2.018.png %}
+<img class="left" src="/images/lufia2/lufia2.018.png">
 
 Each monster has an elemental affiliation, and can level up with you as you fight enemies. If the capsule monster dies in battle though, they respawn for the next fight, so there's no need to worry about their health (you can't heal them). They do tend to run from a lot of battles automatically though, which can be annoying.
 
@@ -498,7 +381,7 @@ The ancient cave is 99 randomly generated floors, and you start the cave at leve
 
 If you warp out, you lose all experience and items you've found; aside from items in blue chests (which are few).
 
-{% img right /images/lufia2/lufia2.038.png %}
+<img class="right" src="/images/lufia2/lufia2.038.png">
 
 Once you make it to the last level of the cave, you fight the Master Jelly. This is a brutal fight, as you only have 3 turns in order to beat him, and if you don't, he just runs and that's the end of it (you have to warp out).
 
@@ -528,60 +411,7 @@ There was actually quite a bit of character development. I think this is why at 
 I'll probably give this game another run through in a few years, as it really was enjoyable. I tend to do this with RPGs i enjoy as I forget specifics of the story over the years and enjoy rediscovering them. Final Fantasy IV and VI have had this treatment now probably a good 4-5 times each ;)
 
 
-{% galleria %}
-/images/lufia2/lufia2.001.png
-/images/lufia2/lufia2.002.png
-/images/lufia2/lufia2.003.png
-/images/lufia2/lufia2.006.png
-/images/lufia2/lufia2.007.png
-/images/lufia2/lufia2.008.png
-/images/lufia2/lufia2.009.png
-/images/lufia2/lufia2.010.png
-/images/lufia2/lufia2.011.png
-/images/lufia2/lufia2.012.png
-/images/lufia2/lufia2.013.png
-/images/lufia2/lufia2.014.png
-/images/lufia2/lufia2.015.png
-/images/lufia2/lufia2.016.png
-/images/lufia2/lufia2.017.png
-/images/lufia2/lufia2.020.png
-/images/lufia2/lufia2.022.png
-/images/lufia2/lufia2.023.png
-/images/lufia2/lufia2.024.png
-/images/lufia2/lufia2.025.png
-/images/lufia2/lufia2.027.png
-/images/lufia2/lufia2.029.png
-/images/lufia2/lufia2.030.png
-/images/lufia2/lufia2.031.png
-/images/lufia2/lufia2.033.png
-/images/lufia2/lufia2.034.png
-/images/lufia2/lufia2.035.png
-/images/lufia2/lufia2.036.png
-/images/lufia2/lufia2.037.png
-/images/lufia2/lufia2.039.png
-/images/lufia2/lufia2.040.png
-/images/lufia2/lufia2.041.png
-/images/lufia2/lufia2.042.png
-/images/lufia2/lufia2.043.png
-/images/lufia2/lufia2.044.png
-/images/lufia2/lufia2.045.png
-/images/lufia2/lufia2.046.png
-/images/lufia2/lufia2.047.png
-/images/lufia2/lufia2.048.png
-/images/lufia2/lufia2.049.png
-/images/lufia2/lufia2.050.png
-/images/lufia2/lufia2.051.png
-/images/lufia2/lufia2.052.png
-/images/lufia2/lufia2.053.png
-/images/lufia2/lufia2.054.png
-/images/lufia2/lufia2.055.png
-/images/lufia2/lufia2.056.png
-/images/lufia2/lufia2.057.png
-/images/lufia2/lufia2.058.png
-/images/lufia2/lufia2.059.png
-/images/lufia2/lufia2.060.png
-/images/lufia2/lufia2.061.png
-{% endgalleria %}
+<div id="galleria"><img src="/images/lufia2/lufia2.001.png" data-title="/images/lufia2/lufia2.001.png" /><img src="/images/lufia2/lufia2.002.png" data-title="/images/lufia2/lufia2.002.png" /><img src="/images/lufia2/lufia2.003.png" data-title="/images/lufia2/lufia2.003.png" /><img src="/images/lufia2/lufia2.006.png" data-title="/images/lufia2/lufia2.006.png" /><img src="/images/lufia2/lufia2.007.png" data-title="/images/lufia2/lufia2.007.png" /><img src="/images/lufia2/lufia2.008.png" data-title="/images/lufia2/lufia2.008.png" /><img src="/images/lufia2/lufia2.009.png" data-title="/images/lufia2/lufia2.009.png" /><img src="/images/lufia2/lufia2.010.png" data-title="/images/lufia2/lufia2.010.png" /><img src="/images/lufia2/lufia2.011.png" data-title="/images/lufia2/lufia2.011.png" /><img src="/images/lufia2/lufia2.012.png" data-title="/images/lufia2/lufia2.012.png" /><img src="/images/lufia2/lufia2.013.png" data-title="/images/lufia2/lufia2.013.png" /><img src="/images/lufia2/lufia2.014.png" data-title="/images/lufia2/lufia2.014.png" /><img src="/images/lufia2/lufia2.015.png" data-title="/images/lufia2/lufia2.015.png" /><img src="/images/lufia2/lufia2.016.png" data-title="/images/lufia2/lufia2.016.png" /><img src="/images/lufia2/lufia2.017.png" data-title="/images/lufia2/lufia2.017.png" /><img src="/images/lufia2/lufia2.020.png" data-title="/images/lufia2/lufia2.020.png" /><img src="/images/lufia2/lufia2.022.png" data-title="/images/lufia2/lufia2.022.png" /><img src="/images/lufia2/lufia2.023.png" data-title="/images/lufia2/lufia2.023.png" /><img src="/images/lufia2/lufia2.024.png" data-title="/images/lufia2/lufia2.024.png" /><img src="/images/lufia2/lufia2.025.png" data-title="/images/lufia2/lufia2.025.png" /><img src="/images/lufia2/lufia2.027.png" data-title="/images/lufia2/lufia2.027.png" /><img src="/images/lufia2/lufia2.029.png" data-title="/images/lufia2/lufia2.029.png" /><img src="/images/lufia2/lufia2.030.png" data-title="/images/lufia2/lufia2.030.png" /><img src="/images/lufia2/lufia2.031.png" data-title="/images/lufia2/lufia2.031.png" /><img src="/images/lufia2/lufia2.033.png" data-title="/images/lufia2/lufia2.033.png" /><img src="/images/lufia2/lufia2.034.png" data-title="/images/lufia2/lufia2.034.png" /><img src="/images/lufia2/lufia2.035.png" data-title="/images/lufia2/lufia2.035.png" /><img src="/images/lufia2/lufia2.036.png" data-title="/images/lufia2/lufia2.036.png" /><img src="/images/lufia2/lufia2.037.png" data-title="/images/lufia2/lufia2.037.png" /><img src="/images/lufia2/lufia2.039.png" data-title="/images/lufia2/lufia2.039.png" /><img src="/images/lufia2/lufia2.040.png" data-title="/images/lufia2/lufia2.040.png" /><img src="/images/lufia2/lufia2.041.png" data-title="/images/lufia2/lufia2.041.png" /><img src="/images/lufia2/lufia2.042.png" data-title="/images/lufia2/lufia2.042.png" /><img src="/images/lufia2/lufia2.043.png" data-title="/images/lufia2/lufia2.043.png" /><img src="/images/lufia2/lufia2.044.png" data-title="/images/lufia2/lufia2.044.png" /><img src="/images/lufia2/lufia2.045.png" data-title="/images/lufia2/lufia2.045.png" /><img src="/images/lufia2/lufia2.046.png" data-title="/images/lufia2/lufia2.046.png" /><img src="/images/lufia2/lufia2.047.png" data-title="/images/lufia2/lufia2.047.png" /><img src="/images/lufia2/lufia2.048.png" data-title="/images/lufia2/lufia2.048.png" /><img src="/images/lufia2/lufia2.049.png" data-title="/images/lufia2/lufia2.049.png" /><img src="/images/lufia2/lufia2.050.png" data-title="/images/lufia2/lufia2.050.png" /><img src="/images/lufia2/lufia2.051.png" data-title="/images/lufia2/lufia2.051.png" /><img src="/images/lufia2/lufia2.052.png" data-title="/images/lufia2/lufia2.052.png" /><img src="/images/lufia2/lufia2.053.png" data-title="/images/lufia2/lufia2.053.png" /><img src="/images/lufia2/lufia2.054.png" data-title="/images/lufia2/lufia2.054.png" /><img src="/images/lufia2/lufia2.055.png" data-title="/images/lufia2/lufia2.055.png" /><img src="/images/lufia2/lufia2.056.png" data-title="/images/lufia2/lufia2.056.png" /><img src="/images/lufia2/lufia2.057.png" data-title="/images/lufia2/lufia2.057.png" /><img src="/images/lufia2/lufia2.058.png" data-title="/images/lufia2/lufia2.058.png" /><img src="/images/lufia2/lufia2.059.png" data-title="/images/lufia2/lufia2.059.png" /><img src="/images/lufia2/lufia2.060.png" data-title="/images/lufia2/lufia2.060.png" /><img src="/images/lufia2/lufia2.061.png" data-title="/images/lufia2/lufia2.061.png" /></div><script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
 
 <br/>]]></content>
     </entry>

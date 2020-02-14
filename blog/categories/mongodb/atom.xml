@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:39:42-05:00</updated>
+    <updated>2020-02-14T11:44:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -32,29 +32,327 @@ Some common questions when performing an initial sync of a [Replica Set Member](
 
 <!-- MORE -->
 
-Determining if the sync is progressing can be done by either checking the size of the [`dbPath`]() of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
+Determining if the sync is progressing can be done by either checking the size of the [`dbPath`](https://docs.mongodb.com/manual/reference/configuration-options/#storage.dbPath) of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
 
-{% img /images/initsync-001.png %}
+<img src="/images/initsync-001.png">
 
 Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn't "release" space when documents are deleted there is a high probability that the SECONDARY will have a _smaller total directory size_ than the sync source.
 
 The `replSetGetStatus` command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.
 
-{% gist alexbevi/d52ffd2e27068dcdcc616a5aaf814907 %}
+<noscript><pre>{
+  &quot;set&quot;: &quot;replset&quot;,
+  &quot;date&quot;: ISODate(&quot;2019-12-04T05:12:52.835Z&quot;),
+  &quot;myState&quot;: 5,
+  &quot;term&quot;: NumberLong(3),
+  &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceId&quot;: 1,
+  &quot;heartbeatIntervalMillis&quot;: NumberLong(2000),
+  &quot;majorityVoteCount&quot;: 2,
+  &quot;writeMajorityCount&quot;: 2,
+  &quot;optimes&quot;: {
+    &quot;lastCommittedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastCommittedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;appliedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;durableOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastAppliedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;lastDurableWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;)
+  },
+  &quot;lastStableRecoveryTimestamp&quot;: Timestamp(0, 0),
+  &quot;lastStableCheckpointTimestamp&quot;: Timestamp(0, 0),
+  &quot;initialSyncStatus&quot;: {
+    &quot;failedInitialSyncAttempts&quot;: 0,
+    &quot;maxFailedInitialSyncAttempts&quot;: 10,
+    &quot;initialSyncStart&quot;: ISODate(&quot;2019-12-04T05:12:35.719Z&quot;),
+    &quot;initialSyncAttempts&quot;: [],
+    &quot;fetchedMissingDocs&quot;: 0,
+    &quot;appliedOps&quot;: 0,
+    &quot;initialSyncOplogStart&quot;: Timestamp(1575436355, 1),
+    &quot;databases&quot;: {
+      &quot;databasesCloned&quot;: 2,
+      &quot;admin&quot;: {
+        &quot;collections&quot;: 4,
+        &quot;clonedCollections&quot;: 4,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.947Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;elapsedMillis&quot;: 539,
+        &quot;admin.system.roles&quot;: {
+          &quot;documentsToCopy&quot;: 12,
+          &quot;documentsCopied&quot;: 12,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.950Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.users&quot;: {
+          &quot;documentsToCopy&quot;: 22,
+          &quot;documentsCopied&quot;: 22,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.keys&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;elapsedMillis&quot;: 120,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.version&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+          &quot;elapsedMillis&quot;: 114,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;config&quot;: {
+        &quot;collections&quot;: 2,
+        &quot;clonedCollections&quot;: 2,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;elapsedMillis&quot;: 377,
+        &quot;config.transactions&quot;: {
+          &quot;documentsToCopy&quot;: 0,
+          &quot;documentsCopied&quot;: 0,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 0,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.487Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;elapsedMillis&quot;: 158,
+          &quot;receivedBatches&quot;: 0
+        },
+        &quot;config.system.sessions&quot;: {
+          &quot;documentsToCopy&quot;: 1,
+          &quot;documentsCopied&quot;: 1,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+          &quot;elapsedMillis&quot;: 218,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;test&quot;: {
+        &quot;collections&quot;: 1,
+        &quot;clonedCollections&quot;: 0,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;test.hugeindex&quot;: {
+          &quot;documentsToCopy&quot;: 25000,
+          &quot;documentsCopied&quot;: 9187,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 8,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.865Z&quot;),
+          &quot;receivedBatches&quot;: 9
+        }
+      }
+    }
+  },
+  &quot;members&quot;: [
+    {
+      &quot;_id&quot;: 0,
+      &quot;name&quot;: &quot;m1.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.1&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 1,
+      &quot;stateStr&quot;: &quot;PRIMARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:51.485Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;electionTime&quot;: Timestamp(1575434944, 1),
+      &quot;electionDate&quot;: ISODate(&quot;2019-12-04T04:49:04Z&quot;),
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 1,
+      &quot;name&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.2&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 2,
+      &quot;stateStr&quot;: &quot;SECONDARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:52.728Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 2,
+      &quot;name&quot;: &quot;m3.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.3&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 5,
+      &quot;stateStr&quot;: &quot;STARTUP2&quot;,
+      &quot;uptime&quot;: 71,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(0,
+        0),
+        &quot;t&quot;: NumberLong(-1)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+      &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceId&quot;: 1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3,
+      &quot;self&quot;: true,
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;
+    }
+  ],
+  &quot;ok&quot;: 1
+}</pre></noscript><script src="https://gist.github.com/alexbevi/d52ffd2e27068dcdcc616a5aaf814907.js"> </script>
 
 Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.
 
 To try and improve this situation I've created the following script.
 
-{% gist alexbevi/422890f191f4bcb82c06fbb621c69331 %}
+<noscript><pre>/*
+* initialSyncProgress
+* @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+*
+* Can be run against a MongoDB 3.4+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* insight into how the sync is progressing. This script WILL NOT tell you how long until the sync
+* is complete, but based on how the script reports progress can be used to estimate this.
+*
+* usage:
+*   mongo --quiet --eval &quot;load(&#39;initialSyncProgress.js&#39;); initialSyncProgress();&quot;
+*/
+var printPercentage = function (position, length, type) {
+  var p = Math.round((position / length) * 100, 2);
+  return position + &quot;/&quot; + length + &quot; &quot; + type + &quot; (&quot; + p + &quot;%)&quot;;
+}
+
+var msToTime = function (duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours &lt; 10) ? &quot;0&quot; + hours : hours;
+  minutes = (minutes &lt; 10) ? &quot;0&quot; + minutes : minutes;
+  seconds = (seconds &lt; 10) ? &quot;0&quot; + seconds : seconds;
+
+  return hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;.&quot; + milliseconds;
+}
+
+var initialSyncProgress = function () {
+  var status = db.adminCommand({ replSetGetStatus: 1, initialSync: 1 });
+  var dbs_cloned = status.initialSyncStatus.databases.databasesCloned;
+  delete status.initialSyncStatus.databases.databasesCloned;
+  var dbs = Object.keys(status.initialSyncStatus.databases);
+  var dbs_total = dbs.length;
+
+  // total time elapsed syncing databases
+  var elapsedMillis = 0;
+
+  // status message based on the position within the currently
+  // cloning database (collections cloned of collections total)
+  var currentlyCloningStatus = &quot;&quot;;
+
+  for (var i = 0; i &lt; dbs_total; i++) {
+    var d = status.initialSyncStatus.databases[dbs[i]];
+    // if the counts aren&#39;t the same either it&#39;s the database that&#39;s in progress or
+    // hasn&#39;t started cloning yet
+    if (d.clonedCollections &lt; d.collections) {
+      currentlyCloningStatus = &quot;Cloning database &quot; + dbs[i];
+      currentlyCloningStatus += &quot; - cloned &quot; + printPercentage(d.clonedCollections, d.collections, &quot;collections&quot;);
+      var collectionKeys = Object.keys(d);
+      for (var j = 0; j &lt; collectionKeys.length; j++) {
+        var c = d[collectionKeys[j]];
+        if (c.hasOwnProperty(&quot;documentsToCopy&quot;) &amp;&amp; (c.documentsCopied &lt; c.documentsToCopy)) {
+          currentlyCloningStatus += &quot;\nCloning collection &quot; + collectionKeys[j] + &quot; &quot; + printPercentage(c.documentsCopied, c.documentsToCopy, &quot;documents&quot;);
+        }
+      }
+    }
+    // only add time if there&#39;s time to record
+    if (d.hasOwnProperty(&quot;elapsedMillis&quot;)) {
+      elapsedMillis += d.elapsedMillis;
+    }
+  }
+  print(&quot;===================&quot;)
+  print(&quot;Initial Sync Status&quot;)
+  print(&quot;===================&quot;)
+  var now = new Date();
+  var started = status.initialSyncStatus.initialSyncStart;
+  print(&quot;Cloning started at &quot; + started + &quot; (&quot; + msToTime(now - started) + &quot; ago)&quot;);
+  var members = status.members;
+  for (var i = 0; i &lt; members.length; i++) {
+    if (members[i].stateStr == &quot;PRIMARY&quot;) {
+      var optime = members[i].optimeDate
+      var me = new Date(status.initialSyncStatus.initialSyncOplogStart.getTime() * 1000);
+      print(&quot;Currently &quot; + msToTime(optime - me) + &quot; behind the PRIMARY (based on optimes)&quot;);
+    }
+  }
+  if (status.initialSyncStatus.hasOwnProperty(&quot;initialSyncAttempts&quot;) &amp;&amp; status.initialSyncStatus.initialSyncAttempts.length &gt; 0) {
+    var failures = status.initialSyncStatus.initialSyncAttempts.length;
+    print(&quot;Cloning has already failed &quot; + failures + &quot; time(s) ...&quot;);
+    print(&quot;Last Failure: &quot; + status.initialSyncStatus.initialSyncAttempts[failures - 1].status);
+  }
+  print(&quot;Copying databases for &quot; + msToTime(elapsedMillis) + &quot;. Note this updates AFTER a collection has been cloned.&quot;);
+  print(&quot;Cloned &quot; + printPercentage(dbs_cloned, dbs_total, &quot;databases&quot;));
+  print(currentlyCloningStatus);
+}
+</pre></noscript><script src="https://gist.github.com/alexbevi/422890f191f4bcb82c06fbb621c69331.js"> </script>
 
 By running this against the SECONDARY from the mongo shell, a more concise representation of the `initialSyncStatus` document is produced:
 
-{% img /images/initsync-002.png %}
+<img src="/images/initsync-002.png">
 
 The script will also let you know if there have been any sync failures recorded, as well as what the last failure was.
 
-{% img /images/initsync-003.png %}
+<img src="/images/initsync-003.png">
 
 Hopefully you'll find this useful when the time comes to resync one of your nodes.]]></content>
     </entry>
@@ -113,128 +411,181 @@ Each document is made up of an `_id`, a `type` and either a `doc` or `data` fiel
 
 The `doc` or `data` fields will contain "samples" in the form of:
 
-```javascript
-{
-  "start" : DateTime, /* Time at which all collecting started */
-  "name" : String, /* name is from name() in FTDCCollectorInterface */
-  {
-        "start" : DateTime, /* Time at which name() collection started */
-        "data" : { ... },   /* data comes from collect() in FTDCCollectorInterface */
-        "end" : DateTime,   /* Time at which name() collection ended */
-  },
-  ... /* more than 1 collector be sampled */
-  "end" : DateTime /* Time at which all collecting ended */
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which all collecting started */</span>
+</span><span class='line'>  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="cm">/* name is from name() in FTDCCollectorInterface */</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which name() collection started */</span>
+</span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>   <span class="cm">/* data comes from collect() in FTDCCollectorInterface */</span>
+</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>   <span class="cm">/* Time at which name() collection ended */</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">...</span> <span class="cm">/* more than 1 collector be sampled */</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="cm">/* Time at which all collecting ended */</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Samples are [collected by `FTDCCollectorInterface`](https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/collector.h#L110) instances.
 
 ### Metadata Document
 
-```javascript
-{
-  "_id":  DateTime,
-  "type": 0,
-  "doc":  { .. } /* Samples from collectors */
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;doc&quot;</span><span class="o">:</span>  <span class="p">{</span> <span class="p">..</span> <span class="p">}</span> <span class="cm">/* Samples from collectors */</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 On log rotation or startup, the first FTDC entry will be collected and stored. This is a BSON document that contains information sampled by running [`getCmdLineOpts`](https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/), [`buildInfo`](https://docs.mongodb.com/manual/reference/command/buildInfo/) and [`hostInfo`](https://docs.mongodb.com/manual/reference/command/hostInfo/).
 
-```javascript
-// example
-{
-  "start": DateTime,
-  "buildInfo": { ... },
-  "getCmdLineOpts": { ... },
-  "hostInfo": { ... },
-  "end": DateTime
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;buildInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;getCmdLineOpts&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;hostInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 This sample will be stored in the `doc` field of the metadata document.
 
 ### Metric Chunk
 
-```javascript
-{
-  "_id":  DateTime,
-  "type": 1
-  "data": BinData(...)
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="nx">BinData</span><span class="p">(...)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 During each collection interval (as configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis)), a metric chunk will be created and a sample will be collected, compressed and stored to the `data` document as Binary Data.
 
 This sample can contain the results of internal commands such as [`serverStatus`](https://docs.mongodb.com/manual/reference/command/serverStatus/),[`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/), [`collStats`](https://docs.mongodb.com/manual/reference/command/collStats/) for the [`local.oplog.rs`](https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs) collection or [`connPoolStats`](https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats), as well as external system metrics.
 
-```javascript
-// example
-{
-  "start": DateTime,
-  "serverStatus": { ... },
-  "connPoolStats": { ... },
-  "systemMetrics": { ... },
-  "end": DateTime
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
+</span><span class='line'>  <span class="s2">&quot;serverStatus&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;connPoolStats&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;systemMetrics&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 ## Decoding FTDC `metrics.xxxxxxx` files
 
 FTDC files, such as the `metrics.2019-10-28T19-02-23Z-00000` example file we'll be working with below are just [BSON](http://bsonspec.org/) files. As such, the [`bsondump`](https://docs.mongodb.com/manual/reference/program/bsondump/) utility can be used to inspect the contents:
 
-```bash
-METRICS=metrics.2019-10-28T19-02-23Z-00000
-bsondump --quiet $METRICS | less
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-10-28T19-02-23Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> less
+</span></code></pre></td></tr></table></div></figure>
 
-{% img /images/ftdc-001.png %}
+<img src="/images/ftdc-001.png">
 
 `bsondump` will default to emitting JSON, so we can interact with this using the [`jq`]() utility. For example, if we only want to review the _Metadata Document_ this could be done as follows:
 
-```bash
-# bsondump < 4.0
-bsondump --quiet $METRICS | jq -s '.[] | select( .type == 0)' | less
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type == 0)&#39;</span> <span class="p">|</span> less
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;0&quot;)&#39;</span> <span class="p">|</span> less
+</span></code></pre></td></tr></table></div></figure>
 
-# bsondump >= 4.0
-bsondump --quiet $METRICS | jq -s '.[] | select( .type | ."$numberInt" == "0")' | less
-```
-
-{% img /images/ftdc-002.png %}
+<img src="/images/ftdc-002.png">
 
 Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk and the [Ruby](https://www.ruby-lang.org/en/) interpreter to decompress the zlib data. Note that the following command can be altered to navigate to other chunks (not only the first) as needed:
 
-```bash
-# bsondump < 4.0
-METRICS=metrics.2019-12-20T14-22-56Z-00000
-bsondump --quiet $METRICS | \
-  jq -s '.[] | select( .type == 1)' | \
-  jq -s 'first | .data ."$binary"' -Mc | \
-  ruby -rzlib -rbase64 -e 'd = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])' | \
-  bsondump --quiet
-
-# bsondump >= 4.0
-METRICS=metrics.2019-12-20T14-22-56Z-00000
-bsondump --quiet $METRICS | \
-  jq -s '.[] | select( .type | ."$numberInt" == "1")' | \
-  jq -s 'first | .data ."$binary" .base64' -Mc | \
-  ruby -rzlib -rbase64 -e 'd = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])' | \
-  bsondump --quiet
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type == 1)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot;&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span><span class='line'>
+</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
+</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
+</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;1&quot;)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot; .base64&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
+</span><span class='line'>  bsondump --quiet
+</span></code></pre></td></tr></table></div></figure>
 
 You eagle-eyed Rubyists will notice that we're clipping the first 4 bytes from the binary data we're reading from STDIN. This is to drop the header before we try to decompress the stream.
 
 If you don't do this [zlib](https://www.zlib.net/) will complain and fail:
 
-```
-Traceback (most recent call last):
-        1: from -e:1:in `<main>'
--e:1:in `inflate': incorrect header check (Zlib::DataError)
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span><span class='line'>        1: from -e:1:in <span class="sb">`</span>&lt;main&gt;<span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">-e:1:in `inflate&#39;</span>: incorrect header check <span class="o">(</span>Zlib::DataError<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
 The binary data has now been decompressed, and being BSON data we run it through `bsondump` again and voila:
 
-{% img /images/ftdc-003.png %}
+<img src="/images/ftdc-003.png">
 
 Hopefully this helps shed some light on what FTDC data is and what it contains. In a future post we'll look into doing something useful with this treasure trove of telemetry our clusters are generating every 1 second or so.]]></content>
     </entry>
@@ -244,57 +595,89 @@ Hopefully this helps shed some light on what FTDC data is and what it contains. 
         <link href="http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/"/>
         <updated>2020-01-23T05:34:53-05:00</updated>
         <id>http://www.alexbevi.com/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker</id>
-        <content type="html"><![CDATA[I recently found myself troubleshooting another [MongoDB](https://www.mongodb.com/) startup issue due to potential corruption within a [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/) file. As I have previously covered this topic (see ["Recovering a WiredTiger collection from a corrupt MongoDB installation"]({% post_url 2016-02-10-recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation %})), I wanted to share the diagnostic and troubleshooting journey in case it helps anyone who experiences this issue in the future.
+        <content type="html"><![CDATA[I recently found myself troubleshooting another [MongoDB](https://www.mongodb.com/) startup issue due to potential corruption within a [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/) file. As I have previously covered this topic (see ["Recovering a WiredTiger collection from a corrupt MongoDB installation"](/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/)), I wanted to share the diagnostic and troubleshooting journey in case it helps anyone who experiences this issue in the future.
 
 To ensure I could troubleshoot this issue in isolation, I first collected a backup of the necessary files from the affected installation as follows:
 
-```bash
-tar -czvf metadata.tar.gz --exclude=WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -czvf metadata.tar.gz --exclude<span class="o">=</span>WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
+</span></code></pre></td></tr></table></div></figure>
 
 Once I had this backup I extracted it to a new location, then using [m](https://github.com/aheckmann/m) to select the versions of MongoDB to use tried to startup a standalone instance to see if I could reproduce the issue:
 
-```bash
-mkdir -p /tmp/repro
-cd /tmp/repro
-# move archive from earlier to the new directory first
-tar xvf metadata.tar.gz
-# This is the version of MongoDB reported to be crashing
-m 3.4.18
-mongod --dbpath .
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir -p /tmp/repro
+</span><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'><span class="c"># move archive from earlier to the new directory first</span>
+</span><span class='line'>tar xvf metadata.tar.gz
+</span><span class='line'><span class="c"># This is the version of MongoDB reported to be crashing</span>
+</span><span class='line'>m 3.4.18
+</span><span class='line'>mongod --dbpath .
+</span></code></pre></td></tr></table></div></figure>
 
 Once the `mongod` started, we were able to see the failure and the process aborts (clipped log sample below).
 
-```
-2020-01-23T03:58:19.828-0500 I CONTROL  [initandlisten] db version v3.4.18
-2020-01-23T03:58:19.828-0500 I CONTROL  [initandlisten] git version: 4410706bef6463369ea2f42399e9843903b31923
-...
-2020-01-23T03:58:20.187-0500 I -        [initandlisten] Invariant failure !_featureTracker src/mongo/db/storage/kv/kv_catalog.cpp 305
-2020-01-23T03:58:20.187-0500 I -        [initandlisten]
-
-***aborting after invariant() failure
-
-2020-01-23T03:58:20.198-0500 F -        [initandlisten] Got signal: 6 (Aborted).
-...
- mongod(_ZN5mongo15printStackTraceERSo+0x41) [0x55bb45c92111]
- mongod(+0x153F329) [0x55bb45c91329]
- mongod(+0x153F80D) [0x55bb45c9180d]
- libpthread.so.0(+0x12890) [0x7f5b7bee5890]
- libc.so.6(gsignal+0xC7) [0x7f5b7bb20e97]
- libc.so.6(abort+0x141) [0x7f5b7bb22801]
- mongod(_ZN5mongo17invariantOKFailedEPKcRKNS_6StatusES1_j+0x0) [0x55bb44f5b234]
- mongod(_ZN5mongo9KVCatalog4initEPNS_16OperationContextE+0x568) [0x55bb458db5e8]
- mongod(_ZN5mongo15KVStorageEngineC1EPNS_8KVEngineERKNS_22KVStorageEngineOptionsE+0x807) [0x55bb458e79f7]
- mongod(+0x124DFFA) [0x55bb4599fffa]
- mongod(_ZN5mongo20ServiceContextMongoD29initializeGlobalStorageEngineEv+0x697) [0x55bb45891627]
- mongod(+0x7F62AC) [0x55bb44f482ac]
- mongod(main+0x96B) [0x55bb44f66a6b]
- libc.so.6(__libc_start_main+0xE7) [0x7f5b7bb03b97]
- mongod(+0x86FFB1) [0x55bb44fc1fb1]
------  END BACKTRACE  -----
-Aborted (core dumped)
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>2020-01-23T03:58:19.828-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> db version v3.4.18
+</span><span class='line'>2020-01-23T03:58:19.828-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> git version: 4410706bef6463369ea2f42399e9843903b31923
+</span><span class='line'>...
+</span><span class='line'>2020-01-23T03:58:20.187-0500 I -        <span class="o">[</span>initandlisten<span class="o">]</span> Invariant failure !_featureTracker src/mongo/db/storage/kv/kv_catalog.cpp 305
+</span><span class='line'>2020-01-23T03:58:20.187-0500 I -        <span class="o">[</span>initandlisten<span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>***aborting after invariant<span class="o">()</span> failure
+</span><span class='line'>
+</span><span class='line'>2020-01-23T03:58:20.198-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Got signal: <span class="m">6</span> <span class="o">(</span>Aborted<span class="o">)</span>.
+</span><span class='line'>...
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo15printStackTraceERSo+0x41<span class="o">)</span> <span class="o">[</span>0x55bb45c92111<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x153F329<span class="o">)</span> <span class="o">[</span>0x55bb45c91329<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x153F80D<span class="o">)</span> <span class="o">[</span>0x55bb45c9180d<span class="o">]</span>
+</span><span class='line'> libpthread.so.0<span class="o">(</span>+0x12890<span class="o">)</span> <span class="o">[</span>0x7f5b7bee5890<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>gsignal+0xC7<span class="o">)</span> <span class="o">[</span>0x7f5b7bb20e97<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>abort+0x141<span class="o">)</span> <span class="o">[</span>0x7f5b7bb22801<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo17invariantOKFailedEPKcRKNS_6StatusES1_j+0x0<span class="o">)</span> <span class="o">[</span>0x55bb44f5b234<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo9KVCatalog4initEPNS_16OperationContextE+0x568<span class="o">)</span> <span class="o">[</span>0x55bb458db5e8<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo15KVStorageEngineC1EPNS_8KVEngineERKNS_22KVStorageEngineOptionsE+0x807<span class="o">)</span> <span class="o">[</span>0x55bb458e79f7<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x124DFFA<span class="o">)</span> <span class="o">[</span>0x55bb4599fffa<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>_ZN5mongo20ServiceContextMongoD29initializeGlobalStorageEngineEv+0x697<span class="o">)</span> <span class="o">[</span>0x55bb45891627<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x7F62AC<span class="o">)</span> <span class="o">[</span>0x55bb44f482ac<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>main+0x96B<span class="o">)</span> <span class="o">[</span>0x55bb44f66a6b<span class="o">]</span>
+</span><span class='line'> libc.so.6<span class="o">(</span>__libc_start_main+0xE7<span class="o">)</span> <span class="o">[</span>0x7f5b7bb03b97<span class="o">]</span>
+</span><span class='line'> mongod<span class="o">(</span>+0x86FFB1<span class="o">)</span> <span class="o">[</span>0x55bb44fc1fb1<span class="o">]</span>
+</span><span class='line'>-----  END BACKTRACE  -----
+</span><span class='line'>Aborted <span class="o">(</span>core dumped<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
 
 <!-- more -->
 
@@ -305,103 +688,139 @@ The `mongod` is failing to startup successfully due to an invariant failure duri
 
 As MongoDB is open source, we can view the source for this release by going to https://github.com/mongodb/mongo/blob/r3.4.18/src/mongo/db/storage/kv/kv_catalog.cpp#L305, which will show us the following:
 
-```cpp
-if (FeatureTracker::isFeatureDocument(obj)) {
-    // There should be at most one version document in the catalog.
-    invariant(!_featureTracker);
-
-    // Initialize the feature tracker and skip over the version document because it doesn't
-    // correspond to a namespace entry.
-    _featureTracker = FeatureTracker::get(opCtx, this, record->id);
-    continue;
-}
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="n">FeatureTracker</span><span class="o">::</span><span class="n">isFeatureDocument</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// There should be at most one version document in the catalog.</span>
+</span><span class='line'>    <span class="n">invariant</span><span class="p">(</span><span class="o">!</span><span class="n">_featureTracker</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Initialize the feature tracker and skip over the version document because it doesn&#39;t</span>
+</span><span class='line'>    <span class="c1">// correspond to a namespace entry.</span>
+</span><span class='line'>    <span class="n">_featureTracker</span> <span class="o">=</span> <span class="n">FeatureTracker</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">opCtx</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="n">record</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">continue</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 The comment preceding the invariant<sup id="f1">[1](#fn1)</sup> indicates that there's only one feature document to be present in the catalog, but what's the catalog?
 
-```bash
-ls -l *catalog*
--rw-r--r-- 1 alex 249856 Jan 23 03:58 _mdb_catalog.wt
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ls -l *catalog*
+</span><span class='line'>-rw-r--r-- <span class="m">1</span> alex <span class="m">249856</span> Jan <span class="m">23</span> 03:58 _mdb_catalog.wt
+</span></code></pre></td></tr></table></div></figure>
 
 As there's only one file that contains the word "catalog" this is good a place as any to start. The `_mdb_catalog` is a WiredTiger file, so to interact with it directly (outside of MongoDB) we will need to use the [WiredTiger command line utility](http://source.wiredtiger.com/mongodb-3.4/command_line.html), also know as `wt`.
 
 The documentation link for `mongodb-3.4` points us to WiredTiger 2.9.2, so following the [build and installation instructions](http://source.wiredtiger.com/mongodb-3.4/build-posix.html) we compile a `wt` binary with support for the snappy compressor. This is due to MongoDB's WiredTiger storage engine using snappy as the default block compressor (see ["Compression"](https://docs.mongodb.com/manual/core/wiredtiger/#compression)).
 
-```bash
-cd /tmp/repro
-git clone git://github.com/wiredtiger/wiredtiger.git
-cd wiredtiger
-git checkout 2.9.2
-sh autogen.sh
-# ensure you have the necessary development headers for the snappy compression
-# library before compiling
-./configure --enable-snappy && make
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'>git clone git://github.com/wiredtiger/wiredtiger.git
+</span><span class='line'><span class="nb">cd </span>wiredtiger
+</span><span class='line'>git checkout 2.9.2
+</span><span class='line'>sh autogen.sh
+</span><span class='line'><span class="c"># ensure you have the necessary development headers for the snappy compression</span>
+</span><span class='line'><span class="c"># library before compiling</span>
+</span><span class='line'>./configure --enable-snappy <span class="o">&amp;&amp;</span> make
+</span></code></pre></td></tr></table></div></figure>
 
 Once we've successfully build the `wt` utility with snappy compression we can dump our catalog to see if we can find a duplicate entry for the feature document.
 
-```bash
-cd /tmp/repro
-# to shorten the amount of typing required, wrap the wt utility invocation in
-# a function we can call instead
-WT() { /tmp/repro/wiredtiger/wt -v -C "extensions=[\"/tmp/repro/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so\"]" $@; }
-# write the catalog dump out to a file
-WT dump _mdb_catalog > dump.dat
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /tmp/repro
+</span><span class='line'><span class="c"># to shorten the amount of typing required, wrap the wt utility invocation in</span>
+</span><span class='line'><span class="c"># a function we can call instead</span>
+</span><span class='line'>WT<span class="o">()</span> <span class="o">{</span> /tmp/repro/wiredtiger/wt -v -C <span class="s2">&quot;extensions=[\&quot;/tmp/repro/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so\&quot;]&quot;</span> <span class="nv">$@</span><span class="p">;</span> <span class="o">}</span>
+</span><span class='line'><span class="c"># write the catalog dump out to a file</span>
+</span><span class='line'>WT dump _mdb_catalog &gt; dump.dat
+</span></code></pre></td></tr></table></div></figure>
 
 NOTE: If you receive the following error, just re-run the command.
 
-```
-[1579773800:589375][9348:0x7fc9a8e17140], txn-recover: Recovery failed: WT_RUN_RECOVERY: recovery must be run to continue
-wt: WT_RUN_RECOVERY: recovery must be run to continue
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">[</span>1579773800:589375<span class="o">][</span>9348:0x7fc9a8e17140<span class="o">]</span>, txn-recover: Recovery failed: WT_RUN_RECOVERY: recovery must be run to <span class="k">continue</span>
+</span><span class='line'>wt: WT_RUN_RECOVERY: recovery must be run to <span class="k">continue</span>
+</span></code></pre></td></tr></table></div></figure>
 
 This error is due to the presence of content in the `journal/` that was created when we last ran the `mongod`.
 
 With the catalog dumped we can now search it for the feature document:
 
-```bash
-grep isFeatureDoc dump.dat -B 1 -n
-
-935-\c2\e5
-936:C\00\00\00\08isFeatureDoc\00\01\0ans\00\12nonRepairable\00\00\00\00\00\00\00\00\00\12repairable\00\01\00\00\00\00\00\00\00\00
-937-\c2\e6
-938:C\00\00\00\08isFeatureDoc\00\01\0ans\00\12nonRepairable\00\00\00\00\00\00\00\00\00\12repairable\00\01\00\00\00\00\00\00\00\00
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>grep isFeatureDoc dump.dat -B <span class="m">1</span> -n
+</span><span class='line'>
+</span><span class='line'>935-<span class="se">\c</span>2<span class="se">\e</span>5
+</span><span class='line'>936:C<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>8isFeatureDoc<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>ans<span class="se">\0</span>0<span class="se">\1</span>2nonRepairable<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\1</span>2repairable<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0
+</span><span class='line'>937-<span class="se">\c</span>2<span class="se">\e</span>6
+</span><span class='line'>938:C<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>8isFeatureDoc<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>ans<span class="se">\0</span>0<span class="se">\1</span>2nonRepairable<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\1</span>2repairable<span class="se">\0</span>0<span class="se">\0</span>1<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0<span class="se">\0</span>0
+</span></code></pre></td></tr></table></div></figure>
 
 INTERESTING! I'm not really sure how the catalog was able to get into a state where two feature documents exist, but since we have a dump of the catalog let's try to remove one of those entries and then load the dump back into the catalog.
 
 As the results appear to be identical, we'll just drop the first one and then try to load it back into the catalog.
 
-```bash
-# remove lines 935-936 and overwrite the file
-sed -i -e '935,936d' dump.dat
-# drop the contents of the _mdb_catalog table
-WT truncate _mdb_catalog
-# reload the table from the dump file
-WT load -f dump.dat
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># remove lines 935-936 and overwrite the file</span>
+</span><span class='line'>sed -i -e <span class="s1">&#39;935,936d&#39;</span> dump.dat
+</span><span class='line'><span class="c"># drop the contents of the _mdb_catalog table</span>
+</span><span class='line'>WT truncate _mdb_catalog
+</span><span class='line'><span class="c"># reload the table from the dump file</span>
+</span><span class='line'>WT load -f dump.dat
+</span></code></pre></td></tr></table></div></figure>
 
 If the table loaded successfully the output of the command should be something like `table:_mdb_catalog: 822`.
 
 With a reloaded catalog, let's try spinning up the `mongod` again:
 
-```
-2020-01-23T05:24:54.911-0500 I CONTROL  [initandlisten] db version v3.4.18
-...
-2020-01-23T05:24:56.247-0500 E STORAGE  [initandlisten] no cursor for uri: table:SomeCollection/collection/34-1349843775853912065
-2020-01-23T05:24:56.247-0500 F -        [initandlisten] Invalid access at address: 0x58
-2020-01-23T05:24:56.259-0500 F -        [initandlisten] Got signal: 11 (Segmentation fault).
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>2020-01-23T05:24:54.911-0500 I CONTROL  <span class="o">[</span>initandlisten<span class="o">]</span> db version v3.4.18
+</span><span class='line'>...
+</span><span class='line'>2020-01-23T05:24:56.247-0500 E STORAGE  <span class="o">[</span>initandlisten<span class="o">]</span> no cursor <span class="k">for</span> uri: table:SomeCollection/collection/34-1349843775853912065
+</span><span class='line'>2020-01-23T05:24:56.247-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Invalid access at address: 0x58
+</span><span class='line'>2020-01-23T05:24:56.259-0500 F -        <span class="o">[</span>initandlisten<span class="o">]</span> Got signal: <span class="m">11</span> <span class="o">(</span>Segmentation fault<span class="o">)</span>.
+</span></code></pre></td></tr></table></div></figure>
 
 SUCCESS! The `mongod` is still crashing as the backing files for the database don't exist, but we should now be able to take our recovered files back to our node that was previously failing.
 
 From our recovered directory compress the following files:
 
-```
-tar -czvf recovered.tar.gz --exclude=WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tar -czvf recovered.tar.gz --exclude<span class="o">=</span>WiredTigerStat* WiredTiger* _mdb_catalog.wt sizeStorer.wt
+</span></code></pre></td></tr></table></div></figure>
 
 Note that if the `mongod` fails to start with the recovered files you may have to clear out the `journal/` directory.
 
@@ -422,35 +841,54 @@ Hopefully this helps someone someday ;)
         <content type="html"><![CDATA[A challenge that I've had in the past while working with my data in MongoDB has been how to incorporate
 date math into my aggregations.
 
-``` javascript
-db.foo.insertMany([
-{ lastUpdated: new Date(new Date().setDate(new Date().getDate() - 1)) },
-{ lastUpdated: new Date(new Date().setDate(new Date().getDate() - 5)) },
-{ lastUpdated: new Date(new Date().setDate(new Date().getDate() - 9)) }
-]);
-db.foo.find();
-/*
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9e"), "lastUpdated" : ISODate("2020-01-16T11:37:18.522Z") }
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9f"), "lastUpdated" : ISODate("2020-01-12T11:37:18.522Z") }
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975da0"), "lastUpdated" : ISODate("2020-01-08T11:37:18.522Z") }
-*/
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">))</span> <span class="p">},</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975da0&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-08T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Given the 3 documents we've setup above, if I wanted to filter a pipeline to only [`$match`](https://docs.mongodb.com/manual/reference/operator/aggregation/match)
 documents that are newer than 1 week old, I would have to resort to using Javascript:
 
-``` javascript
-// compare lastUpdated to a new Javascript Date object set to
-// 7 days from the current date
-db.foo.aggregate(
-{ $match:
-  { lastUpdated: { $gte: new Date(new Date().setDate(new Date().getDate() - 7)) } }
-});
-/*
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9e"), "lastUpdated" : ISODate("2020-01-16T11:37:18.522Z") }
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9f"), "lastUpdated" : ISODate("2020-01-12T11:37:18.522Z") }
-*/
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to a new Javascript Date object set to</span>
+</span><span class='line'><span class="c1">// 7 days from the current date</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">7</span><span class="p">))</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Now if your pipeline is running in a non-Javascript environment, the `new Date()` call within the pipeline
 would likely throw an exception.
@@ -459,27 +897,45 @@ If you're working with MongoDB 4.2 or newer though, a new [`$$NOW` aggregation v
 ) is available that can be combined with existing pipeline operators to [`$subtract`](https://docs.mongodb.com/manual/reference/operator/aggregation/subtract/index.html
 ) the number of milliseconds in the number of days to filter from the current date:
 
-``` javascript
-// compare lastUpdated to the number of milliseconds in
-// 7 days subtracted from the current
-db.foo.aggregate(
-{ $match:
-  { $expr:
-    { $let:
-      { vars:
-        { start:
-          { $subtract: ["$$NOW", (7 * 86400000)] }
-        },
-        in: { $gte: ["$lastUpdated", "$$start"] }
-      }
-    }
-  }
-});
-/*
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9e"), "lastUpdated" : ISODate("2020-01-16T11:37:18.522Z") }
-{ "_id" : ObjectId("5e219c6ecc99b35bb2975d9f"), "lastUpdated" : ISODate("2020-01-12T11:37:18.522Z") }
-*/
-```
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to the number of milliseconds in</span>
+</span><span class='line'><span class="c1">// 7 days subtracted from the current</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
+</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
+</span><span class='line'>  <span class="p">{</span> <span class="nx">$expr</span><span class="o">:</span>
+</span><span class='line'>    <span class="p">{</span> <span class="nx">$let</span><span class="o">:</span>
+</span><span class='line'>      <span class="p">{</span> <span class="nx">vars</span><span class="o">:</span>
+</span><span class='line'>        <span class="p">{</span> <span class="nx">start</span><span class="o">:</span>
+</span><span class='line'>          <span class="p">{</span> <span class="nx">$subtract</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$$NOW&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">86400000</span><span class="p">)]</span> <span class="p">}</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="k">in</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$lastUpdated&quot;</span><span class="p">,</span> <span class="s2">&quot;$$start&quot;</span><span class="p">]</span> <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
 
 I hope you find this as useful as I did. With each major release of MongoDB new features and functionality
 are being introduced that reduce the "hacks" or "workarounds" we've had to do in the past.
@@ -531,15 +987,15 @@ I found his reasons for joining MongoDB (10gen at the time), description of what
 
 To answer this question, let's start off by analyzing the [job posting](https://www.mongodb.com/careers/jobs/791258) that kicked off this journey for me in the first place.
 
-{% img /images/why_tse/why_tse_001.png %}
+<img src="/images/why_tse/why_tse_001.png">
 
 So they're looking for people that are able to solve problems and communicate clearly. This could be a call center gig after all ... oh wait, *experts in MongoDB related database servers, drivers, tools, services* ... hrm, maybe there's a bit more to this.
 
-{% img /images/why_tse/why_tse_002.png %}
+<img src="/images/why_tse/why_tse_002.png">
 
 *Architecture, performance, recovery, security*, those are a lot more complex than what you would face in a traditional support role. What really sold me though was the *contribute to internal projects* statement, as this aligned perfectly with my desire for process improvement through custom tooling.
 
-{% img /images/why_tse/why_tse_003.png %}
+<img src="/images/why_tse/why_tse_003.png">
 
 By the time I got to this point in the job posting I was already sold. MongoDB is either trying to staff their first tier support with ridiculously over-qualified employees, or Technical Services really isn't what I would have thought.
 

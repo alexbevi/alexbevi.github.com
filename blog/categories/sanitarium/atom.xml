@@ -4,7 +4,7 @@
     <title><![CDATA[Category: sanitarium | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/sanitarium/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:39:42-05:00</updated>
+    <updated>2020-02-14T11:44:48-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,7 +20,7 @@
         <id>http://www.alexbevi.com/blog/2015/04/08/asylum-engine-update</id>
         <content type="html"><![CDATA[It's been a number of years since I had a chance to look at this project, but recently I updated the codebase to the latest version (sync with upstream [ScummVM](https://github.com/scummvm/scummvm)) and found that the videos no longer worked.
 
-{% img /images/20150408-004.png %}
+<img src="/images/20150408-004.png">
 
 It turned out to be a pretty simple fix (see [commit](https://github.com/alexbevi/scummvm/commit/1ed45a5802a7ab9603aa72f8e18196e980657c23)), but it rekindled my interest in the project.
 
@@ -30,19 +30,19 @@ I added some additional debug output and cleaned up the script debug loop so tha
 
 Also, thanks to [@xesf](https://github.com/xesf), we can now actually proceed up and down stairs via fixes he made to the script processor.
 
-{% img /images/20150408-003.png %}
+<img src="/images/20150408-003.png">
 
 ## TODO
 
 **better pathfinding**
 
-{% img /images/20150408-001.png %}
+<img src="/images/20150408-001.png">
 
 The path-finding in the original engine is a lot smarter and more forgiving than our implementation.
 
 **inventory management**
 
-{% img /images/20150408-002.png %}
+<img src="/images/20150408-002.png">
 
 We can currently pick up an item and remove the graphic from the screen, but there's no way to retrieve/use items once collected.
 
@@ -52,7 +52,7 @@ There are still a number of clipping issues, as well as incorrect behaviour when
 
 **fix encounters**
 
-{% img /images/20150408-005.png %}
+<img src="/images/20150408-005.png">
 
 Encounters load, but you can't interact with keywords yet.
 
