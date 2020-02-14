@@ -163,6 +163,8 @@
 
 <p>Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn&rsquo;t &ldquo;release&rdquo; space when documents are deleted there is a high probability that the SECONDARY will have a <em>smaller total directory size</em> than the sync source.</p>
 
+<p>The second step (after cloning) where the oplog entries are applied will also affect the overall time required to sync from the sync source.</p>
+
 <p>The <code>replSetGetStatus</code> command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.</p>
 
 <p><noscript><pre>{
@@ -381,7 +383,7 @@
 
 <p>Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.</p>
 
-<p>To try and improve this situation I&rsquo;ve created the following script.</p>
+<p>To improve this situation I&rsquo;ve created the following script.</p>
 
 <p><noscript><pre>/<em>
 * initialSyncProgress

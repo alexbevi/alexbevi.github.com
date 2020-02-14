@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T11:44:48-05:00</updated>
+    <updated>2020-02-14T11:50:04-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -37,6 +37,8 @@ Determining if the sync is progressing can be done by either checking the size o
 <img src="/images/initsync-001.png">
 
 Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn't "release" space when documents are deleted there is a high probability that the SECONDARY will have a _smaller total directory size_ than the sync source.
+
+The second step (after cloning) where the oplog entries are applied will also affect the overall time required to sync from the sync source.
 
 The `replSetGetStatus` command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.
 
@@ -256,7 +258,7 @@ The `replSetGetStatus` command will produce a JSON document similar to the follo
 
 Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.
 
-To try and improve this situation I've created the following script.
+To improve this situation I've created the following script.
 
 <noscript><pre>/*
 * initialSyncProgress
