@@ -6,8 +6,6 @@ comments: true
 categories: [mongodb]
 ---
 
-# What is MongoDB FTDC (aka. `diagnostic.data`)
-
 [Full Time Diagnostic Data Capture (FTDC)](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture) was introduced in MongoDB 3.2 (via [SERVER-19585](https://jira.mongodb.org/browse/SERVER-19585)), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.
 
 On log rotation or startup, a `mongod` or `mongos` will collect and log:
@@ -16,7 +14,7 @@ On log rotation or startup, a `mongod` or `mongos` will collect and log:
 - [`buildInfo`](https://docs.mongodb.com/manual/reference/command/buildInfo/): `db.adminCommand({buildInfo: true})`
 - [`hostInfo`](https://docs.mongodb.com/manual/reference/command/hostInfo/): `db.adminCommand({hostInfo: true})`
 
-As configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis) and defaulting to every 1 second, FTDC will collect to output of the following commands:
+As configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis) and defaulting to every 1 second, FTDC will collect the output of the following commands:
 
 - [`serverStatus`](https://docs.mongodb.com/manual/reference/command/serverStatus/): `db.serverStatus({tcmalloc: true})`
 - [`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/): `rs.status()`
@@ -146,7 +144,7 @@ bsondump --quiet $METRICS | jq -s '.[] | select( .type | ."$numberInt" == "0")' 
 
 {% img /images/ftdc-002.png %}
 
-Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk, though the following command can be altered to navigate to other chunks as needed:
+Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk and the [Ruby](https://www.ruby-lang.org/en/) interpreter to decompress the zlib data. Note that the following command can be altered to navigate to other chunks (not only the first) as needed:
 
 ```bash
 # bsondump < 4.0
