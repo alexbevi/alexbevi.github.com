@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Summer RPG Update 2016 Sep 5th, 2016 jrpg rpg snes gba Comments I don&rsquo;t really have much progress to report for the last month, so I thought I &hellip;">
+        <meta name="description" content="Just Finished - Warcraft Adventures Nov 29th, 2016 just-finished adventure pc Comments Although I&rsquo;m a huge fan of the point-and-click &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/posts/2">
@@ -89,6 +89,74 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2016/11/29/just-finished-warcraft-adventures/">Just Finished - Warcraft Adventures</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2016-11-29T04:36:22-04:00" pubdate><i class="fa fa-calendar"></i> Nov 29th, 2016</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/just-finished/'>just-finished</a></li>
+            
+                <li><a class='category' href='/blog/categories/adventure/'>adventure</a></li>
+            
+                <li><a class='category' href='/blog/categories/pc/'>pc</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2016/11/29/just-finished-warcraft-adventures/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <div class="article__content clearfix">
+        <p><img class="left" src="/images/wca/wca.08.png"></p>
+
+<p>Although I&rsquo;m a huge fan of the point-and-click adventure genre, I&rsquo;ve been primarily focusing on covering 16-bit RPGs in my spare time. I&rsquo;ve still got a sizeable backlog to wade through, but when the news dropped that <a href="https://en.wikipedia.org/wiki/Warcraft_Adventures:_Lord_of_the_Clans">Warcraft Adventures: Lord of the Clans</a> had been leaked, I couldn&rsquo;t resist.</p>
+
+<p>Although no one really got a taste of this game until 2010 when MAN-biker posted some content to Youtube, I&rsquo;d been inquiring with Blizzard as early as 2008. I still have a copy of the email, so I&rsquo;ve trimmed it down a bit and shared it below.</p>
+
+
+        <a class="btn pull-right" href="/blog/2016/11/29/just-finished-warcraft-adventures/">Read on &rarr;</a>
+    </div>
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -900,123 +968,6 @@
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">Recovering a WiredTiger collection from a corrupt MongoDB installation</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2016-02-10T20:38:38-05:00" pubdate><i class="fa fa-calendar"></i> Feb 10th, 2016</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
-            
-                <li><a class='category' href='/blog/categories/wired-tiger/'>wired-tiger</a></li>
-            
-                <li><a class='category' href='/blog/categories/devops/'>devops</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <div class="article__content clearfix">
-        <blockquote>
-April, 1 2019: I've received a <em>LOT</em> of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a <tt>--repair</tt> flag in 4.0.3 that simplifies this process significantly.
-
-I would recommend reading their <a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown">"Recover a Standalone after an Unexpected Shutdown"</a> tutorial to see if it applies to your recovery scenario.
-</blockquote>
-
-
-<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
-
-<p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
-
-<p>This data happens to be on a 5 node replicaset (primary-secondary-secondary-arbiter-hidden), and the hidden node died over the holidays and I waited too long to recover it, so it was unable to ever catch up to the primary (always stuck in a RECOVERING state).</p>
-
-<p>My incredible foresight (&hellip; laziness &hellip; ) resulted in us having a backup of the data ready to be extracted from the out of sync hidden node. All we had to do was start up <strong>mongod</strong> &hellip; right?</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2016-01-29T21:06:05.180-0500 I CONTROL  ***** SERVER RESTARTED *****
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1745 port=27021 dbpath=/data 64-bit host=xxx
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] db version v3.0.8
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] git version: 83d8cc25e00e42856924d84e220fbe4a839e605d
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] build info: Linux build3.ny.cbi.10gen.cc 2.6.32-431.3.1.el6.x86_64 #1 SMP Fri Jan 3 21:39:27 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] allocator: tcmalloc
-</span><span class='line'>...
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W -        [initandlisten] Detected unclean shutdown - /data/mongod.lock is not empty.
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
-</span><span class='line'>2016-01-29T21:06:05.324-0500 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=13G,session_max=20000,eviction=(threads_max=4),statistics=(fast),log=(enabled=true,archive=true
-</span><span class='line'>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:724960][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: read checksum error for 4096B block at offset 6
-</span><span class='line'>799360: block header checksum of 1769173605 doesn't match expected checksum of 4176084783
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:725067][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: WiredTiger.wt: encountered an illegal file form
-</span><span class='line'>at or internal value
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (-31804) [1454119565:725088][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: the process must exit and restart: WT_PANI
-</span><span class='line'>C: WiredTiger library panic
-</span><span class='line'>2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that&rsquo;s not the way MongoDB or WiredTiger works :P. Back to the drawing board.</p>
-
-
-        <a class="btn pull-right" href="/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/">Read on &rarr;</a>
-    </div>
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1086,6 +1037,10 @@ I would recommend reading their <a href="https://docs.mongodb.com/manual/tutoria
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">MongoDB Initial Sync Progress Monitoring</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
         </li>
         
@@ -1099,10 +1054,6 @@ I would recommend reading their <a href="https://docs.mongodb.com/manual/tutoria
         
         <li class="post">
             <a href="/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineering at MongoDB</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2018/08/14/hello-mongodb/">Hello MongoDB</a>
         </li>
         
     </ul>

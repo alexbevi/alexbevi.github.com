@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-01-30T05:41:21-05:00</updated>
+    <updated>2020-02-14T11:20:29-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,350 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[MongoDB Initial Sync Progress Monitoring]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/"/>
+        <updated>2020-02-13T12:34:49-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</id>
+        <content type="html"><![CDATA[Sometimes our replica sets fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:
+
+1. Clones all databases except the local database. To clone, the `mongod` scans every collection in each source database and inserts all data into its own copies of these collections.
+2. Applies all changes to the data set. Using the oplog from the source, the `mongod` updates its data set to reflect the current state of the replica set.
+
+When the initial sync finishes, the member transitions from [`STARTUP2`](https://docs.mongodb.com/manual/reference/replica-states/#replstate.STARTUP2) to [`SECONDARY`](https://docs.mongodb.com/manual/reference/replica-states/#replstate.SECONDARY).
+
+Some common questions when performing an initial sync of a [Replica Set Member](https://docs.mongodb.com/manual/core/replica-set-members/) are:
+
+- How do I know if the sync is progressing?
+- How long will this take to complete?
+
+<!-- MORE -->
+
+Determining if the sync is progressing can be done by either checking the size of the [`dbPath`]() of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
+
+<img src="/images/initsync-001.png">
+
+Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn't "release" space when documents are deleted there is a high probability that the SECONDARY will have a _smaller total directory size_ than the sync source.
+
+The `replSetGetStatus` command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.
+
+<noscript><pre>{
+  &quot;set&quot;: &quot;replset&quot;,
+  &quot;date&quot;: ISODate(&quot;2019-12-04T05:12:52.835Z&quot;),
+  &quot;myState&quot;: 5,
+  &quot;term&quot;: NumberLong(3),
+  &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceId&quot;: 1,
+  &quot;heartbeatIntervalMillis&quot;: NumberLong(2000),
+  &quot;majorityVoteCount&quot;: 2,
+  &quot;writeMajorityCount&quot;: 2,
+  &quot;optimes&quot;: {
+    &quot;lastCommittedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastCommittedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;appliedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;durableOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastAppliedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;lastDurableWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;)
+  },
+  &quot;lastStableRecoveryTimestamp&quot;: Timestamp(0, 0),
+  &quot;lastStableCheckpointTimestamp&quot;: Timestamp(0, 0),
+  &quot;initialSyncStatus&quot;: {
+    &quot;failedInitialSyncAttempts&quot;: 0,
+    &quot;maxFailedInitialSyncAttempts&quot;: 10,
+    &quot;initialSyncStart&quot;: ISODate(&quot;2019-12-04T05:12:35.719Z&quot;),
+    &quot;initialSyncAttempts&quot;: [],
+    &quot;fetchedMissingDocs&quot;: 0,
+    &quot;appliedOps&quot;: 0,
+    &quot;initialSyncOplogStart&quot;: Timestamp(1575436355, 1),
+    &quot;databases&quot;: {
+      &quot;databasesCloned&quot;: 2,
+      &quot;admin&quot;: {
+        &quot;collections&quot;: 4,
+        &quot;clonedCollections&quot;: 4,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.947Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;elapsedMillis&quot;: 539,
+        &quot;admin.system.roles&quot;: {
+          &quot;documentsToCopy&quot;: 12,
+          &quot;documentsCopied&quot;: 12,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.950Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.users&quot;: {
+          &quot;documentsToCopy&quot;: 22,
+          &quot;documentsCopied&quot;: 22,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.keys&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;elapsedMillis&quot;: 120,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.version&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+          &quot;elapsedMillis&quot;: 114,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;config&quot;: {
+        &quot;collections&quot;: 2,
+        &quot;clonedCollections&quot;: 2,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;elapsedMillis&quot;: 377,
+        &quot;config.transactions&quot;: {
+          &quot;documentsToCopy&quot;: 0,
+          &quot;documentsCopied&quot;: 0,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 0,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.487Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;elapsedMillis&quot;: 158,
+          &quot;receivedBatches&quot;: 0
+        },
+        &quot;config.system.sessions&quot;: {
+          &quot;documentsToCopy&quot;: 1,
+          &quot;documentsCopied&quot;: 1,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+          &quot;elapsedMillis&quot;: 218,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;test&quot;: {
+        &quot;collections&quot;: 1,
+        &quot;clonedCollections&quot;: 0,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;test.hugeindex&quot;: {
+          &quot;documentsToCopy&quot;: 25000,
+          &quot;documentsCopied&quot;: 9187,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 8,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.865Z&quot;),
+          &quot;receivedBatches&quot;: 9
+        }
+      }
+    }
+  },
+  &quot;members&quot;: [
+    {
+      &quot;_id&quot;: 0,
+      &quot;name&quot;: &quot;m1.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.1&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 1,
+      &quot;stateStr&quot;: &quot;PRIMARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:51.485Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;electionTime&quot;: Timestamp(1575434944, 1),
+      &quot;electionDate&quot;: ISODate(&quot;2019-12-04T04:49:04Z&quot;),
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 1,
+      &quot;name&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.2&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 2,
+      &quot;stateStr&quot;: &quot;SECONDARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:52.728Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 2,
+      &quot;name&quot;: &quot;m3.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.3&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 5,
+      &quot;stateStr&quot;: &quot;STARTUP2&quot;,
+      &quot;uptime&quot;: 71,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(0,
+        0),
+        &quot;t&quot;: NumberLong(-1)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+      &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceId&quot;: 1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3,
+      &quot;self&quot;: true,
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;
+    }
+  ],
+  &quot;ok&quot;: 1
+}</pre></noscript><script src="https://gist.github.com/alexbevi/d52ffd2e27068dcdcc616a5aaf814907.js"> </script>
+
+Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.
+
+To try and improve this situation I've created the following script.
+
+<noscript><pre>/*
+* initialSyncProgress
+* @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+*
+* Can be run against a MongoDB 3.4+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* insight into how the sync is progressing. This script WILL NOT tell you how long until the sync
+* is complete, but based on how the script reports progress can be used to estimate this.
+*
+* usage:
+*   mongo --quiet --eval &quot;load(&#39;initialSyncProgress.js&#39;); initialSyncProgress();&quot;
+*/
+var printPercentage = function (position, length, type) {
+  var p = Math.round((position / length) * 100, 2);
+  return position + &quot;/&quot; + length + &quot; &quot; + type + &quot; (&quot; + p + &quot;%)&quot;;
+}
+
+var msToTime = function (duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours &lt; 10) ? &quot;0&quot; + hours : hours;
+  minutes = (minutes &lt; 10) ? &quot;0&quot; + minutes : minutes;
+  seconds = (seconds &lt; 10) ? &quot;0&quot; + seconds : seconds;
+
+  return hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;.&quot; + milliseconds;
+}
+
+var initialSyncProgress = function () {
+  var status = db.adminCommand({ replSetGetStatus: 1, initialSync: 1 });
+  var dbs_cloned = status.initialSyncStatus.databases.databasesCloned;
+  delete status.initialSyncStatus.databases.databasesCloned;
+  var dbs = Object.keys(status.initialSyncStatus.databases);
+  var dbs_total = dbs.length;
+
+  // total time elapsed syncing databases
+  var elapsedMillis = 0;
+
+  // status message based on the position within the currently
+  // cloning database (collections cloned of collections total)
+  var currentlyCloningStatus = &quot;&quot;;
+
+  for (var i = 0; i &lt; dbs_total; i++) {
+    var d = status.initialSyncStatus.databases[dbs[i]];
+    // if the counts aren&#39;t the same either it&#39;s the database that&#39;s in progress or
+    // hasn&#39;t started cloning yet
+    if (d.clonedCollections &lt; d.collections) {
+      currentlyCloningStatus = &quot;Cloning database &quot; + dbs[i];
+      currentlyCloningStatus += &quot; - cloned &quot; + printPercentage(d.clonedCollections, d.collections, &quot;collections&quot;);
+      var collectionKeys = Object.keys(d);
+      for (var j = 0; j &lt; collectionKeys.length; j++) {
+        var c = d[collectionKeys[j]];
+        if (c.hasOwnProperty(&quot;documentsToCopy&quot;) &amp;&amp; (c.documentsCopied &lt; c.documentsToCopy)) {
+          currentlyCloningStatus += &quot;\nCloning collection &quot; + collectionKeys[j] + &quot; &quot; + printPercentage(c.documentsCopied, c.documentsToCopy, &quot;documents&quot;);
+        }
+      }
+    }
+    // only add time if there&#39;s time to record
+    if (d.hasOwnProperty(&quot;elapsedMillis&quot;)) {
+      elapsedMillis += d.elapsedMillis;
+    }
+  }
+  print(&quot;===================&quot;)
+  print(&quot;Initial Sync Status&quot;)
+  print(&quot;===================&quot;)
+  var now = new Date();
+  var started = status.initialSyncStatus.initialSyncStart;
+  print(&quot;Cloning started at &quot; + started + &quot; (&quot; + msToTime(now - started) + &quot; ago)&quot;);
+  var members = status.members;
+  for (var i = 0; i &lt; members.length; i++) {
+    if (members[i].stateStr == &quot;PRIMARY&quot;) {
+      var optime = members[i].optimeDate
+      var me = new Date(status.initialSyncStatus.initialSyncOplogStart.getTime() * 1000);
+      print(&quot;Currently &quot; + msToTime(optime - me) + &quot; behind the PRIMARY (based on optimes)&quot;);
+    }
+  }
+  if (status.initialSyncStatus.hasOwnProperty(&quot;initialSyncAttempts&quot;) &amp;&amp; status.initialSyncStatus.initialSyncAttempts.length &gt; 0) {
+    var failures = status.initialSyncStatus.initialSyncAttempts.length;
+    print(&quot;Cloning has already failed &quot; + failures + &quot; time(s) ...&quot;);
+    print(&quot;Last Failure: &quot; + status.initialSyncStatus.initialSyncAttempts[failures - 1].status);
+  }
+  print(&quot;Copying databases for &quot; + msToTime(elapsedMillis) + &quot;. Note this updates AFTER a collection has been cloned.&quot;);
+  print(&quot;Cloned &quot; + printPercentage(dbs_cloned, dbs_total, &quot;databases&quot;));
+  print(currentlyCloningStatus);
+}
+</pre></noscript><script src="https://gist.github.com/alexbevi/422890f191f4bcb82c06fbb621c69331.js"> </script>
+
+By running this against the SECONDARY from the mongo shell, a more concise representation of the `initialSyncStatus` document is produced:
+
+<img src="/images/initsync-002.png">
+
+The script will also let you know if there have been any sync failures recorded, as well as what the last failure was.
+
+<img src="/images/initsync-003.png">
+
+Hopefully you'll find this useful when the time comes to resync one of your nodes.]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[What is MongoDB FTDC (aka. diagnostic.data)]]></title>
@@ -692,24 +1036,6 @@ I encourage you to check out MongoDB's [available jobs](https://grnh.se/dcd90aac
 
 Feel free to leave a comment below or shoot me an email at [alex@alexbevi.com](mailto:alex@alexbevi.com) if you have any questions.
 ]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Hello MongoDB]]></title>
-        <link href="http://www.alexbevi.com/blog/2018/08/14/hello-mongodb/"/>
-        <updated>2018-08-14T15:31:04-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2018/08/14/hello-mongodb</id>
-        <content type="html"><![CDATA[As of August 13th, I am no longer a System Architect at DAC Group. I have a public post on [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6432589236368601088/) that got some good traction, but to summarize it was time to move on.
-
-I've been a software engineer in some capacity or another for nearly 20 years now. The position I've taken is as a *Technical Services Engineer*, which is more of a support role than an active development role.
-
-The decision to make this move wasn't make lightly. I've been working hands on with code or overseeing a team of developers on a day to day basis for most of my professional career. As such, I was also involved with software engineering, and this was no different in my role as a *System Architect*.
-
-In that role, I was still committing code on a nearly daily basis. If not, I was performing code review, or working on a design for a new system or solution. I would consider this all to still be "hands on", though I had found myself mired in DevOps work a lot more than I would have liked (there were not sufficient Linux Sysadmins available to assist with the type of server operations oversight that was required).
-
-The role at MongoDB isn't a traditional "Tech Support" type of role, as it requires a strong knowledge of networking, databases, system design, programming and client services. I've been a fan of the MongoDB server for over 8 years now, and have brought it along with me to several new consulting opportunities as well as the full time jobs I've help. I believe very strongly in the quality of this product, as well as the peripheral products that they've developed.
-
-I think the time has come for a new adventure. This is the first step towards a new career journey with a new company, as opposed to an incremental move upwards within the same professional space.]]></content>
     </entry>
     
 </feed>

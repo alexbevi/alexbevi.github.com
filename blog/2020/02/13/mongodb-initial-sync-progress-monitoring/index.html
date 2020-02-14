@@ -1,0 +1,803 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MongoDB Initial Sync Progress Monitoring - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="MongoDB Initial Sync Progress Monitoring Feb 13th, 2020 mongodb Comments Last Updated: Feb 14, 2020 Sometimes our replica sets fall off the oplog &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">MongoDB Initial Sync Progress Monitoring</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2020-02-13T12:34:49-05:00" pubdate><i class="fa fa-calendar"></i> Feb 13th, 2020</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Feb 14, 2020</em></small></p>
+    <p>Sometimes our replica sets fall off the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and the node needs to be resynced. When this happens, an <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">Initial Sync</a> is required, which does the following:</p>
+
+<ol>
+<li>Clones all databases except the local database. To clone, the <code>mongod</code> scans every collection in each source database and inserts all data into its own copies of these collections.</li>
+<li>Applies all changes to the data set. Using the oplog from the source, the <code>mongod</code> updates its data set to reflect the current state of the replica set.</li>
+</ol>
+
+
+<p>When the initial sync finishes, the member transitions from <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.STARTUP2"><code>STARTUP2</code></a> to <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.SECONDARY"><code>SECONDARY</code></a>.</p>
+
+<p>Some common questions when performing an initial sync of a <a href="https://docs.mongodb.com/manual/core/replica-set-members/">Replica Set Member</a> are:</p>
+
+<ul>
+<li>How do I know if the sync is progressing?</li>
+<li>How long will this take to complete?</li>
+</ul>
+
+
+<!-- MORE -->
+
+
+<p>Determining if the sync is progressing can be done by either checking the size of the <a href=""><code>dbPath</code></a> of the syncing node or by running the <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })</code></a> command while connected to the SECONDARY via the mongo shell.</p>
+
+<p><img src="/images/initsync-001.png"></p>
+
+<p>Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn&rsquo;t &ldquo;release&rdquo; space when documents are deleted there is a high probability that the SECONDARY will have a <em>smaller total directory size</em> than the sync source.</p>
+
+<p>The <code>replSetGetStatus</code> command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.</p>
+
+<p><noscript><pre>{
+  &quot;set&quot;: &quot;replset&quot;,
+  &quot;date&quot;: ISODate(&quot;2019-12-04T05:12:52.835Z&quot;),
+  &quot;myState&quot;: 5,
+  &quot;term&quot;: NumberLong(3),
+  &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceId&quot;: 1,
+  &quot;heartbeatIntervalMillis&quot;: NumberLong(2000),
+  &quot;majorityVoteCount&quot;: 2,
+  &quot;writeMajorityCount&quot;: 2,
+  &quot;optimes&quot;: {
+    &quot;lastCommittedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastCommittedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;appliedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;durableOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastAppliedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;lastDurableWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;)
+  },
+  &quot;lastStableRecoveryTimestamp&quot;: Timestamp(0, 0),
+  &quot;lastStableCheckpointTimestamp&quot;: Timestamp(0, 0),
+  &quot;initialSyncStatus&quot;: {
+    &quot;failedInitialSyncAttempts&quot;: 0,
+    &quot;maxFailedInitialSyncAttempts&quot;: 10,
+    &quot;initialSyncStart&quot;: ISODate(&quot;2019-12-04T05:12:35.719Z&quot;),
+    &quot;initialSyncAttempts&quot;: [],
+    &quot;fetchedMissingDocs&quot;: 0,
+    &quot;appliedOps&quot;: 0,
+    &quot;initialSyncOplogStart&quot;: Timestamp(1575436355, 1),
+    &quot;databases&quot;: {
+      &quot;databasesCloned&quot;: 2,
+      &quot;admin&quot;: {
+        &quot;collections&quot;: 4,
+        &quot;clonedCollections&quot;: 4,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.947Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;elapsedMillis&quot;: 539,
+        &quot;admin.system.roles&quot;: {
+          &quot;documentsToCopy&quot;: 12,
+          &quot;documentsCopied&quot;: 12,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.950Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.users&quot;: {
+          &quot;documentsToCopy&quot;: 22,
+          &quot;documentsCopied&quot;: 22,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.keys&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;elapsedMillis&quot;: 120,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.version&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+          &quot;elapsedMillis&quot;: 114,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;config&quot;: {
+        &quot;collections&quot;: 2,
+        &quot;clonedCollections&quot;: 2,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;elapsedMillis&quot;: 377,
+        &quot;config.transactions&quot;: {
+          &quot;documentsToCopy&quot;: 0,
+          &quot;documentsCopied&quot;: 0,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 0,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.487Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;elapsedMillis&quot;: 158,
+          &quot;receivedBatches&quot;: 0
+        },
+        &quot;config.system.sessions&quot;: {
+          &quot;documentsToCopy&quot;: 1,
+          &quot;documentsCopied&quot;: 1,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+          &quot;elapsedMillis&quot;: 218,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;test&quot;: {
+        &quot;collections&quot;: 1,
+        &quot;clonedCollections&quot;: 0,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;test.hugeindex&quot;: {
+          &quot;documentsToCopy&quot;: 25000,
+          &quot;documentsCopied&quot;: 9187,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 8,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.865Z&quot;),
+          &quot;receivedBatches&quot;: 9
+        }
+      }
+    }
+  },
+  &quot;members&quot;: [
+    {
+      &quot;<em>id&quot;: 0,
+      &quot;name&quot;: &quot;m1.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.1&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 1,
+      &quot;stateStr&quot;: &quot;PRIMARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:51.485Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;electionTime&quot;: Timestamp(1575434944, 1),
+      &quot;electionDate&quot;: ISODate(&quot;2019-12-04T04:49:04Z&quot;),
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;</em>id&quot;: 1,
+      &quot;name&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.2&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 2,
+      &quot;stateStr&quot;: &quot;SECONDARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:52.728Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 2,
+      &quot;name&quot;: &quot;m3.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.3&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 5,
+      &quot;stateStr&quot;: &quot;STARTUP2&quot;,
+      &quot;uptime&quot;: 71,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(0,
+        0),
+        &quot;t&quot;: NumberLong(-1)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+      &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceId&quot;: 1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3,
+      &quot;self&quot;: true,
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;
+    }
+  ],
+  &quot;ok&quot;: 1
+}</pre></noscript><script src="https://gist.github.com/alexbevi/d52ffd2e27068dcdcc616a5aaf814907.js"> </script></p>
+
+<p>Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.</p>
+
+<p>To try and improve this situation I&rsquo;ve created the following script.</p>
+
+<p><noscript><pre>/<em>
+* initialSyncProgress
+* @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+*
+* Can be run against a MongoDB 3.4+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* insight into how the sync is progressing. This script WILL NOT tell you how long until the sync
+* is complete, but based on how the script reports progress can be used to estimate this.
+*
+* usage:
+*   mongo &ndash;quiet &ndash;eval &quot;load(&#39;initialSyncProgress.js&#39;); initialSyncProgress();&quot;
+</em>/
+var printPercentage = function (position, length, type) {
+  var p = Math.round((position / length) * 100, 2);
+  return position + &quot;/&quot; + length + &quot; &quot; + type + &quot; (&quot; + p + &quot;%)&quot;;
+}</p>
+
+<p>var msToTime = function (duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);</p>
+
+<p>  hours = (hours &lt; 10) ? &quot;0&quot; + hours : hours;
+  minutes = (minutes &lt; 10) ? &quot;0&quot; + minutes : minutes;
+  seconds = (seconds &lt; 10) ? &quot;0&quot; + seconds : seconds;</p>
+
+<p>  return hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;.&quot; + milliseconds;
+}</p>
+
+<p>var initialSyncProgress = function () {
+  var status = db.adminCommand({ replSetGetStatus: 1, initialSync: 1 });
+  var dbs_cloned = status.initialSyncStatus.databases.databasesCloned;
+  delete status.initialSyncStatus.databases.databasesCloned;
+  var dbs = Object.keys(status.initialSyncStatus.databases);
+  var dbs_total = dbs.length;</p>
+
+<p>  // total time elapsed syncing databases
+  var elapsedMillis = 0;</p>
+
+<p>  // status message based on the position within the currently
+  // cloning database (collections cloned of collections total)
+  var currentlyCloningStatus = &quot;&quot;;</p>
+
+<p>  for (var i = 0; i &lt; dbs_total; i++) {
+    var d = status.initialSyncStatus.databases[dbs[i]];
+    // if the counts aren&#39;t the same either it&#39;s the database that&#39;s in progress or
+    // hasn&#39;t started cloning yet
+    if (d.clonedCollections &lt; d.collections) {
+      currentlyCloningStatus = &quot;Cloning database &quot; + dbs[i];
+      currentlyCloningStatus += &quot; - cloned &quot; + printPercentage(d.clonedCollections, d.collections, &quot;collections&quot;);
+      var collectionKeys = Object.keys(d);
+      for (var j = 0; j &lt; collectionKeys.length; j++) {
+        var c = d[collectionKeys[j]];
+        if (c.hasOwnProperty(&quot;documentsToCopy&quot;) &amp;&amp; (c.documentsCopied &lt; c.documentsToCopy)) {
+          currentlyCloningStatus += &quot;\nCloning collection &quot; + collectionKeys[j] + &quot; &quot; + printPercentage(c.documentsCopied, c.documentsToCopy, &quot;documents&quot;);
+        }
+      }
+    }
+    // only add time if there&#39;s time to record
+    if (d.hasOwnProperty(&quot;elapsedMillis&quot;)) {
+      elapsedMillis += d.elapsedMillis;
+    }
+  }
+  print(&quot;===================&quot;)
+  print(&quot;Initial Sync Status&quot;)
+  print(&quot;===================&quot;)
+  var now = new Date();
+  var started = status.initialSyncStatus.initialSyncStart;
+  print(&quot;Cloning started at &quot; + started + &quot; (&quot; + msToTime(now - started) + &quot; ago)&quot;);
+  var members = status.members;
+  for (var i = 0; i &lt; members.length; i++) {
+    if (members[i].stateStr == &quot;PRIMARY&quot;) {
+      var optime = members[i].optimeDate
+      var me = new Date(status.initialSyncStatus.initialSyncOplogStart.getTime() * 1000);
+      print(&quot;Currently &quot; + msToTime(optime - me) + &quot; behind the PRIMARY (based on optimes)&quot;);
+    }
+  }
+  if (status.initialSyncStatus.hasOwnProperty(&quot;initialSyncAttempts&quot;) &amp;&amp; status.initialSyncStatus.initialSyncAttempts.length &gt; 0) {
+    var failures = status.initialSyncStatus.initialSyncAttempts.length;
+    print(&quot;Cloning has already failed &quot; + failures + &quot; time(s) &hellip;&quot;);
+    print(&quot;Last Failure: &quot; + status.initialSyncStatus.initialSyncAttempts[failures - 1].status);
+  }
+  print(&quot;Copying databases for &quot; + msToTime(elapsedMillis) + &quot;. Note this updates AFTER a collection has been cloned.&quot;);
+  print(&quot;Cloned &quot; + printPercentage(dbs_cloned, dbs_total, &quot;databases&quot;));
+  print(currentlyCloningStatus);
+}
+</pre></noscript><script src="https://gist.github.com/alexbevi/422890f191f4bcb82c06fbb621c69331.js"> </script></p>
+
+<p>By running this against the SECONDARY from the mongo shell, a more concise representation of the <code>initialSyncStatus</code> document is produced:</p>
+
+<p><img src="/images/initsync-002.png"></p>
+
+<p>The script will also let you know if there have been any sync failures recorded, as well as what the last failure was.</p>
+
+<p><img src="/images/initsync-003.png"></p>
+
+<p>Hopefully you&rsquo;ll find this useful when the time comes to resync one of your nodes.</p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available hire--vibrant">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">MongoDB Initial Sync Progress Monitoring</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineering at MongoDB</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6215800856413580",
+            enable_page_level_ads: true
+       });
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

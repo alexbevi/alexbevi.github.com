@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2020-01-30T05:41:21-05:00</updated>
+  <updated>2020-02-14T11:20:29-05:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,358 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB Initial Sync Progress Monitoring]]></title>
+    <link href="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/"/>
+    <updated>2020-02-13T12:34:49-05:00</updated>
+    <id>http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</id>
+    <content type="html"><![CDATA[<p>Sometimes our replica sets fall off the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and the node needs to be resynced. When this happens, an <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">Initial Sync</a> is required, which does the following:</p>
+
+<ol>
+<li>Clones all databases except the local database. To clone, the <code>mongod</code> scans every collection in each source database and inserts all data into its own copies of these collections.</li>
+<li>Applies all changes to the data set. Using the oplog from the source, the <code>mongod</code> updates its data set to reflect the current state of the replica set.</li>
+</ol>
+
+
+<p>When the initial sync finishes, the member transitions from <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.STARTUP2"><code>STARTUP2</code></a> to <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.SECONDARY"><code>SECONDARY</code></a>.</p>
+
+<p>Some common questions when performing an initial sync of a <a href="https://docs.mongodb.com/manual/core/replica-set-members/">Replica Set Member</a> are:</p>
+
+<ul>
+<li>How do I know if the sync is progressing?</li>
+<li>How long will this take to complete?</li>
+</ul>
+
+
+<!-- MORE -->
+
+
+<p>Determining if the sync is progressing can be done by either checking the size of the <a href=""><code>dbPath</code></a> of the syncing node or by running the <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })</code></a> command while connected to the SECONDARY via the mongo shell.</p>
+
+<p><img src="http://www.alexbevi.com/images/initsync-001.png"></p>
+
+<p>Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn&rsquo;t &ldquo;release&rdquo; space when documents are deleted there is a high probability that the SECONDARY will have a <em>smaller total directory size</em> than the sync source.</p>
+
+<p>The <code>replSetGetStatus</code> command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.</p>
+
+<p><noscript><pre>{
+  &quot;set&quot;: &quot;replset&quot;,
+  &quot;date&quot;: ISODate(&quot;2019-12-04T05:12:52.835Z&quot;),
+  &quot;myState&quot;: 5,
+  &quot;term&quot;: NumberLong(3),
+  &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+  &quot;syncSourceId&quot;: 1,
+  &quot;heartbeatIntervalMillis&quot;: NumberLong(2000),
+  &quot;majorityVoteCount&quot;: 2,
+  &quot;writeMajorityCount&quot;: 2,
+  &quot;optimes&quot;: {
+    &quot;lastCommittedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastCommittedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;appliedOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;durableOpTime&quot;: {
+      &quot;ts&quot;: Timestamp(0, 0),
+      &quot;t&quot;: NumberLong(-1)
+    },
+    &quot;lastAppliedWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+    &quot;lastDurableWallTime&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;)
+  },
+  &quot;lastStableRecoveryTimestamp&quot;: Timestamp(0, 0),
+  &quot;lastStableCheckpointTimestamp&quot;: Timestamp(0, 0),
+  &quot;initialSyncStatus&quot;: {
+    &quot;failedInitialSyncAttempts&quot;: 0,
+    &quot;maxFailedInitialSyncAttempts&quot;: 10,
+    &quot;initialSyncStart&quot;: ISODate(&quot;2019-12-04T05:12:35.719Z&quot;),
+    &quot;initialSyncAttempts&quot;: [],
+    &quot;fetchedMissingDocs&quot;: 0,
+    &quot;appliedOps&quot;: 0,
+    &quot;initialSyncOplogStart&quot;: Timestamp(1575436355, 1),
+    &quot;databases&quot;: {
+      &quot;databasesCloned&quot;: 2,
+      &quot;admin&quot;: {
+        &quot;collections&quot;: 4,
+        &quot;clonedCollections&quot;: 4,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.947Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;elapsedMillis&quot;: 539,
+        &quot;admin.system.roles&quot;: {
+          &quot;documentsToCopy&quot;: 12,
+          &quot;documentsCopied&quot;: 12,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:35.950Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.users&quot;: {
+          &quot;documentsToCopy&quot;: 22,
+          &quot;documentsCopied&quot;: 22,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.101Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;elapsedMillis&quot;: 151,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.keys&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.252Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;elapsedMillis&quot;: 120,
+          &quot;receivedBatches&quot;: 1
+        },
+        &quot;admin.system.version&quot;: {
+          &quot;documentsToCopy&quot;: 2,
+          &quot;documentsCopied&quot;: 2,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.372Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+          &quot;elapsedMillis&quot;: 114,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;config&quot;: {
+        &quot;collections&quot;: 2,
+        &quot;clonedCollections&quot;: 2,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.486Z&quot;),
+        &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;elapsedMillis&quot;: 377,
+        &quot;config.transactions&quot;: {
+          &quot;documentsToCopy&quot;: 0,
+          &quot;documentsCopied&quot;: 0,
+          &quot;indexes&quot;: 1,
+          &quot;fetchedBatches&quot;: 0,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.487Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;elapsedMillis&quot;: 158,
+          &quot;receivedBatches&quot;: 0
+        },
+        &quot;config.system.sessions&quot;: {
+          &quot;documentsToCopy&quot;: 1,
+          &quot;documentsCopied&quot;: 1,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 1,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.645Z&quot;),
+          &quot;end&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+          &quot;elapsedMillis&quot;: 218,
+          &quot;receivedBatches&quot;: 1
+        }
+      },
+      &quot;test&quot;: {
+        &quot;collections&quot;: 1,
+        &quot;clonedCollections&quot;: 0,
+        &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.863Z&quot;),
+        &quot;test.hugeindex&quot;: {
+          &quot;documentsToCopy&quot;: 25000,
+          &quot;documentsCopied&quot;: 9187,
+          &quot;indexes&quot;: 2,
+          &quot;fetchedBatches&quot;: 8,
+          &quot;start&quot;: ISODate(&quot;2019-12-04T05:12:36.865Z&quot;),
+          &quot;receivedBatches&quot;: 9
+        }
+      }
+    }
+  },
+  &quot;members&quot;: [
+    {
+      &quot;<em>id&quot;: 0,
+      &quot;name&quot;: &quot;m1.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.1&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 1,
+      &quot;stateStr&quot;: &quot;PRIMARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:51.485Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;electionTime&quot;: Timestamp(1575434944, 1),
+      &quot;electionDate&quot;: ISODate(&quot;2019-12-04T04:49:04Z&quot;),
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;</em>id&quot;: 1,
+      &quot;name&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.2&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 2,
+      &quot;stateStr&quot;: &quot;SECONDARY&quot;,
+      &quot;uptime&quot;: 17,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDurable&quot;: {
+        &quot;ts&quot;: Timestamp(1575436355, 1),
+        &quot;t&quot;: NumberLong(3)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;optimeDurableDate&quot;: ISODate(&quot;2019-12-04T05:12:35Z&quot;),
+      &quot;lastHeartbeat&quot;: ISODate(&quot;2019-12-04T05:12:52.216Z&quot;),
+      &quot;lastHeartbeatRecv&quot;: ISODate(&quot;2019-12-04T05:12:52.728Z&quot;),
+      &quot;pingMs&quot;: NumberLong(0),
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;,
+      &quot;syncingTo&quot;: &quot;&quot;,
+      &quot;syncSourceHost&quot;: &quot;&quot;,
+      &quot;syncSourceId&quot;: -1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3
+    },
+    {
+      &quot;_id&quot;: 2,
+      &quot;name&quot;: &quot;m3.example.net:27017&quot;,
+      &quot;ip&quot;: &quot;198.51.100.3&quot;,
+      &quot;health&quot;: 1,
+      &quot;state&quot;: 5,
+      &quot;stateStr&quot;: &quot;STARTUP2&quot;,
+      &quot;uptime&quot;: 71,
+      &quot;optime&quot;: {
+        &quot;ts&quot;: Timestamp(0,
+        0),
+        &quot;t&quot;: NumberLong(-1)
+      },
+      &quot;optimeDate&quot;: ISODate(&quot;1970-01-01T00:00:00Z&quot;),
+      &quot;syncingTo&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceHost&quot;: &quot;m2.example.net:27017&quot;,
+      &quot;syncSourceId&quot;: 1,
+      &quot;infoMessage&quot;: &quot;&quot;,
+      &quot;configVersion&quot;: 3,
+      &quot;self&quot;: true,
+      &quot;lastHeartbeatMessage&quot;: &quot;&quot;
+    }
+  ],
+  &quot;ok&quot;: 1
+}</pre></noscript><script src="https://gist.github.com/alexbevi/d52ffd2e27068dcdcc616a5aaf814907.js"> </script></p>
+
+<p>Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.</p>
+
+<p>To try and improve this situation I&rsquo;ve created the following script.</p>
+
+<p><noscript><pre>/<em>
+* initialSyncProgress
+* @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+*
+* Can be run against a MongoDB 3.4+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* insight into how the sync is progressing. This script WILL NOT tell you how long until the sync
+* is complete, but based on how the script reports progress can be used to estimate this.
+*
+* usage:
+*   mongo &ndash;quiet &ndash;eval &quot;load(&#39;initialSyncProgress.js&#39;); initialSyncProgress();&quot;
+</em>/
+var printPercentage = function (position, length, type) {
+  var p = Math.round((position / length) * 100, 2);
+  return position + &quot;/&quot; + length + &quot; &quot; + type + &quot; (&quot; + p + &quot;%)&quot;;
+}</p>
+
+<p>var msToTime = function (duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);</p>
+
+<p>  hours = (hours &lt; 10) ? &quot;0&quot; + hours : hours;
+  minutes = (minutes &lt; 10) ? &quot;0&quot; + minutes : minutes;
+  seconds = (seconds &lt; 10) ? &quot;0&quot; + seconds : seconds;</p>
+
+<p>  return hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;.&quot; + milliseconds;
+}</p>
+
+<p>var initialSyncProgress = function () {
+  var status = db.adminCommand({ replSetGetStatus: 1, initialSync: 1 });
+  var dbs_cloned = status.initialSyncStatus.databases.databasesCloned;
+  delete status.initialSyncStatus.databases.databasesCloned;
+  var dbs = Object.keys(status.initialSyncStatus.databases);
+  var dbs_total = dbs.length;</p>
+
+<p>  // total time elapsed syncing databases
+  var elapsedMillis = 0;</p>
+
+<p>  // status message based on the position within the currently
+  // cloning database (collections cloned of collections total)
+  var currentlyCloningStatus = &quot;&quot;;</p>
+
+<p>  for (var i = 0; i &lt; dbs_total; i++) {
+    var d = status.initialSyncStatus.databases[dbs[i]];
+    // if the counts aren&#39;t the same either it&#39;s the database that&#39;s in progress or
+    // hasn&#39;t started cloning yet
+    if (d.clonedCollections &lt; d.collections) {
+      currentlyCloningStatus = &quot;Cloning database &quot; + dbs[i];
+      currentlyCloningStatus += &quot; - cloned &quot; + printPercentage(d.clonedCollections, d.collections, &quot;collections&quot;);
+      var collectionKeys = Object.keys(d);
+      for (var j = 0; j &lt; collectionKeys.length; j++) {
+        var c = d[collectionKeys[j]];
+        if (c.hasOwnProperty(&quot;documentsToCopy&quot;) &amp;&amp; (c.documentsCopied &lt; c.documentsToCopy)) {
+          currentlyCloningStatus += &quot;\nCloning collection &quot; + collectionKeys[j] + &quot; &quot; + printPercentage(c.documentsCopied, c.documentsToCopy, &quot;documents&quot;);
+        }
+      }
+    }
+    // only add time if there&#39;s time to record
+    if (d.hasOwnProperty(&quot;elapsedMillis&quot;)) {
+      elapsedMillis += d.elapsedMillis;
+    }
+  }
+  print(&quot;===================&quot;)
+  print(&quot;Initial Sync Status&quot;)
+  print(&quot;===================&quot;)
+  var now = new Date();
+  var started = status.initialSyncStatus.initialSyncStart;
+  print(&quot;Cloning started at &quot; + started + &quot; (&quot; + msToTime(now - started) + &quot; ago)&quot;);
+  var members = status.members;
+  for (var i = 0; i &lt; members.length; i++) {
+    if (members[i].stateStr == &quot;PRIMARY&quot;) {
+      var optime = members[i].optimeDate
+      var me = new Date(status.initialSyncStatus.initialSyncOplogStart.getTime() * 1000);
+      print(&quot;Currently &quot; + msToTime(optime - me) + &quot; behind the PRIMARY (based on optimes)&quot;);
+    }
+  }
+  if (status.initialSyncStatus.hasOwnProperty(&quot;initialSyncAttempts&quot;) &amp;&amp; status.initialSyncStatus.initialSyncAttempts.length &gt; 0) {
+    var failures = status.initialSyncStatus.initialSyncAttempts.length;
+    print(&quot;Cloning has already failed &quot; + failures + &quot; time(s) &hellip;&quot;);
+    print(&quot;Last Failure: &quot; + status.initialSyncStatus.initialSyncAttempts[failures - 1].status);
+  }
+  print(&quot;Copying databases for &quot; + msToTime(elapsedMillis) + &quot;. Note this updates AFTER a collection has been cloned.&quot;);
+  print(&quot;Cloned &quot; + printPercentage(dbs_cloned, dbs_total, &quot;databases&quot;));
+  print(currentlyCloningStatus);
+}
+</pre></noscript><script src="https://gist.github.com/alexbevi/422890f191f4bcb82c06fbb621c69331.js"> </script></p>
+
+<p>By running this against the SECONDARY from the mongo shell, a more concise representation of the <code>initialSyncStatus</code> document is produced:</p>
+
+<p><img src="http://www.alexbevi.com/images/initsync-002.png"></p>
+
+<p>The script will also let you know if there have been any sync failures recorded, as well as what the last failure was.</p>
+
+<p><img src="http://www.alexbevi.com/images/initsync-003.png"></p>
+
+<p>Hopefully you&rsquo;ll find this useful when the time comes to resync one of your nodes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What is MongoDB FTDC (aka. diagnostic.data)]]></title>
@@ -1105,8 +1457,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#108;&#x65;&#x78;&#98;&#x65;&#x76;&#x69;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#97;&#x6c;&#x65;&#x78;&#98;&#x65;&#x76;&#x69;&#64;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a>
-To: <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x77;&#101;&#x62;&#x2e;&#115;&#117;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#98;&#x6c;&#x69;&#x7a;&#122;&#x61;&#x72;&#x64;&#46;&#99;&#x6f;&#109;">&#x77;&#101;&#98;&#46;&#115;&#117;&#112;&#x70;&#111;&#114;&#116;&#x40;&#98;&#108;&#105;&#x7a;&#122;&#97;&#114;&#100;&#46;&#x63;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#97;&#108;&#x65;&#120;&#98;&#101;&#x76;&#105;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#97;&#108;&#101;&#120;&#x62;&#101;&#118;&#x69;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a>
+To: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#119;&#101;&#x62;&#46;&#115;&#117;&#112;&#x70;&#111;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#122;&#x7a;&#97;&#x72;&#x64;&#46;&#x63;&#x6f;&#109;">&#119;&#101;&#x62;&#46;&#115;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#64;&#x62;&#x6c;&#x69;&#x7a;&#122;&#x61;&#114;&#x64;&#46;&#99;&#x6f;&#x6d;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -1926,410 +2278,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 
 
 <p>Next up, <a href="https://en.wikipedia.org/wiki/Seiken_Densetsu_3">Seiken Densetsu 3</a>. This one will probably take me a while to complete, then a longer while to actually do a write up on.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Recovering a WiredTiger collection from a corrupt MongoDB installation]]></title>
-    <link href="http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/"/>
-    <updated>2016-02-10T20:38:38-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation</id>
-    <content type="html"><![CDATA[<blockquote>
-April, 1 2019: I've received a <em>LOT</em> of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a <tt>--repair</tt> flag in 4.0.3 that simplifies this process significantly.
-
-I would recommend reading their <a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown">"Recover a Standalone after an Unexpected Shutdown"</a> tutorial to see if it applies to your recovery scenario.
-</blockquote>
-
-
-<p>Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL&rsquo;d in from another process.</p>
-
-<p>The secondary process failed, and as a result, <em>everything</em> was &ldquo;cleaned&rdquo; &hellip; aka, we purged an entire dataset.</p>
-
-<p>This data happens to be on a 5 node replicaset (primary-secondary-secondary-arbiter-hidden), and the hidden node died over the holidays and I waited too long to recover it, so it was unable to ever catch up to the primary (always stuck in a RECOVERING state).</p>
-
-<p>My incredible foresight (&hellip; laziness &hellip; ) resulted in us having a backup of the data ready to be extracted from the out of sync hidden node. All we had to do was start up <strong>mongod</strong> &hellip; right?</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>2016-01-29T21:06:05.180-0500 I CONTROL  ***** SERVER RESTARTED *****
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] MongoDB starting : pid=1745 port=27021 dbpath=/data 64-bit host=xxx
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] db version v3.0.8
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] git version: 83d8cc25e00e42856924d84e220fbe4a839e605d
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] build info: Linux build3.ny.cbi.10gen.cc 2.6.32-431.3.1.el6.x86_64 #1 SMP Fri Jan 3 21:39:27 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
-</span><span class='line'>2016-01-29T21:06:05.241-0500 I CONTROL  [initandlisten] allocator: tcmalloc
-</span><span class='line'>...
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W -        [initandlisten] Detected unclean shutdown - /data/mongod.lock is not empty.
-</span><span class='line'>2016-01-29T21:06:05.315-0500 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
-</span><span class='line'>2016-01-29T21:06:05.324-0500 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=13G,session_max=20000,eviction=(threads_max=4),statistics=(fast),log=(enabled=true,archive=true
-</span><span class='line'>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:724960][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: read checksum error for 4096B block at offset 6
-</span><span class='line'>799360: block header checksum of 1769173605 doesn't match expected checksum of 4176084783
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (0) [1454119565:725067][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: WiredTiger.wt: encountered an illegal file form
-</span><span class='line'>at or internal value
-</span><span class='line'>2016-01-29T21:06:05.725-0500 E STORAGE  [initandlisten] WiredTiger (-31804) [1454119565:725088][1745:0x7f2ac9534bc0], file:WiredTiger.wt, cursor.next: the process must exit and restart: WT_PANI
-</span><span class='line'>C: WiredTiger library panic
-</span><span class='line'>2016-01-29T21:06:05.725-0500 I -        [initandlisten] Fatal Assertion 28558</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Aw crap. I could not for the life of me get the node back up and running. Since this was a replica-set member, I thought maybe if I just copied the failing file from the (working) primary it would just work. Apparently that&rsquo;s not the way MongoDB or WiredTiger works :P. Back to the drawing board.</p>
-
-<!-- more -->
-
-
-<p>I could see that my data directory contained a bunch of <code>collection-*.wt</code> and <code>index-*.wt</code> files, so I assumed these were the WiredTiger collection and index files. These are binary files so <code>grep</code>-ing didn&rsquo;t help me identify the collection I needed.</p>
-
-<p>I wanted to next see if I could just copy the collection&rsquo;s backing file directly to a new (working) MongoDB installation, so I started up a new <code>mongod</code>, created a new collection with a document in it, then copied over any <code>collection-*.wt</code> file to see what would happen.</p>
-
-<p>Guess what &hellip; didn&rsquo;t work.</p>
-
-<p><strong>Identify the WiredTiger collection&rsquo;s backing file</strong></p>
-
-<p>Since we had access to a working node, plus the collection hadn&rsquo;t been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.getCollection('borkedCollection').stats()
-</span><span class='line'>
-</span><span class='line'>{
-</span><span class='line'>    "ns" : "production.borkedCollection",
-</span><span class='line'>    "count" : 0,
-</span><span class='line'>    "size" : 0,
-</span><span class='line'>    "storageSize" : 1138688,
-</span><span class='line'>    "capped" : false,
-</span><span class='line'>    "wiredTiger" : {
-</span><span class='line'>        "metadata" : {
-</span><span class='line'>            "formatVersion" : 1
-</span><span class='line'>        },
-</span><span class='line'>        "creationString" : "allocation_size=4KB,app_metadata=(formatVersion=1),block_allocation=best,block_compressor=snappy,cache_resident=0,checkpoint=(WiredTigerCheckpoint.5149=(addr=\"01808080808080c0b081e40ebe4855808080e3113fc0e401417fc0\",order=5149,time=1454966060,size=21078016,write_gen=119495)),checkpoint_lsn=(224134,44112768),checksum=on,collator=,columns=,dictionary=0,format=btree,huffman_key=,huffman_value=,id=178668,internal_item_max=0,internal_key_max=0,internal_key_truncate=,internal_page_max=4KB,key_format=q,key_gap=10,leaf_item_max=0,leaf_key_max=0,leaf_page_max=32KB,leaf_value_max=1MB,memory_page_max=10m,os_cache_dirty_max=0,os_cache_max=0,prefix_compression=0,prefix_compression_min=4,split_deepen_min_child=0,split_deepen_per_child=0,split_pct=90,value_format=u,version=(major=1,minor=1)",
-</span><span class='line'>        "type" : "file",
-</span><span class='line'>        "uri" : "statistics:table:collection-7895--1435676552983097781",
-</span><span class='line'>        "LSM" : {
-</span><span class='line'>            //...
-</span><span class='line'>        },
-</span><span class='line'>        "block-manager" : {
-</span><span class='line'>            //...
-</span><span class='line'>        },
-</span><span class='line'>        "btree" : {
-</span><span class='line'>            // ...
-</span><span class='line'>        },
-</span><span class='line'>        // ...
-</span><span class='line'>    },
-</span><span class='line'>    "nindexes" : 4,
-</span><span class='line'>    "totalIndexSize" : 1437696,
-</span><span class='line'>    "indexSizes" : {
-</span><span class='line'>        "_id_" : 212992,
-</span><span class='line'>        // ...
-</span><span class='line'>    },
-</span><span class='line'>    "ok" : 1
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That <code>"uri" : "statistics:table:collection-7895--1435676552983097781"</code> entry looked promising.</p>
-
-<p>I started hunting for a way to extract the data from this file without having to &ldquo;mount&rdquo; the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that <a href="http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage">happened to have a &lsquo;salvage&rsquo; command</a>.</p>
-
-<p><strong>Salvaging the WiredTiger collection</strong></p>
-
-<p>In order to use the <code>wt</code> utility, you have to build it from source. Being comfortable in Linux, this was not daunting ;)</p>
-
-<pre><code>wget http://source.wiredtiger.com/releases/wiredtiger-2.7.0.tar.bz2
-tar xvf wiredtiger-2.7.0.tar.bz2
-cd wiredtiger-2.7.0
-sudo apt-get install libsnappy-dev build-essential
-./configure --enable-snappy
-make
-</code></pre>
-
-<p><strong>NOTE</strong> adding support for Google&rsquo;s <a href="https://github.com/google/snappy">snappy</a> compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.</p>
-
-<p>Now that I had a <code>wt</code> utility, I wanted to test it out on the collection file. It turns out that you need additional supporting files before you can do this. Once I&rsquo;d copied over the necessary files, my working directory (called <code>mongo-bak</code>) looked like this:</p>
-
-<pre><code>-rw-r--r-- 1 root      root      4738772992 Feb  9 14:06 collection-2657--1723320556100349955.wt
--rw-r--r-- 1 root      root         1155072 Feb  9 14:05 _mdb_catalog.wt
--rw-r--r-- 1 root      root        26935296 Feb  9 14:05 sizeStorer.wt
--rw-r--r-- 1 root      root              95 Feb  9 14:05 storage.bson
--rw-r--r-- 1 root      root              46 Feb  9 14:04 WiredTiger
--rw-r--r-- 1 root      root             495 Feb  9 14:04 WiredTiger.basecfg
--rw-r--r-- 1 root      root              21 Feb  9 14:04 WiredTiger.lock
--rw-r--r-- 1 root      root             916 Feb  9 14:04 WiredTiger.turtle
--rw-r--r-- 1 root      root        10436608 Feb  9 14:04 WiredTiger.wt
-</code></pre>
-
-<p>Now, from the directory where we compiled WiredTiger, we started salvaging the collection:</p>
-
-<pre><code>./wt -v -h ../mongo-bak -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R salvage collection-2657--1723320556100349955.wt
-</code></pre>
-
-<p>You know it&rsquo;s working if you see output along the lines of:</p>
-
-<pre><code>WT_SESSION.salvage 639400
-</code></pre>
-
-<p>which I believe is just counting up the number of documents recovered. Once the operation has completed, it will have overwritten the source <code>*.wt</code> collection file with whatever it could salvage.</p>
-
-<p>The only issue is that you still can&rsquo;t load this into MongoDB yet.</p>
-
-<p><strong>Importing the WiredTiger collection via dump/load into MongoDB</strong></p>
-
-<p>In order to get the data into MongoDB, first we need to generate a dump file from the WiredTiger collection file. This is done using the <code>wt</code> utility:</p>
-
-<pre><code>./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R dump -f ../collection.dump collection-2657--1723320556100349955
-</code></pre>
-
-<p>This operation produces no output, so you&rsquo;ll just have to sit tight and wait a while. You can always <code>watch ls -l</code> in another console if you want to make sure it&rsquo;s working ;)</p>
-
-<p>Once completed, you&rsquo;ll have a <code>collection.dump</code> file, but this <em>still</em> can&rsquo;t be loaded directly into MongoDB. You can however, using the <code>wt</code> utility one more time, load the dump back into a WiredTiger collection.</p>
-
-<p>First, let&rsquo;s startup a new <code>mongod</code> instance that we can try this out on.</p>
-
-<pre><code>mongod --dbpath tmp-mongo --storageEngine wiredTiger --nojournal
-</code></pre>
-
-<p>Next, let&rsquo;s connect to this instance via the mongo shell and create a new collection:</p>
-
-<pre><code>use Recovery
-db.borkedCollection.insert({test: 1})
-db.borkedCollection.remove({})
-db.borkedCollection.stats()
-</code></pre>
-
-<p>I&rsquo;ve created a new db called <em>Recovery</em>, and inserted/removed a document so the collection&rsquo;s backing file would be generated. You can use the <code>stats()</code> method to get the collection name, but since we&rsquo;re only using one collection, it&rsquo;s easy enough to find just using <code>ls</code>.</p>
-
-<p>Now we&rsquo;re going to take the backing file name of the collection we just created and use that to load our WiredTiger dump file:</p>
-
-<pre><code>./wt -v -h ../data -C "extensions=[./ext/compressors/snappy/.libs/libwiredtiger_snappy.so]" -R load -f ../collection.dump -r collection-2-880383588247732034
-</code></pre>
-
-<p>Note that we drop the <code>.wt</code> extension from the collection file above. Also, the <code>-h</code> flag needs to point to the directory where our <code>mongod</code> has it&rsquo;s <code>dbPath</code>. Finally, <code>mongod</code> should not be running.</p>
-
-<p>This operation also provides a progress indicator showing how much data has been loaded:</p>
-
-<pre><code>table:collection-4--4286091263744514813: 1386220
-</code></pre>
-
-<p>Once completed, we can start <code>mongod</code> back up, shell in and have a look:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
-</span><span class='line'>MongoDB shell version: 3.2.1
-</span><span class='line'>connecting to: test
-</span><span class='line'>Mongo-Hacker 0.0.9
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
-</span><span class='line'>Recovery → 0.087GB
-</span><span class='line'>local    → 0.000GB
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
-</span><span class='line'>switched to db Recovery
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
-</span><span class='line'>borkedCollection → 0.000MB / 88.801MB
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
-</span><span class='line'>0</span></code></pre></td></tr></table></div></figure>
-
-
-<p>WTF? The size looks right, but there are no documents???</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.find({}, {_id: 1})
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac74")
-</span><span class='line'>}
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f3b2e967329c888ac76")
-</span><span class='line'>}
-</span><span class='line'>...
-</span><span class='line'>{
-</span><span class='line'>  "_id": ObjectId("55e07f402e967329c888ac85")
-</span><span class='line'>}
-</span><span class='line'>Fetched 20 record(s) in 29ms -- More[true]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Well that&rsquo;s promising, but the collection still hasn&rsquo;t been <em>properly</em> restored yet.</p>
-
-<p><strong>Restoring the MongoDB collection to a usable state</strong></p>
-
-<p>This final part is pretty straightforward, as we&rsquo;re just going to do a <code>mongodump</code>, followed by a <code>mongorestore</code>.</p>
-
-<p><strong>NOTE</strong> The <code>mongodump</code> will fail if you&rsquo;re using a version of MongoDB &lt; 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongodump
-</span><span class='line'>2016-02-10T22:04:00.580-0500    writing Recovery.borkedCollection to
-</span><span class='line'>2016-02-10T22:04:03.579-0500    Recovery.borkedCollection  268219
-</span><span class='line'>2016-02-10T22:04:06.579-0500    Recovery.borkedCollection  340655
-</span><span class='line'>2016-02-10T22:04:09.579-0500    Recovery.borkedCollection  496787
-</span><span class='line'>2016-02-10T22:04:12.579-0500    Recovery.borkedCollection  670894
-</span><span class='line'>2016-02-10T22:04:15.579-0500    Recovery.borkedCollection  778539
-</span><span class='line'>2016-02-10T22:04:18.579-0500    Recovery.borkedCollection  848525
-</span><span class='line'>2016-02-10T22:04:21.579-0500    Recovery.borkedCollection  991277
-</span><span class='line'>2016-02-10T22:04:24.579-0500    Recovery.borkedCollection  1147718
-</span><span class='line'>2016-02-10T22:04:27.579-0500    Recovery.borkedCollection  1187600
-</span><span class='line'>2016-02-10T22:04:30.579-0500    Recovery.borkedCollection  1353665
-</span><span class='line'>2016-02-10T22:04:33.579-0500    Recovery.borkedCollection  1376255
-</span><span class='line'>2016-02-10T22:04:33.681-0500    Recovery.borkedCollection  1386220
-</span><span class='line'>2016-02-10T22:04:33.682-0500    done dumping Recovery.borkedCollection (1386220 documents)
-</span><span class='line'>
-</span><span class='line'>$ mongorestore --drop
-</span><span class='line'>2016-02-10T22:05:51.959-0500    using default 'dump' directory
-</span><span class='line'>2016-02-10T22:05:51.960-0500    building a list of dbs and collections to restore from dump dir
-</span><span class='line'>2016-02-10T22:05:52.307-0500    reading metadata for Recovery.borkedCollection from dump/Recovery/borkedCollection.metadata.json
-</span><span class='line'>2016-02-10T22:05:52.330-0500    restoring Recovery.borkedCollection from dump/Recovery/borkedCollection.bson
-</span><span class='line'>2016-02-10T22:05:54.962-0500    [#.......................]  Recovery.borkedCollection  32.8 MB/569.8 MB  (5.8%)
-</span><span class='line'>2016-02-10T22:05:57.962-0500    [###.....................]  Recovery.borkedCollection  80.5 MB/569.8 MB  (14.1%)
-</span><span class='line'>2016-02-10T22:06:00.962-0500    [#####...................]  Recovery.borkedCollection  131.5 MB/569.8 MB  (23.1%)
-</span><span class='line'>2016-02-10T22:06:03.962-0500    [#######.................]  Recovery.borkedCollection  178.5 MB/569.8 MB  (31.3%)
-</span><span class='line'>2016-02-10T22:06:06.962-0500    [#########...............]  Recovery.borkedCollection  230.1 MB/569.8 MB  (40.4%)
-</span><span class='line'>2016-02-10T22:06:09.962-0500    [###########.............]  Recovery.borkedCollection  271.6 MB/569.8 MB  (47.7%)
-</span><span class='line'>2016-02-10T22:06:12.962-0500    [#############...........]  Recovery.borkedCollection  320.6 MB/569.8 MB  (56.3%)
-</span><span class='line'>2016-02-10T22:06:15.962-0500    [###############.........]  Recovery.borkedCollection  366.3 MB/569.8 MB  (64.3%)
-</span><span class='line'>2016-02-10T22:06:18.962-0500    [#################.......]  Recovery.borkedCollection  414.9 MB/569.8 MB  (72.8%)
-</span><span class='line'>2016-02-10T22:06:21.962-0500    [###################.....]  Recovery.borkedCollection  464.8 MB/569.8 MB  (81.6%)
-</span><span class='line'>2016-02-10T22:06:24.962-0500    [#####################...]  Recovery.borkedCollection  504.0 MB/569.8 MB  (88.4%)
-</span><span class='line'>2016-02-10T22:06:27.962-0500    [#######################.]  Recovery.borkedCollection  554.5 MB/569.8 MB  (97.3%)
-</span><span class='line'>2016-02-10T22:06:29.082-0500    [########################]  Recovery.borkedCollection  569.8 MB/569.8 MB  (100.0%)
-</span><span class='line'>2016-02-10T22:06:29.082-0500    restoring indexes for collection Recovery.borkedCollection from metadata
-</span><span class='line'>2016-02-10T22:06:29.104-0500    finished restoring Recovery.borkedCollection (1386220 documents)
-</span><span class='line'>2016-02-10T22:06:29.104-0500    done</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we&rsquo;ve dumped and reloaded the collection <em>yet again</em>, we can shell back in and validate that our recovery attempt has succeeded:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo
-</span><span class='line'>MongoDB shell version: 3.2.1
-</span><span class='line'>connecting to: test
-</span><span class='line'>Mongo-Hacker 0.0.9
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; show dbs
-</span><span class='line'>Recovery → 0.099GB
-</span><span class='line'>local    → 0.000GB
-</span><span class='line'>laptop(mongod-3.2.1) test&gt; use Recovery
-</span><span class='line'>switched to db Recovery
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; show collections
-</span><span class='line'>borkedCollection → 569.845MB / 88.594MB
-</span><span class='line'>laptop(mongod-3.2.1) Recovery&gt; db.borkedCollection.count()
-</span><span class='line'>1386220</span></code></pre></td></tr></table></div></figure>
-
-
-<p>BOOYA! Everything is back and properly accessible.</p>
-
-<p>The <code>mongorestore</code> could actually have been done to the primary node in order to recover the data for production purposes. Once that&rsquo;s done, just recreate the necessary indexes and you&rsquo;re back in business.</p>
 ]]></content>
   </entry>
   

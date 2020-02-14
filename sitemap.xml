@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/</loc>
+<lastmod>2020-02-14T11:20:21-05:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/</loc>
 <lastmod>2020-01-27T09:18:48-05:00</lastmod>
 </url>
@@ -476,6 +480,24 @@
 </url>
 <url>
 <loc>http://www.alexbevi.com/blog/categories/general/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/2/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/3/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/4/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/5/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/6/</loc>
+</url>
+<url>
+<loc>http://www.alexbevi.com/posts/7/</loc>
 </url>
 <url>
 <loc>http://www.alexbevi.com/anime/plex.html</loc>
