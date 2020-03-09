@@ -6,7 +6,7 @@ comments: true
 categories: [mongodb]
 ---
 
-Sometimes our replica sets fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:
+Sometimes our replica set members fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:
 
 1. Clones all databases except the local database. To clone, the `mongod` scans every collection in each source database and inserts all data into its own copies of these collections.
 2. Applies all changes to the data set. Using the oplog from the source, the `mongod` updates its data set to reflect the current state of the replica set.
@@ -20,11 +20,13 @@ Some common questions when performing an initial sync of a [Replica Set Member](
 
 <!-- MORE -->
 
-Determining if the sync is progressing can be done by either checking the size of the [`dbPath`]() of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
+Determining if the sync is progressing can be done by either checking the size of the [`dbPath`](https://docs.mongodb.com/manual/reference/configuration-options/#storage.dbPath) of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
 
 {% img /images/initsync-001.png %}
 
 Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn't "release" space when documents are deleted there is a high probability that the SECONDARY will have a _smaller total directory size_ than the sync source.
+
+The second step (after cloning) where the oplog entries are applied will also affect the overall time required to sync from the sync source.
 
 The `replSetGetStatus` command will produce a JSON document similar to the following. This document contains extensive details as to how the database/collection cloning is progressing, as well as any errors that have occurred during the process.
 
@@ -32,7 +34,7 @@ The `replSetGetStatus` command will produce a JSON document similar to the follo
 
 Depending on the number of databases and collections being sync'ed, the size of this document can be quite large and difficult to visually parse.
 
-To try and improve this situation I've created the following script.
+To improve this situation I've created the following script.
 
 {% gist alexbevi/422890f191f4bcb82c06fbb621c69331 %}
 
