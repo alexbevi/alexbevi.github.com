@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2020-02-14T12:08:54-05:00</updated>
+  <updated>2020-03-15T16:50:58-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,193 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Identifying and Reclaiming Disk Space in MongoDB]]></title>
+    <link href="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/"/>
+    <updated>2020-03-15T16:23:38-04:00</updated>
+    <id>http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb</id>
+    <content type="html"><![CDATA[<p>A common question when it comes to MongoDB and the (default) storage engine (<a href="https://docs.mongodb.com/manual/core/wiredtiger/">WiredTiger</a>) is &ldquo;Why is it after I removed a bunch of documents my free space didn&rsquo;t increase&rdquo;?</p>
+
+<p>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</p>
+
+<p>The amount of empty space available for reuse by WiredTiger is reflected in the output of <a href="https://docs.mongodb.com/manual/reference/method/db.collection.stats/#db.collection.stats"><code>db.collection.stats()</code></a> under the heading <code>wiredTiger.block-manager.file bytes available for reuse</code>.</p>
+
+<p>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://docs.mongodb.com/manual/reference/command/compact/#dbcmd.compact"><code>compact</code> command</a>.</p>
+
+<p>As the <code>db.collection.stats()</code> command must be run one <a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection">collection</a> at a time I&rsquo;ve written the following script to enhance this functionality as follows:</p>
+
+<ul>
+<li>scan all <a href="https://docs.mongodb.com/manual/reference/glossary/#term-namespace">namespaces</a> (<a href="https://docs.mongodb.com/manual/reference/glossary/#term-database">databases</a> + collections)</li>
+<li>include index space details</li>
+<li>support for sharded collections</li>
+<li>output to CSV</li>
+</ul>
+
+
+<!-- MORE -->
+
+
+<p><noscript><pre>/<em>
+* Print storage details for all collections and indexes.
+* Supports sharded clusters
+*
+* @author <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#97;&#108;&#101;&#x78;&#x2e;&#x62;&#x65;&#x76;&#105;&#x6c;&#x61;&#x63;&#113;&#117;&#x61;&#64;&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#x65;&#x78;&#x2e;&#98;&#x65;&#118;&#x69;&#x6c;&#x61;&#99;&#x71;&#117;&#x61;&#64;&#109;&#x6f;&#x6e;&#103;&#111;&#100;&#x62;&#46;&#x63;&#111;&#x6d;</a>
+* @updated 2020-02-25
+</em>/</p>
+
+<p>var fmt = function (bytes) {
+    var sizes = [&#39;Bytes&#39;, &#39;KB&#39;, &#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;];
+    if (bytes == 0) return &#39;0 Byte&#39;;
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + &#39; &#39; + sizes[i];
+}</p>
+
+<p>var getDetail = function (label, stats) {
+    var detail = {
+        name: label,
+        size: stats.size,
+        storageSize: stats.storageSize,
+        reusableSpace: stats.wiredTiger[&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;],
+        indexSpace: stats.totalIndexSize,
+        indexReusable: 0,
+    };</p>
+
+<pre><code>var indexKeys = Object.keys(stats.indexDetails);
+for (var i = 0; i &amp;lt; indexKeys.length; i++) {
+    detail.indexReusable += stats.indexDetails[indexKeys[i]][&amp;quot;block-manager&amp;quot;][&amp;quot;file bytes available for reuse&amp;quot;];
+}
+
+return detail;
+</code></pre>
+
+<p>}</p>
+
+<p>var dbSizeReport = function (dbname) {
+    var results = []
+    db.getSiblingDB(dbname).getCollectionNames().forEach(function &copy; {
+        var coll = db.getSiblingDB(dbname).getCollection&copy;;
+        var s = coll.stats({
+            indexDetails: true
+        });
+        if (s.hasOwnProperty(&quot;sharded&quot;) &amp;&amp; s.sharded) {
+            var shards = Object.keys(s.shards);
+            for (var i = 0; i &lt; shards.length; i++) {
+                var shard = shards[i];
+                var shardStat = s.shards[shard];
+                results.push(getDetail(s.ns + &quot; (&quot; + shard + &quot;)&quot;, shardStat));
+            }
+        } else {
+            results.push(getDetail(s.ns, s));
+        }
+    });</p>
+
+<pre><code>var totals = [0, 0, 0, 0, 0];
+print([&amp;quot;Namespace&amp;quot;, &amp;quot;Uncompressed&amp;quot;, &amp;quot;Compressed&amp;quot;, &amp;quot;Reusable from Collections&amp;quot;, &amp;quot;Indexes&amp;quot;, &amp;quot;Reusable from Indexes&amp;quot;].join(&amp;quot;,&amp;quot;))
+for (var i = 0; i &amp;lt; results.length; i++) {
+    var row = results[i];
+    print([row.name, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&amp;quot;,&amp;quot;))
+    totals[0] += row.size;
+    totals[1] += row.storageSize;
+    totals[2] += row.reusableSpace;
+    totals[3] += row.indexSpace;
+    totals[4] += row.indexReusable;
+}
+
+print([&amp;quot;Total&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&amp;quot;,&amp;quot;));
+</code></pre>
+
+<p>}</p>
+
+<p>db.getMongo().getDBNames().forEach(function (dbname) {
+    print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;)
+    print(dbname);
+    print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;)
+    dbSizeReport(dbname);
+});
+</pre></noscript><script src="https://gist.github.com/alexbevi/d89d8ce406e7fcea9f0915b7a7580c28.js"> </script></p>
+
+<p>Running this script from a <code>mongo</code> shell will produce output similar to the following:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---------------------
+</span><span class='line'>admin
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>admin.system.keys (config),255 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>admin.system.version (config),59 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,314 Bytes,56 KB,16 KB,56 KB,16 KB
+</span><span class='line'>---------------------
+</span><span class='line'>config
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>config.actionlog (config),32 KB,40 KB,16 KB,40 KB,16 KB
+</span><span class='line'>config.changelog (config),346 KB,132 KB,52 KB,96 KB,44 KB
+</span><span class='line'>config.chunks (config),57 KB,52 KB,24 KB,144 KB,64 KB
+</span><span class='line'>config.collections (config),431 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>config.databases (config),108 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.lockpings (config),3 KB,36 KB,16 KB,72 KB,32 KB
+</span><span class='line'>config.locks (config),771 Bytes,36 KB,16 KB,108 KB,48 KB
+</span><span class='line'>config.migrations (config),0 Byte,24 KB,16 KB,48 KB,32 KB
+</span><span class='line'>config.mongos (config),342 Bytes,36 KB,16 KB,20 KB,0 Byte
+</span><span class='line'>config.settings (config),39 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.shards (config),297 Bytes,20 KB,0 Byte,44 KB,4 KB
+</span><span class='line'>config.system.sessions (shard01),99 Bytes,36 KB,16 KB,60 KB,20 KB
+</span><span class='line'>config.tags (config),0 Byte,4 KB,0 Byte,24 KB,4 KB
+</span><span class='line'>config.transactions (config),0 Byte,24 KB,16 KB,12 KB,4 KB
+</span><span class='line'>config.version (config),83 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,441 KB,536 KB,204 KB,764 KB,284 KB
+</span><span class='line'>---------------------
+</span><span class='line'>test
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>test.test1 (shard01),37 MB,37 MB,27 MB,26 MB,16 MB
+</span><span class='line'>test.test1 (shard02),37 MB,8 MB,52 KB,5 MB,2 MB
+</span><span class='line'>test.test1 (shard03),38 MB,8 MB,56 KB,5 MB,2 MB
+</span><span class='line'>test.ups_test (shard01),0 Byte,24 KB,16 KB,72 KB,48 KB
+</span><span class='line'>Total,112 MB,54 MB,27 MB,36 MB,19 MB</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This output can then being imported into your favourite spreadsheet for further manipulation.</p>
+
+<p>Based on this sample output, the <code>test.test1</code> collection on <code>shard01</code> could reclaim approximately 27MB if <code>compact</code>ed. Note that the amount of space reclaimed will not necessarily be exactly what is reported here, but is generally a good guideline as to how much space may be reclaimed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MongoDB Initial Sync Progress Monitoring]]></title>
@@ -1459,8 +1646,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#x61;&#x6c;&#101;&#x78;&#x62;&#101;&#118;&#105;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#97;&#x6c;&#x65;&#120;&#x62;&#x65;&#118;&#105;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>
-To: <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#119;&#x65;&#x62;&#x2e;&#x73;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#x62;&#108;&#105;&#x7a;&#122;&#x61;&#114;&#100;&#46;&#99;&#111;&#x6d;">&#119;&#x65;&#98;&#x2e;&#x73;&#117;&#112;&#x70;&#x6f;&#x72;&#x74;&#x40;&#x62;&#108;&#x69;&#x7a;&#122;&#x61;&#114;&#x64;&#x2e;&#99;&#111;&#109;</a>
+<p><noscript><pre>From: <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x61;&#108;&#101;&#120;&#98;&#101;&#118;&#x69;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#x61;&#x6c;&#x65;&#120;&#98;&#101;&#x76;&#x69;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>
+To: <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x77;&#x65;&#x62;&#46;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#64;&#98;&#108;&#105;&#122;&#122;&#97;&#x72;&#x64;&#46;&#x63;&#111;&#109;">&#x77;&#x65;&#x62;&#46;&#x73;&#x75;&#x70;&#112;&#111;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#x7a;&#122;&#x61;&#x72;&#x64;&#46;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -2194,92 +2381,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 <p>As was made clear with the above info, there is steady demand for this book, so there must be quite a few plugin authors out there looking to get started with the Redmine platform.</p>
 
 <p>I&rsquo;m going to try to get my knowledgebase and dropbox plugins updated in the next couple of months, but if there is anything Redmine-related people might be interested, please leave your comments below ;)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Just Finished - Shadowrun]]></title>
-    <link href="http://www.alexbevi.com/blog/2016/02/23/just-finished-shadowrun/"/>
-    <updated>2016-02-23T20:20:11-05:00</updated>
-    <id>http://www.alexbevi.com/blog/2016/02/23/just-finished-shadowrun</id>
-    <content type="html"><![CDATA[<p>I had this game finished around Christmas, but I find my motivation for writing these articles is starting to languish. I&rsquo;m hoping to get that spark back with the next couple of titles i&rsquo;ll be tackling, even though Shadownrun was one of my favourite SNES games of all time.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun/shadowrun.001.png"></p>
-
-<p>You wake up on a slab in the morgue. You don&rsquo;t know who you are or how you got there. That&rsquo;s pretty much all you&rsquo;ve got to go on when you start this game for the first time.</p>
-
-<p>The intro shows you being gunned down, then a shapeshifter casts a spell on you and takes off. After getting out of the morgue, you run into &ldquo;Dog&rdquo;, who appears to be a shamanistic totem.</p>
-
-<p>This was the first 10 minutes of this game, and I remember playing this back in &lsquo;94 and being hooked at this point.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/Shadowrun_(1993_video_game)">Shadowrun</a> is a cyberpunk action-RPG for the Super Nintendo. You control Jake Armitage, a courier who has something important uploaded to his head computer.</p>
-
-<!-- more -->
-
-
-<p>You move around in an isometric fashion. You can interact with certain people by talking to them, or occasionally giving them a key item from your inventory.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun/shadowrun.005.png"></p>
-
-<p>When talking to NPCs, some words will appear in bold. These can then be used as keywords in future conversations. These NPC interactions are how the story is progressed, and you&rsquo;ll spend a fair amount of time in this menu over the course of the game.</p>
-
-<p>Once you learn the <em>Hiring</em> keyword, you can also try to hire additional shadowrunners. When they join your team, they will fight along side you &hellip; for a while. If you&rsquo;ve increased your leadership levels, they may stay longer.</p>
-
-<p>Leveling up is done by spending karma when you rest on a bed (which also acts as a save point). You can spend your karma to boost various stats, or to level up your spells once you learn magic.</p>
-
-<p>Karma is gained by fighting, which is done by moving a set of cross-hairs across the screen, and when placed over an enemy, mashing the A button. You then fire, wait, fire, wait &hellip; etc.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun/shadowrun.010.png"></p>
-
-<p>The combat in this game is pretty simple. Just stand in one place and fire. Once you&rsquo;re in combat mode, you can move your character, so there&rsquo;s not really any strategy (other than healing on occasion).</p>
-
-<p>The same system is used for spells and items. You select the (spell/item) from the menu, the cursor becomes a hand icon, and you hover over your target and press a button again.</p>
-
-<p>Navigating the screen using the D-pad can be a bit cumbersome; especially when fighting, but you get used to it after a while.</p>
-
-<p>The game seems to be made up of a series of fetch quests that are used to get you from NPC to NPC in order to uncover more keywords, to then be used with other NPCs to trigger more fetch quests. Oh, and move the story along as well ;)</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun/shadowrun.006.png"></p>
-
-<p>The game is split up into 3 main areas that you can navigate to by train, one area you get to by boat, and the volcano you get to by helicopter. These areas are all opened up as the story moves along and you slowly uncover who was responsible for trying to geek you at the beginning of the game.</p>
-
-<p>As you fight your way through the various areas, you&rsquo;ll find out that you were a courier with sensitive information in your head computer. You have a datajack in your head which is not working, so you can&rsquo;t access your brain by computer in order to get this information.</p>
-
-<p>When you go find a street doc to fix your datajack, it triggers a cortex bomb that then needs to be defused. After this is done, you get some information about what&rsquo;s in your head and you can start decking (hacking) into computers.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun/shadowrun.019.png"></p>
-
-<p>The decking segments are actually pretty dumb, but I love them. This is really what has kept me going back to this game time and again over the years, as I just really loved the concept.</p>
-
-<p>You&rsquo;re physically wired into this machine, and have to battle various security countermeasures that have been installed in these systems. The battles are done by guessing when there is a hidden enemy on a grid and pressing the A button. Based on an RNG value and your computer skill level, you&rsquo;ll either miss or destroy the enemy.</p>
-
-<p>That&rsquo;s it. That&rsquo;s all there is to it. I still love it though :P</p>
-
-<p>Depending on why you were hacking in, you&rsquo;ll either trigger an elevator or get part of a data file. The data files are plot devices that give you bits of the story, or contain phone numbers you can use from vidphones throughout the game.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun/shadowrun.024.png"></p>
-
-<p>After you&rsquo;ve finally fought your way through the various sections of the game, you finally get to face off against Drake. He&rsquo;s apparently the one behind you almost being whacked. You beat him up, head back to Akimi building, fight your way up a handful of floors (fighting and decking) and finally find the AI you need to destroy.</p>
-
-<p>Once done, things explode, and you can close the books on this adventure.</p>
-
-<p>The game alludes to there being a potential sequel in the works, but this never materialized. There was another Shadownrun title for <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Sega Genesis</a>, but this was a completely different game. I might play through this and do a write up one day, but I&rsquo;ve tried playing it a couple times over the years and could never get into it (if you think I should, or want to share an opinion, there is a comments section below &hellip; :P).</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun/shadowrun.027.png"></p>
-
-<p>Overall I still love this game. This is where I was introduced to cyberpunk as a kid, and I even went as far as getting the Shadowrun books (<a href="http://www.amazon.com/Never-Deal-Dragon-Shadownrun-Vol/dp/0451450787">Never Deal with a Dragon</a>) that this game was very loosely based on.</p>
-
-<p>The music was also a fantastic complement to the dark atmosphere of the game. <a href="https://www.youtube.com/watch?v=ome6XI_KuIw&amp;list=PL2D5FC9FCF1AEF68C&amp;index=2">3AM On A Summer Night</a> might actually be one of my favourite tracks from the 16-bit era that wasn&rsquo;t composed by Nobuo Uematsu ;)</p>
-
-<p>If you&rsquo;re revisiting the SNES and looking for something you may have overlooked during the mid &lsquo;90s, pick this up and give it a spin.</p>
-
-<div id="galleria"><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.000.png" data-title="/images/shadowrun/shadowrun.000.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.002.png" data-title="/images/shadowrun/shadowrun.002.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.003.png" data-title="/images/shadowrun/shadowrun.003.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.004.png" data-title="/images/shadowrun/shadowrun.004.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.007.png" data-title="/images/shadowrun/shadowrun.007.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.008.png" data-title="/images/shadowrun/shadowrun.008.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.009.png" data-title="/images/shadowrun/shadowrun.009.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.011.png" data-title="/images/shadowrun/shadowrun.011.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.012.png" data-title="/images/shadowrun/shadowrun.012.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.013.png" data-title="/images/shadowrun/shadowrun.013.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.014.png" data-title="/images/shadowrun/shadowrun.014.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.015.png" data-title="/images/shadowrun/shadowrun.015.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.016.png" data-title="/images/shadowrun/shadowrun.016.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.017.png" data-title="/images/shadowrun/shadowrun.017.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.018.png" data-title="/images/shadowrun/shadowrun.018.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.020.png" data-title="/images/shadowrun/shadowrun.020.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.021.png" data-title="/images/shadowrun/shadowrun.021.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.022.png" data-title="/images/shadowrun/shadowrun.022.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.023.png" data-title="/images/shadowrun/shadowrun.023.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.025.png" data-title="/images/shadowrun/shadowrun.025.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.026.png" data-title="/images/shadowrun/shadowrun.026.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.028.png" data-title="/images/shadowrun/shadowrun.028.png" /><img src="http://www.alexbevi.com/images/shadowrun/shadowrun.029.png" data-title="/images/shadowrun/shadowrun.029.png" /></div>
-
-
-<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-
-<p>Next up, <a href="https://en.wikipedia.org/wiki/Seiken_Densetsu_3">Seiken Densetsu 3</a>. This one will probably take me a while to complete, then a longer while to actually do a write up on.</p>
 ]]></content>
   </entry>
   

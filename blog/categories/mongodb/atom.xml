@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-02-14T12:08:54-05:00</updated>
+    <updated>2020-03-15T16:50:58-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,183 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Identifying and Reclaiming Disk Space in MongoDB]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/"/>
+        <updated>2020-03-15T16:23:38-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb</id>
+        <content type="html"><![CDATA[A common question when it comes to MongoDB and the (default) storage engine ([WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/)) is "Why is it after I removed a bunch of documents my free space didn't increase"?
+
+The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.
+
+The amount of empty space available for reuse by WiredTiger is reflected in the output of [`db.collection.stats()`](https://docs.mongodb.com/manual/reference/method/db.collection.stats/#db.collection.stats) under the heading `wiredTiger.block-manager.file bytes available for reuse`.
+
+To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the [`compact` command](https://docs.mongodb.com/manual/reference/command/compact/#dbcmd.compact).
+
+As the `db.collection.stats()` command must be run one [collection](https://docs.mongodb.com/manual/reference/glossary/#term-collection) at a time I've written the following script to enhance this functionality as follows:
+
+* scan all [namespaces](https://docs.mongodb.com/manual/reference/glossary/#term-namespace) ([databases](https://docs.mongodb.com/manual/reference/glossary/#term-database) + collections)
+* include index space details
+* support for sharded collections
+* output to CSV
+
+<!-- MORE -->
+
+<noscript><pre>/*
+* Print storage details for all collections and indexes.
+* Supports sharded clusters
+*
+* @author alex.bevilacqua@mongodb.com
+* @updated 2020-02-25
+*/
+
+var fmt = function (bytes) {
+    var sizes = [&#39;Bytes&#39;, &#39;KB&#39;, &#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;];
+    if (bytes == 0) return &#39;0 Byte&#39;;
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + &#39; &#39; + sizes[i];
+}
+
+var getDetail = function (label, stats) {
+    var detail = {
+        name: label,
+        size: stats.size,
+        storageSize: stats.storageSize,
+        reusableSpace: stats.wiredTiger[&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;],
+        indexSpace: stats.totalIndexSize,
+        indexReusable: 0,
+    };
+
+    var indexKeys = Object.keys(stats.indexDetails);
+    for (var i = 0; i &lt; indexKeys.length; i++) {
+        detail.indexReusable += stats.indexDetails[indexKeys[i]][&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;];
+    }
+
+    return detail;
+}
+
+var dbSizeReport = function (dbname) {
+    var results = []
+    db.getSiblingDB(dbname).getCollectionNames().forEach(function (c) {
+        var coll = db.getSiblingDB(dbname).getCollection(c);
+        var s = coll.stats({
+            indexDetails: true
+        });
+        if (s.hasOwnProperty(&quot;sharded&quot;) &amp;&amp; s.sharded) {
+            var shards = Object.keys(s.shards);
+            for (var i = 0; i &lt; shards.length; i++) {
+                var shard = shards[i];
+                var shardStat = s.shards[shard];
+                results.push(getDetail(s.ns + &quot; (&quot; + shard + &quot;)&quot;, shardStat));
+            }
+        } else {
+            results.push(getDetail(s.ns, s));
+        }
+    });
+
+    var totals = [0, 0, 0, 0, 0];
+    print([&quot;Namespace&quot;, &quot;Uncompressed&quot;, &quot;Compressed&quot;, &quot;Reusable from Collections&quot;, &quot;Indexes&quot;, &quot;Reusable from Indexes&quot;].join(&quot;,&quot;))
+    for (var i = 0; i &lt; results.length; i++) {
+        var row = results[i];
+        print([row.name, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&quot;,&quot;))
+        totals[0] += row.size;
+        totals[1] += row.storageSize;
+        totals[2] += row.reusableSpace;
+        totals[3] += row.indexSpace;
+        totals[4] += row.indexReusable;
+    }
+
+    print([&quot;Total&quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&quot;,&quot;));
+}
+
+db.getMongo().getDBNames().forEach(function (dbname) {
+    print(&quot;---------------------&quot;)
+    print(dbname);
+    print(&quot;---------------------&quot;)
+    dbSizeReport(dbname);
+});
+</pre></noscript><script src="https://gist.github.com/alexbevi/d89d8ce406e7fcea9f0915b7a7580c28.js"> </script>
+
+Running this script from a `mongo` shell will produce output similar to the following:
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---------------------
+</span><span class='line'>admin
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>admin.system.keys (config),255 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>admin.system.version (config),59 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,314 Bytes,56 KB,16 KB,56 KB,16 KB
+</span><span class='line'>---------------------
+</span><span class='line'>config
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>config.actionlog (config),32 KB,40 KB,16 KB,40 KB,16 KB
+</span><span class='line'>config.changelog (config),346 KB,132 KB,52 KB,96 KB,44 KB
+</span><span class='line'>config.chunks (config),57 KB,52 KB,24 KB,144 KB,64 KB
+</span><span class='line'>config.collections (config),431 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>config.databases (config),108 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.lockpings (config),3 KB,36 KB,16 KB,72 KB,32 KB
+</span><span class='line'>config.locks (config),771 Bytes,36 KB,16 KB,108 KB,48 KB
+</span><span class='line'>config.migrations (config),0 Byte,24 KB,16 KB,48 KB,32 KB
+</span><span class='line'>config.mongos (config),342 Bytes,36 KB,16 KB,20 KB,0 Byte
+</span><span class='line'>config.settings (config),39 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.shards (config),297 Bytes,20 KB,0 Byte,44 KB,4 KB
+</span><span class='line'>config.system.sessions (shard01),99 Bytes,36 KB,16 KB,60 KB,20 KB
+</span><span class='line'>config.tags (config),0 Byte,4 KB,0 Byte,24 KB,4 KB
+</span><span class='line'>config.transactions (config),0 Byte,24 KB,16 KB,12 KB,4 KB
+</span><span class='line'>config.version (config),83 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,441 KB,536 KB,204 KB,764 KB,284 KB
+</span><span class='line'>---------------------
+</span><span class='line'>test
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>test.test1 (shard01),37 MB,37 MB,27 MB,26 MB,16 MB
+</span><span class='line'>test.test1 (shard02),37 MB,8 MB,52 KB,5 MB,2 MB
+</span><span class='line'>test.test1 (shard03),38 MB,8 MB,56 KB,5 MB,2 MB
+</span><span class='line'>test.ups_test (shard01),0 Byte,24 KB,16 KB,72 KB,48 KB
+</span><span class='line'>Total,112 MB,54 MB,27 MB,36 MB,19 MB</span></code></pre></td></tr></table></div></figure>
+
+This output can then being imported into your favourite spreadsheet for further manipulation.
+
+Based on this sample output, the `test.test1` collection on `shard01` could reclaim approximately 27MB if `compact`ed. Note that the amount of space reclaimed will not necessarily be exactly what is reported here, but is generally a good guideline as to how much space may be reclaimed.]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[MongoDB Initial Sync Progress Monitoring]]></title>
@@ -945,98 +1122,6 @@ are being introduced that reduce the "hacks" or "workarounds" we've had to do in
 If you're looking for more MongoDB tips and tricks, head on over to Asya's [Stupid Tricks With MongoDB](http://www.kamsky.org/stupid-tricks-with-mongodb).
 
 Let me know in the comments below if you have any questions, or if you found this useful.
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Technical Services Engineering at MongoDB]]></title>
-        <link href="http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb/"/>
-        <updated>2018-10-01T15:39:28-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb</id>
-        <content type="html"><![CDATA[The goal of this post is to provide a first hand account of what it means to be a *Technical Services Engineer* at [MongoDB](https://www.mongodb.com/careers/jobs/791258), as well as what the journey getting to this point has looked like for me.
-
-### WHO AM I?
-
-I have been working in Application Development and Software Engineering for nearly two decades. I started off writing desktop applications in QuickBASIC and Turbo Pascal, then eventually in VB6, VB.NET, C++ and C#. When it was time to shift focus to web development I started off with HTML/JS/CSS (as we all do :P), then in Flash/AS3, Flex, Python, Ruby/Rails and Node.js.
-
-I have been writing software since I was a kid, starting with some automation tools for my mom's business. I then moved on to building tools to help me cheat at various games I was playing at the time, and eventually got more into emulator programming and reverse engineering. I guess you could say I've always loved solving problems programmatically, and especially enjoyed identifying opportunities for automation and custom tooling.
-
-This led me down an informal DevOps track, as I was finding there was a need for optimization in the infrastructure layers that my applications were deployed to. This led me deeper into Linux internals, system administration and network operations.
-
-While I was gaining these new skill-sets my primary focus was always on application development and delivery. Before coming to MongoDB I was working as a Development Lead / System Architect, but I found that my focus was always being drawn back to solving performance challenges at the infrastructure level.
-
-<!-- MORE -->
-
-### WHY MONGODB?
-
-I started working with MongoDB on a number of "hobby" projects around 2012. At the time I really only had experience with RDBMS', but due to the unstructured nature of the data I was working with decided to give this new technology a whirl.
-
-I fell in love with the database almost immediately, and have since carried it forward to multiple new employers, as well as contract opportunities and consulting engagements.
-
-The low barrier to entry from a development bootstrapping perspective made it the ideal backend for proof-of-concept development through to production deployment.
-
-As a result of this increased activity with MongoDB, I found my self doing a lot more investigation into [performance issues](/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/) and [internals](/blog/2016/02/10/recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation/) (links are to blog posts of challenges I encountered and resolved).
-
-### WHY TECHNICAL SERVICES?
-
-This was initially very challenging for me, as I had pre-conceived notions as to what "technical services" actually implied. The first thoughts that popped in my head were "technical support", "client support", "call center style support", etc.
-
-While researching this position I came across a blog post from about six years ago by a MongoDB employee who blogged about his experience as a Support Engineer (in this [two](http://blog.markofu.com/2012/07/being-support-engineer-10gen-part-1.html) [part](http://blog.markofu.com/2012/10/being-support-engineer-10gen-part-2.html) series).
-
-I found his reasons for joining MongoDB (10gen at the time), description of what kinds of challenges the job poses on a daily basis and how there is a constant push for self improvement and continuing education to align with what I was looking for in a new opportunity.
-
-### WHAT'S A TECHNICAL SERVICES ENGINEER ON PAPER
-
-To answer this question, let's start off by analyzing the [job posting](https://www.mongodb.com/careers/jobs/791258) that kicked off this journey for me in the first place.
-
-<img src="/images/why_tse/why_tse_001.png">
-
-So they're looking for people that are able to solve problems and communicate clearly. This could be a call center gig after all ... oh wait, *experts in MongoDB related database servers, drivers, tools, services* ... hrm, maybe there's a bit more to this.
-
-<img src="/images/why_tse/why_tse_002.png">
-
-*Architecture, performance, recovery, security*, those are a lot more complex than what you would face in a traditional support role. What really sold me though was the *contribute to internal projects* statement, as this aligned perfectly with my desire for process improvement through custom tooling.
-
-<img src="/images/why_tse/why_tse_003.png">
-
-By the time I got to this point in the job posting I was already sold. MongoDB is either trying to staff their first tier support with ridiculously over-qualified employees, or Technical Services really isn't what I would have thought.
-
-I proceeded to fill out the application, attach my resume and cover letter and crossed my fingers.
-
-### WHAT'S A TECHNICAL SERVICES ENGINEER IN PRACTICE
-
-After working with other TSEs for the past two months and having had an opportunity to handle some of my own cases I think I can shed a bit of light on what this role really entails.
-
-#### HOW IS IT A SUPPORT ROLE?
-
-A Technical Services Engineer interacts with MongoDB's clients via a support queue. This allows incoming "cases" to be prioritized and categorized to allow engineers to quickly identify what form of subject matter expertise may be required (ex: `Indexing`, `Replication`, `Sharding`, `Performance`, `Networking`, etc).
-
-As a TSE you're responsible for claiming cases from a queue and providing feedback in a timely fashion that is clear, concise and technically accurate.
-
-#### HOW IS IT AN ENGINEERING ROLE?
-
-Here's the juicy part of this job. Although replying to client requests is the "deliverable" for a TSE, how you go about reproducing their issues requires a very deep understanding of MongoDB internals, software engineering, network engineering, infrastructure architecture and technical troubleshooting.
-
-Depending on the type of issue, a reproduction is likely in store. These involve recreating the environment (locally or in the cloud) to either benchmark or replicate the identified client challenge. There is a vast library of tools available to TSEs for these types of tasks, but on some occasions the right tool for the job may not exist.
-
-In these cases, you have an opportunity to write your own scripts or tools to parse logs, measure performance, record telemetry or verify a hypothesis. Although MongoDB doesn't require TSEs to have any programming experience, for those like me that come from product engineering it's refreshing to know there's still an opportunity to scratch the development itch.
-
-With each case you learn more about the inner working of the database, the tools, the drivers and OS level performance.
-
-### CONCLUSION?
-
-I'm leaving the closing section here as a question, as the TSE role continues to be redefined and refined as new MongoDB products come on board and new challenges present themselves.
-
-What will likely remain constant though is the need for new engineers to have the following characteristics:
-
-* a passion for continuing technical education
-* a willingness to step outside their comfort zone
-* an interest in software engineering
-* an interest in network operations
-
-I encourage you to check out MongoDB's [available jobs](https://grnh.se/dcd90aac1) if what I've described here interests you (I swear HR is not putting me up to this ...) as we could use more engineers like you in our ranks :)
-
-Feel free to leave a comment below or shoot me an email at [alex@alexbevi.com](mailto:alex@alexbevi.com) if you have any questions.
 ]]></content>
     </entry>
     

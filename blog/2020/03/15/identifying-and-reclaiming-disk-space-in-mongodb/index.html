@@ -9,13 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Redmine Knowledgebase 3.2.0 Released - ALEX BEVILACQUA</title>
+        <title>Identifying and Reclaiming Disk Space in MongoDB - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Redmine Knowledgebase 3.2.0 Released Jun 22nd, 2016 redmine Comments Last Updated: Jun 22, 2016 I haven&rsquo;t been very actively involved with &hellip;">
+        <meta name="description" content="Identifying and Reclaiming Disk Space in MongoDB Mar 15th, 2020 mongodb Comments Last Updated: Mar 15, 2020 A common question when it comes to &hellip;">
         
         <meta name="viewport" content="width=device-width">
-        <link rel="canonical" href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb">
 
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
         <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
@@ -91,7 +91,7 @@
                     <article class="article article--single">
     <header class="article__header">
     
-        <h1 class="article__title">Redmine Knowledgebase 3.2.0 Released</h1>
+        <h1 class="article__title">Identifying and Reclaiming Disk Space in MongoDB</h1>
     
 
     
@@ -103,7 +103,7 @@
 
 
 
-    <time class="article__date pull-left" datetime="2016-06-22T21:33:34-04:00" pubdate><i class="fa fa-calendar"></i> Jun 22nd, 2016</time>
+    <time class="article__date pull-left" datetime="2020-03-15T16:23:38-04:00" pubdate><i class="fa fa-calendar"></i> Mar 15th, 2020</time>
 
 
 
@@ -116,7 +116,7 @@
         
 
             
-                <li><a class='category' href='/blog/categories/redmine/'>redmine</a></li>
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
             
         
         </ul>
@@ -135,79 +135,108 @@
 
 
 
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jun 22, 2016</em></small></p>
-    <p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 15, 2020</em></small></p>
+    <p>A common question when it comes to MongoDB and the (default) storage engine (<a href="https://docs.mongodb.com/manual/core/wiredtiger/">WiredTiger</a>) is &ldquo;Why is it after I removed a bunch of documents my free space didn&rsquo;t increase&rdquo;?</p>
 
-<p>You can grab a copy of the release <a href="https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0">on GitHub</a>.</p>
+<p>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</p>
 
-<p>I&rsquo;m pushing out version 3.2.0 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
+<p>The amount of empty space available for reuse by WiredTiger is reflected in the output of <a href="https://docs.mongodb.com/manual/reference/method/db.collection.stats/#db.collection.stats"><code>db.collection.stats()</code></a> under the heading <code>wiredTiger.block-manager.file bytes available for reuse</code>.</p>
 
-<p>Thanks to Frederico Camara:</p>
+<p>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://docs.mongodb.com/manual/reference/command/compact/#dbcmd.compact"><code>compact</code> command</a>.</p>
+
+<p>As the <code>db.collection.stats()</code> command must be run one <a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection">collection</a> at a time I&rsquo;ve written the following script to enhance this functionality as follows:</p>
 
 <ul>
-<li>updating acts_as_rated to work with Redmine 3.2.x</li>
+<li>scan all <a href="https://docs.mongodb.com/manual/reference/glossary/#term-namespace">namespaces</a> (<a href="https://docs.mongodb.com/manual/reference/glossary/#term-database">databases</a> + collections)</li>
+<li>include index space details</li>
+<li>support for sharded collections</li>
+<li>output to CSV</li>
 </ul>
 
 
-<p>Thanks to Eduard Kuleshov:</p>
-
-<ul>
-<li>getting this plugin supported in Redmine 3.0.x</li>
-</ul>
+<!-- MORE -->
 
 
-<p>Thanks to Axel Kämpfe:</p>
+<p><noscript><pre>/<em>
+* Print storage details for all collections and indexes.
+* Supports sharded clusters
+*
+* @author <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#97;&#108;&#101;&#x78;&#x2e;&#x62;&#x65;&#x76;&#105;&#x6c;&#x61;&#x63;&#113;&#117;&#x61;&#64;&#x6d;&#x6f;&#110;&#103;&#111;&#x64;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#97;&#x6c;&#x65;&#x78;&#x2e;&#98;&#x65;&#118;&#x69;&#x6c;&#x61;&#99;&#x71;&#117;&#x61;&#64;&#109;&#x6f;&#x6e;&#103;&#111;&#100;&#x62;&#46;&#x63;&#111;&#x6d;</a>
+* @updated 2020-02-25
+</em>/</p>
 
-<ul>
-<li>getting this plugin supported in Redmine 3.1.x and 3.2.x</li>
-</ul>
+<p>var fmt = function (bytes) {
+    var sizes = [&#39;Bytes&#39;, &#39;KB&#39;, &#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;];
+    if (bytes == 0) return &#39;0 Byte&#39;;
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + &#39; &#39; + sizes[i];
+}</p>
 
+<p>var getDetail = function (label, stats) {
+    var detail = {
+        name: label,
+        size: stats.size,
+        storageSize: stats.storageSize,
+        reusableSpace: stats.wiredTiger[&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;],
+        indexSpace: stats.totalIndexSize,
+        indexReusable: 0,
+    };</p>
 
-<p>HUGE thanks to Rob Spearman for basically taking over the project and pushing it forward:</p>
+<pre><code>var indexKeys = Object.keys(stats.indexDetails);
+for (var i = 0; i &amp;lt; indexKeys.length; i++) {
+    detail.indexReusable += stats.indexDetails[indexKeys[i]][&amp;quot;block-manager&amp;quot;][&amp;quot;file bytes available for reuse&amp;quot;];
+}
 
-<h2>New Configuaration options</h2>
+return detail;
+</code></pre>
 
-<ul>
-<li>Show articles without tabs</li>
-<li>Show attachments before article content</li>
-<li>Show thumbnails for articles in lists</li>
-<li>Show breadcrumbs for articles in lists</li>
-</ul>
+<p>}</p>
 
+<p>var dbSizeReport = function (dbname) {
+    var results = []
+    db.getSiblingDB(dbname).getCollectionNames().forEach(function &copy; {
+        var coll = db.getSiblingDB(dbname).getCollection&copy;;
+        var s = coll.stats({
+            indexDetails: true
+        });
+        if (s.hasOwnProperty(&quot;sharded&quot;) &amp;&amp; s.sharded) {
+            var shards = Object.keys(s.shards);
+            for (var i = 0; i &lt; shards.length; i++) {
+                var shard = shards[i];
+                var shardStat = s.shards[shard];
+                results.push(getDetail(s.ns + &quot; (&quot; + shard + &quot;)&quot;, shardStat));
+            }
+        } else {
+            results.push(getDetail(s.ns, s));
+        }
+    });</p>
 
-<h2>New permissions</h2>
+<pre><code>var totals = [0, 0, 0, 0, 0];
+print([&amp;quot;Namespace&amp;quot;, &amp;quot;Uncompressed&amp;quot;, &amp;quot;Compressed&amp;quot;, &amp;quot;Reusable from Collections&amp;quot;, &amp;quot;Indexes&amp;quot;, &amp;quot;Reusable from Indexes&amp;quot;].join(&amp;quot;,&amp;quot;))
+for (var i = 0; i &amp;lt; results.length; i++) {
+    var row = results[i];
+    print([row.name, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&amp;quot;,&amp;quot;))
+    totals[0] += row.size;
+    totals[1] += row.storageSize;
+    totals[2] += row.reusableSpace;
+    totals[3] += row.indexSpace;
+    totals[4] += row.indexReusable;
+}
 
-<ul>
-<li>Article history will only show up if have view permission</li>
-<li>optional permission for users to manage just their own articles. (#306)</li>
-</ul>
+print([&amp;quot;Total&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&amp;quot;,&amp;quot;));
+</code></pre>
 
+<p>}</p>
 
-<h2>Layout</h2>
+<p>db.getMongo().getDBNames().forEach(function (dbname) {
+    print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;)
+    print(dbname);
+    print(&quot;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&quot;)
+    dbSizeReport(dbname);
+});
+</pre></noscript><script src="https://gist.github.com/alexbevi/d89d8ce406e7fcea9f0915b7a7580c28.js"> </script></p>
 
-<ul>
-<li>Sort Tags on the index page</li>
-<li>Added authored view so users can find articles by author easily</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h2>Bug Fixes</h2>
-
-<ul>
-<li>article view counts not updating (#304)</li>
-<li>top rated list not valid (#305)</li>
-<li>ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)</li>
-<li>Error when generating a PDF of an article with pictures (#308)</li>
-<li>500 Internal Server Error - if DELETE category but it&rsquo;s have subcategory (#293)</li>
-</ul>
-
-
-<p>Note that this is a preliminary release as there is one bug in here that I haven&rsquo;t squashed.</p>
-
-<p>When trying to search, you&rsquo;re prompted with a failure similar to:</p>
+<p>Running this script from a <code>mongo</code> shell will produce output similar to the following:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -226,26 +255,66 @@
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
-</span><span class='line'>Processing by SearchController#index as HTML
-</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
-</span><span class='line'>  Current user: admin (id=1)
-</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
-</span><span class='line'>
-</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
-</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
-</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:125:in `each'
-</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
-</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
-</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
-</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---------------------
+</span><span class='line'>admin
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>admin.system.keys (config),255 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>admin.system.version (config),59 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,314 Bytes,56 KB,16 KB,56 KB,16 KB
+</span><span class='line'>---------------------
+</span><span class='line'>config
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>config.actionlog (config),32 KB,40 KB,16 KB,40 KB,16 KB
+</span><span class='line'>config.changelog (config),346 KB,132 KB,52 KB,96 KB,44 KB
+</span><span class='line'>config.chunks (config),57 KB,52 KB,24 KB,144 KB,64 KB
+</span><span class='line'>config.collections (config),431 Bytes,36 KB,16 KB,36 KB,16 KB
+</span><span class='line'>config.databases (config),108 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.lockpings (config),3 KB,36 KB,16 KB,72 KB,32 KB
+</span><span class='line'>config.locks (config),771 Bytes,36 KB,16 KB,108 KB,48 KB
+</span><span class='line'>config.migrations (config),0 Byte,24 KB,16 KB,48 KB,32 KB
+</span><span class='line'>config.mongos (config),342 Bytes,36 KB,16 KB,20 KB,0 Byte
+</span><span class='line'>config.settings (config),39 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>config.shards (config),297 Bytes,20 KB,0 Byte,44 KB,4 KB
+</span><span class='line'>config.system.sessions (shard01),99 Bytes,36 KB,16 KB,60 KB,20 KB
+</span><span class='line'>config.tags (config),0 Byte,4 KB,0 Byte,24 KB,4 KB
+</span><span class='line'>config.transactions (config),0 Byte,24 KB,16 KB,12 KB,4 KB
+</span><span class='line'>config.version (config),83 Bytes,20 KB,0 Byte,20 KB,0 Byte
+</span><span class='line'>Total,441 KB,536 KB,204 KB,764 KB,284 KB
+</span><span class='line'>---------------------
+</span><span class='line'>test
+</span><span class='line'>---------------------
+</span><span class='line'>Namespace,Uncompressed,Compressed,Reusable from Collections,Indexes,Reusable from Indexes
+</span><span class='line'>test.test1 (shard01),37 MB,37 MB,27 MB,26 MB,16 MB
+</span><span class='line'>test.test1 (shard02),37 MB,8 MB,52 KB,5 MB,2 MB
+</span><span class='line'>test.test1 (shard03),38 MB,8 MB,56 KB,5 MB,2 MB
+</span><span class='line'>test.ups_test (shard01),0 Byte,24 KB,16 KB,72 KB,48 KB
+</span><span class='line'>Total,112 MB,54 MB,27 MB,36 MB,19 MB</span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&rsquo;m pretty sure this has to do with how we&rsquo;re setting up <code>acts_as_searchable</code> in the <code>kb_article</code> model. Any suggestions welcome ;)</p>
+<p>This output can then being imported into your favourite spreadsheet for further manipulation.</p>
+
+<p>Based on this sample output, the <code>test.test1</code> collection on <code>shard01</code> could reclaim approximately 27MB if <code>compact</code>ed. Note that the amount of space reclaimed will not necessarily be exactly what is reported here, but is generally a good guideline as to how much space may be reclaimed.</p>
 
 
 
@@ -253,7 +322,7 @@
 
   <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -262,7 +331,7 @@
     <script src="//platform.linkedin.com/in.js" type="text/javascript">
     lang: en_US
   </script>
-  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/" data-counter="right"></script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/" data-counter="right"></script>
   
   
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
@@ -456,8 +525,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/';
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -523,8 +592,8 @@
     
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/';
-        var disqus_url = 'http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/';
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/';
         var disqus_script = 'embed.js';
     
     (function () {
