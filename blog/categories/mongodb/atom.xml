@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-15T16:55:54-04:00</updated>
+    <updated>2020-03-24T13:43:22-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -188,8 +188,6 @@ Running this script from a `mongo` shell will produce output similar to the foll
 This output can then being imported into your favourite spreadsheet for further manipulation.
 
 Based on this sample output, the `test.test1` collection on `shard01` could reclaim approximately 27MB if `compact`ed. Note that the amount of space reclaimed will not necessarily be exactly what is reported here, but is generally a good guideline as to how much space may be reclaimed.
-
-It is also worth noting that though index storage and reusable space details are included, `compact` operations will not rewrite indexes. To reclaim space associated with index files the indexes would either need to be individually dropped and recreated, or using the [`reindex` command](https://docs.mongodb.com/manual/reference/command/reIndex/) done all at once.
 ]]></content>
     </entry>
     
