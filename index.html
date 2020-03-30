@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule Mar 30th, 2020 mongodb Comments Last Updated: Jan 28, 2015 Working in &hellip;">
+        <meta name="description" content="Working around MongoDB Stitch's "max async work queue" limit Mar 30th, 2020 mongodb-stitch mongodb Comments MongoDB Stitch is a great way to build &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -89,65 +89,6 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
-    
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2020-03-30T07:35:11-04:00" pubdate><i class="fa fa-calendar"></i> Mar 30th, 2020</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 28, 2015</em></small></p>
-    <p>Working in Technical Services as MongoDB I find that time and again customers need assistance understanding why the indexes they&rsquo;ve created may not be performing optimally. When providing customers with supplementary documentation, the go-to article is <a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">&ldquo;Optimizing MongoDB Compound Indexes&rdquo;</a> by MongoDB&rsquo;s <a href="https://emptysqua.re/blog/about/">A. Jesse Jiryu Davis</a>. Although this article was written in 2012, the information therin is still applicable and accurate.</p>
-
-<p>This article will be heavily inspired by Jesse&rsquo;s article and attempt to update some examples for more modern MongoDB versions as well as focus more on how applying these &ldquo;rules&rdquo; can improve performance of diagnosed slow operations.</p>
-
-
-
-        </article>
-        <hr>
     
         
         <article class="article article--index">
@@ -995,6 +936,79 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
         </article>
         <hr>
     
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/">Setting up domain forwarding in hover.com</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2018-04-25T15:27:08-04:00" pubdate><i class="fa fa-calendar"></i> Apr 25th, 2018</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/general/'>general</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2018/04/25/setting-up-domain-forwarding-in-hover-dot-com/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 28, 2015</em></small></p>
+    <p>I&rsquo;ve known for a long time that when you navigate to my domain directly at <a href="http://alexbevi.com">alexbevi.com</a> that you would be redirected to a <a href="https://www.hover.com">Hover</a> placeholder page.</p>
+
+<p>I&rsquo;ve meant to add a domain redirect for a long time but just never got around to it &hellip; until now.</p>
+
+<p>If you log into your Hover control console at <code>https://www.hover.com/control_panel/domain/&lt;your domain&gt;</code>, you can just add the forward from the <em>Mangage Forwards</em> section.</p>
+
+<ul>
+<li>Click <strong>Create a Forward</strong></li>
+<li>Select from the dropdown list</li>
+<li>Enter the full url (<a href="http://...">http://...</a>) you would like requests to your domain to go to</li>
+<li>Click <strong>Save Forward</strong></li>
+</ul>
+
+
+<p>After about 15 minutes this will be active and all requests to your domain will redirect to the url you&rsquo;ve selected.</p>
+
+<p><img class="center" src="/images/alexbevi-forward.png"></p>
+
+
+
+        </article>
+        <hr>
+    
 
     <div class="pagination">
     
@@ -1062,10 +1076,6 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
     <ul class="divided">
         
         <li class="post">
-            <a href="/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
-        </li>
-        
-        <li class="post">
             <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
         </li>
         
@@ -1079,6 +1089,10 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
         
         <li class="post">
             <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
         </li>
         
     </ul>
