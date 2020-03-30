@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb-stitch | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb-stitch/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T07:51:19-04:00</updated>
+    <updated>2020-03-30T09:28:51-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,13 +18,13 @@
         <link href="http://www.alexbevi.com/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/"/>
         <updated>2020-03-30T05:19:32-04:00</updated>
         <id>http://www.alexbevi.com/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit</id>
-        <content type="html"><![CDATA[[MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.
+        <content type="html"><![CDATA[[MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having to worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.
 
 This article summarizes why this limit exists, as well as how to adapt your [MongoDB Stitch Functions](https://docs.mongodb.com/stitch/functions/) to work around it.
 
 <!-- more -->
 
-The following is an [HTTP Service](https://docs.mongodb.com/stitch/services/http) I've written that has an [incoming webhook](https://docs.mongodb.com/stitch/services/http/). When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the `maxItems` [_query parameter_](https://en.wikipedia.org/wiki/Query_string) of the [request payload](https://docs.mongodb.com/stitch/services/http/#request-payload) provided to the incoming webhook.
+The following is an [HTTP Service](https://docs.mongodb.com/stitch/services/http) I've written that has an [incoming webhook](https://docs.mongodb.com/stitch/services/http/#incoming-webhooks). When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the `maxItems` [_query parameter_](https://en.wikipedia.org/wiki/Query_string) of the [request payload](https://docs.mongodb.com/stitch/services/http/#request-payload) provided to the incoming webhook.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -108,7 +108,7 @@ Based on the output returned from the webhook, 900 items were inserted. Next we'
 </span><span class='line'>Total Time: 0.371383s
 </span></code></pre></td></tr></table></div></figure>
 
-Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application the webhook belongs. This can be useful for debugging.
+Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application that the webhook belongs to. This can be useful for debugging.
 
 <img src="/images/stitch-log01.png">
 

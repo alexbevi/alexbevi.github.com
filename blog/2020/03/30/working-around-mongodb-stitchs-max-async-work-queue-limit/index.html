@@ -138,14 +138,14 @@
 
 
     <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 30, 2020</em></small></p>
-    <p><a href="https://www.mongodb.com/cloud/stitch">MongoDB Stitch</a> is a great way to build apps quickly with your data that&rsquo;s already managed by <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a>. Though these services empower you to focus on development without having worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.</p>
+    <p><a href="https://www.mongodb.com/cloud/stitch">MongoDB Stitch</a> is a great way to build apps quickly with your data that&rsquo;s already managed by <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a>. Though these services empower you to focus on development without having to worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.</p>
 
 <p>This article summarizes why this limit exists, as well as how to adapt your <a href="https://docs.mongodb.com/stitch/functions/">MongoDB Stitch Functions</a> to work around it.</p>
 
 <!-- more -->
 
 
-<p>The following is an <a href="https://docs.mongodb.com/stitch/services/http">HTTP Service</a> I&rsquo;ve written that has an <a href="https://docs.mongodb.com/stitch/services/http/">incoming webhook</a>. When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the <code>maxItems</code> <a href="https://en.wikipedia.org/wiki/Query_string"><em>query parameter</em></a> of the <a href="https://docs.mongodb.com/stitch/services/http/#request-payload">request payload</a> provided to the incoming webhook.</p>
+<p>The following is an <a href="https://docs.mongodb.com/stitch/services/http">HTTP Service</a> I&rsquo;ve written that has an <a href="https://docs.mongodb.com/stitch/services/http/#incoming-webhooks">incoming webhook</a>. When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the <code>maxItems</code> <a href="https://en.wikipedia.org/wiki/Query_string"><em>query parameter</em></a> of the <a href="https://docs.mongodb.com/stitch/services/http/#request-payload">request payload</a> provided to the incoming webhook.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -232,7 +232,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Following the <code>"link"</code> would redirect you to the <a href="https://docs.mongodb.com/stitch/logs/">Application Log</a> for the application the webhook belongs. This can be useful for debugging.</p>
+<p>Following the <code>"link"</code> would redirect you to the <a href="https://docs.mongodb.com/stitch/logs/">Application Log</a> for the application that the webhook belongs to. This can be useful for debugging.</p>
 
 <p><img src="/images/stitch-log01.png"></p>
 
