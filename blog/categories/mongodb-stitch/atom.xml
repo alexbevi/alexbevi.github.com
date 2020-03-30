@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb-stitch | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb-stitch/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T06:58:57-04:00</updated>
+    <updated>2020-03-30T07:47:10-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -107,6 +107,10 @@ Based on the output returned from the webhook, 900 items were inserted. Next we'
 </span><span class='line'><span class="o">{</span><span class="s2">&quot;error&quot;</span>:<span class="s2">&quot;exceeded max async work queue size of 1000&quot;</span>,<span class="s2">&quot;error_code&quot;</span>:<span class="s2">&quot;FunctionExecutionError&quot;</span>,<span class="s2">&quot;link&quot;</span>:<span class="s2">&quot;https://stitch.mongodb.com/groups/13c415400000000000000000/apps/13c415400000000000000000/logs?co_id=13c415400000000000000000&quot;</span><span class="o">}</span>
 </span><span class='line'>Total Time: 0.371383s
 </span></code></pre></td></tr></table></div></figure>
+
+Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application the webhook belongs. This can be useful for debugging.
+
+<img src="/images/stitch-log01.png">
 
 The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as [`insertOne`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/) within a function are leveraging the MongoDB Stitch JavaScript SDK's [`insertOne`](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html#insertone) method, which returns a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise). To ensure these promises don't queue infinitely waiting to be resolved, MongoDB Stitch will arbitrarily limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.
 

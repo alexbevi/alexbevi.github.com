@@ -9,13 +9,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ALEX BEVILACQUA</title>
+        <title>Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="The following is a collection of my various open source project contributions. RUBY / RAILS Redmine: Knowledgebase Plugin A Redmine plugin that adds &hellip;">
+        <meta name="description" content="Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule Mar 30th, 2020 mongodb Comments Last Updated: Mar 30, 2020 Working in &hellip;">
         
         <meta name="viewport" content="width=device-width">
-        <link rel="canonical" href="http://www.alexbevi.com/projects">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule">
 
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
         <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
@@ -88,46 +88,89 @@
                 
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
-                    <article class="page">
-
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</h1>
     
 
-    <p>The following is a collection of my various open source project contributions.</p>
+    
+        <div class="article__meta clearfix">
+            
 
-<h1>RUBY / RAILS</h1>
 
-<h2><a href="/projects/redmine-knowledgebase">Redmine: Knowledgebase Plugin</a></h2>
 
-<p>A <a href="http://www.redmine.org">Redmine</a> plugin that adds knowledgebase functionality.</p>
 
-<h2><a href="/projects/redmine-dropbox-attachments">Redmine: Dropbox Attachment Storage</a></h2>
 
-<p>A <a href="http://www.redmine.org">Redmine</a> plugin that allows attachment storage to be moved to your <a href="http://www.dropbox.com">Dropbox</a> account.</p>
 
-<h2><a href="/projects/exception-logger">Exception Logger</a></h2>
+    <time class="article__date pull-left" datetime="2020-03-30T07:35:11-04:00" pubdate><i class="fa fa-calendar"></i> Mar 30th, 2020</time>
 
-<p>A Rails 3 engine that can be added to any project to allow exceptions to be recorded to the database for future analysis.</p>
 
-<h2><a href="/projects/translate-yaml">YAML Auto-translator</a></h2>
 
-<p>Translate a source YAML file for I18n app localization.</p>
 
-<h1>C++</h1>
+            
 
-<h2><a href="/projects/scummvm-asylum">ScummVM: Asylum Engine</a></h2>
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
 
-<p>A reimplementation of ASC Games / DreamForge&rsquo;s Sanitarium for the <a href="http://www.scummvm.org">ScummVM</a> platform.</p>
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
 
-<h1>.NET</h1>
 
-<h2><a href="/projects/tas-editor">Tool Assisted Movie Editor</a></h2>
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
 
-<p>An editor for TAS input files.</p>
 
-<p>Currently supports SMV, FCM, GMV, FMV, VBM, M64, MMV, PXM, and PJM file formats.</p>
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 30, 2020</em></small></p>
+    <p>Working in Technical Services as MongoDB I find that time and again customers need assistance understanding why the indexes they&rsquo;ve created may not be performing optimally. When providing customers with supplementary documentation, the go-to article is <a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">&ldquo;Optimizing MongoDB Compound Indexes&rdquo;</a> by MongoDB&rsquo;s <a href="https://emptysqua.re/blog/about/">A. Jesse Jiryu Davis</a>. Although this article was written in 2012, the information therin is still applicable and accurate.</p>
+
+<p>This article will be heavily inspired by Jesse&rsquo;s article and attempt to update some examples for more modern MongoDB versions as well as focus more on how applying these &ldquo;rules&rdquo; can improve performance of diagnosed slow operations.</p>
+
 
 
 </article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
 
                 </div>
 
@@ -301,6 +344,22 @@
 
         
 
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
 
 
 <div id="fb-root"></div>
@@ -351,6 +410,22 @@
 </script>
 
 
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
