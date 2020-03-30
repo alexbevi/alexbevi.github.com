@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-24T13:43:22-04:00</updated>
+    <updated>2020-03-30T06:56:14-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,208 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Working around MongoDB Stitch's "max async work queue" limit]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/"/>
+        <updated>2020-03-30T05:19:32-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit</id>
+        <content type="html"><![CDATA[<p><a href="https://www.mongodb.com/cloud/stitch">MongoDB Stitch</a> is a great way to build apps quickly with your data that&rsquo;s already managed by <a href="https://www.mongodb.com/cloud/atlas">MongoDB Atlas</a>. Though these services empower you to focus on development without having worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.</p>
+
+<p>This article summarizes why this limit exists, as well as how to adapt your <a href="https://docs.mongodb.com/stitch/functions/">MongoDB Stitch Functions</a> to work around it.</p>
+
+<!-- more -->
+
+
+<p>The following is an <a href="https://docs.mongodb.com/stitch/services/http">HTTP Service</a> I&rsquo;ve written that has an <a href="https://docs.mongodb.com/stitch/services/http/">incoming webhook</a>. When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the <code>maxItems</code> <a href="https://en.wikipedia.org/wiki/Query_string"><em>query parameter</em></a> of the <a href="https://docs.mongodb.com/stitch/services/http/#request-payload">request payload</a> provided to the incoming webhook.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// MongoDB Stitch Function code for the Incoming Webhook</span>
+</span><span class='line'><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">let</span> <span class="nx">maxItems</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">maxItems</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">CLUSTER</span>    <span class="o">=</span> <span class="s1">&#39;mongodb-atlas&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">DB</span>         <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">COLLECTION</span> <span class="o">=</span> <span class="s1">&#39;web_worker_queue_failures&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">services</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">CLUSTER</span><span class="p">).</span><span class="nx">db</span><span class="p">(</span><span class="nx">DB</span><span class="p">).</span><span class="nx">collection</span><span class="p">(</span><span class="nx">COLLECTION</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">maxItems</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">a</span><span class="o">:</span> <span class="nx">i</span> <span class="p">});</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">let</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">error</span><span class="o">:</span> <span class="nx">error</span> <span class="p">});</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">{</span> <span class="s2">&quot;Processed&quot;</span><span class="o">:</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="p">};</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the webhook is executed, the number of items processed is returned. In the following example we&rsquo;ll specify that we want 900 items to be inserted:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -w <span class="s2">&quot;\nTotal Time: %{time_total}s\n&quot;</span> <span class="se">\</span>
+</span><span class='line'>     -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
+</span><span class='line'>     https://webhooks.mongodb-stitch.com/api/client/v2.0/app/cluster0-app0-abcde/service/WebWorkerFailureTest/incoming_webhook/webhook0?maxItems<span class="o">=</span>900
+</span><span class='line'><span class="o">{</span><span class="s2">&quot;Processed&quot;</span>:<span class="o">{</span><span class="s2">&quot;$numberInt&quot;</span>:<span class="s2">&quot;900&quot;</span><span class="o">}}</span>
+</span><span class='line'>Total Time: 1.729469s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Based on the output returned from the webhook, 900 items were inserted. Next we&rsquo;ll try with 9000 items:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -w <span class="s2">&quot;\nTotal Time: %{time_total}s\n&quot;</span> <span class="se">\</span>
+</span><span class='line'>     -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
+</span><span class='line'>     https://webhooks.mongodb-stitch.com/api/client/v2.0/app/cluster0-app0-abcde/service/WebWorkerFailureTest/incoming_webhook/webhook0?maxItems<span class="o">=</span>9000
+</span><span class='line'><span class="o">{</span><span class="s2">&quot;error&quot;</span>:<span class="s2">&quot;exceeded max async work queue size of 1000&quot;</span>,<span class="s2">&quot;error_code&quot;</span>:<span class="s2">&quot;FunctionExecutionError&quot;</span>,<span class="s2">&quot;link&quot;</span>:<span class="s2">&quot;https://stitch.mongodb.com/groups/13c415400000000000000000/apps/13c415400000000000000000/logs?co_id=13c415400000000000000000&quot;</span><span class="o">}</span>
+</span><span class='line'>Total Time: 0.371383s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as <a href="https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/"><code>insertOne</code></a> within a function are leveraging the MongoDB Stitch JavaScript SDK&rsquo;s <a href="https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html#insertone"><code>insertOne</code></a> method, which returns a <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise</a>). To ensure these promises don&rsquo;t queue infinitely waiting to be resolved, MongoDB Stitch will arbitrarily limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.</p>
+
+<p>To work around this limit we will adapt our earlier code to instead throttle our work loop to ensure batches of 1000 or less are processed before more work is attempted.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kr">const</span> <span class="nx">processWork</span> <span class="o">=</span> <span class="nx">async</span> <span class="kd">function</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">CLUSTER</span>    <span class="o">=</span> <span class="s1">&#39;mongodb-atlas&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">DB</span>         <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">COLLECTION</span> <span class="o">=</span> <span class="s1">&#39;web_worker_queue_failures&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">services</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">CLUSTER</span><span class="p">).</span><span class="nx">db</span><span class="p">(</span><span class="nx">DB</span><span class="p">).</span><span class="nx">collection</span><span class="p">(</span><span class="nx">COLLECTION</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+</span><span class='line'>  <span class="kr">const</span> <span class="nx">totalItems</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">totalItems</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">BATCH_SIZE</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kr">const</span> <span class="nx">requests</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">i</span> <span class="o">+</span> <span class="nx">BATCH_SIZE</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">await</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">requests</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">Errors</span> <span class="k">in</span> <span class="nx">batch</span> <span class="nx">$</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span><span class="o">:</span> <span class="nx">$</span><span class="p">{</span><span class="nx">e</span><span class="p">}</span><span class="err">`</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// MongoDB Stitch Function code for the Incoming Webhook</span>
+</span><span class='line'><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">let</span> <span class="nx">maxItems</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">maxItems</span><span class="p">);</span>
+</span><span class='line'>  <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">maxItems</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">a</span><span class="o">:</span> <span class="nx">i</span> <span class="p">});</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">processWork</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">{</span> <span class="s2">&quot;Processed&quot;</span><span class="o">:</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="p">};</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The number of items to process (based on <code>maxItems</code> again) will now be broken up into batches (<code>BATCH_SIZE</code>) and using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><code>Promise.all()</code></a> all the operations in a batch will be fulfilled before another batch is processed.</p>
+
+<p>This method allows the workload to be artificially throttled to allow <code>maxItems</code> operations to be executed. Let&rsquo;s try running our webhook again for 9000 items:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -w <span class="s2">&quot;\nTotal Time: %{time_total}s\n&quot;</span> <span class="se">\</span>
+</span><span class='line'>     -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
+</span><span class='line'>     https://webhooks.mongodb-stitch.com/api/client/v2.0/app/cluster0-app0-abcde/service/WebWorkerFailureTest/incoming_webhook/webhook0?maxItems<span class="o">=</span>9000
+</span><span class='line'><span class="o">{</span><span class="s2">&quot;Processed&quot;</span>:<span class="o">{</span><span class="s2">&quot;$numberInt&quot;</span>:<span class="s2">&quot;9000&quot;</span><span class="o">}}</span>
+</span><span class='line'>Total Time: 13.935162s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that although this strategy will work with an array of items (<code>maxItems</code>) of any size, MongoDB Stitch Functions still have runtime limit of 90 seconds (see <a href="https://docs.mongodb.com/stitch/functions/#constraints">&ldquo;Constraints&rdquo;</a>) which cannot be circumvented. If we try running the function for 90000 items, if the function runs for > 90 seconds execution will be terminated:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -w <span class="s2">&quot;\nTotal Time: %{time_total}s\n&quot;</span> <span class="se">\</span>
+</span><span class='line'>     -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -d <span class="s1">&#39;{}&#39;</span> <span class="se">\</span>
+</span><span class='line'>     https://webhooks.mongodb-stitch.com/api/client/v2.0/app/cluster0-app0-abcde/service/WebWorkerFailureTest/incoming_webhook/webhook0?maxItems<span class="o">=</span>90000
+</span><span class='line'><span class="o">{</span><span class="s2">&quot;error&quot;</span>:<span class="s2">&quot;execution time limit exceeded&quot;</span>,<span class="s2">&quot;error_code&quot;</span>:<span class="s2">&quot;ExecutionTimeLimitExceeded&quot;</span>,<span class="s2">&quot;link&quot;</span>:<span class="s2">&quot;https://stitch.mongodb.com/groups/13c415400000000000000000/apps/13c415400000000000000000/logs?co_id=13c415400000000000000000&quot;</span><span class="o">}</span>
+</span><span class='line'>Total Time: 90.311827s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Happy Coding!</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Identifying and Reclaiming Disk Space in MongoDB]]></title>
@@ -43,7 +245,7 @@
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x61;&#x6c;&#x65;&#x78;&#46;&#98;&#x65;&#118;&#105;&#108;&#97;&#99;&#113;&#x75;&#x61;&#x40;&#109;&#x6f;&#110;&#x67;&#111;&#100;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#97;&#x6c;&#x65;&#120;&#46;&#98;&#x65;&#x76;&#x69;&#x6c;&#97;&#x63;&#x71;&#117;&#x61;&#x40;&#x6d;&#111;&#110;&#103;&#x6f;&#x64;&#98;&#46;&#x63;&#111;&#109;</a>
+* @author <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#97;&#x6c;&#101;&#120;&#x2e;&#x62;&#x65;&#x76;&#x69;&#x6c;&#x61;&#x63;&#113;&#117;&#97;&#64;&#109;&#x6f;&#x6e;&#103;&#111;&#100;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x61;&#108;&#x65;&#120;&#x2e;&#98;&#101;&#x76;&#x69;&#x6c;&#97;&#x63;&#113;&#117;&#97;&#64;&#109;&#x6f;&#110;&#103;&#x6f;&#100;&#98;&#x2e;&#99;&#111;&#109;</a>
 * @updated 2020-02-25
 </em>/</p>
 
@@ -1646,8 +1848,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x61;&#108;&#101;&#x78;&#x62;&#x65;&#118;&#105;&#64;&#x67;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#97;&#x6c;&#101;&#x78;&#x62;&#x65;&#x76;&#x69;&#x40;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a>
-To: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#119;&#x65;&#x62;&#46;&#x73;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#64;&#98;&#x6c;&#x69;&#x7a;&#122;&#x61;&#114;&#x64;&#x2e;&#99;&#111;&#x6d;">&#x77;&#x65;&#x62;&#x2e;&#x73;&#x75;&#112;&#x70;&#111;&#x72;&#x74;&#64;&#98;&#x6c;&#x69;&#x7a;&#122;&#x61;&#x72;&#100;&#46;&#99;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#97;&#x6c;&#x65;&#120;&#x62;&#101;&#118;&#105;&#64;&#x67;&#109;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x6c;&#101;&#x78;&#98;&#x65;&#x76;&#105;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a>
+To: <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#119;&#x65;&#98;&#x2e;&#115;&#117;&#112;&#112;&#x6f;&#x72;&#116;&#64;&#98;&#108;&#x69;&#x7a;&#x7a;&#97;&#114;&#x64;&#x2e;&#99;&#111;&#x6d;">&#119;&#101;&#x62;&#46;&#115;&#117;&#112;&#112;&#x6f;&#114;&#x74;&#64;&#x62;&#108;&#105;&#122;&#x7a;&#97;&#114;&#100;&#x2e;&#99;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -2295,92 +2497,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 <p>That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I&rsquo;m actually really enjoying it, and it is VERY different the the SNES game of the same name.</p>
 
 <p>Hopefully I&rsquo;ll have more for you in the near(er) future :)</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Redmine Plugin Extension and Development is Apparently Still Relevant]]></title>
-        <link href="http://www.alexbevi.com/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant/"/>
-        <updated>2016-03-23T20:59:24-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2016/03/23/redmine-plugin-extension-and-development-is-apparently-still-relevant</id>
-        <content type="html"><![CDATA[<p>For the first five quarters that this book was out in the wild, I was posting publication numbers any time I got a royalty statement from Packt Publishing for <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book">Redmine Plugin Extension and Development</a>.</p>
-
-<p>I haven&rsquo;t been very active in the <a href="http://www.redmine.org/">Redmine</a> community in the past year or so as I&rsquo;ve been a bit busy with work, contracts and life, but after seeing the last batch of sales figures, it seems people are still interested in this topic.</p>
-
-<table>
-<thead>
-<tr>
-<th> </th>
-<th>Ebook Mini</th>
-<th>Subscription Packtlib Mini</th>
-<th>Print Book Mini</th>
-<th>Subscription (3rd Party Mini)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Q4/2015</td>
-<td>30</td>
-<td>8</td>
-<td>18</td>
-<td>3</td>
-</tr>
-<tr>
-<td>Q3/2015</td>
-<td>24</td>
-<td>3</td>
-<td>15</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Q2/2015</td>
-<td>30</td>
-<td>2</td>
-<td>18</td>
-<td>3</td>
-</tr>
-<tr>
-<td>Q1/2015</td>
-<td>90</td>
-<td>0</td>
-<td>25</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Q4/2014</td>
-<td>33</td>
-<td>2</td>
-<td>31</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Q3/2014</td>
-<td>25</td>
-<td>2</td>
-<td>24</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Q2/2014</td>
-<td>73</td>
-<td>1</td>
-<td>33</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Q1/2014</td>
-<td>18</td>
-<td>3</td>
-<td>18</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>As was made clear with the above info, there is steady demand for this book, so there must be quite a few plugin authors out there looking to get started with the Redmine platform.</p>
-
-<p>I&rsquo;m going to try to get my knowledgebase and dropbox plugins updated in the next couple of months, but if there is anything Redmine-related people might be interested, please leave your comments below ;)</p>
 ]]></content>
     </entry>
     

@@ -12,7 +12,7 @@
         <title>Identifying and Reclaiming Disk Space in MongoDB - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Identifying and Reclaiming Disk Space in MongoDB Mar 15th, 2020 mongodb Comments Last Updated: Mar 15, 2020 A common question when it comes to &hellip;">
+        <meta name="description" content="Identifying and Reclaiming Disk Space in MongoDB Mar 15th, 2020 mongodb Comments Last Updated: Mar 30, 2020 A common question when it comes to &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb">
@@ -135,7 +135,7 @@
 
 
 
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 15, 2020</em></small></p>
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 30, 2020</em></small></p>
     <p>A common question when it comes to MongoDB and the (default) storage engine (<a href="https://docs.mongodb.com/manual/core/wiredtiger/">WiredTiger</a>) is &ldquo;Why is it after I removed a bunch of documents my free space didn&rsquo;t increase&rdquo;?</p>
 
 <p>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</p>
@@ -161,7 +161,7 @@
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x61;&#x6c;&#x65;&#x78;&#46;&#98;&#x65;&#118;&#105;&#108;&#97;&#99;&#113;&#x75;&#x61;&#x40;&#109;&#x6f;&#110;&#x67;&#111;&#100;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#97;&#x6c;&#x65;&#120;&#46;&#98;&#x65;&#x76;&#x69;&#x6c;&#97;&#x63;&#x71;&#117;&#x61;&#x40;&#x6d;&#111;&#110;&#103;&#x6f;&#x64;&#98;&#46;&#x63;&#111;&#109;</a>
+* @author <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#97;&#x6c;&#101;&#120;&#x2e;&#x62;&#x65;&#x76;&#x69;&#x6c;&#x61;&#x63;&#113;&#117;&#97;&#64;&#109;&#x6f;&#x6e;&#103;&#111;&#100;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x61;&#108;&#x65;&#120;&#x2e;&#98;&#101;&#x76;&#x69;&#x6c;&#97;&#x63;&#113;&#117;&#97;&#64;&#109;&#x6f;&#110;&#103;&#x6f;&#100;&#98;&#x2e;&#99;&#111;&#109;</a>
 * @updated 2020-02-25
 </em>/</p>
 
@@ -406,6 +406,10 @@ print([&amp;quot;Total&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2])
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/">Identifying and Reclaiming Disk Space in MongoDB</a>
         </li>
         
@@ -419,10 +423,6 @@ print([&amp;quot;Total&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2])
         
         <li class="post">
             <a href="/blog/2020/01/23/troubleshooting-and-fixing-invariant-failure-featuretracker/">Troubleshooting and Fixing Invariant Failure !_featureTracker on MongoDB Startup</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
         </li>
         
     </ul>
