@@ -147,6 +147,8 @@
 
 <p>The following is an <a href="https://docs.mongodb.com/stitch/services/http">HTTP Service</a> I&rsquo;ve written that has an <a href="https://docs.mongodb.com/stitch/services/http/#incoming-webhooks">incoming webhook</a>. When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the <code>maxItems</code> <a href="https://en.wikipedia.org/wiki/Query_string"><em>query parameter</em></a> of the <a href="https://docs.mongodb.com/stitch/services/http/#request-payload">request payload</a> provided to the incoming webhook.</p>
 
+<p><strong>NOTE</strong> When doing a number of <code>insertOne</code> operations in a loop and <a href="https://docs.mongodb.com/stitch/mongodb/actions/collection.insertMany/"><code>insertMany</code></a> would likely address the issue directly without requiring any additional workarounds.</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>

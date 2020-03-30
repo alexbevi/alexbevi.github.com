@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T09:43:01-04:00</updated>
+    <updated>2020-03-30T13:33:55-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -25,6 +25,8 @@ This article summarizes why this limit exists, as well as how to adapt your [Mon
 <!-- more -->
 
 The following is an [HTTP Service](https://docs.mongodb.com/stitch/services/http) I've written that has an [incoming webhook](https://docs.mongodb.com/stitch/services/http/#incoming-webhooks). When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the `maxItems` [_query parameter_](https://en.wikipedia.org/wiki/Query_string) of the [request payload](https://docs.mongodb.com/stitch/services/http/#request-payload) provided to the incoming webhook.
+
+**NOTE** When doing a number of `insertOne` operations in a loop and [`insertMany`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertMany/) would likely address the issue directly without requiring any additional workarounds.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
