@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb-stitch | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb-stitch/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T09:28:51-04:00</updated>
+    <updated>2020-03-30T09:36:30-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -178,7 +178,7 @@ To work around this limit we will adapt our earlier code to instead throttle our
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure>
 
-The number of items to process (based on `maxItems` again) will now be broken up into batches (`BATCH_SIZE`) and using [`Promise.all()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) all the operations in a batch will be fulfilled before another batch is processed.
+The number of items to process (based on `maxItems` again) will now be broken up into batches (`BATCH_SIZE`). Following this, [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) will execute all the operations in a batch and ensure they are all fulfilled before another batch is processed.
 
 This method allows the workload to be artificially throttled to allow `maxItems` operations to be executed. Let's try running our webhook again for 9000 items:
 

@@ -303,7 +303,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The number of items to process (based on <code>maxItems</code> again) will now be broken up into batches (<code>BATCH_SIZE</code>) and using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><code>Promise.all()</code></a> all the operations in a batch will be fulfilled before another batch is processed.</p>
+<p>The number of items to process (based on <code>maxItems</code> again) will now be broken up into batches (<code>BATCH_SIZE</code>). Following this, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"><code>Promise.all</code></a> will execute all the operations in a batch and ensure they are all fulfilled before another batch is processed.</p>
 
 <p>This method allows the workload to be artificially throttled to allow <code>maxItems</code> operations to be executed. Let&rsquo;s try running our webhook again for 9000 items:</p>
 
