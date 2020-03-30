@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T07:47:10-04:00</updated>
+    <updated>2020-03-30T07:47:55-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,7 +20,9 @@
         <id>http://www.alexbevi.com/blog/2020/03/30/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule</id>
         <content type="html"><![CDATA[Working in Technical Services as MongoDB I find that time and again customers need assistance understanding why the indexes they've created may not be performing optimally. When providing customers with supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/). Although this article was written in 2012, the information therin is still applicable and accurate.
 
-This article will be heavily inspired by Jesse's article and attempt to update some examples for more modern MongoDB versions as well as focus more on how applying these "rules" can improve performance of diagnosed slow operations.]]></content>
+This article will be heavily inspired by Jesse's article and attempt to update some examples for more modern MongoDB versions as well as focus more on how applying these "rules" can improve performance of diagnosed slow operations.
+
+]]></content>
     </entry>
     
     <entry>
