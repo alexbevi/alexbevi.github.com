@@ -65,6 +65,10 @@ curl -w "\nTotal Time: %{time_total}s\n" \
 Total Time: 0.371383s
 ```
 
+Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application the webhook belongs. This can be useful for debugging.
+
+{% img /images/stitch-log01.png %}
+
 The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as [`insertOne`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/) within a function are leveraging the MongoDB Stitch JavaScript SDK's [`insertOne`](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html#insertone) method, which returns a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise). To ensure these promises don't queue infinitely waiting to be resolved, MongoDB Stitch will arbitrarily limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.
 
 To work around this limit we will adapt our earlier code to instead throttle our work loop to ensure batches of 1000 or less are processed before more work is attempted.
