@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-16T08:09:39-04:00</updated>
+    <updated>2020-05-16T08:13:32-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,518 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/"/>
+        <updated>2020-05-16T07:35:11-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule</id>
+        <content type="html"><![CDATA[<p>Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they&rsquo;ve created <a href="https://docs.mongodb.com/manual/indexes/">indexes</a> for may not be performing optimally. When providing supplementary documentation, the go-to article is <a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">&ldquo;Optimizing MongoDB Compound Indexes&rdquo;</a> by MongoDB&rsquo;s <a href="https://emptysqua.re/blog/about/">A. Jesse Jiryu Davis</a>, however we do not have a formal public reference yet though <em><a href="https://jira.mongodb.org/browse/DOCS-11790">[DOCS-11790] Adding Equality-Sort-Range info to index documentation</a></em> exists to track this effort.</p>
+
+<p>I&rsquo;ve presented this topic now at <a href="https://mongodblocaltoronto2019.sched.com/event/VCf3/tips-and-tricks-for-effective-indexing-mongodb">MongoDB.local Toronto 2019</a> (in <a href="https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing">&ldquo;Tips and Tricks for Effective Indexing&rdquo;</a>) and at <a href="https://mongodbworld2019.sched.com/event/OCX7/the-sights-and-smells-of-a-bad-query-mongodb">MongoDB World 2019</a> (in <a href="https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query">&ldquo;The Sights (and Smells) of a Bad Query&rdquo;</a>). My colleague <a href="https://www.linkedin.com/in/christopher-harris-483aa149/">Chris Harris</a> has also covered this topic at MongoDB World 2019 (in <a href="https://www.slideshare.net/mongodb/mongodb-world-2019-tips-and-tricks-for-querying-and-indexing-mongodb">&ldquo;Tips and Tricks++ for Querying and Indexing MongoDB&rdquo;</a>) and again at the MongoDB.local Houston 2019, for which <a href="https://www.youtube.com/watch?v=5mBY27wVau0&amp;list=PL4RCxklHWZ9u_xtprouvxCvzq2m6q_0_E&amp;index=9&amp;t=0s">a video is available</a>.</p>
+
+<p>Though we have Jesse&rsquo;s excellent (and still applicable and valid) article from 2012, I wanted to take this opportunity to collect some thoughts on this topic based on his work and previous presentations.</p>
+
+<h2>The ESR &ldquo;Rule&rdquo;</h2>
+
+<p>The ordering of index keys in a compound index is critically important, and the ESR &ldquo;Rule&rdquo; can be used as a rule of thumb to identify the optimal order <em>in most cases</em>.</p>
+
+<p>The reason we are putting &ldquo;Rule&rdquo; in quotations is because, though the guidance is applicable in most cases, there are exceptions to be aware of. These exceptions are covered in greater detail in my in <a href="https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing">&ldquo;Tips and Tricks for Effective Indexing&rdquo;</a> presentation.</p>
+
+<h3>The &ldquo;Rules&rdquo;</h3>
+
+<!-- more -->
+
+
+<p>(1) <em><strong>Equality</strong></em> predicates should be placed first</p>
+
+<p>An equality predicate is any filter condition that is attempting to match a value <em>exactly</em>. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">123</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">x</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$eq</span><span class="o">:</span> <span class="mi">123</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">aggregate</span><span class="p">([</span> <span class="p">{</span> <span class="nx">$match</span><span class="o">:</span><span class="p">{</span> <span class="s2">&quot;x.y&quot;</span><span class="o">:</span> <span class="mi">123</span> <span class="p">}</span> <span class="p">}</span> <span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These filters will be tightly bound when seen in the indexBounds of an <a href="https://docs.mongodb.com/manual/reference/explain-results/#explain-output">Explain Plan</a>:</p>
+
+<p>&ldquo;indexBounds&rdquo; : {
+    &ldquo;x&rdquo; : [
+        &ldquo;[123.0, 123.0]&rdquo;
+    ]
+}</p>
+
+<p>Note that <em>multiple equality predicates <strong>do not</strong> have to be ordered from most selective to least selective</em>. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, <em>there is exactly the same number of combinations regardless of key order</em>.</p>
+
+<p>(2) <em><strong>Sort</strong></em> predicates follow <em>Equality</em> predicates
+Sort predicates represent the entire requested sort for the operation and determine the ordering of results. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">b</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">aggregate</span><span class="p">([</span> <span class="p">{</span> <span class="nx">$sort</span><span class="o">:</span> <span class="p">{</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A sort predicate will be <em>unbounded</em> as it requires the entire key range to be scanned to satisfy the sort requirements:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;b&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[MaxKey, MinKey]&quot;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="s2">&quot;a&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(3) <em><strong>Range</strong></em> predicates follow <em>Equality</em> and <em>Sort</em> predicates</p>
+
+<p>Range predicates are filters that may scan multiple keys as they <em>are not</em> testing for an exact match. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">z</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="mi">5</span><span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">z</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">10</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">z</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$ne</span><span class="o">:</span> <span class="kc">null</span> <span class="p">}</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The range predicates will be <em>loosely bounded</em> as a subset of the key range will need to be scanned to satisfy the filter requirements:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;z&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[5.0, inf.0]&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;z&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[-inf.0, 10.0)&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;z&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[MinKey, undefined)&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;(null, MaxKey]&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These three tenets of the &ldquo;rule&rdquo; have to do with how a query will traverse an index to identify the keys that match the query’s filter and sort criteria.</p>
+
+<h3>Setup</h3>
+
+<p>For the duration of this section we’ll be working with the following data to help illustrate the various guiding principles:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span> <span class="err">name:</span> <span class="nt">&quot;Shakir&quot;</span><span class="p">,</span> <span class="err">location:</span> <span class="nt">&quot;Ottawa&quot;</span><span class="p">,</span>    <span class="err">region:</span> <span class="nt">&quot;AMER&quot;</span><span class="p">,</span> <span class="err">joined:</span> <span class="err">2015</span> <span class="p">}</span>
+</span><span class='line'><span class="p">{</span> <span class="err">name:</span> <span class="nt">&quot;Chris&quot;</span><span class="p">,</span>  <span class="err">location:</span> <span class="nt">&quot;Austin&quot;</span><span class="p">,</span>    <span class="err">region:</span> <span class="nt">&quot;AMER&quot;</span><span class="p">,</span> <span class="err">joined:</span> <span class="err">2016</span> <span class="p">}</span>
+</span><span class='line'><span class="p">{</span> <span class="err">name:</span> <span class="nt">&quot;III&quot;</span><span class="p">,</span>    <span class="err">location:</span> <span class="nt">&quot;Sydney&quot;</span><span class="p">,</span>    <span class="err">region:</span> <span class="nt">&quot;APAC&quot;</span><span class="p">,</span> <span class="err">joined:</span> <span class="err">2016</span> <span class="p">}</span>
+</span><span class='line'><span class="p">{</span> <span class="err">name:</span> <span class="nt">&quot;Miguel&quot;</span><span class="p">,</span> <span class="err">location:</span> <span class="nt">&quot;Barcelona&quot;</span><span class="p">,</span> <span class="err">region:</span> <span class="nt">&quot;EMEA&quot;</span><span class="p">,</span> <span class="err">joined:</span> <span class="err">2017</span> <span class="p">}</span>
+</span><span class='line'><span class="p">{</span> <span class="err">name:</span> <span class="nt">&quot;Alex&quot;</span><span class="p">,</span>   <span class="err">location:</span> <span class="nt">&quot;Toronto&quot;</span><span class="p">,</span>   <span class="err">region:</span> <span class="nt">&quot;AMER&quot;</span><span class="p">,</span> <span class="err">joined:</span> <span class="err">2018</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We will also be examining simplified (filtered) Explain Plan’s <a href="https://docs.mongodb.com/manual/reference/explain-results/#executionstats"><code>executionStats</code></a> from each operation using a variation of the following command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="p">...</span> <span class="p">}).</span><span class="nx">sort</span><span class="p">({</span> <span class="p">...</span> <span class="p">}).</span><span class="nx">explain</span><span class="p">(</span><span class="s2">&quot;executionStats&quot;</span><span class="p">).</span><span class="nx">executionStats</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>(E) <em>Equality</em> First</h3>
+
+<p>When <a href="https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/">creating queries that ensure selectivity</a>, we learn that &ldquo;selectivity&rdquo; is the ability of a query to narrow results using the index. Effective indexes are more selective and allow MongoDB to use the index for a larger portion of the work associated with fulfilling the query.</p>
+
+<p>Equality fields should always form the prefix for the index, followed by either Sort or Range predicates. To better understand why</p>
+
+<h3>(E → S) <em>Equality</em> before <em>Sort</em></h3>
+
+<p>Placing sort predicates after sequential equality keys allow for the index to:
+Provide a non-blocking sort.
+Minimize the amount of scanning required.</p>
+
+<p>To better understand why this is we will begin with the following example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;AMER&quot;</span> <span class="p">}).</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With the <em>Sort</em> predicate first, the full key range would have to be scanned prior to the more selective equality filter being applied:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>            <span class="p">],</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>            <span class="p">]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr01.png"></p>
+
+<p>With this index, all 5 keys have to be scanned (<code>totalKeysExamined</code>) to identify the 3 matching documents (<code>nReturned</code>).</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;AMER&quot;</span> <span class="p">}).</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With the <em>Equality</em> predict first, the tight bounds allow less keys to be scanned to satisfy the filter criteria:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[\&quot;AMER\&quot;, \&quot;AMER\&quot;]&quot;</span>
+</span><span class='line'>            <span class="p">],</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>            <span class="p">]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr02.png"></p>
+
+<h3>(E → R) <em>Equality</em> before <em>Range</em></h3>
+
+<p>Though <em>Range</em> predicates scan a subset of keys (unlike <em>Sort</em> predicates), they should still be placed after Equality predicates to ensure the key ordering is optimized for selectivity.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">joined</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;AMER&quot;</span><span class="p">,</span> <span class="nx">joined</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">2015</span> <span class="p">}</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Having the <em>Range</em> before the <em>Equality</em> predicate causes more keys to be scanned to identify the matching documents:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;joined&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;(2015.0, inf.0]&quot;</span>
+</span><span class='line'>            <span class="p">],</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[\&quot;AMER\&quot;, \&quot;AMER\&quot;]&quot;</span>
+</span><span class='line'>            <span class="p">]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr03.png"></p>
+
+<p>In this example, 4 keys had to be scanned to identify the 2 matches. Changing the order of the keys to place the Equality predicate first will reduce the amount of scanning required:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">joined</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="s2">&quot;AMER&quot;</span><span class="p">,</span> <span class="nx">joined</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">2015</span> <span class="p">}</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[\&quot;AMER\&quot;, \&quot;AMER\&quot;]&quot;</span>
+</span><span class='line'>            <span class="p">],</span>
+</span><span class='line'>            <span class="s2">&quot;joined&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;(2015.0, inf.0]&quot;</span>
+</span><span class='line'>            <span class="p">]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr04.png"></p>
+
+<p>After placing the <em>Equality</em> predicate before the <em>Range</em> predicate, only the number of keys necessary to satisfy the filter criteria are scanned.</p>
+
+<h3>(S → R) <em>Sort</em> before <em>Range</em></h3>
+
+<p>Having a <em>Range</em> predicate before the <em>Sort</em> can result in a Blocking (In Memory) Sort being performed as the <a href="https://docs.mongodb.com/manual/tutorial/sort-results-with-indexes/">index cannot be used to satisfy the sort criteria</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">joined</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">joined</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">2015</span> <span class="p">}</span> <span class="p">}).</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;SORT&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;sortPattern&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="mf">1.0</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="s2">&quot;memUsage&quot;</span> <span class="o">:</span> <span class="mf">136.0</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;memLimit&quot;</span> <span class="o">:</span> <span class="mf">33554432.0</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;SORT_KEY_GENERATOR&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="p">...</span>
+</span><span class='line'>                <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="s2">&quot;joined&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                        <span class="s2">&quot;(2015.0, inf.0]&quot;</span>
+</span><span class='line'>                    <span class="p">],</span>
+</span><span class='line'>                    <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                        <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>                    <span class="p">]</span>
+</span><span class='line'>                <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr05.png"></p>
+
+<p>In this example, the filter was able to use the index selectively to identify the 4 keys needed to satisfy the query, however the results are not known to be in order. This results in the identified keys being sorted in memory prior to be returned to the calling stage in the execution plan.</p>
+
+<p>By moving the <em>Sort</em> predicate before the <em>Range</em> predicate however, even though more keys may need to be scanned the keys will be returned correctly ordered.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// operation</span>
+</span><span class='line'><span class="nx">createIndex</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">joined</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">find</span><span class="p">({</span> <span class="nx">joined</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">2015</span> <span class="p">}</span> <span class="p">}).</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">region</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// execution stats</span>
+</span><span class='line'><span class="s2">&quot;nReturned&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalKeysExamined&quot;</span> <span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;totalDocsExamined&quot;</span> <span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;executionStages&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;inputStage&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;stage&quot;</span> <span class="o">:</span> <span class="s2">&quot;IXSCAN&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">...</span>
+</span><span class='line'>        <span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;region&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>            <span class="p">],</span>
+</span><span class='line'>            <span class="s2">&quot;joined&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                <span class="s2">&quot;[MinKey, MaxKey]&quot;</span>
+</span><span class='line'>            <span class="p">]</span>
+</span><span class='line'>        <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://www.alexbevi.com/images/esr06.png"></p>
+
+<p>Though this method requires scanning additional keys the lack of a blocking sort will generally be far more efficient/performant.</p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Working around MongoDB Stitch's "max async work queue" limit]]></title>
@@ -251,7 +763,7 @@
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#x6c;&#x65;&#120;&#46;&#98;&#101;&#x76;&#105;&#x6c;&#97;&#99;&#x71;&#117;&#97;&#x40;&#x6d;&#111;&#x6e;&#103;&#x6f;&#x64;&#x62;&#46;&#99;&#111;&#109;">&#97;&#108;&#x65;&#x78;&#x2e;&#x62;&#101;&#118;&#x69;&#x6c;&#97;&#99;&#x71;&#x75;&#x61;&#x40;&#109;&#x6f;&#x6e;&#x67;&#111;&#100;&#x62;&#x2e;&#x63;&#111;&#109;</a>
+* @author <a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x61;&#x6c;&#x65;&#120;&#x2e;&#98;&#101;&#x76;&#x69;&#108;&#97;&#x63;&#x71;&#x75;&#x61;&#x40;&#x6d;&#111;&#110;&#103;&#111;&#100;&#98;&#46;&#99;&#x6f;&#109;">&#x61;&#x6c;&#101;&#120;&#46;&#98;&#101;&#x76;&#x69;&#108;&#x61;&#99;&#x71;&#x75;&#97;&#64;&#109;&#x6f;&#x6e;&#103;&#111;&#x64;&#98;&#x2e;&#x63;&#111;&#x6d;</a>
 * @version 1.1
 * @updated 2020-05-14
 *
@@ -1866,8 +2378,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#x6c;&#x65;&#120;&#98;&#x65;&#118;&#105;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#97;&#108;&#x65;&#x78;&#98;&#101;&#x76;&#105;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
-To: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x77;&#101;&#x62;&#x2e;&#x73;&#x75;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#x62;&#108;&#x69;&#122;&#122;&#x61;&#x72;&#100;&#46;&#x63;&#111;&#109;">&#119;&#101;&#x62;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#x74;&#x40;&#x62;&#108;&#105;&#122;&#122;&#97;&#x72;&#x64;&#x2e;&#99;&#x6f;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x61;&#x6c;&#101;&#120;&#x62;&#101;&#118;&#105;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#97;&#x6c;&#101;&#120;&#x62;&#101;&#118;&#x69;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a>
+To: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#119;&#x65;&#98;&#46;&#115;&#117;&#112;&#112;&#x6f;&#114;&#x74;&#x40;&#x62;&#x6c;&#105;&#122;&#x7a;&#x61;&#x72;&#100;&#46;&#x63;&#111;&#x6d;">&#x77;&#101;&#98;&#46;&#x73;&#x75;&#112;&#112;&#111;&#x72;&#116;&#x40;&#x62;&#x6c;&#x69;&#122;&#x7a;&#97;&#114;&#100;&#x2e;&#99;&#111;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -2439,82 +2951,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 <p>I LOVE this. Saitama is OP AF!!! The story is a bit goofy, but the characters are interesting and the plot keeps you interested. Would totally recommend this.</p>
 
 <p>I think that&rsquo;s all for now.</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Just Finished - Seiken Densetsu 3]]></title>
-        <link href="http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3/"/>
-        <updated>2016-04-19T14:30:20-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2016/04/19/just-finished-seiken-densetsu-3</id>
-        <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/sd3/sd3.026.png"></p>
-
-<p><a href="https://en.wikipedia.org/wiki/Seiken_Densetsu_3">Seiken Densetsu 3 (聖剣伝説3)</a> is the third installment in the <a href="https://en.wikipedia.org/wiki/Mana_(series)">Mana series</a>. It&rsquo;s the sequel to <a href="https://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>, which is the entry into the series that most North American gamers would be familiar with.</p>
-
-<p>Once again, I played through this game on my phone using the fantastic <a href="http://www.explusalpha.com/home/snes9x-ex">Snes9x EX</a>. Please support this dev as he provides a fantastic product. For some reason though, most of the screenshots I took came out stretched. This hasn&rsquo;t happened before, and I&rsquo;ve been playing a couple other games that this isn&rsquo;t happening for either, so I&rsquo;ll chalk this up to bad luck :|</p>
-
-<p><img src="http://www.alexbevi.com/images/sd3/sd3.005.png"></p>
-
-<p><em>NOTE</em> I ran these screenshots through <a href="http://pmt.sourceforge.net/pngcrush/">pngcrush</a> (<code>ls *.png | while read line; do pngcrush -ow -brute $line; done</code>) to get the size down a bit ;)</p>
-
-<p>I&rsquo;m leaving these images in here as they were part of my &ldquo;journey&rdquo;, though hopefully they don&rsquo;t deter anyone from playing this game, as the game is <em>fantastic</em>.</p>
-
-<p>First off, if you&rsquo;re a fan of <a href="https://en.wikipedia.org/wiki/Secret_of_Mana">Secret of Mana</a>, the initial &ldquo;feel&rdquo; of the game will be familiar, as will the art style and sound.</p>
-
-<!-- more -->
-
-
-<p>Whereas SoM had you gradually encounter the two other playable characters at set points in the game, SD3 has you selecting your 3 main characters before you even begin.</p>
-
-<p>I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran&rsquo;s story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.</p>
-
-<p><img src="http://www.alexbevi.com/images/sd3/sd3.004.png"></p>
-
-<p>On this journey, he&rsquo;ll run into the other characters I selected (Kevin and Carlie), and each of their stories will mix into Duran&rsquo;s. This is actually a really cool element of this game as it gives it a lot of replay value. No matter what combination of characters you pick, their stories will all overlap. Also, you&rsquo;ll run into all the other characters you didn&rsquo;t pick, so every character makes an appearance throughout the game.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/sd3/sd3.010.png"></p>
-
-<p>You travel around the game mostly on foot initially, but eventually new methods of travel will open up. As with SoM, you can get to certain areas via Cannon Travel (though there&rsquo;s a couple of fetch-quests before you can actually take advantage of this). There&rsquo;s also a ship, a weird turtle thing, and eventually Flammie the dragon.</p>
-
-<p>The combat system is reminiscent of SoM as well, though this time around it feels a lot more &ldquo;button mash-ey&rdquo;. I found that I just spammed the B button throughout most of this game and didn&rsquo;t really use any strategy during combat; aside from healing periodically.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/sd3/sd3.014.png"></p>
-
-<p>You get experience by killing enemies, which will allow you to level up your characters. Leveling up lets you increase various stats, that should make your characters perform better in future battles.</p>
-
-<p>As you make your way through the game, you&rsquo;ll start finding these pillars that are guarded by stronger enemies. These are the Mana stones, and apparently contain God-beasts that will be awakened if you shatter the stones.</p>
-
-<p>These stones can also be used to change your character&rsquo;s class. This is another cool aspect of this game, as it give the leveling system a bit more flavour. You can change classes twice in this game; once at level 18, and again at level 38. Each of these classes is aligned with either &ldquo;Light&rdquo; or &ldquo;Dark&rdquo;, and gives the character new skills/improvements.</p>
-
-<p><img src="http://www.alexbevi.com/images/sd3/sd3.017.png"></p>
-
-<p>The game can feel a bit &ldquo;grindy&rdquo; due to the need to constantly trudge back and forth between areas, and there are enemies on each screen. These battles are all avoidable, but you&rsquo;ll want to level up for the boss fights, and eventually the God Beasts.</p>
-
-<p>While you&rsquo;re trekking though, you get to enjoy some really good background music. If you like Secret of Mana, you&rsquo;ll love Seiken Densetsu 3. You can have a listen over at <a href="https://www.youtube.com/watch?v=qrywwZ7oL2w&amp;index=30&amp;list=PL4649F0DBF0FC09E3">YouTube</a> to get an idea what&rsquo;s in store for you ;)</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/sd3/sd3.031.png"></p>
-
-<p>The artwork is also top notch. It&rsquo;s really a shame this game never made it to North America as this is possibly one of the best looking SNES games out there. The background design, character design and monster sprites are all very, very well done. There is a lot of variety to the various regions of the world.</p>
-
-<p>Once you&rsquo;ve shattered all the Mana stones, you unleash the God Beasts. Their position is shown on the world map, and they can be fought in any order, but it&rsquo;s a good idea to start from the top left of the map and work your way through them sequentially.</p>
-
-<p>I learned this the hard way as I only play this game on occasion, and ended up forgetting where I was. This resulted in A LOT of backtracking to find the last couple of beasts.</p>
-
-<p>I thoroughly enjoyed playing this game and would highly recommend this to anyone out there that likes JRPGs, action RPGs and 8/16-bit gaming in general. The graphics, music and gameplay are all very well done, and the story lines are interesting, even if there is occasionally some cheesy dialog :P</p>
-
-<div id="galleria"><img src="http://www.alexbevi.com/images/sd3/sd3.000.png" data-title="/images/sd3/sd3.000.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.001.png" data-title="/images/sd3/sd3.001.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.002.png" data-title="/images/sd3/sd3.002.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.003.png" data-title="/images/sd3/sd3.003.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.006.png" data-title="/images/sd3/sd3.006.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.007.png" data-title="/images/sd3/sd3.007.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.008.png" data-title="/images/sd3/sd3.008.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.011.png" data-title="/images/sd3/sd3.011.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.012.png" data-title="/images/sd3/sd3.012.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.013.png" data-title="/images/sd3/sd3.013.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.015.png" data-title="/images/sd3/sd3.015.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.016.png" data-title="/images/sd3/sd3.016.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.018.png" data-title="/images/sd3/sd3.018.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.019.png" data-title="/images/sd3/sd3.019.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.020.png" data-title="/images/sd3/sd3.020.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.021.png" data-title="/images/sd3/sd3.021.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.022.png" data-title="/images/sd3/sd3.022.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.023.png" data-title="/images/sd3/sd3.023.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.024.png" data-title="/images/sd3/sd3.024.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.025.png" data-title="/images/sd3/sd3.025.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.027.png" data-title="/images/sd3/sd3.027.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.028.png" data-title="/images/sd3/sd3.028.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.029.png" data-title="/images/sd3/sd3.029.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.030.png" data-title="/images/sd3/sd3.030.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.032.png" data-title="/images/sd3/sd3.032.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.033.png" data-title="/images/sd3/sd3.033.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.034.png" data-title="/images/sd3/sd3.034.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.035.png" data-title="/images/sd3/sd3.035.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.036.png" data-title="/images/sd3/sd3.036.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.037.png" data-title="/images/sd3/sd3.037.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.038.png" data-title="/images/sd3/sd3.038.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.039.png" data-title="/images/sd3/sd3.039.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.040.png" data-title="/images/sd3/sd3.040.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.041.png" data-title="/images/sd3/sd3.041.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.042.png" data-title="/images/sd3/sd3.042.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.043.png" data-title="/images/sd3/sd3.043.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.044.png" data-title="/images/sd3/sd3.044.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.045.png" data-title="/images/sd3/sd3.045.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.046.png" data-title="/images/sd3/sd3.046.png" /><img src="http://www.alexbevi.com/images/sd3/sd3.047.png" data-title="/images/sd3/sd3.047.png" /></div>
-
-
-<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-
-<p>I finished this game over a month ago, so I&rsquo;m still pretty slow cranking out these reviews &hellip;</p>
-
-<p>I&rsquo;m currently working my way through <a href="https://en.wikipedia.org/wiki/The_7th_Saga">The 7th Saga</a> for SNES since I clearly need <em>more</em> pain and frustration in my life :P When that game is annoying me, I&rsquo;m also working on Sega Genesis version of <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Shadowrun</a>.</p>
-
-<p>That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I&rsquo;m actually really enjoying it, and it is VERY different the the SNES game of the same name.</p>
-
-<p>Hopefully I&rsquo;ll have more for you in the near(er) future :)</p>
 ]]></content>
     </entry>
     
