@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-03-30T14:08:13-04:00</updated>
+    <updated>2020-05-16T08:09:39-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -240,10 +240,18 @@ As the `db.collection.stats()` command must be run one [collection](https://docs
 * Supports sharded clusters
 *
 * @author alex.bevilacqua@mongodb.com
-* @updated 2020-02-25
+* @version 1.1
+* @updated 2020-05-14
+*
+* History:
+* 1.1 - Include Document Count / Average Object Size
+* 1.0 - Initial Release
 */
 
 var fmt = function (bytes) {
+    // comment this out to format the results
+    return bytes;
+
     var sizes = [&#39;Bytes&#39;, &#39;KB&#39;, &#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;];
     if (bytes == 0) return &#39;0 Byte&#39;;
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
@@ -253,6 +261,8 @@ var fmt = function (bytes) {
 var getDetail = function (label, stats) {
     var detail = {
         name: label,
+        count: stats.count,
+        avgSize: stats.avgObjSize,
         size: stats.size,
         storageSize: stats.storageSize,
         reusableSpace: stats.wiredTiger[&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;],
@@ -288,10 +298,10 @@ var dbSizeReport = function (dbname) {
     });
 
     var totals = [0, 0, 0, 0, 0];
-    print([&quot;Namespace&quot;, &quot;Uncompressed&quot;, &quot;Compressed&quot;, &quot;Reusable from Collections&quot;, &quot;Indexes&quot;, &quot;Reusable from Indexes&quot;].join(&quot;,&quot;))
+    print([&quot;Namespace&quot;, &quot;Total Documents&quot;, &quot;Average Document Size&quot;, &quot;Uncompressed&quot;, &quot;Compressed&quot;, &quot;Reusable from Collections&quot;, &quot;Indexes&quot;, &quot;Reusable from Indexes&quot;].join(&quot;,&quot;))
     for (var i = 0; i &lt; results.length; i++) {
         var row = results[i];
-        print([row.name, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&quot;,&quot;))
+        print([row.name, row.count, row.avgSize, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&quot;,&quot;))
         totals[0] += row.size;
         totals[1] += row.storageSize;
         totals[2] += row.reusableSpace;
@@ -299,7 +309,7 @@ var dbSizeReport = function (dbname) {
         totals[4] += row.indexReusable;
     }
 
-    print([&quot;Total&quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&quot;,&quot;));
+    print([&quot;Total&quot;, &quot;&quot;, &quot;&quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&quot;,&quot;));
 }
 
 db.getMongo().getDBNames().forEach(function (dbname) {

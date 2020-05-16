@@ -4,7 +4,7 @@
   <title><![CDATA[ALEX BEVILACQUA]]></title>
   <link href="http://www.alexbevi.com/feed" rel="self"/>
   <link href="http://www.alexbevi.com/"/>
-  <updated>2020-03-30T14:08:13-04:00</updated>
+  <updated>2020-05-16T08:09:39-04:00</updated>
   <id>http://www.alexbevi.com/</id>
   <author>
     <name><![CDATA[Alex Bevilacqua]]></name>
@@ -251,20 +251,32 @@
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#97;&#x6c;&#101;&#x78;&#46;&#x62;&#x65;&#x76;&#105;&#108;&#97;&#99;&#113;&#117;&#x61;&#64;&#109;&#111;&#110;&#103;&#x6f;&#100;&#98;&#x2e;&#x63;&#111;&#x6d;">&#97;&#108;&#x65;&#x78;&#x2e;&#98;&#x65;&#118;&#105;&#108;&#x61;&#x63;&#x71;&#x75;&#x61;&#x40;&#109;&#111;&#110;&#103;&#111;&#100;&#98;&#46;&#99;&#x6f;&#x6d;</a>
-* @updated 2020-02-25
+* @author <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#x6c;&#x65;&#120;&#46;&#98;&#101;&#x76;&#105;&#x6c;&#97;&#99;&#x71;&#117;&#97;&#x40;&#x6d;&#111;&#x6e;&#103;&#x6f;&#x64;&#x62;&#46;&#99;&#111;&#109;">&#97;&#108;&#x65;&#x78;&#x2e;&#x62;&#101;&#118;&#x69;&#x6c;&#97;&#99;&#x71;&#x75;&#x61;&#x40;&#109;&#x6f;&#x6e;&#x67;&#111;&#100;&#x62;&#x2e;&#x63;&#111;&#109;</a>
+* @version 1.1
+* @updated 2020-05-14
+*
+* History:
+* 1.1 - Include Document Count / Average Object Size
+* 1.0 - Initial Release
 </em>/</p>
 
 <p>var fmt = function (bytes) {
-    var sizes = [&#39;Bytes&#39;, &#39;KB&#39;, &#39;MB&#39;, &#39;GB&#39;, &#39;TB&#39;];
-    if (bytes == 0) return &#39;0 Byte&#39;;
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-    return Math.round(bytes / Math.pow(1024, i), 2) + &#39; &#39; + sizes[i];
-}</p>
+    // comment this out to format the results
+    return bytes;</p>
+
+<pre><code>var sizes = [&amp;#39;Bytes&amp;#39;, &amp;#39;KB&amp;#39;, &amp;#39;MB&amp;#39;, &amp;#39;GB&amp;#39;, &amp;#39;TB&amp;#39;];
+if (bytes == 0) return &amp;#39;0 Byte&amp;#39;;
+var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+return Math.round(bytes / Math.pow(1024, i), 2) + &amp;#39; &amp;#39; + sizes[i];
+</code></pre>
+
+<p>}</p>
 
 <p>var getDetail = function (label, stats) {
     var detail = {
         name: label,
+        count: stats.count,
+        avgSize: stats.avgObjSize,
         size: stats.size,
         storageSize: stats.storageSize,
         reusableSpace: stats.wiredTiger[&quot;block-manager&quot;][&quot;file bytes available for reuse&quot;],
@@ -302,10 +314,10 @@ return detail;
     });</p>
 
 <pre><code>var totals = [0, 0, 0, 0, 0];
-print([&amp;quot;Namespace&amp;quot;, &amp;quot;Uncompressed&amp;quot;, &amp;quot;Compressed&amp;quot;, &amp;quot;Reusable from Collections&amp;quot;, &amp;quot;Indexes&amp;quot;, &amp;quot;Reusable from Indexes&amp;quot;].join(&amp;quot;,&amp;quot;))
+print([&amp;quot;Namespace&amp;quot;, &amp;quot;Total Documents&amp;quot;, &amp;quot;Average Document Size&amp;quot;, &amp;quot;Uncompressed&amp;quot;, &amp;quot;Compressed&amp;quot;, &amp;quot;Reusable from Collections&amp;quot;, &amp;quot;Indexes&amp;quot;, &amp;quot;Reusable from Indexes&amp;quot;].join(&amp;quot;,&amp;quot;))
 for (var i = 0; i &amp;lt; results.length; i++) {
     var row = results[i];
-    print([row.name, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&amp;quot;,&amp;quot;))
+    print([row.name, row.count, row.avgSize, fmt(row.size), fmt(row.storageSize), fmt(row.reusableSpace), fmt(row.indexSpace), fmt(row.indexReusable)].join(&amp;quot;,&amp;quot;))
     totals[0] += row.size;
     totals[1] += row.storageSize;
     totals[2] += row.reusableSpace;
@@ -313,7 +325,7 @@ for (var i = 0; i &amp;lt; results.length; i++) {
     totals[4] += row.indexReusable;
 }
 
-print([&amp;quot;Total&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&amp;quot;,&amp;quot;));
+print([&amp;quot;Total&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, fmt(totals[0]), fmt(totals[1]), fmt(totals[2]), fmt(totals[3]), fmt(totals[4])].join(&amp;quot;,&amp;quot;));
 </code></pre>
 
 <p>}</p>
@@ -1854,8 +1866,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#97;&#x6c;&#101;&#x78;&#x62;&#101;&#x76;&#x69;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x6c;&#101;&#120;&#98;&#101;&#x76;&#105;&#64;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>
-To: <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x77;&#x65;&#98;&#46;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#64;&#98;&#x6c;&#105;&#x7a;&#x7a;&#97;&#x72;&#x64;&#46;&#x63;&#111;&#x6d;">&#x77;&#x65;&#x62;&#x2e;&#115;&#x75;&#112;&#x70;&#111;&#114;&#x74;&#x40;&#98;&#x6c;&#x69;&#x7a;&#122;&#x61;&#x72;&#100;&#46;&#x63;&#x6f;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x61;&#x6c;&#x65;&#120;&#98;&#x65;&#118;&#105;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#97;&#108;&#x65;&#x78;&#98;&#101;&#x76;&#105;&#x40;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
+To: <a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x77;&#101;&#x62;&#x2e;&#x73;&#x75;&#x70;&#x70;&#x6f;&#114;&#116;&#x40;&#x62;&#108;&#x69;&#122;&#122;&#x61;&#x72;&#100;&#46;&#x63;&#111;&#109;">&#119;&#101;&#x62;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#x74;&#x40;&#x62;&#108;&#105;&#122;&#122;&#97;&#x72;&#x64;&#x2e;&#99;&#x6f;&#x6d;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
