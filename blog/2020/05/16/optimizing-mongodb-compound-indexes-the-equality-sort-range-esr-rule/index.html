@@ -296,13 +296,17 @@ Sort predicates represent the entire requested sort for the operation and determ
 
 <p>When <a href="https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/">creating queries that ensure selectivity</a>, we learn that &ldquo;selectivity&rdquo; is the ability of a query to narrow results using the index. Effective indexes are more selective and allow MongoDB to use the index for a larger portion of the work associated with fulfilling the query.</p>
 
-<p>Equality fields should always form the prefix for the index, followed by either Sort or Range predicates. To better understand why</p>
+<p><em>Equality</em> fields should always form the prefix for the index to ensure selectivity.</p>
 
 <h3>(E → S) <em>Equality</em> before <em>Sort</em></h3>
 
-<p>Placing sort predicates after sequential equality keys allow for the index to:
-Provide a non-blocking sort.
-Minimize the amount of scanning required.</p>
+<p>Placing <em>Sort</em> predicates after sequential <em>Equality</em> keys allow for the index to:</p>
+
+<ul>
+<li>Provide a non-blocking sort.</li>
+<li>Minimize the amount of scanning required.</li>
+</ul>
+
 
 <p>To better understand why this is we will begin with the following example:</p>
 

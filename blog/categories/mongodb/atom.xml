@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-16T08:18:02-04:00</updated>
+    <updated>2020-05-16T08:20:03-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -169,13 +169,14 @@ We will also be examining simplified (filtered) Explain Plan’s [`executionStat
 
 When [creating queries that ensure selectivity](https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/), we learn that "selectivity" is the ability of a query to narrow results using the index. Effective indexes are more selective and allow MongoDB to use the index for a larger portion of the work associated with fulfilling the query.
 
-Equality fields should always form the prefix for the index, followed by either Sort or Range predicates. To better understand why
+_Equality_ fields should always form the prefix for the index to ensure selectivity.
 
 ### (E → S) _Equality_ before _Sort_
 
-Placing sort predicates after sequential equality keys allow for the index to:
-Provide a non-blocking sort.
-Minimize the amount of scanning required.
+Placing _Sort_ predicates after sequential _Equality_ keys allow for the index to:
+
+* Provide a non-blocking sort.
+* Minimize the amount of scanning required.
 
 To better understand why this is we will begin with the following example:
 
