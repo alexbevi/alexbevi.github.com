@@ -8,13 +8,15 @@ categories:
   - mongodb
 ---
 
-[MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.
+[MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having to worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.
 
 This article summarizes why this limit exists, as well as how to adapt your [MongoDB Stitch Functions](https://docs.mongodb.com/stitch/functions/) to work around it.
 
 <!-- more -->
 
-The following is an [HTTP Service](https://docs.mongodb.com/stitch/services/http) I've written that has an [incoming webhook](https://docs.mongodb.com/stitch/services/http/). When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the `maxItems` [_query parameter_](https://en.wikipedia.org/wiki/Query_string) of the [request payload](https://docs.mongodb.com/stitch/services/http/#request-payload) provided to the incoming webhook.
+The following is an [HTTP Service](https://docs.mongodb.com/stitch/services/http) I've written that has an [incoming webhook](https://docs.mongodb.com/stitch/services/http/#incoming-webhooks). When this webhook is called a MongoDB Stitch Function is run which inserts a number of documents. The number to insert is defined by the `maxItems` [_query parameter_](https://en.wikipedia.org/wiki/Query_string) of the [request payload](https://docs.mongodb.com/stitch/services/http/#request-payload) provided to the incoming webhook.
+
+**NOTE** When doing a number of `insertOne` operations in a loop an [`insertMany`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertMany/) would likely address the issue directly without requiring any additional workarounds. The following code is really best suited to a number of update or delete operations that have unique filters and cannot be logically grouped.
 
 ```javascript
 // MongoDB Stitch Function code for the Incoming Webhook
@@ -65,11 +67,11 @@ curl -w "\nTotal Time: %{time_total}s\n" \
 Total Time: 0.371383s
 ```
 
-Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application the webhook belongs. This can be useful for debugging.
+Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application that the webhook belongs to. This can be useful for debugging.
 
 {% img /images/stitch-log01.png %}
 
-The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as [`insertOne`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/) within a function are leveraging the MongoDB Stitch JavaScript SDK's [`insertOne`](https://docs.mongodb.com/stitch-sdks/js/4/interfaces/remotemongocollection.html#insertone) method, which returns a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise). To ensure these promises don't queue infinitely waiting to be resolved, MongoDB Stitch will arbitrarily limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.
+The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as [`insertOne`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/) return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise). To ensure these promises don't queue infinitely waiting to be resolved, MongoDB Stitch will limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.
 
 To work around this limit we will adapt our earlier code to instead throttle our work loop to ensure batches of 1000 or less are processed before more work is attempted.
 
@@ -106,7 +108,7 @@ exports = function (payload, response) {
 };
 ```
 
-The number of items to process (based on `maxItems` again) will now be broken up into batches (`BATCH_SIZE`) and using [`Promise.all()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) all the operations in a batch will be fulfilled before another batch is processed.
+The number of items to process (based on `maxItems` again) will now be broken up into batches (of `BATCH_SIZE` size). Following this, [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) will execute all the operations in a batch and ensure they are all fulfilled before another batch is processed.
 
 This method allows the workload to be artificially throttled to allow `maxItems` operations to be executed. Let's try running our webhook again for 9000 items:
 
