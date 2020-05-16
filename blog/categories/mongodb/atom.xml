@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-16T08:13:32-04:00</updated>
+    <updated>2020-05-16T08:16:24-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -48,11 +48,17 @@ An equality predicate is any filter condition that is attempting to match a valu
 
 These filters will be tightly bound when seen in the indexBounds of an [Explain Plan](https://docs.mongodb.com/manual/reference/explain-results/#explain-output):
 
-"indexBounds" : {
-    "x" : [
-        "[123.0, 123.0]"
-    ]
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[123.0, 123.0]&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 Note that _multiple equality predicates **do not** have to be ordered from most selective to least selective_. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, _there is exactly the same number of combinations regardless of key order_.
 

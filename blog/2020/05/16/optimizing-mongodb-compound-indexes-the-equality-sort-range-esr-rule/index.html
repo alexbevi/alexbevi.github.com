@@ -168,11 +168,18 @@
 
 <p>These filters will be tightly bound when seen in the indexBounds of an <a href="https://docs.mongodb.com/manual/reference/explain-results/#explain-output">Explain Plan</a>:</p>
 
-<p>&ldquo;indexBounds&rdquo; : {
-    &ldquo;x&rdquo; : [
-        &ldquo;[123.0, 123.0]&rdquo;
-    ]
-}</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="s2">&quot;indexBounds&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;[123.0, 123.0]&quot;</span>
+</span><span class='line'>    <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Note that <em>multiple equality predicates <strong>do not</strong> have to be ordered from most selective to least selective</em>. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, <em>there is exactly the same number of combinations regardless of key order</em>.</p>
 
