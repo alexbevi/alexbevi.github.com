@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-16T08:20:03-04:00</updated>
+    <updated>2020-05-17T08:35:41-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/"/>
         <updated>2020-05-16T07:35:11-04:00</updated>
         <id>http://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule</id>
-        <content type="html"><![CDATA[Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet though _[[DOCS-11790] Adding Equality-Sort-Range info to index documentation](https://jira.mongodb.org/browse/DOCS-11790)_ exists to track this effort.
+        <content type="html"><![CDATA[Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet (though [DOCS-11790](https://jira.mongodb.org/browse/DOCS-11790) exists to track this effort).
 
 I've presented this topic now at [MongoDB.local Toronto 2019](https://mongodblocaltoronto2019.sched.com/event/VCf3/tips-and-tricks-for-effective-indexing-mongodb) (in ["Tips and Tricks for Effective Indexing"](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing)) and at [MongoDB World 2019](https://mongodbworld2019.sched.com/event/OCX7/the-sights-and-smells-of-a-bad-query-mongodb) (in ["The Sights (and Smells) of a Bad Query"](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query)). My colleague [Chris Harris](https://www.linkedin.com/in/christopher-harris-483aa149/) has also covered this topic at MongoDB World 2019 (in ["Tips and Tricks++ for Querying and Indexing MongoDB"](https://www.slideshare.net/mongodb/mongodb-world-2019-tips-and-tricks-for-querying-and-indexing-mongodb)) and again at the MongoDB.local Houston 2019, for which [a video is available](https://www.youtube.com/watch?v=5mBY27wVau0&list=PL4RCxklHWZ9u_xtprouvxCvzq2m6q_0_E&index=9&t=0s).
 
@@ -46,7 +46,7 @@ An equality predicate is any filter condition that is attempting to match a valu
 </span><span class='line'><span class="nx">aggregate</span><span class="p">([</span> <span class="p">{</span> <span class="nx">$match</span><span class="o">:</span><span class="p">{</span> <span class="s2">&quot;x.y&quot;</span><span class="o">:</span> <span class="mi">123</span> <span class="p">}</span> <span class="p">}</span> <span class="p">])</span>
 </span></code></pre></td></tr></table></div></figure>
 
-These filters will be tightly bound when seen in the indexBounds of an [Explain Plan](https://docs.mongodb.com/manual/reference/explain-results/#explain-output):
+These filters will be tightly bound when seen in the `indexBounds` of an [Explain Plan](https://docs.mongodb.com/manual/reference/explain-results/#explain-output):
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
