@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-17T08:35:41-04:00</updated>
+    <updated>2020-05-18T08:26:10-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -504,7 +504,9 @@ By moving the _Sort_ predicate before the _Range_ predicate however, even though
 
 Though this method requires scanning additional keys the lack of a blocking sort will generally be far more efficient/performant.
 
-]]></content>
+I hope that the _ESR "Rule"_ helps you optimize your MongoDB indexes and improve your query performance. If you have questions, feel free to hit me up in the comments. If you need more timely assistance, consider MongoDB's [Atlas Developer Support](https://docs.atlas.mongodb.com/support/) or [Enterprise Support](https://www.mongodb.com/products/enterprise-grade-support).
+
+Cheers, and happy optimizing!]]></content>
     </entry>
     
     <entry>
