@@ -3,11 +3,11 @@ layout: post
 title: "Optimizing MongoDB Compound Indexes - The \"Equality - Sort - Range\" (ESR) Rule"
 date: 2020-05-16 07:35:11 -0400
 comments: true
-published: false
+published: true
 categories: [mongodb]
 ---
 
-Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet though _[[DOCS-11790] Adding Equality-Sort-Range info to index documentation](https://jira.mongodb.org/browse/DOCS-11790)_ exists to track this effort.
+Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet (though [DOCS-11790](https://jira.mongodb.org/browse/DOCS-11790) exists to track this effort).
 
 I've presented this topic now at [MongoDB.local Toronto 2019](https://mongodblocaltoronto2019.sched.com/event/VCf3/tips-and-tricks-for-effective-indexing-mongodb) (in ["Tips and Tricks for Effective Indexing"](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing)) and at [MongoDB World 2019](https://mongodbworld2019.sched.com/event/OCX7/the-sights-and-smells-of-a-bad-query-mongodb) (in ["The Sights (and Smells) of a Bad Query"](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query)). My colleague [Chris Harris](https://www.linkedin.com/in/christopher-harris-483aa149/) has also covered this topic at MongoDB World 2019 (in ["Tips and Tricks++ for Querying and Indexing MongoDB"](https://www.slideshare.net/mongodb/mongodb-world-2019-tips-and-tricks-for-querying-and-indexing-mongodb)) and again at the MongoDB.local Houston 2019, for which [a video is available](https://www.youtube.com/watch?v=5mBY27wVau0&list=PL4RCxklHWZ9u_xtprouvxCvzq2m6q_0_E&index=9&t=0s).
 
@@ -33,13 +33,15 @@ find({ x: { $eq: 123 } })
 aggregate([ { $match:{ "x.y": 123 } } ])
 ```
 
-These filters will be tightly bound when seen in the indexBounds of an [Explain Plan](https://docs.mongodb.com/manual/reference/explain-results/#explain-output):
+These filters will be tightly bound when seen in the `indexBounds` of an [Explain Plan](https://docs.mongodb.com/manual/reference/explain-results/#explain-output):
 
+```js
 "indexBounds" : {
     "x" : [
         "[123.0, 123.0]"
     ]
 }
+```
 
 Note that _multiple equality predicates **do not** have to be ordered from most selective to least selective_. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, _there is exactly the same number of combinations regardless of key order_.
 
@@ -102,7 +104,7 @@ These three tenets of the "rule" have to do with how a query will traverse an in
 
 For the duration of this section we’ll be working with the following data to help illustrate the various guiding principles:
 
-```json
+```js
 { name: "Shakir", location: "Ottawa",    region: "AMER", joined: 2015 }
 { name: "Chris",  location: "Austin",    region: "AMER", joined: 2016 }
 { name: "III",    location: "Sydney",    region: "APAC", joined: 2016 }
@@ -120,13 +122,14 @@ find({ ... }).sort({ ... }).explain("executionStats").executionStats
 
 When [creating queries that ensure selectivity](https://docs.mongodb.com/manual/tutorial/create-queries-that-ensure-selectivity/), we learn that "selectivity" is the ability of a query to narrow results using the index. Effective indexes are more selective and allow MongoDB to use the index for a larger portion of the work associated with fulfilling the query.
 
-Equality fields should always form the prefix for the index, followed by either Sort or Range predicates. To better understand why
+_Equality_ fields should always form the prefix for the index to ensure selectivity.
 
 ### (E → S) _Equality_ before _Sort_
 
-Placing sort predicates after sequential equality keys allow for the index to:
-Provide a non-blocking sort.
-Minimize the amount of scanning required.
+Placing _Sort_ predicates after sequential _Equality_ keys allow for the index to:
+
+* Provide a non-blocking sort.
+* Minimize the amount of scanning required.
 
 To better understand why this is we will begin with the following example:
 
@@ -335,3 +338,8 @@ find({ joined: { $gt: 2015 } }).sort({ region: 1 })
 
 Though this method requires scanning additional keys the lack of a blocking sort will generally be far more efficient/performant.
 
+I hope that the _ESR "Rule"_ helps you optimize your MongoDB indexes and improve your query performance. If you have questions, feel free to hit me up in the comments, or check out the [MongoDB Developer Community forums](https://developer.mongodb.com/community/forums/).
+
+If you need more timely assistance, consider MongoDB's [Atlas Developer Support](https://docs.atlas.mongodb.com/support/) or [Enterprise Support](https://www.mongodb.com/products/enterprise-grade-support).
+
+Cheers, and happy optimizing!
