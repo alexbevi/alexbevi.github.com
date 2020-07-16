@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule May 16th, 2020 mongodb Comments Working in Technical Services at &hellip;">
+        <meta name="description" content="MongoDB 4.4 Change Streams and Pre-Image 'Support' Jul 15th, 2020 mongodb Comments Warning MongoDB&rsquo;s source code is available (through an SSPL &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -89,6 +89,93 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">MongoDB 4.4 Change Streams and Pre-Image 'Support'</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2020-07-15T08:37:08-04:00" pubdate><i class="fa fa-calendar"></i> Jul 15th, 2020</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <div class="article__content clearfix">
+        <p><strong>Warning</strong></p>
+
+<p><em>MongoDB&rsquo;s source code is available (through an <a href="https://www.mongodb.com/licensing/server-side-public-license">SSPL license</a>) and the <a href="https://jira.mongodb.org/projects/SERVER/issues">Core Server</a> project in MongoDB&rsquo;s JIRA is publicly accessible, which is where I found this information.</em>
+<em>Until officially announced as stable/official the methods described herein should not be considered as &ldquo;production ready&rdquo;. This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication.</em></p>
+
+<h3>Introduction</h3>
+
+<p>A feature that has long been requested since <a href="https://docs.mongodb.com/manual/changeStreams/">Change Streams</a> were <a href="https://www.mongodb.com/blog/post/an-introduction-to-change-streams">introduced in MongoDB 3.6</a> is the ability to support returning the n-1 state (or pre-image) of a document when it is changed.</p>
+
+<p>In <a href="https://jira.mongodb.org/browse/SERVER-36941"><code>SERVER-36941</code>: <em>Option to provide &ldquo;before image&rdquo; with change streams</em></a> this request is captured, but at the time of writing this ticket is still in an <em>Open</em> state which would imply no progress has been made.</p>
+
+<p>Interestingly enough, there actually has been some progress due to efforts surrounding the support of <a href="https://www.mongodb.com/realm/mobile/sync">Realm Sync</a>, namely in the following tickets:</p>
+
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-45806"><code>SERVER-45806</code>: <em>Record pre-images on updates and deletes when recordPreImage is enabled</em></a></li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-45807"><code>SERVER-45807</code>: <em>Add change stream stage to fetch pre-image for update/replace/delete events</em></a></li>
+</ul>
+
+
+<h3>Pre-Image Support</h3>
+
+<p>&ldquo;Support&rdquo; for this feature is only available in MongoDB 4.4+, so first we must ensure we are running a compatible version.</p>
+
+<p>Next, as change streams are only supported in <a href="https://docs.mongodb.com/manual/replication/">replica sets</a> or <a href="https://docs.mongodb.com/manual/sharding/">sharded clusters</a> our cluster cannot be a standalone instance.</p>
+
+<p>Before a pre-image can be returned in a change stream support for the feature must be enabled at <em>the collection level</em>.</p>
+
+<h4>Create a New Collection with Pre-Image Support</h4>
+
+
+        <a class="btn pull-right" href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">Read on &rarr;</a>
+    </div>
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -932,82 +1019,6 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Troubleshooting a MongoDB Performance Issue</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2018-05-28T09:14:03-04:00" pubdate><i class="fa fa-calendar"></i> May 28th, 2018</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <div class="article__content clearfix">
-        <p><strong>UPDATE (2018-06-28):</strong> <em>I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDB team is even with these one-off type issues :). Thanks Sue!</em></p>
-
-<p><strong>UPDATE (2018-06-21):</strong> <em>As we were running MongoDB 3.0.15 while all these issues were going on it&rsquo;s entirely possible that the <a href="https://engineering.mongodb.com/post/breaking-the-wiredtiger-logjam-the-write-ahead-log-1-2">optimizations made to the write-ahead log of WiredTiger</a> may have also contributed to this improvement in performance :)</em></p>
-
-<p>The following is an edited excerpt from an email I sent out internally about an intermittent performance issue we&rsquo;ve been experiencing for several years now. The daily processing challenges we&rsquo;ve been experiencing revolved around running server-side javascript in order to produce daily reports. As our data ingestion rates rose and our data processing needs climbed, our server performance continued to degrade. This would occur regardless of the size of the VMs we would spin up.</p>
-
-<h3>Postmortem</h3>
-
-<p>Our MongoDB cluster is configured with three (3) servers: 1x primary (write-enabled) and 2x secondaries (read-only). These are running on Azure DS14v2 VMs with 8TB of storage (8x 1TB striped via LVM as these were the largest premium SSD-based data disks available at the time).</p>
-
-<p>Aside from the servers being scaled up periodically, this configuration has been constant since the inception of the product.</p>
-
-<p>The only major upgrade came in the form of a migration from 2.6 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension (&ldquo;Group&rdquo;, &ldquo;Company&rdquo;, &ldquo;Country&rdquo;, &ldquo;State&rdquo;, &ldquo;City&rdquo;).</p>
-
-<p><img class="center" src="/images/20180528-mongo-001.png"></p>
-
-<p>This chart (48 hours sampled from 1 week ago) shows <em>Cache Usage</em> spiking and <em>Replication Lag</em> spiking. The cache spikes occur as new writes trigger index activity, which invalidates (dirties) cached memory and causes cache eviction.</p>
-
-
-        <a class="btn pull-right" href="/blog/2018/05/28/troubleshooting-a-mongodb-performance-issue/">Read on &rarr;</a>
-    </div>
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1075,6 +1086,10 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">MongoDB 4.4 Change Streams and Pre-Image 'Support'</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
         </li>
         
@@ -1088,10 +1103,6 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
         
         <li class="post">
             <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">MongoDB Initial Sync Progress Monitoring</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
         </li>
         
     </ul>

@@ -12,7 +12,7 @@
         <title>Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule - ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule May 16th, 2020 mongodb Comments Last Updated: May 16, 2020 Working in &hellip;">
+        <meta name="description" content="Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule May 16th, 2020 mongodb Comments Last Updated: Jul 15, 2020 Working in &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule">
@@ -135,7 +135,7 @@
 
 
 
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: May 16, 2020</em></small></p>
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jul 15, 2020</em></small></p>
     <p>Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they&rsquo;ve created <a href="https://docs.mongodb.com/manual/indexes/">indexes</a> for may not be performing optimally. When providing supplementary documentation, the go-to article is <a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">&ldquo;Optimizing MongoDB Compound Indexes&rdquo;</a> by MongoDB&rsquo;s <a href="https://emptysqua.re/blog/about/">A. Jesse Jiryu Davis</a>, however we do not have a formal public reference yet (though <a href="https://jira.mongodb.org/browse/DOCS-11790">DOCS-11790</a> exists to track this effort).</p>
 
 <p>I&rsquo;ve presented this topic now at <a href="https://mongodblocaltoronto2019.sched.com/event/VCf3/tips-and-tricks-for-effective-indexing-mongodb">MongoDB.local Toronto 2019</a> (in <a href="https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing">&ldquo;Tips and Tricks for Effective Indexing&rdquo;</a>) and at <a href="https://mongodbworld2019.sched.com/event/OCX7/the-sights-and-smells-of-a-bad-query-mongodb">MongoDB World 2019</a> (in <a href="https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query">&ldquo;The Sights (and Smells) of a Bad Query&rdquo;</a>). My colleague <a href="https://www.linkedin.com/in/christopher-harris-483aa149/">Chris Harris</a> has also covered this topic at MongoDB World 2019 (in <a href="https://www.slideshare.net/mongodb/mongodb-world-2019-tips-and-tricks-for-querying-and-indexing-mongodb">&ldquo;Tips and Tricks++ for Querying and Indexing MongoDB&rdquo;</a>) and again at the MongoDB.local Houston 2019, for which <a href="https://www.youtube.com/watch?v=5mBY27wVau0&amp;list=PL4RCxklHWZ9u_xtprouvxCvzq2m6q_0_E&amp;index=9&amp;t=0s">a video is available</a>.</p>
@@ -748,6 +748,10 @@ Sort predicates represent the entire requested sort for the operation and determ
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">MongoDB 4.4 Change Streams and Pre-Image 'Support'</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
         </li>
         
@@ -761,10 +765,6 @@ Sort predicates represent the entire requested sort for the operation and determ
         
         <li class="post">
             <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">MongoDB Initial Sync Progress Monitoring</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">What is MongoDB FTDC (aka. diagnostic.data)</a>
         </li>
         
     </ul>

@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-05-18T13:43:16-04:00</updated>
+    <updated>2020-07-16T07:51:09-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,432 @@
       </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[MongoDB 4.4 Change Streams and Pre-Image 'Support']]></title>
+        <link href="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/"/>
+        <updated>2020-07-15T08:37:08-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support</id>
+        <content type="html"><![CDATA[**Warning**
+
+_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._
+_Until officially announced as stable/official the methods described herein should not be considered as "production ready". This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication._
+
+### Introduction
+
+A feature that has long been requested since [Change Streams](https://docs.mongodb.com/manual/changeStreams/) were [introduced in MongoDB 3.6](https://www.mongodb.com/blog/post/an-introduction-to-change-streams) is the ability to support returning the n-1 state (or pre-image) of a document when it is changed.
+
+In [`SERVER-36941`: _Option to provide "before image" with change streams_](https://jira.mongodb.org/browse/SERVER-36941) this request is captured, but at the time of writing this ticket is still in an _Open_ state which would imply no progress has been made.
+
+Interestingly enough, there actually has been some progress due to efforts surrounding the support of [Realm Sync](https://www.mongodb.com/realm/mobile/sync), namely in the following tickets:
+
+* [`SERVER-45806`: _Record pre-images on updates and deletes when recordPreImage is enabled_](https://jira.mongodb.org/browse/SERVER-45806)
+* [`SERVER-45807`: _Add change stream stage to fetch pre-image for update/replace/delete events_](https://jira.mongodb.org/browse/SERVER-45807)
+
+### Pre-Image Support
+
+"Support" for this feature is only available in MongoDB 4.4+, so first we must ensure we are running a compatible version.
+
+Next, as change streams are only supported in [replica sets](https://docs.mongodb.com/manual/replication/) or [sharded clusters](https://docs.mongodb.com/manual/sharding/) our cluster cannot be a standalone instance.
+
+Before a pre-image can be returned in a change stream support for the feature must be enabled at _the collection level_.
+
+#### Create a New Collection with Pre-Image Support
+
+<!-- MORE -->
+
+To enable pre-image support on a new (non-existent) collection, the `recordPreImages` flag needs to be set when calling the [`create`](https://docs.mongodb.com/manual/reference/command/create/#dbcmd.create) command or [`db.createCollection()`](https://docs.mongodb.com/manual/reference/method/db.createCollection/) shell method:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// create command</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span> <span class="nx">create</span><span class="o">:</span> <span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="c1">// or</span>
+</span><span class='line'><span class="c1">// using the createCollection() helper</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+#### Updating an Existing Collection with Pre-Image Support
+
+If the collection already exists, the `recordPreImages` flag can be set using the [`collMod`](https://docs.mongodb.com/manual/reference/command/collMod/) command:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="c1">// update the collection&#39;s metadata using the collMod command</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span> <span class="nx">collMod</span><span class="o">:</span> <span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+### Pre-Image Support in Change Streams
+
+First it's important to understand that a change stream is actually an [Aggregation Pipeline Stage](https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/), even if it doesn't appear as such in the documentation.
+
+This can be easily verified by checking the source code for the [`Mongo.prototype.watch`](https://github.com/mongodb/mongo/blob/v4.4/src/mongo/shell/mongo.js#L686) implementation which coincides with [`db.collection.watch()`](https://docs.mongodb.com/manual/reference/method/db.collection.watch/) shell method.
+
+We'll be using the `$changeStream` pipeline stage directly to review the impact of pre-image support.
+
+First we'll being by opening a change stream cursor against our modified collection:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;whenAvailable&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+Note the options include a `fullDocumentBeforeChange` field, which can accept one of three (3) `fullDocumentBeforeChange` mode values:
+
+* `off`: Disables support for the `fullDocumentBeforeChange` field
+* `whenAvailable`: Only includes a `fullDocumentBeforeChange` document if it's available, but won't fail if it's not present
+* `required`: Require the `fullDocumentBeforeChange` document, and errors out if it's not available
+
+Since we have a change stream cursor open, we can update our test document and iterate the cursor to see the change this option produces:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">	&quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm">	&quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;_id&quot; : 1,</span>
+</span><span class='line'><span class="cm">		&quot;created_at&quot; : ISODate(&quot;2020-07-15T17:41:32.043Z&quot;)</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">		&quot;coll&quot; : &quot;coll1&quot;</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;_id&quot; : 1</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">			&quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:41:32.056Z&quot;)</span>
+</span><span class='line'><span class="cm">		},</span>
+</span><span class='line'><span class="cm">		&quot;removedFields&quot; : [ ]</span>
+</span><span class='line'><span class="cm">	}</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+The output contains a `fullDocumentBeforeChange` field which includes the full document _prior_ to the changes the update operation would apply. As this was the first update to this document and the field was being added for the first time the value here may not be apparent, but running the operation again produces result that contains our previous `created_at` value along with our updated `created_at` value in the `updateDescription`:
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">	&quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm">	&quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;_id&quot; : 1,</span>
+</span><span class='line'><span class="cm">		&quot;created_at&quot; : ISODate(&quot;2020-07-15T17:41:32.043Z&quot;),</span>
+</span><span class='line'><span class="cm">		&quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:41:32.056Z&quot;)</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">		&quot;coll&quot; : &quot;coll1&quot;</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;_id&quot; : 1</span>
+</span><span class='line'><span class="cm">	},</span>
+</span><span class='line'><span class="cm">	&quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">		&quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">			&quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:44:29.494Z&quot;)</span>
+</span><span class='line'><span class="cm">		},</span>
+</span><span class='line'><span class="cm">		&quot;removedFields&quot; : [ ]</span>
+</span><span class='line'><span class="cm">	}</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+If the `fullDocumentBeforeChange` mode was set to `required` and the collection wasn't created with the `recordPreImages` flag set, the change stream cursor will error out when iterated.
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll2&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;required&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">2020-07-16T07:03:37.657-0400 E  QUERY    [js] Error: command failed: {</span>
+</span><span class='line'><span class="cm">	&quot;ok&quot; : 0,</span>
+</span><span class='line'><span class="cm">	&quot;errmsg&quot; : &quot;Change stream was configured to require a pre-image for all update, delete and replace events, but no pre-image optime was recorded for event: {_id: {_data: \&quot;825F103409000000042B022C0100296E5A10044912D5BB665545B48DDAD38FCD774270461E5F6964002B040004\&quot;, _typeBits: BinData(0, \&quot;40\&quot;)}, operationType: \&quot;update\&quot;, clusterTime: Timestamp(1594897417, 4), ns: {db: \&quot;test\&quot;, coll: \&quot;coll2\&quot;}, documentKey: {_id: 2}, updateDescription: {updatedFields: {updated_at: 2020-07-16T11:03:37.611Z}, removedFields: []}}&quot;,</span>
+</span><span class='line'><span class="cm">	&quot;code&quot; : 51770,</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+### Pre-Image and `{ fullDocument: "updateLookup" }`
+
+The change stream cursors we've been opening have not been specifying a `fullDocument` options, which results in the default value of `{ fullDocument: "default" }` being used (or prior to [SPEC-909](https://jira.mongodb.org/browse/SPEC-909) a value of `none`).
+
+When we set `{ fullDocument: "updateLookup" }`, the cursor will look up the most current majority-committed version of the updated document and include a `fullDocument` field with the document lookup in addition to the `updateDescription` delta.
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll3&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;TSE&quot;</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;whenAvailable&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">    &quot;_id&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_data&quot; : &quot;825F103644000000042B022C0100296E5A100452A662230D6B4C08B0AF844900F3A335461E5F6964002B060004&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;_typeBits&quot; : BinData(0, &quot;QA==&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm">    &quot;clusterTime&quot; : Timestamp(1594897988, 4),</span>
+</span><span class='line'><span class="cm">    &quot;fullDocument&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0,</span>
+</span><span class='line'><span class="cm">        &quot;name&quot; : &quot;Alex&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;role&quot; : &quot;TSE&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;created_at&quot; : ISODate(&quot;2020-07-16T11:13:08.180+0000&quot;),</span>
+</span><span class='line'><span class="cm">        &quot;updated_at&quot; : ISODate(&quot;2020-07-16T11:13:08.268+0000&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0,</span>
+</span><span class='line'><span class="cm">        &quot;name&quot; : &quot;Alex&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;role&quot; : &quot;TSE&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;created_at&quot; : ISODate(&quot;2020-07-16T11:13:08.180+0000&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;coll&quot; : &quot;coll3&quot;</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">            &quot;updated_at&quot; : ISODate(&quot;2020-07-16T11:13:08.268+0000&quot;)</span>
+</span><span class='line'><span class="cm">        },</span>
+</span><span class='line'><span class="cm">        &quot;removedFields&quot; : [</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">        ]</span>
+</span><span class='line'><span class="cm">    }</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+By including both `fullDocument` and `fullDocumentBeforeChange` options, the cursor now returns three fields that represent the state of the document before the change, after the change as well as a description of the changes in the form of the `updateDescription` field.
+
+### What Could Go Wrong?
+
+Since change streams are messages in the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/), which are themselves [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#term-document)  hey must adhere to the [BSON Document Size](https://docs.mongodb.com/manual/reference/limits/#bson-documents) limit of 16 megabytes.
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">result</span>           <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">characters</span>       <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#39;</span><span class="p">;</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">charactersLength</span> <span class="o">=</span> <span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">result</span> <span class="o">+=</span> <span class="nx">characters</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">charactersLength</span><span class="p">));</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// BSON max size - 512 bytes</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverBuildInfo</span><span class="p">().</span><span class="nx">maxBsonObjectSize</span> <span class="o">-</span> <span class="mi">512</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll4&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">junk</span><span class="o">:</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;off&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+The above example has the `fullDocumentBeforeChange` disabled, which is the current default behavior of change streams. Though the result would be large (almost 16MB), iterating the change stream cursor would produce a result.
+
+Modifying the cursor to now request a `fullDocumentBeforeChange` (either `required` or `whenAvailable`) would now raise an error when the cursor is iterated.
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// ...</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll4&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">junk</span><span class="o">:</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;required&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">2020-07-16T07:40:38.307-0400 E  QUERY    [js] Error: command failed: {</span>
+</span><span class='line'><span class="cm">	&quot;errmsg&quot; : &quot;BSONObj size: 33553900 (0x1FFFDEC) is invalid. Size must be between 0 and 16793600(16MB) First element: _id: { _data: \&quot;825F103CB5000000032B022C0100296E5A100484010E04E239427B8CBCA810283D05A5461E5F6964002B080004\&quot;, _typeBits: BinData(0, 40) }&quot;,</span>
+</span><span class='line'><span class="cm">	&quot;code&quot; : 10334,</span>
+</span><span class='line'><span class="cm">	&quot;codeName&quot; : &quot;BSONObjectTooLarge&quot;,</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+I personally look forward to pre-images being officially supported in MongoDB, however in the meantime be advised that this may not be ideal for production just yet.
+
+Happy Coding!]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule]]></title>
@@ -1244,239 +1670,6 @@ The script will also let you know if there have been any sync failures recorded,
 <img src="/images/initsync-003.png">
 
 Hopefully you'll find this useful when the time comes to resync one of your nodes.]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[What is MongoDB FTDC (aka. diagnostic.data)]]></title>
-        <link href="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/"/>
-        <updated>2020-01-26T18:14:50-05:00</updated>
-        <id>http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data</id>
-        <content type="html"><![CDATA[[Full Time Diagnostic Data Capture (FTDC)](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture) was introduced in MongoDB 3.2 (via [SERVER-19585](https://jira.mongodb.org/browse/SERVER-19585)), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.
-
-On log rotation or startup, a `mongod` or `mongos` will collect and log:
-
-- [`getCmdLineOpts`](https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/): `db.adminCommand({getCmdLineOpts: true})`
-- [`buildInfo`](https://docs.mongodb.com/manual/reference/command/buildInfo/): `db.adminCommand({buildInfo: true})`
-- [`hostInfo`](https://docs.mongodb.com/manual/reference/command/hostInfo/): `db.adminCommand({hostInfo: true})`
-
-As configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis) and defaulting to every 1 second, FTDC will collect the output of the following commands:
-
-- [`serverStatus`](https://docs.mongodb.com/manual/reference/command/serverStatus/): `db.serverStatus({tcmalloc: true})`
-- [`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/): `rs.status()`
-- [`collStats`](https://docs.mongodb.com/manual/reference/command/collStats/) for the [`local.oplog.rs`](https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs) collection ([mongod](https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod) only)
-- [`connPoolStats`](https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats) ([mongos](https://docs.mongodb.com/manual/reference/program/mongos/#bin.mongos) only)
-
-When FTDC is enabled (per [`diagnosticDataCollectionEnabled`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionEnabled)), the `metrics.xxxxxxx` files will be stored in [`diagnosticDataCollectionDirectoryPath`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionDirectoryPath) which by default is the _diagnostic.data_ directory within the [`systemLog.path`](https://docs.mongodb.com/manual/reference/configuration-options/#systemLog.path).
-
-With [SERVER-21818](https://jira.mongodb.org/browse/SERVER-21818) (introduced in MongoDB 3.2.13) and [SERVER-31400](https://jira.mongodb.org/browse/SERVER-31400) (introduced in MongoDB 3.4.16) the diagnostic data capture scope was broadened to not only include internal diagnostic commands but system metrics as well. Depending on the host operating system, the diagnostic data may include one or more of the following statistics:
-
-- CPU utilization (ex: [`/proc/stat`](http://www.linuxhowtos.org/System/procstat.htm))
-- Memory utilization (ex: [`/proc/meminfo`](https://www.thegeekdiary.com/understanding-proc-meminfo-file-analyzing-memory-utilization-in-linux/))
-- Disk utilization related to performance (ex: [`*/sys/block/\*/stat*`](https://www.kernel.org/doc/Documentation/block/stat.txt))
-- Network performance statistics ([`/proc/net/netstat`](https://unix.stackexchange.com/questions/435579/is-there-documentation-for-proc-net-netstat-and-proc-net-snmp))
-
-The `metrics.xxxxxxx` files in the `diagnostic.data` directory contain only statistics about the performance of the system and the database. They are stored in a compressed format, and are not human-readable.
-
-Just a quick note regarding privacy, regardless of the version, the data in _diagnostic.data_ never contains:
-
-- Samples of queries, query predicates, or query results
-- Data sampled from any end-user collection or index
-- System or MongoDB user credentials or security certificates
-
-FTDC data contains certain host machine information such as hostnames, operating system information, and the options or settings used to start the `mongod` or `mongos`. This information may be considered protected or confidential by some organizations or regulatory bodies, but is not typically considered to be [Personally Identifiable Information (PII)](https://en.wikipedia.org/wiki/Personal_data).
-
-If you want to have a closer look at the diagnostic data collection process, you can inspect the [FTDC code](https://github.com/mongodb/mongo/tree/master/src/mongo/db/ftdc).
-
-## FTDC Structure
-
-<!-- MORE -->
-
-There are two types of FTDC documents: a [BSON metadata document](https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/util.h#L136), or a [BSON metric chunk](https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/util.h#L150).
-
-Each document is made up of an `_id`, a `type` and either a `doc` or `data` field. The `type` field is used to identify the document type:
-
-- 0: Metadata Document
-- 1: Metric Chunk
-
-The `doc` or `data` fields will contain "samples" in the form of:
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which all collecting started */</span>
-</span><span class='line'>  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="cm">/* name is from name() in FTDCCollectorInterface */</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>        <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span> <span class="cm">/* Time at which name() collection started */</span>
-</span><span class='line'>        <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>   <span class="cm">/* data comes from collect() in FTDCCollectorInterface */</span>
-</span><span class='line'>        <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>   <span class="cm">/* Time at which name() collection ended */</span>
-</span><span class='line'>  <span class="p">},</span>
-</span><span class='line'>  <span class="p">...</span> <span class="cm">/* more than 1 collector be sampled */</span>
-</span><span class='line'>  <span class="s2">&quot;end&quot;</span> <span class="o">:</span> <span class="nx">DateTime</span> <span class="cm">/* Time at which all collecting ended */</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-Samples are [collected by `FTDCCollectorInterface`](https://github.com/mongodb/mongo/blob/r4.2.3/src/mongo/db/ftdc/collector.h#L110) instances.
-
-### Metadata Document
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;doc&quot;</span><span class="o">:</span>  <span class="p">{</span> <span class="p">..</span> <span class="p">}</span> <span class="cm">/* Samples from collectors */</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-On log rotation or startup, the first FTDC entry will be collected and stored. This is a BSON document that contains information sampled by running [`getCmdLineOpts`](https://docs.mongodb.com/manual/reference/command/getCmdLineOpts/), [`buildInfo`](https://docs.mongodb.com/manual/reference/command/buildInfo/) and [`hostInfo`](https://docs.mongodb.com/manual/reference/command/hostInfo/).
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;buildInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;getCmdLineOpts&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;hostInfo&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-This sample will be stored in the `doc` field of the metadata document.
-
-### Metric Chunk
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;_id&quot;</span><span class="o">:</span>  <span class="nx">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="nx">BinData</span><span class="p">(...)</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-During each collection interval (as configured by [`diagnosticDataCollectionPeriodMillis`](https://docs.mongodb.com/manual/reference/parameters/index.html#param.diagnosticDataCollectionPeriodMillis)), a metric chunk will be created and a sample will be collected, compressed and stored to the `data` document as Binary Data.
-
-This sample can contain the results of internal commands such as [`serverStatus`](https://docs.mongodb.com/manual/reference/command/serverStatus/),[`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/), [`collStats`](https://docs.mongodb.com/manual/reference/command/collStats/) for the [`local.oplog.rs`](https://docs.mongodb.com/manual/reference/local-database/#local.oplog.rs) collection or [`connPoolStats`](https://docs.mongodb.com/manual/reference/command/connPoolStats/#dbcmd.connPoolStats), as well as external system metrics.
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// example</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="nx">DateTime</span><span class="p">,</span>
-</span><span class='line'>  <span class="s2">&quot;serverStatus&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;connPoolStats&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;systemMetrics&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
-</span><span class='line'>  <span class="s2">&quot;end&quot;</span><span class="o">:</span> <span class="nx">DateTime</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-## Decoding FTDC `metrics.xxxxxxx` files
-
-FTDC files, such as the `metrics.2019-10-28T19-02-23Z-00000` example file we'll be working with below are just [BSON](http://bsonspec.org/) files. As such, the [`bsondump`](https://docs.mongodb.com/manual/reference/program/bsondump/) utility can be used to inspect the contents:
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-10-28T19-02-23Z-00000
-</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> less
-</span></code></pre></td></tr></table></div></figure>
-
-<img src="/images/ftdc-001.png">
-
-`bsondump` will default to emitting JSON, so we can interact with this using the [`jq`]() utility. For example, if we only want to review the _Metadata Document_ this could be done as follows:
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
-</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type == 0)&#39;</span> <span class="p">|</span> less
-</span><span class='line'>
-</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
-</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;0&quot;)&#39;</span> <span class="p">|</span> less
-</span></code></pre></td></tr></table></div></figure>
-
-<img src="/images/ftdc-002.png">
-
-Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk and the [Ruby](https://www.ruby-lang.org/en/) interpreter to decompress the zlib data. Note that the following command can be altered to navigate to other chunks (not only the first) as needed:
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># bsondump &lt; 4.0</span>
-</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
-</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type == 1)&#39;</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot;&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  bsondump --quiet
-</span><span class='line'>
-</span><span class='line'><span class="c"># bsondump &gt;= 4.0</span>
-</span><span class='line'><span class="nv">METRICS</span><span class="o">=</span>metrics.2019-12-20T14-22-56Z-00000
-</span><span class='line'>bsondump --quiet <span class="nv">$METRICS</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  jq -s <span class="s1">&#39;.[] | select( .type | .&quot;$numberInt&quot; == &quot;1&quot;)&#39;</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  jq -s <span class="s1">&#39;first | .data .&quot;$binary&quot; .base64&#39;</span> -Mc <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  ruby -rzlib -rbase64 -e <span class="s1">&#39;d = STDIN.read; print Zlib::Inflate.new.inflate(Base64.decode64(d)[4..-1])&#39;</span> <span class="p">|</span> <span class="se">\</span>
-</span><span class='line'>  bsondump --quiet
-</span></code></pre></td></tr></table></div></figure>
-
-You eagle-eyed Rubyists will notice that we're clipping the first 4 bytes from the binary data we're reading from STDIN. This is to drop the header before we try to decompress the stream.
-
-If you don't do this [zlib](https://www.zlib.net/) will complain and fail:
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-</span><span class='line'>        1: from -e:1:in <span class="sb">`</span>&lt;main&gt;<span class="s1">&#39;</span>
-</span><span class='line'><span class="s1">-e:1:in `inflate&#39;</span>: incorrect header check <span class="o">(</span>Zlib::DataError<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-The binary data has now been decompressed, and being BSON data we run it through `bsondump` again and voila:
-
-<img src="/images/ftdc-003.png">
-
-Hopefully this helps shed some light on what FTDC data is and what it contains. In a future post we'll look into doing something useful with this treasure trove of telemetry our clusters are generating every 1 second or so.]]></content>
     </entry>
     
 </feed>

@@ -1,0 +1,894 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MongoDB 4.4 Change Streams and Pre-Image 'Support' - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="MongoDB 4.4 Change Streams and Pre-Image 'Support' Jul 15th, 2020 mongodb Comments Last Updated: Jul 16, 2020 Warning MongoDB&rsquo;s source code is &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">MongoDB 4.4 Change Streams and Pre-Image 'Support'</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2020-07-15T08:37:08-04:00" pubdate><i class="fa fa-calendar"></i> Jul 15th, 2020</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jul 16, 2020</em></small></p>
+    <p><strong>Warning</strong></p>
+
+<p><em>MongoDB&rsquo;s source code is available (through an <a href="https://www.mongodb.com/licensing/server-side-public-license">SSPL license</a>) and the <a href="https://jira.mongodb.org/projects/SERVER/issues">Core Server</a> project in MongoDB&rsquo;s JIRA is publicly accessible, which is where I found this information.</em>
+<em>Until officially announced as stable/official the methods described herein should not be considered as &ldquo;production ready&rdquo;. This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication.</em></p>
+
+<h3>Introduction</h3>
+
+<p>A feature that has long been requested since <a href="https://docs.mongodb.com/manual/changeStreams/">Change Streams</a> were <a href="https://www.mongodb.com/blog/post/an-introduction-to-change-streams">introduced in MongoDB 3.6</a> is the ability to support returning the n-1 state (or pre-image) of a document when it is changed.</p>
+
+<p>In <a href="https://jira.mongodb.org/browse/SERVER-36941"><code>SERVER-36941</code>: <em>Option to provide &ldquo;before image&rdquo; with change streams</em></a> this request is captured, but at the time of writing this ticket is still in an <em>Open</em> state which would imply no progress has been made.</p>
+
+<p>Interestingly enough, there actually has been some progress due to efforts surrounding the support of <a href="https://www.mongodb.com/realm/mobile/sync">Realm Sync</a>, namely in the following tickets:</p>
+
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-45806"><code>SERVER-45806</code>: <em>Record pre-images on updates and deletes when recordPreImage is enabled</em></a></li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-45807"><code>SERVER-45807</code>: <em>Add change stream stage to fetch pre-image for update/replace/delete events</em></a></li>
+</ul>
+
+
+<h3>Pre-Image Support</h3>
+
+<p>&ldquo;Support&rdquo; for this feature is only available in MongoDB 4.4+, so first we must ensure we are running a compatible version.</p>
+
+<p>Next, as change streams are only supported in <a href="https://docs.mongodb.com/manual/replication/">replica sets</a> or <a href="https://docs.mongodb.com/manual/sharding/">sharded clusters</a> our cluster cannot be a standalone instance.</p>
+
+<p>Before a pre-image can be returned in a change stream support for the feature must be enabled at <em>the collection level</em>.</p>
+
+<h4>Create a New Collection with Pre-Image Support</h4>
+
+<!-- MORE -->
+
+
+<p>To enable pre-image support on a new (non-existent) collection, the <code>recordPreImages</code> flag needs to be set when calling the <a href="https://docs.mongodb.com/manual/reference/command/create/#dbcmd.create"><code>create</code></a> command or <a href="https://docs.mongodb.com/manual/reference/method/db.createCollection/"><code>db.createCollection()</code></a> shell method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// create command</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span> <span class="nx">create</span><span class="o">:</span> <span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="c1">// or</span>
+</span><span class='line'><span class="c1">// using the createCollection() helper</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Updating an Existing Collection with Pre-Image Support</h4>
+
+<p>If the collection already exists, the <code>recordPreImages</code> flag can be set using the <a href="https://docs.mongodb.com/manual/reference/command/collMod/"><code>collMod</code></a> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="c1">// update the collection&#39;s metadata using the collMod command</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span> <span class="nx">collMod</span><span class="o">:</span> <span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Pre-Image Support in Change Streams</h3>
+
+<p>First it&rsquo;s important to understand that a change stream is actually an <a href="https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/">Aggregation Pipeline Stage</a>, even if it doesn&rsquo;t appear as such in the documentation.</p>
+
+<p>This can be easily verified by checking the source code for the <a href="https://github.com/mongodb/mongo/blob/v4.4/src/mongo/shell/mongo.js#L686"><code>Mongo.prototype.watch</code></a> implementation which coincides with <a href="https://docs.mongodb.com/manual/reference/method/db.collection.watch/"><code>db.collection.watch()</code></a> shell method.</p>
+
+<p>We&rsquo;ll be using the <code>$changeStream</code> pipeline stage directly to review the impact of pre-image support.</p>
+
+<p>First we&rsquo;ll being by opening a change stream cursor against our modified collection:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll1&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;whenAvailable&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the options include a <code>fullDocumentBeforeChange</code> field, which can accept one of three (3) <code>fullDocumentBeforeChange</code> mode values:</p>
+
+<ul>
+<li><code>off</code>: Disables support for the <code>fullDocumentBeforeChange</code> field</li>
+<li><code>whenAvailable</code>: Only includes a <code>fullDocumentBeforeChange</code> document if it&rsquo;s available, but won&rsquo;t fail if it&rsquo;s not present</li>
+<li><code>required</code>: Require the <code>fullDocumentBeforeChange</code> document, and errors out if it&rsquo;s not available</li>
+</ul>
+
+
+<p>Since we have a change stream cursor open, we can update our test document and iterate the cursor to see the change this option produces:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm"> &quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm"> &quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;_id&quot; : 1,</span>
+</span><span class='line'><span class="cm">     &quot;created_at&quot; : ISODate(&quot;2020-07-15T17:41:32.043Z&quot;)</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">     &quot;coll&quot; : &quot;coll1&quot;</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;_id&quot; : 1</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">         &quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:41:32.056Z&quot;)</span>
+</span><span class='line'><span class="cm">     },</span>
+</span><span class='line'><span class="cm">     &quot;removedFields&quot; : [ ]</span>
+</span><span class='line'><span class="cm"> }</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The output contains a <code>fullDocumentBeforeChange</code> field which includes the full document <em>prior</em> to the changes the update operation would apply. As this was the first update to this document and the field was being added for the first time the value here may not be apparent, but running the operation again produces result that contains our previous <code>created_at</code> value along with our updated <code>created_at</code> value in the <code>updateDescription</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll1</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm"> &quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm"> &quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;_id&quot; : 1,</span>
+</span><span class='line'><span class="cm">     &quot;created_at&quot; : ISODate(&quot;2020-07-15T17:41:32.043Z&quot;),</span>
+</span><span class='line'><span class="cm">     &quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:41:32.056Z&quot;)</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">     &quot;coll&quot; : &quot;coll1&quot;</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;_id&quot; : 1</span>
+</span><span class='line'><span class="cm"> },</span>
+</span><span class='line'><span class="cm"> &quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">     &quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">         &quot;updated_at&quot; : ISODate(&quot;2020-07-15T17:44:29.494Z&quot;)</span>
+</span><span class='line'><span class="cm">     },</span>
+</span><span class='line'><span class="cm">     &quot;removedFields&quot; : [ ]</span>
+</span><span class='line'><span class="cm"> }</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the <code>fullDocumentBeforeChange</code> mode was set to <code>required</code> and the collection wasn&rsquo;t created with the <code>recordPreImages</code> flag set, the change stream cursor will error out when iterated.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll2&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;required&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll2</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">})</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">2020-07-16T07:03:37.657-0400 E  QUERY    [js] Error: command failed: {</span>
+</span><span class='line'><span class="cm"> &quot;ok&quot; : 0,</span>
+</span><span class='line'><span class="cm"> &quot;errmsg&quot; : &quot;Change stream was configured to require a pre-image for all update, delete and replace events, but no pre-image optime was recorded for event: {_id: {_data: \&quot;825F103409000000042B022C0100296E5A10044912D5BB665545B48DDAD38FCD774270461E5F6964002B040004\&quot;, _typeBits: BinData(0, \&quot;40\&quot;)}, operationType: \&quot;update\&quot;, clusterTime: Timestamp(1594897417, 4), ns: {db: \&quot;test\&quot;, coll: \&quot;coll2\&quot;}, documentKey: {_id: 2}, updateDescription: {updatedFields: {updated_at: 2020-07-16T11:03:37.611Z}, removedFields: []}}&quot;,</span>
+</span><span class='line'><span class="cm"> &quot;code&quot; : 51770,</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Pre-Image and <code>{ fullDocument: "updateLookup" }</code></h3>
+
+<p>The change stream cursors we&rsquo;ve been opening have not been specifying a <code>fullDocument</code> options, which results in the default value of <code>{ fullDocument: "default" }</code> being used (or prior to <a href="https://jira.mongodb.org/browse/SPEC-909">SPEC-909</a> a value of <code>none</code>).</p>
+
+<p>When we set <code>{ fullDocument: "updateLookup" }</code>, the cursor will look up the most current majority-committed version of the updated document and include a <code>fullDocument</code> field with the document lookup in addition to the <code>updateDescription</code> delta.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll3&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Alex&quot;</span><span class="p">,</span> <span class="nx">role</span><span class="o">:</span> <span class="s2">&quot;TSE&quot;</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;whenAvailable&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll3</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">    &quot;_id&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_data&quot; : &quot;825F103644000000042B022C0100296E5A100452A662230D6B4C08B0AF844900F3A335461E5F6964002B060004&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;_typeBits&quot; : BinData(0, &quot;QA==&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;operationType&quot; : &quot;update&quot;,</span>
+</span><span class='line'><span class="cm">    &quot;clusterTime&quot; : Timestamp(1594897988, 4),</span>
+</span><span class='line'><span class="cm">    &quot;fullDocument&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0,</span>
+</span><span class='line'><span class="cm">        &quot;name&quot; : &quot;Alex&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;role&quot; : &quot;TSE&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;created_at&quot; : ISODate(&quot;2020-07-16T11:13:08.180+0000&quot;),</span>
+</span><span class='line'><span class="cm">        &quot;updated_at&quot; : ISODate(&quot;2020-07-16T11:13:08.268+0000&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;fullDocumentBeforeChange&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0,</span>
+</span><span class='line'><span class="cm">        &quot;name&quot; : &quot;Alex&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;role&quot; : &quot;TSE&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;created_at&quot; : ISODate(&quot;2020-07-16T11:13:08.180+0000&quot;)</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;ns&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;db&quot; : &quot;test&quot;,</span>
+</span><span class='line'><span class="cm">        &quot;coll&quot; : &quot;coll3&quot;</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;documentKey&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;_id&quot; : 3.0</span>
+</span><span class='line'><span class="cm">    },</span>
+</span><span class='line'><span class="cm">    &quot;updateDescription&quot; : {</span>
+</span><span class='line'><span class="cm">        &quot;updatedFields&quot; : {</span>
+</span><span class='line'><span class="cm">            &quot;updated_at&quot; : ISODate(&quot;2020-07-16T11:13:08.268+0000&quot;)</span>
+</span><span class='line'><span class="cm">        },</span>
+</span><span class='line'><span class="cm">        &quot;removedFields&quot; : [</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">        ]</span>
+</span><span class='line'><span class="cm">    }</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>By including both <code>fullDocument</code> and <code>fullDocumentBeforeChange</code> options, the cursor now returns three fields that represent the state of the document before the change, after the change as well as a description of the changes in the form of the <code>updateDescription</code> field.</p>
+
+<h3>What Could Go Wrong?</h3>
+
+<p>Since change streams are messages in the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a>, which are themselves <a href="https://docs.mongodb.com/manual/reference/glossary/#term-document">BSON documents</a>  hey must adhere to the <a href="https://docs.mongodb.com/manual/reference/limits/#bson-documents">BSON Document Size</a> limit of 16 megabytes.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">result</span>           <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">characters</span>       <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&#39;</span><span class="p">;</span>
+</span><span class='line'>   <span class="kd">var</span> <span class="nx">charactersLength</span> <span class="o">=</span> <span class="nx">characters</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">result</span> <span class="o">+=</span> <span class="nx">characters</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">charactersLength</span><span class="p">));</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// BSON max size - 512 bytes</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverBuildInfo</span><span class="p">().</span><span class="nx">maxBsonObjectSize</span> <span class="o">-</span> <span class="mi">512</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll4&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">junk</span><span class="o">:</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;off&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above example has the <code>fullDocumentBeforeChange</code> disabled, which is the current default behavior of change streams. Though the result would be large (almost 16MB), iterating the change stream cursor would produce a result.</p>
+
+<p>Modifying the cursor to now request a <code>fullDocumentBeforeChange</code> (either <code>required</code> or <code>whenAvailable</code>) would now raise an error when the cursor is iterated.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// ...</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;coll4&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">recordPreImages</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">created_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nx">junk</span><span class="o">:</span> <span class="nx">randomString</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">});</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span>
+</span><span class='line'>    <span class="nx">$changeStream</span><span class="o">:</span> <span class="p">{</span> <span class="nx">fullDocument</span><span class="o">:</span> <span class="s2">&quot;updateLookup&quot;</span><span class="p">,</span> <span class="nx">fullDocumentBeforeChange</span><span class="o">:</span> <span class="s2">&quot;required&quot;</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class='line'><span class="p">]);</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">4</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updated_at</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">});</span>
+</span><span class='line'><span class="nx">cursor</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">2020-07-16T07:40:38.307-0400 E  QUERY    [js] Error: command failed: {</span>
+</span><span class='line'><span class="cm"> &quot;errmsg&quot; : &quot;BSONObj size: 33553900 (0x1FFFDEC) is invalid. Size must be between 0 and 16793600(16MB) First element: _id: { _data: \&quot;825F103CB5000000032B022C0100296E5A100484010E04E239427B8CBCA810283D05A5461E5F6964002B080004\&quot;, _typeBits: BinData(0, 40) }&quot;,</span>
+</span><span class='line'><span class="cm"> &quot;code&quot; : 10334,</span>
+</span><span class='line'><span class="cm"> &quot;codeName&quot; : &quot;BSONObjectTooLarge&quot;,</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I personally look forward to pre-images being officially supported in MongoDB, however in the meantime be advised that this may not be ideal for production just yet.</p>
+
+<p>Happy Coding!</p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available hire--vibrant">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">MongoDB 4.4 Change Streams and Pre-Image 'Support'</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/">Identifying and Reclaiming Disk Space in MongoDB</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">MongoDB Initial Sync Progress Monitoring</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6215800856413580",
+            enable_page_level_ads: true
+       });
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>
