@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-07-16T07:51:09-04:00</updated>
+    <updated>2020-07-16T09:53:21-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -350,7 +350,7 @@ By including both `fullDocument` and `fullDocumentBeforeChange` options, the cur
 
 ### What Could Go Wrong?
 
-Since change streams are messages in the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/), which are themselves [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#term-document)  hey must adhere to the [BSON Document Size](https://docs.mongodb.com/manual/reference/limits/#bson-documents) limit of 16 megabytes.
+Since change streams are messages in the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/), which are themselves [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#term-document)  they must adhere to the [BSON Document Size](https://docs.mongodb.com/manual/reference/limits/#bson-documents) limit of 16 megabytes.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
