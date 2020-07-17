@@ -218,9 +218,62 @@ cursor.next()
 
 By including both `fullDocument` and `fullDocumentBeforeChange` options, the cursor now returns three fields that represent the state of the document before the change, after the change as well as a description of the changes in the form of the `updateDescription` field.
 
+### How are Pre-Images Stored
+
+Since change streams are messages in the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/), which are themselves [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#term-document) they must adhere to the [BSON Document Size](https://docs.mongodb.com/manual/reference/limits/#bson-documents) limit of 16 megabytes.
+
+Pre-image details aren't stored directly within the oplog entry that describes the update or delete ([`op` type of `u` or `d`](https://github.com/mongodb/mongo/blob/v4.4/src/mongo/db/repl/oplog_entry.idl#L41)).
+
+When `recordPreImages` has been enabled for a collection, prior to an oplog entry for an update or delete, a noop (`op: "n"`) is inserted into the oplog with current document state. The subsequent operation (the actual update or delete) will contain a `preImageOpTime` which contains the optime of the oplog entry containing this noop.
+
+```js
+db.getSiblingDB("local").getCollection("oplog.rs").find({ ns: "test.coll3" });
+/*
+{
+  "op": "n",
+  "ns": "test.coll3",
+  "ui": UUID("d2c8288d-2748-4abf-b5f0-37de24e3128e"),
+  "o": {
+    "_id": 3,
+    "name": "Alex",
+    "role": "TSE",
+    "created_at": ISODate("2020-07-17T13:09:52.612Z")
+  },
+  "ts": Timestamp(1594991392, 4),
+  "t": NumberLong(4),
+  "wall": ISODate("2020-07-17T13:09:52.649Z"),
+  "v": NumberLong(2)
+}
+{
+  "op": "u",
+  "ns": "test.coll3",
+  "ui": UUID("d2c8288d-2748-4abf-b5f0-37de24e3128e"),
+  "o": {
+    "$v": 1,
+    "$set": {
+      "updated_at": ISODate("2020-07-17T13:09:52.648Z")
+    }
+  },
+  "o2": {
+    "_id": 3
+  },
+  "preImageOpTime": {
+    "ts": Timestamp(1594991392, 4),
+    "t": NumberLong(4)
+  },
+  "ts": Timestamp(1594991392, 5),
+  "t": NumberLong(4),
+  "wall": ISODate("2020-07-17T13:09:52.649Z"),
+  "v": NumberLong(2)
+}
+*/
+```
+
 ### What Could Go Wrong?
 
-Since change streams are messages in the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/), which are themselves [BSON documents](https://docs.mongodb.com/manual/reference/glossary/#term-document)  hey must adhere to the [BSON Document Size](https://docs.mongodb.com/manual/reference/limits/#bson-documents) limit of 16 megabytes.
+Though enabling pre-images won't bloat the oplog entry to the point where it may exceed the BSON max size, when the change stream cursor resolves resulting document the size cannot exceed the BSON max size.
+
+For example:
 
 ```js
 function randomString(length) {
@@ -233,7 +286,7 @@ function randomString(length) {
    return result;
 }
 
-// BSON max size - 512 bytes
+// BSON max size less 512 bytes
 var size = db.serverBuildInfo().maxBsonObjectSize - 512;
 
 db.coll4.drop();
