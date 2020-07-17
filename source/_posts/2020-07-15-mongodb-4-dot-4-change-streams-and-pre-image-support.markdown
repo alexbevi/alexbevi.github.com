@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "MongoDB 4.4 Change Streams and Pre-Image 'Support'"
+title: "MongoDB 4.4 Change Streams and Experimental Pre-Image 'Support'"
 date: 2020-07-15 08:37:08 -0400
 comments: true
 categories:
   - mongodb
 ---
 
-**Warning**
+**Warning - Not for Production Use**
 
-_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._
+_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._<br>
 _Until officially announced as stable/official the methods described herein should not be considered as "production ready". This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication._
 
 ### Introduction
