@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-07-17T09:26:21-04:00</updated>
+    <updated>2020-07-17T14:26:33-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,13 +14,13 @@
 
     
     <entry>
-        <title type="html"><![CDATA[MongoDB 4.4 Change Streams and Pre-Image 'Support']]></title>
+        <title type="html"><![CDATA[MongoDB 4.4 Change Streams and Experimental Pre-Image 'Support']]></title>
         <link href="http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/"/>
         <updated>2020-07-15T08:37:08-04:00</updated>
         <id>http://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support</id>
-        <content type="html"><![CDATA[**Warning**
+        <content type="html"><![CDATA[**Warning - Not for Production Use**
 
-_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._
+_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._<br>
 _Until officially announced as stable/official the methods described herein should not be considered as "production ready". This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication._
 
 ### Introduction
