@@ -480,9 +480,102 @@
 
 <p>By including both <code>fullDocument</code> and <code>fullDocumentBeforeChange</code> options, the cursor now returns three fields that represent the state of the document before the change, after the change as well as a description of the changes in the form of the <code>updateDescription</code> field.</p>
 
+<h3>How are Pre-Images Stored</h3>
+
+<p>Since change streams are messages in the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a>, which are themselves <a href="https://docs.mongodb.com/manual/reference/glossary/#term-document">BSON documents</a> they must adhere to the <a href="https://docs.mongodb.com/manual/reference/limits/#bson-documents">BSON Document Size</a> limit of 16 megabytes.</p>
+
+<p>Pre-image details aren&rsquo;t stored directly within the oplog entry that describes the update or delete (<a href="https://github.com/mongodb/mongo/blob/v4.4/src/mongo/db/repl/oplog_entry.idl#L41"><code>op</code> type of <code>u</code> or <code>d</code></a>).</p>
+
+<p>When <code>recordPreImages</code> has been enabled for a collection, prior to an oplog entry for an update or delete, a noop (<code>op: "n"</code>) is inserted into the oplog with current document state. The subsequent operation (the actual update or delete) will contain a <code>preImageOpTime</code> which contains the optime of the oplog entry containing this noop.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">).</span><span class="nx">getCollection</span><span class="p">(</span><span class="s2">&quot;oplog.rs&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span> <span class="nx">ns</span><span class="o">:</span> <span class="s2">&quot;test.coll3&quot;</span> <span class="p">});</span>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">  &quot;op&quot;: &quot;n&quot;,</span>
+</span><span class='line'><span class="cm">  &quot;ns&quot;: &quot;test.coll3&quot;,</span>
+</span><span class='line'><span class="cm">  &quot;ui&quot;: UUID(&quot;d2c8288d-2748-4abf-b5f0-37de24e3128e&quot;),</span>
+</span><span class='line'><span class="cm">  &quot;o&quot;: {</span>
+</span><span class='line'><span class="cm">    &quot;_id&quot;: 3,</span>
+</span><span class='line'><span class="cm">    &quot;name&quot;: &quot;Alex&quot;,</span>
+</span><span class='line'><span class="cm">    &quot;role&quot;: &quot;TSE&quot;,</span>
+</span><span class='line'><span class="cm">    &quot;created_at&quot;: ISODate(&quot;2020-07-17T13:09:52.612Z&quot;)</span>
+</span><span class='line'><span class="cm">  },</span>
+</span><span class='line'><span class="cm">  &quot;ts&quot;: Timestamp(1594991392, 4),</span>
+</span><span class='line'><span class="cm">  &quot;t&quot;: NumberLong(4),</span>
+</span><span class='line'><span class="cm">  &quot;wall&quot;: ISODate(&quot;2020-07-17T13:09:52.649Z&quot;),</span>
+</span><span class='line'><span class="cm">  &quot;v&quot;: NumberLong(2)</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">{</span>
+</span><span class='line'><span class="cm">  &quot;op&quot;: &quot;u&quot;,</span>
+</span><span class='line'><span class="cm">  &quot;ns&quot;: &quot;test.coll3&quot;,</span>
+</span><span class='line'><span class="cm">  &quot;ui&quot;: UUID(&quot;d2c8288d-2748-4abf-b5f0-37de24e3128e&quot;),</span>
+</span><span class='line'><span class="cm">  &quot;o&quot;: {</span>
+</span><span class='line'><span class="cm">    &quot;$v&quot;: 1,</span>
+</span><span class='line'><span class="cm">    &quot;$set&quot;: {</span>
+</span><span class='line'><span class="cm">      &quot;updated_at&quot;: ISODate(&quot;2020-07-17T13:09:52.648Z&quot;)</span>
+</span><span class='line'><span class="cm">    }</span>
+</span><span class='line'><span class="cm">  },</span>
+</span><span class='line'><span class="cm">  &quot;o2&quot;: {</span>
+</span><span class='line'><span class="cm">    &quot;_id&quot;: 3</span>
+</span><span class='line'><span class="cm">  },</span>
+</span><span class='line'><span class="cm">  &quot;preImageOpTime&quot;: {</span>
+</span><span class='line'><span class="cm">    &quot;ts&quot;: Timestamp(1594991392, 4),</span>
+</span><span class='line'><span class="cm">    &quot;t&quot;: NumberLong(4)</span>
+</span><span class='line'><span class="cm">  },</span>
+</span><span class='line'><span class="cm">  &quot;ts&quot;: Timestamp(1594991392, 5),</span>
+</span><span class='line'><span class="cm">  &quot;t&quot;: NumberLong(4),</span>
+</span><span class='line'><span class="cm">  &quot;wall&quot;: ISODate(&quot;2020-07-17T13:09:52.649Z&quot;),</span>
+</span><span class='line'><span class="cm">  &quot;v&quot;: NumberLong(2)</span>
+</span><span class='line'><span class="cm">}</span>
+</span><span class='line'><span class="cm">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h3>What Could Go Wrong?</h3>
 
-<p>Since change streams are messages in the <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a>, which are themselves <a href="https://docs.mongodb.com/manual/reference/glossary/#term-document">BSON documents</a>  they must adhere to the <a href="https://docs.mongodb.com/manual/reference/limits/#bson-documents">BSON Document Size</a> limit of 16 megabytes.</p>
+<p>Though enabling pre-images won&rsquo;t bloat the oplog entry to the point where it may exceed the BSON max size, when the change stream cursor resolves resulting document the size cannot exceed the BSON max size.</p>
+
+<p>For example:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -515,7 +608,7 @@
 </span><span class='line'>   <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">// BSON max size - 512 bytes</span>
+</span><span class='line'><span class="c1">// BSON max size less 512 bytes</span>
 </span><span class='line'><span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverBuildInfo</span><span class="p">().</span><span class="nx">maxBsonObjectSize</span> <span class="o">-</span> <span class="mi">512</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">coll4</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
