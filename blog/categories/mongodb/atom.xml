@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T07:20:59-05:00</updated>
+    <updated>2020-11-23T08:46:04-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -14,7 +14,7 @@
 
     
     <entry>
-        <title type="html"><![CDATA[MongoDB 5.0 Progress Monitoring Improvements]]></title>
+        <title type="html"><![CDATA[MongoDB 5.0 Initial Sync Progress Monitoring Improvements]]></title>
         <link href="http://www.alexbevi.com/blog/2020/11/20/mongodb-5-dot-0-progress-monitoring-improvements/"/>
         <updated>2020-11-20T10:31:26-05:00</updated>
         <id>http://www.alexbevi.com/blog/2020/11/20/mongodb-5-dot-0-progress-monitoring-improvements</id>
