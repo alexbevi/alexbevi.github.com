@@ -152,41 +152,29 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 <p>If you want to test this yourself, my setup was as follows:</p>
 
-<ol>
-<li><a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.</li>
-<li>Start up a single node replicaset as follows:</li>
-</ol>
-
+<p>1) <a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.
+2) Start up a single node replicaset as follows:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir data <span class="o">&amp;&amp;</span> build/install/bin/mongod --dbpath data --bind_ip_all --replSet rs0 --logpath data/mongod.log
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
-<li>Using the <code>mongo</code> shell, initialize the replica set:</li>
-</ol>
-
+<p>3) Using the <code>mongo</code> shell, initialize the replica set:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>mongo --eval <span class="s1">&#39;rs.initiate()&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
-<li>Seed the <code>test.data</code> namespace using the following <a href="https://github.com/rueckstiess/mgeneratejs"><code>mgeneratejs</code></a> and <a href="https://docs.mongodb.com/database-tools/mongoimport/"><code>mongoimport</code></a>:</li>
-</ol>
-
+<p>4) Seed the <code>test.data</code> namespace using the following <a href="https://github.com/rueckstiess/mgeneratejs"><code>mgeneratejs</code></a> and <a href="https://docs.mongodb.com/database-tools/mongoimport/"><code>mongoimport</code></a>:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s https://gist.githubusercontent.com/alexbevi/955c6675337107e16d637233f865b1e3/raw/0c48178e9c570b7594f207559744f07ecf87ac28/template.json <span class="p">|</span> mgeneratejs -n <span class="m">1000000</span> <span class="p">|</span> mongoimport --collection data --numInsertionWorkers 4
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
-<li>Start another <code>mongod</code> and add it to the replica set</li>
-</ol>
-
+<p>5) Start another <code>mongod</code> and add it to the replica set</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
