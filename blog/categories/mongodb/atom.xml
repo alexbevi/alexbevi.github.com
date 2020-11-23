@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T08:48:45-05:00</updated>
+    <updated>2020-11-23T08:49:43-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -25,7 +25,7 @@ My [previous article about initial sync progress monitoring](/blog/2020/02/13/mo
 You can be a part of this team and this awesome organization too! Head on over to [MongoDB's careers page](https://grnh.se/dcd90aac1) to see what's available, or feel free to ping me on [LinkedIn](https://www.linkedin.com/in/alexbevi/) if you have any questions.
 `</SHAMELESS_PLUG>`
 
-The goal of this post is to showcase a change that is coming in MongoDB 5.0 that will significantly improve the feedback loop regarding [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) progress monitoring. With [SERVER-47863](https://jira.mongodb.org/browse/SERVER-47863) being completed, the results of the [`db.adminCommand( { replSetGetStatus: 1, initialSync: 1 } )`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) now include additional metrics that can be used to help determine how long (approximately) an initial sync will be running for.
+The goal of this post is to showcase a change that is coming in MongoDB 5.0 that will significantly improve the feedback loop regarding [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) progress monitoring. With [SERVER-47863](https://jira.mongodb.org/browse/SERVER-47863) being completed, the results of the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) now include additional metrics that can be used to help determine how long (approximately) an initial sync will be running for.
 
 If you want to test this yourself, my setup was as follows:
 
