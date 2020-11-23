@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T10:03:56-05:00</updated>
+    <updated>2020-11-23T10:05:08-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -31,7 +31,7 @@ The goal of this post is to showcase a change that is coming in MongoDB 5.0 that
 If you want to test this yourself, my setup was as follows:
 
 1) [Build the server using the `install-mongod` SCons target](https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets). My version of the server was `mongod-4.9.0-alpha-596-g4437864` as a result.
-
+<br>
 2) Start up a single node replicaset as follows:
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir data <span class="o">&amp;&amp;</span> build/install/bin/mongod --dbpath data --bind_ip_all --replSet rs0 --logpath data/mongod.log
