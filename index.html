@@ -150,6 +150,8 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 <p>The goal of this post is to showcase a change that is coming in MongoDB 5.0 that will significantly improve the feedback loop regarding <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">initial sync</a> progress monitoring. With <a href="https://jira.mongodb.org/browse/SERVER-47863">SERVER-47863</a> being completed, the results of the <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })</code></a> now include additional metrics that can be used to help determine how long (approximately) an initial sync will be running for.</p>
 
+<p><strong>Though this feature is planned to be backported to all supported versions (4.4, 4.2, 4.0, 3.6), at the time of writing backports had not been completed.</strong></p>
+
 <p>If you want to test this yourself, my setup was as follows:</p>
 
 <p>1) <a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.
