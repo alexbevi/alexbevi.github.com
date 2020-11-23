@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T10:05:08-05:00</updated>
+    <updated>2020-11-23T10:07:29-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -228,7 +228,7 @@ The output will appear similar to:
 </span><span class='line'><span class="nx">Node</span> <span class="nx">not</span> <span class="nx">currently</span> <span class="nx">performing</span> <span class="nx">an</span> <span class="nx">initial</span> <span class="nx">sync</span>
 </span></code></pre></td></tr></table></div></figure>
 
-I will update this script once the `remainingInitialSyncEstimatedMillis` values can be used consistently.
+Once [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) has been addressed I will update this script so that the `remainingInitialSyncEstimatedMillis` values can be used consistently.
 
 <noscript><pre>/*
 * measureInitialSyncProgress
