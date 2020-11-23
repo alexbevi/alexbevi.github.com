@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-08-18T09:15:07-04:00</updated>
+    <updated>2020-11-23T07:20:59-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,347 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[MongoDB 5.0 Progress Monitoring Improvements]]></title>
+        <link href="http://www.alexbevi.com/blog/2020/11/20/mongodb-5-dot-0-progress-monitoring-improvements/"/>
+        <updated>2020-11-20T10:31:26-05:00</updated>
+        <id>http://www.alexbevi.com/blog/2020/11/20/mongodb-5-dot-0-progress-monitoring-improvements</id>
+        <content type="html"><![CDATA[<p><code>&lt;SHAMELESS_PLUG&gt;</code>
+<br>
+My <a href="http://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous article about initial sync progress monitoring</a> got some attention, and as I&rsquo;m a <a href="http://www.alexbevi.com/blog/2018/10/01/technical-services-engineering-at-mongodb/">Technical Services Engineer</a> at MongoDB, I got to provide direct feedback during the design phase of <a href="https://jira.mongodb.org/browse/SERVER-47863">SERVER-47863: <em>Initial Sync Progress Metrics</em></a>!.</p>
+
+<p>You can be a part of this team and this awesome organization too! Head on over to <a href="https://www.mongodb.com/careers">https://www.mongodb.com/careers</a> to see what&rsquo;s available, or feel free to ping me on [LinkedIn] if you have any questions.
+<code>&lt;/SHAMELESS_PLUG&gt;</code></p>
+
+<p>The goal of this post is to showcase a change that is coming in MongoDB 5.0 that will significantly improve the feedback loop regarding <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync">initial sync</a> progress monitoring. With <a href="https://jira.mongodb.org/browse/SERVER-47863">SERVER-47863</a> being completed, the results of the <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>db.adminCommand( { replSetGetStatus: 1, initialSync: 1 } )</code></a> now include additional metrics that can be used to help determine how long (approximately) an initial sync will be running for.</p>
+
+<p>If you want to test this yourself, my setup was as follows:</p>
+
+<ol>
+<li><a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.</li>
+<li>Seed the <code>test.data</code> namespace using the following <a href="https://github.com/rueckstiess/mgeneratejs"><code>mgeneratejs</code></a> and <a href="https://docs.mongodb.com/database-tools/mongoimport/"><code>mongoimport</code></a>:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s https://gist.githubusercontent.com/alexbevi/955c6675337107e16d637233f865b1e3/raw/0c48178e9c570b7594f207559744f07ecf87ac28/template.json <span class="p">|</span> mgeneratejs -n <span class="m">1000000</span> <span class="p">|</span> mongoimport --collection data --numInsertionWorkers 4
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Start up a single node replicaset as follows:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir data <span class="o">&amp;&amp;</span> build/install/bin/mongod --dbpath data --bind_ip_all --replSet rs0 --logpath data/mongod.log
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Using the <code>mongo</code> shell, initialize the replica set:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mongo --eval <span class="s1">&#39;rs.initiate()&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Start another <code>mongod</code> and add it to the replica set</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir data2 <span class="o">&amp;&amp;</span> build/install/bin/mongod --port <span class="m">27018</span> --dbpath data2 --bind_ip_all --replSet rs0 --logpath data2/mongod.log
+</span><span class='line'>mongo --eval <span class="s1">&#39;rs.add(&quot;localhost:27018&quot;)&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above steps will build the <code>mongod</code> and start up 2 nodes in a replica set with one in a <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.STARTUP2"><code>STARTUP2</code></a> (initial sync) state.</p>
+
+<p>By connecting to the secondary node directly and issuing a <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a> command we can now review the progress of the copy. For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>db.adminCommand<span class="o">({</span> replSetGetStatus: 1, initialSync: <span class="m">1</span> <span class="o">})</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="s2">&quot;set&quot;</span> <span class="o">:</span> <span class="s2">&quot;rs0&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'>  <span class="s2">&quot;initialSyncStatus&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;failedInitialSyncAttempts&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;maxFailedInitialSyncAttempts&quot;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;initialSyncStart&quot;</span> <span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2020-11-20T15:47:09.136Z&quot;</span><span class="p">),</span>
+</span><span class='line'>      <span class="s2">&quot;totalInitialSyncElapsedMillis&quot;</span> <span class="o">:</span> <span class="mi">14925</span><span class="p">,</span>               <span class="o">&lt;-----------</span>
+</span><span class='line'>      <span class="s2">&quot;initialSyncAttempts&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="p">],</span>
+</span><span class='line'>      <span class="s2">&quot;approxTotalDataSize&quot;</span> <span class="o">:</span> <span class="mi">311911892</span><span class="p">,</span>                     <span class="o">&lt;-----------</span>
+</span><span class='line'>      <span class="s2">&quot;approxTotalBytesCopied&quot;</span> <span class="o">:</span> <span class="mi">16811036</span><span class="p">,</span>                   <span class="o">&lt;-----------</span>
+</span><span class='line'>      <span class="s2">&quot;remainingInitialSyncEstimatedMillis&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>             <span class="o">&lt;-----------</span>
+</span><span class='line'>      <span class="s2">&quot;appliedOps&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;initialSyncOplogStart&quot;</span> <span class="o">:</span> <span class="nx">Timestamp</span><span class="p">(</span><span class="mi">1605887228</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+</span><span class='line'>      <span class="s2">&quot;totalTimeUnreachableMillis&quot;</span> <span class="o">:</span> <span class="nx">NumberLong</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+</span><span class='line'>      <span class="s2">&quot;databases&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="s2">&quot;databasesToClone&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>          <span class="s2">&quot;databasesCloned&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>          <span class="p">...</span>
+</span><span class='line'>          <span class="p">},</span>
+</span><span class='line'>          <span class="s2">&quot;test&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>              <span class="s2">&quot;collections&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;clonedCollections&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2020-11-20T15:47:13.968Z&quot;</span><span class="p">),</span>
+</span><span class='line'>              <span class="s2">&quot;test.data&quot;</span> <span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>                  <span class="s2">&quot;documentsToCopy&quot;</span> <span class="o">:</span> <span class="mi">250000</span><span class="p">,</span>
+</span><span class='line'>                  <span class="s2">&quot;documentsCopied&quot;</span> <span class="o">:</span> <span class="mi">13481</span><span class="p">,</span>
+</span><span class='line'>                  <span class="s2">&quot;indexes&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>                  <span class="s2">&quot;fetchedBatches&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>                  <span class="s2">&quot;bytesToCopy&quot;</span> <span class="o">:</span> <span class="mi">311911663</span><span class="p">,</span>                       <span class="o">&lt;-----------</span>
+</span><span class='line'>                  <span class="s2">&quot;approxBytesCopied&quot;</span> <span class="o">:</span> <span class="mi">16810807</span><span class="p">,</span>                  <span class="o">&lt;-----------</span>
+</span><span class='line'>                  <span class="s2">&quot;start&quot;</span> <span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2020-11-20T15:47:13.968Z&quot;</span><span class="p">),</span>
+</span><span class='line'>                  <span class="s2">&quot;receivedBatches&quot;</span> <span class="o">:</span> <span class="mi">2</span>
+</span><span class='line'>              <span class="p">}</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>  <span class="p">...</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The command output has been truncated to focus in on the new fields added to the <code>initialSyncStatus</code> document. The new metrics details are as follows:</p>
+
+<!-- MORE -->
+
+
+<p><code>totalInitialSyncElapsedMillis</code></p>
+
+<blockquote><p>Current Time - Start Time</p></blockquote>
+
+<p><code>remainingInitialSyncEstimatedMillis</code></p>
+
+<blockquote><p>(<code>totalInitialSyncElapsedMillis</code> / <code>approxTotalBytesCopied</code>) * (<code>approxTotalDataSize</code> - <code>approxTotalBytesCopied</code>)</p>
+
+<p>If (<code>approxBytesCopied</code> == 0), this field will not be shown</p></blockquote>
+
+<p>I&rsquo;ve opened <a href="https://jira.mongodb.org/browse/SERVER-53017">SERVER-53017</a> to review this particular entry as the value did not appear to be properly updated throughout the initial sync process. As MongoDB 5.0 will not be GA until mid 20201, this should be addressed before then.</p>
+
+<p><code>&lt;collection&gt;.bytesToCopy</code></p>
+
+<blockquote><p>= <a href="https://docs.mongodb.com/manual/reference/command/collStats/#collStats.size"><code>collStats.size</code></a></p></blockquote>
+
+<p><code>&lt;collection&gt;.approxBytesCopied</code></p>
+
+<blockquote><p>= <a href="https://docs.mongodb.com/manual/reference/command/collStats/#collStats.avgObjSize"><code>collStats.avgObjSize</code></a> * <code>documentsCopied</code></p></blockquote>
+
+<p><code>databasesToClone</code></p>
+
+<blockquote><p>= length of <a href="https://docs.mongodb.com/manual/reference/command/listDatabases/index.html#output"><code>listDatabases</code></a> response</p></blockquote>
+
+<p><code>approxTotalDataSize</code></p>
+
+<blockquote><p>= Sum (<a href="https://docs.mongodb.com/manual/reference/command/dbStats/index.html#dbStats.dataSize"><code>dbStats.dataSize</code></a> for all databases)</p></blockquote>
+
+<p><code>approxTotalBytesCopied</code></p>
+
+<blockquote><p>= Sum (<code>&lt;collection&gt;.approxBytesCopied</code> for all collections)</p></blockquote>
+
+<p>What can we do with all this useful information you ask? Well I&rsquo;ve written the following script that can be used to poll a secondary replica set member in STARTUP2 to provide details regarding the progress of the initial sync. This script will also provide estimated throughput and a calculated ETA based on data transfer rates.</p>
+
+<p>The output will appear similar to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">05.2</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">54.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">10.8</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">17.9</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">22.9</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">27.9</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">33.1</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">38.4</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">49.1</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">43.5</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">48.5</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">53.9</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mf">59.5</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">44.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">05.3</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">39.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">11.0</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.1</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">34.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">16.6</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">29.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">22.3</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">28.4</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">24.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">34.5</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">19.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">39.6</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">14.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">45.3</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mf">54.6</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">09.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">01.9</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">10.1</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">15.9</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">3.2</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">04.2</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">15.7</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="nx">No</span> <span class="nx">progress</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span><span class='line'><span class="nx">Initial</span> <span class="nx">Sync</span> <span class="nx">running</span> <span class="k">for</span> <span class="mi">00</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">20.7</span> <span class="p">(</span><span class="nx">remainingInitialSyncEstimatedMillis</span> <span class="mi">0</span><span class="p">).</span> <span class="nx">Cloned</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="nx">of</span> <span class="mf">1.2</span> <span class="nx">GB</span> <span class="p">(</span><span class="mf">11.6</span> <span class="nx">MB</span> <span class="k">in</span> <span class="nx">past</span> <span class="mi">5</span> <span class="nx">second</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span> <span class="nx">at</span> <span class="nx">a</span> <span class="nx">rate</span> <span class="nx">of</span> <span class="mf">2.3</span> <span class="nx">MB</span><span class="o">/</span><span class="nx">second</span> <span class="o">-</span> <span class="mi">00</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">00.7</span> <span class="nx">to</span> <span class="nx">go</span><span class="o">!</span>
+</span><span class='line'><span class="nx">Node</span> <span class="nx">not</span> <span class="nx">currently</span> <span class="nx">performing</span> <span class="nx">an</span> <span class="nx">initial</span> <span class="nx">sync</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I will update this script once the <code>remainingInitialSyncEstimatedMillis</code> values can be used consistently.</p>
+
+<p><noscript><pre>/<em>
+* measureInitialSyncProgress
+* @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+*
+* Can be run against a MongoDB 4.9+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* insight into how the sync is progressing based on the improvements introduced with SERVER-47863.
+* For versions of MongoDB &lt; 4.9, see <a href="https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring">https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</a>
+*
+* usage:
+*   mongo &ndash;quiet &ndash;eval &quot;load(&#39;measureInitialSyncProgress.js&#39;); measureInitialSyncProgress();&quot;
+</em>/
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);</p>
+
+<p>  hours = (hours &lt; 10) ? &quot;0&quot; + hours : hours;
+  minutes = (minutes &lt; 10) ? &quot;0&quot; + minutes : minutes;
+  seconds = (seconds &lt; 10) ? &quot;0&quot; + seconds : seconds;</p>
+
+<p>  return hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;.&quot; + milliseconds;
+}</p>
+
+<p>var getReadableFileSizeString = function (fileSizeInBytes) {
+  var i = -1;
+  var byteUnits = [&#39; kB&#39;, &#39; MB&#39;, &#39; GB&#39;, &#39; TB&#39;, &#39;PB&#39;, &#39;EB&#39;, &#39;ZB&#39;, &#39;YB&#39;];
+  do {
+    fileSizeInBytes = fileSizeInBytes / 1024;
+    i++;
+  } while (fileSizeInBytes &gt; 1024);
+  return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
+};</p>
+
+<p>function measureSyncProgress(previousResults) {
+  var cmd = db.adminCommand({ replSetGetStatus: 1, initialSync: 1 });
+  if (!cmd.hasOwnProperty(&quot;initialSyncStatus&quot;)) {
+    print(&quot;Node not currently performing an initial sync&quot;);
+    return { exit: true };
+  }</p>
+
+<p>  var status = cmd.initialSyncStatus;</p>
+
+<p>  db.adminCommand({ replSetGetStatus: 1, initialSync: 1 }).initialSyncStatus.approxTotalBytesCopied</p>
+
+<p>  var now = new Date();
+  var started = status.initialSyncStart;</p>
+
+<p>  var approxTotal = status.approxTotalDataSize;
+  var approxCopied = status.approxTotalBytesCopied;</p>
+
+<p>  var message = &quot;Cloned &quot; + getReadableFileSizeString(approxCopied) + &quot; of &quot; + getReadableFileSizeString(approxTotal) + &quot; in &quot; + msToTime(now - started);</p>
+
+<p>  if (previousResults !== undefined &amp;&amp; previousResults.hasOwnProperty(&quot;refreshIntervalMS&quot;) !== null &amp;&amp; previousResults.hasOwnProperty(&quot;copied&quot;)) {
+    var refreshInterval = previousResults.refreshIntervalMS / 1000;
+    var intervalProgress = approxCopied - previousResults.copied;
+    if (intervalProgress == 0) {
+      message += &quot; (No progress in past &quot; + refreshInterval + &quot; second(s))&quot;;
+    } else {
+      var rate = intervalProgress / refreshInterval;
+      var remaining = (approxTotal - approxCopied) / rate;
+      message += &quot; (&quot; + getReadableFileSizeString(intervalProgress) + &quot; in past &quot; + refreshInterval + &quot; second(s)) at a rate of &quot; + getReadableFileSizeString(rate) + &quot;/second - &quot; + msToTime(remaining * 1000) + &quot; to go!&quot;;
+    }
+  }
+  print(message);
+  return { copied: approxCopied };
+}</p>
+
+<p>function measureInitialSyncProgress(refreshIntervalMS) {
+  var dbver = db.version().split(&#39;-&#39;)[0];
+  if (dbver &lt; &quot;4.9.0&quot;) {
+    print(&quot;MongoDB 4.9 or greater required but found MongoDB &quot; + dbver);
+    print(&quot;For previous versions see <a href="https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/&amp;quot;">https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/&amp;quot;</a>);
+    return;
+  }</p>
+
+<p>  if (refreshIntervalMS === undefined || refreshIntervalMS === null) {
+    refreshIntervalMS = 5000;
+  }</p>
+
+<p>  var result = measureSyncProgress(result);
+  result[&quot;refreshIntervalMS&quot;] = refreshIntervalMS;
+  var iterations = 0;
+  while (iterations &lt; 10) {
+    if (result.exit) {
+      break;
+    }
+    iterations++;
+    sleep(refreshIntervalMS);
+    result = measureSyncProgress(result);
+    result[&quot;refreshIntervalMS&quot;] = refreshIntervalMS;
+  }
+}</pre></noscript><script src="https://gist.github.com/alexbevi/fc4f59621aee4efbae2c04187dcbf2c6.js"> </script></p>
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[MongoDB 4.4 Change Streams and Experimental Pre-Image 'Support']]></title>
@@ -1316,7 +1657,7 @@ Sort predicates represent the entire requested sort for the operation and determ
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#97;&#x6c;&#101;&#120;&#46;&#98;&#x65;&#118;&#x69;&#x6c;&#97;&#x63;&#113;&#117;&#x61;&#x40;&#109;&#111;&#x6e;&#103;&#x6f;&#x64;&#x62;&#46;&#x63;&#111;&#109;">&#97;&#108;&#x65;&#120;&#46;&#98;&#101;&#x76;&#x69;&#x6c;&#97;&#x63;&#113;&#x75;&#x61;&#64;&#x6d;&#111;&#x6e;&#103;&#111;&#100;&#x62;&#46;&#x63;&#x6f;&#109;</a>
+* @author <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x61;&#108;&#101;&#x78;&#46;&#98;&#x65;&#x76;&#105;&#108;&#x61;&#99;&#x71;&#x75;&#x61;&#x40;&#109;&#x6f;&#x6e;&#103;&#111;&#100;&#x62;&#46;&#99;&#111;&#109;">&#97;&#108;&#101;&#x78;&#x2e;&#98;&#x65;&#x76;&#105;&#x6c;&#97;&#99;&#113;&#117;&#x61;&#64;&#x6d;&#x6f;&#x6e;&#103;&#x6f;&#x64;&#98;&#46;&#x63;&#111;&#x6d;</a>
 * @version 1.1
 * @updated 2020-05-14
 *
@@ -2931,8 +3272,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#97;&#x6c;&#101;&#x78;&#98;&#x65;&#118;&#x69;&#64;&#103;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#97;&#108;&#101;&#x78;&#x62;&#101;&#118;&#x69;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>
-To: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#101;&#x62;&#46;&#115;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#x40;&#98;&#x6c;&#105;&#122;&#x7a;&#97;&#x72;&#100;&#x2e;&#x63;&#111;&#109;">&#x77;&#x65;&#98;&#x2e;&#x73;&#x75;&#x70;&#112;&#x6f;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#122;&#x7a;&#97;&#114;&#x64;&#x2e;&#99;&#x6f;&#x6d;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#97;&#108;&#x65;&#120;&#x62;&#101;&#118;&#105;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x6c;&#x65;&#x78;&#x62;&#x65;&#118;&#105;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#109;</a>
+To: <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#119;&#x65;&#98;&#x2e;&#115;&#117;&#112;&#x70;&#111;&#x72;&#116;&#x40;&#x62;&#x6c;&#x69;&#x7a;&#122;&#x61;&#x72;&#100;&#46;&#x63;&#111;&#x6d;">&#119;&#101;&#98;&#46;&#x73;&#x75;&#112;&#x70;&#111;&#114;&#116;&#x40;&#x62;&#x6c;&#105;&#x7a;&#122;&#x61;&#114;&#100;&#46;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -3330,124 +3671,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 
 
 <p>If you find yourself with compressed ROM sets and you want to just grab the English ones, this might just come in handy ;)</p>
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Redmine Knowledgebase 3.2.0 Released]]></title>
-        <link href="http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released/"/>
-        <updated>2016-06-22T21:33:34-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2016/06/22/redmine-knowledgebase-3-dot-2-released</id>
-        <content type="html"><![CDATA[<p>I haven&rsquo;t been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.</p>
-
-<p>You can grab a copy of the release <a href="https://github.com/alexbevi/redmine_knowledgebase/releases/tag/v3.2.0">on GitHub</a>.</p>
-
-<p>I&rsquo;m pushing out version 3.2.0 of the plugin thanks to the efforts of some very dedicated community members, who I&rsquo;d like to highlight below:</p>
-
-<p>Thanks to Frederico Camara:</p>
-
-<ul>
-<li>updating acts_as_rated to work with Redmine 3.2.x</li>
-</ul>
-
-
-<p>Thanks to Eduard Kuleshov:</p>
-
-<ul>
-<li>getting this plugin supported in Redmine 3.0.x</li>
-</ul>
-
-
-<p>Thanks to Axel Kämpfe:</p>
-
-<ul>
-<li>getting this plugin supported in Redmine 3.1.x and 3.2.x</li>
-</ul>
-
-
-<p>HUGE thanks to Rob Spearman for basically taking over the project and pushing it forward:</p>
-
-<h2>New Configuaration options</h2>
-
-<ul>
-<li>Show articles without tabs</li>
-<li>Show attachments before article content</li>
-<li>Show thumbnails for articles in lists</li>
-<li>Show breadcrumbs for articles in lists</li>
-</ul>
-
-
-<h2>New permissions</h2>
-
-<ul>
-<li>Article history will only show up if have view permission</li>
-<li>optional permission for users to manage just their own articles. (#306)</li>
-</ul>
-
-
-<h2>Layout</h2>
-
-<ul>
-<li>Sort Tags on the index page</li>
-<li>Added authored view so users can find articles by author easily</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h2>Bug Fixes</h2>
-
-<ul>
-<li>article view counts not updating (#304)</li>
-<li>top rated list not valid (#305)</li>
-<li>ActiveRecord::StaleObjectError (Attempted to destroy a stale object: KbArticle) (#300)</li>
-<li>Error when generating a PDF of an article with pictures (#308)</li>
-<li>500 Internal Server Error - if DELETE category but it&rsquo;s have subcategory (#293)</li>
-</ul>
-
-
-<p>Note that this is a preliminary release as there is one bug in here that I haven&rsquo;t squashed.</p>
-
-<p>When trying to search, you&rsquo;re prompted with a failure similar to:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Started GET "/search?utf8=%E2%9C%93&q=stuff" for 127.0.0.1 at 2016-06-23 01:14:06 +0000
-</span><span class='line'>Processing by SearchController#index as HTML
-</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "q"=&gt;"stuff"}
-</span><span class='line'>  Current user: admin (id=1)
-</span><span class='line'>Completed 500 Internal Server Error in 632ms (ActiveRecord: 173.6ms)
-</span><span class='line'>
-</span><span class='line'>NoMethodError (undefined method `where' for #&lt;Hash:0x000000096b0d60&gt;):
-</span><span class='line'>  lib/plugins/acts_as_searchable/lib/acts_as_searchable.rb:93:in `search_result_ranks_and_ids'
-</span><span class='line'>  lib/redmine/search.rb:127:in `block in load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:125:in `each'
-</span><span class='line'>  lib/redmine/search.rb:125:in `load_result_ids'
-</span><span class='line'>  lib/redmine/search.rb:115:in `block in load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:114:in `load_result_ids_from_cache'
-</span><span class='line'>  lib/redmine/search.rb:99:in `result_ids'
-</span><span class='line'>  lib/redmine/search.rb:70:in `result_count'
-</span><span class='line'>  app/controllers/search_controller.rb:65:in `index'
-</span><span class='line'>  lib/redmine/sudo_mode.rb:63:in `sudo_mode'</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I&rsquo;m pretty sure this has to do with how we&rsquo;re setting up <code>acts_as_searchable</code> in the <code>kb_article</code> model. Any suggestions welcome ;)</p>
 ]]></content>
     </entry>
     
