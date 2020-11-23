@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T10:28:08-05:00</updated>
+    <updated>2020-11-23T10:31:41-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -157,7 +157,7 @@ The command output has been truncated to focus in on the new fields added to the
 >
 > If (`approxBytesCopied` == 0), this field will not be shown
 
-I've opened [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) to review this particular entry as the value did not appear to be properly updated throughout the initial sync process. As MongoDB 5.0 is not expected to be GA until mid 20201, this will likely be addressed before then.
+I've opened [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) to review this particular entry as the value did not appear to be properly updated throughout the initial sync process. As MongoDB 5.0 is not expected to be GA until mid 2021, this will likely be addressed before then.
 
 `<collection>.bytesToCopy`
 > = [`collStats.size`](https://docs.mongodb.com/manual/reference/command/collStats/#collStats.size)
