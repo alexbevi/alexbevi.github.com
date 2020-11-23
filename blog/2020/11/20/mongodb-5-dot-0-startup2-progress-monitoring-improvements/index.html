@@ -150,16 +150,6 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 <ol>
 <li><a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.</li>
-<li>Seed the <code>test.data</code> namespace using the following <a href="https://github.com/rueckstiess/mgeneratejs"><code>mgeneratejs</code></a> and <a href="https://docs.mongodb.com/database-tools/mongoimport/"><code>mongoimport</code></a>:</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s https://gist.githubusercontent.com/alexbevi/955c6675337107e16d637233f865b1e3/raw/0c48178e9c570b7594f207559744f07ecf87ac28/template.json <span class="p">|</span> mgeneratejs -n <span class="m">1000000</span> <span class="p">|</span> mongoimport --collection data --numInsertionWorkers 4
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
 <li>Start up a single node replicaset as follows:</li>
 </ol>
 
@@ -180,6 +170,16 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 
 <ol>
+<li>Seed the <code>test.data</code> namespace using the following <a href="https://github.com/rueckstiess/mgeneratejs"><code>mgeneratejs</code></a> and <a href="https://docs.mongodb.com/database-tools/mongoimport/"><code>mongoimport</code></a>:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -s https://gist.githubusercontent.com/alexbevi/955c6675337107e16d637233f865b1e3/raw/0c48178e9c570b7594f207559744f07ecf87ac28/template.json <span class="p">|</span> mgeneratejs -n <span class="m">1000000</span> <span class="p">|</span> mongoimport --collection data --numInsertionWorkers 4
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
 <li>Start another <code>mongod</code> and add it to the replica set</li>
 </ol>
 
@@ -193,7 +193,9 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 <p>The above steps will build the <code>mongod</code> and start up 2 nodes in a replica set with one in a <a href="https://docs.mongodb.com/manual/reference/replica-states/#replstate.STARTUP2"><code>STARTUP2</code></a> (initial sync) state.</p>
 
-<p>By connecting to the secondary node directly and issuing a <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a> command we can now review the progress of the copy. For example:</p>
+<p>By connecting to the secondary node directly and issuing a <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/"><code>replSetGetStatus</code></a> command we can now review the progress of the copy. Note that this will need to be done <em>while</em> the initial sync is in progress; once the node exits the <code>STARTUP2</code> state and enters a <code>SECONDARY</code> state, the <code>initialSyncStatus</code> details will be unavailable.</p>
+
+<p>For example:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>db.adminCommand<span class="o">({</span> replSetGetStatus: 1, initialSync: <span class="m">1</span> <span class="o">})</span><span class="p">;</span>
