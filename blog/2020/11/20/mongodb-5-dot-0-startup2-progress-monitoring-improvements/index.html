@@ -148,8 +148,9 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 
 <p>If you want to test this yourself, my setup was as follows:</p>
 
-<p>1) <a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.
-2) Start up a single node replicaset as follows:</p>
+<p>1) <a href="https://github.com/mongodb/mongo/blob/master/docs/building.md#scons-targets">Build the server using the <code>install-mongod</code> SCons target</a>. My version of the server was <code>mongod-4.9.0-alpha-596-g4437864</code> as a result.</p>
+
+<p>2) Start up a single node replicaset as follows:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir data <span class="o">&amp;&amp;</span> build/install/bin/mongod --dbpath data --bind_ip_all --replSet rs0 --logpath data/mongod.log
