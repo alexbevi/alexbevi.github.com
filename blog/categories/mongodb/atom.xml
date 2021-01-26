@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2020-11-23T10:31:41-05:00</updated>
+    <updated>2021-01-26T06:35:45-05:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,7 +28,7 @@ You can be a part of this team and this awesome organization too! Head on over t
 
 The goal of this post is to showcase a change that is coming in MongoDB 5.0 that will significantly improve the feedback loop regarding [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) progress monitoring. With [SERVER-47863](https://jira.mongodb.org/browse/SERVER-47863) being completed, the results of the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) now include additional metrics that can be used to help determine how long (approximately) an initial sync will be running for.
 
-**Though this feature is planned to be backported to all supported versions (4.4, 4.2, 4.0, 3.6), at the time of writing backports had not been completed.**
+**Though this feature is planned to be backported to versions 4.4.3 and 4.2.12, at the time of writing backports had not been completed.**
 
 If you want to test this yourself, my setup was as follows:
 
@@ -159,6 +159,8 @@ The command output has been truncated to focus in on the new fields added to the
 
 I've opened [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) to review this particular entry as the value did not appear to be properly updated throughout the initial sync process. As MongoDB 5.0 is not expected to be GA until mid 2021, this will likely be addressed before then.
 
+**Update 2021-01-26**: [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) has been fixed.
+
 `<collection>.bytesToCopy`
 > = [`collStats.size`](https://docs.mongodb.com/manual/reference/command/collStats/#collStats.size)
 
@@ -242,11 +244,14 @@ The output will appear similar to:
 </span><span class='line'>Node not currently performing an initial sync
 </span></code></pre></td></tr></table></div></figure>
 
-Once [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) has been addressed I will update this script so that the `remainingInitialSyncEstimatedMillis` values can be used consistently.
+~~Once [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) has been addressed I will update this script so that the `remainingInitialSyncEstimatedMillis` values can be used consistently.~~
+
+**Update 2021-01-26**: [SERVER-53017](https://jira.mongodb.org/browse/SERVER-53017) was addressed and the script has been modified to use the `remainingInitialSyncEstimatedMillis` value directly!
 
 <noscript><pre>/*
 * measureInitialSyncProgress
 * @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
+* @updated 2021-01-26
 *
 * Can be run against a MongoDB 4.9+ mongod that is in STARTUP2 (intitial sync) state to gain some
 * insight into how the sync is progressing based on the improvements introduced with SERVER-47863.
@@ -307,8 +312,11 @@ function measureSyncProgress(previousResults) {
       message += &quot; (No progress in past &quot; + refreshInterval + &quot; second(s))&quot;;
     } else {
       var rate = intervalProgress / refreshInterval;
-      var remaining = (approxTotal - approxCopied) / rate;
-      message += &quot; (&quot; + getReadableFileSizeString(intervalProgress) + &quot; in past &quot; + refreshInterval + &quot; second(s)) at a rate of &quot; + getReadableFileSizeString(rate) + &quot;/second - &quot; + msToTime(remaining * 1000) + &quot; to go!&quot;;
+      // We no longer have to calculate remaining ourselves as SERVER-53017 has fixed remainingInitialSyncEstimatedMillis
+      // var remaining = msToTime(((approxTotal - approxCopied) / rate) * 1000);
+      message += &quot; (&quot; + getReadableFileSizeString(intervalProgress) + &quot; in past &quot; + refreshInterval;
+      message += &quot; second(s)) at a rate of &quot; + getReadableFileSizeString(rate) + &quot;/second - &quot;;
+      message += msToTime(status.remainingInitialSyncEstimatedMillis) + &quot; to go!&quot;;
     }
   }
   print(message);
@@ -329,12 +337,7 @@ function measureInitialSyncProgress(refreshIntervalMS) {
 
   var result = measureSyncProgress(result);
   result[&quot;refreshIntervalMS&quot;] = refreshIntervalMS;
-  var iterations = 0;
-  while (iterations &lt; 10) {
-    if (result.exit) {
-      break;
-    }
-    iterations++;
+  while (!result.exit) {
     sleep(refreshIntervalMS);
     result = measureSyncProgress(result);
     result[&quot;refreshIntervalMS&quot;] = refreshIntervalMS;
