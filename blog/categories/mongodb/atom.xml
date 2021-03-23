@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-23T12:45:53-04:00</updated>
+    <updated>2021-03-23T12:46:51-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,7 +28,7 @@ When evaluating larger clusters this approach can be cumbersome.
 
 <!-- MORE -->
 
-For example, using a 9 node cluster created using [mtools]() and [m]() will produce the following:
+For example, using a 9 node cluster created using [mtools](https://github.com/rueckstiess/mtools) and [m](https://github.com/aheckmann/m) will produce the following:
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
