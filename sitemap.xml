@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/</loc>
+<lastmod>2021-03-23T12:19:00-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2020/11/20/mongodb-5-dot-0-startup2-progress-monitoring-improvements/</loc>
 <lastmod>2020-11-23T08:51:08-05:00</lastmod>
 </url>

@@ -1,0 +1,758 @@
+<!doctype html>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    
+      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Visualizing a Replica Set's Sync Source Chain - ALEX BEVILACQUA</title>
+        <meta name="author" content="Alex Bevilacqua">
+        
+        <meta name="description" content="Visualizing a Replica Set's Sync Source Chain Mar 23rd, 2021 mongodb Comments Last Updated: Mar 23, 2021 A replica setin MongoDB is a group of &hellip;">
+        
+        <meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain">
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
+        
+        <link href="/favicon.png" rel="icon">
+        <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+        <link href="/atom.xml" rel="alternate" title="ALEX BEVILACQUA" type="application/atom+xml">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/galleria.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.4.2/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<style>
+  /* This rule is read by Galleria to define the gallery height: */
+  #galleria{height:320px}
+</style>
+
+        <link href='/stylesheets/data-table.css' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body >
+
+        <header id="header">
+    <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+        <a href="/" class="site-title">ALEX BEVILACQUA</a>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-8">
+        <nav>
+    <input type="checkbox" id="toggle">
+    <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+    <ul class="menu">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/reviews">Reviews</a></li>
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+
+    </div>
+</div>
+
+</header>
+
+
+        <div id="main-content">
+
+            <!--[if lte IE 9]>
+<div class="row upgrade-row">
+    <div class="col-lg-12">
+        <div class="upgrade">
+            <i class="upgrade__icon fa fa-warning"></i>
+            <h1 class="upgrade__title h6">Ohnoes!</h1>
+            <p class="upgrade__text">
+                Unfortunately, certain parts of this site may not display correctly in your version of Internet Explorer!<br>
+                If possible, you should consider <a href="http://browsehappy.com/">upgrading your browser</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <![endif]-->
+
+
+            
+
+            <div class="row top-xs center-sm center-md center-lg site-wrapper">
+                
+                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                
+                    <article class="article article--single">
+    <header class="article__header">
+    
+        <h1 class="article__title">Visualizing a Replica Set's Sync Source Chain</h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2021-03-23T10:47:41-04:00" pubdate><i class="fa fa-calendar"></i> Mar 23rd, 2021</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+        
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Mar 23, 2021</em></small></p>
+    <p>A <a href="https://docs.mongodb.com/manual/replication/">replica set</a>in MongoDB is a group of <code>mongod</code> processes that maintain the same data set. The <a href="https://docs.mongodb.com/manual/core/replica-set-primary/">PRIMARY</a> node receives all write operations and The <a href="https://docs.mongodb.com/manual/core/replica-set-secondary/">SECONDARY</a> nodes replicate the PRIMARY’s <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</p>
+
+<p>Secondaries capture data from the primary member to maintain an up to date copy of the sets’ data unless <a href="https://docs.mongodb.com/manual/tutorial/manage-chained-replication/">chained replication</a> is enabled, which changes the <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#replication-sync-source-selection">replication source selection</a> to allow a secondary member to replicate from another secondary member instead of from the primary.</p>
+
+<p>To determine which node each SECONDARY is syncing from you have to manually review the entries generated by the <a href="https://docs.mongodb.com/manual/reference/method/rs.status/"><code>rs.status()</code></a> shell helper (or <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#dbcmd.replSetGetStatus"><code>replSetGetStatus</code></a> command) and parse each node&rsquo;s <a href="https://docs.mongodb.com/manual/reference/command/replSetGetStatus/#replSetGetStatus.members[n].syncSourceHost"><code>syncSourceHost</code></a>.</p>
+
+<p>When evaluating larger clusters this approach can be cumbersome.</p>
+
+<!-- MORE -->
+
+
+<p>For example, using a 9 node cluster created using <a href="">mtools</a> and <a href="">m</a> will produce the following:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># launch a 9 node replica set using MongoDB 4.4.4
+</span><span class='line'>m 4.4.4-ent
+</span><span class='line'>mlaunch init --replicaset --nodes 9 --binarypath $(m bin 4.4.4-ent)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&gt;</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;set&quot;</span> <span class="o">:</span> <span class="s2">&quot;replset&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>    <span class="s2">&quot;members&quot;</span> <span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">....</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">1.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27018&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27019&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">3.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27020&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">4.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27021&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">5.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27022&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">6.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27023&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">7.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27024&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="p">{</span>
+</span><span class='line'>            <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mf">8.0</span><span class="p">,</span>
+</span><span class='line'>            <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27025&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>            <span class="s2">&quot;syncSourceHost&quot;</span> <span class="o">:</span> <span class="s2">&quot;localhost:27017&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">...</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A much more legible version of the above is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&gt;</span> <span class="nx">printSyncSourceTree</span><span class="p">(</span><span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">());</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Replication</span> <span class="nx">Sync</span> <span class="nx">Source</span> <span class="nx">Tree</span>
+</span><span class='line'><span class="o">============================</span>
+</span><span class='line'><span class="o">--</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27017</span> <span class="p">(</span><span class="nx">PRIMARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27018</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27019</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27020</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27021</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27022</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27023</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27024</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27025</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The tree above was generated using the <code>printSyncSourceTree()</code> helper function (source code at end of post) from the <code>mongo</code> shell.</p>
+
+<p>When all nodes are syncing from the PRIMARY it&rsquo;s not difficult to visualize the sync source topology, however let&rsquo;s mix this up by manually <a href="https://docs.mongodb.com/manual/tutorial/configure-replica-set-secondary-sync-target/">configuring a SECONDARY&rsquo;s sync target</a>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">function</span> <span class="nx">assignSyncSource</span><span class="p">(</span><span class="nx">sourceId</span><span class="p">,</span> <span class="nx">syncTargetId</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">members</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">().</span><span class="nx">members</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">source</span> <span class="o">=</span> <span class="nx">members</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">obj</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">sourceId</span> <span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">members</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">obj</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">syncTargetId</span> <span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mongo</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span> <span class="nx">replSetSyncFrom</span><span class="o">:</span> <span class="nx">target</span><span class="p">.</span><span class="nx">name</span> <span class="p">});</span>
+</span><span class='line'>  <span class="nx">printjson</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">assignSyncSource</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="nx">assignSyncSource</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="nx">assignSyncSource</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="nx">assignSyncSource</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">printReplicationTree</span><span class="p">(</span><span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following output is our new replication sync source tree after fiddling with the sync source assignments:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Replication</span> <span class="nx">Sync</span> <span class="nx">Source</span> <span class="nx">Tree</span>
+</span><span class='line'><span class="o">============================</span>
+</span><span class='line'><span class="o">--</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27017</span> <span class="p">(</span><span class="nx">PRIMARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27018</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">------</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27019</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">------</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27020</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">--------</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27021</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">--------</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27022</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27023</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27024</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span><span class='line'><span class="o">----</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="nx">localhost</span><span class="o">:</span><span class="mi">27025</span> <span class="p">(</span><span class="nx">SECONDARY</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Give this a shot and let me know what you think.</p>
+
+<p><noscript><pre>function printReplicationTree(rs) {
+  print(&quot;\nReplication Sync Source Tree\n============================&quot;);</p>
+
+<p>  function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i &lt; arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }</p>
+
+<p>  var idMapping = rs.members.reduce((acc, el, i) =&gt; {
+    acc[el.name] = i;
+    return acc;
+  }, {});</p>
+
+<p>  var root = undefined;
+  rs.members.forEach(function (el) {
+    // Handle the root element
+    if (el.syncSourceHost === &quot;&quot;) {
+      root = el;
+      return;
+    }
+    // Use our mapping to locate the parent element in our data array
+    var parentEl = rs.members[idMapping[el.syncSourceHost]];
+    // Add our current el to its parent&#39;s <code>children</code> array
+    parentEl.children = [].concat(<em>toConsumableArray(parentEl.children || []), [el]);
+  });
+  function pp(node) {
+    return &quot;[&quot; + node.</em>id + &quot;] &quot; + node.name + &quot; (&quot; + node.stateStr + &quot;)&quot;
+  }
+  function walk(tree) {
+    var indent = 1;
+    function innerWalk(tree) {
+      tree.forEach(function (node) {
+        if (indent == 1 &amp;&amp; node.stateStr !== &quot;PRIMARY&quot;)
+          return;
+        print(&#39;&ndash;&#39; + Array(indent).join(&#39;&ndash;&#39;), pp(node));
+        if (node.children) {
+          indent++;
+          innerWalk(node.children);
+        }
+        if (tree.indexOf(node) === tree.length - 1) {
+          indent&ndash;;
+        }
+      })
+    }
+    innerWalk(tree);
+  }
+  walk(rs.members);
+}</pre></noscript><script src="https://gist.github.com/alexbevi/32dc56923b6d37643c622059b5feee31.js"> </script></p>
+
+
+
+</article>
+
+  <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/" data-via="alexbevi" data-counturl="http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/" >Tweet</a>
+  
+  
+  
+    <script src="//platform.linkedin.com/in.js" type="text/javascript">
+    lang: en_US
+  </script>
+  <script type="IN/Share" data-url="http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/" data-counter="right"></script>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+  <script type="text/javascript" src="//www.reddit.com/buttonlite.js?i=5"></script>
+</div>
+
+
+
+<section id="disqus">
+    <h1 class="disqus__title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+
+
+                </div>
+
+                
+                <aside class="sidebar col-xs-12 col-md-4 col-lg-4">
+                    <div class="row">
+
+    
+        <section class="hire--aside col-xs-12 col-sm-10 col-md-12">
+            
+    
+
+
+
+    
+
+
+
+
+<div class="hire hire--available hire--vibrant">
+    <a class="hire__link" href="mailto:alex@alexbevi.com?subject=New%20job%20opportunity">
+        Need a developer?
+    </a>
+</div>
+
+
+        </section>
+    
+
+    
+<section class="social col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Follow me!
+    </h1>
+    <ul class="unstyled">
+        
+        
+        
+        <li><a class="facebook" href="//facebook.com/alexbevi"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+        <li><a class="github" href="//github.com/alexbevi"><i class="fa fa-github"></i> Github</a></li>
+        <li><a class="googleplus" href="//plus.google.com/+alexbevilacqua"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+        
+        
+        <li><a class="linkedin" href="//linkedin.com/in/alexbevi"><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+        
+        <li><a class="reddit" href="//reddit.com/user/alexbevi"><i class="fa fa-reddit"></i> reddit</a></li>
+        <li><a class="stackoverflow" href="//stackoverflow.com/users/195509"><i class="fa fa-stack-overflow"></i> StackOverflow</a></li>
+        <li><a class="twitter" href="//twitter.com/alexbevi"><i class="fa fa-twitter"></i> Twitter</a></li>
+        
+    </ul>
+</section>
+
+
+
+    <section id="recent-posts" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>Recent Posts</h1>
+    <ul class="divided">
+        
+        <li class="post">
+            <a href="/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/">Visualizing a Replica Set's Sync Source Chain</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/11/20/mongodb-5-dot-0-startup2-progress-monitoring-improvements/">MongoDB 5.0 Initial Sync Progress Monitoring Improvements</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/">MongoDB 4.4 Change Streams and Experimental Pre-Image 'Support'</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
+        </li>
+        
+    </ul>
+</section>
+<section>
+  <h2>Looking for Something to Read?</h1>
+  <a href="http://www.packtpub.com/redmine-plugin-extension-and-development/book" target ="_blank">
+    <img src="/images/8748OS_mockupcover_normal_0.jpg" alt="Redmine Plugin Extension and Development">
+  </a>
+
+  <ul>
+    <li>Gain access to powerful and useful features by hooking into Redmine's underlying infrastructure</li>
+    <li>Real-world examples that will help you in building cross-platform applications using Redmine</li>
+    <li>Full of illustrations, tips, and tricks to facilitate the development of plugins and extensions</li>
+  </ul>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6215800856413580",
+            enable_page_level_ads: true
+       });
+  </script>
+</section>
+
+<section id="github-repos" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        GitHub Repos
+        
+        <small class="pull-right">
+            <a class="btn" href="//github.com/alexbevi" title="@alexbevi on GitHub" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+    <ul id="gh_repos" class="divided">
+        <li class="loading">
+            <i class="fa fa-spinner fa-spin"></i>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<section id="twitter-timeline" class="col-xs-12 col-sm-6 col-md-12">
+    <h1>
+        Latest Tweets
+        
+        <small class="pull-right">
+            <a class="btn" href="//twitter.com/alexbevi" title="@alexbevi on Twitter" target="_blank">
+                <i class="fa fa-external-link"></i>
+            </a>
+        </small>
+        
+    </h1>
+
+    <a class="twitter-timeline" data-dnt="true" href="//twitter.com/alexbevi"  data-widget-id="448022650414051328"  data-link-color="#049cdb" data-tweet-limit="" data-chrome="noheader nofooter transparent noscrollbar">Tweets by @alexbevi</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+</div>
+
+                </aside>
+                
+            </div>
+        </div>
+
+        
+
+    
+    
+
+
+
+
+<footer class="footer">
+    <div class="row middle-xs">
+        
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="footer__copyright">
+    All content copyright Alex Bevilacqua.<br>
+    Code under <a href="//github.com/coogie/oscailte/blob/master/README.md">MIT Licence</a>.
+</p>
+
+        </div>
+        
+        
+    </div>
+</footer>
+
+        
+
+<script type="text/javascript">
+      var disqus_shortname = 'alexbevi';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+<script defer src="/javascripts/octopress.js"></script>
+
+
+<script>
+    var _gaq=[['_setAccount','UA-36490021-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+
+<script>
+    var disqus_shortname = 'alexbevi';
+    
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/';
+        var disqus_url = 'http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/';
+        var disqus_script = 'embed.js';
+    
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'alexbevi',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+</script>
+<script src="/javascripts/github.js"></script>
+
+
+
+
+
+
+
+    </body>
+
+</html>

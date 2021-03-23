@@ -392,11 +392,11 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
 <p><noscript><pre>/<em>
 * measureInitialSyncProgress
 * @author Alex Bevilacqua &lt;alex@alexbevi.com&gt;
-* @updated 2021-01-26
+* @updated 2021-02-23
 *
-* Can be run against a MongoDB 4.9+ mongod that is in STARTUP2 (intitial sync) state to gain some
+* Can be run against a MongoDB 4.2.12+ mongod that is in STARTUP2 (intitial sync) state to gain some
 * insight into how the sync is progressing based on the improvements introduced with SERVER-47863.
-* For versions of MongoDB &lt; 4.9, see <a href="https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring">https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</a>
+* For versions of MongoDB &lt; 4.2.12, see <a href="https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring">https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring</a>
 *
 * usage:
 *   mongo &ndash;quiet &ndash;eval &quot;load(&#39;measureInitialSyncProgress.js&#39;); measureInitialSyncProgress();&quot;
@@ -466,8 +466,8 @@ function msToTime(duration) {
 
 <p>function measureInitialSyncProgress(refreshIntervalMS) {
   var dbver = db.version().split(&#39;-&#39;)[0];
-  if (dbver &lt; &quot;4.9.0&quot;) {
-    print(&quot;MongoDB 4.9 or greater required but found MongoDB &quot; + dbver);
+  if (dbver &lt; &quot;4.2.12&quot;) {
+    print(&quot;MongoDB 4.2.12 or greater required but found MongoDB &quot; + dbver);
     print(&quot;For previous versions see <a href="https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/&amp;quot;">https://www.alexbevi.com/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/&amp;quot;</a>);
     return;
   }</p>
@@ -573,6 +573,10 @@ function msToTime(duration) {
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/">Visualizing a Replica Set's Sync Source Chain</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2020/11/20/mongodb-5-dot-0-startup2-progress-monitoring-improvements/">MongoDB 5.0 Initial Sync Progress Monitoring Improvements</a>
         </li>
         
@@ -586,10 +590,6 @@ function msToTime(duration) {
         
         <li class="post">
             <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2020/03/15/identifying-and-reclaiming-disk-space-in-mongodb/">Identifying and Reclaiming Disk Space in MongoDB</a>
         </li>
         
     </ul>
