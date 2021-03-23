@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-23T12:19:19-04:00</updated>
+    <updated>2021-03-23T12:45:53-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -18,7 +18,7 @@
         <link href="http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/"/>
         <updated>2021-03-23T10:47:41-04:00</updated>
         <id>http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain</id>
-        <content type="html"><![CDATA[A [replica set](https://docs.mongodb.com/manual/replication/)in MongoDB is a group of `mongod` processes that maintain the same data set. The [PRIMARY](https://docs.mongodb.com/manual/core/replica-set-primary/) node receives all write operations and The [SECONDARY](https://docs.mongodb.com/manual/core/replica-set-secondary/) nodes replicate the PRIMARY’s [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.
+        <content type="html"><![CDATA[A MongoDB [replica set](https://docs.mongodb.com/manual/replication/) is a group of `mongod` processes that maintain the same data set. The [PRIMARY](https://docs.mongodb.com/manual/core/replica-set-primary/) node receives all write operations and The [SECONDARY](https://docs.mongodb.com/manual/core/replica-set-secondary/) nodes replicate the PRIMARY’s [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.
 
 Secondaries capture data from the primary member to maintain an up to date copy of the sets’ data unless [chained replication](https://docs.mongodb.com/manual/tutorial/manage-chained-replication/) is enabled, which changes the [replication source selection](https://docs.mongodb.com/manual/core/replica-set-sync/#replication-sync-source-selection) to allow a secondary member to replicate from another secondary member instead of from the primary.
 

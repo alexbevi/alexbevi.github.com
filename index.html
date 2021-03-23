@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Visualizing a Replica Set's Sync Source Chain Mar 23rd, 2021 mongodb Comments A replica setin MongoDB is a group of mongod processes that maintain &hellip;">
+        <meta name="description" content="Visualizing a Replica Set's Sync Source Chain Mar 23rd, 2021 mongodb Comments A MongoDB replica set is a group of mongod processes that maintain the &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -140,7 +140,7 @@
 
 
     <div class="article__content clearfix">
-        <p>A <a href="https://docs.mongodb.com/manual/replication/">replica set</a>in MongoDB is a group of <code>mongod</code> processes that maintain the same data set. The <a href="https://docs.mongodb.com/manual/core/replica-set-primary/">PRIMARY</a> node receives all write operations and The <a href="https://docs.mongodb.com/manual/core/replica-set-secondary/">SECONDARY</a> nodes replicate the PRIMARY’s <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</p>
+        <p>A MongoDB <a href="https://docs.mongodb.com/manual/replication/">replica set</a> is a group of <code>mongod</code> processes that maintain the same data set. The <a href="https://docs.mongodb.com/manual/core/replica-set-primary/">PRIMARY</a> node receives all write operations and The <a href="https://docs.mongodb.com/manual/core/replica-set-secondary/">SECONDARY</a> nodes replicate the PRIMARY’s <a href="https://docs.mongodb.com/manual/core/replica-set-oplog/">oplog</a> and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set.</p>
 
 <p>Secondaries capture data from the primary member to maintain an up to date copy of the sets’ data unless <a href="https://docs.mongodb.com/manual/tutorial/manage-chained-replication/">chained replication</a> is enabled, which changes the <a href="https://docs.mongodb.com/manual/core/replica-set-sync/#replication-sync-source-selection">replication source selection</a> to allow a secondary member to replicate from another secondary member instead of from the primary.</p>
 
