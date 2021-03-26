@@ -218,7 +218,7 @@
 </span><span class='line'>
 </span><span class='line'>  <span class="c1"># return all entries from the document that aren&#39;t defined as Mongoid fields</span>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">entries</span>
-</span><span class='line'>    <span class="kp">attr</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">clone</span>
+</span><span class='line'>    <span class="kp">attr</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">dup</span>
 </span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="nb">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">sort</span>
 </span><span class='line'>  <span class="k">end</span>
