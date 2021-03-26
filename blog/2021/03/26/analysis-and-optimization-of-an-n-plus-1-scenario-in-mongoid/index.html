@@ -294,11 +294,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry.</p>
-
 <p><img src="/images/nplus1-1.png"></p>
 
-<p>We&rsquo;re only modifying a single document, but it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
+<p>We&rsquo;re only modifying a single document, after reviewing the FTDC<sup><a href="#fn1">1</a></sup> it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
 
 <p>To test this we modify our <code>compact!</code> method as follow:</p>
 
@@ -408,6 +406,13 @@
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+
+
+<hr>
+
+
+<p><small><a name="fn1">1</a>: As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry, which were used to generate the following charts.</small></p>
 
 
 
