@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:36:33-04:00</updated>
+    <updated>2021-03-26T09:42:11-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -29,9 +29,7 @@
 <!-- MORE -->
 
 
-<p>An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.</p>
-
-<p>The following code represents our core logic:</p>
+<p>Our model only defines a single field, but an external process updates the underlying document in the MongoDB cluster with telemetry entries. As no schema is enforced, this is perfectly valid however the documents may grow too large over time for which we&rsquo;ve written the following Ruby application to periodically clean up:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -105,7 +103,7 @@
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
 </span><span class='line'>    <span class="c1"># unset each field that doesn&#39;t belong to the Mongoid document as an</span>
-</span><span class='line'>    <span class="c1"># explicitely defined field</span>
+</span><span class='line'>    <span class="c1"># explicitly defined field</span>
 </span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">entry</span><span class="o">|</span>
 </span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="n">entry</span><span class="o">.</span><span class="n">first</span>
 </span><span class='line'>    <span class="k">end</span>
@@ -174,7 +172,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>As a MongoDB Technical Services engieer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="[previous%20article%20about%20initial%20sync%20progress%20monitoring](/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry.</p>
+<p>As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="http://www.alexbevi.com/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry.</p>
 
 <p><img src="http://www.alexbevi.com/images/nplus1-1.png"></p>
 
@@ -210,7 +208,7 @@
 
 <p><img src="http://www.alexbevi.com/images/nplus1-2.png"></p>
 
-<p>Anytime operations are being sent to the server from within a loop there may be an opptortunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opporutnity for improvement, which I hope this article helps you do.</p>
+<p>Anytime operations are being sent to the server from within a loop there may be an opportunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opportunity for improvement, which I hope this article helps you do.</p>
 
 <p>Happy Coding!</p>
 
@@ -2267,7 +2265,7 @@ Sort predicates represent the entire requested sort for the operation and determ
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x61;&#x6c;&#101;&#x78;&#46;&#x62;&#101;&#118;&#x69;&#x6c;&#x61;&#x63;&#113;&#117;&#97;&#64;&#x6d;&#x6f;&#110;&#x67;&#x6f;&#x64;&#98;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x6c;&#x65;&#120;&#46;&#98;&#101;&#x76;&#105;&#x6c;&#97;&#x63;&#113;&#x75;&#97;&#64;&#109;&#111;&#110;&#103;&#x6f;&#x64;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>
+* @author <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#x61;&#x6c;&#x65;&#x78;&#46;&#x62;&#x65;&#118;&#x69;&#108;&#97;&#x63;&#x71;&#x75;&#97;&#x40;&#109;&#x6f;&#x6e;&#103;&#x6f;&#100;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#108;&#101;&#120;&#x2e;&#98;&#101;&#118;&#105;&#x6c;&#x61;&#99;&#113;&#117;&#97;&#x40;&#x6d;&#x6f;&#x6e;&#103;&#x6f;&#x64;&#x62;&#x2e;&#99;&#x6f;&#109;</a>
 * @version 1.1
 * @updated 2020-05-14
 *
@@ -3882,8 +3880,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#x61;&#108;&#x65;&#x78;&#x62;&#x65;&#x76;&#x69;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x6c;&#101;&#120;&#x62;&#101;&#x76;&#x69;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>
-To: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#119;&#101;&#x62;&#46;&#x73;&#117;&#x70;&#112;&#x6f;&#x72;&#x74;&#x40;&#98;&#x6c;&#x69;&#122;&#x7a;&#x61;&#x72;&#100;&#46;&#99;&#x6f;&#109;">&#x77;&#101;&#x62;&#46;&#x73;&#x75;&#x70;&#112;&#x6f;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#122;&#122;&#97;&#x72;&#100;&#x2e;&#99;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#x61;&#108;&#x65;&#120;&#x62;&#x65;&#x76;&#x69;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#108;&#101;&#120;&#x62;&#x65;&#118;&#x69;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a>
+To: <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#119;&#x65;&#x62;&#x2e;&#115;&#117;&#112;&#x70;&#x6f;&#114;&#116;&#64;&#x62;&#x6c;&#x69;&#x7a;&#122;&#97;&#114;&#100;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#x65;&#x62;&#46;&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#116;&#x40;&#x62;&#108;&#105;&#122;&#x7a;&#97;&#114;&#100;&#x2e;&#x63;&#x6f;&#x6d;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 

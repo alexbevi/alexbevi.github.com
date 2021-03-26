@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongoid | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongoid/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:36:33-04:00</updated>
+    <updated>2021-03-26T09:42:11-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -28,9 +28,7 @@ For the purposes of this example we have a Ruby application that is using the [M
 
 <!-- MORE -->
 
-An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.
-
-The following code represents our core logic:
+Our model only defines a single field, but an external process updates the underlying document in the MongoDB cluster with telemetry entries. As no schema is enforced, this is perfectly valid however the documents may grow too large over time for which we've written the following Ruby application to periodically clean up:
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -104,7 +102,7 @@ The following code represents our core logic:
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
 </span><span class='line'>    <span class="c1"># unset each field that doesn&#39;t belong to the Mongoid document as an</span>
-</span><span class='line'>    <span class="c1"># explicitely defined field</span>
+</span><span class='line'>    <span class="c1"># explicitly defined field</span>
 </span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">entry</span><span class="o">|</span>
 </span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="n">entry</span><span class="o">.</span><span class="n">first</span>
 </span><span class='line'>    <span class="k">end</span>
@@ -170,7 +168,7 @@ Next let's measure our `compact!` operations:
 </span><span class='line'>  <span class="mi">17</span><span class="o">.</span><span class="mi">319826</span>   <span class="mi">1</span><span class="o">.</span><span class="mo">025</span><span class="mi">931</span>  <span class="mi">18</span><span class="o">.</span><span class="mi">345757</span> <span class="p">(</span> <span class="mi">55</span><span class="o">.</span><span class="mo">0044</span><span class="mi">95</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
-As a MongoDB Technical Services engieer I have access to tools we can use to parse the cluster's `FTDC` (see ["What is MongoDB FTDC (aka. diagnostic.data)"]([previous article about initial sync progress monitoring](/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/) for more info) and visualize time series performance telemetry.
+As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster's `FTDC` (see ["What is MongoDB FTDC (aka. diagnostic.data)"](/blog/2020/01/26/what-is-mongodb-ftdc-aka-diagnostic-dot-data/) for more info) and visualize time series performance telemetry.
 
 <img src="/images/nplus1-1.png">
 
@@ -204,7 +202,7 @@ Reviewing the FTDC again shows only a single command was issued:
 
 <img src="/images/nplus1-2.png">
 
-Anytime operations are being sent to the server from within a loop there may be an opptortunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opporutnity for improvement, which I hope this article helps you do.
+Anytime operations are being sent to the server from within a loop there may be an opportunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opportunity for improvement, which I hope this article helps you do.
 
 Happy Coding!
 
