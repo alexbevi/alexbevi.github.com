@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:33:16-04:00</updated>
+    <updated>2021-03-26T09:35:50-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -25,6 +25,8 @@ To address this Rails offers [Eager Loading Associations](https://guides.rubyonr
 This `N + 1` problem can manifest in any [ODM or ORM](https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb), including when working with MongoDB and Ruby.
 
 For the purposes of this example we have a Ruby application that is using the [Mongoid](https://docs.mongodb.com/mongoid/current/) ODM with a minimal [Document](https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/) model that contains a single [Field](https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/#fields) definition. The scripts to setup the cluster and seed the data are shared at the end of this article (see _Reproduction_).
+
+<!-- MORE -->
 
 An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.
 

@@ -148,6 +148,9 @@
 
 <p>For the purposes of this example we have a Ruby application that is using the <a href="https://docs.mongodb.com/mongoid/current/">Mongoid</a> ODM with a minimal <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/">Document</a> model that contains a single <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/#fields">Field</a> definition. The scripts to setup the cluster and seed the data are shared at the end of this article (see <em>Reproduction</em>).</p>
 
+<!-- MORE -->
+
+
 <p>An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.</p>
 
 <p>The following code represents our core logic:</p>
