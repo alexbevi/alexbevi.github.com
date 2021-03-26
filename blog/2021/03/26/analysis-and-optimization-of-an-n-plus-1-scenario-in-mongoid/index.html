@@ -294,9 +294,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>We&rsquo;re only modifying a single document, after reviewing the FTDC<sup><a href="#fn1">1</a></sup> it appears there are about 10K update operations issued, which is taking about a minute to completed.</p>
+
 <p><img src="/images/nplus1-1.png"></p>
 
-<p>We&rsquo;re only modifying a single document, after reviewing the FTDC<sup><a href="#fn1">1</a></sup> it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
+<p>After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
 
 <p>To test this we modify our <code>compact!</code> method as follow:</p>
 

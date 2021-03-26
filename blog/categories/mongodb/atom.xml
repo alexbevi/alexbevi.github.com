@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:46:16-04:00</updated>
+    <updated>2021-03-26T09:47:46-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -168,10 +168,11 @@ Next let's measure our `compact!` operations:
 </span><span class='line'>  <span class="mi">17</span><span class="o">.</span><span class="mi">319826</span>   <span class="mi">1</span><span class="o">.</span><span class="mo">025</span><span class="mi">931</span>  <span class="mi">18</span><span class="o">.</span><span class="mi">345757</span> <span class="p">(</span> <span class="mi">55</span><span class="o">.</span><span class="mo">0044</span><span class="mi">95</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
+We're only modifying a single document, after reviewing the FTDC<sup>[1](#fn1)</sup> it appears there are about 10K update operations issued, which is taking about a minute to completed.
 
 <img src="/images/nplus1-1.png">
 
-We're only modifying a single document, after reviewing the FTDC<sup>[1](#fn1)</sup> it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB's [`$unset`](https://docs.mongodb.com/manual/reference/operator/update/unset/) update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.
+After reviewing the documentation for MongoDB's [`$unset`](https://docs.mongodb.com/manual/reference/operator/update/unset/) update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.
 
 To test this we modify our `compact!` method as follow:
 
