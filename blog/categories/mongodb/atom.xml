@@ -4,7 +4,7 @@
     <title><![CDATA[Category: mongodb | ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/blog/categories/mongodb/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:35:50-04:00</updated>
+    <updated>2021-03-26T09:36:33-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,7 +20,7 @@
         <id>http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid</id>
         <content type="html"><![CDATA[The `N + 1` queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.
 
-To address this Rails offers [Eager Loading Associations](https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations) and there are gems (such as [bullet](https://github.com/flyerhzm/bullet)) that can be used to detect the N+1 pattern in an application.
+To address this Rails offers [Eager Loading Associations](https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations) and there are gems (such as [bullet](https://github.com/flyerhzm/bullet)) that can be used to detect the `N + 1` pattern in an application.
 
 This `N + 1` problem can manifest in any [ODM or ORM](https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb), including when working with MongoDB and Ruby.
 

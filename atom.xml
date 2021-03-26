@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-26T09:35:50-04:00</updated>
+    <updated>2021-03-26T09:36:33-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -20,7 +20,7 @@
         <id>http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid</id>
         <content type="html"><![CDATA[<p>The <code>N + 1</code> queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.</p>
 
-<p>To address this Rails offers <a href="https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Eager Loading Associations</a> and there are gems (such as <a href="https://github.com/flyerhzm/bullet">bullet</a>) that can be used to detect the N+1 pattern in an application.</p>
+<p>To address this Rails offers <a href="https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Eager Loading Associations</a> and there are gems (such as <a href="https://github.com/flyerhzm/bullet">bullet</a>) that can be used to detect the <code>N + 1</code> pattern in an application.</p>
 
 <p>This <code>N + 1</code> problem can manifest in any <a href="https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb">ODM or ORM</a>, including when working with MongoDB and Ruby.</p>
 
@@ -2267,7 +2267,7 @@ Sort predicates represent the entire requested sort for the operation and determ
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x61;&#x6c;&#101;&#120;&#x2e;&#x62;&#101;&#x76;&#x69;&#108;&#x61;&#x63;&#x71;&#117;&#x61;&#64;&#109;&#x6f;&#110;&#103;&#x6f;&#100;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x61;&#x6c;&#x65;&#120;&#46;&#98;&#101;&#118;&#105;&#x6c;&#97;&#x63;&#113;&#117;&#97;&#64;&#109;&#x6f;&#x6e;&#103;&#x6f;&#x64;&#98;&#x2e;&#99;&#111;&#x6d;</a>
+* @author <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x61;&#x6c;&#101;&#x78;&#46;&#x62;&#101;&#118;&#x69;&#x6c;&#x61;&#x63;&#113;&#117;&#97;&#64;&#x6d;&#x6f;&#110;&#x67;&#x6f;&#x64;&#98;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x6c;&#x65;&#120;&#46;&#98;&#101;&#x76;&#105;&#x6c;&#97;&#x63;&#113;&#x75;&#97;&#64;&#109;&#111;&#110;&#103;&#x6f;&#x64;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>
 * @version 1.1
 * @updated 2020-05-14
 *
@@ -3882,8 +3882,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#97;&#108;&#x65;&#120;&#98;&#101;&#118;&#105;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#97;&#108;&#x65;&#x78;&#98;&#x65;&#118;&#x69;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#109;</a>
-To: <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x77;&#101;&#98;&#46;&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#x74;&#64;&#98;&#108;&#105;&#x7a;&#x7a;&#97;&#114;&#100;&#46;&#x63;&#111;&#x6d;">&#119;&#x65;&#98;&#46;&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#x40;&#x62;&#108;&#x69;&#122;&#122;&#97;&#114;&#100;&#x2e;&#99;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#x61;&#108;&#x65;&#x78;&#x62;&#x65;&#x76;&#x69;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x6c;&#101;&#120;&#x62;&#101;&#x76;&#x69;&#64;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a>
+To: <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#119;&#101;&#x62;&#46;&#x73;&#117;&#x70;&#112;&#x6f;&#x72;&#x74;&#x40;&#98;&#x6c;&#x69;&#122;&#x7a;&#x61;&#x72;&#100;&#46;&#99;&#x6f;&#109;">&#x77;&#101;&#x62;&#46;&#x73;&#x75;&#x70;&#112;&#x6f;&#114;&#116;&#64;&#x62;&#x6c;&#105;&#122;&#122;&#97;&#x72;&#100;&#x2e;&#99;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
