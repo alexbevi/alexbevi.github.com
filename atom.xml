@@ -4,7 +4,7 @@
     <title><![CDATA[ALEX BEVILACQUA]]></title>
     <link href="http://www.alexbevi.com/atom.xml" rel="self"/>
     <link href="http://www.alexbevi.com/"/>
-    <updated>2021-03-23T12:46:51-04:00</updated>
+    <updated>2021-03-26T09:33:16-04:00</updated>
     <id>http://www.alexbevi.com/</id>
     <author>
         <name><![CDATA[Alex Bevilacqua]]></name>
@@ -12,6 +12,281 @@
     </author>
     <generator uri="http://octopress.org/">Octopress</generator>
 
+    
+    <entry>
+        <title type="html"><![CDATA[Analysis and Optimization of an N+1 Scenario in Mongoid]]></title>
+        <link href="http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid/"/>
+        <updated>2021-03-26T09:16:09-04:00</updated>
+        <id>http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid</id>
+        <content type="html"><![CDATA[<p>The <code>N + 1</code> queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.</p>
+
+<p>To address this Rails offers <a href="https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Eager Loading Associations</a> and there are gems (such as <a href="https://github.com/flyerhzm/bullet">bullet</a>) that can be used to detect the N+1 pattern in an application.</p>
+
+<p>This <code>N + 1</code> problem can manifest in any <a href="https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb">ODM or ORM</a>, including when working with MongoDB and Ruby.</p>
+
+<p>For the purposes of this example we have a Ruby application that is using the <a href="https://docs.mongodb.com/mongoid/current/">Mongoid</a> ODM with a minimal <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/">Document</a> model that contains a single <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/#fields">Field</a> definition. The scripts to setup the cluster and seed the data are shared at the end of this article (see <em>Reproduction</em>).</p>
+
+<p>An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.</p>
+
+<p>The following code represents our core logic:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#</span>
+</span><span class='line'><span class="c1"># mongoid_n_plus_1.rb</span>
+</span><span class='line'><span class="c1">#</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;benchmark&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;bundler/inline&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gemfile</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;mongoid&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;mongo&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Mongoid</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="ss">uri</span><span class="p">:</span> <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Test</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Mongoid</span><span class="o">::</span><span class="no">Document</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="nb">String</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># return all entries from the document that aren&#39;t defined as Mongoid fields</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">entries</span>
+</span><span class='line'>    <span class="kp">attr</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">clone</span>
+</span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="nb">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">sort</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
+</span><span class='line'>    <span class="c1"># unset each field that doesn&#39;t belong to the Mongoid document as an</span>
+</span><span class='line'>    <span class="c1"># explicitely defined field</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">entry</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="n">entry</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using a Ruby REPL we can require the above code and verify it&rsquo;s connecting to our cluster and interacting with our document:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">require_relative</span> <span class="s1">&#39;mongoid_n_plus_1&#39;</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="no">Test</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Test _id: 1.0, name: &quot;Alex&quot;&gt;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">length</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">10000</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">entries</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">15</span><span class="o">]</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[[</span><span class="s2">&quot;2021-03-25T10:30:21&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:22&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:23&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:24&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:25&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:26&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:27&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:28&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:29&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:30&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:31&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:32&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:33&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:34&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:35&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:36&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="o">.</span><span class="mi">0</span><span class="o">]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next let&rsquo;s measure our <code>compact!</code> operations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">Benchmark</span><span class="o">.</span><span class="n">measure</span> <span class="p">{</span> <span class="n">t</span><span class="o">.</span><span class="n">compact!</span> <span class="p">}</span>
+</span><span class='line'>  <span class="mi">17</span><span class="o">.</span><span class="mi">319826</span>   <span class="mi">1</span><span class="o">.</span><span class="mo">025</span><span class="mi">931</span>  <span class="mi">18</span><span class="o">.</span><span class="mi">345757</span> <span class="p">(</span> <span class="mi">55</span><span class="o">.</span><span class="mo">0044</span><span class="mi">95</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As a MongoDB Technical Services engieer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="[previous%20article%20about%20initial%20sync%20progress%20monitoring](/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry.</p>
+
+<p><img src="http://www.alexbevi.com/images/nplus1-1.png"></p>
+
+<p>We&rsquo;re only modifying a single document, but it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
+
+<p>To test this we modify our <code>compact!</code> method as follow:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
+</span><span class='line'>    <span class="c1"># each field in the `entries` array is a [k,v] array</span>
+</span><span class='line'>    <span class="c1"># map the `k` (field) values into a single array and send them all</span>
+</span><span class='line'>    <span class="c1"># as a single unset command</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:first</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After testing this the result confirms our theory and the performance is significantly better:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">Benchmark</span><span class="o">.</span><span class="n">measure</span> <span class="p">{</span> <span class="n">t</span><span class="o">.</span><span class="n">compact!</span> <span class="p">}</span>
+</span><span class='line'>  <span class="mi">0</span><span class="o">.</span><span class="mi">150776</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">00250</span><span class="mi">9</span>   <span class="mi">0</span><span class="o">.</span><span class="mi">153285</span> <span class="p">(</span>  <span class="mi">0</span><span class="o">.</span><span class="mi">273297</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reviewing the FTDC again shows only a single command was issued:</p>
+
+<p><img src="http://www.alexbevi.com/images/nplus1-2.png"></p>
+
+<p>Anytime operations are being sent to the server from within a loop there may be an opptortunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opporutnity for improvement, which I hope this article helps you do.</p>
+
+<p>Happy Coding!</p>
+
+<h3>Reproduction</h3>
+
+<h4>Setup</h4>
+
+<p>First, we spin up a local <a href="https://docs.mongodb.com/manual/replication">replica set</a> using some open source MongoDB helper utilities (see <a href="https://github.com/aheckmann/m"><code>m</code></a> and <a href="https://github.com/rueckstiess/mtools"><code>mtools</code></a>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>m 4.2.13
+</span><span class='line'>mlaunch init --replicaset --nodes <span class="m">3</span> --binarypath <span class="k">$(</span>m bin 4.2.13<span class="k">)</span> --host localhost --bind_ip_all
+</span><span class='line'>mongo <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span> test.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The JavaScript file (<code>test.js</code>) above is used to seed the collection with a single document and 10,000 telemetry entries:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// test.js</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Alex&quot;</span> <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">update</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="nx">d</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>   <span class="nx">update</span><span class="p">[</span><span class="nx">d</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">update</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From the <a href="https://docs.mongodb.com/manual/mongo/"><code>mongo</code></a> or <a href="https://docs.mongodb.com/mongodb-shell/"><code>mongosh</code></a> the result of this script can be verified:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> mongo <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span> --quiet --eval <span class="s1">&#39;db.tests.find().pretty()&#39;</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span>: 1,
+</span><span class='line'>  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Alex&quot;</span>,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:23&quot;</span>: 1,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:24&quot;</span>: 2,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:25&quot;</span>: 3,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:26&quot;</span>: 4,
+</span><span class='line'>  ...
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:41:59&quot;</span>: 9997,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:00&quot;</span>: 9998,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:01&quot;</span>: 9999,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:02&quot;</span>: 10000
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+    </entry>
     
     <entry>
         <title type="html"><![CDATA[Visualizing a Replica Set's Sync Source Chain]]></title>
@@ -1989,7 +2264,7 @@ Sort predicates represent the entire requested sort for the operation and determ
 * Print storage details for all collections and indexes.
 * Supports sharded clusters
 *
-* @author <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x61;&#x6c;&#x65;&#x78;&#46;&#x62;&#x65;&#118;&#105;&#x6c;&#97;&#x63;&#x71;&#x75;&#x61;&#64;&#109;&#x6f;&#x6e;&#103;&#x6f;&#x64;&#98;&#46;&#99;&#111;&#109;">&#x61;&#108;&#x65;&#120;&#46;&#98;&#101;&#x76;&#105;&#x6c;&#97;&#99;&#x71;&#x75;&#x61;&#x40;&#109;&#111;&#110;&#103;&#111;&#100;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>
+* @author <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#97;&#x6c;&#x65;&#120;&#x2e;&#98;&#x65;&#x76;&#x69;&#108;&#x61;&#99;&#113;&#117;&#x61;&#64;&#x6d;&#111;&#110;&#103;&#111;&#100;&#98;&#46;&#x63;&#111;&#x6d;">&#x61;&#108;&#x65;&#120;&#46;&#x62;&#x65;&#x76;&#105;&#x6c;&#97;&#x63;&#x71;&#117;&#97;&#x40;&#109;&#x6f;&#x6e;&#103;&#111;&#x64;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>
 * @version 1.1
 * @updated 2020-05-14
 *
@@ -3604,8 +3879,8 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
 <!-- more --> 
 
 
-<p><noscript><pre>From: <a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#97;&#x6c;&#x65;&#x78;&#98;&#101;&#118;&#x69;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x6c;&#x65;&#x78;&#98;&#x65;&#x76;&#105;&#x40;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>
-To: <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#119;&#x65;&#x62;&#x2e;&#115;&#117;&#112;&#112;&#x6f;&#x72;&#116;&#64;&#x62;&#108;&#105;&#x7a;&#122;&#97;&#x72;&#x64;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x65;&#98;&#46;&#115;&#117;&#112;&#112;&#111;&#x72;&#x74;&#64;&#x62;&#x6c;&#105;&#x7a;&#x7a;&#x61;&#x72;&#100;&#x2e;&#x63;&#x6f;&#109;</a>
+<p><noscript><pre>From: <a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#108;&#101;&#x78;&#98;&#101;&#118;&#x69;&#64;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#x61;&#x6c;&#x65;&#x78;&#x62;&#x65;&#x76;&#105;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a>
+To: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x77;&#x65;&#x62;&#46;&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#116;&#x40;&#98;&#108;&#x69;&#x7a;&#122;&#x61;&#114;&#x64;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x65;&#x62;&#x2e;&#x73;&#x75;&#112;&#x70;&#111;&#114;&#x74;&#64;&#x62;&#108;&#105;&#x7a;&#x7a;&#97;&#114;&#100;&#46;&#x63;&#x6f;&#109;</a>
 Sent: 12/19/2008 11:58:55 AM
 Subject: [en]Warcraft &ndash; Other</p>
 
@@ -3842,124 +4117,6 @@ Although down on their luck, the orcs in Warcraft Adventures were supposed to ex
 <p>Have you had a chance to play this title? How do you think it holds up nowadays, especially with the release of the mobile ports? Have any DQ memories you want to share? Let me know in the comments.</p>
 
 <div id="galleria"><img src="http://www.alexbevi.com/images/dq1/dq1.000.png" data-title=" /images/dq1/dq1.000.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.001.png" data-title=" /images/dq1/dq1.001.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.002.png" data-title=" /images/dq1/dq1.002.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.003.png" data-title=" /images/dq1/dq1.003.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.004.png" data-title=" /images/dq1/dq1.004.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.005.png" data-title=" /images/dq1/dq1.005.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.006.png" data-title=" /images/dq1/dq1.006.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.007.png" data-title=" /images/dq1/dq1.007.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.008.png" data-title=" /images/dq1/dq1.008.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.009.png" data-title=" /images/dq1/dq1.009.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.010.png" data-title=" /images/dq1/dq1.010.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.011.png" data-title=" /images/dq1/dq1.011.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.012.png" data-title=" /images/dq1/dq1.012.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.013.png" data-title=" /images/dq1/dq1.013.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.014.png" data-title=" /images/dq1/dq1.014.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.015.png" data-title=" /images/dq1/dq1.015.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.016.png" data-title=" /images/dq1/dq1.016.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.017.png" data-title=" /images/dq1/dq1.017.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.018.png" data-title=" /images/dq1/dq1.018.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.019.png" data-title=" /images/dq1/dq1.019.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.020.png" data-title=" /images/dq1/dq1.020.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.021.png" data-title=" /images/dq1/dq1.021.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.022.png" data-title=" /images/dq1/dq1.022.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.023.png" data-title=" /images/dq1/dq1.023.png" /><img src="http://www.alexbevi.com/images/dq1/dq1.024.png" data-title=" /images/dq1/dq1.024.png" /></div>
-
-
-<script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>
-
-]]></content>
-    </entry>
-    
-    <entry>
-        <title type="html"><![CDATA[Just Gave Up On - Shadowrun (Genesis)]]></title>
-        <link href="http://www.alexbevi.com/blog/2016/07/26/just-finished-shadowrun-genesis/"/>
-        <updated>2016-07-26T05:25:39-04:00</updated>
-        <id>http://www.alexbevi.com/blog/2016/07/26/just-finished-shadowrun-genesis</id>
-        <content type="html"><![CDATA[<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.000.png"></p>
-
-<p><strong>UPDATE: 2016-09-05</strong> - It was pointed out on <a href="https://www.reddit.com/r/rpg_gamers/comments/4uxq5n/just_gave_up_on_shadowrun_genesis">the Reddit thread</a> and in the comments below that I might have used a cheat which prevented finishing the game. I didn&rsquo;t think I&rsquo;d used one, but I think while doing research for the article i may have been testing it out :(</p>
-
-<p>Note that you don&rsquo;t really need to cheat in this game to get more Nuyen; just grind ;)</p>
-
-<p>Thanks to those who responded. It&rsquo;s worth noting that if you&rsquo;re going to play this game, <em>avoid the cheat menu</em> as it will bite you in the ass.</p>
-
-<hr />
-
-<p>As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can&rsquo;t get through. <a href="https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game)">Shadowrun</a> for the Sega Genesis turned out to be one of those titles.</p>
-
-<p>I&rsquo;ve made it all the way to the final boss, and though he doesn&rsquo;t beat me, I empty all my clips (and my runner&rsquo;s clips) into him and just can&rsquo;t seem to kill him and trigger the endgame sequence.</p>
-
-<p>This is extremely frustrating as I&rsquo;ve effectively finished this game, but if I can&rsquo;t beat the last boss I can&rsquo;t in good conscience call this a &ldquo;Just Finished&rdquo; article.</p>
-
-<p>Regardless, I&rsquo;ve gone through enough of this game to be able to write about it, and based on my experience, recommend it to other players looking for some good retro cyberpunk action-RPG gaming.</p>
-
-<!-- more -->
-
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.001.png"></p>
-
-<p>This iteration of Shadowrun doesn&rsquo;t resemble the Super Nintendo&rsquo;s version of this title at all.</p>
-
-<p>First off, you begin by selecting the type of player you want to run the game as: Samurai, Decker or Street Shaman. Each of these classes will give you different starting abilities and stats.</p>
-
-<p>I chose to run as a Decker, as I wanted to get an idea as to how the matrix sequences differed between the games (plus I&rsquo;m a programmer and felt drawn to this class :P).</p>
-
-<p>The story starts off with you at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.002.png"></p>
-
-<p>A good chunk of the game is presented through these conversation views.</p>
-
-<p>Once you leave the hotel, you start on your adventure into the world of Shadowrun.</p>
-
-<p>Your character can walk around the initial city and go in and out of various buildings in order to trigger additional conversations with NPCs. It&rsquo;s a good idea to get a lay of the land as you&rsquo;ll be visiting each of these building repeatedly once you start shadowrunning, so it&rsquo;s worth taking the time to explore.</p>
-
-<p>Some buildings will warn you that they contain ghouls. These buildings are where you can go to do some level grinding, or if you&rsquo;re on a run that has you clearing out ghouls, earn some money.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.006.png"></p>
-
-<p>To level grind, you&rsquo;ll just be earning karma points which can be applied to the various stats your character has. These stats affect your weapons skills, magic skills, tech/computer skills or your aptitude with various weapon classes.</p>
-
-<p>Although I started out as a Decker, I found myself maxing out my weapon skills early on to make the game a lot easier to progress through. It turns out there really isn&rsquo;t any demand for low level Deckers, so I didn&rsquo;t really have an opportunity to do any Matrix runs until much later in the game.</p>
-
-<p>On the subject of shadowruns, the way you earn money (nuyen) in this game is by taking on various jobs (runs) from Mr. Johnson&rsquo;s. There are one or more Mr. Johnson&rsquo;s in each city you visit and they offer you work. Initially the types of work are either &ldquo;escort <name> to <location>&rdquo;, &ldquo;take package to <location>&rdquo; or &ldquo;clear out ghouls from abandoned building&rdquo;.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.011.png"></p>
-
-<p>I found that the easiest runs to make money at early on where the ghoul runs. You basically just go into the building, find some ghouls and start running in circles. They&rsquo;ll just follow you so you can pick them off one at a time.</p>
-
-<p>Although this became tedious pretty quickly, you get money and karma and can level up your weapon stats in order to make repeating this easier.</p>
-
-<p>The escort runs are easy, and if you took the time to get an idea where each target is, it&rsquo;s even easier to do. It just takes time and the payout isn&rsquo;t that great.</p>
-
-<p>Eventually you&rsquo;ll earn enough money to buy some info about where to go next and you have the opportunity to travel to a new city.</p>
-
-<p>There are a handful of cities you can visit in this game, and each one offers it&rsquo;s own set of challenges, as well as opportunities for more advanced runs.</p>
-
-<p>You&rsquo;ll also meet other shadowrunners in bars and clubs throughout the game. These runners will give you more information about shadowrunning, the story, as well as background about the Shadowrun world.</p>
-
-<p>These characters can also be hired to assist you on your runs. Each one has two rates; a single run rate or a lifetime rate.</p>
-
-<p>I found I didn&rsquo;t really hire anyone until I hit the endgame as I didn&rsquo;t really need the help. If you&rsquo;re playing through the game as a shaman or samurai and don&rsquo;t bother upgrading your computer skills, it may be easier to hire a good decker than to upgrade your own stats and get a cyberdeck.</p>
-
-<p><img class="right" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.009.png"></p>
-
-<p>You&rsquo;ll meet new Mr. Johnson&rsquo;s who offer more difficult missions that involve traveling between the various cities in order to do more difficult quests such as infiltrating corporations to either steal secrets or extract employees, or running the matrix.</p>
-
-<p>Both of these advanced run types offer their own challenges and require abilities to be leveled up in order to proceed.</p>
-
-<p>When infiltrating corporations, you&rsquo;ll need to be able to have electronics skills in order to be able to break maglocks, and you&rsquo;ll want your weapon skills upgraded so as to be able to shoot guards without attracting more.</p>
-
-<p>The infiltration jobs have you going through multiple floors of these buildings, with each floor having guards to deal with, security cameras to avoid and wall safes to plunder.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.015.png"></p>
-
-<p>It helps to have computer skills when doing these runs as you can hack the computers to disable cameras, turn off alarms and open doors.</p>
-
-<p>This takes us to decking and matrix running.</p>
-
-<p>Unlike the SNES version of this game, the Genesis version actually has a bit more depth to the matrix.</p>
-
-<p>You&rsquo;ll need to have computer skills first, then also have computer software for fighting with subsystems and identifying and avoiding various threats.</p>
-
-<p>The fighting itself is pretty repetitive, but the concept is fun.</p>
-
-<p>There are various types of components within a matrix system. You have to hack each of these as you move deeper into the system. The end goal is usually to hit a data store and download or delete a file.</p>
-
-<p><img class="left" src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.021.png"></p>
-
-<p>One way to easily earn money is to hack into a system, download the maximum number of data files then try to sell them to a contact in [city]. Near the end of the game i was able to get upwards of 10K for some files, which made upgrading my equipment a lot easier to do ;)</p>
-
-<p>Although I&rsquo;ve been a huge fan of the SNES version of this game since I was a kid, I think I may have enjoyed the Genesis incarnation more. The music wasn&rsquo;t nearly as good, but the story was well laid out, there were a lot of options on how to progress and it didn&rsquo;t feel nearly as linear.</p>
-
-<p>The addition of the classes gave you a sense of depth and replay-ability, though chances are you could just max out all stats for any player type and have same experience no matter how you started the game.</p>
-
-<p>I also really enjoyed the shadowrunning aspect of this game. In the SNES version you could hire runners to help you get through the game, but you didn&rsquo;t actually participate in shadowruns for profit.</p>
-
-<p>If you haven&rsquo;t given this game a shot, I would highly recommend it. It turned out to be a lot of fun, and an excellent addition to the limited field of cyberpunk games out there.</p>
-
-<p>If you have any recommendations for other games in this genre I should check out, or if you want to share your opinion on this or the SNES title, please feel free to leave me a comment.</p>
-
-<div id="galleria"><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.003.png" data-title="/images/shadowrun-gens/shadowrun.003.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.004.png" data-title="/images/shadowrun-gens/shadowrun.004.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.005.png" data-title="/images/shadowrun-gens/shadowrun.005.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.007.png" data-title="/images/shadowrun-gens/shadowrun.007.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.008.png" data-title="/images/shadowrun-gens/shadowrun.008.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.010.png" data-title="/images/shadowrun-gens/shadowrun.010.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.012.png" data-title="/images/shadowrun-gens/shadowrun.012.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.013.png" data-title="/images/shadowrun-gens/shadowrun.013.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.014.png" data-title="/images/shadowrun-gens/shadowrun.014.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.015.png" data-title="/images/shadowrun-gens/shadowrun.015.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.016.png" data-title="/images/shadowrun-gens/shadowrun.016.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.017.png" data-title="/images/shadowrun-gens/shadowrun.017.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.018.png" data-title="/images/shadowrun-gens/shadowrun.018.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.019.png" data-title="/images/shadowrun-gens/shadowrun.019.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.020.png" data-title="/images/shadowrun-gens/shadowrun.020.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.022.png" data-title="/images/shadowrun-gens/shadowrun.022.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.023.png" data-title="/images/shadowrun-gens/shadowrun.023.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.024.png" data-title="/images/shadowrun-gens/shadowrun.024.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.025.png" data-title="/images/shadowrun-gens/shadowrun.025.png" /><img src="http://www.alexbevi.com/images/shadowrun-gens/shadowrun.026.png" data-title="/images/shadowrun-gens/shadowrun.026.png" /></div>
 
 
 <script>  Galleria.configure('transition', 'fade');  Galleria.run('#galleria');</script>

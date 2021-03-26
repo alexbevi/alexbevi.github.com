@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid/</loc>
+<lastmod>2021-03-26T09:32:57-04:00</lastmod>
+</url>
+<url>
 <loc>http://www.alexbevi.com/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/</loc>
 <lastmod>2021-03-23T12:46:44-04:00</lastmod>
 </url>

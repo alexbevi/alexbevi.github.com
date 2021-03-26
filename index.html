@@ -12,7 +12,7 @@
         <title>ALEX BEVILACQUA</title>
         <meta name="author" content="Alex Bevilacqua">
         
-        <meta name="description" content="Visualizing a Replica Set's Sync Source Chain Mar 23rd, 2021 mongodb Comments A MongoDB replica set is a group of mongod processes that maintain the &hellip;">
+        <meta name="description" content="Analysis and Optimization of an N+1 Scenario in Mongoid Mar 26th, 2021 mongodb mongoid ruby Comments Last Updated: Jan 28, 2015 The N + 1 queries &hellip;">
         
         <meta name="viewport" content="width=device-width">
         <link rel="canonical" href="http://www.alexbevi.com">
@@ -89,6 +89,333 @@
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
                 
                         
+    
+        
+        <article class="article article--index">
+            <header class="article__header">
+    
+        <h1 class="h2 article__title">
+            <a href="/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid/">Analysis and Optimization of an N+1 Scenario in Mongoid</a>
+        </h1>
+    
+
+    
+        <div class="article__meta clearfix">
+            
+
+
+
+
+
+
+    <time class="article__date pull-left" datetime="2021-03-26T09:16:09-04:00" pubdate><i class="fa fa-calendar"></i> Mar 26th, 2021</time>
+
+
+
+
+            
+
+    <div class="article__tags pull-left">
+        <i class="fa fa-tags"></i>
+        <ul class="unstyled">
+        
+            
+                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
+            
+                <li><a class='category' href='/blog/categories/mongoid/'>mongoid</a></li>
+            
+                <li><a class='category' href='/blog/categories/ruby/'>ruby</a></li>
+            
+            
+        </ul>
+    </div>
+
+
+            
+                <a class="pull-right" href="http://www.alexbevi.com/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid/#disqus_thread">
+                    Comments <i class="fa fa-comment"></i>
+                </a>
+            
+        </div>
+    
+</header>
+
+
+
+
+    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 28, 2015</em></small></p>
+    <p>The <code>N + 1</code> queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.</p>
+
+<p>To address this Rails offers <a href="https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Eager Loading Associations</a> and there are gems (such as <a href="https://github.com/flyerhzm/bullet">bullet</a>) that can be used to detect the N+1 pattern in an application.</p>
+
+<p>This <code>N + 1</code> problem can manifest in any <a href="https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb">ODM or ORM</a>, including when working with MongoDB and Ruby.</p>
+
+<p>For the purposes of this example we have a Ruby application that is using the <a href="https://docs.mongodb.com/mongoid/current/">Mongoid</a> ODM with a minimal <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/">Document</a> model that contains a single <a href="https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/#fields">Field</a> definition. The scripts to setup the cluster and seed the data are shared at the end of this article (see <em>Reproduction</em>).</p>
+
+<p>An external process updates the underlying document in the MongoDB cluster with telemetry entries, which the Ruby application will periodically prune.</p>
+
+<p>The following code represents our core logic:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#</span>
+</span><span class='line'><span class="c1"># mongoid_n_plus_1.rb</span>
+</span><span class='line'><span class="c1">#</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;benchmark&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;bundler/inline&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gemfile</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;mongoid&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;mongo&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Mongoid</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="ss">uri</span><span class="p">:</span> <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Test</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Mongoid</span><span class="o">::</span><span class="no">Document</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="nb">String</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># return all entries from the document that aren&#39;t defined as Mongoid fields</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">entries</span>
+</span><span class='line'>    <span class="kp">attr</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">clone</span>
+</span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span> <span class="nb">self</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>    <span class="kp">attr</span><span class="o">.</span><span class="n">sort</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
+</span><span class='line'>    <span class="c1"># unset each field that doesn&#39;t belong to the Mongoid document as an</span>
+</span><span class='line'>    <span class="c1"># explicitely defined field</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">entry</span><span class="o">|</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="n">entry</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using a Ruby REPL we can require the above code and verify it&rsquo;s connecting to our cluster and interacting with our document:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">require_relative</span> <span class="s1">&#39;mongoid_n_plus_1&#39;</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="no">Test</span><span class="o">.</span><span class="n">first</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Test _id: 1.0, name: &quot;Alex&quot;&gt;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">length</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">10000</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">entries</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">15</span><span class="o">]</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[[</span><span class="s2">&quot;2021-03-25T10:30:21&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:22&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:23&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:24&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:25&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:26&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:27&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:28&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:29&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:30&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:31&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:32&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:33&quot;</span><span class="p">,</span> <span class="mi">13</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:34&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:35&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'> <span class="o">[</span><span class="s2">&quot;2021-03-25T10:30:36&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="o">.</span><span class="mi">0</span><span class="o">]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next let&rsquo;s measure our <code>compact!</code> operations:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">Benchmark</span><span class="o">.</span><span class="n">measure</span> <span class="p">{</span> <span class="n">t</span><span class="o">.</span><span class="n">compact!</span> <span class="p">}</span>
+</span><span class='line'>  <span class="mi">17</span><span class="o">.</span><span class="mi">319826</span>   <span class="mi">1</span><span class="o">.</span><span class="mo">025</span><span class="mi">931</span>  <span class="mi">18</span><span class="o">.</span><span class="mi">345757</span> <span class="p">(</span> <span class="mi">55</span><span class="o">.</span><span class="mo">0044</span><span class="mi">95</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As a MongoDB Technical Services engieer I have access to tools we can use to parse the cluster&rsquo;s <code>FTDC</code> (see <a href="[previous%20article%20about%20initial%20sync%20progress%20monitoring](/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">&ldquo;What is MongoDB FTDC (aka. diagnostic.data)&rdquo;</a> for more info) and visualize time series performance telemetry.</p>
+
+<p><img src="/images/nplus1-1.png"></p>
+
+<p>We&rsquo;re only modifying a single document, but it appears there are about 10K update operations issued, which is taking about a minute to completed. After reviewing the documentation for MongoDB&rsquo;s <a href="https://docs.mongodb.com/manual/reference/operator/update/unset/"><code>$unset</code></a> update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.</p>
+
+<p>To test this we modify our <code>compact!</code> method as follow:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">compact!</span>
+</span><span class='line'>    <span class="c1"># each field in the `entries` array is a [k,v] array</span>
+</span><span class='line'>    <span class="c1"># map the `k` (field) values into a single array and send them all</span>
+</span><span class='line'>    <span class="c1"># as a single unset command</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">unset</span> <span class="nb">self</span><span class="o">.</span><span class="n">entries</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:first</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After testing this the result confirms our theory and the performance is significantly better:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">Benchmark</span><span class="o">.</span><span class="n">measure</span> <span class="p">{</span> <span class="n">t</span><span class="o">.</span><span class="n">compact!</span> <span class="p">}</span>
+</span><span class='line'>  <span class="mi">0</span><span class="o">.</span><span class="mi">150776</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">00250</span><span class="mi">9</span>   <span class="mi">0</span><span class="o">.</span><span class="mi">153285</span> <span class="p">(</span>  <span class="mi">0</span><span class="o">.</span><span class="mi">273297</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Reviewing the FTDC again shows only a single command was issued:</p>
+
+<p><img src="/images/nplus1-2.png"></p>
+
+<p>Anytime operations are being sent to the server from within a loop there may be an opptortunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opporutnity for improvement, which I hope this article helps you do.</p>
+
+<p>Happy Coding!</p>
+
+<h3>Reproduction</h3>
+
+<h4>Setup</h4>
+
+<p>First, we spin up a local <a href="https://docs.mongodb.com/manual/replication">replica set</a> using some open source MongoDB helper utilities (see <a href="https://github.com/aheckmann/m"><code>m</code></a> and <a href="https://github.com/rueckstiess/mtools"><code>mtools</code></a>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>m 4.2.13
+</span><span class='line'>mlaunch init --replicaset --nodes <span class="m">3</span> --binarypath <span class="k">$(</span>m bin 4.2.13<span class="k">)</span> --host localhost --bind_ip_all
+</span><span class='line'>mongo <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span> test.js
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The JavaScript file (<code>test.js</code>) above is used to seed the collection with a single document and 10,000 telemetry entries:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// test.js</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">drop</span><span class="p">();</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Alex&quot;</span> <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">update</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="nx">d</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>   <span class="nx">update</span><span class="p">[</span><span class="nx">d</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">tests</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">update</span> <span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From the <a href="https://docs.mongodb.com/manual/mongo/"><code>mongo</code></a> or <a href="https://docs.mongodb.com/mongodb-shell/"><code>mongosh</code></a> the result of this script can be verified:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> mongo <span class="s2">&quot;mongodb://localhost:27017,localhost:27018,localhost:27019/test&quot;</span> --quiet --eval <span class="s1">&#39;db.tests.find().pretty()&#39;</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>  <span class="s2">&quot;_id&quot;</span>: 1,
+</span><span class='line'>  <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Alex&quot;</span>,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:23&quot;</span>: 1,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:24&quot;</span>: 2,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:25&quot;</span>: 3,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T10:55:26&quot;</span>: 4,
+</span><span class='line'>  ...
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:41:59&quot;</span>: 9997,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:00&quot;</span>: 9998,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:01&quot;</span>: 9999,
+</span><span class='line'>  <span class="s2">&quot;2021-03-25T13:42:02&quot;</span>: 10000
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+        </article>
+        <hr>
     
         
         <article class="article article--index">
@@ -984,168 +1311,6 @@ My <a href="/blog/2020/02/13/mongodb-initial-sync-progress-monitoring/">previous
         </article>
         <hr>
     
-        
-        <article class="article article--index">
-            <header class="article__header">
-    
-        <h1 class="h2 article__title">
-            <a href="/blog/2020/01/17/current-date-math-in-mongodb-aggregations/">Current Date Math in MongoDB Aggregations</a>
-        </h1>
-    
-
-    
-        <div class="article__meta clearfix">
-            
-
-
-
-
-
-
-    <time class="article__date pull-left" datetime="2020-01-17T06:30:17-05:00" pubdate><i class="fa fa-calendar"></i> Jan 17th, 2020</time>
-
-
-
-
-            
-
-    <div class="article__tags pull-left">
-        <i class="fa fa-tags"></i>
-        <ul class="unstyled">
-        
-            
-                <li><a class='category' href='/blog/categories/mongodb/'>mongodb</a></li>
-            
-            
-        </ul>
-    </div>
-
-
-            
-                <a class="pull-right" href="http://www.alexbevi.com/blog/2020/01/17/current-date-math-in-mongodb-aggregations/#disqus_thread">
-                    Comments <i class="fa fa-comment"></i>
-                </a>
-            
-        </div>
-    
-</header>
-
-
-
-
-    <p class="clearfix"><small class="pull-right"><em>Last Updated: Jan 28, 2015</em></small></p>
-    <p>A challenge that I&rsquo;ve had in the past while working with my data in MongoDB has been how to incorporate
-date math into my aggregations.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
-</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">},</span>
-</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">5</span><span class="p">))</span> <span class="p">},</span>
-</span><span class='line'><span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">9</span><span class="p">))</span> <span class="p">}</span>
-</span><span class='line'><span class="p">]);</span>
-</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
-</span><span class='line'><span class="cm">/*</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975da0&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-08T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">*/</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Given the 3 documents we&rsquo;ve setup above, if I wanted to filter a pipeline to only <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/match"><code>$match</code></a>
-documents that are newer than 1 week old, I would have to resort to using Javascript:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to a new Javascript Date object set to</span>
-</span><span class='line'><span class="c1">// 7 days from the current date</span>
-</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
-</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
-</span><span class='line'>  <span class="p">{</span> <span class="nx">lastUpdated</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">setDate</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">-</span> <span class="mi">7</span><span class="p">))</span> <span class="p">}</span> <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="cm">/*</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">*/</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now if your pipeline is running in a non-Javascript environment, the <code>new Date()</code> call within the pipeline
-would likely throw an exception.</p>
-
-<p>If you&rsquo;re working with MongoDB 4.2 or newer though, a new <a href="https://docs.mongodb.com/manual/reference/aggregation-variables/#variable.NOW"><code>$$NOW</code> aggregation variable</a> is available that can be combined with existing pipeline operators to <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/subtract/index.html"><code>$subtract</code></a> the number of milliseconds in the number of days to filter from the current date:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// compare lastUpdated to the number of milliseconds in</span>
-</span><span class='line'><span class="c1">// 7 days subtracted from the current</span>
-</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">(</span>
-</span><span class='line'><span class="p">{</span> <span class="nx">$match</span><span class="o">:</span>
-</span><span class='line'>  <span class="p">{</span> <span class="nx">$expr</span><span class="o">:</span>
-</span><span class='line'>    <span class="p">{</span> <span class="nx">$let</span><span class="o">:</span>
-</span><span class='line'>      <span class="p">{</span> <span class="nx">vars</span><span class="o">:</span>
-</span><span class='line'>        <span class="p">{</span> <span class="nx">start</span><span class="o">:</span>
-</span><span class='line'>          <span class="p">{</span> <span class="nx">$subtract</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$$NOW&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">86400000</span><span class="p">)]</span> <span class="p">}</span>
-</span><span class='line'>        <span class="p">},</span>
-</span><span class='line'>        <span class="k">in</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gte</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;$lastUpdated&quot;</span><span class="p">,</span> <span class="s2">&quot;$$start&quot;</span><span class="p">]</span> <span class="p">}</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'><span class="cm">/*</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9e&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-16T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">{ &quot;_id&quot; : ObjectId(&quot;5e219c6ecc99b35bb2975d9f&quot;), &quot;lastUpdated&quot; : ISODate(&quot;2020-01-12T11:37:18.522Z&quot;) }</span>
-</span><span class='line'><span class="cm">*/</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I hope you find this as useful as I did. With each major release of MongoDB new features and functionality
-are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&rdquo; we&rsquo;ve had to do in the past.</p>
-
-<p>If you&rsquo;re looking for more MongoDB tips and tricks, head on over to Asya&rsquo;s <a href="http://www.kamsky.org/stupid-tricks-with-mongodb">Stupid Tricks With MongoDB</a>.</p>
-
-<p>Let me know in the comments below if you have any questions, or if you found this useful.</p>
-
-
-
-        </article>
-        <hr>
-    
 
     <div class="pagination">
     
@@ -1213,6 +1378,10 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
     <ul class="divided">
         
         <li class="post">
+            <a href="/blog/2021/03/26/analysis-and-optimization-of-an-n-plus-1-scenario-in-mongoid/">Analysis and Optimization of an N+1 Scenario in Mongoid</a>
+        </li>
+        
+        <li class="post">
             <a href="/blog/2021/03/23/visualizing-a-replica-sets-sync-source-chain/">Visualizing a Replica Set's Sync Source Chain</a>
         </li>
         
@@ -1226,10 +1395,6 @@ are being introduced that reduce the &ldquo;hacks&rdquo; or &ldquo;workarounds&r
         
         <li class="post">
             <a href="/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">Optimizing MongoDB Compound Indexes - The "Equality - Sort - Range" (ESR) Rule</a>
-        </li>
-        
-        <li class="post">
-            <a href="/blog/2020/03/30/working-around-mongodb-stitchs-max-async-work-queue-limit/">Working around MongoDB Stitch's "max async work queue" limit</a>
         </li>
         
     </ul>
