@@ -1,0 +1,39 @@
+---
+layout: post
+title: "Accessing a running process' STDOUT"
+date: 2014-06-02 09:16:54 -0400
+comments: true
+categories: [linux, ruby, rake]
+---
+
+I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.
+
+One example is a series of PowerShell scripts I've written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.
+
+{% picture /images/20140602-001.jpg %}
+
+<!-- more -->
+
+One of the longer running processes I have is a Ruby Rake task that processes an uploaded CSV file. This can potentially take a long time, and although I could modify the script to feed progress data back, I'd like to demonstrate how to follow-up from another terminal session.
+
+Any Rake task I write that can potentially take a while, I tend to jazz up a bit with progress details. For this current example, I am using the [progress_bar](https://github.com/paul/progress_bar) gem, which writes an ASCII progress bar to the terminal along with some other useful progress information.
+
+If I were to execute the task directly, I could watch the progress directly. Since we're running this script remotely though, this information isn't directly accessible.
+
+In order to gain access to the progress info for this task, we'll need to access the process' STDOUT from an alternate session.
+
+The first step is to find the PID of the process we would like:
+
+    ps aux | grep ruby
+
+    >> 1001     16544 67.7 29.4 1319420 506456 ?      Rl   13:00   3:02 ruby rake phoenix:sync_locations_from_csv
+
+Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/wiki/Strace) in order to gain a bit more insight into the current process.
+
+    sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
+
+{% picture /images/20140602-002.jpg %}
+
+We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
+
+You can also exclude the redirect and grep entirely, but this may result in too much information to be useful ;)
