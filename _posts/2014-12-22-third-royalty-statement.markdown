@@ -3,7 +3,8 @@ layout: post
 title: "Third Royalty Statement"
 date: 2014-12-22 08:11:36 -0500
 comments: true
-categories: [redmine-plugins-book, redmine, publishing, packt]
+categories: [Writing]
+tags: [redmine, book]
 ---
 
 I'd love to say Christmas came early this year, but it looks like sales of [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) didn't quite hit the numbers needed to actually result in a royalty cheque. Ah well, there's always Q1 of 2015 :D

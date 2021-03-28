@@ -3,7 +3,8 @@ layout: post
 title: "Second Royalty Statement"
 date: 2014-09-22 11:45:14 -0400
 comments: true
-categories: [redmine-plugins-book, redmine, publishing, packt]
+categories: [Writing]
+categories: [redmine, book]
 ---
 
 Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P

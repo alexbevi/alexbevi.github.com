@@ -3,7 +3,8 @@ layout: post
 title: "Git Push to GitHub and Bitbucket"
 date: 2014-12-19 13:05:35 -0500
 comments: true
-categories: [git, source-control, github, bitbucket]
+categories: [Scripting]
+tags: [git, github, bitbucket]
 ---
 
 I just want to start off by saying how much I LOVE [Git](http://git-scm.com). I've been working with it for a number of years now (coming from [Subversion](https://subversion.apache.org) and sharing code on [Google Code](https://code.google.com) and [SourceForge](http://sourceforge.net)) and have fully embraced [GitHub](https://github.com) as the "victor" (IMHO) for both online source control and collaborative development.

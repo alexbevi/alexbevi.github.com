@@ -3,7 +3,8 @@ layout: post
 title: "Redmine Plugin Extension and Development is Apparently Still Relevant"
 date: 2016-03-23 20:59:24 -0400
 comments: true
-categories: [redmine-plugins-book, redmine, packt]
+categories: [Writing]
+categories: [redmine, book]
 ---
 
 For the first five quarters that this book was out in the wild, I was posting publication numbers any time I got a royalty statement from Packt Publishing for [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book).

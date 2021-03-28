@@ -4,7 +4,8 @@ title: "Block Retry using Powershell"
 date: 2015-02-06 09:54:28 -0500
 comments: true
 sharing: true
-categories: [powershell, scripting]
+categories: [Scripting]
+tags: [powershell]
 ---
 
 I've been doing a lot of [Powershell](http://en.wikipedia.org/wiki/Windows_PowerShell) scripting lately, and one of the features I've really been pining for is the ability to apply some form of retry logic to either a function or a block.

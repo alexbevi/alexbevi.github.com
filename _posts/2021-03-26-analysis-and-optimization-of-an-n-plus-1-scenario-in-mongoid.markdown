@@ -3,6 +3,7 @@ layout: post
 title: "Analysis and Optimization of an N+1 Scenario in Mongoid"
 date: 2021-03-26 09:16:09 -0400
 comments: true
+categories: [Ruby]
 categories: [mongodb, mongoid, ruby]
 ---
 

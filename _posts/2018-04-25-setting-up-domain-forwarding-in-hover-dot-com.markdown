@@ -3,7 +3,8 @@ layout: post
 title: "Setting up domain forwarding in hover.com"
 date: 2018-04-25 15:27:08 -0400
 comments: true
-categories: [general]
+categories: [Configuration]
+tags: [hover, dns]
 ---
 
 I've known for a long time that when you navigate to my domain directly at [alexbevi.com](http://alexbevi.com) that you would be redirected to a [Hover](https://www.hover.com) placeholder page.

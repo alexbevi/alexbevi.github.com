@@ -3,7 +3,8 @@ layout: post
 title: "Accessing a running process' STDOUT"
 date: 2014-06-02 09:16:54 -0400
 comments: true
-categories: [linux, ruby, rake]
+categories: [Linux]
+tags: [linux, ruby, rake]
 ---
 
 I'm currently doing a lot of scripting at work. Although the primary environment is Windows, I have to manage some Linux processes as well.

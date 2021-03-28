@@ -3,7 +3,8 @@ layout: post
 title: "Current Date Math in MongoDB Aggregations"
 date: 2020-01-17 06:30:17 -0500
 comments: true
-categories: [mongodb]
+categories: [MongoDB, "Queries & Indexing"]
+tags: [mongodb]
 ---
 
 A challenge that I've had in the past while working with my data in MongoDB has been how to incorporate

@@ -3,7 +3,8 @@ layout: post
 title: "Troubleshooting a MongoDB Performance Issue"
 date: 2018-05-28 09:14:03 -0400
 comments: true
-categories:  [mongodb]
+categories:  [MongoDB]
+tags: [mongodb, performance, troubleshooting]
 ---
 **UPDATE (2018-06-28):** *I actually sent a link to this article to the author of the previous blog post and in her reply she indicates that the improvements to cache management and checkpoint areas were more likely to have improved my situation. Just wanted to call out how approachable the MongoDB team is even with these one-off type issues :). Thanks Sue!*
 

@@ -3,7 +3,8 @@ layout: post
 title: "Troubleshooting a Mongoid Connection Issue"
 date: 2014-06-23 10:27:58 -0400
 comments: true
-categories: [mongo, mongoid, rails]
+categories: [MongoDB]
+tags: [mongodb, mongoid, rails, ruby]
 ---
 
 I've been struggling with an issue for a while now regarding Mongoid connections just freezing when the host is not on *localhost*. I've tried posting this on [stack overflow](https://stackoverflow.com/questions/24210058/mongoid-4-mongodb-2-4-freezing-issue) and [GitHub](https://github.com/mongoid/moped/issues/274), but haven't really gotten anywhere.
@@ -45,26 +46,26 @@ Thread 7 (Thread 0x7f032a4c0700 (LWP 9002)):
 
 Thread 6 (Thread 0x7f0321988700 (LWP 9008)):
 #0  0x00007f0329c14c33 in select () at ../sysdeps/unix/syscall-template.S:81
-#1  0x00007f032a0d8cdb in rb_fd_select (n=<optimized out>, readfds=<optimized out>, writefds=<optimized out>, exceptfds=<optimized out>, 
+#1  0x00007f032a0d8cdb in rb_fd_select (n=<optimized out>, readfds=<optimized out>, writefds=<optimized out>, exceptfds=<optimized out>,
     timeout=<optimized out>) at thread.c:3321
-#2  0x00007f032a0d9139 in native_fd_select (th=<optimized out>, timeout=0x7f0321987550, exceptfds=0x0, writefds=0x0, readfds=0x7f0321987810, 
+#2  0x00007f032a0d9139 in native_fd_select (th=<optimized out>, timeout=0x7f0321987550, exceptfds=0x0, writefds=0x0, readfds=0x7f0321987810,
     n=12) at thread_pthread.c:1007
 #3  do_select (timeout=0x7f0321987550, except=0x0, write=0x0, read=0x7f0321987810, n=12) at thread.c:3436
-#4  rb_thread_fd_select (max=max@entry=12, read=read@entry=0x7f0321987810, write=write@entry=0x0, except=except@entry=0x0, 
+#4  rb_thread_fd_select (max=max@entry=12, read=read@entry=0x7f0321987810, write=write@entry=0x0, except=except@entry=0x0,
     timeout=timeout@entry=0x7f03219877e0) at thread.c:3582
-#5  0x00007f0329f96150 in select_internal (fds=0x7f0321987810, tp=0x7f03219877e0, except=<optimized out>, write=<optimized out>, 
+#5  0x00007f0329f96150 in select_internal (fds=0x7f0321987810, tp=0x7f03219877e0, except=<optimized out>, write=<optimized out>,
     read=<optimized out>) at io.c:8232
 #6  select_call (arg=arg@entry=139651425269744) at io.c:8302
-#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f95e30 <select_call>, data1=data1@entry=139651425269744, 
+#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f95e30 <select_call>, data1=data1@entry=139651425269744,
     e_proc=e_proc@entry=0x7f0329f926a0 <select_end>, data2=data2@entry=139651425269744) at eval.c:850
 #8  0x00007f0329f92810 in rb_f_select (argc=<optimized out>, argv=<optimized out>, obj=<optimized out>) at io.c:8651
 #9  0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f0321a88f20, th=0x96c91c0) at vm_insnhelper.c:1470
 #10 vm_call_cfunc (th=0x96c91c0, reg_cfp=0x7f0321a88f20, ci=<optimized out>) at vm_insnhelper.c:1560
 #11 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x96c91c0, initial=initial@entry=0) at insns.def:1028
 #12 0x00007f032a0bb5ec in vm_exec (th=0x96c91c0) at vm.c:1304
-#13 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c91c0, proc=0x96c9690, self=133280920, defined_class=117512440, argc=0, 
+#13 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c91c0, proc=0x96c9690, self=133280920, defined_class=117512440, argc=0,
     argv=0x7f1b228, blockptr=blockptr@entry=0x0) at vm.c:788
-#14 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c91c0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>, 
+#14 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c91c0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>,
     blockptr=blockptr@entry=0x0) at vm.c:807
 #15 0x00007f032a0d475d in thread_start_func_2 (th=th@entry=0x96c91c0, stack_start=<optimized out>) at thread.c:535
 #16 0x00007f032a0d4a9b in thread_start_func_1 (th_ptr=0x96c91c0) at thread_pthread.c:803
@@ -82,9 +83,9 @@ Thread 5 (Thread 0x7f0321786700 (LWP 9009)):
 #7  vm_call_cfunc (th=0x96c9870, reg_cfp=0x7f0321886f70, ci=<optimized out>) at vm_insnhelper.c:1560
 #8  0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x96c9870, initial=initial@entry=0) at insns.def:1028
 #9  0x00007f032a0bb5ec in vm_exec (th=0x96c9870) at vm.c:1304
-#10 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c9870, proc=0x96c9d90, self=133279880, defined_class=117256360, argc=0, 
+#10 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c9870, proc=0x96c9d90, self=133279880, defined_class=117256360, argc=0,
     argv=0x7f1afd0, blockptr=blockptr@entry=0x0) at vm.c:788
-#11 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c9870, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>, 
+#11 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c9870, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>,
     blockptr=blockptr@entry=0x0) at vm.c:807
 #12 0x00007f032a0d475d in thread_start_func_2 (th=th@entry=0x96c9870, stack_start=<optimized out>) at thread.c:535
 #13 0x00007f032a0d4a9b in thread_start_func_1 (th_ptr=0x96c9870) at thread_pthread.c:803
@@ -93,26 +94,26 @@ Thread 5 (Thread 0x7f0321786700 (LWP 9009)):
 
 Thread 4 (Thread 0x7f0321584700 (LWP 9010)):
 #0  0x00007f0329c14c33 in select () at ../sysdeps/unix/syscall-template.S:81
-#1  0x00007f032a0d8cdb in rb_fd_select (n=<optimized out>, readfds=<optimized out>, writefds=<optimized out>, exceptfds=<optimized out>, 
+#1  0x00007f032a0d8cdb in rb_fd_select (n=<optimized out>, readfds=<optimized out>, writefds=<optimized out>, exceptfds=<optimized out>,
     timeout=<optimized out>) at thread.c:3321
 #2  0x00007f032a0d9139 in native_fd_select (th=<optimized out>, timeout=0x0, exceptfds=0x0, writefds=0x0, readfds=0x7f0321583810, n=11)
     at thread_pthread.c:1007
 #3  do_select (timeout=0x0, except=0x0, write=0x0, read=0x7f0321583810, n=11) at thread.c:3436
-#4  rb_thread_fd_select (max=max@entry=11, read=read@entry=0x7f0321583810, write=write@entry=0x0, except=except@entry=0x0, 
+#4  rb_thread_fd_select (max=max@entry=11, read=read@entry=0x7f0321583810, write=write@entry=0x0, except=except@entry=0x0,
     timeout=timeout@entry=0x0) at thread.c:3582
 #5  0x00007f0329f96150 in select_internal (fds=0x7f0321583810, tp=0x0, except=<optimized out>, write=<optimized out>, read=<optimized out>)
     at io.c:8232
 #6  select_call (arg=arg@entry=139651421059056) at io.c:8302
-#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f95e30 <select_call>, data1=data1@entry=139651421059056, 
+#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f95e30 <select_call>, data1=data1@entry=139651421059056,
     e_proc=e_proc@entry=0x7f0329f926a0 <select_end>, data2=data2@entry=139651421059056) at eval.c:850
 #8  0x00007f0329f92810 in rb_f_select (argc=<optimized out>, argv=<optimized out>, obj=<optimized out>) at io.c:8651
 #9  0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f0321684f20, th=0x96c9f10) at vm_insnhelper.c:1470
 #10 vm_call_cfunc (th=0x96c9f10, reg_cfp=0x7f0321684f20, ci=<optimized out>) at vm_insnhelper.c:1560
 #11 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x96c9f10, initial=initial@entry=0) at insns.def:1028
 #12 0x00007f032a0bb5ec in vm_exec (th=0x96c9f10) at vm.c:1304
-#13 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c9f10, proc=0x96ec480, self=133126360, defined_class=118126960, argc=0, 
+#13 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x96c9f10, proc=0x96ec480, self=133126360, defined_class=118126960, argc=0,
     argv=0x7f1adf0, blockptr=blockptr@entry=0x0) at vm.c:788
-#14 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c9f10, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>, 
+#14 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x96c9f10, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>,
     blockptr=blockptr@entry=0x0) at vm.c:807
 #15 0x00007f032a0d475d in thread_start_func_2 (th=th@entry=0x96c9f10, stack_start=<optimized out>) at thread.c:535
 #16 0x00007f032a0d4a9b in thread_start_func_1 (th_ptr=0x96c9f10) at thread_pthread.c:803
@@ -120,7 +121,7 @@ Thread 4 (Thread 0x7f0321584700 (LWP 9010)):
 #18 0x00007f0329c1d30d in clone () at ../sysdeps/unix/sysv/linux/x86_64/clone.S:111
 
 Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
-#0  0x00007f0329c1007f in __GI_ppoll (fds=fds@entry=0x7f032117bb90, nfds=nfds@entry=1, timeout=<optimized out>, timeout@entry=0x0, 
+#0  0x00007f0329c1007f in __GI_ppoll (fds=fds@entry=0x7f032117bb90, nfds=nfds@entry=1, timeout=<optimized out>, timeout@entry=0x0,
     sigmask=sigmask@entry=0x0) at ../sysdeps/unix/sysv/linux/ppoll.c:56
 #1  0x00007f032a0d9b28 in rb_wait_for_single_fd (fd=fd@entry=15, events=events@entry=1, tv=tv@entry=0x0) at thread.c:3656
 #2  0x00007f032a0da044 in rb_thread_wait_fd_rw (read=1, fd=fd@entry=15) at thread.c:3495
@@ -128,9 +129,9 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #4  0x00007f0329f9693f in rb_io_wait_readable (f=15) at io.c:1092
 #5  0x00007f0329f97cee in io_bufread (ptr=0x7f03042c3440 "", len=36, fptr=0x7f0310054420) at io.c:2035
 #6  0x00007f0329f97e24 in bufread_call (arg=arg@entry=139651416833616) at io.c:2071
-#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f97e10 <bufread_call>, data1=data1@entry=139651416833616, 
+#7  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f0329f97e10 <bufread_call>, data1=data1@entry=139651416833616,
     e_proc=e_proc@entry=0x7f032a04f900 <rb_str_unlocktmp>, data2=<optimized out>) at eval.c:850
-#8  0x00007f032a05e8db in rb_str_locktmp_ensure (str=<optimized out>, func=func@entry=0x7f0329f97e10 <bufread_call>, 
+#8  0x00007f032a05e8db in rb_str_locktmp_ensure (str=<optimized out>, func=func@entry=0x7f0329f97e10 <bufread_call>,
     arg=arg@entry=139651416833616) at string.c:2004
 #9  0x00007f0329f9ad06 in io_fread (fptr=0x7f0310054420, size=36, offset=0, str=139650673747040) at io.c:2085
 #10 io_read (argc=<optimized out>, argv=<optimized out>, io=35833440) at io.c:2816
@@ -140,7 +141,7 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #13 vm_call_method (th=0x7f030c0455c0, cfp=0x7f032127e770, ci=<optimized out>) at vm_insnhelper.c:1754
 #14 0x00007f032a0b7b9c in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1050
 #15 0x00007f032a0bb5ec in vm_exec (th=th@entry=0x7f030c0455c0) at vm.c:1304
-#16 0x00007f032a0c2cff in invoke_block_from_c (defined_class=79426520, cref=0x0, blockptr=0x0, argv=0x7f032117c2e8, argc=1, self=72558880, 
+#16 0x00007f032a0c2cff in invoke_block_from_c (defined_class=79426520, cref=0x0, blockptr=0x0, argv=0x7f032117c2e8, argc=1, self=72558880,
     block=<optimized out>, th=0x7f030c0455c0) at vm.c:732
 #17 vm_yield (argv=<optimized out>, argc=<optimized out>, th=<optimized out>) at vm.c:763
 #18 rb_yield_0 (argv=0x7f032117c2e8, argc=1) at vm_eval.c:938
@@ -150,7 +151,7 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #22 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f032127ea90, ci=<optimized out>) at vm_insnhelper.c:1560
 #23 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #24 0x00007f032a0bb5ec in vm_exec (th=th@entry=0x7f030c0455c0) at vm.c:1304
-#25 0x00007f032a0c2cff in invoke_block_from_c (defined_class=80043920, cref=0x0, blockptr=0x0, argv=0x7f032117c6c8, argc=1, 
+#25 0x00007f032a0c2cff in invoke_block_from_c (defined_class=80043920, cref=0x0, blockptr=0x0, argv=0x7f032117c6c8, argc=1,
     self=139650673695240, block=<optimized out>, th=0x7f030c0455c0) at vm.c:732
 #26 vm_yield (argv=<optimized out>, argc=<optimized out>, th=<optimized out>) at vm.c:763
 #27 rb_yield_0 (argv=0x7f032117c6c8, argc=1) at vm_eval.c:938
@@ -160,16 +161,16 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #31 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f032127f170, ci=<optimized out>) at vm_insnhelper.c:1560
 #32 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #33 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#34 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f0304886b90, self=139650673713320, defined_class=78042600, 
+#34 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f0304886b90, self=139650673713320, defined_class=78042600,
     argc=argc@entry=0, argv=argv@entry=0x7f0321182020, blockptr=0x0) at vm.c:788
-#35 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f0304886b90, argc=argc@entry=0, 
+#35 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f0304886b90, argc=argc@entry=0,
     argv=argv@entry=0x7f0321182020, blockptr=<optimized out>) at vm.c:807
 #36 0x00007f0329f6e550 in proc_call (argc=0, argv=0x7f0321182020, procval=139650673713160) at proc.c:734
 #37 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f032127f300, th=0x7f030c0455c0) at vm_insnhelper.c:1470
 #38 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f032127f300, ci=<optimized out>) at vm_insnhelper.c:1560
 #39 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1028
 #40 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#41 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=0x9676cb0, self=139650673658200, defined_class=79743600, argc=1, 
+#41 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=0x9676cb0, self=139650673658200, defined_class=79743600, argc=1,
     argv=argv@entry=0x7f032117d0a0, blockptr=0x0) at vm.c:788
 #42 0x00007f032a0bea45 in vm_call_bmethod_body (argv=0x7f032117d0a0, ci=0x7f032117d280, th=0x7f030c0455c0) at vm_insnhelper.c:1592
 #43 vm_call_bmethod (th=th@entry=0x7f030c0455c0, cfp=cfp@entry=0x7f032127f7b0, ci=ci@entry=0x7f032117d280) at vm_insnhelper.c:1607
@@ -185,18 +186,18 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #52 vm_call_method (th=0x7f030c0455c0, cfp=0x7f032127f9e0, ci=<optimized out>) at vm_insnhelper.c:1754
 #53 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #54 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#55 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a480, self=83224000, defined_class=87087200, 
+#55 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a480, self=83224000, defined_class=87087200,
     argc=argc@entry=2, argv=argv@entry=0x7f0321181c90, blockptr=0x0) at vm.c:788
-#56 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a480, argc=argc@entry=2, 
+#56 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a480, argc=argc@entry=2,
     argv=argv@entry=0x7f0321181c90, blockptr=<optimized out>) at vm.c:807
 #57 0x00007f0329f6e550 in proc_call (argc=2, argv=0x7f0321181c90, procval=139651130810120) at proc.c:734
 #58 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f032127fa80, th=0x7f030c0455c0) at vm_insnhelper.c:1470
 #59 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f032127fa80, ci=<optimized out>) at vm_insnhelper.c:1560
 #60 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1028
 #61 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#62 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a560, self=87087800, defined_class=87087760, 
+#62 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a560, self=87087800, defined_class=87087760,
     argc=argc@entry=1, argv=argv@entry=0x7f0321181c38, blockptr=0x0) at vm.c:788
-#63 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a560, argc=argc@entry=1, 
+#63 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a560, argc=argc@entry=1,
     argv=argv@entry=0x7f0321181c38, blockptr=<optimized out>) at vm.c:807
 #64 0x00007f0329f6e550 in proc_call (argc=1, argv=0x7f0321181c38, procval=139651130809960) at proc.c:734
 #65 0x00007f032a0bfae1 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f032127fb20, th=0x7f030c0455c0) at vm_insnhelper.c:1470
@@ -204,9 +205,9 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #67 vm_call_method (th=0x7f030c0455c0, cfp=0x7f032127fb20, ci=<optimized out>) at vm_insnhelper.c:1754
 #68 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1028
 #69 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#70 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a720, self=87087800, defined_class=87087760, 
+#70 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f030010a720, self=87087800, defined_class=87087760,
     argc=argc@entry=1, argv=argv@entry=0x7f0321181be0, blockptr=0x0) at vm.c:788
-#71 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a720, argc=argc@entry=1, 
+#71 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f030010a720, argc=argc@entry=1,
     argv=argv@entry=0x7f0321181be0, blockptr=<optimized out>) at vm.c:807
 #72 0x00007f0329f6e550 in proc_call (argc=1, argv=0x7f0321181be0, procval=139651130809560) at proc.c:734
 #73 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f032127fbc0, th=0x7f030c0455c0) at vm_insnhelper.c:1470
@@ -214,16 +215,16 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #75 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1028
 #76 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
 ---Type <return> to continue, or q <return> to quit---
-#77 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f0304529c40, self=156831200, defined_class=50567600, 
+#77 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x7f0304529c40, self=156831200, defined_class=50567600,
     argc=argc@entry=1, argv=argv@entry=0x7f0321181990, blockptr=0x0) at vm.c:788
-#78 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f0304529c40, argc=argc@entry=1, 
+#78 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x7f0304529c40, argc=argc@entry=1,
     argv=argv@entry=0x7f0321181990, blockptr=<optimized out>) at vm.c:807
 #79 0x00007f0329f6e550 in proc_call (argc=1, argv=0x7f0321181990, procval=139650673670240) at proc.c:734
 #80 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f0321280070, th=0x7f030c0455c0) at vm_insnhelper.c:1470
 #81 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f0321280070, ci=<optimized out>) at vm_insnhelper.c:1560
 #82 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:1028
 #83 0x00007f032a0bb5ec in vm_exec (th=th@entry=0x7f030c0455c0) at vm.c:1304
-#84 0x00007f032a0c2cff in invoke_block_from_c (defined_class=76547880, cref=0x0, blockptr=0x0, argv=0x7f032117ee08, argc=1, self=34415960, 
+#84 0x00007f032a0c2cff in invoke_block_from_c (defined_class=76547880, cref=0x0, blockptr=0x0, argv=0x7f032117ee08, argc=1, self=34415960,
     block=<optimized out>, th=0x7f030c0455c0) at vm.c:732
 #85 vm_yield (argv=<optimized out>, argc=<optimized out>, th=<optimized out>) at vm.c:763
 #86 rb_yield_0 (argv=0x7f032117ee08, argc=1) at vm_eval.c:938
@@ -233,12 +234,12 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #90 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f03212801b0, ci=<optimized out>) at vm_insnhelper.c:1560
 #91 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #92 0x00007f032a0bb5ec in vm_exec (th=th@entry=0x7f030c0455c0) at vm.c:1304
-#93 0x00007f032a0c2924 in invoke_block_from_c (defined_class=80036240, cref=0x0, blockptr=0x0, argv=0x7f032117f1c8, argc=1, self=120753520, 
+#93 0x00007f032a0c2924 in invoke_block_from_c (defined_class=80036240, cref=0x0, blockptr=0x0, argv=0x7f032117f1c8, argc=1, self=120753520,
     block=<optimized out>, th=0x7f030c0455c0) at vm.c:732
 #94 vm_yield (argv=0x7f032117f1c8, argc=1, th=0x7f030c0455c0) at vm.c:763
 #95 rb_yield_0 (argv=0x7f032117f1c8, argc=1) at vm_eval.c:938
 #96 catch_i (tag=<optimized out>, data=data@entry=0) at vm_eval.c:1772
-#97 0x00007f032a0b4b4a in rb_catch_protect (t=<optimized out>, func=func@entry=0x7f032a0c26c0 <catch_i>, data=data@entry=0, 
+#97 0x00007f032a0b4b4a in rb_catch_protect (t=<optimized out>, func=func@entry=0x7f032a0c26c0 <catch_i>, data=data@entry=0,
     stateptr=stateptr@entry=0x7f032117f340) at vm_eval.c:1858
 #98 0x00007f032a0b4bbc in rb_catch_obj (t=<optimized out>, func=func@entry=0x7f032a0c26c0 <catch_i>, data=data@entry=0) at vm_eval.c:1837
 #99 0x00007f032a0b4c6e in rb_f_catch (argc=<optimized out>, argv=<optimized out>) at vm_eval.c:1823
@@ -246,9 +247,9 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #101 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f03212802f0, ci=<optimized out>) at vm_insnhelper.c:1560
 #102 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #103 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#104 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x96c8680, self=133126360, defined_class=118126960, 
+#104 0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0455c0, proc=proc@entry=0x96c8680, self=133126360, defined_class=118126960,
     argc=argc@entry=2, argv=argv@entry=0x7f0321181070, blockptr=0x0) at vm.c:788
-#105 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x96c8680, argc=argc@entry=2, 
+#105 0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x96c8680, argc=argc@entry=2,
     argv=argv@entry=0x7f0321181070, blockptr=<optimized out>) at vm.c:807
 #106 0x00007f0329f6e550 in proc_call (argc=2, argv=0x7f0321181070, procval=133281320) at proc.c:734
 #107 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f0321280f70, th=0x7f030c0455c0) at vm_insnhelper.c:1470
@@ -256,9 +257,9 @@ Thread 3 (Thread 0x7f0321180700 (LWP 9472)):
 #108 vm_call_cfunc (th=0x7f030c0455c0, reg_cfp=0x7f0321280f70, ci=<optimized out>) at vm_insnhelper.c:1560
 #109 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0455c0, initial=initial@entry=0) at insns.def:999
 #110 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0455c0) at vm.c:1304
-#111 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=0x7f030c044ca0, self=133281640, defined_class=117256680, argc=0, 
+#111 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=0x7f030c044ca0, self=133281640, defined_class=117256680, argc=0,
     argv=0x7f02f4c943a0, blockptr=blockptr@entry=0x0) at vm.c:788
-#112 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>, 
+#112 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x7f030c0455c0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>,
     blockptr=blockptr@entry=0x0) at vm.c:807
 #113 0x00007f032a0d475d in thread_start_func_2 (th=th@entry=0x7f030c0455c0, stack_start=<optimized out>) at thread.c:535
 #114 0x00007f032a0d4a9b in thread_start_func_1 (th_ptr=0x7f030c0455c0) at thread_pthread.c:803
@@ -274,18 +275,18 @@ Thread 2 (Thread 0x7f0320f7e700 (LWP 9563)):
 #5  vm_call_cfunc (th=0x7f030c0485d0, reg_cfp=0x7f032107ebb0, ci=<optimized out>) at vm_insnhelper.c:1560
 #6  0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x7f030c0485d0, initial=initial@entry=0) at insns.def:1028
 #7  0x00007f032a0bb5ec in vm_exec (th=0x7f030c0485d0) at vm.c:1304
-#8  0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0485d0, proc=proc@entry=0x96c8680, self=133126360, defined_class=118126960, 
+#8  0x00007f032a0be89f in vm_invoke_proc (th=0x7f030c0485d0, proc=proc@entry=0x96c8680, self=133126360, defined_class=118126960,
     argc=argc@entry=2, argv=argv@entry=0x7f0320f7f070, blockptr=0x0) at vm.c:788
-#9  0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x96c8680, argc=argc@entry=2, 
+#9  0x00007f032a0be8da in rb_vm_invoke_proc (th=<optimized out>, proc=proc@entry=0x96c8680, argc=argc@entry=2,
     argv=argv@entry=0x7f0320f7f070, blockptr=<optimized out>) at vm.c:807
 #10 0x00007f0329f6e550 in proc_call (argc=2, argv=0x7f0320f7f070, procval=133281320) at proc.c:734
 #11 0x00007f032a0b3024 in vm_call_cfunc_with_frame (ci=<optimized out>, reg_cfp=0x7f032107ef70, th=0x7f030c0485d0) at vm_insnhelper.c:1470
 #12 vm_call_cfunc (th=0x7f030c0485d0, reg_cfp=0x7f032107ef70, ci=<optimized out>) at vm_insnhelper.c:1560
 #13 0x00007f032a0b8385 in vm_exec_core (th=th@entry=0x7f030c0485d0, initial=initial@entry=0) at insns.def:999
 #14 0x00007f032a0bb5ec in vm_exec (th=0x7f030c0485d0) at vm.c:1304
-#15 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0485d0, proc=0x7f030c047b40, self=133281640, defined_class=117256680, argc=0, 
+#15 0x00007f032a0be89f in vm_invoke_proc (th=th@entry=0x7f030c0485d0, proc=0x7f030c047b40, self=133281640, defined_class=117256680, argc=0,
     argv=0x7f02f4cd2290, blockptr=blockptr@entry=0x0) at vm.c:788
-#16 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x7f030c0485d0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>, 
+#16 0x00007f032a0be8da in rb_vm_invoke_proc (th=th@entry=0x7f030c0485d0, proc=<optimized out>, argc=<optimized out>, argv=<optimized out>,
     blockptr=blockptr@entry=0x0) at vm.c:807
 #17 0x00007f032a0d475d in thread_start_func_2 (th=th@entry=0x7f030c0485d0, stack_start=<optimized out>) at thread.c:535
 #18 0x00007f032a0d4a9b in thread_start_func_1 (th_ptr=0x7f030c0485d0) at thread_pthread.c:803
@@ -298,7 +299,7 @@ Thread 1 (Thread 0x7f032a5c2740 (LWP 8999)):
 #2  native_sleep (th=th@entry=0x1ed95b0, timeout_tv=0x0) at thread_pthread.c:1059
 #3  0x00007f032a0d618a in sleep_forever (deadlockable=1, spurious_check=0, th=0x1ed95b0) at thread.c:996
 #4  thread_join_sleep (arg=arg@entry=140734195440096) at thread.c:787
-#5  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f032a0d6090 <thread_join_sleep>, data1=data1@entry=140734195440096, 
+#5  0x00007f0329f67d97 in rb_ensure (b_proc=b_proc@entry=0x7f032a0d6090 <thread_join_sleep>, data1=data1@entry=140734195440096,
     e_proc=e_proc@entry=0x7f032a0cfa10 <remove_from_join_list>, data2=data2@entry=140734195440096) at eval.c:850
 #6  0x00007f032a0d0cd0 in thread_join (delay=<optimized out>, target_th=0x96c9f10) at thread.c:829
 #7  thread_join_m (argc=<optimized out>, argv=0x7f032a4c1168, self=<optimized out>) at thread.c:909
@@ -307,7 +308,7 @@ Thread 1 (Thread 0x7f032a5c2740 (LWP 8999)):
 #10 vm_call_method (th=0x1ed95b0, cfp=0x7f032a5c0ca0, ci=<optimized out>) at vm_insnhelper.c:1754
 #11 0x00007f032a0b7a44 in vm_exec_core (th=th@entry=0x1ed95b0, initial=initial@entry=0) at insns.def:1028
 #12 0x00007f032a0bb5ec in vm_exec (th=th@entry=0x1ed95b0) at vm.c:1304
-#13 0x00007f032a0c2cff in invoke_block_from_c (defined_class=51649880, cref=0x0, blockptr=0x0, argv=0x7fff3bba1e08, argc=1, self=51647880, 
+#13 0x00007f032a0c2cff in invoke_block_from_c (defined_class=51649880, cref=0x0, blockptr=0x0, argv=0x7fff3bba1e08, argc=1, self=51647880,
     block=<optimized out>, th=0x1ed95b0) at vm.c:732
 #14 vm_yield (argv=<optimized out>, argc=<optimized out>, th=<optimized out>) at vm.c:763
 #15 rb_yield_0 (argv=0x7fff3bba1e08, argc=1) at vm_eval.c:938
@@ -488,6 +489,6 @@ This now shows me what's going on inside my Ruby process:
   gems/ruby-2.1.1/bundler/gems/moped-074ba070aa98/lib/moped/connection/socket/tcp.rb:20:in `initialize'
 ```
 
-Looks like the whole think started with a [moped](https://github.com/mongoid/moped) socket connection (which makes sense). 
+Looks like the whole think started with a [moped](https://github.com/mongoid/moped) socket connection (which makes sense).
 
 Investigating further ...

@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Final Fantasy V"
 date: 2015-11-07 20:15:57 -0400
 comments: true
-categories: [jrpg, gba, rpg, just-finished]
+categories: [Gaming, "Just Finished"]
+categories: [jrpg, gba, rpg]
 ---
 
 {% picture right /images/ffv/ffv.001.png %}

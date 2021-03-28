@@ -3,7 +3,8 @@ layout: post
 title: "Install Latest MongoDB in Ubuntu"
 date: 2012-08-29 13:46
 comments: true
-categories: [Ubuntu, MongoDB, Bash]
+categories: [Linux]
+tags: [ubuntu, mongodb, bash]
 ---
 
 A couple projects I work on use [MongoDB](http://www.mongodb.org/) as the database, and I'm generally not satisfied to use the (often outdated) version that ships with Ubuntu.

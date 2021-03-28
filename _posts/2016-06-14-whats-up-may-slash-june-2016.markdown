@@ -3,7 +3,8 @@ layout: post
 title: "What's Up - May/June 2016"
 date: 2016-06-14 20:38:02 -0400
 comments: true
-categories: [waddap]
+categories: [Writing]
+tags: [anime, games]
 ---
 
 It's been a while since I posted the [Seiken Densetsu 3]({% post_url 2016-04-19-just-finished-seiken-densetsu-3 %}) review, so I figured as it might be a while before I get around to posting more content, I'll just throw up a quick update.

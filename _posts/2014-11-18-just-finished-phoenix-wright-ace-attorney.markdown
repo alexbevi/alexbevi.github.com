@@ -4,7 +4,8 @@ title: "Just Finished - Phoenix Wright: Ace Attorney"
 date: 2014-11-18 09:24:26 -0500
 comments: true
 published: false
-categories: [just-finished]
+categories: [Gaming, "Just Finished"]
+tags: [gba]
 ---
 
 * reminds me of princess tomato (Mia kidna like Percy)

@@ -3,9 +3,8 @@ layout: post
 title: "Working around MongoDB Stitch's \"max async work queue\" limit"
 date: 2020-03-30 05:19:32 -0400
 comments: true
-categories:
-  - mongodb-stitch
-  - mongodb
+categories: [MongoDB]
+tags: [mongodb, realm]
 ---
 
 [MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having to worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.

@@ -3,7 +3,8 @@ layout: post
 title: "Pipe Command Output to Logentries"
 date: 2014-07-16 12:06:55 -0400
 comments: true
-categories: [linux, logentries]
+categories: [Linux]
+tags: [linux, logentries]
 ---
 
 I've been using [Logentries](https://logentries.com/) for a couple of months now to manage variou project logs and have found it to be extremely convenient.

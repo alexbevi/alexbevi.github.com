@@ -3,7 +3,8 @@ layout: post
 title: "Disable Hot Corner Hover in Linux Mint"
 date: 2012-11-02 08:01
 comments: true
-categories:  [Linux, Mint, Cinnamon]
+categories:  [Linux, Configuration]
+tags:  [linux, mint, cinnamon]
 ---
 
 **UPDATE** For Linux Mint 16, the `hotCorner` settings have been moved to `/usr/share/cinnamon/js/ui/hotCorner.js`.
@@ -14,7 +15,7 @@ The beauty of using a Linux-based system though is that you can pretty much chan
 
 <!-- more -->
 
-By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we're looking for is at `/usr/share/cinammon/js/ui/layout.js`. 
+By default, [Linux Mint](http://linuxmint.com) uses the [Cinnamon](http://cinnamon.linuxmint.com) desktop, so the configuration file we're looking for is at `/usr/share/cinammon/js/ui/layout.js`.
 
 For Linux Mint 12, which still used [Gnome Shell](https://live.gnome.org/GnomeShell), the file was at `/usr/share/gnome-shell/js/ui/layout.js`.
 

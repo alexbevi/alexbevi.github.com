@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Fire Emblem: The Sacred Stones"
 date: 2014-08-06 17:58:55 -0400
 comments: true
-categories: [just-finished, rpg, gba]
+categories: [Gaming, "Just Finished"]
+tags: [rpg, gba]
 ---
 
 {% picture left /images/fire-emblem-the-sacred-stones.003.png %}

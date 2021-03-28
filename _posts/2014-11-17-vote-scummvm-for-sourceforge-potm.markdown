@@ -3,7 +3,8 @@ layout: post
 title: "Vote ScummVM for SourceForge POTM"
 date: 2014-11-17 08:50:15 -0500
 comments: true
-categories: [scummvm]
+categories: [ScummVM]
+tags: [scummvm]
 ---
 
 Although I haven't used my [SourceForge](https://sourceforge.net) account in a number of years, when I started working with [ScummVM](http://www.scummvm.org), that's where the code and issue tracker were, so that's where the development community was as well.

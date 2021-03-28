@@ -3,7 +3,8 @@ layout: post
 title: "Hello MongoDB"
 date: 2018-08-14 15:31:04 -0400
 comments: true
-categories: [mongodb]
+categories: [Personal]
+tags: [mongodb, career]
 ---
 
 As of August 13th, I am no longer a System Architect at DAC Group. I have a public post on [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6432589236368601088/) that got some good traction, but to summarize it was time to move on.

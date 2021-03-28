@@ -3,7 +3,8 @@ layout: post
 title: "Developer Braindump: Tony Tough and the Night of the Roasted Moths"
 date: 2012-11-02 08:28
 comments: true
-categories: [scummvm, game-development]
+categories: ["Game Development"]
+tags: [scummvm, adventure]
 ---
 
 The [ScummVM](http://www.scummvm.org) project recently added support for [Tony Tough and the Night of the Roasted Moths](http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths).

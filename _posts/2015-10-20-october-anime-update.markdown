@@ -3,7 +3,7 @@ layout: post
 title: "October Anime Update"
 date: 2015-10-20 21:20:16 -0400
 comments: true
-categories: anime
+categories: [Anime]
 ---
 
 I finally got around to adding an [Anime](/anime) section to this blog where I can track my Plex library.
@@ -11,7 +11,7 @@ I finally got around to adding an [Anime](/anime) section to this blog where I c
 Since this is the first post, I figure I'll just list of what I've worked my way through in the past six months or so and what's currently on deck.
 
 ### Finished
- 
+
 These are the series that I've recently completed.
 
 * Fullmetal Alchemist: Brotherhood

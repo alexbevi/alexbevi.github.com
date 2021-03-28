@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Breath of Fire 2"
 date: 2015-06-29 13:17:02 -0400
 comments: true
-categories: [just-finished, snes, jrpg, rpg]
+categories: [Gaming, "Just Finished"]
+tags: [snes, jrpg, rpg]
 published: true
 ---
 

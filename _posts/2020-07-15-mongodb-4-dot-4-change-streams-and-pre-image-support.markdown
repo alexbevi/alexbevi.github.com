@@ -3,8 +3,8 @@ layout: post
 title: "MongoDB 4.4 Change Streams and Experimental Pre-Image 'Support'"
 date: 2020-07-15 08:37:08 -0400
 comments: true
-categories:
-  - mongodb
+categories: [MongoDB]
+tags: [mongodb, changestreams]
 ---
 
 **Warning - Not for Production Use**

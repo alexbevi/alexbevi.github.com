@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Breath of Fire"
 date: 2015-06-10 08:34:06 -0400
 comments: true
-categories: [just-finished, snes, rpg]
+categories: [Gaming, "Just Finished"]
+tags: [snes, rpg]
 ---
 
 My original plan for my next playthrough was going to be [Daganronpa](http://en.wikipedia.org/wiki/Danganronpa:_Trigger_Happy_Havoc), but after making it to chapter 5, I got caught up in an phone upgrade bricking (at least [Wind ended up replacing my phone](http://mobilesyrup.com/2015/01/22/wind-mobile-users-complaining-of-problems-with-moto-x-lollipop-soak-test/)) fiasco and lost all my progress.

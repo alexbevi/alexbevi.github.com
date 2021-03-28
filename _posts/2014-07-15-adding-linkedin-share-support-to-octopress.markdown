@@ -3,6 +3,7 @@ layout: post
 title: "Adding LinkedIn Share Support to Octopress"
 date: 2014-07-15 15:55:14 -0400
 comments: true
+categories: [Ruby]
 categories: [octopress]
 ---
 
@@ -50,7 +51,7 @@ index f8f825c..2dce55b 100644
 @@ -104,4 +104,7 @@ google_analytics_tracking_id: xxx
  # Facebook Like
  facebook_like: true
- 
+
 +# LinkedIn Share
 +linkedin_share: true
 ```

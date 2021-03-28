@@ -3,7 +3,8 @@ layout: post
 title: "First Royalty Statement"
 date: 2014-07-15 14:38:35 -0400
 comments: true
-categories: [redmine-plugins-book]
+categories: [Writing]
+categories: [redmine, book]
 ---
 
 Just a quick update on [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book). I received my first royalty statement today, which basically just indicates that not enough books have sold to exceed the advance I received initially.

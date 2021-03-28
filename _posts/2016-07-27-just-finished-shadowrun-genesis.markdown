@@ -3,7 +3,8 @@ layout: post
 title: "Just Gave Up On - Shadowrun (Genesis)"
 date: 2016-07-26 05:25:39 -0400
 comments: true
-categories: [just-gave-up-on, rpg, genesis]
+categories: [Gaming, "Just Gave Up On"]
+categories: [rpg, genesis]
 ---
 
 {% picture left /images/shadowrun-gens/shadowrun.000.png %}

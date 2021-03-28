@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Seiken Densetsu 3"
 date: 2016-04-19 14:30:20 -0400
 comments: true
-categories: [jrpg, snes, rpg]
+categories: [Gaming, "Just Finished"]
+tags: [jrpg, snes, rpg]
 ---
 
 {% picture left /images/sd3/sd3.026.png %}

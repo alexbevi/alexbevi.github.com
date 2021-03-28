@@ -3,7 +3,8 @@ layout: post
 title: "Developer Braindump: Warcraft"
 date: 2013-03-26 12:50
 comments: true
-categories: [game-development]
+categories: ["Game Development"]
+tags: [rts]
 ---
 
 In an effort to centralize some articles about how some classic games were devloped, I've collected the [various parts](http://www.codeofhonor.com/blog/?s=%22The+making+of+Warcraft%22) of [Patrick Wyatt's blog](http://www.codeofhonor.com/blog/) series about the initial development of [Warcraft](http://en.wikipedia.org/wiki/Warcraft).

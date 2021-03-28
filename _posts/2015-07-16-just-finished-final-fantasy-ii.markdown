@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Final Fantasy II"
 date: 2015-07-22 13:21:52 -0400
 comments: true
-categories: [just-finished, gba, jrpg, rpg]
+categories: [Gaming, "Just Finished"]
+categories: [gba, jrpg, rpg]
 ---
 
 {% picture center /images/ff2/ff2-box.jpg %}

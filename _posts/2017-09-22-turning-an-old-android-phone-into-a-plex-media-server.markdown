@@ -3,7 +3,8 @@ layout: post
 title: "Turning an old Android Phone into a Plex Media Server + PVR"
 date: 2017-09-22 21:55:53 -0400
 comments: true
-categories: [android, linux, plex]
+categories: [Plex]
+tags: [android, linux, plex]
 ---
 
 This is possibly a solution to a problem no one other than me has, but once in a while I like to challenge myself to see if something ridiculous is possible.

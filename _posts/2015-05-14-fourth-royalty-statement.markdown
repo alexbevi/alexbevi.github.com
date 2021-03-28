@@ -3,7 +3,8 @@ layout: post
 title: "Fourth Royalty Statement"
 date: 2015-05-14 11:34:45 -0400
 comments: true
-categories: [redmine-plugins-book, redmine, publishing, packt]
+categories: [Writing]
+tags: [redmine, book]
 published: true
 ---
 

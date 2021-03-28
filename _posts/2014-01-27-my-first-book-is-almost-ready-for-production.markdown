@@ -3,7 +3,8 @@ layout: post
 title: "My First Book: Almost Ready for Production"
 date: 2014-01-27 15:37:10 -0500
 comments: true
-categories: [redmine, redmine-plugins, redmine-plugins-book]
+categories: [Writing]
+tags: [redmine, book]
 ---
 
 For the last 4 months I've been working with [Packt Publishing](http://www.packtpub.com) on a book about [Redmine](http://www.redmine.org) plugin extension and development.

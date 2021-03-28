@@ -3,7 +3,8 @@ layout: post
 title: "Fixing Broken Sudo"
 date: 2012-10-30 14:58
 comments: true
-categories: [Linux, Ubuntu]
+categories: [Linux]
+tags: [linux, ubuntu]
 ---
 
 This is pretty much a transcription of [http://www.psychocats.net/ubuntu/fixsudo](http://www.psychocats.net/ubuntu/fixsudo), which is just such a good article I wanted to keep a copy for reference.

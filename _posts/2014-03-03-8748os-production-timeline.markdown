@@ -3,12 +3,13 @@ layout: post
 title: "Production Timeline"
 date: 2014-03-03 08:22:30 -0500
 comments: true
-categories: [redmine, redmine-plugins, redmine-plugins-book]
+categories: [Writing]
+tags: [redmine, book]
 ---
 
 Well, it's been a long (longer than anticipated) journey, but [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) (code number 8748OS) is in the final stages of production.
 
-Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technial Editor.
+Since I wanted to share a bit more detail about what went into the production of this book, I'm attaching a (slightly edited) copy of the production timeline I received from my Technical Editor.
 
 <!-- more -->
 

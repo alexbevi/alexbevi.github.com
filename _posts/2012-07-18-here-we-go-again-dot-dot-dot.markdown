@@ -3,7 +3,8 @@ layout: post
 title: "Here we go again ..."
 date: 2012-07-18 07:53
 comments: true
-categories: [writing]
+categories: [Writing]
+tags: [blog]
 ---
 
 So, another year, another blogging engine, another crack at blogging.

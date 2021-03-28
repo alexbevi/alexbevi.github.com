@@ -3,7 +3,8 @@ layout: post
 title: "Identifying failing system.js functions in MongoDB"
 date: 2016-02-10 15:17:56 -0500
 comments: true
-categories: [mongodb, javascript]
+categories: [MongoDB]
+tags: [mongodb, javascript, scripting, troubleshooting]
 ---
 
 ``` bash

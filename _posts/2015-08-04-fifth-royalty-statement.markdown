@@ -3,7 +3,8 @@ layout: post
 title: "Fifth Royalty Statement: This time for profit!"
 date: 2015-08-04 20:49:59 -0400
 comments: true
-categories: [redmine-plugins-book, redmine, publishing, packt]
+categories: [Writing]
+tags: [redmine, book]
 published: true
 ---
 

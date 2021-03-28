@@ -3,7 +3,8 @@ layout: post
 title: "First Round of Rewrites Completed!"
 date: 2014-02-09 21:48:29 -0500
 comments: true
-categories: [redmine, redmine-plugins, redmine-plugins-book]
+categories: [Writing]
+tags: [redmine, book]
 ---
 
 This is just a quick update that I've finally finished the first round of rewrites for the upcoming [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) book.

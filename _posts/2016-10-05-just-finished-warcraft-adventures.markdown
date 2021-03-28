@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Warcraft Adventures"
 date: 2016-11-29 04:36:22 -0400
 comments: true
-categories: [just-finished, adventure, pc]
+categories: [Gaming, "Just Finished"]
+categories: [adventure, pc]
 ---
 
 {% picture left /images/wca/wca.08.png %}

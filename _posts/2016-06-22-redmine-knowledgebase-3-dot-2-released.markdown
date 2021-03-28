@@ -3,7 +3,8 @@ layout: post
 title: "Redmine Knowledgebase 3.2.0 Released"
 date: 2016-06-22 21:33:34 -0400
 comments: true
-categories: [redmine]
+categories: [Redmine]
+tags: [redmine]
 ---
 
 I haven't been very actively involved with this plugin or the Redmine community as a whole lately, but it would seem there is a very active user-base still logging bugs and enhancing this project.

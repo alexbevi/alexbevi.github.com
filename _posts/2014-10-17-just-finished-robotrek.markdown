@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Robotrek"
 date: 2014-10-17 09:00:00 -0400
 comments: true
-categories: [just-finished, rpg, snes]
+categories: [Gaming, "Just Finished"]
+tags: [rpg, snes]
 ---
 
 I was planning on writing this review a while ago, but it turns out I nuked my phone and lost my progress so I had to start all over again. I originally started this on 2014-09-26, but I kind of lost my motivation ... and I started playing [Terranigma](http://en.wikipedia.org/wiki/Terranigma), which is pretty awesome so far.

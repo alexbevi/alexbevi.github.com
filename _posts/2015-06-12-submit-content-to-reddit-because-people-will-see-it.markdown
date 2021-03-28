@@ -3,7 +3,8 @@ layout: post
 title: "Submit Content to Reddit because people WILL see it"
 date: 2015-06-12 09:15:44 -0400
 comments: true
-categories: [reddit]
+categories: [Writing]
+tags: [reddit]
 ---
 
 I just wanted to share a quick story as someone who occasionally publishes stuff (both in [print](https://www.packtpub.com/big-data-and-business-intelligence/redmine-plugin-extension-and-development) and on the [internets](https://en.wikipedia.org/wiki/Internets)).

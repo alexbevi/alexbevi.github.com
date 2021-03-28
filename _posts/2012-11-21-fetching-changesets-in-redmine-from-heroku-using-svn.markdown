@@ -3,7 +3,8 @@ layout: post
 title: "Fetching Changesets in Redmine from Heroku using Subversion"
 date: 2012-11-21 08:44
 comments: true
-categories: [redmine, heroku, subversion, vagrant]
+categories: [Redmine]
+tags: [redmine, heroku, subversion, vagrant]
 ---
 
 [**NOTE**: The method described below should still work, but it's much easier to just use a Heroku buildpack (see [this post]({% post_url 2014-07-07-subversion-plus-ruby-on-heroku-via-buildpacks %}) for details)]

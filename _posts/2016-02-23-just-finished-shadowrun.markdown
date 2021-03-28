@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Shadowrun"
 date: 2016-02-23 20:20:11 -0500
 comments: true
-categories: [just-finished, rpg, snes]
+categories: [Gaming, "Just Finished"]
+tags: [rpg, snes]
 published: true
 ---
 

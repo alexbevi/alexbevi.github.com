@@ -3,6 +3,7 @@ layout: post
 title: "Summer RPG Update 2016"
 date: 2016-09-05 14:08:29 -0400
 comments: true
+categories: [Writing]
 categories: [jrpg, rpg, snes, gba]
 ---
 

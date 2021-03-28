@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Lufia 2"
 date: 2015-09-23 20:04:59 -0400
 comments: true
-categories: [just-finished, snes, jrpg, rpg]
+categories: [Gaming, "Just Finished"]
+categories: [snes, jrpg, rpg]
 ---
 
 {% picture right /images/lufia2/lufia2.000.png %}

@@ -1,10 +1,11 @@
 ---
-layout: post
 title: "Optimizing MongoDB Compound Indexes - The \"Equality - Sort - Range\" (ESR) Rule"
 date: 2020-05-16 07:35:11 -0400
 comments: true
 published: true
-categories: [mongodb]
+categories: [MongoDB, "Queries & Indexing"]
+tags: [mongodb]
+pin: true
 ---
 
 Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet (though [DOCS-11790](https://jira.mongodb.org/browse/DOCS-11790) exists to track this effort).

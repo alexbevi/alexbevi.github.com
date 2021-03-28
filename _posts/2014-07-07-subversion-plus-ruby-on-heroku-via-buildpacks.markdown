@@ -3,6 +3,7 @@ layout: post
 title: "Subversion + Ruby on Heroku via Buildpacks"
 date: 2014-07-07 09:28:38 -0400
 comments: true
+categories: [Heroku]
 categories: [redmine, heroku, subversion]
 ---
 
@@ -23,9 +24,9 @@ In order to get around this limitation though, we can leverage another buildpack
 For our purposes, we're going to add Subversion and Ruby to our app:
 
     $ cd /path/to/app
-    
+
     $ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
-    
+
     $ cat .buildpacks
     https://github.com/cucumber-ltd/heroku-buildpack-subversion.git
     https://github.com/heroku/heroku-buildpack-ruby.git

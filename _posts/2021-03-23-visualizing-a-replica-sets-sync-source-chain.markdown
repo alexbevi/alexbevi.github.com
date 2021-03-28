@@ -3,7 +3,8 @@ layout: post
 title: "Visualizing a Replica Set's Sync Source Chain"
 date: 2021-03-23 10:47:41 -0400
 comments: true
-categories: mongodb
+categories: [MongoDB]
+tags: [mongodb, replication, scripting]
 ---
 
 

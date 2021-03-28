@@ -3,7 +3,8 @@ layout: post
 title: "Just Finished - Dragon Quest I"
 date: 2016-07-27 22:26:01 -0400
 comments: true
-categories: [just-finished, rpg, jrpg, snes]
+categories: [Gaming, "Just Finished"]
+tags: [rpg, jrpg, snes]
 ---
 
 I actually finished this game around the end of June, but haven't really had a chance to write about it until now. I'm currently sitting out by the lake at the cottage and figured it was about time :P

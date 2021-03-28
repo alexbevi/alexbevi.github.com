@@ -3,7 +3,8 @@ layout: post
 title: "MongoDB 5.0 Initial Sync Progress Monitoring Improvements"
 date: 2020-11-20 10:31:26 -0500
 comments: true
-categories: [mongodb]
+categories: [MongoDB]
+tags: [mongodb, replication, scripting]
 ---
 
 `<SHAMELESS_PLUG>`

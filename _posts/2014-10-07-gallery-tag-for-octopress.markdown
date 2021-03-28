@@ -3,7 +3,8 @@ layout: post
 title: "Gallery Tag for Octopress"
 date: 2014-10-07 08:31:08 -0400
 comments: true
-categories: [octopress, jekyll, plugins]
+categories: [Ruby]
+categories: [octopress, jekyll]
 ---
 
 While working on my post about finishing [Robotrek](http://en.wikipedia.org/wiki/Robotrek), I found that I had taken a lot more screenshots than would fit nicely with the amount of copy I intended to write.
