@@ -25,6 +25,7 @@ group :jekyll_plugins do
   gem 'jekyll_picture_tag', '~> 2.0'
   gem 'jekyll-debug'
   gem 'jekyll-paginate'
+  gem 'jekyll-remote-theme'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
