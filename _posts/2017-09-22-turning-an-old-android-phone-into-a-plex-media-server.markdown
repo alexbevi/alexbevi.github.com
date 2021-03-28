@@ -13,7 +13,7 @@ This time around I wanted to see if I could take my old [Moto X (2014)](http://w
 
 I didn't want to just see if I could install Plex though; I wanted to see if it would be possible to actually run a PMS instance along with [Sonarr](https://sonarr.tv/) to download content automatically for shows I'm interested in.
 
-{% picture center /images/moto-plex/moto-plex-003.png %}
+![](/images/moto-plex/moto-plex-003.png)
 
 This introduced a couple of challenges, as Sonarr would need to be run using [Mono](http://www.mono-project.com/) (as it's a .NET project), I'd need a Bittorrent client to actually download the content, and I'd likely need to be running a [Jackett](https://github.com/Jackett/Jackett) service to allow Sonarr to process request through sites like The Pirate Bay.
 
@@ -27,7 +27,7 @@ Note that this process (with some minor changes) can be used to get a Plex + Son
 
 This was the easiest part, as it simply required rooting the device so we could install [SuperSU](https://download.chainfire.eu/696/supersu/).
 
-{% picture right /images/moto-plex/moto-plex-001.png %}
+![](/images/moto-plex/moto-plex-001.png)
 
 With a factory reset instance and root access, the next step was to install [BusyBox](https://play.google.com/store/apps/details?id=stericson.busybox&hl=en) and [Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy&hl=en).
 
@@ -39,7 +39,7 @@ First, select the repository you'd like. For my phone I went with **ubuntu-lxde_
 
 Under the properties for the repository (the settings icon in the lower right next to the *Stop* button) I set the *Installation type* to **Directory**. This setting allows use to have access to all available storage on our device. The first time I tried this I used the default of **File**, which only gave me 2GB of storage to play with. Once the base installation was done, there wasn't enough space left for me to do much. I tried tweaking the *Image Size (MB)* setting and starting over but it didn't make a difference. Your milage may vary, so feel free to try other configurations.
 
-{% picture left /images/moto-plex/moto-plex-002.png %}
+![](/images/moto-plex/moto-plex-002.png)
 
 Next, from the top-right menu you need to *Install* the selected repository. This will do the basic installation of the Linux distribution you selected and pre-configure it for SSH and VNC access.
 
@@ -87,7 +87,7 @@ sudo echo "deb http://apt.sonarr.tv/ master main" | sudo tee /etc/apt/sources.li
 sudo apt-get update
 sudo apt-get install -y nzbdrone
 ```
-{% picture center /images/moto-plex/moto-plex-004.png %}
+![](/images/moto-plex/moto-plex-004.png)
 
 
 Before we configure Sonarr, we'll setup Jackett. Jackett can be used to connect a torrent search site as a [Torznab feed](https://github.com/Sonarr/Sonarr/wiki/Supported-Indexers#torznab) to Sonarr.
@@ -149,7 +149,7 @@ Let's save this script as **transmission-postprocess** and make it executable us
 
 Next, we'll need to actually VNC into our Linux distro. This is due to Transmission being a GTK application so we'll need to interact with it in a desktop environment.
 
-{% picture center /images/moto-plex/moto-plex-005.png %}
+![](/images/moto-plex/moto-plex-005.png)
 
 From the desktop, launch Transmission and go to *Edit -> Preferences*. We want to do two things now:
 
@@ -158,7 +158,7 @@ From the desktop, launch Transmission and go to *Edit -> Preferences*. We want t
 
 ## Putting It All Together
 
-{% picture center /images/moto-plex/moto-plex-006.png %}
+![](/images/moto-plex/moto-plex-006.png)
 <small>open in new tab to see full size</small>
 
 Going back to our Plex Media Server url, we can now setup a library that points to our downloaded media directory.

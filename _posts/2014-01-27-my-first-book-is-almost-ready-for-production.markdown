@@ -9,7 +9,7 @@ tags: [redmine, book]
 
 For the last 4 months I've been working with [Packt Publishing](http://www.packtpub.com) on a book about [Redmine](http://www.redmine.org) plugin extension and development.
 
-{% picture left /images/8748OS_mockupcover_normal_0.jpg %}
+![](/images/8748OS_mockupcover_normal_0.jpg)
 
 Although it likely won't be ready until February 2014, the book is now available for [pre-order on Packt's site](http://www.packtpub.com/redmine-plugin-extension-and-development/book).
 

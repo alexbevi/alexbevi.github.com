@@ -14,7 +14,7 @@ I want to start off by saying I really enjoyed [Terranigma](http://en.wikipedia.
 
 I was a big fan of Soul Blazer (less of Illusion of Gaia) so I was really looking forward to Terranigma. The gameplay is similar (real-time battle) and the themes are similar (restoring the world).
 
-{% picture /images/terranigma/Terranigma.000.png %}
+![](/images/terranigma/Terranigma.000.png)
 
 <!-- more -->
 
@@ -22,7 +22,7 @@ You start off by opening a funky box, which releases Yomi. I don't really know w
 
 First, you need to save your town, which gets frozen; except for the one guy who conveniently can explain how to unfreeze everyone.
 
-{% picture /images/terranigma/Terranigma.002.png %}
+![](/images/terranigma/Terranigma.002.png)
 
 You go off to five different towers in order to "free" some of the villagers (kind of like you do in the dungeons of Soul Blazer ...) who can then help you proceed through the remaining towers.
 
@@ -32,11 +32,11 @@ WRONG!
 
 I got stuck twice since I tried doing this without a walkthrough. The first place was Louran, since I forgot to pick up the scarf you needed in order to prove to the dog you knew his owner. I was stuck here for a very, very long time ...
 
-{% picture /images/terranigma/Terranigma.002.png %}
+![](/images/terranigma/Terranigma.002.png)
 
 Second is [Sylvan Castle](http://shrines.rpgclassics.com/snes/terranigma/wsylvain.shtml) in Spain. This is where I've officially given up. I made it through the castle with no issues, but once you get to the boss, she just decimates you.
 
-{% picture  /images/terranigma/Terranigma.048.png %}
+![]( /images/terranigma/Terranigma.048.png)
 
 Some walkthroughs say your should be at level 21, some say 25. I'm at level 18. Grinding in this game takes a very long time, and I think I'm just going to cut my losses here and move on.
 

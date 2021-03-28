@@ -19,7 +19,7 @@ I've added the latest numbers to those from [my previous post]({% post_url 2014-
 
 <!-- more -->
 
-{% picture left /images/20141222-ss01.png %}
+![](/images/20141222-ss01.png)
 
 The main reason I've been sharing these numbers (without sharing that actual "numbers") is to show prospective authors what types of returns they can potentially expect.
 
@@ -27,4 +27,4 @@ The book I wrote falls into the "minibook" category, so the returns are lower th
 
 Happy Holidays Everyone!!!
 
-{% picture left /images/20141222-cat.png %}
+![](/images/20141222-cat.png)

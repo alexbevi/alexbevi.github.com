@@ -4,7 +4,7 @@ title: "Analysis and Optimization of an N+1 Scenario in Mongoid"
 date: 2021-03-26 09:16:09 -0400
 comments: true
 categories: [Ruby]
-categories: [mongodb, mongoid, ruby]
+tags: [mongodb, mongoid, ruby]
 ---
 
 The `N + 1` queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.
@@ -98,7 +98,7 @@ Next let's measure our `compact!` operations:
 
 We're only modifying a single document, after reviewing the FTDC<sup>[1](#fn1)</sup> it appears there are about 10K update operations issued, which is taking about a minute to completed.
 
-{% picture /images/nplus1-1.png %}
+![](/images/nplus1-1.png)
 
 After reviewing the documentation for MongoDB's [`$unset`](https://docs.mongodb.com/manual/reference/operator/update/unset/) update operator it appears we can pass more than one field at a time. If this is the case, we can send a single command with a list of 10K fields as opposed to 10K commands with a single field each.
 
@@ -122,7 +122,7 @@ After testing this the result confirms our theory and the performance is signifi
 
 Reviewing the FTDC again shows only a single command was issued:
 
-{% picture /images/nplus1-2.png %}
+![](/images/nplus1-2.png)
 
 Anytime operations are being sent to the server from within a loop there may be an opportunity to group/batch actions in a more efficient manner. The first step to improving performance is being able to identify an opportunity for improvement, which I hope this article helps you do.
 

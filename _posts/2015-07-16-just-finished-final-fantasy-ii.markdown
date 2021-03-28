@@ -4,10 +4,10 @@ title: "Just Finished - Final Fantasy II"
 date: 2015-07-22 13:21:52 -0400
 comments: true
 categories: [Gaming, "Just Finished"]
-categories: [gba, jrpg, rpg]
+tags: [gba, jrpg, rpg]
 ---
 
-{% picture center /images/ff2/ff2-box.jpg %}
+![](/images/ff2/ff2-box.jpg)
 
 I'm excited to finally be able to review this game, as it's the direct sequel to the game that got me into RPGs way back in 1990-91.
 
@@ -27,7 +27,7 @@ The story is pretty standard JRPG fare. The Emperor of Palamecia is trying to ta
 
 Leon goes missing. The party wants to find him. Off they go.
 
-{% picture left /images/ff2/ff2.010.png %}
+![](/images/ff2/ff2.010.png)
 
 You'll meet various characters along the way that will join your party and fight with you. (**SPOILERS!** they usually die by sacrificing themselves so you can continue the quest ...)
 
@@ -35,19 +35,19 @@ As you go along, you find out more about the Emperors plan, fight with the Dark 
 
 <h4>What's Cool</h4>
 
-{% picture right /images/ff2/ff2.004.png %}
+![](/images/ff2/ff2.004.png)
 
 FFII introduces a couple of interesting gameplay elements that were not reused in any future entries in the series.
 
 First, key character conversations allowed you to *Learn* keywords, which you could then *Ask* other key characters about. This mechanic helps advance the story as you have to ask various characters about plot points you learn as you go, and they then point you in the direction of your next objective.
 
-{% picture left /images/ff2/ff2.009.png %}
+![](/images/ff2/ff2.009.png)
 
 FFII has multiple modes of travel on the overworld. As with the original, there are ships and an airship, but FFII introduces the [chocobo](https://en.wikipedia.org/wiki/Chocobo).
 
 There is also a bunch of "cut-scenes" added to this incarnation (which would not have been available in the original NES version). These are nice as they aren't excessive or long, but help advance the plot.
 
-{% picture right /images/ff2/ff2.005.png %}
+![](/images/ff2/ff2.005.png)
 
 Instead of leveling up your characters by fighting and gaining EXP, FFII opted for a system where the more you use a skill, the better you get at it.
 
@@ -59,11 +59,11 @@ I thought this was a very interesting mechanic, and I'm not really sure why this
 
 <h4>What's Not Cool</h4>
 
-{% picture left /images/ff2/ff2.019.png %}
+![](/images/ff2/ff2.019.png)
 
 For some reason, this installation in the series decided to introduce an Inn system that charged based on how much healing you required. This proved to be a bit annoying until you realize it's a LOT cheaper to just use cure spells to get everyone's HP back up, THEN rest at the inn ;)
 
-{% picture right /images/ff2/ff2.031.png %}
+![](/images/ff2/ff2.031.png)
 
 Another annoyance is that throughout the game, in *any* dungeon you visit, there are doors that lead to empty rooms. LOTS of doors that lead to empty rooms. What's annoying is that these rooms have higher encounter rates, so the first step you take to head back towards the exit generally results in a battle.
 

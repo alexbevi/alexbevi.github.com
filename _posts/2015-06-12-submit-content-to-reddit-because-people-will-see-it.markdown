@@ -15,13 +15,13 @@ I didn't really bother to dive in and actually *look* for content, or bother to 
 
 Yesterday, I took a couple of my articles from this blog and submitted them ([here](http://www.reddit.com/r/JRPG/comments/39dg8d/just_finished_breath_of_fire/), [here](http://www.reddit.com/r/commandline/comments/39fz7c/accessing_a_running_process_stdout/) and [here](http://www.reddit.com/r/ruby/comments/39g909/keeping_pry_breakpoints_out_of_git/)) to see what sort of feedback/engagement I might see.
 
-{% picture /images/20150612-ga002.png %}
+![](/images/20150612-ga002.png)
 
 Generally, I see anywhere from 5-25 users a day pass through here. That all changed very, VERY quickly once I submitted my content.
 
 Within 12 hours of posting, I'd managed to get up to ~ 900 unique users, and by the end of the day, it was over 1000! ([over 9000](http://knowyourmeme.com/memes/its-over-9000) would have been sweeter :P)
 
-{% picture /images/20150612-ga001.png %}
+![](/images/20150612-ga001.png)
 
 I had some really great conversations around my content, and got some useful feedback as well.
 

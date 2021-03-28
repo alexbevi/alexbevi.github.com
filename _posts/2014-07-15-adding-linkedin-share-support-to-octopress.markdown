@@ -4,7 +4,7 @@ title: "Adding LinkedIn Share Support to Octopress"
 date: 2014-07-15 15:55:14 -0400
 comments: true
 categories: [Ruby]
-categories: [octopress]
+tags: [octopress]
 ---
 
 I was looking for a plugin or an include to easily add [LinkedIn](http://www.linkedin.com/) support to the share options for my posts.

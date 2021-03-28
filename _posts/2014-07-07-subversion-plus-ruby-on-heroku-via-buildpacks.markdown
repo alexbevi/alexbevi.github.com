@@ -4,7 +4,7 @@ title: "Subversion + Ruby on Heroku via Buildpacks"
 date: 2014-07-07 09:28:38 -0400
 comments: true
 categories: [Heroku]
-categories: [redmine, heroku, subversion]
+tags: [redmine, heroku, subversion]
 ---
 
 Back in 2012, I wrote a post about [Redmine and Subversion on Heroku]({% post_url 2012-11-21-fetching-changesets-in-redmine-from-heroku-using-svn %}) that involved some funky hacks in order to build a working `svn` binary that could be uploaded as part of your Git payload.

@@ -137,7 +137,7 @@ Go to the root of your local Redmine repository, and create a `bin` folder. Now 
 
 If all went well, when you access the *Repositories* tab under *Administration -> Settings*, Subversion should be listed and the version we just uploaded displayed.
 
-{% picture center /images/heroku-svn-01.jpg %}
+![](/images/heroku-svn-01.jpg)
 
 ## Accessing Changesets from GitHub
 
@@ -147,11 +147,11 @@ First, add a new repository and point it to the GitHub url you would normally us
 
 > **NOTE** Leave the *Login* and *Password* fields blank unless this is a private repository
 
-{% picture center /images/heroku-svn-02.jpg %}
+![](/images/heroku-svn-02.jpg)
 
 Once configured, clicking on the *Repository* tab should fetch the changesets and show the source tree
 
-{% picture center /images/heroku-svn-03.jpg %}
+![](/images/heroku-svn-03.jpg)
 
 > **NOTE** This can potentially time out on a larger project and require clicking on the *Repository* tab multiple times until all changesets have been fetched and parsed.
 

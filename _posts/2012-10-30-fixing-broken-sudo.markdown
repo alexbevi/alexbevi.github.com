@@ -25,7 +25,7 @@ _sudo_ breaks when one or more of the following occurs:
 * the permissions on the `/etc/sudoers` file are changed to something other than 0440
 * a user who should not have been has been taken out of the _admin_ group
 
-{% picture center /images/fixsudoprecise01.jpg %}
+![](/images/fixsudoprecise01.jpg)
 
 If _sudo_ is broken this way, you may notice an error saying you're not in the _sudo_ers file and the incident is going to be reported. Or you may just see the next command prompt without any action being executed.
 
@@ -38,11 +38,11 @@ If you have a single-boot (Ubuntu is the only operating system on your computer)
 
 If you have a dual-boot (Ubuntu is installed next to Windows, another Linux operating system, or Mac OS X; and you choose at boot time which operating system to boot into), the boot menu should appear without the need to hold down the _Shift_ key.
 
-{% picture center /images/fixsudoprecise02.jpg %}
+![](/images/fixsudoprecise02.jpg)
 
 From the boot menu, select _recovery mode_, which is usually the second boot option.
 
-{% picture center /images/fixsudoprecise03.jpg %}
+![](/images/fixsudoprecise03.jpg)
 
 After you select recovery mode and wait for all the boot-up processes to finish, you'll be presented with a few options. In this case, you want the *Drop to root shell* prompt option so press the Down arrow to get to that option, and then press Enter to select it.
 
@@ -115,7 +115,7 @@ When you're done with whatever commands you needed to enter, type
 
 This will bring you back to the recovery menu.
 
-{% picture center /images/fixsudoprecise04.jpg %}
-{% picture center /images/fixsudoprecise05.jpg %}
+![](/images/fixsudoprecise04.jpg)
+![](/images/fixsudoprecise05.jpg)
 
 Choose to resume a normal boot. Then you should be able to _sudo_ again.

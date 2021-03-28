@@ -43,15 +43,15 @@ I found his reasons for joining MongoDB (10gen at the time), description of what
 
 To answer this question, let's start off by analyzing the [job posting](https://www.mongodb.com/careers/jobs/791258) that kicked off this journey for me in the first place.
 
-{% picture /images/why_tse/why_tse_001.png %}
+![](/images/why_tse/why_tse_001.png)
 
 So they're looking for people that are able to solve problems and communicate clearly. This could be a call center gig after all ... oh wait, *experts in MongoDB related database servers, drivers, tools, services* ... hrm, maybe there's a bit more to this.
 
-{% picture /images/why_tse/why_tse_002.png %}
+![](/images/why_tse/why_tse_002.png)
 
 *Architecture, performance, recovery, security*, those are a lot more complex than what you would face in a traditional support role. What really sold me though was the *contribute to internal projects* statement, as this aligned perfectly with my desire for process improvement through custom tooling.
 
-{% picture /images/why_tse/why_tse_003.png %}
+![](/images/why_tse/why_tse_003.png)
 
 By the time I got to this point in the job posting I was already sold. MongoDB is either trying to staff their first tier support with ridiculously over-qualified employees, or Technical Services really isn't what I would have thought.
 

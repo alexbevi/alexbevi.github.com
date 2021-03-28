@@ -4,10 +4,10 @@ title: "Just Finished - Final Fantasy V"
 date: 2015-11-07 20:15:57 -0400
 comments: true
 categories: [Gaming, "Just Finished"]
-categories: [jrpg, gba, rpg]
+tags: [jrpg, gba, rpg]
 ---
 
-{% picture right /images/ffv/ffv.001.png %}
+![](/images/ffv/ffv.001.png)
 
 I've been waiting write this review for a very long time. I love the Final Fantasy series, and although I got the original back in '90, I didn't really fall in love with the series until I played IV for the SNES. Then I played VI. Then I was REALLY hooked.
 
@@ -17,7 +17,7 @@ The game starts off with the king of Tycoon heading off to check on the wind cry
 
 The king's daughter, Lenna, heads out to find her father and runs into Bartz and Galuf. They team up and the adventure begins.
 
-{% picture left /images/ffv/ffv.003.png %}
+![](/images/ffv/ffv.003.png)
 
 Once at the wind shrine, they find that the crystal has shattered and within each shard is the power of a job class.
 
@@ -31,14 +31,14 @@ These abilities can then be applied to a character regardless of the class they'
 
 This gives you a lot of control over how you build your characters as the game progresses.
 
-{% picture right /images/ffv/ffv.002.png %}
+![](/images/ffv/ffv.002.png)
 
 The storytelling in this game is very well done. Although the plot is pretty standard Final Fantasy fare (crystals, amnesia, evil emperor, main characters dying), the writing was pretty good and the character emotion pop-ups added a nice touch as well.
 
 I enjoyed the elements of comedy they tried to incorporate into some of the scenarios and characters. After playing this game, Gilgamesh is probably my new favourite non-player character in the series. This might also have to do with [Clash on the Big Bridge](https://www.youtube.com/watch?v=6CMTXyExkeI)
 being my favourite song from this game ;)
 
-{% picture left /images/ffv/ffv.022.png %}
+![](/images/ffv/ffv.022.png)
 
 The battle system is the same as in FFIV ([Active Time Battle system](http://finalfantasy.wikia.com/wiki/Battle_System#Active_Time_Battle)). You can fight, use items, or up to 2 abilities you've learned from gaining AP and leveling up your classes.
 
@@ -46,7 +46,7 @@ I didn't find the battles overly difficult during this play-through, but I've be
 
 So as you progress through the game, you discover that the ultimate evil, Exdeath, was banished to your world by the four warriors of dawn. Now you and your party need to become the new warriors of dawn to fight him again.
 
-{% picture right /images/ffv/ffv.046.png %}
+![](/images/ffv/ffv.046.png)
 
 You have to get the ultimate weapons for each character class, you can go on some side quests to get some powerful summons and eventually go after Exdeath.
 
@@ -56,7 +56,7 @@ I found that magic and summons in this game proved to be effective until the ver
 
 I thought the story was really compelling, and I found the whole alternate worlds overlapping "thing" to be a nice twist, though it felt a bit like what happened in FF III. Actually, just like FF III, you even have to race a chocobo around the world to get an item ...
 
-{% picture left /images/ffv/ffv.037.png %}
+![](/images/ffv/ffv.037.png)
 
 I teared up (just a bit) when Galuf's flame was extinguished by Exdeath. I was a bit worried that since this game follows FF IV it was possible they would do the whole "everyone who died is magically back to fight again for no reason" that happened with Yang, Cid, Edward, Tellah ... etc. Fortunately (?), this wasn't the case and it's actually a very emotional point in the story.
 

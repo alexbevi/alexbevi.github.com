@@ -288,7 +288,7 @@ As we started the game I felt a greater sense of excitement than I’d ever know
 
 ## The fog of war
 
-{% picture /images/Warcraft-1-fog-of-war.jpg %}
+![](/images/Warcraft-1-fog-of-war.jpg)
 
 One of the ideas drawn from earlier games was that of hiding enemy units from sight of the opposing player. A black graphic overlay hid areas of the game map unless a friendly unit explored the area, which is designed to mimic the imperfect information known by a general about enemy operations and troop movements during real battles.
 
@@ -328,7 +328,7 @@ As our armies met in battle, we redoubled our efforts to build more units and th
 
 And then … crash:
 
-{% picture /images/Dos4GW-crash.png %}
+![](/images/Dos4GW-crash.png)
 
 Bad news bears – DOS4GW lets us know Warcraft crashed
 As any programmer knows, the likelihood of new code working properly the first time is close to zero, and so it should be no surprise that the game crashed. The game’s graphics scrolled off the top of the monitor and were replaced with the blocky text of the DOS4GW “crash screen” so familiar to gamers in the era before Windows gaming. Now we have the far more sophisticated Windows Error Reporting dialog which enables the player to submit the crash report, though occasionally players see the dreaded “blue screen of death” which is remarkably similar to those of old.

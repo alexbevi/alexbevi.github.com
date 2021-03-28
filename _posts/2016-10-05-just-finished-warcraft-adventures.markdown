@@ -4,10 +4,10 @@ title: "Just Finished - Warcraft Adventures"
 date: 2016-11-29 04:36:22 -0400
 comments: true
 categories: [Gaming, "Just Finished"]
-categories: [adventure, pc]
+tags: [adventure, pc]
 ---
 
-{% picture left /images/wca/wca.08.png %}
+![](/images/wca/wca.08.png)
 
 Although I'm a huge fan of the point-and-click adventure genre, I've been primarily focusing on covering 16-bit RPGs in my spare time. I've still got a sizeable backlog to wade through, but when the news dropped that [Warcraft Adventures: Lord of the Clans](https://en.wikipedia.org/wiki/Warcraft_Adventures:_Lord_of_the_Clans) had been leaked, I couldn't resist.
 
@@ -35,7 +35,7 @@ As per the [Gamepedia](http://wow.gamepedia.com/Warcraft_Adventures:_Lord_of_the
 Basically, after the Dark Portal was destroyed and the rift between the worlds was destroyed, you had a large group of orcs that were trapped on Azeroth. And over the course of the next few years, the humans, being merciful in their ways, instead of hunting down and eradicating these orcs, granted them land areas where they could live as long as they lived within the confines of societal expectations. Basically, they were put on these reservations or camps. And because they were made to live in a way that was very contrary to their basic nature, a lot of the spirit and fire that defines them as a culture was drained out of them. And so what you found yourself with was an orc society in Azeroth of forced passivity, not forced through violence but forced through situation.
 Although down on their luck, the orcs in Warcraft Adventures were supposed to experience a rebirth, thanks to the leadership of Thrall.
 
-{% picture left /images/wca/wca.10.png %}
+![](/images/wca/wca.10.png)
 
 Our storyline followed an orc baby that was taken from a battle scene where his parents were slain and raised by a human lieutenant, Blackmoore, with the intention of raising him with human ideals but being able to use him to control the orcs. Definitely someone who does not fit into the general stereotype of noble humans. He was a self-serving, dark human character who wanted to raise this orc, Thrall, our central character in the game, and use him to control and command the orcs and then raise them as his own private army. Thrall, though he's raised in captivity by humans to serve their will, still has some fire within him that he can't deny, so he rebels against his human owners. He escapes the compound where he's being held, and then over the course of the game, what we do is follow his adventures. As he discovers more about himself and the orcs and what it means to be an orc, so does the player. As you go through the game, you meet some familiar faces from the games, some in retirement, some trying to lead an underground resistance, and you learn of what happened to the Frost Wolf Clan, which was the clan that Thrall's father Durotan was a part of. You learn that Durotan, Blackhand and Doomhammer were three blood brothers, and that his clan Frost Wolf was sent into the Dwarf Highlands in the mountains. They were exiled there by a plotting Ner'zhul, when he was pulling the strings in the background behind Doom Hammer and Black Hand, because he knew that Durotan was a threat.
 
@@ -43,7 +43,7 @@ Our storyline followed an orc baby that was taken from a battle scene where his 
 
 When I first started playing WCA, it was a nice trip down memory lane. The gameplay mechanics really seemed to borrow heavily from [Full Throttle](https://en.wikipedia.org/wiki/Full_Throttle_\(1995_video_game\)), which was one of my favourite point-and-click adventures in the '90s.
 
-{% picture right /images/wca/wca.05.png %}
+![](/images/wca/wca.05.png)
 
 Right-clicking brings up a graphical command menu that lets you talk, look or use.
 

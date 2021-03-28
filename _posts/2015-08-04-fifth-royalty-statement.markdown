@@ -12,7 +12,7 @@ I've been meaning to write this post for a long time, as I officially got the ro
 
 As of this quarter, [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) is officially earning me money!
 
-{% picture left /images/royalties-004.png %}
+![](/images/royalties-004.png)
 
 Technically, the last statement was [in the black](https://en.wiktionary.org/wiki/in_the_black), however since the terms laid out by Packt Publishing only pays out royalties greater than £75, those earnings were rolled into this quarter.
 

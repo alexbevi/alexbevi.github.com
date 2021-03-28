@@ -4,7 +4,7 @@ title: "Redmine Plugin Extension and Development Still In Demand"
 date: 2017-10-03 20:38:12 -0400
 comments: true
 categories: [Writing]
-categories: [redmine, book]
+tags: [redmine, book]
 ---
 
 It's been a [while]({% post_url 2016-03-23-redmine-plugin-extension-and-development-is-apparently-still-relevant %}) since I last wrote about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I thought I'd give a quick update.

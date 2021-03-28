@@ -20,6 +20,6 @@ For example:
     lsblk | while read -r line; do echo "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee $line" > /dev/tcp/data.logentries.com/80; done
 
 
-{% picture left /images/20140716-logentries.png %}
+![](/images/20140716-logentries.png)
 
 Hopefully this helps someone other than myself :)

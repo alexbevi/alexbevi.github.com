@@ -21,11 +21,11 @@ In order to configure your repository to push to both, all you need to do is:
 
 **2b)** add a second `url` entry under the same **remote** as you're already pushing to
 
-{% picture /images/20141219-git-001.png %}
+![](/images/20141219-git-001.png)
 
 **3)** now to initialze the Bitbucket remote execute `git push origin -u --all`.
 
-{% picture /images/20141219-git-002.png %}
+![](/images/20141219-git-002.png)
 
 This will attempt to push all branches to the remote named *origin*. Since the version on GitHub is already up to date, the Bitbucket version will be initialized and all changes will be pushed.
 

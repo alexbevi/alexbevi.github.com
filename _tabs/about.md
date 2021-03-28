@@ -5,7 +5,7 @@ order: 4
 ---
 
 
-{% picture right /images/headshot.png %}
+![](/images/headshot.png)
 
 The name's Alex, and I'm currently a Senior Technical Services Engineer at [MongoDB](https://www.mongodb.com/) in Toronto.
 

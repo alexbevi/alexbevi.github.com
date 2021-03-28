@@ -131,7 +131,7 @@ METRICS=metrics.2019-10-28T19-02-23Z-00000
 bsondump --quiet $METRICS | less
 ```
 
-{% picture /images/ftdc-001.png %}
+![](/images/ftdc-001.png)
 
 `bsondump` will default to emitting JSON, so we can interact with this using the [`jq`]() utility. For example, if we only want to review the _Metadata Document_ this could be done as follows:
 
@@ -143,7 +143,7 @@ bsondump --quiet $METRICS | jq -s '.[] | select( .type == 0)' | less
 bsondump --quiet $METRICS | jq -s '.[] | select( .type | ."$numberInt" == "0")' | less
 ```
 
-{% picture /images/ftdc-002.png %}
+![](/images/ftdc-002.png)
 
 Working with _Metric Chunks_ is a little more complicated as they are actually zlib compressed BSON documents. We'll use the `jq` utility to only select the first chunk and the [Ruby](https://www.ruby-lang.org/en/) interpreter to decompress the zlib data. Note that the following command can be altered to navigate to other chunks (not only the first) as needed:
 
@@ -177,6 +177,6 @@ Traceback (most recent call last):
 
 The binary data has now been decompressed, and being BSON data we run it through `bsondump` again and voila:
 
-{% picture /images/ftdc-003.png %}
+![](/images/ftdc-003.png)
 
 Hopefully this helps shed some light on what FTDC data is and what it contains. In a future post we'll look into doing something useful with this treasure trove of telemetry our clusters are generating every 1 second or so.

@@ -9,7 +9,7 @@ tags: [rpg, jrpg, snes]
 
 I actually finished this game around the end of June, but haven't really had a chance to write about it until now. I'm currently sitting out by the lake at the cottage and figured it was about time :P
 
-{% picture left /images/dq1/dq1.000.png %}
+![](/images/dq1/dq1.000.png)
 
 The last time I played through Dragon Quest was likely in the late 80's. I'm pretty sure I either heard about it, or got a copy of it through Nintendo Power, and like most kids in North America at the time, this would have been my first introduction to what would become known as JRPGs.
 
@@ -17,7 +17,7 @@ I decided to go with the SNES re-release of this title for my playthrough as I w
 
 It threw me off a bit when they refer to the legendary hero as Roto (as opposed to Erdrick), but I'm assuming this is a better translation than what we got in the 80's so that's probably what the name should have been in the first place.
 
-{% picture right /images/dq1/dq1.001.png %}
+![](/images/dq1/dq1.001.png)
 
 Dragon Quest was essentially the first JRPG. As a result, there are a lot of concepts introduced here that would be adapted and refined by other titles and series over the years. This means that some parts of this game feel a bit rough or unbalanced.
 
@@ -33,7 +33,7 @@ You're the descendant of the legendary hero, and have been tasked with rescuing 
 
 <!-- more -->
 
-{% picture left /images/dq1/dq1.001.png %}
+![](/images/dq1/dq1.001.png)
 
 To defeat the Dragon Lord, you need to get three pieces of equipment of the legendary hero which are scattered across the world.
 
@@ -47,7 +47,7 @@ I think it's kind of cool that the first time you leave the castle you can see t
 
 You interact with NPCs and the world via a command menu. One of the nice additions to the SNES version is that you no longer have to use a STAIRS command to go up and down stairs; just walk over them.
 
-{% picture right /images/dq1/dq1.012.png %}
+![](/images/dq1/dq1.012.png)
 
 As you roam around the overworld and dungeouns, you'll get into random encounters. You interact with these using a command menu as well, where you can select to either attack, use magic, use an item, or run.
 

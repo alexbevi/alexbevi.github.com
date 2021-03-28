@@ -10,7 +10,7 @@ published: true
 
 I had this game finished around Christmas, but I find my motivation for writing these articles is starting to languish. I'm hoping to get that spark back with the next couple of titles i'll be tackling, even though Shadownrun was one of my favourite SNES games of all time.
 
-{% picture right /images/shadowrun/shadowrun.001.png %}
+![](/images/shadowrun/shadowrun.001.png)
 
 You wake up on a slab in the morgue. You don't know who you are or how you got there. That's pretty much all you've got to go on when you start this game for the first time.
 
@@ -24,7 +24,7 @@ This was the first 10 minutes of this game, and I remember playing this back in 
 
 You move around in an isometric fashion. You can interact with certain people by talking to them, or occasionally giving them a key item from your inventory.
 
-{% picture left /images/shadowrun/shadowrun.005.png %}
+![](/images/shadowrun/shadowrun.005.png)
 
 When talking to NPCs, some words will appear in bold. These can then be used as keywords in future conversations. These NPC interactions are how the story is progressed, and you'll spend a fair amount of time in this menu over the course of the game.
 
@@ -34,7 +34,7 @@ Leveling up is done by spending karma when you rest on a bed (which also acts as
 
 Karma is gained by fighting, which is done by moving a set of cross-hairs across the screen, and when placed over an enemy, mashing the A button. You then fire, wait, fire, wait ... etc.
 
-{% picture right /images/shadowrun/shadowrun.010.png %}
+![](/images/shadowrun/shadowrun.010.png)
 
 The combat in this game is pretty simple. Just stand in one place and fire. Once you're in combat mode, you can move your character, so there's not really any strategy (other than healing on occasion).
 
@@ -44,7 +44,7 @@ Navigating the screen using the D-pad can be a bit cumbersome; especially when f
 
 The game seems to be made up of a series of fetch quests that are used to get you from NPC to NPC in order to uncover more keywords, to then be used with other NPCs to trigger more fetch quests. Oh, and move the story along as well ;)
 
-{% picture left /images/shadowrun/shadowrun.006.png %}
+![](/images/shadowrun/shadowrun.006.png)
 
 The game is split up into 3 main areas that you can navigate to by train, one area you get to by boat, and the volcano you get to by helicopter. These areas are all opened up as the story moves along and you slowly uncover who was responsible for trying to geek you at the beginning of the game.
 
@@ -52,7 +52,7 @@ As you fight your way through the various areas, you'll find out that you were a
 
 When you go find a street doc to fix your datajack, it triggers a cortex bomb that then needs to be defused. After this is done, you get some information about what's in your head and you can start decking (hacking) into computers.
 
-{% picture right /images/shadowrun/shadowrun.019.png %}
+![](/images/shadowrun/shadowrun.019.png)
 
 The decking segments are actually pretty dumb, but I love them. This is really what has kept me going back to this game time and again over the years, as I just really loved the concept.
 
@@ -62,7 +62,7 @@ That's it. That's all there is to it. I still love it though :P
 
 Depending on why you were hacking in, you'll either trigger an elevator or get part of a data file. The data files are plot devices that give you bits of the story, or contain phone numbers you can use from vidphones throughout the game.
 
-{% picture left /images/shadowrun/shadowrun.024.png %}
+![](/images/shadowrun/shadowrun.024.png)
 
 After you've finally fought your way through the various sections of the game, you finally get to face off against Drake. He's apparently the one behind you almost being whacked. You beat him up, head back to Akimi building, fight your way up a handful of floors (fighting and decking) and finally find the AI you need to destroy.
 
@@ -70,7 +70,7 @@ Once done, things explode, and you can close the books on this adventure.
 
 The game alludes to there being a potential sequel in the works, but this never materialized. There was another Shadownrun title for [Sega Genesis](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)), but this was a completely different game. I might play through this and do a write up one day, but I've tried playing it a couple times over the years and could never get into it (if you think I should, or want to share an opinion, there is a comments section below ... :P).
 
-{% picture right /images/shadowrun/shadowrun.027.png %}
+![](/images/shadowrun/shadowrun.027.png)
 
 Overall I still love this game. This is where I was introduced to cyberpunk as a kid, and I even went as far as getting the Shadowrun books ([Never Deal with a Dragon](http://www.amazon.com/Never-Deal-Dragon-Shadownrun-Vol/dp/0451450787)) that this game was very loosely based on.
 

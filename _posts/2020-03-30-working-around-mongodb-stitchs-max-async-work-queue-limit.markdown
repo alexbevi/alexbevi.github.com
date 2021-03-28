@@ -68,7 +68,7 @@ Total Time: 0.371383s
 
 Following the `"link"` would redirect you to the [Application Log](https://docs.mongodb.com/stitch/logs/) for the application that the webhook belongs to. This can be useful for debugging.
 
-{% picture /images/stitch-log01.png %}
+![](/images/stitch-log01.png)
 
 The reason this error is thrown has to do with how the MongoDB Stitch platform handles async request execution within functions using an internal work queue. Operations such as [`insertOne`](https://docs.mongodb.com/stitch/mongodb/actions/collection.insertOne/) return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise). To ensure these promises don't queue infinitely waiting to be resolved, MongoDB Stitch will limit the number that can be enqueued, and if this limit is exceeded queuing stops and the exception is raised.
 

@@ -162,7 +162,7 @@ With the _Sort_ predicate first, the full key range would have to be scanned pri
         },
 ```
 
-{% picture /images/esr01.png %}
+![](/images/esr01.png)
 
 With this index, all 5 keys have to be scanned (`totalKeysExamined`) to identify the 3 matching documents (`nReturned`).
 
@@ -194,7 +194,7 @@ With the _Equality_ predict first, the tight bounds allow less keys to be scanne
         },
 ```
 
-{% picture /images/esr02.png %}
+![](/images/esr02.png)
 
 ### (E → R) _Equality_ before _Range_
 
@@ -228,7 +228,7 @@ Having the _Range_ before the _Equality_ predicate causes more keys to be scanne
         },
 ```
 
-{% picture /images/esr03.png %}
+![](/images/esr03.png)
 
 In this example, 4 keys had to be scanned to identify the 2 matches. Changing the order of the keys to place the Equality predicate first will reduce the amount of scanning required:
 
@@ -258,7 +258,7 @@ find({ region: "AMER", joined: { $gt: 2015 } })
         },
 ```
 
-{% picture /images/esr04.png %}
+![](/images/esr04.png)
 
 After placing the _Equality_ predicate before the _Range_ predicate, only the number of keys necessary to satisfy the filter criteria are scanned.
 
@@ -303,7 +303,7 @@ find({ joined: { $gt: 2015 } }).sort({ region: 1 })
                 },
 ```
 
-{% picture /images/esr05.png %}
+![](/images/esr05.png)
 
 In this example, the filter was able to use the index selectively to identify the 4 keys needed to satisfy the query, however the results are not known to be in order. This results in the identified keys being sorted in memory prior to be returned to the calling stage in the execution plan.
 
@@ -335,7 +335,7 @@ find({ joined: { $gt: 2015 } }).sort({ region: 1 })
         },
 ```
 
-{% picture /images/esr06.png %}
+![](/images/esr06.png)
 
 Though this method requires scanning additional keys the lack of a blocking sort will generally be far more efficient/performant.
 

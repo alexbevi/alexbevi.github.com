@@ -4,7 +4,7 @@ title: "Extracting Best ROM from GoodTools Generated ROM Sets"
 date: 2016-07-25 15:17:38 -0400
 comments: true
 categories: [Scripting]
-categories: [linux, roms]
+tags: [linux, roms]
 published: true
 ---
 

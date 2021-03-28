@@ -3,7 +3,7 @@ layout: post
 title: "Setting up domain forwarding in hover.com"
 date: 2018-04-25 15:27:08 -0400
 comments: true
-categories: [Configuration]
+categories: [Other, Configuration]
 tags: [hover, dns]
 ---
 
@@ -20,4 +20,4 @@ If you log into your Hover control console at `https://www.hover.com/control_pan
 
 After about 15 minutes this will be active and all requests to your domain will redirect to the url you've selected.
 
-{% picture center /images/alexbevi-forward.png %}
+![](/images/alexbevi-forward.png)

@@ -4,12 +4,12 @@ title: "Summer RPG Update 2016"
 date: 2016-09-05 14:08:29 -0400
 comments: true
 categories: [Writing]
-categories: [jrpg, rpg, snes, gba]
+tags: [jrpg, rpg, snes, gba]
 ---
 
 I don't really have much progress to report for the last month, so I thought I'd throw out a few of the games I've been working through to see if I can generate any interest in the next article ;)
 
-{% picture left /images/goldensun/goldensun.016.png %}
+![](/images/goldensun/goldensun.016.png)
 
 First off, I've been playing through [Golden Sun](https://en.wikipedia.org/wiki/Golden_Sun) for the GBA.
 
@@ -17,7 +17,7 @@ I really like the psyenergy system and how you use it for puzzle solving. It mak
 
 I've made it as far as [Kraken](http://goldensun.wikia.com/wiki/Kraken), but I'm finding beating him is proving to be more difficult that I'd expected. Probably going to have to back out and grind for a while, which I don't have a lot of time for ...
 
-{% picture right /images/7th-saga/7th-saga.019.png %}
+![](/images/7th-saga/7th-saga.019.png)
 
 Next, I'm pretty sure I've given up on [the 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga). I'm still at Telaine with a party at level 17, but I'm pretty sure that to progress, there is grinding in my future.
 
@@ -27,7 +27,7 @@ Similar to the situation I'm having above with Golden Sun, i just need to set ma
 
 Finally, I've decided to bite the bullet and dive into [Super Mario RPG](https://en.wikipedia.org/wiki/Super_Mario_RPG). This, along with Final Fantasy Tactics is one of those games that I've heard nothing but good things about for the last 20 years, but have never bothered to investigate myself.
 
-{% picture left /images/mariorpg/mariorpg.011.png %}
+![](/images/mariorpg/mariorpg.011.png)
 
 I'm currently at level 10 with 3 star pieces recovered and have just rescued Princess Toadstool and had her join the party.
 

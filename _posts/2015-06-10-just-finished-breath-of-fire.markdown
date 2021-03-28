@@ -17,7 +17,7 @@ I wasn't really planning on writing about this game, but decided at the last min
 
 I played the Game Boy Advance remake on my phone using [GBA.emu](http://www.explusalpha.com/home/gba-emu). Although I'm perfectly capable of compiling from source and side-loading the APK, I bought the version on the Play store as the developer deserves the support.
 
-{% picture left /images/bof/bof.005.png %}
+![](/images/bof/bof.005.png)
 
 The story starts off the main character, Ryu's hometown. He is one of the last members of the Light Dragon Clan, and the Dark Dragon Clan has just come to eradicate them.
 
@@ -25,7 +25,7 @@ When they set the town ablaze, Ryu's sister Sara turns everyone to stone and ven
 
 <!-- more -->
 
-{% picture right /images/bof/bof.006.png %}
+![](/images/bof/bof.006.png)
 
 As you make your way through the game, you meet up with additional character that add a new twist to how you solve puzzles. For example, Bo can hunt animals that appear randomly on the overworld map, Karn can open locked doors, Ox can smash certain walls, Gobi can swim under water and Nina eventually morphs into a bird.
 
@@ -35,7 +35,7 @@ Each character has a unique skill that is required to progress the story at some
 
 The combat system is a traditional turn-based, menu-driven, pick your attacks and wait for the enemy implementation. If you've played any other JRPG from this era, you'll feel right at home.
 
-{% picture left /images/bof/bof.000.png %}
+![](/images/bof/bof.000.png)
 
 The main quest progresses in a pretty linear fashion. You're trying to find a bunch of Goddess keys that were used to lock up Tyr long ago, but the Dark dragons are trying to find them as well to let Tyr out to wreak havoc on the world.
 

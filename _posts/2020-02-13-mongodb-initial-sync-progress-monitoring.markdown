@@ -23,7 +23,7 @@ Some common questions when performing an initial sync of a [Replica Set Member](
 
 Determining if the sync is progressing can be done by either checking the size of the [`dbPath`](https://docs.mongodb.com/manual/reference/configuration-options/#storage.dbPath) of the syncing node or by running the [`db.adminCommand({ replSetGetStatus: 1, initialSync: 1 })`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command while connected to the SECONDARY via the mongo shell.
 
-{% picture /images/initsync-001.png %}
+![](/images/initsync-001.png)
 
 Checking the directory size of the SECONDARY that is being initial sync'ed will provide a good approximation as to how much data still remains to be copied. Note that as the WiredTiger storage engine doesn't "release" space when documents are deleted there is a high probability that the SECONDARY will have a _smaller total directory size_ than the sync source.
 
@@ -41,10 +41,10 @@ To improve this situation I've created the following script.
 
 By running this against the SECONDARY from the mongo shell, a more concise representation of the `initialSyncStatus` document is produced:
 
-{% picture /images/initsync-002.png %}
+![](/images/initsync-002.png)
 
 The script will also let you know if there have been any sync failures recorded, as well as what the last failure was.
 
-{% picture /images/initsync-003.png %}
+![](/images/initsync-003.png)
 
 Hopefully you'll find this useful when the time comes to resync one of your nodes.

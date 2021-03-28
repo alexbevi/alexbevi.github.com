@@ -4,10 +4,10 @@ title: "Just Finished - Lufia 2"
 date: 2015-09-23 20:04:59 -0400
 comments: true
 categories: [Gaming, "Just Finished"]
-categories: [snes, jrpg, rpg]
+tags: [snes, jrpg, rpg]
 ---
 
-{% picture right /images/lufia2/lufia2.000.png %}
+![](/images/lufia2/lufia2.000.png)
 
 This review has been a long time coming; a *VERY* long time coming. I heard about [Lufia 2: Rise of the Sinistrals](https://en.wikipedia.org/wiki/Lufia_II:_Rise_of_the_Sinistrals) when I was still in high school, and have been meaning to play it ever since.
 
@@ -27,7 +27,7 @@ It turns out you (Maxim) are destined to fight the Sinistrals, so you embark on 
 
 Don't get me wrong, I love a good "destined to save the world" story, but after playing a handful of JRPGs in succession, I was getting a bit numb to the same story over and over again.
 
-{% picture left /images/lufia2/lufia2.026.png %}
+![](/images/lufia2/lufia2.026.png)
 
 I decided to give this a fair chance though, and went along with it. I had never played the original [Lufia](https://en.wikipedia.org/wiki/Lufia) for more than 5-10 minutes, but I do remember the intro segment where you have the four heroes already in the Fortress of Doom getting ready to fight the Sinistrals.
 
@@ -37,13 +37,13 @@ Also, I thought I was a really cool transition as it tied the two games together
 
 ### Combat
 
-{% picture left /images/lufia2/lufia2.032.png %}
+![](/images/lufia2/lufia2.032.png)
 
 Enemy encounters on the overworld are random. As you're walking around, suddenly the screen will zoom in and boom, it's go time! For anyone familiar with JRPGs, this is pretty common.
 
 Unlike traditional RPGs, Lufia 2 doesn't have "random" encounters in dungeons. All enemies are visible as you explore the dungeons, and though most will chase you, a lot of these battles can be avoided if you so choose.
 
-{% picture right /images/lufia2/lufia2.005.png %}
+![](/images/lufia2/lufia2.005.png)
 
 Once a battle is initiated, as opposed to a text-based menu of `Fight | Magic | Item | Run` as you might see in some games, you're presented with an icon cross (reminiscent of [Breath of Fire]({% post_url 2015-06-10-just-finished-breath-of-fire %})).
 
@@ -51,7 +51,7 @@ Aside from the standard Attack, Item and Magic options, there is also and Abilit
 
 ### Puzzles
 
-{% picture left /images/lufia2/lufia2.004.png %}
+![](/images/lufia2/lufia2.004.png)
 
 What I really enjoyed about this game from the moment I entered the first dungeon was the puzzles. Littered throughout each dungeon are puzzles that you need to solve in order to open a door and proceed.
 
@@ -59,7 +59,7 @@ Generally, these puzzles aren't all that complex, but they break up the dungeons
 
 As you move further through the game, you also collect various key items, that can be used in order to help solve the various puzzles (bombs, arrows, hook shot, etc.)
 
-{% picture right /images/lufia2/lufia2.021.png %}
+![](/images/lufia2/lufia2.021.png)
 
 These add another dimension to the puzzles that keeps them interesting. I honestly didn't find most puzzles to be very challenging, but I will admit to having to use a walkthrough for at least 2 of them ... (thankfully there are excellent [guides on rpgclassics](http://shrines.rpgclassics.com/snes/lufia2/puzzles.shtml) for just these instances where you need a tiny bit of help)
 
@@ -67,13 +67,13 @@ These add another dimension to the puzzles that keeps them interesting. I honest
 
 Your party is made up of Maxim, and at various points Tia, Guy, Selan, Dekar and Arty.
 
-{% picture left /images/lufia2/lufia2.019.png %}
+![](/images/lufia2/lufia2.019.png)
 
 Tia is from your home village and follows you on the initial leg of the quest. You think she's going to end up being Maxim's love interest, but that changes once Selan enters the story ;)
 
 Maxim and Selan fall in love, get married, and have a baby. This all happens around the mid-point of the game, acting as a bit of an intermission. Once they have the kid, they decide to go back out and fight so that the world is safe for their baby (and everyone else ... I guess).
 
-{% picture right /images/lufia2/lufia2.028.png %}
+![](/images/lufia2/lufia2.028.png)
 
 Guy joins as he's a good fighter and wants to help defeat the Sinistrals. Dekar's reasons are basically the same.
 
@@ -81,7 +81,7 @@ Guy joins as he's a good fighter and wants to help defeat the Sinistrals. Dekar'
 
 Your party can also include capsule monsters. These are optional encounters throughout the game that if you seek out result in an additional character being able to join you in battle.
 
-{% picture left /images/lufia2/lufia2.018.png %}
+![](/images/lufia2/lufia2.018.png)
 
 Each monster has an elemental affiliation, and can level up with you as you fight enemies. If the capsule monster dies in battle though, they respawn for the next fight, so there's no need to worry about their health (you can't heal them). They do tend to run from a lot of battles automatically though, which can be annoying.
 
@@ -110,7 +110,7 @@ The ancient cave is 99 randomly generated floors, and you start the cave at leve
 
 If you warp out, you lose all experience and items you've found; aside from items in blue chests (which are few).
 
-{% picture right /images/lufia2/lufia2.038.png %}
+![](/images/lufia2/lufia2.038.png)
 
 Once you make it to the last level of the cave, you fight the Master Jelly. This is a brutal fight, as you only have 3 turns in order to beat him, and if you don't, he just runs and that's the end of it (you have to warp out).
 

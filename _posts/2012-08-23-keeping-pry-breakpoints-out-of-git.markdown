@@ -27,4 +27,4 @@ chmod +x /path/to/source/.git/hooks/pre-commit
 
 If you happen to leave a breakpoint intact, the next time you try to commit your changes, the commit will fail and indicate where these breakpoints are, and what files need to be updated to allow the commit to succeed.
 
-{% picture /images/2012-08-23-ss.png %}
+![](/images/2012-08-23-ss.png)

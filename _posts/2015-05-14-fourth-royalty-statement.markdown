@@ -10,7 +10,7 @@ published: true
 
 It's been over a year since this book was published, and I didn't think it would see the type of success it has.
 
-{% picture left /images/20150329-001.png %}
+![](/images/20150329-001.png)
 
 Based on this last statement, I'm officially eligible to start collecting royalties off this book.
 

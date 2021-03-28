@@ -4,7 +4,7 @@ title: "Identifying and Reclaiming Disk Space in MongoDB"
 date: 2020-03-15 16:23:38 -0400
 comments: true
 categories: [MongoDB]
-categories: [mongodb, wiredtiger, scripting]
+tags: [mongodb, wiredtiger, scripting]
 ---
 
 A common question when it comes to MongoDB and the (default) storage engine ([WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/)) is "Why is it after I removed a bunch of documents my free space didn't increase"?

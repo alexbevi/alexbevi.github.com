@@ -7,13 +7,13 @@ categories: [Gaming, "Just Finished"]
 tags: [jrpg, snes, rpg]
 ---
 
-{% picture left /images/sd3/sd3.026.png %}
+![](/images/sd3/sd3.026.png)
 
 [Seiken Densetsu 3 (聖剣伝説3)](https://en.wikipedia.org/wiki/Seiken_Densetsu_3) is the third installment in the [Mana series](https://en.wikipedia.org/wiki/Mana_\(series\)). It's the sequel to [Secret of Mana](https://en.wikipedia.org/wiki/Secret_of_Mana), which is the entry into the series that most North American gamers would be familiar with.
 
 Once again, I played through this game on my phone using the fantastic [Snes9x EX](http://www.explusalpha.com/home/snes9x-ex). Please support this dev as he provides a fantastic product. For some reason though, most of the screenshots I took came out stretched. This hasn't happened before, and I've been playing a couple other games that this isn't happening for either, so I'll chalk this up to bad luck :|
 
-{% picture /images/sd3/sd3.005.png %}
+![](/images/sd3/sd3.005.png)
 
 *NOTE* I ran these screenshots through [pngcrush](http://pmt.sourceforge.net/pngcrush/) (`ls *.png | while read line; do pngcrush -ow -brute $line; done`) to get the size down a bit ;)
 
@@ -27,17 +27,17 @@ Whereas SoM had you gradually encounter the two other playable characters at set
 
 I decided to go with Duran, Carlie and Kevin (something about a werewolf named Kevin made me chuckle :P). Duran's story starts off with the castle where he lives being invaded by a wizard who almost kills him. The wizard lets Duran live, so naturally Duran has to set off on a quest to find and defeat the wizard.
 
-{% picture /images/sd3/sd3.004.png %}
+![](/images/sd3/sd3.004.png)
 
 On this journey, he'll run into the other characters I selected (Kevin and Carlie), and each of their stories will mix into Duran's. This is actually a really cool element of this game as it gives it a lot of replay value. No matter what combination of characters you pick, their stories will all overlap. Also, you'll run into all the other characters you didn't pick, so every character makes an appearance throughout the game.
 
-{% picture right /images/sd3/sd3.010.png %}
+![](/images/sd3/sd3.010.png)
 
 You travel around the game mostly on foot initially, but eventually new methods of travel will open up. As with SoM, you can get to certain areas via Cannon Travel (though there's a couple of fetch-quests before you can actually take advantage of this). There's also a ship, a weird turtle thing, and eventually Flammie the dragon.
 
 The combat system is reminiscent of SoM as well, though this time around it feels a lot more "button mash-ey". I found that I just spammed the B button throughout most of this game and didn't really use any strategy during combat; aside from healing periodically.
 
-{% picture left /images/sd3/sd3.014.png %}
+![](/images/sd3/sd3.014.png)
 
 You get experience by killing enemies, which will allow you to level up your characters. Leveling up lets you increase various stats, that should make your characters perform better in future battles.
 
@@ -45,13 +45,13 @@ As you make your way through the game, you'll start finding these pillars that a
 
 These stones can also be used to change your character's class. This is another cool aspect of this game, as it give the leveling system a bit more flavour. You can change classes twice in this game; once at level 18, and again at level 38. Each of these classes is aligned with either "Light" or "Dark", and gives the character new skills/improvements.
 
-{% picture /images/sd3/sd3.017.png %}
+![](/images/sd3/sd3.017.png)
 
 The game can feel a bit "grindy" due to the need to constantly trudge back and forth between areas, and there are enemies on each screen. These battles are all avoidable, but you'll want to level up for the boss fights, and eventually the God Beasts.
 
 While you're trekking though, you get to enjoy some really good background music. If you like Secret of Mana, you'll love Seiken Densetsu 3. You can have a listen over at [YouTube](https://www.youtube.com/watch?v=qrywwZ7oL2w&index=30&list=PL4649F0DBF0FC09E3) to get an idea what's in store for you ;)
 
-{% picture right /images/sd3/sd3.031.png %}
+![](/images/sd3/sd3.031.png)
 
 The artwork is also top notch. It's really a shame this game never made it to North America as this is possibly one of the best looking SNES games out there. The background design, character design and monster sprites are all very, very well done. There is a lot of variety to the various regions of the world.
 

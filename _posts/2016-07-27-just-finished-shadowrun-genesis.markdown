@@ -4,10 +4,10 @@ title: "Just Gave Up On - Shadowrun (Genesis)"
 date: 2016-07-26 05:25:39 -0400
 comments: true
 categories: [Gaming, "Just Gave Up On"]
-categories: [rpg, genesis]
+tags: [rpg, genesis]
 ---
 
-{% picture left /images/shadowrun-gens/shadowrun.000.png %}
+![](/images/shadowrun-gens/shadowrun.000.png)
 
 **UPDATE: 2016-09-05** - It was pointed out on [the Reddit thread](https://www.reddit.com/r/rpg_gamers/comments/4uxq5n/just_gave_up_on_shadowrun_genesis) and in the comments below that I might have used a cheat which prevented finishing the game. I didn't think I'd used one, but I think while doing research for the article i may have been testing it out :(
 
@@ -27,7 +27,7 @@ Regardless, I've gone through enough of this game to be able to write about it, 
 
 <!-- more -->
 
-{% picture right /images/shadowrun-gens/shadowrun.001.png %}
+![](/images/shadowrun-gens/shadowrun.001.png)
 
 This iteration of Shadowrun doesn't resemble the Super Nintendo's version of this title at all.
 
@@ -37,7 +37,7 @@ I chose to run as a Decker, as I wanted to get an idea as to how the matrix sequ
 
 The story starts off with you at a hotel trying to track down some information about what happened to your brother. You interact with characters in this game through conversation trees (select A, B, C) in order to advance the story or get clues.
 
-{% picture left /images/shadowrun-gens/shadowrun.002.png %}
+![](/images/shadowrun-gens/shadowrun.002.png)
 
 A good chunk of the game is presented through these conversation views.
 
@@ -47,7 +47,7 @@ Your character can walk around the initial city and go in and out of various bui
 
 Some buildings will warn you that they contain ghouls. These buildings are where you can go to do some level grinding, or if you're on a run that has you clearing out ghouls, earn some money.
 
-{% picture right /images/shadowrun-gens/shadowrun.006.png %}
+![](/images/shadowrun-gens/shadowrun.006.png)
 
 To level grind, you'll just be earning karma points which can be applied to the various stats your character has. These stats affect your weapons skills, magic skills, tech/computer skills or your aptitude with various weapon classes.
 
@@ -55,7 +55,7 @@ Although I started out as a Decker, I found myself maxing out my weapon skills e
 
 On the subject of shadowruns, the way you earn money (nuyen) in this game is by taking on various jobs (runs) from Mr. Johnson's. There are one or more Mr. Johnson's in each city you visit and they offer you work. Initially the types of work are either "escort <name> to <location>", "take package to <location>" or "clear out ghouls from abandoned building".
 
-{% picture left /images/shadowrun-gens/shadowrun.011.png %}
+![](/images/shadowrun-gens/shadowrun.011.png)
 
 I found that the easiest runs to make money at early on where the ghoul runs. You basically just go into the building, find some ghouls and start running in circles. They'll just follow you so you can pick them off one at a time.
 
@@ -73,7 +73,7 @@ These characters can also be hired to assist you on your runs. Each one has two 
 
 I found I didn't really hire anyone until I hit the endgame as I didn't really need the help. If you're playing through the game as a shaman or samurai and don't bother upgrading your computer skills, it may be easier to hire a good decker than to upgrade your own stats and get a cyberdeck.
 
-{% picture right /images/shadowrun-gens/shadowrun.009.png %}
+![](/images/shadowrun-gens/shadowrun.009.png)
 
 You'll meet new Mr. Johnson's who offer more difficult missions that involve traveling between the various cities in order to do more difficult quests such as infiltrating corporations to either steal secrets or extract employees, or running the matrix.
 
@@ -83,7 +83,7 @@ When infiltrating corporations, you'll need to be able to have electronics skill
 
 The infiltration jobs have you going through multiple floors of these buildings, with each floor having guards to deal with, security cameras to avoid and wall safes to plunder.
 
-{% picture left /images/shadowrun-gens/shadowrun.015.png %}
+![](/images/shadowrun-gens/shadowrun.015.png)
 
 It helps to have computer skills when doing these runs as you can hack the computers to disable cameras, turn off alarms and open doors.
 
@@ -97,7 +97,7 @@ The fighting itself is pretty repetitive, but the concept is fun.
 
 There are various types of components within a matrix system. You have to hack each of these as you move deeper into the system. The end goal is usually to hit a data store and download or delete a file.
 
-{% picture left /images/shadowrun-gens/shadowrun.021.png %}
+![](/images/shadowrun-gens/shadowrun.021.png)
 
 One way to easily earn money is to hack into a system, download the maximum number of data files then try to sell them to a contact in [city]. Near the end of the game i was able to get upwards of 10K for some files, which made upgrading my equipment a lot easier to do ;)
 

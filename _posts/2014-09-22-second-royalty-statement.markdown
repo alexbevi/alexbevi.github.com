@@ -4,7 +4,7 @@ title: "Second Royalty Statement"
 date: 2014-09-22 11:45:14 -0400
 comments: true
 categories: [Writing]
-categories: [redmine, book]
+tags: [redmine, book]
 ---
 
 Although I haven't really had much to write about lately, I just got another royalty update from Packt Publishing about [Redmine Plugin Extension and Development](http://www.packtpub.com/redmine-plugin-extension-and-development/book) so I wanted to share the latest sales figures ... sort of :P
@@ -18,7 +18,7 @@ In the table below, I've added the latest numbers to those from [my previous pos
 
 <!-- more -->
 
-{% picture left /images/royalties20140630.png %}
+![](/images/royalties20140630.png)
 
 Once again, I've decided to remove the actual sales numbers from the statement, but I left in *TOTAL ROYALTIES TO BE PAID IN PERIOD* section. I did this to show the progress from time of publication to now in terms of how much of the advance has been consumed by **ACTUAL** sales.
 

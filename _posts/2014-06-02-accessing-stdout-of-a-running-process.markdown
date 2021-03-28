@@ -11,7 +11,7 @@ I'm currently doing a lot of scripting at work. Although the primary environment
 
 One example is a series of PowerShell scripts I've written which abstract away various ETL tasks that we need in order to get legacy data extracted, updated and inserted into other databases.
 
-{% picture /images/20140602-001.jpg %}
+![](/images/20140602-001.jpg)
 
 <!-- more -->
 
@@ -33,7 +33,7 @@ Now that we have the PID, we can pass this to [strace](http://en.wikipedia.org/w
 
     sudo strace -p 16544 -s 80 -e write 2>&1 | grep "write(2, \"\["
 
-{% picture /images/20140602-002.jpg %}
+![](/images/20140602-002.jpg)
 
 We're redirecting the output of *strace* in order to further filter the results using [grep](http://en.wikipedia.org/wiki/Grep). Depending on what process you're looking to monitor you may need to adjust your grep conditions.
 

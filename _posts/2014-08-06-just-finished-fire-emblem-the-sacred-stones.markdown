@@ -7,7 +7,7 @@ categories: [Gaming, "Just Finished"]
 tags: [rpg, gba]
 ---
 
-{% picture left /images/fire-emblem-the-sacred-stones.003.png %}
+![](/images/fire-emblem-the-sacred-stones.003.png)
 
 I've played a lot of RPGs over the years (JRPGs mostly) but have somehow managed to hear little to nothing about the [Fire Emblem](http://en.wikipedia.org/wiki/Fire_Emblem) series.
 
@@ -19,13 +19,13 @@ This post isn't really meant to be a review; it's more just my thoughts on the g
 
 I'm using this as an opportunity to get back into writing a bit more frequently, so I apologize in advance if the subject matter isn't covered very well, or if the writing is all over the place.
 
-{% picture right /images/fire-emblem-the-sacred-stones.004.png %}
+![](/images/fire-emblem-the-sacred-stones.004.png)
 
 I managed to complete the game in about 19 hours, so at least I managed to finish over an hour a month (which by gaming standards is terrible, but I'm married with kids and have a job so *back off!* :P).
 
 I played through on my Nexus 7 using [GBA.emu](https://play.google.com/store/apps/details?id=com.explusalpha.GbaEmu&hl=en) (which I would highly recommend buying to support the author), as I don't have an actual GBA (and prefer emulated games for convenience).
 
-{% picture left /images/fire-emblem-the-sacred-stones.002.png %}
+![](/images/fire-emblem-the-sacred-stones.002.png)
 
 The game is turn-based tactical combat. You can buy equipment for your team members at various shops, and there is a "world map" that ties the various locations together. This makes is seem as though you're playing a board game.
 
@@ -37,7 +37,7 @@ Fight outcome is determined purely mathematically (stats, resources, weapon sele
 
 For some special battles, the characters are shown as their avatar representations and the fights are animated. These fights are generally plot advancement battles.
 
-{% picture right /images/fire-emblem-the-sacred-stones.005.png %}
+![](/images/fire-emblem-the-sacred-stones.005.png)
 
 Once of the main differentiating factors between Fire Emblem and other RPG series is "permanent death". Once a character dies on the battle field, there is no way to revive them. This can make the game extremely difficult as you can potentially advance to a point where you cannot continue as you don't have enough players to clear a map without dying.
 
@@ -45,7 +45,7 @@ I found myself abusing save states as I didn't want my characters to die, and I 
 
 Overall I quite enjoyed the game. The story isn't terrible and there are enough characters to keep the campaigns interesting if you want or, if you're like me you stick with a core group of characters that end up being ridiculously over-leveled by the end.
 
-{% picture left /images/fire-emblem-the-sacred-stones.000.png %}
+![](/images/fire-emblem-the-sacred-stones.000.png)
 
 Once you finish the game, the final credits roll an epilogue unfolds that gives some final info about the characters that survived throughout the game. The characters that died in battle are also listed, and it summarizes where they died as well, which I thought was a nice touch.
 

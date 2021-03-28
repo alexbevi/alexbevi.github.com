@@ -20,7 +20,7 @@ Aside from the servers being scaled up periodically, this configuration has been
 
 The only major upgrade came in the form of a migration from 2.6 to 3.0 in 2015. At the time this was a major shift as it required rewriting a number of the underlying system scripts as well as introducing LRS-based storage to try and squeeze some additional performance out of the disks. Why optimize for IOPS? Because the reporting platform was designed to copy a lot of data back and forth in order to generate reports segmented by dimension ("Group", "Company", "Country", "State", "City").
 
-{% picture center /images/20180528-mongo-001.png %}
+![](/images/20180528-mongo-001.png)
 
 This chart (48 hours sampled from 1 week ago) shows *Cache Usage* spiking and *Replication Lag* spiking. The cache spikes occur as new writes trigger index activity, which invalidates (dirties) cached memory and causes cache eviction.
 
@@ -32,7 +32,7 @@ This slows down the speed at which the secondaries can request data from the pri
 
 This type of cascading failure was almost exclusively seen when a large batch process was being run in the morning directly on the primary mongod instance in the mornings..
 
-{% picture center /images/20180528-mongo-002.png %}
+![](/images/20180528-mongo-002.png)
 
 This chart (48 hours sampled from 2 weeks ago) shows similar behaviour. The vertical lines show points at which we were forced to restart instances or cycle the primary server in order to recover resources.
 
@@ -46,7 +46,7 @@ This involved the deprecation of client-side javascript calls, as well as rewrit
 
 Now that we’ve been running 3.4 in production for a few days I checked the same 48 hour sample and found something interesting …
 
-{% picture center /images/20180528-mongo-003.png %}
+![](/images/20180528-mongo-003.png)
 
 The cache usage has remained steady since we turned the instances on. The replication lag also hasn’t gone much higher than a minute in the past few days (this could creep up to over an hour in the past!).
 
