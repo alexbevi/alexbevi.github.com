@@ -22,8 +22,6 @@ group :jekyll_plugins do
   gem 'jekyll-gist'
   gem 'jekyll-last-modified-at'
   gem 'jekyll-sitemap'
-  gem 'jekyll_picture_tag', '~> 2.0'
-  gem 'jekyll-debug'
   gem 'jekyll-paginate'
   gem 'jekyll-remote-theme'
 end
