@@ -34,7 +34,7 @@ jekyll serve
 
 Once copied over there will be some build failures when you try to run `jekyll serve`, such as:
 
-* Missing plugins in `_plugins` directory (ex: can't render `{% img ... % }` tags)
+* Missing plugins in `_plugins` directory
 * Missing plugins in `Gemfile`
 
 Instead of hunting down an alternate plugin, for most of my build failures the issue was resolved by converting Liquid Tags versions of `img`, `blockquote`, and others to the pure Markdown versions instead.
