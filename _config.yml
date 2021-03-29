@@ -6,7 +6,7 @@ theme: jekyll-theme-chirpy
 
 # Only if your site type is GitHub Project sites and doesn't have a custom domain,
 # change below value to '/projectname'.
-baseurl: '/blog'
+baseurl: ''
 
 # the HTML language tag › https://www.w3.org/International/questions/qa-choosing-language-tags
 lang: en-US
@@ -111,7 +111,7 @@ kramdown:
 # DO NOT change this unless you're a Pro user on Jekyll and Web development,
 # Or you think you're smart enough to change other relevant URLs within this template.
 # permalink: /posts/:title/
-permalink: /:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
 
 collections:
   tabs:

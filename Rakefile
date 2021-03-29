@@ -4,6 +4,8 @@ require "stringex"
 
 posts_dir       = "_posts"    # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
+deploy_dir      = "_site"     # deploy directory (for Github pages deployment)
+deploy_branch  = "master2"
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in /#{posts_dir}"
@@ -28,6 +30,31 @@ task :new_post, :title do |t, args|
     post.puts "tags: "
     post.puts "---"
   end
+end
+
+desc "deploy public directory to github pages"
+multitask :push do
+  puts "## Deploying branch to Github Pages "
+  puts "## Pulling any updates from Github Pages "
+  cd "#{deploy_dir}" do
+    Bundler.with_clean_env { system "git pull" }
+  end
+  cd "#{deploy_dir}" do
+    system "git add -A"
+    message = "Site updated at #{Time.now.utc}"
+    puts "\n## Committing: #{message}"
+    system "git commit -m \"#{message}\""
+    puts "\n## Pushing generated #{deploy_dir} website"
+    Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    puts "\n## Github Pages deploy complete"
+  end
+end
+
+desc "Generate jekyll site"
+task :generate do
+  puts "## Generating Site with Jekyll"
+  # system "compass compile --css-dir assets/css"
+  system "jekyll build"
 end
 
 def get_stdin(message)
