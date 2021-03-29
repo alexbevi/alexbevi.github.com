@@ -54,7 +54,7 @@ desc "Generate jekyll site"
 task :generate do
   puts "## Generating Site with Jekyll"
   # system "compass compile --css-dir assets/css"
-  system "jekyll build"
+  system "JEKYLL_ENV=production jekyll build"
 end
 
 def get_stdin(message)
