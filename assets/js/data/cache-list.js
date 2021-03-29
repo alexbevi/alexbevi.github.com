@@ -13,13 +13,13 @@ const include = [
 
   /* Tabs */
   
-    '/categories/',
+    '/blog/categories/',
   
-    '/tags/',
+    '/blog/tags/',
   
-    '/archives/',
+    '/blog/archives/',
   
-    '/about/',
+    '/blog/about/',
   
 
   /*--- Icons ---*/'/assets/img/favicons/favicon.ico',
