@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: https://www.alexbevi.com/blog/sitemap.xml
+Sitemap: https://www.alexbevi.com/sitemap.xml

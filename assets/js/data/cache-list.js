@@ -1,13 +1,13 @@
 const include = [
 
   /*--- CSS ---*/
-  '/blog/assets/css/style.css',
+  '/assets/css/style.css',
 
   /*--- Javascripts ---*/
-  '/blog/assets/js/dist/home.min.js',
-  '/blog/assets/js/dist/page.min.js',
-  '/blog/assets/js/dist/post.min.js',
-  '/blog/assets/js/dist/categories.min.js',
+  '/assets/js/dist/home.min.js',
+  '/assets/js/dist/page.min.js',
+  '/assets/js/dist/post.min.js',
+  '/assets/js/dist/categories.min.js',
 
   /*--- HTML ---*/
 
@@ -22,33 +22,33 @@ const include = [
     '/about/',
   
 
-  /*--- Icons ---*/'/blog/assets/img/favicons/favicon.ico',
-  '/blog/assets/img/favicons/apple-icon.png',
-  '/blog/assets/img/favicons/apple-icon-precomposed.png',
-  '/blog/assets/img/favicons/apple-icon-57x57.png',
-  '/blog/assets/img/favicons/apple-icon-60x60.png',
-  '/blog/assets/img/favicons/apple-icon-72x72.png',
-  '/blog/assets/img/favicons/apple-icon-76x76.png',
-  '/blog/assets/img/favicons/apple-icon-114x114.png',
-  '/blog/assets/img/favicons/apple-icon-120x120.png',
-  '/blog/assets/img/favicons/apple-icon-144x144.png',
-  '/blog/assets/img/favicons/apple-icon-152x152.png',
-  '/blog/assets/img/favicons/apple-icon-180x180.png',
-  '/blog/assets/img/favicons/android-icon-192x192.png',
-  '/blog/assets/img/favicons/favicon-32x32.png',
-  '/blog/assets/img/favicons/favicon-96x96.png',
-  '/blog/assets/img/favicons/favicon-16x16.png',
-  '/blog/assets/img/favicons/ms-icon-144x144.png',
-  '/blog/assets/img/favicons/manifest.json',
-  '/blog/assets/img/favicons/browserconfig.xml',
+  /*--- Icons ---*/'/assets/img/favicons/favicon.ico',
+  '/assets/img/favicons/apple-icon.png',
+  '/assets/img/favicons/apple-icon-precomposed.png',
+  '/assets/img/favicons/apple-icon-57x57.png',
+  '/assets/img/favicons/apple-icon-60x60.png',
+  '/assets/img/favicons/apple-icon-72x72.png',
+  '/assets/img/favicons/apple-icon-76x76.png',
+  '/assets/img/favicons/apple-icon-114x114.png',
+  '/assets/img/favicons/apple-icon-120x120.png',
+  '/assets/img/favicons/apple-icon-144x144.png',
+  '/assets/img/favicons/apple-icon-152x152.png',
+  '/assets/img/favicons/apple-icon-180x180.png',
+  '/assets/img/favicons/android-icon-192x192.png',
+  '/assets/img/favicons/favicon-32x32.png',
+  '/assets/img/favicons/favicon-96x96.png',
+  '/assets/img/favicons/favicon-16x16.png',
+  '/assets/img/favicons/ms-icon-144x144.png',
+  '/assets/img/favicons/manifest.json',
+  '/assets/img/favicons/browserconfig.xml',
 
   /*--- Others ---*/
 
-  '/blog/assets/js/data/search.json',
-  '/blog/404.html',
+  '/assets/js/data/search.json',
+  '/404.html',
 
-  '/blog/app.js',
-  '/blog/sw.js'
+  '/app.js',
+  '/sw.js'
 ];
 
 const exclude = ['/assets/js/data/pageviews.json',
