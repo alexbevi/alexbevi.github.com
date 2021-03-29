@@ -4,7 +4,7 @@
     "title": "Same Blog, New Look!",
     "url": "/blog/2021/03/28/same-blog-new-look/",
     "categories": "Writing",
-    "tags": "blog",
+    "tags": "blog, jekyll, octopress",
     "date": "2021-03-28 12:28:46 -0400",
     
 
@@ -12,7 +12,7 @@
 
 
 
-    "snippet": ""
+    "snippet": "Ever since I started this blog in 2012, I’ve been using Octopress to generate the pages and push to generated content to GitHub Pages for hosting. Octopress is a set of scripts and helpers built on top of Jekyll and provided a lot of convenience in the form of deployment helpers, themes and scrip..."
   },
   
   {
