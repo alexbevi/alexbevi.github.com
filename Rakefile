@@ -39,7 +39,6 @@ multitask :push do
   cd "#{deploy_dir}" do
     Bundler.with_clean_env { system "git pull" }
   end
-  puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cd "#{deploy_dir}" do
     system "git add -A"
     message = "Site updated at #{Time.now.utc}"
