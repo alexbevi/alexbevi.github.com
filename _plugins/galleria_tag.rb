@@ -72,7 +72,7 @@ module Jekyll
       end
       gallery << "];"
       gallery << "  Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');"
-      gallery << "  Galleria.configure({ initialTransition: 'fade', transition: 'slide', dataSource: imageData, preload: 5 });"
+      gallery << "  Galleria.configure({ initialTransition: 'fade', transition: 'slide', dataSource: imageData, preload: 5, lightbox: true });"
       gallery << "  Galleria.run('.galleria');"
       gallery << "</script>"
       gallery
