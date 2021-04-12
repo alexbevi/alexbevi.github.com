@@ -23,9 +23,6 @@
 #
 module Jekyll
 
-  PLUGIN_GALLERIA_VERSION = "1.4.2"
-  PLUGIN_JQUERY_VERSION   = "2.1.1"
-
   class PhotosUtil
     def initialize(context)
       @context = context
@@ -33,7 +30,7 @@ module Jekyll
 
     def path_for(filename)
       filename = filename.strip
-      prefix = (@context.environments.first['site']['photos_prefix'] unless filename =~ /^(?:\/|http)/i) || ""
+      prefix = (@context.environments.first['site']['baseurl'] unless filename =~ /^(?:\/|http)/i) || ""
       "#{prefix}#{filename}"
     end
   end
@@ -41,13 +38,11 @@ module Jekyll
   class GalleriaScriptIncludePatch < Liquid::Tag
     def render(context)
       return <<-eof
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/#{PLUGIN_JQUERY_VERSION}/jquery.min.js" type="text/javascript"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/galleria.min.js" type="text/javascript"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.js" type="text/javascript"></script>
-<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/#{PLUGIN_GALLERIA_VERSION}/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/galleria.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
 <style>
   /* This rule is read by Galleria to define the gallery height: */
-  #galleria{height:320px}
+  .galleria{ width: 700px; height: 400px; background: #000 }
 </style>
       eof
     end
@@ -66,18 +61,19 @@ module Jekyll
       lines = lines.split("\n")
 
       p = PhotosUtil.new(context)
-      gallery = "<div id=\"galleria\">"
-
+      gallery = "<div class=\"galleria\" />"
+      gallery << "<script>"
+      gallery << "var imageData = ["
       lines.each_with_index do |line, i|
         next if line.empty?
         filename, title = line.split(":")
         title = (title.nil?) ? filename : title.strip
-        gallery << "<img src=\"#{p.path_for(filename)}\" data-title=\"#{title}\" />"
+        gallery << "{ image: '#{p.path_for(filename)}', title: '#{title}' },"
       end
-      gallery << "</div>"
-      gallery << "<script>"
-      gallery << "  Galleria.configure('transition', 'fade');"
-      gallery << "  Galleria.run('#galleria');"
+      gallery << "];"
+      gallery << "  Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');"
+      gallery << "  Galleria.configure({ initialTransition: 'fade', transition: 'slide', dataSource: imageData, preload: 5 });"
+      gallery << "  Galleria.run('.galleria');"
       gallery << "</script>"
       gallery
     end
