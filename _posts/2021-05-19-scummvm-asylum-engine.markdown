@@ -5,6 +5,9 @@ date: 2021-05-19 06:32:45 -0400
 comments: true
 categories: ScummVM
 tags: [sanitarium, asylum, scummvm]
+image:
+  src: /images/scummvm-logo.png
+  alt: Scummvm Logo
 ---
 
 With [PR#2982 - ENGINES: Sanitarium engine](https://github.com/scummvm/scummvm/pull/2982) being recently merged into [ScummVM](https://www.scummvm.org/) I wanted to take some time to chronicle the original development efforts which began in 2009.
@@ -35,6 +38,6 @@ Our progress stagnate from 2012 through 2015, at which point I published [a prog
 
 ![](/images/asylum-tweet.png)
 
-Fast forward to 2021 and we find out that [Alexander Panov](https://github.com/alxpnv) has picked up the development and completed the engine! The outstanding work left was the inventory management and a number of bugfixes, which he was able to get sorted out over the course of a few months.
+Fast forward to 2021 and we find out that [Alexander Panov](https://github.com/alxpnv) has picked up the development and completed the engine! The outstanding work left was the inventory management, encounters and a number of bugfixes, which he was able to get sorted out over the course of a few months.
 
 Alexander is now a member of the ScummVM team, and thanks to his efforts this 12 year journey can finally conclude with a working engine merged into ScummVM that will allow countless others to enjoy Sanitarium.
