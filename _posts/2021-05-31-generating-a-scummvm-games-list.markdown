@@ -81,7 +81,7 @@ The results below are recent as of commit [`57e13c641e`](https://github.com/scum
 |scumm|Bear Stormin'|
 |illusions|Beavis and Butt-head Do U|
 |bbvs|Beavis and Butt-head in Virtual Stupidity|
-|sky|Beneath a Steel Sky" ;|
+|sky|Beneath a Steel Sky|
 |ags|Bert the Newsreader|
 |wintermute|Beyond the Threshold|
 |director|Beyond the Wall of Stars|
@@ -573,6 +573,7 @@ The results below are recent as of commit [`57e13c641e`](https://github.com/scum
 |director|Sakin II|
 |scumm|Sam & Max Hit the Road|
 |ags|Sam The Pirate Monkey|
+|asylum|Sanitarium|
 |director|Santa Fe Mysteries: The Elk Moon Murder|
 |wintermute|Satan and Sons|
 |director|Science Smart|
