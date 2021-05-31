@@ -19,10 +19,10 @@ This script just needs to be downloaded to the ScummVM source directly and run. 
 
 ![](/images/scummvm-detection-ruby.png)
 
-The results below are recent as of commit [`57e13c641e`](https://github.com/scummvm/scummvm/commit/57e13c641e):
+The results below are recent as of commit [`d053c8b494`](https://github.com/scummvm/scummvm/commit/d053c8b494):
 
-| Engine | Title (768) |
-|--------|-------|
+|Engine|Title (770)|
+|------|-----|
 |wintermute|1 1/2 Ritter: Auf der Suche nach der hinreissenden Herzelinde|
 |toltecs|3 Skulls of the Toltecs|
 |agt|A Bloody Life|
@@ -409,8 +409,8 @@ The results below are recent as of commit [`57e13c641e`](https://github.com/scum
 |xeen|Might and Magic V: Darkside of Xeen|
 |xeen|Might and Magic: Swords of Xeen|
 |xeen|Might and Magic: World of Xeen|
-|wintermute|Mirage|
 |director|Mirage|
+|wintermute|Mirage|
 |supernova|Mission Supernova 1|
 |agi|Mixed-Up Mother Goose|
 |sci|Mixed-Up Mother Goose|
@@ -448,6 +448,7 @@ The results below are recent as of commit [`57e13c641e`](https://github.com/scum
 |ags|Nicholas Wolfe part I: Framed|
 |wintermute|Night Train|
 |ags|Night of the Plumber|
+|trecision|Nightlong: Union City Conspiracy|
 |ngi|Nikita Game Interface game|
 |director|Nile: Passage to Egypt|
 |director|Nine Worlds hosted by Patrick Stewart|
@@ -777,8 +778,8 @@ The results below are recent as of commit [`57e13c641e`](https://github.com/scum
 |director|Zeddas: Horror Tour 2|
 |director|Zeddas: Servant of Sheol|
 |wintermute|Zilm: A Game of Reflex|
-|director|Zork Nemesis: The Forbidden Lands|
 |zvision|Zork Nemesis: The Forbidden Lands|
+|director|Zork Nemesis: The Forbidden Lands|
 |zvision|Zork: Grand Inquisitor|
 |director|iD4 Mission Disk 1 - Alien Supreme Commander|
 |director|iD4 Mission Disk 10 - Alien Bomber|
