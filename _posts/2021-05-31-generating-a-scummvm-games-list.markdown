@@ -15,7 +15,7 @@ As with most of my ScummVM-related development, this fell by the wayside for a n
 
 {% gist alexbevi/3425815ea17d6a14e0832bd263e97954 %}
 
-This script just needs to be downloaded to the ScummVM source directory and run. At the time of writing this script doesn't deduplicate results and is not guaranteed to be 100% accurate, but it should be close enough to give you an idea how many great games are currently supported by ScummVM at the commit point you currently have checked out.
+This script just needs to be downloaded to the ScummVM source directory and run. At the time of writing this script doesn't deduplicate results and is not guaranteed to be 100% accurate, but it should be close enough to give you an idea how many great games are currently available (though possibly still under development) within ScummVM at the commit point you currently have checked out.
 
 ![](/images/scummvm-detection-ruby.png)
 
