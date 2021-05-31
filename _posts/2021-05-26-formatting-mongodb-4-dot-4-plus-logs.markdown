@@ -38,7 +38,7 @@ tail -f data/mongodb.log | jq --compact-output -r -C '.msg |= sub("\n";"") | .t.
 
 ![](/images/mdb-log-03.png)
 
-This makes visually consuming the logs a lot easier! If you are debugging and increase the [Logging Verbosity](https://docs.mongodb.com/manual/reference/log-messages/#verbosity-levels) however the output will contain escape sequences (ex: `\n` and `\t`):
+This makes visually consuming the logs a lot easier! Some log messages, more commonly seen with increased [Logging Verbosity](https://docs.mongodb.com/manual/reference/log-messages/#verbosity-levels) may contain escape sequences (ex: `\n` and `\t`):
 
 ![](/images/mdb-log-04.png)
 
@@ -49,7 +49,7 @@ To render these escape sequences on screen while also tailing the logs in follow
 stdbuf -o0 tail -f mongod.log | stdbuf -o0 jq -r -C '.msg |= sub("\n";"") | .t."$date"+" "+.c+" ["+.ctx+"] "+.msg, .attr | select(.!=null)' | sed 's/\\n/\n/g; s/\\t/\t/g'
 ```
 
-Note the [`stdbuf`](https://linux.die.net/man/1/stdbuf) command can be installed on OSX via `brew install gnu-sed`.
+Note the [`stdbuf`](https://linux.die.net/man/1/stdbuf) and [`sed`](https://www.gnu.org/software/sed/manual/sed.html) commands can be installed on OSX via `brew install coreutils gnu-sed`.
 
 ![](/images/mdb-log-05.png)
 
