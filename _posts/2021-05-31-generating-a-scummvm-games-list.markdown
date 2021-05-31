@@ -17,6 +17,8 @@ As with most of my ScummVM-related development, this fell by the wayside for a n
 
 This script just needs to be downloaded to the ScummVM source directly and run. At the time of writing this script doesn't deduplicate results and is not guaranteed to be 100% accurate, but it should be close enough to give you an idea how many great games are currently supported by ScummVM at the commit point you currently have checked out.
 
+![](/images/scummvm-detection-ruby.png)
+
 The results below are recent as of commit [`57e13c641e`](https://github.com/scummvm/scummvm/commit/57e13c641e):
 
 | Engine | Title (768) |
