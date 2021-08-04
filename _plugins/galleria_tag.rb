@@ -43,6 +43,7 @@ module Jekyll
 <style>
   /* This rule is read by Galleria to define the gallery height: */
   .galleria{ width: 700px; height: 400px; background: #000 }
+  .responsive-wrap iframe{ max-width: 100%;}
 </style>
       eof
     end

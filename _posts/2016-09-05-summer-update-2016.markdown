@@ -13,7 +13,7 @@ I don't really have much progress to report for the last month, so I thought I'd
 
 First off, I've been playing through [Golden Sun](https://en.wikipedia.org/wiki/Golden_Sun) for the GBA.
 
-I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2]({% post_url 2015-09-23-just-finished-lufia-2 %}).
+I really like the psyenergy system and how you use it for puzzle solving. It makes this game a bit more of an ARPG along the same lines as [Lufia 2]({% post_url 2015-09-08-just-finished-lufia-2 %}).
 
 I've made it as far as [Kraken](http://goldensun.wikia.com/wiki/Kraken), but I'm finding beating him is proving to be more difficult that I'd expected. Probably going to have to back out and grind for a while, which I don't have a lot of time for ...
 
