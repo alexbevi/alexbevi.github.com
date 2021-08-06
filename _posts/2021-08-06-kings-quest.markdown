@@ -10,19 +10,7 @@ image:
   alt: Title Image
 ---
 
-**Game Information**
-
-|*Game*|King's Quest: Quest for the Crown|
-|*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
-|*Publisher*|Sierra On-Line|
-|*Release Date*|May 10, 1984|
-|*Systems*|PCjr, Tandy 1000, Amiga, Apple II, Apple IIGS,<br>Atari ST, Macintosh, DOS, Master System|
-|*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)|
-
-**Play Information**
-
-|*Time to Completion*|31 minutes|
-|*Notes*|[Walkthrough](http://gamerwalkthroughs.com/kings-quest-1/)|
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series_
 
 For a lot of us 80's kids, King's Quest is where it all began. The colours were vibrant, there was intro music and sound effects throughout the game, the story felt immersive, and oh shit, you died, time to reload .... assuming you remembered to save.
 
@@ -53,6 +41,20 @@ You finally find the three treasures, kill a dragon and a giant, DJ a Leprechaun
 Overall this game is still very accessible and playable, even as a text parser game. There was an [SCI Remake](http://sciwiki.sierrahelp.com//index.php?title=King%27s_Quest_I:_The_Quest_for_the_Crown_(SCI_remake)) in 1990 which updated the graphics, but the text parser interface remained (check out the [demo trailer](https://www.youtube.com/watch?v=9DI6n08mj_g) for the SCI remake!). For anyone interested in early adventure games, this one should be high on their list and as it can be played in [ScummVM](https://www.scummvm.org/) you can play it on any system you happen to be reading this on.
 
 ![](/images/adventure/scummvm-kq1-00026.png)
+
+**Game Information**
+
+|*Game*|King's Quest: Quest for the Crown|
+|*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
+|*Publisher*|Sierra On-Line|
+|*Release Date*|May 10, 1984|
+|*Systems*|PCjr, Tandy 1000, Amiga, Apple II, Apple IIGS,<br>Atari ST, Macintosh, DOS, Master System|
+|*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)|
+
+**Play Information**
+
+|*Time to Completion*|31 minutes|
+|*Notes*|[Walkthrough](http://gamerwalkthroughs.com/kings-quest-1/)|
 
 ### Score
 

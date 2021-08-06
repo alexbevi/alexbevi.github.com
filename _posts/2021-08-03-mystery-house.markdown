@@ -10,19 +10,7 @@ image:
   alt: Title Image
 ---
 
-**Game Information**
-
-|*Game*|Mystery House|
-|*Developer*|[Online Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
-|*Publisher*|Online Systems|
-|*Release Date*|1980|
-|*Systems*|Apple II|
-|*Game Engine*|[ADL (Adventure Development Language)](https://wiki.scummvm.org/index.php?title=ADL)|
-
-**Play Information**
-
-|*Time to Completion*|40 minutes|
-|*Notes*|[Walkthrough](https://adventuregamers.com/walkthrough/full/mystery-house)|
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series_
 
 [Mystery House](https://en.wikipedia.org/wiki/Mystery_House) is an adventure game released by On-Line Systems in 1980. It was designed, written and illustrated by Roberta Williams, and programmed by Ken Williams for the Apple II. Mystery House is the first graphical adventure game ever and the first game produced by On-Line Systems, the company which would evolve into Sierra On-Line, and is one of the earliest horror video games.
 
@@ -43,6 +31,20 @@ The story here doesn't really get set up and you're plopped in front of the hous
 Since this was the first graphical adventure game you can't really compare it to anything else. Mystery House set the stage for 2 decades of adventure games and the rise of Sierra Online, LucasArts and others who would release some of my personal favourite games of all time. You can breeze through this title pretty quickly and it really has no replayability factor, however if you're a fan of the genre it's worth spending some time with the title that started it all.
 
 ![](/images/adventure/scummvm-hires1-apple2-00009.png)
+
+**Game Information**
+
+|*Game*|Mystery House|
+|*Developer*|[Online Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
+|*Publisher*|Online Systems|
+|*Release Date*|1980|
+|*Systems*|Apple II|
+|*Game Engine*|[ADL (Adventure Development Language)](https://wiki.scummvm.org/index.php?title=ADL)|
+
+**Play Information**
+
+|*Time to Completion*|40 minutes|
+|*Notes*|[Walkthrough](https://adventuregamers.com/walkthrough/full/mystery-house)|
 
 ### Score
 
