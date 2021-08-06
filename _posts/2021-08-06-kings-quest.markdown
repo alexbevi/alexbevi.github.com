@@ -16,7 +16,7 @@ For a lot of us 80's kids, King's Quest is where it all began. The colours were 
 
 ![](/images/adventure/scummvm-kq1-00001.png)
 
-Unlike [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) where you're sorta just dropped into the world and have to figure out why you're there and muddle your way through, King's Quest provides the player with a summary as soon as you speak to the king. Once you do, he tells you he's dying and has chosen you as his heir, but first you have to prove yourself by going out and finding three things that he wants you to bring back.
+Unlike [Mystery House]({% post_url 2021-08-03-mystery-house %}) where you're sorta just dropped into the world and have to figure out why you're there and muddle your way through, King's Quest provides the player with a summary as soon as you speak to the king. Once you do, he tells you he's dying and has chosen you as his heir, but first you have to prove yourself by going out and finding three things that he wants you to bring back.
 
 ![](/images/adventure/scummvm-kq1-00003.png)
 

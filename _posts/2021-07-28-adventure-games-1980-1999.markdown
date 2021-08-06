@@ -18,7 +18,7 @@ When I stumbled across the [CRPG Addict's blog](https://crpgaddict.blogspot.com/
 
 The [Full Game List](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing) is 364 titles, however I only plan on playing those that are available in English. Any title that can be played using ScummVM likely will be as this facilitates things like keeping track of play time, taking screenshots, managing save states and more.
 
-I don't plan on playing the games in order either, as this might become a bit tedious. I will be starting with Mystery House however as we might as well kick this journey off at the very beginning and see where it takes us from there. I also will only play games in English ... because that's all I can read :P
+I don't plan on playing the games in order either, as this might become a bit tedious. I will be starting with [Mystery House]({% post_url 2021-08-03-mystery-house %}) however as we might as well kick this journey off at the very beginning and see where it takes us from there.
 
 For a number of the older Sierra Online games there are SCI remakes that replaced the text parser with a point-and-click interface. I may review some of these games twice to cover both experiences, however this likely won't be the norm.
 
@@ -47,6 +47,8 @@ Each game will be ranked using the above, and a percentage generated from the sc
 ### Games List
 
 The games list for this journey is available via [this Google Sheet](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing), and has been taken from [Wikipedia's List of Graphic Adventure Games](https://en.wikipedia.org/wiki/List_of_graphic_adventure_games). This only includes entries from 1980 through 1999.
+
+As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page.
 
 1. [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %})
 1. Wizard and the Princess (On-Line Systems) - 1980
