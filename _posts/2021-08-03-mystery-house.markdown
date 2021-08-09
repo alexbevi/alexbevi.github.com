@@ -10,7 +10,7 @@ image:
   alt: Title Image
 ---
 
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series_
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 
 [Mystery House](https://en.wikipedia.org/wiki/Mystery_House) is an adventure game released by On-Line Systems in 1980. It was designed, written and illustrated by Roberta Williams, and programmed by Ken Williams for the Apple II. Mystery House is the first graphical adventure game ever and the first game produced by On-Line Systems, the company which would evolve into Sierra On-Line, and is one of the earliest horror video games.
 
@@ -44,6 +44,7 @@ Since this was the first graphical adventure game you can't really compare it to
 **Play Information**
 
 |*Time to Completion*|40 minutes|
+|*Version Played*|Apple II via [ScummVM](https://www.scummvm.org/)|
 |*Notes*|[Walkthrough](https://adventuregamers.com/walkthrough/full/mystery-house)|
 
 ### Score

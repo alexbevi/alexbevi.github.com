@@ -10,7 +10,7 @@ image:
   alt: Title Image
 ---
 
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series_
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 
 For a lot of us 80's kids, King's Quest is where it all began. The colours were vibrant, there was intro music and sound effects throughout the game, the story felt immersive, and oh shit, you died, time to reload .... assuming you remembered to save.
 
@@ -54,6 +54,7 @@ Overall this game is still very accessible and playable, even as a text parser g
 **Play Information**
 
 |*Time to Completion*|31 minutes|
+|*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
 |*Notes*|[Walkthrough](http://gamerwalkthroughs.com/kings-quest-1/)|
 
 ### Score
