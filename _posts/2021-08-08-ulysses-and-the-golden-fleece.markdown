@@ -14,7 +14,7 @@ _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/catego
 
 Ulysses and the Golden Fleece (also known as _Hi-Res Adventure #4_) is a graphic adventure game released in 1981 for the Apple II. The premise of the game is pretty straightforward: You're in ancient Greece, the king gives you (Ulysses) the task of finding the Golden Fleece.
 
-Though there is no title screen per-say and no music, the graphics for this game are quite a bit more elaborate than some of the earlier [Hi-Res Adventure](https://en.wikipedia.org/wiki/List_of_Hi-Res_Adventures_video_games) games.
+Though there is no title screen per-say and no music, the graphics for this game are quite a bit more elaborate than some of the earlier [Hi-Res Adventure](https://en.wikipedia.org/wiki/List_of_Hi-Res_Adventures_video_games) games. I actually started playing the DOS version of this game first, but having to press Scroll Lock every time there was text to scroll became so tedious I had to quit and move onto another system instead.
 
 ![](/images/adventure/ulysses-10.png)
 
@@ -30,7 +30,7 @@ There are plenty of puzzles, a lot of which are not really intuitive and can be 
 
 The puzzles in general aren't intuitive, and would require A LOT of trial and error. Getting across the fjord on the Island of Storms by doing a `TIE LEATER` ... `TO LEATHER` and then `THROW LEATHER` to make a lasso out of the leather is super confusing ... _especially when you have a rope!!!_ Full disclosure, I was using the walkthrough at this point and didn't try the rope to see if it would work ...
 
-I'm sure if I took the time to properly explore this game I'd have learned the magic words (`SEVENSEAS` to get rid of the harpies, or `SUPPELTUEL` to open a cave door but my patience for this title had already run out. For anyone that played this game in the early 80's and was able to complete it on their own, my hat's off to you. This title is just too full of monotonous maze navigation and overly complicated puzzles to be an enjoyable adventure.
+I'm sure if I took the time to properly explore this game I'd have learned the magic words (`SEVENSEAS` to get rid of the harpies, or `SUPPELTUEL` to open a cave door) but my patience for this title had already run out. For anyone that played this game in the early 80's and was able to complete it on their own, my hat's off to you. This title is just too full of monotonous maze navigation and overly complicated puzzles to be an enjoyable adventure.
 
 That's my 2 cents on this. The visuals are nice for 1981, but I wouldn't recommend this title unless you're trying to complete a bunch of similar titles for your own blog/video series ;)
 
