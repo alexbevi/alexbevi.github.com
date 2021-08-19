@@ -42,7 +42,7 @@ I mentioned the fetch quests that make up the majority of the game, but the rema
 
 In my younger years mazes were more fun and busting out the graph paper to track your progress held a certain appeal, but now I find these to generally just be frustrating. Thankfully, walkthroughs are easy enough to find and can get you through these sections quickly enough if you so choose.
 
-![](/images/adventure/princess-tomato.019.png){:width="70%"}
+![](/images/adventure/princess-tomato.026.png){:width="70%"}
 
 Overall I still enjoy playing through this game. I like revisiting the story and I like menu-driven adventure games such as this one and the [MacVenture games](https://en.wikipedia.org/wiki/MacVenture). I know this game may not appeal to everyone, but if you're looking for something a little different in an adventure game, give Princess Tomato a try.
 
@@ -59,7 +59,7 @@ Overall I still enjoy playing through this game. I like revisiting the story and
 
 **Play Information**
 
-|*Time to Completion*|45 minutes|
+|*Time to Completion*|2 hours 40 minutes|
 |*Version Played*|NES via [NES.emu](https://github.com/Rakashazi/emu-ex-plus-alpha) for Android|
 |*Notes*|[Walkthrough](https://strategywiki.org/wiki/Princess_Tomato_in_the_Salad_Kingdom/Walkthrough)|
 

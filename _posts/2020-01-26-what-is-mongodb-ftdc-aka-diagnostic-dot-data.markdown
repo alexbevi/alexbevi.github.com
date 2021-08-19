@@ -28,7 +28,7 @@ With [SERVER-21818](https://jira.mongodb.org/browse/SERVER-21818) (introduced in
 
 - CPU utilization (ex: [`/proc/stat`](http://www.linuxhowtos.org/System/procstat.htm))
 - Memory utilization (ex: [`/proc/meminfo`](https://www.thegeekdiary.com/understanding-proc-meminfo-file-analyzing-memory-utilization-in-linux/))
-- Disk utilization related to performance (ex: [`*/sys/block/\*/stat*`](https://www.kernel.org/doc/Documentation/block/stat.txt))
+- Disk utilization related to performance (ex: [`/sys/block/*/stat`](https://www.kernel.org/doc/Documentation/block/stat.txt))
 - Network performance statistics ([`/proc/net/netstat`](https://unix.stackexchange.com/questions/435579/is-there-documentation-for-proc-net-netstat-and-proc-net-snmp))
 
 The `metrics.xxxxxxx` files in the `diagnostic.data` directory contain only statistics about the performance of the system and the database. They are stored in a compressed format, and are not human-readable.
