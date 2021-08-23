@@ -28,3 +28,11 @@
   type: stack-overflow
   icon: 'fab fa-stack-overflow'
   url:  'https://stackoverflow.com/users/195509'                  # Fill with your stackoverflow homepage
+-
+  type: facebook
+  icon: 'fab fa-facebook'
+  url:  'https://www.facebook.com/alexbevi'
+-
+  type: reddit
+  icon: 'fab fa-reddit'
+  url:  'https://reddit.com/user/alexbevi'
