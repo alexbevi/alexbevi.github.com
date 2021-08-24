@@ -60,7 +60,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 1. Adventureland (Adventure International) - 1982
 1. Kabul Spy (Sirius Software) - 1982
 1. Time Zone (On-Line Systems) - 1982
-1. Transylvania (Penguin Software) - 1982
+1. [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. The Dark Crystal (On-Line Systems) - 1983
 1. ~~Star Arthur Legend: Planet Mephius (T&E Soft) - 1983~~ (_Japanese only_)
 1. ~~Portopia Renzoku Satsujin Jiken (Yuji Horii, Chunsoft) - 1983~~ (_Japanese only_)
