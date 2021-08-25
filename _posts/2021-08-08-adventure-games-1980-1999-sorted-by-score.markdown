@@ -15,5 +15,5 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **66%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **54%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
-1. **x%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
+1. **50%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 

@@ -55,7 +55,7 @@ client = Mongo::Client.new("mongodb://localhost:27017/?retryWrites=false")
 
 As retryable writes are disabled there is no pre/post-image data being written to the oplog. This can be seen in the first event times being the same before and after the script runs (`2021-08-23 11:32:39`).
 
-**NOTE**: For Atlas cluster where `setParameter` is an [Unsupported Command](https://docs.atlas.mongodb.com/reference/unsupported-commands/#unsupported-commands), disabling retryable writes or refactoring the `findAndModify` to instead perform a `find` followed by an `update` would be the best paths forward.
+**NOTE**: For Atlas clusters where `setParameter` is an [Unsupported Command](https://docs.atlas.mongodb.com/reference/unsupported-commands/#unsupported-commands), disabling retryable writes or refactoring the `findAndModify` to instead perform a `find` followed by an `update` would be the best paths forward.
 
 ## Server Parameters and Retryable Writes
 
