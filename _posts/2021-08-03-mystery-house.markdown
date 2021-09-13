@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mystery House"
+title: "Mystery House (On-Line Systems) - 1980"
 date: 2021-08-03 07:25:36 -0400
 comments: true
 categories: ["Let's Adventure!"]

@@ -11,7 +11,7 @@ tags: [mongodb, replication]
 
 When you're monitoring your cluster using [Ops Manager](https://www.mongodb.com/products/ops-manager) or [MongoDB Atlas](https://docs.atlas.mongodb.com/reference/alert-resolutions/replication-oplog/) and the [`Replication Oplog Window is (X)`](https://docs.atlas.mongodb.com/reference/alert-conditions/#mongodb-alert-Replication-Oplog-Window-is) drastically drops, what can you do?
 
-Having a very short [operations log (oplog)](https://docs.mongodb.com/manual/core/replica-set-oplog/) window increases the likelihood that a SECONDARY member can fall off the oplog an require a full resync, however if the window remains small the resync may fail as the oplog window must be larger than the time needed to resync.
+Having a very short [operations log (oplog)](https://docs.mongodb.com/manual/core/replica-set-oplog/) window increases the likelihood that a SECONDARY member can fall off the oplog and require a full resync, however if the window remains small the resync may fail as the oplog window must be larger than the time needed to resync.
 
 One scenario that can result in the oplog window shrinking is the use of `findAndModify` operations when retryable writes are enabled, but how do we identify that they are the culprit?
 

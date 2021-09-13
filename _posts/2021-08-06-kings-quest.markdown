@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "King's Quest: Quest for the Crown"
+title: "King’s Quest: Quest for the Crown (Sierra On-Line) - 1984"
 date: 2021-08-06 05:54:31 -0400
 comments: true
 categories: ["Let's Adventure!"]

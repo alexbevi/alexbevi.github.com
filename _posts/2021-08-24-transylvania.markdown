@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Transylvania"
+title: "Transylvania (Penguin Software) - 1982"
 date: 2021-08-24 09:20:18 -0400
 comments: true
 categories: ["Let's Adventure!"]

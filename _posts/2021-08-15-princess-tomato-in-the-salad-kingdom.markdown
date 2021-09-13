@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Princess Tomato in the Salad Kingdom"
+title: "Princess Tomato in the Salad Kingdom (Hudson Soft) - 1984"
 date: 2021-08-15 19:53:32 -0400
 comments: true
 categories: ["Let's Adventure!"]

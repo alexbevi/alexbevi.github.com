@@ -77,7 +77,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 1. King's Quest II: Romancing the Throne (Sierra On-Line) - 1985
 1. The Black Cauldron (Sierra On-Line) - 1986
 1. J.B. Harold Murder Club (Riverhillsoft) - 1986
-1. Labyrinth: The Computer Game (Lucasfilm Games) - 1986
+1. [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 1. Murder on the Mississippi (Activision) - 1986
 1. The Scoop (Telarium) - 1986
 1. Tass Times in Tonetown (Interplay Productions, Brainwave Creations) - 1986

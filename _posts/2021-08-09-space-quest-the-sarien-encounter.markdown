@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Space Quest: The Sarien Encounter"
+title: "Space Quest: The Sarien Encounter (Sierra On-Line) - 1986"
 date: 2021-08-09 08:29:08 -0400
 comments: true
 categories: ["Let's Adventure!"]
