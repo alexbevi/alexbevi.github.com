@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ensuring a MongoDB Replica Set's Priority Takeover Succeeds"
+title: "Ensuring a MongoDB Replica Set Member's Priority Takeover Succeeds"
 date: 2021-10-21 07:11:18 -0400
 comments: true
 categories: [MongoDB]
@@ -110,7 +110,7 @@ To simulate the failure, the following commands were running in `tmux` windows:
 
 1. `mongoimport`
 2. `mongo --quiet secondaryDelay.js`
-3. `mongo "mongodb://localhost:27017/?replicaset=replset" --quiet --eval "c = rs.conf(); c.members[2].priority = 1; c.members[0].priority = 10; rs.reconfig(c)"`
+3. `mongo "mongodb://localhost:27017/?replicaset=replset" --quiet --eval "c = rs.conf(); c.members[0].priority = 1; c.members[2].priority = 10; rs.reconfig(c)"`
 4. `tail -n 1000 data/replset/rs3/mongod.log | grep -E "(ELECTION|REPL)"`
 
 ```log
@@ -169,7 +169,7 @@ Our previous reproduction using `tmux` is updated as follows to produce this res
 1. `tail -n 1000 data/replset/rs3/mongod.log | grep -E "(ELECTION|REPL)"`
 2. `mongoimport`
 3. `mongo --quiet secondaryDelay.js`
-4. `mongo "mongodb://localhost:27017/?replicaset=replset" --quiet --eval "c = rs.conf(); c.members[2].priority = 1; c.members[0].priority = 10; rs.reconfig(c)"`
+4. `mongo "mongodb://localhost:27017/?replicaset=replset" --quiet --eval "c = rs.conf(); c.members[0].priority = 1; c.members[2].priority = 10; rs.reconfig(c)"`
 5. `mongo --quiet freezeAndStepdown.js`
 
 The end result should be the priority takeover attempt resulting in a successful dry run election and subsequent election.
@@ -194,3 +194,5 @@ The end result should be the priority takeover attempt resulting in a successful
 ```
 
 From the screenshots we can see that during all election attempts the `mongoimport` workload continued to operate without issue.
+
+Did this article help you? Let me know in the comments below ;)
