@@ -30,7 +30,7 @@ One team member I was able to get a hold of was [Mike Breitkreutz](https://www.m
 
 ![](/images/asylum-mikeemail.png)
 
-[Benjamin Haisch](https://wiki.scummvm.org/index.php?title=Developers_Bios#Benjamin_Haisch), another ScummVM team member, had by this point provided a far superior IDA database to work from which we used until [Julian Templier](http://www.templier.info/) joined us in 2010 and essentially finished the IDA RE efforts.
+[Benjamin Haisch](https://wiki.scummvm.org/index.php?title=Developers_Bios#Benjamin_Haisch) (aka. John Doe), another ScummVM team member, had by this point provided a far superior IDA database to work from which we used until [Julian Templier](http://www.templier.info/) joined us in 2010 and essentially finished the IDA RE efforts.
 
 Julian implemented the event processing subsystem and the save/load functionality along with cleaning up a lot of the codebase. His blog shares some of the progress from [July 2011](https://www.templier.info/2011/07/31/asylum-engine-update-july-2011/) which is shortly before he left to focus on other work (such as the [Ring engine](https://www.templier.info/2011/09/15/ring-engine-status-update/)).
 
