@@ -380,7 +380,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 297. Black Dahlia (Take-Two Interactive) - 1998
 298. Tex Murphy: Overseer (Access Software) - 1998
 299. Starship Titanic (The Digital Village) - 1998
-300. Sanitarium (DreamForge Intertainment) - 1998
+300. [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 301. The X-Files Game (HyperBole Studios) - 1998
 302. Hopkins FBI (MP Entertainment) - 1998
 303. Ring: The Legend of the Nibelungen (Arxel Tribe) - 1998

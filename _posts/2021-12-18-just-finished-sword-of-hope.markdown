@@ -4,7 +4,7 @@ title: "Just Finished - Sword of Hope"
 date: 2021-12-18 12:30:23 -0500
 comments: true
 categories: [Gaming, "Just Finished"]
-tags: [gb, jrpg]
+tags: [gb, rpg]
 ---
 
 ![](/images/soh/soh.009.png){:width="50%"}
@@ -17,7 +17,7 @@ The story involves a dragon having gained control over the king of Riccar, manip
 
 Sword of Hope combines adventure and RPG elements. The interface allows the prince to select commands such as `LOOK`, `OPEN`, `MAGIC`, `HIT`, and `USE` to interact with the game world, talk to NPCs or solve puzzles. When he encounters an enemy, the game switches to a turn based battle mode in which enemies have to be fought in typical console style RPG battles.
 
-The first that that jumped out at me was the screen transitions (and their sound effects) were pulled from [Shadowgate]({% post_url 2021-08-16-shadowgate %}), which would make sense as the port of that title to the NES was also published by Kemko/Seika.
+The first thing that jumped out at me was the screen transitions (and their sound effects) were pulled from [Shadowgate]({% post_url 2021-08-16-shadowgate %}), which would make sense as the port of that title to the NES was also published by Kemko/Seika.
 
 ![](/images/soh/soh.005.png){:width="50%"}
 
