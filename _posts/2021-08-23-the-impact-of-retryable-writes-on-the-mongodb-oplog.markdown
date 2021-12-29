@@ -5,6 +5,9 @@ date: 2021-08-23 15:18:09 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, replication]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 ![](/images/retrywrites6.png)

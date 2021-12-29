@@ -5,6 +5,9 @@ date: 2021-10-07 06:17:50 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 The [Versioned API For Drivers Specification](https://github.com/mongodb/specifications/blob/master/source/versioned-api/versioned-api.rst) states _"When applications interact with MongoDB, both the driver and the server participate in executing operations. Therefore, when determining application compatibility with MongoDB, both the driver and the server behavior must be taken into account."_

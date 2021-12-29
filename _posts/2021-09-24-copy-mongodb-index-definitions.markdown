@@ -5,6 +5,9 @@ date: 2021-09-24 06:24:14 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb, indexes, queries]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 To support your application's workload properly, you'll want to ensure you're [creating indexes to support your queries](https://docs.mongodb.com/manual/tutorial/create-indexes-to-support-queries/). When doing this in a development environment, unless the the [Driver or ODM](https://docs.mongodb.com/drivers/) in use allows you to manage index definitions via annotations in code (and you use that feature) it's possible your development cluster's indexes can diverge from that in production.

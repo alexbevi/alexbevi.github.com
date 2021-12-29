@@ -5,6 +5,9 @@ date: 2021-05-26 08:21:00 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 MongoDB has always output log entries as plaintext.

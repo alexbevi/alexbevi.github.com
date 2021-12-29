@@ -6,6 +6,9 @@ comments: true
 categories: [MongoDB]
 tags: [mongodb, replication]
 published: true
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 High availability implies a system has been designed for durability, redundancy, and automatic failover such that the applications supported by the system can operate continuously and without downtime for a long period of time. MongoDB replica sets support high availability when deployed according to the [documented best practices](https://docs.mongodb.com/manual/administration/production-checklist-operations/#std-label-production-checklist-replication).
