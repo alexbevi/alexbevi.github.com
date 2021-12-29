@@ -124,7 +124,7 @@ uncaught exception: Error: command failed: {
 
 Regardless of which MongoDB 3.6+ version is being used an idle cursor can time out with the failure bubbling up to the application with an error message such as _"cursor id 63169428846689082 not found"_, which is the same as if the cursor were timed out.
 
-Note that setting the [`noCursorTimeout`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/) cursor option in a MongoDB 3.6+ cluster can still result in a cursor closed as [Session Idle Timeout Overrides `noCursorTimeout`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#session-idle-timeout-overrides-nocursortimeout).
+Note that setting the [`noCursorTimeout`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/) cursor option in a MongoDB 3.6+ cluster can still result in a cursor being closed as [Session Idle Timeout Overrides `noCursorTimeout`](https://docs.mongodb.com/manual/reference/method/cursor.noCursorTimeout/#session-idle-timeout-overrides-nocursortimeout).
 
 For operations that return a cursor, if the cursor may be idle for longer than `localLogicalSessionTimeoutMinutes` minutes, issue the operation within an explicit session using [`Mongo.startSession()`](https://docs.mongodb.com/manual/reference/method/Mongo.startSession/#mongodb-method-Mongo.startSession) and periodically refresh the session using the [`refreshSessions`](https://docs.mongodb.com/manual/reference/command/refreshSessions/#mongodb-dbcommand-dbcmd.refreshSessions) command. For example:
 
