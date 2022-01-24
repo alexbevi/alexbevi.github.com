@@ -40,7 +40,7 @@ db.getMongo().getDBNames().forEach(function (dbname) {
 });
 ```
 
-For example, I ran the above against a test cluster I have in MongoDB Atlas with a `DELIMITER` set as `|` to facilitate the generation of a Markdown table such as the following:
+For example, I ran the above against a test cluster I have in MongoDB Atlas with a `DELIMITER` set as a pipe character (`|`) to facilitate the generation of a Markdown table such as the following:
 
 |Namespace|Index Name|Usage Count|Last Used|Index Size (bytes)|Index Specification|
 |---------|----------|----------|-------------------|-----------|---------|
@@ -50,3 +50,9 @@ For example, I ran the above against a test cluster I have in MongoDB Atlas with
 |data.users|age_1|NumberLong(0)|Tue Jan 18 2022 14:05:40 GMT-0500 (Eastern Standard Time)|13721600|{"v":2,"key":{"age":1},"name":"age_1","ns":"data.users"}|
 |encryption.__keyVault|_id_|NumberLong(0)|Tue Jan 18 2022 14:05:40 GMT-0500 (Eastern Standard Time)|36864|{"v":2,"key":{"_id":1},"name":"_id_"}|
 |medicalRecords.patients|_id_|NumberLong(0)|Tue Jan 18 2022 14:05:40 GMT-0500 (Eastern Standard Time)|36864|{"v":2,"key":{"_id":1},"name":"_id_"}|
+
+As indexes aren't free (see ["Indexing Strategies"](https://docs.mongodb.com/manual/applications/indexes/)) dropping unused indexes will allow you to reclaim some disk space and potentially improve write throughput.
+
+Note that the _Last Used_ values are reset when a `mongod` is restarted. If the _Usage Count_ is `0`, the _Last Used_ value will indicate the time the process was started; not when that index was actually last used.
+
+Let me know if you find this script useful in the comments below ;)
