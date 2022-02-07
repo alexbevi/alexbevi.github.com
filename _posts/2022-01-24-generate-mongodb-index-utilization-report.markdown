@@ -51,8 +51,8 @@ For example, I ran the above against a test cluster I have in MongoDB Atlas with
 |encryption.__keyVault|_id_|NumberLong(0)|Tue Jan 18 2022 14:05:40 GMT-0500 (Eastern Standard Time)|36864|{"v":2,"key":{"_id":1},"name":"_id_"}|
 |medicalRecords.patients|_id_|NumberLong(0)|Tue Jan 18 2022 14:05:40 GMT-0500 (Eastern Standard Time)|36864|{"v":2,"key":{"_id":1},"name":"_id_"}|
 
-As indexes aren't free (see ["Indexing Strategies"](https://docs.mongodb.com/manual/applications/indexes/)) dropping unused indexes will allow you to reclaim some disk space and potentially improve write throughput.
+As indexes aren't free (see ["Indexing Strategies"](https://docs.mongodb.com/manual/applications/indexes/)) dropping unused indexes will allow you to reclaim some disk space and potentially improve write throughput. In a [replica set](https://docs.mongodb.com/manual/replication/) the output would be for the current node you're connected to (likely the [`PRIMARY`](https://docs.mongodb.com/manual/core/replica-set-members/#std-label-replica-set-primary-member)). Before dropping indexes ensure you review the output above for _all data bearing nodes_ as some workloads may only target [`SECONDARY`](https://docs.mongodb.com/manual/core/replica-set-members/#secondaries) members, which would result in (likely) lower usage statistics on the `PRIMARY`.
 
-Note that the _Last Used_ values are reset when a `mongod` is restarted. If the _Usage Count_ is `0`, the _Last Used_ value will indicate the time the process was started; not when that index was actually last used.
+Note that the _Last Used_ values are reset when a `mongod` is restarted. If the _Usage Count_ is `0`, the _Last Used_ value will indicate the time the process was started; not when that index was actually last used. The output of the _Last Values_ above will be in your local timezone. For more information see the [MDN Docs for `Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
 
 Let me know if you find this script useful in the comments below ;)
