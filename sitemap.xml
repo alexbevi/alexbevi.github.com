@@ -381,6 +381,10 @@
 <lastmod>2022-01-24T11:24:09-05:00</lastmod>
 </url>
 <url>
+<loc>https://www.alexbevi.com/blog/2022/02/07/cleaning-up-etl-results-in-mongodb-by-transposing-multiple-arrays/</loc>
+<lastmod>2022-02-07T10:02:02-05:00</lastmod>
+</url>
+<url>
 <loc>https://www.alexbevi.com/categories/</loc>
 <lastmod>2021-03-27T14:52:16-04:00</lastmod>
 </url>
@@ -606,6 +610,12 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/tags/indexing/</loc>
+</url>
+<url>
+<loc>https://www.alexbevi.com/tags/aggregation/</loc>
+</url>
+<url>
+<loc>https://www.alexbevi.com/tags/etl/</loc>
 </url>
 <url>
 <loc>https://www.alexbevi.com/categories/writing/</loc>
