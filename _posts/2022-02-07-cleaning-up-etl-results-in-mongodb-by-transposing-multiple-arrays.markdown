@@ -1,10 +1,13 @@
 ---
 layout: post
-title: "Cleaning Up ETL Results in MongoDB By Transposing Multiple Arrays"
+title: "Cleaning Up ETL Results in MongoDB by Transposing Multiple Arrays"
 date: 2022-02-07 09:05:00 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, aggregation, etl]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 When performing an ETL from a normalized relational dataset there's a good chance a 1:1 conversion won't produce the desired results on the first pass. For example, if the goal is to [Model One-to-Many Relationships with Embedded Documents](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/#std-label-data-modeling-example-one-to-many) but the dataset contains a number of relationships mapped to individual fields as arrays of scalar values, you'll likely want to convert these to subdocuments to facilitate access and interaction from your applications.
@@ -33,6 +36,11 @@ In this example, our data has been imported from a legacy system with the above 
   }
 }
 ```
+
+<div class="note info">
+  <span>NOTE</span>
+  <p>The initial schema is a result of limitations with the initial import strategy. The goals of this article are to showcase how these limitations an be overcome once the initial ETL from source system to MongoDB has been completed.</p>
+</div>
 
 The desired end state is a document with all events mapped to an array of subdocuments:
 
@@ -67,7 +75,48 @@ Using MongoDB's [Aggregation](https://docs.mongodb.com/manual/aggregation/) func
 
 ## The "Easy" Way
 
-Starting in MongoDB 3.4 the [`$zip`](https://docs.mongodb.com/manual/reference/operator/aggregation/zip/) operator was introduced, which could be used to transpose an array of input arrays so that the first element of the output array would be an array containing, the first element of the first input array, the first element of the second input array, etc. By providing the output of the `$zip` as the input to a [`$map`](https://docs.mongodb.com/manual/reference/operator/aggregation/map/) the results can be easily rewritten to match our desired schema:
+Starting in MongoDB 3.4 the [`$zip`](https://docs.mongodb.com/manual/reference/operator/aggregation/zip/) operator was introduced, which could be used to transpose an array of input arrays so that the first element of the output array would be an array containing, the first element of the first input array, the first element of the second input array, etc. If only `$zip` is used the resulting documents would appear as an array of arrays:
+
+```js
+db.punch_cards.aggregate([
+{ $project: {
+  events: {
+    $zip: {
+      inputs: [
+      "$events.employee", "$events.action", "$events.timestamp"
+    ]}
+  }
+}}]);
+```
+```js
+// output
+{
+    "events" : [
+        [
+            "Alex",
+            "Punched Out",
+            "2020/12/01 16:00"
+        ],
+        [
+            "Max",
+            "Punched Out",
+            "2020/12/01 16:30"
+        ],
+        [
+            "Sara",
+            "Punched Out",
+            "2020/12/01 20:00"
+        ],
+        [
+            "Will",
+            "Punched In",
+            "2020/12/01 23:58"
+        ]
+    ]
+}
+```
+
+By providing the output of the `$zip` as the input to a [`$map`](https://docs.mongodb.com/manual/reference/operator/aggregation/map/) the results can be easily rewritten to match our desired schema:
 
 ```js
 db.punch_cards.aggregate([
@@ -91,6 +140,11 @@ db.punch_cards.aggregate([
 }}
 ]);
 ```
+
+<div class="note info">
+  <span>NOTE</span>
+  <p>These pipeline examples only project the <code>events</code> field. To include additional fields (ex: <code>date</code>, <code>category</code>) these would have to be included in the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/project"><code>$project</code></a> stage explicitely.</p>
+</div>
 
 ## The "Hard" Way
 
@@ -119,3 +173,9 @@ db.punch_cards.aggregate([
 ```
 
 I've included two variations of the pipeline to illustrate the different approaches you can take to solve the same problem. Depending on your use case the "hard" way may be more appropriate, however the "easy" way requires far less processing and should be more performant as a result.
+
+## Updating the Data
+
+The pipeline examples above don't acctually writing any changes back to disk. This is by design to ensure no copy/paste errors result in unanticipated data loss as a result.
+
+Once you are satisfied with the transformations and are ready to write the results, either an [`$out`](https://docs.mongodb.com/manual/reference/operator/aggregation/out/) or [`$merge`](https://docs.mongodb.com/manual/reference/operator/aggregation/merge/) stage can be added as the final stage in the pipeline.
