@@ -5,6 +5,9 @@ date: 2020-03-30 05:19:32 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb, realm]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 [MongoDB Stitch](https://www.mongodb.com/cloud/stitch) is a great way to build apps quickly with your data that's already managed by [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Though these services empower you to focus on development without having to worry about infrastructure, being a managed service there are occasionally limitations imposed by the vendor.

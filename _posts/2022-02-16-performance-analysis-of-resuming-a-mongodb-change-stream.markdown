@@ -1,12 +1,15 @@
 ---
 layout: post
 title: "Performance Analysis of Resuming a MongoDB Change Stream"
-date: 2022-02-16 06:50:39 -0500
+date: 2022-03-02 06:50:39 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, changestream, performance]
-published: false
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
+
 [Change Streams](https://docs.mongodb.com/manual/changeStreams/) allow applications to access real-time data changes without the complexity and risk of tailing the [oplog](https://docs.mongodb.com/manual/reference/glossary/#std-term-oplog). Applications can use change streams to subscribe to all data changes on a single collection, a database, or an entire deployment, and immediately react to them.
 
 For applications that rely on change streams, ensuring continuity on process restart can be accomplished by specifying a [resume token to resume the change stream](https://docs.mongodb.com/manual/changeStreams/#resume-a-change-stream).

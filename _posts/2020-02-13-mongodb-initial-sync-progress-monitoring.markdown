@@ -5,6 +5,9 @@ date: 2020-02-13 12:34:49 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, replication, scripting]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 Sometimes our replica set members fall off the [oplog](https://docs.mongodb.com/manual/core/replica-set-oplog/) and the node needs to be resynced. When this happens, an [Initial Sync](https://docs.mongodb.com/manual/core/replica-set-sync/#initial-sync) is required, which does the following:

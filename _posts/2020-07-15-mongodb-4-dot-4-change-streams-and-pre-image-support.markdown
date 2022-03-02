@@ -5,6 +5,9 @@ date: 2020-07-15 08:37:08 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb, changestreams]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 **Warning - Not for Production Use**

@@ -5,6 +5,9 @@ date: 2018-10-01 15:39:28 -0400
 comments: true
 categories: [Personal]
 tags: [mongodb, career]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 The goal of this post is to provide a first hand account of what it means to be a *Technical Services Engineer* at [MongoDB](https://www.mongodb.com/careers/jobs/791258), as well as what the journey getting to this point has looked like for me.

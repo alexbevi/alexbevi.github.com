@@ -5,6 +5,9 @@ date: 2020-01-26 18:14:50 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 [Full Time Diagnostic Data Capture (FTDC)](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#full-time-diagnostic-data-capture) was introduced in MongoDB 3.2 (via [SERVER-19585](https://jira.mongodb.org/browse/SERVER-19585)), to incrementally collect the results of certain diagnostic commands to assist MongoDB support with troubleshooting issues.

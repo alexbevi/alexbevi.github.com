@@ -5,6 +5,9 @@ date: 2020-01-17 06:30:17 -0500
 comments: true
 categories: [MongoDB, "Queries & Indexing"]
 tags: [mongodb]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 A challenge that I've had in the past while working with my data in MongoDB has been how to incorporate
