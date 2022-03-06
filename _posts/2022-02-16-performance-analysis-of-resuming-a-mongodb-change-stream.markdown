@@ -12,90 +12,26 @@ image:
 
 [Change Streams](https://docs.mongodb.com/manual/changeStreams/) allow applications to access real-time data changes without the complexity and risk of tailing the [oplog](https://docs.mongodb.com/manual/reference/glossary/#std-term-oplog). Applications can use change streams to subscribe to all data changes on a single collection, a database, or an entire deployment, and immediately react to them.
 
-For applications that rely on change streams, ensuring continuity on process restart can be accomplished by specifying a [resume token to resume the change stream](https://docs.mongodb.com/manual/changeStreams/#resume-a-change-stream).
+For applications that rely on change streams, ensuring continuity on process restart can be accomplished by specifying a [resume token to resume the change stream](https://docs.mongodb.com/manual/changeStreams/#resume-a-change-stream). Depending on how many events have been recorded in the oplog after the resume token, the time taken to resume the stream can take longer than expected.
 
-Depending on how many events have been recorded in the oplog since the resume token the time taken to resume the stream can take longer than expected.
-
-In this article we'll be setting up a simple reproduction to help explain what influences the performance of a resumed change stream.
-
-## Setup
-
-We'll be setting up a MongoDB 5.2.0 3 node replica set using the [`m` version manager](https://github.com/aheckmann/m) as well as [`mtools`](https://github.com/rueckstiess/mtools).
-
-```bash
-m 5.2.0-ent
-mlaunch init --replicaset --nodes 3 --hostname 192.168.2.13 --bind_ip_all --binarypath $(m bin 5.2.0-ent)
-```
-
-The script below can be run from a `mongo`/`mongosh` shell connected to the cluster to setup the environment as well as some helper functions we'll be using later.
-
-```js
-// drop the collection and start from scratch
-db.foo.drop();
-
-// set the oplog to at least 8GB so our workload doesn't roll out
-db.adminCommand({ replSetResizeOplog: 1, size: 20480 });
-
-function randomString(length) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
-
-function writeJunk(count, stringLength) {
-  print("Pushing " + count + " junk docs of size " + stringLength);
-  var data = [];
-  // doesn't matter what the string is so just reuse it
-  var string = randomString(stringLength);
-  for (var i = 0; i < count; i++) {
-    data.push({ i: i, s: string });
-  }
-  db.foo.insertMany(data);
-}
-```
+This article will attempt to explain the default behavior of change streams when resumed and how performance can potentially improved. Note that all scripts used in this article are shared in the _Reproduction_ section at the end.
 
 ## Capturing Our First Change Event
 
-```js
-// file: changestream-test.js
-//
-const { MongoClient } = require("mongodb");
-const client = new MongoClient("mongodb://192.168.2.13:27017/test?replicaSet=replset");
-
-async function run() {
-  await client.connect();
-  const database = client.db("test");
-  const collection = database.collection("foo");
-  var changeStream = collection.watch([ { $match: { "fullDocument.msg": { $exists: true } } }]);
-  changeStream.on("change", next => {
-    console.log(`${new Date().toISOString()} Change received: `, next);
-    process.exit(0);
-  });
-}
-run().catch(console.dir);
-```
-
-The script above uses the [MongoDB Node Driver](https://docs.mongodb.com/drivers/node/current/) to connect to the cluster we just created and listen for changes.
-
-First ensure you have Node.js installed, then using `npm` install the [`mongo` package](https://www.npmjs.com/package/mongodb) and run the script:
+The `nodejs-capture-first-event.js` script uses the [MongoDB Node Driver](https://docs.mongodb.com/drivers/node/current/) to connect to the cluster we just created and listen for changes. First ensure you have Node.js installed, then using `npm` install the [`mongo` package](https://www.npmjs.com/package/mongodb) and run the script:
 
 ```bash
 npm install mongo
-node changestream-test.js
+node capture-first-event.js
 ```
 
-From a `mongo` or `mongosh` shell connected to the cluster the script is configured to connect to run the following:
+Once the script is watching the collection connect to the cluster and run the `setupEnvironment()` function to setup the cluster and insert a test document:
 
-```js
-// insert one document and observe the result from the change stream cursor
-db.foo.insertOne({ msg: "We expect our filter to match this" });
+```bash
+mongo --quiet --eval "load('shell-configure-test.js'); setupEnvironment();"
 ```
 
-Once this document is inserted, the script should produce a result similar to the following, then exit:
+Once this document is inserted, the Node.js should produce a result similar to the following, then exit:
 
 ```js
 // output
@@ -118,43 +54,17 @@ Note the `_id` value of the [change event](https://docs.mongodb.com/manual/refer
 
 ## Seeding the Collection
 
-The `changestream-test.js` script should have terminated after the change event was detected and printed. Next we want to fill the collection with content prior to attempting to resume processing.
+The `nodejs-capture-first-event.js` script should have terminated after the change event was detected and printed. Next we want to fill the collection with content prior to attempting to resume processing, which can be done using our setup script from a `mongo`/`mongosh` shell:
 
-To do this, connect to the cluster via the `mongo` or `mongosh` shell and run:
-
-```js
-function seedCollection() {
-  db.foo.insertOne({ msg: "This document will be 1Kb", s: randomString(1024) });
-  writeJunk(100, 1048576 * 6);
-  db.foo.insertOne({ msg: "100 6MB documents, then another 1Kb document", s: randomString(1024) });
-  writeJunk(100, 1048576 * 6);
-  db.foo.insertOne({ msg: "And another 100 6MB documents, then another 1Kb document", s: randomString(1024) });
-  db.foo.insertOne({ msg: "... followed immediately by a 1MB document", s: randomString(1024 * 1024) });
-  writeJunk(100, 1048576 * 6);
-  db.foo.insertOne({ msg: "100 6MB documents preceded this 3MB document", s: randomString(1024 * 1024 * 3) });
-  db.foo.insertOne({ msg: "... followed by another 1MB document", s: randomString(1024 * 1024) });
-  writeJunk(500, 1048576 * 6);
-  db.foo.insertOne({ msg: "500 6MB documents added" });
-  writeJunk(200, 1048576 * 6);
-  db.foo.insertOne({ msg: "200 6MB documents added" });
-  db.foo.insertOne({ msg: "Adding 2000 more 6MB documents..." });
-  writeJunk(2000, 1048576 * 6);
-  db.foo.insertOne({ msg: "This is the last document we'd expect" });
-}
-seedCollection();
+```bash
+mongo --quiet --eval "load('shell-configure-test.js'); seedCollection();"
 ```
 
-The function above will push 3000 documents (~ 6MB in size) to the collection with a couple of documents mixed in that should match our initial change stream filter.
+The function above will push 3000 "junk" documents (~ 6MB in size) to the collection along with a few additional documents mixed in that should match our initial change stream filter. Once the collection is seeded, we can use the [`$collStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/collStats/) aggregation stage to get an idea as to how much data we've just generated. This should be run from a `mongo`/`mongosh` shell connected to the cluster:
 
-Once the collection is seeded, we can use the [`$collStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/collStats/) aggregation stage to get an idea as to how much data we've just generated:
+```bash
+$ mongosh --quiet --eval "db.foo.aggregate([ { $collStats: { storageStats: {} }}, { $project: { 'storageStats.wiredTiger': 0, 'storageStats.indexDetails': 0 } }]).pretty();"
 
-```js
-db.foo.aggregate([
-  { $collStats: { storageStats: {} }},
-  { $project: { "storageStats.wiredTiger": 0, "storageStats.indexDetails": 0 }}
-]).pretty();
-```
-```js
 [
   {
     ns: 'test.foo',
@@ -195,34 +105,15 @@ Enterprise replset [direct: primary] test> decodeResumeToken('82620B98E500000002
 }
 ```
 
-To use the resume token, our script needs to be adjusted:
-
-```js
-const { MongoClient } = require("mongodb");
-const client = new MongoClient("mongodb://192.168.2.13:27017/test?replicaSet=replset");
-
-async function run() {
-  await client.connect();
-  const database = client.db("test");
-  const collection = database.collection("foo");
-  var resumeToken = { _data: '82620B98E5000000022B022C0100296E5A1004437FB549CFDD45269DD59B9BF0EB354746645F69640064620B98E564DA118651C642000004' }
-  console.log(`${new Date().toISOString()} Resuming Change Stream ...`);
-  var changeStream = collection.watch([
-    { $match: { "fullDocument.msg": { $exists: true } } },
-    { $project: { fullDocument: 1 } }
-  ], { resumeAfter: resumeToken });
-  changeStream.on("change", next => {
-    console.log(`${new Date().toISOString()} Change received: ${JSON.stringify(next.fullDocument.msg)} (token: ${next._id._data})`);
-  });
-}
-run().catch(console.dir);
-```
+To use the resume token, the `nodejs-resume-changestream.js` script can be adjusted to use our token we found earlier.
 
 ## Performance Using Cursor Defaults
 
 When the above script is run, the output should be similar to the following:
 
 ```bash
+$ node capture-first-event.js
+
 2022-03-02T11:38:37.014Z Resuming Change Stream ...
 2022-03-02T11:38:49.888Z Change received: "This document will be 1Kb" (token: 82621F54B3000000012B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F54B33284546A99670EFD0004)
 2022-03-02T11:38:49.888Z Change received: "100 6MB documents, then another 1Kb document" (token: 82621F54C4000000062B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F54C43284546A99670F620004)
@@ -244,11 +135,11 @@ Reviewing the logs for this operation show that a single `aggregate` command was
 
 The entire operation took 12.36 seconds ([`durationMillis`](https://docs.mongodb.com/manual/reference/database-profiler/#mongodb-data-system.profile.millis)) to complete.
 
-## Performance Using A Smaller Cursor `batchSize`
+## Performance Using a Smaller Cursor `batchSize`
 
 According to the previous log entry, all outstanding results following the resume token were returned in a single [cursor batch](https://docs.mongodb.com/manual/tutorial/iterate-a-cursor/#cursor-batches). By default, `find()` and `aggregate()` operations have an initial batch size of 101 documents. Subsequent [`getMore`](https://docs.mongodb.com/manual/reference/command/getMore/) operations issued against the resulting cursor have no default batch size, so they are limited only by the 16 megabyte message size (the [BSON Max Size](https://docs.mongodb.com/manual/reference/limits/#std-label-limit-bson-document-size)).
 
-Let's try adjusting the [`cursor.batchSize()`](https://docs.mongodb.com/manual/reference/method/cursor.batchSize) to 1, as this should return documents as they're found.
+Let's try adjusting `nodejs-resume-changestream.js` with a [`cursor.batchSize()`](https://docs.mongodb.com/manual/reference/method/cursor.batchSize) of 1, as this should return documents as they're found.
 
 ```js
 var changeStream = collection.watch([
@@ -306,7 +197,12 @@ To do this we'd supply the `resumeToken` (`82621F554D000000052B022C0100296E5A100
 2022-03-02T12:15:55.838Z Change received: "This is the last document we'd expect" (token: 82621F5724000000012B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F57243284546A99671ABE0004)
 ```
 
-As an optimization, MongoDB's query engine internally caches data from a cursor before pipeline processing. This is controlled by the [`internalDocumentSourceCursorBatchSizeBytes` query execution knob](https://github.com/mongodb/mongo/blob/a94caa502cf94fa6c8fcfea7283d7eaf3bd55ad5/src/mongo/db/query/query_knobs.idl#L391-L399) which defaults to 4MB (lowered from 16MB in MongoDB 3.4.2 via [SERVER-27406](https://jira.mongodb.org/browse/SERVER-27406)). Per feedback on [SERVER-27829](https://jira.mongodb.org/browse/SERVER-27829) this large batch size is used to hide the overhead of dropping and re-acquiring the lock. A query will hold the lock until it has filled up its first batch to return to the user, but an aggregation will only hold a lock during the cursor stage.
+As an optimization, MongoDB's query engine internally caches data from a cursor before pipeline processing. This is controlled by the [`internalDocumentSourceCursorBatchSizeBytes` query execution knob](https://github.com/mongodb/mongo/blob/a94caa502cf94fa6c8fcfea7283d7eaf3bd55ad5/src/mongo/db/query/query_knobs.idl#L391-L399) which defaults to 4MB (lowered from 16MB in MongoDB 3.4.2 via [SERVER-27406](https://jira.mongodb.org/browse/SERVER-27406)).
+
+<div class="note warning">
+  <span>WARNING</span>
+  <p>I'm not recommending changing <code>internalDocumentSourceCursorBatchSizeBytes</code>, but instead highlighting how this option affects the behavior of the change stream.<br>Any MongoDB Server parameter that has an <code>internal</code> prefix should only be adjusted after thorough lower-environment testing or consultation with MongoDB Support</p>
+</div>
 
 We can verify this tuneable is in fact affecting the behavior of our change stream by lowering the value from 4194304 to 128 (via the `mongosh` shell):
 
@@ -325,12 +221,126 @@ After making this change, resuming our change stream returns _"Adding 2000 more 
 2022-03-02T14:11:48.054Z Change received: "This is the last document we'd expect" (token: 82621F5724000000012B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F57243284546A99671ABE0004)
 ```
 
-<div class="note warning">
-  <span>WARNING</span>
-  <p>DO NOT CHANGE <code>internalDocumentSourceCursorBatchSizeBytes</code> IN PRODUCTION!<br>Any MongoDB Server parameter that has an <code>internal</code> prefix should only be adjusted after thorough lower-environment testing or consultation with MongoDB Support</p>
-</div>
-
 ## Summary
 
 If you're using MongoDB Change Streams and filtering for events that occur infrequently (compared to other activity within the oplog) resuming the change stream may appear "sluggish" using the defaults. Consider specifying a custom `batchSize` based on your workload to potentially improve the time to returning the first event.
 
+## Reproduction
+
+The scripts used in this article can be found below. I configured a local environment running a MongoDB 5.2.0 3 node replica set using the [`m` version manager](https://github.com/aheckmann/m) as well as [`mtools`](https://github.com/rueckstiess/mtools).
+
+```bash
+m 5.2.0-ent
+mlaunch init --replicaset --nodes 3 --bind_ip_all --binarypath $(m bin 5.2.0-ent)
+```
+
+To use the scripts below save them locally and execute the associated commands from the same directory.
+
+### `shell-configure-test.js`
+
+This script for the `mongo`/`mongosh` shell contains the helper functions used in this article to configure the environment and generate the write load.
+
+```js
+// filename: shell-configure-test.js
+//
+function setupEnvironment() {
+  // set the oplog to at least 20GB (20480MB) so our workload doesn't roll out
+  db.adminCommand({ replSetResizeOplog: 1, size: 20480 });
+
+  // insert one document and observe the result from the change stream cursor
+  db.getSiblingDB("test").foo.insertOne({ msg: "We expect our filter to match this" });
+}
+
+function randomString(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+
+function writeJunk(count, stringLength) {
+  print("Pushing " + count + " junk docs of size " + stringLength);
+  var data = [];
+  // doesn't matter what the string is so just reuse it
+  var string = randomString(stringLength);
+  for (var i = 0; i < count; i++) {
+    data.push({ i: i, s: string });
+  }
+  db.getSiblingDB("test").foo.insertMany(data);
+}
+
+function seedCollection() {
+  db.foo.insertOne({ msg: "This document will be 1Kb", s: randomString(1024) });
+  writeJunk(100, 1048576 * 6);
+  db.foo.insertOne({ msg: "100 6MB documents, then another 1Kb document", s: randomString(1024) });
+  writeJunk(100, 1048576 * 6);
+  db.foo.insertOne({ msg: "And another 100 6MB documents, then another 1Kb document", s: randomString(1024) });
+  db.foo.insertOne({ msg: "... followed immediately by a 1MB document", s: randomString(1024 * 1024) });
+  writeJunk(100, 1048576 * 6);
+  db.foo.insertOne({ msg: "100 6MB documents preceded this 3MB document", s: randomString(1024 * 1024 * 3) });
+  db.foo.insertOne({ msg: "... followed by another 1MB document", s: randomString(1024 * 1024) });
+  writeJunk(500, 1048576 * 6);
+  db.foo.insertOne({ msg: "500 6MB documents added" });
+  writeJunk(200, 1048576 * 6);
+  db.foo.insertOne({ msg: "200 6MB documents added" });
+  db.foo.insertOne({ msg: "Adding 2000 more 6MB documents..." });
+  writeJunk(2000, 1048576 * 6);
+  db.foo.insertOne({ msg: "This is the last document we'd expect" });
+}
+```
+
+### `nodejs-capture-first-event.js`
+
+This Node.js script should be used to listen for the first change event from which we'll extract a resume token for later use.
+
+```js
+// file: nodejs-capture-first-event.js
+//
+// Configure the `MongoClient` with connection details appropriate to your environment
+const { MongoClient } = require("mongodb");
+const client = new MongoClient("mongodb://localhost:27017/test?replicaSet=replset");
+
+async function run() {
+  await client.connect();
+  const database = client.db("test");
+  const collection = database.collection("foo");
+  var changeStream = collection.watch([ { $match: { "fullDocument.msg": { $exists: true } } }]);
+  changeStream.on("change", next => {
+    console.log(`${new Date().toISOString()} Change received: `, next);
+    process.exit(0);
+  });
+}
+run().catch(console.dir);
+```
+
+### `nodejs-resume-changestream.js`
+
+The resume token found when running `nodejs-capture-first-event.js` can be plugged into this script to capture matching events following the token.
+
+```js
+// file: nodejs-resume-changestream.js
+//
+// Configure the `MongoClient` with connection details appropriate to your environment
+const { MongoClient } = require("mongodb");
+const client = new MongoClient("mongodb://localhost:27017/test?replicaSet=replset");
+
+async function run() {
+  await client.connect();
+  const database = client.db("test");
+  const collection = database.collection("foo");
+  // replace the resume token with the value from your own tests
+  var resumeToken = { _data: '82620B98E5000000022B022C0100296E5A1004437FB549CFDD45269DD59B9BF0EB354746645F69640064620B98E564DA118651C642000004' }
+  console.log(`${new Date().toISOString()} Resuming Change Stream ...`);
+  var changeStream = collection.watch([
+    { $match: { "fullDocument.msg": { $exists: true } } },
+    { $project: { fullDocument: 1 } }
+  ], { resumeAfter: resumeToken });
+  changeStream.on("change", next => {
+    console.log(`${new Date().toISOString()} Change received: ${next.fullDocument.msg} (token: ${next._id._data})`);
+  });
+}
+run().catch(console.dir);
+```
