@@ -31,10 +31,9 @@ Once the script is watching the collection connect to the cluster and run the `s
 mongo --quiet --eval "load('shell-configure-test.js'); setupEnvironment();"
 ```
 
-Once this document is inserted, the Node.js should produce a result similar to the following, then exit:
+Once this document is inserted, the `nodejs-capture-first-event.js` we started previously should produce a result similar to the following, then exit:
 
-```js
-// output
+```
 2022-02-15T12:13:26.173Z Change received:  {
   _id: {
     _data: '82620B98E5000000022B022C0100296E5A1004437FB549CFDD45269DD59B9BF0EB354746645F69640064620B98E564DA118651C642000004'
@@ -199,11 +198,6 @@ To do this we'd supply the `resumeToken` (`82621F554D000000052B022C0100296E5A100
 
 As an optimization, MongoDB's query engine internally caches data from a cursor before pipeline processing. This is controlled by the [`internalDocumentSourceCursorBatchSizeBytes` query execution knob](https://github.com/mongodb/mongo/blob/a94caa502cf94fa6c8fcfea7283d7eaf3bd55ad5/src/mongo/db/query/query_knobs.idl#L391-L399) which defaults to 4MB (lowered from 16MB in MongoDB 3.4.2 via [SERVER-27406](https://jira.mongodb.org/browse/SERVER-27406)).
 
-<div class="note warning">
-  <span>WARNING</span>
-  <p>I'm not recommending changing <code>internalDocumentSourceCursorBatchSizeBytes</code>, but instead highlighting how this option affects the behavior of the change stream.<br>Any MongoDB Server parameter that has an <code>internal</code> prefix should only be adjusted after thorough lower-environment testing or consultation with MongoDB Support</p>
-</div>
-
 We can verify this tuneable is in fact affecting the behavior of our change stream by lowering the value from 4194304 to 128 (via the `mongosh` shell):
 
 ```js
@@ -221,9 +215,18 @@ After making this change, resuming our change stream returns _"Adding 2000 more 
 2022-03-02T14:11:48.054Z Change received: "This is the last document we'd expect" (token: 82621F5724000000012B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F57243284546A99671ABE0004)
 ```
 
+<div class="note warning">
+  <span>WARNING</span>
+  <p>Though this improves the performance of our isolated test, this batching behavior is in place for a reason (one example outlined in [SERVER-27829](https://jira.mongodb.org/browse/SERVER-27829)). Changing these <code>internalDocumentSourceCursorBatchSizeBytes</code> in production may adversely affect other workloads and would not be advisable.</p>
+</div>
+
 ## Summary
 
 If you're using MongoDB Change Streams and filtering for events that occur infrequently (compared to other activity within the oplog) resuming the change stream may appear "sluggish" using the defaults. Consider specifying a custom `batchSize` based on your workload to potentially improve the time to returning the first event.
+
+Let me know in the comments below if you found this article helpful :)
+
+<hr>
 
 ## Reproduction
 
