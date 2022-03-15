@@ -87,7 +87,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 4. ~~Suishō no Dragon (Square) - 1986~~ (_Japanese only_)
 5. ~~La Abadía del Crimen (The Abbey of Crime) (Opera Soft) - 1987~~ (_Spanish only_)
 6. Mortville Manor (Lankhor) - 1987
-7. Police Quest: In Pursuit of the Death Angel (Sierra On-Line) - 1987
+7. [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 8. Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line) - 1987
 9. [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 10. The Faery Tale Adventure (MicroIllusions) - 1987

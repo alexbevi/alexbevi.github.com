@@ -217,7 +217,7 @@ After making this change, resuming our change stream returns _"Adding 2000 more 
 
 <div class="note warning">
   <span>WARNING</span>
-  <p>Though this improves the performance of our isolated test, this batching behavior is in place for a reason (one example outlined in <a href="https://jira.mongodb.org/browse/SERVER-27829"><code>SERVER-27829</code></a>). Changing these <code>internalDocumentSourceCursorBatchSizeBytes</code> in production may adversely affect other workloads and would not be advisable.</p>
+  <p>Though this improves the performance of our isolated test, this batching behavior is in place for a reason (one example outlined in <a href="https://jira.mongodb.org/browse/SERVER-27829"><code>SERVER-27829</code></a>). Changing <code>internalDocumentSourceCursorBatchSizeBytes</code> in production may adversely affect other workloads and would not be advisable.</p>
 </div>
 
 ## Summary
