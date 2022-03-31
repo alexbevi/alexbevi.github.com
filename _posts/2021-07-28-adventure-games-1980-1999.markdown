@@ -186,7 +186,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 103. Curse of Enchantia (Core Design) - 1992
 104. Rex Nebular and the Cosmic Gender Bender (MicroProse) - 1992
 105. The Adventures of Melvin Freebush (Sherwood Forest Games) - 1993
-106. Blue Force (Tsunami Games) - 1993
+106. [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
 107. Dare to Dream (Epic MegaGames) - 1993
 108. Dracula Unleashed (ICOM Simulations) - 1993
 109. EcoQuest 2: Lost Secret of the Rainforest (Sierra On-Line) - 1993

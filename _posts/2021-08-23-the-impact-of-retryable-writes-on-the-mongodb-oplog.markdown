@@ -64,17 +64,26 @@ As retryable writes are disabled there is no pre/post-image data being written t
 
 As a result of the impact on the oplog when using `findAndModify`, [SERVER-56372](https://jira.mongodb.org/browse/SERVER-56372) was created to allow the pre/post-image storage to be moved to a non-oplog collection.
 
-**This functionality is available in MongoDB 5.0+, and was backported to MongoDB 4.4.7 and MongoDB 4.2.15.**
+**This functionality is available in MongoDB 5.0+, and was backported to MongoDB 4.4.7 and MongoDB 4.2.16.**
 
-To enable this functionality two (currently undocumented) [Server Parameters](https://docs.mongodb.com/manual/reference/parameters/) must be enabled at startup using the [`setParameter`](https://docs.mongodb.com/manual/reference/command/setParameter/) command as follows:
+To enable this functionality an additional [Server Parameter](https://docs.mongodb.com/manual/reference/parameters/) must be enabled at startup using the [`setParameter`](https://docs.mongodb.com/manual/reference/command/setParameter/) command as follows:
 
 ```bash
 mongod <.. other options ..> \
-  --setParameter featureFlagRetryableFindAndModify=true \
   --setParameter storeFindAndModifyImagesInSideCollection=true
 ```
 
-These parameters would need to be set on each `mongod` node in the cluster. By doing this the pre/post-images will instead be saved to the `config.image_collection` namespace.
+<div class="note info">
+  <span>INFO</span>
+  <p>An additional <code>setParameter</code> of <code>featureFlagRetryableFindAndModify=true</code> was required to test this feature prior to MongodB 4.4.7/4.2.16</p>
+</div>
+
+This parameter would need to be set on each `mongod` node in the cluster. By doing this the pre/post-images will instead be saved to the `config.image_collection` namespace.
+
+<div class="note info">
+  <span>INFO</span>
+  <p><code>storeFindAndModifyImagesInSideCollection</code> is enabled by default starting in MongoDB 5.1</p>
+</div>
 
 ![](/images/retrywrites3.png)
 
