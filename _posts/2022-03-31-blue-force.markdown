@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Blue Force"
+title: "Blue Force (Tsunami Games) - 1993"
 date: 2022-03-31 06:02:55 -0400
 comments: true
 categories: ["Let's Adventure!"]

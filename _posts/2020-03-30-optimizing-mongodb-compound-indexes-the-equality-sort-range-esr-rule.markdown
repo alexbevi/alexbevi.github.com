@@ -11,7 +11,12 @@ image:
   alt: MongoDB Logo
 ---
 
-Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/), however we do not have a formal public reference yet (though [DOCS-11790](https://jira.mongodb.org/browse/DOCS-11790) exists to track this effort).
+<div class="note info">
+  <span>UPDATE</span>
+  <p><a href="https://jira.mongodb.org/browse/DOCS-11790">DOCS-11790</a> has finally been implemented and as a result the MongoDB public documentation now contains a tutorial for <a href="https://www.mongodb.com/docs/manual/tutorial/equality-sort-range-rule">The ESR (Equality, Sort, Range) Rule</a>!!!</p>
+</div>
+
+Working in Technical Services at MongoDB I find that time and again customers need assistance understanding why the operations they've created [indexes](https://docs.mongodb.com/manual/indexes/) for may not be performing optimally. When providing supplementary documentation, the go-to article is ["Optimizing MongoDB Compound Indexes"](https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/) by MongoDB's [A. Jesse Jiryu Davis](https://emptysqua.re/blog/about/).
 
 I've presented this topic now at [MongoDB.local Toronto 2019](https://mongodblocaltoronto2019.sched.com/event/VCf3/tips-and-tricks-for-effective-indexing-mongodb) (in ["Tips and Tricks for Effective Indexing"](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing)) and at [MongoDB World 2019](https://mongodbworld2019.sched.com/event/OCX7/the-sights-and-smells-of-a-bad-query-mongodb) (in ["The Sights (and Smells) of a Bad Query"](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query)). My colleague [Chris Harris](https://www.linkedin.com/in/christopher-harris-483aa149/) has also covered this topic at MongoDB World 2019 (in ["Tips and Tricks++ for Querying and Indexing MongoDB"](https://www.slideshare.net/mongodb/mongodb-world-2019-tips-and-tricks-for-querying-and-indexing-mongodb)) and again at the MongoDB.local Houston 2019, for which [a video is available](https://www.youtube.com/watch?v=5mBY27wVau0&list=PL4RCxklHWZ9u_xtprouvxCvzq2m6q_0_E&index=9&t=0s).
 

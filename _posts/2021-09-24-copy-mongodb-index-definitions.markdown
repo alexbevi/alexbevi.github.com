@@ -18,14 +18,15 @@ The following script will allow you to quickly generate all index creation comma
 function generateCreateIndexesCommands(options) {
   var getIndexName = function(keys) {
     var name = "";
-    for (var k in keys) {
-      var v = keys[k];
+    var keyz = Object.keys(keys);
+    for (var k = 0; k < keyz.length; k++) {
+      var v = keys[keyz[k]];
       if (typeof v == "function")
         continue;
 
       if (name.length > 0)
         name += "_";
-      name += k + "_";
+      name += keyz[k] + "_";
 
       name += v;
     }

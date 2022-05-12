@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Police Quest: In Pursuit of the Death Angel"
+title: "Police Quest: In Pursuit of the Death Angel (Sierra On-Line) - 1987"
 date: 2022-03-15 06:39:40 -0400
 comments: true
 categories: ["Let's Adventure!"]
