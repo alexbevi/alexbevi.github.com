@@ -258,7 +258,7 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/</loc>
-<lastmod>2022-03-02T09:32:32-05:00</lastmod>
+<lastmod>2022-05-12T09:37:51-04:00</lastmod>
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2020/07/15/mongodb-4-dot-4-change-streams-and-pre-image-support/</loc>
@@ -342,7 +342,7 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2021/09/24/copy-mongodb-index-definitions/</loc>
-<lastmod>2021-12-29T13:12:35-05:00</lastmod>
+<lastmod>2022-05-12T09:37:51-04:00</lastmod>
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2021/10/07/mongodb-versioned-api/</loc>
@@ -390,11 +390,15 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2022/03/15/police-quest-1/</loc>
-<lastmod>2022-03-15T07:18:24-04:00</lastmod>
+<lastmod>2022-05-12T09:37:51-04:00</lastmod>
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2022/03/31/blue-force/</loc>
-<lastmod>2022-03-31T07:04:05-04:00</lastmod>
+<lastmod>2022-05-12T09:37:51-04:00</lastmod>
+</url>
+<url>
+<loc>https://www.alexbevi.com/blog/2022/04/13/mongodb-driver-monitoring/</loc>
+<lastmod>2022-05-12T09:37:51-04:00</lastmod>
 </url>
 <url>
 <loc>https://www.alexbevi.com/categories/</loc>
