@@ -4,7 +4,7 @@ title: "Ruby Call Path Analysis using TracePoint"
 date: 2021-05-07 09:56:11 -0400
 comments: true
 categories: [Programming]
-tags: [ruby]
+tags: [ruby, mongodb]
 ---
 
 During a recent diagnostic analysis exercise I needed to identify if there was additional "work" being done based on a single option being changed. As Ruby offers numerous productivity tools for developers it should come as no surprise that a mechanism to easily produce a full call stack for one to many operations exists.
