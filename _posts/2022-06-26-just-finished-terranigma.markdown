@@ -29,13 +29,13 @@ Once completed you have to jump into a chasm that spits you out on the "light si
 
 This brings us back to why I quit on this game in the first place. In my last playthrough I made it as far as Bloody Mary (or as one writer aptly put it: [Bloody Fucking Mary](https://retrogameresource.com/index.php/2019/05/28/how-to-defeat-bloody-mary-in-terranigma-snes/)) and was so under-levelled there was nothing but an ass kicking waiting for me every time I tried to take her on.
 
-![](/images/terranigma-2/terranigma.035.png){:width="70%"}
+![](/images/terranigma-2/terranigma.038.png){:width="70%"}
 
 The difficulty of this game doesn't increase all that much as you progress through the first half, and as long as you buy the best weapons and armour you can find there's little challenge. Bloody Mary ratcheted this up to 11 by requiring a minimum of level 25 to stand a chance. Playing this game "normally" up to this point would have you at level 18 at best, and [grinding](https://en.wikipedia.org/wiki/Grinding_(video_games)) is a huge time sink.
 
 I was able to beat Bloody Mary (very under-levelled) by using save states and a lot of patience, but if playing on a console the challenge may prove impossible to overcome.
 
-![](/images/terranigma-2/terranigma.038.png){:width="70%"}
+![](/images/terranigma-2/terranigma.035.png){:width="70%"}
 
 As you advance through the game the beautiful graphics and [soundtrack](https://www.youtube.com/watch?v=u9H29TkDkjM) greet you at every turn. Eventually you make your way to the point where the world has been resurrected and you've dealt with all the "lightside / darkside plot twists" that may have been surprising at first but end up being over played when repeated too often ...
 

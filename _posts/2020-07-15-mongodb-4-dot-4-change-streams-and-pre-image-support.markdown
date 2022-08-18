@@ -10,6 +10,11 @@ image:
   alt: MongoDB Logo
 ---
 
+<div class="note info">
+<small>As of MongoDB 6.0, <a href="https://www.mongodb.com/blog/post/change-streams-mongodb-6-0-support-pre-post-image-retrieval-ddl-operations">Change Streams Support Pre- and Post-Image Retrieval, DDL operations, and more!</a>
+</small>
+</div>
+
 **Warning - Not for Production Use**
 
 _MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._<br>

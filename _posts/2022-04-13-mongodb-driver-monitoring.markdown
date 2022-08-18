@@ -10,10 +10,6 @@ image:
   alt: MongoDB Logo
 ---
 
-TODO:
-- PHP https://gist.github.com/jmikola/dfcad9bc4e512b22dbb04beed4dc0a99 / https://www.php.net/manual/en/mongodb.tutorial.apm.php
-
-
 One of the great things about [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) is that they are all built around a common set of [specifications](https://github.com/mongodb/specifications). Though these specifications exist to facilitate the development of new language drivers or to consistently implement new features across drivers, being aware of them can help when it comes to troubleshooting issues.
 
 One of the more prominent specifications is the [Server Discovery and Monitoring](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst) (SDAM), which defines a set of behaviour in the drivers for providing runtime information about server discovery and monitoring events. These events are further codified in the associated [SDAM Monitoring Specification](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring-monitoring.rst).
@@ -731,6 +727,14 @@ int main(int, char**) {
     }
 }
 ```
+
+## PHP
+
+**TODO**
+
+* https://gist.github.com/jmikola/dfcad9bc4e512b22dbb04beed4dc0a99
+* https://www.php.net/manual/en/mongodb.tutorial.apm.php
+
 
 The goal will be to collect more examples over time and post them here. If you have anything you'd like to share that I haven't covered, please feel free to comment below ;)
 

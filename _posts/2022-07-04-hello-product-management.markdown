@@ -27,9 +27,11 @@ If the type of digital detective work that goes into finding and reporting these
 
 ## Present
 
-As much as I've loved my time in Technical Services, as of July 5th my journey moves in a different direction as I step into a new role as _Product Manager, Developer Experience_ focusing on the Ruby Driver and Ruby Language Ecosystem. First of all, what is a Product Manager? According to [Atlassian](https://www.atlassian.com/agile/product-management/product-manager), _a product manager is the person who identifies the customer need and the larger business objectives that a product or feature will fulfill, articulates what success looks like for a product, and rallies a team to turn that vision into a reality._
+As much as I've loved my time in Technical Services, as of July 5th my journey moves in a different direction as I step into a new role as _Product Manager, Developer Experience_ focusing on the Ruby Driver and Ruby Language Ecosystem.
 
-This type of role has me stepping out of my comfort zone a little as I've never worked as a Product Manager in the past, but I am uniquely positioned internally at MongoDB to be successful with a role that advocates for Ruby developers!
+First of all, what is a Product Manager? According to [Atlassian](https://www.atlassian.com/agile/product-management/product-manager), _a product manager is the person who identifies the customer need and the larger business objectives that a product or feature will fulfill, articulates what success looks like for a product, and rallies a team to turn that vision into a reality._
+
+Since this isn't another engineering role I will be stepping out of my comfort zone, but feel I am extremely well positioned internally at MongoDB to be successful with a role that advocates for Ruby developers! Since joining the Technical Services team in 2018 I quickly began focusing on [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) focused cases, especially the [MongoDB Ruby Driver](https://www.mongodb.com/docs/ruby-driver/current/) and the [Mongoid ODM](https://www.mongodb.com/docs/mongoid/master/).
 
 I've been working as a Ruby developer for more than a decade at this point, both as a Software Engineer building commercial applications and as a [Technical Services Engineer](https://www.mongodb.com/blog/post/technical-services-engineering-at-mongo-db-meet-alex-bevilacqua) helping MongoDB customers address production issues within their solutions. Heck, I've even [written a book](https://www.packtpub.com/product/redmine-plugin-extension-and-development/9781783288748) covering plugin development for a [Ruby on Rails based project management suite](https://www.redmine.org/).
 
@@ -47,6 +49,6 @@ Ruby is designed to make programmers happy.</em></small>
 
 This new role really feels like the culmination of a much longer journey that began when I started getting my feet wet with [MongoDB in 2012]({% post_url 2012-08-29-install-latest-mongodb-in-ubuntu %}), learned about Ruby drivers for MongoDB and was actively [troubleshooting Mongoid issues as early as 2014]({% post_url 2014-06-23-troubleshooting-a-mongoid-connection-issue %}).
 
-My love of Ruby and my love of MongoDB should help give me a leg up in this new role, however the real work now begins! My focus will be to help drive adoption of MongoDB within the Ruby developer community, though how I can move the needles here remains to be seen.
+My love of Ruby and my love of MongoDB should help give me a leg up in this new role, however the real work now begins! My focus will be to help drive adoption of MongoDB within the Ruby developer community, though how I can move the needle here remains to be seen.
 
 I plan on sharing a lot more as this journey continues and I welcome any feedback you may have along the way.
