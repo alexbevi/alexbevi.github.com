@@ -5,6 +5,9 @@ date: 2022-08-18 11:23:27 -0400
 comments: true
 categories: MongoDB
 tags: ["ruby", "rails", "mongodb"]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 Before discovering Ruby and Ruby on Rails I was a .NET developer. At that time I'd make ad-hoc changes to my development database, export my table/function/stored procedure/view definitions to text files and check them into source control with any code changes. Using `diff` functionality I'd compare the schema changes that the DBAs needed to apply to production and we'd script that out separately.
