@@ -418,7 +418,11 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/blog/2022/09/09/performance-profiling-a-mongoid-issue-using-appprofiler/</loc>
-<lastmod>2022-09-09T08:10:56-04:00</lastmod>
+<lastmod>2022-09-15T07:14:18-04:00</lastmod>
+</url>
+<url>
+<loc>https://www.alexbevi.com/blog/2022/09/15/createindex-error-values-in-v-2-index-key-pattern-cannot-be-of-type-object/</loc>
+<lastmod>2022-09-15T07:14:18-04:00</lastmod>
 </url>
 <url>
 <loc>https://www.alexbevi.com/categories/</loc>
@@ -658,6 +662,12 @@
 </url>
 <url>
 <loc>https://www.alexbevi.com/tags/sierra-online/</loc>
+</url>
+<url>
+<loc>https://www.alexbevi.com/tags/mongorestore/</loc>
+</url>
+<url>
+<loc>https://www.alexbevi.com/tags/mongodump/</loc>
 </url>
 <url>
 <loc>https://www.alexbevi.com/categories/writing/</loc>
