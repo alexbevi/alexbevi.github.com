@@ -1,10 +1,13 @@
 ---
 layout: post
-title: "createIndex error: Values in v:2 index key pattern cannot be of type object."
+title: "Solving a mongorestore failure due to 'Values in v:2 index key pattern cannot be of type object.'"
 date: 2022-09-15 06:47:26 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, indexing, mongorestore, mongodump]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 Starting with MongoDB 4.4, the [MongoDB Database Tools](https://www.mongodb.com/docs/database-tools/) are now released separately from the MongoDB Server and use their own versioning, with an initial version of 100.0.0. Previously, these tools were released alongside the MongoDB Server and used matching versioning.
