@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Bug Hunting with the MongoDB Haskell Community"
-date: 2022-09-02 06:21:02 -0400
+date: 2022-09-21 06:21:02 -0400
 comments: true
 categories: MongoDB
-published: false
+published: true
 tags: ["drivers", "haskell", "mongodb"]
 image:
   src: /images/mongodb-logo.png
@@ -125,6 +125,10 @@ Now that the issue could be verified, additional logic was introduced to use the
 
 ## Outcome
 
-With the assistance of the Haskell community we were able to identify and address a deficiency in the free and shared tiers of MongoDB Atlas. The fix for this was released on `<DATE>`, and any Haskell application using the community maintained Haskell driver should have started working as expected without the need for additional intervention.
+With the assistance of the Haskell community we were able to identify and address a deficiency in the free and shared tiers of MongoDB Atlas. The fix for this was released in version `8ed75a4810@v20220914` on 2022-09-21, and any Haskell application using the community maintained Haskell driver should have started working as expected without the need for additional intervention.
 
 We truly appreciate the investment our developer communities make when they put time and effort into building something as powerful as a MongoDB driver and want to ensure we do what we can to offer assistance if possible.
+
+<div class="note info">
+<small><em>Cross posted to <a href="https://dev.to/alexbevi/bug-hunting-with-the-mongodb-haskell-community-469j">DEV</a></em></small>
+</div>
