@@ -4,7 +4,7 @@ title: "MongoDB ORMs, ODMs, and Libraries"
 date: 2022-11-02 06:28:40 -0400
 comments: true
 categories: MongoDB
-tags: ["ruby", "rails", "mongodb", "orm", "odm"]
+tags: ["ruby", "rails", "mongodb", "orm", "odm", "cross-post"]
 image:
   src: /images/mongodb-logo.png
   alt: MongoDB Logo

@@ -4,7 +4,7 @@ title: "Why Use MongoDB with Ruby"
 date: 2022-08-18 11:23:27 -0400
 comments: true
 categories: MongoDB
-tags: ["ruby", "rails", "mongodb"]
+tags: ["ruby", "rails", "mongodb", "cross-post"]
 image:
   src: /images/mongodb-logo.png
   alt: MongoDB Logo

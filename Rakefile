@@ -37,7 +37,7 @@ multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
   cd "#{deploy_dir}" do
-    Bundler.with_clean_env { system "git pull" }
+    Bundler.with_unbundled_env { system "git pull" }
   end
   cd "#{deploy_dir}" do
     system "git add -A"
@@ -45,7 +45,7 @@ multitask :push do
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
-    Bundler.with_clean_env { system "git push origin #{deploy_branch}" }
+    Bundler.with_unbundled_env { system "git push origin #{deploy_branch}" }
     puts "\n## Github Pages deploy complete"
   end
 end
