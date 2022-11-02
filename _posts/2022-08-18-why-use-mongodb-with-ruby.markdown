@@ -8,6 +8,7 @@ tags: ["ruby", "rails", "mongodb"]
 image:
   src: /images/mongodb-logo.png
   alt: MongoDB Logo
+canonical_url: https://www.mongodb.com/developer/products/mongodb/why-use-mongodb-with-ruby/
 ---
 
 Before discovering Ruby and Ruby on Rails I was a .NET developer. At that time I'd make ad-hoc changes to my development database, export my table/function/stored procedure/view definitions to text files and check them into source control with any code changes. Using `diff` functionality I'd compare the schema changes that the DBAs needed to apply to production and we'd script that out separately.
@@ -134,3 +135,7 @@ Interacting with your MongoDB data via Ruby - either using the Driver or the ODM
 * [MongoDB Atlas Data API](https://www.mongodb.com/docs/atlas/api/data-api/) lets you read and write data in Atlas with standard HTTPS requests. To use the Data API, all you need is an HTTPS client and a valid API key.
 
 Ruby was recently added as a [language export option to both MongoDB Compass and the MongoDB VS Code Extension](https://www.mongodb.com/blog/post/ruby-added-mongodb-export-language-compass-vs-code). Using this integration you can easily convert an [aggregation pipeline](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) from either tool into code you can copy/paste into your Ruby application.
+
+<div class="note info">
+<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/why-use-mongodb-with-ruby/">MongoDB Developer Center</a></em></small>
+</div>
