@@ -10,6 +10,9 @@ image:
   alt: MongoDB Logo
 canonical_url: https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/
 ---
+<div class="note info">
+<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/">MongoDB Developer Center</a></em></small>
+</div>
 
 Though developers have always been capable of manually writing complex queries to interact with a database, this approach can be tedious and error-prone. [Object-Relational Mappers](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (or ORMs) improve the developer experience, as they accomplish multiple meaningful tasks:
 
@@ -78,7 +81,3 @@ See the [Spring Data MongoDB documentation](https://spring.io/projects/spring-d
 Though not an exhaustive list of the available MongoDB ORM and ODM libraries available right now, the entries above should allow you to get started using MongoDB in your language of choice more naturally and efficiently.
 
 If you’re looking for assistance or have any feedback don’t hesitate to engage on our [Community Forums](https://www.mongodb.com/community/forums/).
-
-<div class="note info">
-<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/">MongoDB Developer Center</a></em></small>
-</div>
