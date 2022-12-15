@@ -3,7 +3,7 @@ layout: post
 title: "TableCheck: Empowering Restaurants with Best-in-Class Booking Tools Powered by MongoDB"
 date: 2022-12-14 14:49:43 -0500
 comments: true
-categories: MongoDB
+categories: "MongoDB"
 tags: ["ruby", "rails", "mongodb", "orm", "odm", "customer-success", "cross-post"]
 canonical_url: https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/
 ---
