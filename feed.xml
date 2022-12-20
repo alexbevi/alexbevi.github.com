@@ -4,7 +4,7 @@
   <id>http://0.0.0.0:4000/</id>
   <title>ALEX BEVILACQUA</title>
   <subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle>
-  <updated>2022-12-20T16:32:12-05:00</updated>
+  <updated>2022-12-20T16:46:51-05:00</updated>
   <author>
     <name>Alex Bevilacqua</name>
     <uri>http://0.0.0.0:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://0.0.0.0:4000/blog/2022/12/16/grim-fandango/" rel="alternate" type="text/html" title="Grim Fandango (LucasArts) - 1998" />
     <published>2022-12-16T06:52:10-05:00</published>
   
-    <updated>2022-12-20T16:31:37-05:00</updated>
+    <updated>2022-12-20T16:35:17-05:00</updated>
   
     <id>http://0.0.0.0:4000/blog/2022/12/16/grim-fandango/</id>
     <content src="http://0.0.0.0:4000/blog/2022/12/16/grim-fandango/" />
