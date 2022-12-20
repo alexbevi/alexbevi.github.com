@@ -88,7 +88,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 5. ~~La Abadía del Crimen (The Abbey of Crime) (Opera Soft) - 1987~~ (_Spanish only_)
 6. Mortville Manor (Lankhor) - 1987
 7. [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
-8. Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line) - 1987
+8. [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 9. [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 10. The Faery Tale Adventure (MicroIllusions) - 1987
 11. Méwilo (Coktel Vision) - 1987
@@ -173,7 +173,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 90. Plan 9 from Outer Space (Gremlin Ireland) - 1992
 91. Putt-Putt Joins the Parade (Humongous Entertainment) - 1992
 92. Sherlock Holmes: Consulting Detective Vol. II (ICOM Simulations) - 1992
-93. Ringworld: Revenge of the Patriarch (Tsunami Games) - 1992
+93. [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
 94. Spellcasting 301: Spring Break (Legend Entertainment) - 1992
 95. Star Trek: 25th Anniversary (Interplay) - 1992
 96. Nightshade (1992 video game) (Beam Software) - 1992
@@ -384,7 +384,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 301. The X-Files Game (HyperBole Studios) - 1998
 302. Hopkins FBI (MP Entertainment) - 1998
 303. Ring: The Legend of the Nibelungen (Arxel Tribe) - 1998
-304. Grim Fandango (LucasArts) - 1998
+304. [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
 305. Nancy Drew: Secrets Can Kill (Her Interactive) - 1998
 306. John Saul's Blackstone Chronicles: An Adventure in Terror (Legend Entertainment) - 1998
 307. Juggernaut (Tonkin House) - 1998

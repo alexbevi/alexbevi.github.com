@@ -71,7 +71,7 @@ Police Quest 1 was [reported to have been used as a training tool](https://en.wi
 
 |*Time to Completion*|3.5 hours|
 |*[How Long To Beat?](https://howlongtobeat.com/game?id=7196)*|5 hours|
-|*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
+|*Version Played*|DOS (SCI Remake) via [ScummVM](https://www.scummvm.org/)|
 |*Notes*|[Walkthrough](http://gamerwalkthroughs.com/police-quest-1-vga/), [Map](https://gamefaqs.gamespot.com/pc/926376-police-quest-in-pursuit-of-the-death-angel-vga-version/map/2458-city-map)|
 
 ### Score
