@@ -14,6 +14,9 @@ _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/catego
 
 [Hugo's House of Horrors](https://en.wikipedia.org/wiki/Hugo%27s_House_of_Horrors) is a parser-based adventure game designed by independent software developer David P. Gray and published as shareware by Gray Design Associates in 1990. The game follows the character Hugo as he searches for his girlfriend Penelope in a haunted house.
 
+* I actually sent out for the strategy guide
+* WTF is a bung???
+
 
 
 **Game Information**
