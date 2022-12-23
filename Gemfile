@@ -10,7 +10,6 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "jekyll-theme-chirpy"
 gem "liquid-c"
-gem "kramdown"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5"
@@ -36,5 +35,7 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem 'stringex', '~> 1.4.0'
 
-gem "puma"
-gem "faraday-retry"
+group :development do
+  gem "puma"
+  gem "faraday-retry"
+end

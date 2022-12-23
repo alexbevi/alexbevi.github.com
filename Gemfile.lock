@@ -119,7 +119,6 @@ DEPENDENCIES
   jekyll-gist
   jekyll-last-modified-at
   jekyll-theme-chirpy
-  kramdown
   liquid-c
   puma
   stringex (~> 1.4.0)
