@@ -26,7 +26,7 @@ _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/catego
 |*Publisher*|Gray Design Associates|
 |*Release Date*|1990|
 |*Systems*|DOS, Windows|
-|*Game Engine*|[Hugo](https://wiki.scummvm.org/index.php?title=Hugo)|d
+|*Game Engine*|[Hugo](https://wiki.scummvm.org/index.php?title=Hugo)|
 
 **Play Information**
 
