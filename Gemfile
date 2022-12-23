@@ -7,8 +7,10 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.2.0"
+gem "jekyll"
 gem "jekyll-theme-chirpy"
+gem "liquid-c"
+gem "kramdown"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5"
@@ -18,7 +20,7 @@ gem "jekyll-theme-chirpy"
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  # gem "jekyll-feed"
+  gem "jekyll-feed"
   gem 'jekyll-gist'
   gem 'jekyll-last-modified-at'
 end
@@ -34,4 +36,5 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem 'stringex', '~> 1.4.0'
 
-gem "webrick", "~> 1.7"
+gem "puma"
+gem "faraday-retry"

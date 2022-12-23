@@ -63,9 +63,9 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 
 |**Atmosphere (20)**|10|
 |**Story (25)**|10|
-|**Experience (15)**|8|
-|**Impact (10)**|7|
-||**50%**|
+|**Experience (15)**|5|
+|**Impact (10)**|4|
+||**41%**|
 
 ### Gallery
 

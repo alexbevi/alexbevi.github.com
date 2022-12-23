@@ -91,11 +91,11 @@ If you're a fan of the movie I'd be curious to hear if the game progression is e
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|16|
-|**Story (25)**|18|
-|**Experience (15)**|13|
-|**Impact (10)**|9|
-||**80%**|
+|**Atmosphere (20)**|12|
+|**Story (25)**|15|
+|**Experience (15)**|11|
+|**Impact (10)**|6|
+||**63%**|
 
 ### Gallery
 

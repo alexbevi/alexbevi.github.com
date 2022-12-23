@@ -177,3 +177,13 @@ p.note {
   font-weight: 700;
   text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
+
+figure {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+  border: thin silver solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}

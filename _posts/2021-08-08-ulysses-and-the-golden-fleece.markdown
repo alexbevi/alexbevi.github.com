@@ -54,10 +54,10 @@ That's my 2 cents on this. The visuals are nice for 1981, but I wouldn't recomme
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
 |**Atmosphere (20)**|12|
-|**Story (25)**|16|
+|**Story (25)**|12|
 |**Experience (15)**|6|
 |**Impact (10)**|4|
-||**54%**|
+||**46%**|
 
 ### Gallery
 

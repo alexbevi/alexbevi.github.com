@@ -95,7 +95,9 @@ paginate: 10          # Posts per page on the blog index
 gist:
   noscript: false
 
+markdown: kramdown
 kramdown:
+  input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: highlight
@@ -166,6 +168,7 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
+  - .jekyll-cache
 
 jekyll-archives:
   enabled: [categories, tags]

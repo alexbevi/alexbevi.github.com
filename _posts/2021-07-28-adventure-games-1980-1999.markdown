@@ -121,7 +121,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 38. Countdown (Access Software) - 1990
 39. Earthrise: A Guild Investigation (Matt Gruson) - 1990
 40. Geisha (Coktel Vision) - 1990
-41. Hugo's House of Horrors (Gray Design Associates) - 1990
+41. [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 42. Les Manley in: Search for the King (Accolade) - 1990
 43. Maupiti Island (Lankhor) - 1990
 44. Operation Stealth (Delphine Software International) - 1990
