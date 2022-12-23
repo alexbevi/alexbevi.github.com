@@ -40,7 +40,11 @@ layout: page
 <div id="post-list">
 
 {% for post in posts %}
+  {% if post.image %}
+  <div class="post-preview" style="text-shadow: 2px 2px #000000; overflow: hidden; background: linear-gradient(rgb(27,27,30,0.95), rgb(35,35,37,0.85)), url('{{ post.image.src }}'); background-size: cover; background-repeat: no-repeat;background-position: center left;">
+  {% else %}
   <div class="post-preview">
+  {% endif %}
     <h1>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </h1>
