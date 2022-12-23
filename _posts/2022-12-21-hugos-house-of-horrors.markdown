@@ -4,7 +4,7 @@ title: "Hugo’s House of Horrors (Gray Design Associates) - 1990"
 date: 2022-12-21 20:20:48 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Tsunami Games"]
+tags: [adventure, "Gray Design Associates"]
 image:
   src: /images/adventure/hugo1/scummvm-hugo1-00000.png
   alt: Title Image
