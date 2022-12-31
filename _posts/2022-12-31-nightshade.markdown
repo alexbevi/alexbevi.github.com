@@ -16,7 +16,7 @@ https://tasvideos.org/744M
 
 **Game Information**
 
-|*Game*|Wizard and the Princess|
+|*Game*|Nightshade|
 |*Developer*|[Beam Software](https://en.wikipedia.org/wiki/Beam_Software)|
 |*Publisher*|Ultra Games|
 |*Release Date*|January, 1992|

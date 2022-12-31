@@ -114,6 +114,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-archives
   jekyll-feed
   jekyll-gist
   jekyll-last-modified-at
