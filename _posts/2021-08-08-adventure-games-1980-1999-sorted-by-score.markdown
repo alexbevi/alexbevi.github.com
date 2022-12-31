@@ -25,3 +25,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
+1. **00%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992

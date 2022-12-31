@@ -176,7 +176,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 93. [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
 94. Spellcasting 301: Spring Break (Legend Entertainment) - 1992
 95. Star Trek: 25th Anniversary (Interplay) - 1992
-96. Nightshade (1992 video game) (Beam Software) - 1992
+96. [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
 97. Frederik Pohl's Gateway (Legend Entertainment) - 1992
 98. Indiana Jones and the Fate of Atlantis (LucasArts) - 1992
 99. Lure of the Temptress (Revolution Software) - 1992
