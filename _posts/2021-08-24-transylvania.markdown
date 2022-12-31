@@ -61,11 +61,11 @@ Overall this game was an enjoyable adventure, though the story was pretty sparse
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|10|
-|**Story (25)**|10|
+|**Atmosphere (20)**|6|
+|**Story (25)**|8|
 |**Experience (15)**|5|
 |**Impact (10)**|4|
-||**41%**|
+||**33%**|
 
 ### Gallery
 

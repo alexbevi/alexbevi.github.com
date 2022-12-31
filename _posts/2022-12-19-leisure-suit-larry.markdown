@@ -47,7 +47,7 @@ When I first played this game I was probably 13 or 14 and the setting, scenario 
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/5271)*|3 hours|
 |*Version Played*|DOS (SCI Remake) via [ScummVM](https://www.scummvm.org/)|
-|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/blueforce.aspx)|
+|*Notes*|[Walkthrough](http://gamerwalkthroughs.com/leisure-suit-larry-vga/)|
 
 ### Score
 

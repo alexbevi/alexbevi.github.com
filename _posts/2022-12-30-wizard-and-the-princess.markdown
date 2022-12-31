@@ -38,9 +38,9 @@ Eventually you make your way to the room in the castle with a frog, `KISS FROG`,
 
 ![](/images/adventure/serenia/serenia_011.png){:width="70%"}
 
-Other than Mystery House that I have extremely fond memories of due to having played it as a kid these other early Sierra (On-Line Systems) games don't really resonate with me. As a result the iterative improvements between each title, which ultimately set the stage for [King's Quest: Quest for the Crown]({% post_url 2021-08-06-kings-quest %}) and beyond ... were lost on me.
+Other than Mystery House that I have extremely fond memories of due to having played it as a kid these other early Sierra (On-Line Systems) games don't really resonate with me. As a result the iterative improvements between each title, which ultimately set the stage for [King's Quest: Quest for the Crown]({% post_url 2021-08-06-kings-quest %}) and beyond, were lost on me.
 
-The Digital Antiquarian has a great write up on this game ([Part 1](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-1/), [Part 2](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-2/)) that I'd highly recommend if you want to dive a little deeper into this title.
+[The Digital Antiquarian](https://www.filfre.net/) has a great write up on this game ([Part 1](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-1/), [Part 2](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-2/)) that I'd highly recommend if you want to dive a little deeper into this title.
 
 **Game Information**
 
