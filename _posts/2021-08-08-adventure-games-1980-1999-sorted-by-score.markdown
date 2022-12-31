@@ -24,7 +24,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 1. **41%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
-
-
-
-
+1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980

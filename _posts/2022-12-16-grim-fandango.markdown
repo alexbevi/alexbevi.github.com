@@ -48,7 +48,7 @@ You eventually get to the final confrontation with Hector LeMans, complete a cou
 
 ![](/images/adventure/grim/scummvm-grim-040.png)
 
-I was running this game using ScummVM and I upon [Ticket #13139](https://bugs.scummvm.org/ticket/13139), which lead me down a bit of a debugging rabbit hole. The game's scripted logic is written in [Lua](https://www.lua.org/) so I went on the hunt for a disassembler to see what the failing logic was doing (see the linked ticket above if you're curious). This lead me to Bret Mogilefsky's excellent post on ["LUA IN GRIM FANDANGO"](https://www.grimfandango.net/features/articles/lua-in-grim-fandango) I'd also recommend.
+I was running this game using ScummVM and I stumbled upon [Ticket #13139](https://bugs.scummvm.org/ticket/13139), which lead me down a bit of a debugging rabbit hole. The game's scripted logic is written in [Lua](https://www.lua.org/) so I went on the hunt for a disassembler to see what the failing logic was doing (see the linked ticket above if you're curious). This lead me to Bret Mogilefsky's excellent post on ["LUA IN GRIM FANDANGO"](https://www.grimfandango.net/features/articles/lua-in-grim-fandango) I'd also recommend.
 
 Grim Fandango doesn't have a huge amount of replayability, but it is a lot of fun the first time you run through it. If you appreciate a good story though, this is definitely a game worth playing at least once.
 
