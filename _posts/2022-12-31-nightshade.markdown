@@ -22,7 +22,7 @@ Your goal in Nightshade is to become a hero. You start off in the sewers under M
 Once you do you go about your adventure, which involves collecting items and fighting off some baddies.
 
 ![](/images/adventure/nightshade/Nightshade.2022-12-31 08.32.56.png){:width="70%"}
-_A good deed is it's own reward ... but a wad of cash is a BETTER reward_
+_A good deed is its own reward ... but a wad of cash is a BETTER reward_
 
 As you perform good deeds (such as saving citizens) or beating up bosses, your popularity will grow. Other than opening up new dialog options with certain NPCs I don't know that this really has a huge impact on how you progress through the game.
 
