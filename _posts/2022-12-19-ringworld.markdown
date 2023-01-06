@@ -24,17 +24,20 @@ The tie-in with the book is pretty loose, and though they mention some of the or
 
 Quinn and Chmee steal a ship and try to escape from the Kzinti empire, only to receive a communication from the Hindmost (a Puppeteer) who tells them they need to go to the Ringworld to collect some items in stasis boxes. If they don't do this their coordinates will be shared with the Kzinti and that'll be that ... so off our heroes go.
 
-{% include image.html url="/images/adventure/ringworld/scummvm-ringworld-cd-00002.png" description="Character portraits look decent" %}
+![](/images/adventure/ringworld/scummvm-ringworld-cd-00002.png)
+_Character portraits look decent_
 
 The story progresses through character interactions, which can include simple decision trees. I don't know that it really matters which option you choose when given a choice as this game is extremely linear.
 
 Once you escape from the Kzinti the engineer that was on board the ship you stole tries to sabotage you, which results in a fun bit of copy protection. The wires need to be arranged in a specific order according the page in the manual the game tells you they'll be on.
 
-{% include image.html url="/images/adventure/ringworld/scummvm-ringworld-cd-00005.png" description="Who doesn't love copy protection?" %}
+![](/images/adventure/ringworld/scummvm-ringworld-cd-00005.png)
+_Who doesn't love copy protection?_
 
 After landing on the Ringworld you need to find the stasis boxes. The first group of natives you encounter you perform a "God Gambit" on to try and get them to do what you want. This involves Quinn engaging in [Rishathra](https://larryniven.fandom.com/wiki/Rishathra) with the chief's daughter (look it up ... click that link .... you know you wanna .......). Seeing as I read these books as a teenager that term stuck in my head, so I appreciate that they worked it into the plot :P
 
-{% include image.html url="/images/adventure/ringworld/scummvm-ringworld-cd-00011.png" description="Someone's DTF ..." %}
+![](/images/adventure/ringworld/scummvm-ringworld-cd-00011.png)
+_Someone's DTF ..._
 
 Most puzzles in the game are just fetch quests, and aren't really that hard to complete. There are a couple of puzzles as well but these aren't overly difficult to solve (such as the stool in the sky house or the final sliding tile puzzle to open the space craft).
 
@@ -54,7 +57,8 @@ The background music involves short loops and can be annoying at times. The back
 
 If you're looking for a great science fiction experience go read the books :)
 
-{% include image.html url="/images/adventure/ringworld/scummvm-ringworld-cd-00023.png" description="The end ... until Ringworld 2 that is ..." %}
+![](/images/adventure/ringworld/scummvm-ringworld-cd-00023.png)
+_The end ... until Ringworld 2 that is ..._
 
 **Game Information**
 

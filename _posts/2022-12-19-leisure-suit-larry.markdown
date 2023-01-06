@@ -14,7 +14,8 @@ _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/catego
 
 [Leisure Suit Larry in the Land of the Lounge Lizards](https://en.wikipedia.org/wiki/Leisure_Suit_Larry_in_the_Land_of_the_Lounge_Lizards) is the first installment in Sierra's Leisure Suit Larry series. The game's story follows a middle-aged male virgin named Larry Laffer as he desperately tries to "get lucky" in the fictional American city of Lost Wages. Land of the Lounge Lizards establishes several elements which recur in the later Leisure Suit Larry games, including Larry's campy attire, perpetual bad luck with women, and penchant for double-entendres. The game's overall plot and basic structure follow that of [Softporn Adventure](https://en.wikipedia.org/wiki/Softporn_Adventure), Sierra's own 1981 Apple II text adventure (that did not feature Larry as the main character).
 
-{% include image.html url="/images/adventure/lsl1sci/scummvm-lsl1sci-00001.png" description="Unless you were born in the late 70's or early 80's you're gonna need Google to answer these dated questions" %}
+![](/images/adventure/lsl1sci/scummvm-lsl1sci-00001.png)
+_Unless you were born in the late 70's or early 80's you're gonna need Google to answer these dated questions_
 
 The game was originally released as a text parser game, but was later re-released as a point and click adventure with updated graphics. I chose to play the latter for this review to hopefully capture some ... uh ... better screenshots :P
 
@@ -22,17 +23,20 @@ The game was originally released as a text parser game, but was later re-release
 
 Everything in this game boils down to toilet humor (sometimes literally), dick and fart jokes and innuendo. Seeing as the game was written by [Al Lowe](https://en.wikipedia.org/wiki/Al_Lowe), none of this should come as a surprise, but you may as well know what you're getting into.
 
-{% include image.html url="/images/adventure/lsl1sci/scummvm-lsl1sci-00011.png" description="I don't think she likes me" %}
+![](/images/adventure/lsl1sci/scummvm-lsl1sci-00011.png)
+_I don't think she likes me_
 
 Your goal is to get laid. That's it.
 
 Progressing through the game involves meeting women and trying to convince them they like you so they'll hook up with you. As this is an adventure game you must travel to various locations (via a taxi) to get various items to try and help you accomplish your goal (flowers, chocolates, wine, condoms ... etc). Seeing as this is a Sierra game there are numerous ways you can fuck up and die, but the death scenarios are typically pretty funny and add a bit of replayability to the game.
 
-{% include image.html url="/images/adventure/lsl1sci/scummvm-lsl1sci-00004.png" description="Flushing the toilet is apparently deadly" %}
+![](/images/adventure/lsl1sci/scummvm-lsl1sci-00004.png)
+_Flushing the toilet is apparently deadly_
 
 When I first played this game I was probably 13 or 14 and the setting, scenario and jokes really appealed to me. Though I'm much older now, replaying this game still makes me chuckle. The jokes are mostly stupid, but you're getting exactly what you expect and as long as you take it at face value, you'll have a good time.
 
-{% include image.html url="/images/adventure/lsl1sci/scummvm-lsl1sci-00021.png" description="Game Over ... Good on you buddy" %}
+![](/images/adventure/lsl1sci/scummvm-lsl1sci-00021.png)
+_Game Over ... Good on you buddy_
 
 **Game Information**
 
