@@ -65,11 +65,11 @@ As the `system.sessions` collection is expected to be sharded. In some cases, th
 When the `system.sessions` collection is "broken" the `LogicalSessionCache*` threads will emit log messages such as the following:
 ```
 // Primary Shard Logs
-2021-03-12T19:32:51.551+0000 I CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Collection config.`system.sessions` is not sharded.
-2021-03-12T19:32:51.556+0000 I CONTROL  [LogicalSessionCacheReap] Sessions collection is not set up; waiting until next sessions reap interval: Collection config.`system.sessions` is not sharded.
+2021-03-12T19:32:51.551+0000 I CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Collection config.system.sessions is not sharded.
+2021-03-12T19:32:51.556+0000 I CONTROL  [LogicalSessionCacheReap] Sessions collection is not set up; waiting until next sessions reap interval: Collection config.system.sessions is not sharded.
 
 // Config Server Logs
-2021-03-12T18:32:31.725+0000 I CONTROL  [LogicalSessionCacheRefresh] Failed to create config.`system.sessions`: Not primary while running findAndModify command on collection config.locks, will try again at the next refresh interval
+2021-03-12T18:32:31.725+0000 I CONTROL  [LogicalSessionCacheRefresh] Failed to create config.system.sessions: Not primary while running findAndModify command on collection config.locks, will try again at the next refresh interval
 ```
 
 ## How does the `system.sessions` collection "break" in Atlas
