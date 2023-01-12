@@ -10,6 +10,7 @@ image:
   src: /images/adventure/bg.jpg
   alt: Title Image
 ---
+<small><em>Image credit: ["Point-n-click, a genre full of magic, humor and intelligence"](https://freegametips.com/point-n-click-a-genre-full-of-magic-humor-and-intelligence/)<em></small>
 
 When I was growing up in the 80's my favourite games to play were adventure games. I've always found myself going back to this genre, and as I grew up and moved into software development the [ScummVM](https://www.scummvm.org/) project held a certain appeal as it combined two passions for me.
 

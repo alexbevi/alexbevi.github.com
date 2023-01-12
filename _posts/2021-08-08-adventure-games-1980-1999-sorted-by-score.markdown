@@ -9,6 +9,7 @@ image:
   src: /images/adventure/bg.jpg
   alt: Title Image
 ---
+<small><em>Image credit: ["Point-n-click, a genre full of magic, humor and intelligence"](https://freegametips.com/point-n-click-a-genre-full-of-magic-humor-and-intelligence/)<em></small>
 
 This page is a list of the reviewed games from the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series, sorted by rating.
 
