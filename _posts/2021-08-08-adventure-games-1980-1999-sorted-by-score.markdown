@@ -5,6 +5,9 @@ date: 2021-08-08 18:47:28 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [series, adventure]
+image:
+  src: /images/adventure/bg.jpg
+  alt: Title Image
 ---
 
 This page is a list of the reviewed games from the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series, sorted by rating.

@@ -6,6 +6,9 @@ comments: true
 categories: "MongoDB"
 tags: ["ruby", "rails", "mongodb", "orm", "odm", "customer-success", "cross-post"]
 canonical_url: https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 <div class="note info">
 <small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/">MongoDB Developer Center</a></em></small>

@@ -6,6 +6,9 @@ comments: true
 pin: true
 categories: [MongoDB]
 tags: [mongodb, wiredtiger, data-corruption, troubleshooting]
+image:
+  src: /images/mongodb-logo.png
+  alt: MongoDB Logo
 ---
 
 <blockquote>
