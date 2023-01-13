@@ -10,7 +10,7 @@ image:
   src: /images/adventure/bg.jpg
   alt: Title Image
 ---
-<small><em>Image credit: ["Point-n-click, a genre full of magic, humor and intelligence"](https://freegametips.com/point-n-click-a-genre-full-of-magic-humor-and-intelligence/)<em></small>
+<small><em>Image credit: ["Point-n-click, a genre full of magic, humor and intelligence"](https://freegametips.com/point-n-click-a-genre-full-of-magic-humor-and-intelligence/)</em></small>
 
 When I was growing up in the 80's my favourite games to play were adventure games. I've always found myself going back to this genre, and as I grew up and moved into software development the [ScummVM](https://www.scummvm.org/) project held a certain appeal as it combined two passions for me.
 
@@ -138,7 +138,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 51. King's Quest V: Absence Makes the Heart Go Yonder! (Sierra On-Line) - 1990
 52. The Adventures of Willy Beamish (Dynamix) - 1991
 53. Conquests of the Longbow: The Legend of Robin Hood (Sierra On-Line) - 1991
-54. Cruise for a Corpse (Delphine Software International) - 1991
+54. [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 55. Fascination (Coktel Vision) - 1991
 56. EcoQuest: The Search for Cetus (Sierra On-Line) - 1991
 57. Elvira II: The Jaws of Cerberus (Horrorsoft) - 1991
