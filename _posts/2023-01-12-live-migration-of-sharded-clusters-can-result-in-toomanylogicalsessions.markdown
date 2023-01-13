@@ -63,7 +63,7 @@ In a sharded cluster, the `system.sessions` collection is sharded. When adding a
 
 ## What is a "broken" `system.sessions` collection
 
-As the `system.sessions` collection is expected to be sharded. In some cases, the `system.sessions` collection may be mistakenly created on the [Config Servers](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/) as an unsharded collection. Each sharded node in a cluster expects to be able to write documents to the sessions collection, which is why it is necessary for the sessions collection to be sharded.
+The `system.sessions` collection is expected to be sharded, however in some cases, the `system.sessions` collection may be mistakenly created on the [Config Servers](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/) as an unsharded collection. Each sharded node in a cluster expects to be able to write documents to the sessions collection, which is why it is necessary for the sessions collection to be sharded.
 
 When the `system.sessions` collection is "broken" the `LogicalSessionCache*` threads will emit log messages such as the following:
 ```
