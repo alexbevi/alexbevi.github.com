@@ -74,7 +74,7 @@ Note that your application's `package-lock.json` would indicate _exactly_ which 
 
 [Spring Data MongoDB](https://spring.io/projects/spring-data-mongodb) is part of the umbrella Spring Data project which aims to provide a familiar and consistent Spring-based programming model for new datastores while retaining store-specific features and capabilities. The Spring Data MongoDB project provides integration with the MongoDB document database. Key functional areas of Spring Data MongoDB are a POJO centric model for interacting with a MongoDB DBCollection and easily writing a Repository style data access layer.
 
-As a Java library, dependencies are managed using [Maven](https://maven.apache.org/index.html), which would indicate a `pom.xml` file would be present that describes the dependencies and version details. Since the source code is available, if we wanted to identify what version of the Node.js Driver an older version of Mongoose (ex: `3.0.9.RELEASE`) required we could do the following:
+As a Java library, dependencies are managed using [Maven](https://maven.apache.org/index.html), which would indicate a `pom.xml` file would be present that describes the dependencies and version details. Since the source code is available, if we wanted to identify what version of the Node.js Driver an older version of Spring Data MongoDB (ex: `3.0.9.RELEASE`) required we could do the following:
 
 1. Navigate to the [appropriate branch/tag on Github](https://github.com/spring-projects/spring-data-mongodb/tree/3.0.9.RELEASE)
 2. Open the [`pom.xml` file](https://github.com/spring-projects/spring-data-mongodb/blob/3.0.9.RELEASE/pom.xml)
