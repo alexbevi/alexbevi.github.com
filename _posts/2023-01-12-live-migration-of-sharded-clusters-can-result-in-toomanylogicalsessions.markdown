@@ -13,7 +13,7 @@ image:
 <small>The following is more of a diagnostic journey than anything else, and does not reflect a current issue with MongoDB Atlas.</small>
 </div>
 
-Leading up to April 30, 2021 MongoDB Atlas customers were sent notifications that their clusters would be automatically upgraded from MongoDB 3.6 to MongoDB 4.0. At that time there was a small number of customers reporting that their applications would start throwing errors similar to the following:
+While I was still working as a Technical Services Engineer at MongoDB in 2021 a small number of customers were reporting that their applications would start throwing errors similar to the following after upgrading from MongoDB 3.6 to 4.0:
 
 > `Command failed with error 261: 'cannot add session into the cache' on server xxx.yyy.zzz.com:27017. The full response is { "ok" : 0.0, "errmsg" : "cannot add session into the cache", "code" : 261, "codeName" : "TooManyLogicalSessions" }`
 
@@ -21,7 +21,7 @@ When this error would occur, no further operations could be run against that sha
 
 After much investigation the issue boiled down to a confluence of the following scenarios:
 
-1. A [Sharded Cluster](https://www.mongodb.com/docs/manual/core/sharded-cluster-components/) was [Live Migrated to Atlas](https://www.mongodb.com/docs/atlas/import/live-import-sharded/)
+1. A [Sharded Cluster](https://www.mongodb.com/docs/manual/core/sharded-cluster-components/) was [Live Migrated to MongoDB Atlas](https://www.mongodb.com/docs/atlas/import/live-import-sharded/)
 2. The original sharded cluster (correctly) had more than 1 chunk associated with the `config.system.sessions` collection
 3. When Live Migrate was finalizing, the `config.system.sessions` entry was removed from `config.collections` but only one (of many) chunks were removed from `config.chunks`
 
@@ -51,6 +51,7 @@ As a result, if the cluster contains a "broken" `system.sessions` collection the
 * On MongoDB 4.0, `hello` _always_ returns `logicalSessionTimeoutMinutes`, resulting in the driver enabling logical sessions. If a "broken" `system.sessions` collection exists, the sessions are not persisted/expired properly which can result in cluster failure once the [`maxSessions`](https://www.mongodb.com/docs/v4.0/reference/parameters/#param.maxSessions) threshold (default: 1,000,000) is reached.
 
 ![](/images/toomanysession.png)
+_Screenshot from a tool used to charts FTDC telemetry_
 
 ## What is the `system.sessions` collection
 
