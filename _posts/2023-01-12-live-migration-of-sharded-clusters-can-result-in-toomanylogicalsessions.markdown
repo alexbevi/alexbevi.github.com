@@ -51,7 +51,7 @@ As a result, if the cluster contains a "broken" `system.sessions` collection the
 * On MongoDB 4.0, `hello` _always_ returns `logicalSessionTimeoutMinutes`, resulting in the driver enabling logical sessions. If a "broken" `system.sessions` collection exists, the sessions are not persisted/expired properly which can result in cluster failure once the [`maxSessions`](https://www.mongodb.com/docs/v4.0/reference/parameters/#param.maxSessions) threshold (default: 1,000,000) is reached.
 
 ![](/images/toomanysession.png)
-_Screenshot from a tool used to charts FTDC telemetry_
+_Screenshot from a tool used to chart [FTDC]({% post_url 2020-01-26-what-is-mongodb-ftdc-aka-diagnostic-dot-data %}) telemetry_
 
 ## What is the `system.sessions` collection
 
