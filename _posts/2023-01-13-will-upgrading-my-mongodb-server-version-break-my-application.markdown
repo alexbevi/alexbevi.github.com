@@ -4,7 +4,7 @@ title: "Will Upgrading My MongoDB Server Version Break My Application?"
 date: 2023-01-13 09:21:00 -0500
 comments: true
 categories: MongoDB
-tags: [upgarde, drivers, mongodb]
+tags: [upgrade, drivers, mongodb]
 image:
   src: /images/mongodb-logo.png
   alt: MongoDB Logo
@@ -13,6 +13,14 @@ image:
 Upgrading components is an important part of maintaining a healthy application. The MongoDB Server is continually being developed to include new features and functionality, as well as to fix bugs, potential vulnerabilities and attack vectors. To ensure users are using the "latest and greatest" whenever possible, MongoDB publicizes [Software Lifecycle Schedules](https://www.mongodb.com/support-policy/lifecycles) to make it clear when various components will reach end of life (EOL).
 
 The applications that you've built that connect to MongoDB are using [MongoDB Drivers](https://www.mongodb.com/docs/drivers/), which at the time of writing include official releases for [C](https://www.mongodb.com/docs/drivers/c/), [C++](https://www.mongodb.com/docs/drivers/cxx/), [C# (.NET)](https://www.mongodb.com/docs/drivers/csharp/), [Go](https://www.mongodb.com/docs/drivers/go/current/), [Java](https://www.mongodb.com/docs/drivers/java-drivers/), [Node.js](https://www.mongodb.com/docs/drivers/node/current/), [PHP](https://www.mongodb.com/docs/drivers/php/), [Python](https://www.mongodb.com/docs/drivers/python/), [Ruby](https://www.mongodb.com/docs/ruby-driver/current/), [Rust](https://www.mongodb.com/docs/drivers/rust/), [Scala](https://www.mongodb.com/docs/drivers/scala/) and [Swift](https://www.mongodb.com/docs/drivers/swift/).
+
+Note that "break my application" is extremely generic and is meant to encompass a category of issues such as "not being able to connect", "application can't start at all", "can't return data", etc.
+
+## I'm using the Stable API!
+
+The MongoDB [Stable API](https://www.mongodb.com/docs/manual/reference/stable-api/) was created to allow you to upgrade your MongoDB server at will, and ensure that behavior changes between MongoDB versions do not break your application.
+
+The Stable API provides long-term API stability for applications and supports more frequent releases and automatic server upgrades. This allows your applications to take advantage of rapidly released features without risking backwards-breaking changes.
 
 ## What version of MongoDB does my Driver support?
 
@@ -34,7 +42,7 @@ Many popular [libraries, ORMs and ODMs]({% post_url 2022-11-02-mongodb-orms-odms
 
 For example, let's consider some of the most popular libraries and ORMs. As the source code for each library is hosted on GitHub a similar strategy can be followed to identify what version of the MongoDB driver is being used for a given version of the library.
 
-As most libraries use [Semantic Versioning](https://semver.org/), if you're unsure how to determine if a given constraint (ex: `>=2.4.1', '<3.0.0'`) would include a version of a Driver (ex: `2.18.2`), the [Semver check](https://jubianchi.github.io/semver-check) tool can help.
+Most libraries use [Semantic Versioning](https://semver.org/), so if you're unsure how to determine if a given constraint (ex: `>=2.4.1', '<3.0.0'`) would include a version of a Driver (ex: `2.18.2`), the [Semver check](https://jubianchi.github.io/semver-check) tool can help.
 
 ### Mongoid
 
