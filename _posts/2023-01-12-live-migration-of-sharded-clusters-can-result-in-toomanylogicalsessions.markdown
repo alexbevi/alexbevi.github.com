@@ -50,6 +50,8 @@ As a result, if the cluster contains a "broken" `system.sessions` collection the
 * On MongoDB 3.6, `hello` doesn't return `logicalSessionTimeoutMinutes` which causes the driver to determine that sessions are not supported on this cluster, resulting in logical sessions not being used
 * On MongoDB 4.0, `hello` _always_ returns `logicalSessionTimeoutMinutes`, resulting in the driver enabling logical sessions. If a "broken" `system.sessions` collection exists, the sessions are not persisted/expired properly which can result in cluster failure once the [`maxSessions`](https://www.mongodb.com/docs/v4.0/reference/parameters/#param.maxSessions) threshold (default: 1,000,000) is reached.
 
+![](/images/toomanysession.png)
+
 ## What is the `system.sessions` collection
 
 The `system.sessions` collection stores session records that are available to all members of the deployment.
