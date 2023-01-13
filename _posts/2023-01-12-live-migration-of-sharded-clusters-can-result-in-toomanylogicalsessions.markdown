@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Live Migration of Sharded Clusters to MongoDB could result in <tt>TooManyLogicalSessions</tt> Errors"
+title: "Live Migration of Sharded Clusters to MongoDB Atlas could result in <tt>TooManyLogicalSessions</tt> Errors"
 date: 2023-01-12 15:14:50 -0500
 comments: true
 categories: "MongoDB"
