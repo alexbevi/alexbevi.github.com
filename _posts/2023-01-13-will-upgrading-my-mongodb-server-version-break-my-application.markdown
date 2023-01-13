@@ -22,6 +22,8 @@ The MongoDB [Stable API](https://www.mongodb.com/docs/manual/reference/stable-ap
 
 The Stable API provides long-term API stability for applications and supports more frequent releases and automatic server upgrades. This allows your applications to take advantage of rapidly released features without risking backwards-breaking changes.
 
+If your application is already using the Stable API via your current Driver you shouldn't have to worry further about compatibility as it relates to a MongoDB Server upgrade.
+
 ## What version of MongoDB does my Driver support?
 
 Each official Driver listed above will contain a compatibility matrix (see the [Node.js Compatibility](https://www.mongodb.com/docs/drivers/node/current/compatibility/) as an example), which should clearly show you what MongoDB Server versions are actively being tested against which versions of the Driver.
