@@ -22,7 +22,7 @@ It's worth calling out the reviewers at [The Adventure Gamer](https://advgamer.b
 
 ### Guidelines
 
-The [Full Game List](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing) is 364 titles, however I only plan on playing those that are available in English. Any title that can be played using ScummVM likely will be as this facilitates things like keeping track of play time, taking screenshots, managing save states and more.
+The [Full Game List](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing) is 363 titles, however I only plan on playing those that are available in English. Any title that can be played using ScummVM likely will be as this facilitates things like keeping track of play time, taking screenshots, managing save states and more.
 
 I don't plan on playing the games in order either, as this might become a bit tedious. I will be starting with [Mystery House]({% post_url 2021-08-03-mystery-house %}) however as we might as well kick this journey off at the very beginning and see where it takes us from there.
 
@@ -54,7 +54,9 @@ Each game will be ranked using the above, and a percentage generated from the sc
 
 The games list for this journey is available via [this Google Sheet](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing), and has been taken from [Wikipedia's List of Graphic Adventure Games](https://en.wikipedia.org/wiki/List_of_graphic_adventure_games). This only includes entries from 1980 through 1999.
 
-As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page.
+As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+
+**Progress: 19/364 (5%)**
 
 1. [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
@@ -386,7 +388,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 299. Starship Titanic (The Digital Village) - 1998
 300. [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 301. The X-Files Game (HyperBole Studios) - 1998
-302. Hopkins FBI (MP Entertainment) - 1998
+302. [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
 303. Ring: The Legend of the Nibelungen (Arxel Tribe) - 1998
 304. [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
 305. Nancy Drew: Secrets Can Kill (Her Interactive) - 1998
