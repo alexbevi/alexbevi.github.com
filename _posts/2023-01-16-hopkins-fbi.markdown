@@ -63,7 +63,8 @@ This purgatory/clone thing was kind of interesting but wasn't fully baked and wi
 ![](/images/adventure/hopkins/scummvm-hopkins-win-00041.png)
 _I'll take optimized navigation to avoid tedium_
 
-My playthrough used ScummVM, which didn't implement the [Wolfenstein 3D]() styled maze/shooter in the underwater base during the final chapter. After watching a long play on YouTube though ([Hopkins FBI LongPlay 2 of 2](https://www.youtube.com/watch?v=2UCTwEqUy-Q)) I don't think I really missed out on much, and it allowed me to move through this portion a lot faster.
+My playthrough used ScummVM, which didn't implement the [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D) styled maze/shooter in the underwater base during the final chapter. After watching a long play on YouTube though ([Hopkins FBI LongPlay 2 of 2](https://www.youtube.com/watch?v=2UCTwEqUy-Q)) 
+I don't think I really missed out on much, and it allowed me to move through this portion a lot faster.
 
 ![](/images/adventure/hopkins/hopkins-wolf3d.png)
 _Yeah this looks cool, and is ... once ... then it just drags on and on_
