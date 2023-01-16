@@ -46,7 +46,7 @@ Not having voice acting at all would have exponentially improved the overall exp
 What is interesting about this game though is they include some arcade-style elements to break up the monotony. While hunting for clues (using the key from your girlfriend you literally just shot and killed) on one of the office computers you find a  [Breakout](https://en.wikipedia.org/wiki/Breakout_(video_game))  game you can play. It's not great ... but it's there.
 
 ![](/images/adventure/hopkins/scummvm-hopkins-win-00029.png)
-_The most painfully slow Breakou clone can be found within the game for ... reasons_
+_The most painfully slow Breakout clone can be found within the game for ... reasons_
 
 There are some interesting elements to the story, though the pacing seems a bit off. You're trying to find Bernie by finding murdered women, who give you clues to other murdered women's locations ... but the motivation isn't super clearn. The last clue takes you to the shooting range, where you murder your girlfriend by accident then ... go back to her apartment to watch the video attached to her corpse.
 
