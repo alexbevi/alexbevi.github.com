@@ -115,7 +115,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 26. Future Wars (Delphine Software International) - 1989
 27. KULT: The Temple of Flying Saucers (Exxos, ERE informatique) - 1989
 28. Manhunter 2: San Francisco (Evryware) - 1989
-29. Mean Streets (Access Software) - 1989
+29. [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
 30. Transylvania III: Vanquish the Night (Polarware) - 1989
 31. Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989
 32. Indiana Jones and the Last Crusade (Lucasfilm Games) - 1989
