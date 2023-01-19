@@ -42,9 +42,9 @@ If you're using any [Community Supported Drivers](https://www.mongodb.com/docs/d
 
 Many popular [libraries, ORMs and ODMs]({% post_url 2022-11-02-mongodb-orms-odms-and-libraries %}) depend upon an official MongoDB Driver. Under most scenarios package management will be used to manage the library's dependencies, which can be used to determine which version of the MongoDB Driver is being used.
 
-For example, let's consider some of the most popular libraries and ORMs. As the source code for each library is hosted on GitHub a similar strategy can be followed to identify what version of the MongoDB driver is being used for a given version of the library.
+For example, let's consider some of the most popular libraries and ORMs. As the source code for most libraries are hosted on GitHub (or some other service) a similar strategy can be followed to identify what version of the MongoDB driver is being used for a given version of the library.
 
-Most libraries use [Semantic Versioning](https://semver.org/), so if you're unsure how to determine if a given constraint (ex: `>=2.4.1', '<3.0.0'`) would include a version of a Driver (ex: `2.18.2`), the [Semver check](https://jubianchi.github.io/semver-check) tool can help.
+Many libraries use [Semantic Versioning](https://semver.org/), so if you're unsure how to determine if a given constraint (ex: `>=2.4.1', '<3.0.0'`) would include a version of a Driver (ex: `2.18.2`), the [Semver check](https://jubianchi.github.io/semver-check) tool can help.
 
 ### Mongoid
 
@@ -91,7 +91,9 @@ As a Java library, dependencies are managed using [Maven](https://maven.apache.o
 
 The most important thing to understand about Driver versions when it comes to MongoDB is that **anything your current Driver was doing successfully while connected to MongoDB X.Y should _continue to work correctly_ while connected to a newer MongoDB Server**. This statement should be accurate if your upgrade path is taking you from a single [major release](https://www.mongodb.com/docs/manual/reference/versioning/) to the next highest release (ex: 5.0 to 6.0).
 
-Backwards breaking changes that would prevent you from successfully connecting to a MongoDB Server from your current application occur _extremely rarely_. One example that is worth noting involves the [removal of Legacy Opcodes](https://www.mongodb.com/docs/manual/release-notes/5.1-compatibility/#std-label-legacy-op-codes-removed) in MongoDB 6.0. If you have a version of a MongoDB Driver that predates the support for MongoDB 3.6 and the [`OP_MSG`](https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg) opcode, trying to interact with MongoDB 6.0+ Servers via these antiquated drivers will result in only errors being thrown due to unknown opcodes being used.
+<div class="note info">
+Backwards breaking changes that would prevent you from successfully connecting to a MongoDB Server from your current application occur <em>extremely rarely</em>. One example that is worth noting involves the <a href="https://www.mongodb.com/docs/manual/release-notes/5.1-compatibility/#std-label-legacy-op-codes-removed">removal of Legacy Opcodes</a> in MongoDB 6.0. If you have a version of a MongoDB Driver that predates the support for MongoDB 3.6 and the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><tt>OP_MSG</tt></a> opcode, trying to interact with MongoDB 6.0+ Servers via these antiquated drivers will result in only errors being thrown due to unknown opcodes being used.
+</div>
 
 As a general rule of thumb, assuming the only change to your application stack is an upgraded MongoDB Server version:
 
