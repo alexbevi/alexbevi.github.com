@@ -8,7 +8,6 @@ tags: [adventure, "Access Software"]
 image:
   src: /images/adventure/meanstreets/ms_000.png
   alt: Title Image
-published: false
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 
