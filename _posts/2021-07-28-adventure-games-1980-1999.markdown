@@ -105,7 +105,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 16. Manhunter: New York (Evryware) - 1988
 17. Neuromancer (Interplay Productions) - 1988
 18. King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988
-19. Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line) - 1988
+19. [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 20. Zak McKracken and the Alien Mindbenders (Lucasfilm Games) - 1988
 21. Police Quest II: The Vengeance (Sierra On-Line) - 1988
 22. Snatcher (Konami) - 1988
