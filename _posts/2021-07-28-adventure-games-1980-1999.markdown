@@ -221,7 +221,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 132. Simon the Sorcerer (Adventure Soft) - 1993
 133. Companions of Xanth (Legend Entertainment) - 1993
 134. Police Quest: Open Season (Sierra On-Line) - 1993
-135. Sam & Max Hit the Road (LucasArts) - 1993
+135. [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 136. Star Trek: Judgment Rites (Interplay) - 1993
 137. Gateway II: Homeworld (Legend Entertainment) - 1993
 138. Jack in the Dark (Infogrames) - 1993
