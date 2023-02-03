@@ -15,6 +15,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 
 1. **87%** [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
 1. **86%** [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
+1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **81%** [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 1. **80%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
@@ -34,5 +35,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
-1. **xx%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
-
