@@ -40,8 +40,8 @@ function generateCreateIndexesCommands(options) {
   var ensureBackground = options["ensureBackground"] || false;
 
   db.getMongo().getDBNames().filter(x => !["admin", "config", "local"].includes(x)).forEach(function (d) {
-    db.getSiblingDB(d).getCollectionNames().forEach(function (c) {
-      var keys = db.getSiblingDB(d).getCollection(c).getIndexes();
+    db.getSiblingDB(d).getCollectionInfos({type : "collection"}).forEach(function (c) {
+      var keys = db.getSiblingDB(d).getCollection(c.name).getIndexes();
       var idPosition = -1;
       for (var i = 0; i < keys.length; i++) {
         if (keys[i].name == "_id_") {
@@ -57,7 +57,7 @@ function generateCreateIndexesCommands(options) {
       // remove the { _id: 1 } default index as it will exist already anyway
       keys.splice(idPosition, 1);
       if (keys.length > 0) {
-        print("db.getSiblingDB('" + d + "')." + c + ".createIndexes(" + JSON.stringify(keys) + ")");
+        print("db.getSiblingDB('" + d + "')." + c.name + ".createIndexes(" + JSON.stringify(keys) + ")");
       }
     });
   })
