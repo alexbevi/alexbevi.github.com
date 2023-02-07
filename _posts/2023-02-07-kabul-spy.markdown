@@ -1,0 +1,73 @@
+---
+layout: post
+title: "Kabul Spy (Sirius Software) - 1982"
+date: 2023-02-07 16:03:31 -0500
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "Sirius Software"]
+image:
+  src: /images/adventure/kabulspy/kabul-spy-04.png
+  alt: Title Image
+---
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+
+Kabul Spy is an early graphic adventure game by Sirius Software. Released in 1982 it supports some pretty limited noun/verb parsing and a basic story following an American secret agent sent to Afghanistan to rescue Professor Paul Eisenstadt, who is being held by the KGB. Why the KGB you ask? When this game was published the Soviet Union hadn't [withdrawn from Afghanistan](https://en.wikipedia.org/wiki/Soviet_withdrawal_from_Afghanistan) yet ... isn't history fun?
+
+![](/images/adventure/kabulspy/kabul-spy-05.png)
+_A little backstory and off you go_
+
+Progress through the game is pretty straightforward and there aren't all that many twists and turns. You need to read EVERYTHING and write EVERYTHING down, otherwise you'll lose track of where you're supposed to be going and what phrases you should say to certain people (ex: `"SAY SALAM ALEIKOM"`).
+
+![](/images/adventure/kabulspy/kabul-spy-10.png)
+
+For an Apple II game the graphics are what you'd expect, and there isn't really any music or sound effects to accompany the experience. Seeing as this was basically written by one person ([Tim Wilson](https://www.mobygames.com/developer/sheet/view/developerId,227522/)) who likely did the graphics as well the game doesn't look too bad and is easy enough to navigate.
+
+![](/images/adventure/kabulspy/kabul-spy-13.png)
+
+Sometimes hints are drawn into the background, which can be extremely hard to make out but I appreciate the effort put into this.
+
+![](/images/adventure/kabulspy/kabul-spy-14.png)
+_It wasn't a Grue that got me, it was a Grud ..._
+
+This game offers some variety as to how you can complete it, and there are also a number of ways you can die. Being a fan of Sierra games and the over-the-top death scenarios they create in certain games I did enjoy periodically killing my character to see how it was portrayed.
+
+![](/images/adventure/kabulspy/kabul-spy-03.png)
+_In case you can't tell ... the end_
+
+I had a couple of issues with the original disk files I found to play this game as I kept winding up in the prison cell and was unable to `BRIBE GUARD`. Finding a different version of the game solved that for me and I was able to get through this pretty quickly.
+
+Overall it wasn't bad for what it is - a very early adventure game on the Apple II.
+
+**Game Information**
+
+|*Game*|Kabul Spy|
+|*Developer*|[Sirius Software](https://en.wikipedia.org/wiki/Sirius_Software)|
+|*Publisher*|Sirius Software|
+|*Release Date*|1982|
+|*Systems*|Apple II|
+
+**Play Information**
+
+|How Long to Beat?|1 hour|
+|*Version Played*|Apple II via [AppleWin](https://github.com/AppleWin/AppleWin)|
+|*Notes*|[Walkthrough](https://www.giantbomb.com/kabul-spy/3030-51336/guide/)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|8|
+|**Story (25)**|7|
+|**Experience (15)**|5|
+|**Impact (10)**|3|
+||**33%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/kabulspy/kabul-spy-00.png
+/images/adventure/kabulspy/kabul-spy-01.png
+/images/adventure/kabulspy/kabul-spy-02.png
+/images/adventure/kabulspy/kabul-spy-11.png
+/images/adventure/kabulspy/kabul-spy-12.png
+{% endgalleria %}

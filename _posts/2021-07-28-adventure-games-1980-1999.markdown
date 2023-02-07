@@ -61,11 +61,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 22,
+    finished: 23,
     skipped: 6,
     total: 363
   },
-  complete: "7.71%"
+  complete: "{{ 23 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -76,7 +76,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 4. Cranston Manor (On-Line Systems) - 1981
 5. [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 6. Adventureland (Adventure International) - 1982
-7. Kabul Spy (Sirius Software) - 1982
+7. [Kabul Spy (Sirius Software)]({post_url 2023-02-07-kabul-spy %}) - 1982
 8. Time Zone (On-Line Systems) - 1982
 9. [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 10. The Dark Crystal (On-Line Systems) - 1983
