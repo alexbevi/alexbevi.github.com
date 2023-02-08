@@ -1,0 +1,148 @@
+---
+layout: post
+title: "Eternam (Infogrames) - 1992"
+date: 2023-02-07 21:42:48 -0500
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "Infogrames"]
+image:
+  src: /images/adventure/eternam/etercrk_001.png
+  alt: Title Image
+---
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+
+[Eternam](https://en.wikipedia.org/wiki/Eternam) combines futuristic elements with historical settings. The player assumes the role of officer Don Jonz in Orion United Forces, who is starting a vacation in the planet Eternam. The planet is described as a galactic amusement centre, where different islands represent different periods of Earth's history.
+
+![](/images/adventure/eternam/razor_002.png)
+_Check out the Razor1911 cracktro at [Demozoo](https://demozoo.org/productions/139337/)_
+
+The copy of the game I was playing was apparently cracked by Razor1911, which means it came bundled with a [cracktro](https://en.wikipedia.org/wiki/Crack_intro). Though it has nothing to do with this review it did give me a chance re-experience one of these demos that I found so fascinating back in the day. Software piracy is bad and does have a material impact on these companies, but the demo scene that surrounded these groups really resulted in some great technical demos.
+
+![](/images/adventure/eternam/etercrk_000.png)
+
+As soon as you get past the initial intro and copy protection sequence you're dropped in a pseudo-3D world. You can move around and "shoot" with the spacebar, but since this is supposed to be an adventure game the experience is a little disorienting at first. You'll spend A LOT of time backtracking from location to location (and eventually island to island) so getting used to navigating this world using this weird view is important to being able to progress.
+
+![](/images/adventure/eternam/etercrk_046.png){:width="70%"}
+_One screen near the end of the game actually recreates the Drakkhen layout_
+
+Apparently the overworld was inspired by the Infogrames' [Drakkhen](https://en.wikipedia.org/wiki/Drakkhen), which came out a couple years earlier. I'm not sure if this was supposed to be a subtle plug or if they had game engine code they wanted to reuse, but it didn't add to the experience in any positive way. Honestly navigating the overworld is tedious and boring and since you don't even get a compass until later in the game it's easy to get lost and disoriented.
+
+![](/images/adventure/eternam/etercrk_007.png){:width="70%"}
+
+When you do find a building or location you can enter from the overworld the game switches to a more traditional layout. Don Jonz can walk around the screen, interact with (limited) objects, talk to characters, or use items he's picked up. The game interface tries to create a "game within a game" feeling, so when you select an icon that represents a verb (`GET`, `USE`, `SPEAK` or `LOOK`) you see a "finger" hover over the "button" and click it.
+
+There's typically very little you can do on most screens, and a lot of these screens are just filler. The `LOOK` option generally does nothing, and if you want to `GET` something, you have to wait for the "line of sight" indicator to show you there's something there. If the indicator goes away you can use `LOOK` to bring it back up, but that's basically all you can "LOOK" at in this game.
+
+![](/images/adventure/eternam/etercrk_021.png){:width="70%"}
+
+The various locations and islands you visit show the civilizations that live there advance technically. The game starts in a more medieval setting, but advance to more modern, then futuristic, then back to ancient Egyptian. Each location has characters you can interact with to gain additional information about the world for Eternam as well as to advance the plot and get clues as to what to do next.
+
+![](/images/adventure/eternam/etercrk_044.png){:width="70%"}
+
+Character interactions will cut to a closeup view to give you a cartoonish portrait. The style of the portraits actually reminded me a little of [Dragon's Lair](https://en.wikipedia.org/wiki/Dragon%27s_Lair) so I'm wondering if the artists working on Eternam were influenced by this early arcade game.
+
+![](/images/adventure/eternam/etercrk_019.png){:width="70%"}
+_Dialogue selections can result in your death ... so choose carefully!_
+
+Dialogue trees are used to navigate conversations with the game's cast of characters. Most of the options are padding but there's usually one piece of useful information each character interaction will produce so you'll have to pay attention and take notes.
+
+![](/images/adventure/eternam/etercrk_011.png){:width="70%"}
+
+The way the story is written as well as some of the over-the-top character animations make this a pretty funny game to play through. There are A LOT of pop-culture references that haven't really aged all that well, but if you grew up in the 80's you should be able to follow along and identify what they're making fun of.
+
+![](/images/adventure/eternam/etercrk_027.png){:width="70%"}
+_Instead of Uhura it's Ooh-la-la ... get it ... GET IT! ... ugh_
+
+You'll need to backtrack a ton throughout this game as many characters will send you on fetch quests in order to advance the plot. This wouldn't be so bad if the overworld navigation wasn't such a chore - but it is and you can't really fast travel so you slog your way around fetching items.
+
+![](/images/adventure/eternam/etercrk_016.png){:width="70%"}
+_You'll see this screen a lot_
+
+The game's narrator Tracy pops in periodically to give you information about a location or to give you plot details. More often than not though she'll pop in to announce that you've died ... again. There are so many ways to die in this game you'd think it was made by Sierra Online. Conversations can go wrong, you can be too slow using an item, you can pick up the wrong item, you can randomly die in the overworld because roaming monsters are attacking you.
+
+![](/images/adventure/eternam/etercrk_030.png){:width="70%"}
+_Why do I have guns on the overworld but nowhere else?_
+
+Weirdly enough you get attacked while navigating the overworld and you can shoot back using lasers or guns or something. These monsters drain your health, which automatically recovers when you idle, but can run out and result in death. These battles serve no purpose as you don't gain experience, can't level up and they don't drop items or information. Basically it's just another meaningless obstacle to slow this game down even further.
+
+![](/images/adventure/eternam/etercrk_029.png){:width="70%"}
+_WHY AM I ON THE MOON???_
+
+I appreciate what they tried to do with this game, but the plot is extremely confusing and the backtracking is a grind. Overworld navigation is boring and pointlessly slow and it's too easy to miss key items.
+
+![](/images/adventure/eternam/etercrk_036.png){:width="70%"}
+
+There are A LOT of items you need to collect throughout the game, and this doesn't include the red herrings and junk you can collect as well. Using items is initially confusing but you quickly realize you need to select them then click on `USE`. Some item combinations are bizarre and verge on [moon logic](https://www.haggardhawks.com/post/moon-logic).
+
+Although there's an underlying plot about your arch enemy (Mikhail Nuke) taking over Eternam when you get there none of this really stuck with me and I just found his cut scenes pointless and intrusive. This game's story drew heavy influence from [Westworld](https://en.wikipedia.org/wiki/Westworld_(film)) - which I've never seen - and Infogrames scattered tidbits throughout that references French culture and history - which I know little to nothing about as well.
+
+This game is really weird. The controls are lousy, the story is bizarre and playing it is a bit of a chore. I do appreciate how different this game tried to be and though it may have fallen short with me and probably most North American gamers, Infogrames at least swung for the fences here. I enjoyed a lot of the humour they injected throughout, but honestly I won't ever be revisiting this title and wouldn't recommend it either.
+
+![](/images/adventure/eternam/etercrk_050.png){:width="70%"}
+_No fuss, no muss - just "the end"_
+
+**Game Information**
+
+|*Game*|Eternam|
+|*Developer*|[Infogrames](https://en.wikipedia.org/wiki/Infogrames_Europe_SA)|
+|*Publisher*|Infogrames|
+|*Release Date*|1992|
+|*Systems*|IBM PC (DOS), FM Towns|
+
+**Play Information**
+
+|*[How Long To Beat?](https://howlongtobeat.com/game/31411)*|7 hours|
+|*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|
+|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/eternam.aspx)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|10|
+|**Story (25)**|12|
+|**Experience (15)**|6|
+|**Impact (10)**|2|
+||**43%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/eternam/etercrk_002.png
+/images/adventure/eternam/etercrk_003.png
+/images/adventure/eternam/etercrk_004.png
+/images/adventure/eternam/etercrk_005.png
+/images/adventure/eternam/etercrk_006.png
+/images/adventure/eternam/etercrk_008.png
+/images/adventure/eternam/etercrk_009.png
+/images/adventure/eternam/etercrk_010.png
+/images/adventure/eternam/etercrk_012.png
+/images/adventure/eternam/etercrk_013.png
+/images/adventure/eternam/etercrk_014.png
+/images/adventure/eternam/etercrk_015.png
+/images/adventure/eternam/etercrk_017.png
+/images/adventure/eternam/etercrk_018.png
+/images/adventure/eternam/etercrk_020.png
+/images/adventure/eternam/etercrk_022.png
+/images/adventure/eternam/etercrk_023.png
+/images/adventure/eternam/etercrk_024.png
+/images/adventure/eternam/etercrk_025.png
+/images/adventure/eternam/etercrk_026.png
+/images/adventure/eternam/etercrk_028.png
+/images/adventure/eternam/etercrk_031.png
+/images/adventure/eternam/etercrk_032.png
+/images/adventure/eternam/etercrk_033.png
+/images/adventure/eternam/etercrk_034.png
+/images/adventure/eternam/etercrk_035.png
+/images/adventure/eternam/etercrk_037.png
+/images/adventure/eternam/etercrk_038.png
+/images/adventure/eternam/etercrk_039.png
+/images/adventure/eternam/etercrk_040.png
+/images/adventure/eternam/etercrk_041.png
+/images/adventure/eternam/etercrk_042.png
+/images/adventure/eternam/etercrk_043.png
+/images/adventure/eternam/etercrk_045.png
+/images/adventure/eternam/etercrk_047.png
+/images/adventure/eternam/etercrk_048.png
+/images/adventure/eternam/etercrk_049.png
+{% endgalleria %}
