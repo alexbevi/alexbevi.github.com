@@ -35,4 +35,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
-1. **33%** [Kabul Spy (Sirius Software)]({post_url 2023-02-07-kabul-spy %}) - 1982
+1. **27%** [Kabul Spy (Sirius Software)]({post_url 2023-02-07-kabul-spy %}) - 1982

@@ -56,11 +56,11 @@ Overall it wasn't bad for what it is - a very early adventure game on the Apple 
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|8|
-|**Story (25)**|7|
+|**Atmosphere (20)**|6|
+|**Story (25)**|5|
 |**Experience (15)**|5|
 |**Impact (10)**|3|
-||**33%**|
+||**27%**|
 
 ### Gallery
 
