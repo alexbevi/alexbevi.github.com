@@ -61,11 +61,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 24,
+    finished: 25,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 24 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 25 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -122,7 +122,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 50. Police Quest II: The Vengeance (Sierra On-Line) - 1988
 51. Snatcher (Konami) - 1988
 52. B.A.T. (Computer's Dream) - 1989
-53. Emmanuelle (Coktel Vision) - 1989
+53. [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 54. Legend of Djel (Coktel Vision) - 1989
 55. Future Wars (Delphine Software International) - 1989
 56. KULT: The Temple of Flying Saucers (Exxos, ERE informatique) - 1989
