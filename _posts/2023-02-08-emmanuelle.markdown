@@ -32,6 +32,11 @@ The interface is unintuitive and the goal of the game is unclear. It's possibly 
 
 When you're trying to choose a dialogue option they cycle by extremely quickly, which makes it hard to pick the right one. This may be an artifact of running the game in DOSBox (I could lower the CPU speed, but didn't) but just in case the original game sucked just as badly on original hardware I figured it was worth calling out.
 
+**CORRECTION**: Turns out this is actually VERY MUCH due to running the game in DOSBox. I tried the Atari ST version using [Steem SSE](https://sourceforge.net/projects/steemsse/) and the timing was not an issue. Also it appears the palette is only complete garbage when playing this game in DOS. When you play this game in an Atari ST emulator the 16 colors actually look pretty good as opposed to the baby vomit that the DOS colors seem to default to.
+
+![](/images/adventure/emmanuelle/Emmanuelle_00001.png)
+_I still wouldn't recommend playing the game, but if you have to - do it on an Atari ST_
+
 ![](/images/adventure/emmanuelle/emma_007.png)
 
 There are a half dozen cities you need to visit and each one has an airport you can buy tickets from. The amount of money you have is limited and if you run out it's game over.
