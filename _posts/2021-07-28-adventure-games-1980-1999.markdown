@@ -259,7 +259,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 187. Under a Killing Moon (Access Software) - 1994
 188. Universe (Core Design) - 1994
 189. Dragonsphere (MicroProse) - 1994
-190. Beneath a Steel Sky (Revolution Software) - 1994
+190. [Beneath a Steel Sky (Revolution Software)]({% post_url 2023-02-10-beneath-a-steel-sky %}) - 1994
 191. Policenauts (Konami) - 1994
 192. Death Gate (Legend Entertainment) - 1994
 193. King's Quest VII: The Princeless Bride (Sierra On-Line) - 1994

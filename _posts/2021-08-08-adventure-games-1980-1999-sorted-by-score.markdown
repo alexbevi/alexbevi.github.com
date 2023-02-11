@@ -14,6 +14,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series, sorted by rating.
 
 1. **87%** [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
+1. **86%** [Beneath a Steel Sky (Revolution Software)]({% post_url 2023-02-10-beneath-a-steel-sky %}) - 1994
 1. **86%** [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
