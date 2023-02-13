@@ -58,7 +58,7 @@ MongoEngine is a Python ORM for MongoDB. Branded as a Document-Object Mapper, it
 
 It was first released in 2015 as an open-source project, and the current version is built on top of [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/), the official Python Driver by MongoDB.
 
-See the [MongoEngine documentation](https://trello.com/c/5vFjVAu6/39-paying-customer-outreach-research) for more information.
+See the [MongoEngine documentation](http://mongoengine.org/) for more information.
 
 ## Prisma
 
