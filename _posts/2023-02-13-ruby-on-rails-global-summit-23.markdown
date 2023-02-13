@@ -14,6 +14,6 @@ This year (January 24, 2023) I had the opportunity to present at [Ruby on Rails 
 
 The full talk is available on YouTube, and I've published my notes as well:
 * [Ruby on Rails Global Summit '23 – Junior Track](https://www.youtube.com/live/UCdVBOJI3Ow?feature=share&t=17876)
-* [Ruby on Rails Global Summit '23: Ruby on Rails and MongoDB - Note](https://gist.github.com/alexbevi/e25f0214c1d131db27043e38fc5069d3)
+* [Ruby on Rails Global Summit '23: Ruby on Rails and MongoDB - Notes](https://gist.github.com/alexbevi/e25f0214c1d131db27043e38fc5069d3)
 
 If you're unsure what an ODM (Object-Document Mapper) is, I have another article that provides more information regarding [MongoDB ORMs, ODMs, and Libraries]({% post_url 2022-11-02-mongodb-orms-odms-and-libraries %}).
