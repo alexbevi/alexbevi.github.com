@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 26,
+    finished: 27,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 26 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 27 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -143,7 +143,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 72. Maupiti Island (Lankhor) - 1990
 73. Operation Stealth (Delphine Software International) - 1990
 74. Quest for Glory II: Trial by Fire (Sierra On-Line) - 1990
-75. Rise of the Dragon (Dynamix) - 1990
+75. [Rise of the Dragon (Dynamix)]({% post_url 2023-02-13-rise-of-the-dragon %}) - 1990
 76. Conquests of Camelot: The Search for the Grail (Sierra On-Line) - 1990
 77. Loom (Lucasfilm Games) - 1990
 78. Spellcasting 101: Sorcerers Get All The Girls (Legend Entertainment) - 1990
