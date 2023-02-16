@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 28,
+    finished: 29,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 28 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 29 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -88,7 +88,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 17. [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
 18. ~~Wingman (TamTam) - 1984~~ (_Japanese only_)
 19. [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
-20. The Crimson Crown - Further Adventures in Transylvania (Penguin Software) - 1985
+20. [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 21. Déjà Vu: A Nightmare Comes True (ICOM Simulations) - 1985
 22. Perry Mason: The Case of the Mandarin Murder (Telarium) - 1985
 23. King's Quest II: Romancing the Throne (Sierra On-Line) - 1985
@@ -287,18 +287,18 @@ As I work through the list I'll link the reviews below. You can also find the re
 216. Prisoner of Ice (Infogrames) - 1995
 217. Qin: Tomb of the Middle Kingdom (Learning Technologies Interactive) - 1995
 218. SilverLoad (Millennium Interactive) - 1995
-220. Skyborg: Into the Vortex (SkyBox International) - 1995
-221. Teen Agent (Metropolis Software House) - 1995
-222. Touché: The Adventures of the Fifth Musketeer (Clipper Software) - 1995
-223. Wolfsbane (Midnight Games) - 1995
-224. Lost Eden (Cryo Interactive) - 1995
-225. Nocturnal Illusion (Apricot) - 1995
-226. Full Throttle (LucasArts) - 1995
-227. Aliens: A Comic Book Adventure (Cryo Interactive) - 1995
-228. Star Trek: The Next Generation – A Final Unity (Spectrum HoloByte) - 1995
-229. Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995
-230. Roberta Williams' Phantasmagoria (Sierra On-Line) - 1995
-231. Beavis and Butt-Head in Virtual Stupidity (Viacom New Media) - 1995
+219. Skyborg: Into the Vortex (SkyBox International) - 1995
+220. Teen Agent (Metropolis Software House) - 1995
+221. Touché: The Adventures of the Fifth Musketeer (Clipper Software) - 1995
+222. Wolfsbane (Midnight Games) - 1995
+223. Lost Eden (Cryo Interactive) - 1995
+224. Nocturnal Illusion (Apricot) - 1995
+225. Full Throttle (LucasArts) - 1995
+226. Aliens: A Comic Book Adventure (Cryo Interactive) - 1995
+227. Star Trek: The Next Generation – A Final Unity (Spectrum HoloByte) - 1995
+228. Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995
+229. Roberta Williams' Phantasmagoria (Sierra On-Line) - 1995
+230. Beavis and Butt-Head in Virtual Stupidity (Viacom New Media) - 1995
 232. Scooby-Doo Mystery (The Illusions Gaming Company) - 1995
 233. Clock Tower (Human Entertainment) - 1995
 234. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
