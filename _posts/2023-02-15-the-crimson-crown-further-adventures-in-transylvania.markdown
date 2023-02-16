@@ -58,6 +58,8 @@ _WAIT, WAIT, WAIT, WAIT, WAIT, WAIT ... game over_
 
 I didn't have a lot of fun with this game, though it was an upgrade from the first title. It is interesting to see how parser-based games evolved in the early to mid 80's, especially when it came to puzzle and dungeon design. [Antonio Antiochia](https://www.mobygames.com/developer/sheet/view/developerId,192/) did all the artwork and game design solo for this and the previous title, so seeing as this was again essentially a one man show, it's worth appreciating the accomplishment even if the game doesn't really stand the test of time.
 
+For a deeper dive into the development journey of Transylvania I highly recommend [The Digital Antiquarian's retrospective](https://www.filfre.net/2012/10/transylvania/) of the game.
+
 **Game Information**
 
 |*Game*|The Crimson Crown: - Further Adventures in Transylvania|
