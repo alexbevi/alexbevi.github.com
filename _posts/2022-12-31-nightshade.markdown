@@ -4,7 +4,7 @@ title: "Nightshade (Beam Software) - 1992"
 date: 2022-12-31 11:56:32 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Beam Software"]
+tags: [adventure, "Beam Software", "Ultra Games"]
 image:
   src: /images/adventure/nightshade/Nightshade.2022-12-31 08.18.17.png
   alt: Title Image

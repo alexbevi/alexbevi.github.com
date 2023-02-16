@@ -4,7 +4,7 @@ title: "Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line) - 
 date: 2022-12-19 06:25:05 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Sierra Online"]
+tags: [adventure, "Sierra Online", SCI, AGI]
 image:
   src: /images/adventure/lsl1sci/scummvm-lsl1sci-00000.png
   alt: Title Image

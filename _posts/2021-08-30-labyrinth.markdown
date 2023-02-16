@@ -4,7 +4,7 @@ title: "Labyrinth: The Computer Game (Lucasfilm Games) - 1986"
 comments: true
 date: 2021-08-30 08:12:50 -0400
 categories: ["Let's Adventure!"]
-tags: [adventure, "LucasArts"]
+tags: [adventure, "LucasArts", Activision]
 ---
 ![](/images/adventure/labyrinth-02.png){:width="70%"}
 

@@ -4,7 +4,7 @@ title: "Blue Force (Tsunami Games) - 1993"
 date: 2022-03-31 06:02:55 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Sierra Online"]
+tags: [adventure, "Tsunami Games", TsAGE]
 image:
   src: /images/adventure/blueforce/scummvm-blueforce-cd-00000.png
   alt: Title Image

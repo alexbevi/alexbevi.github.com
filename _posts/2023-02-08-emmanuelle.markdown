@@ -4,7 +4,7 @@ title: "Emmanuelle (Coktel Vision) - 1989"
 date: 2023-02-08 15:29:06 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Coktel Vision"]
+tags: [adventure, "Coktel Vision", "Tomahawk"]
 image:
   src: /images/adventure/emmanuelle/emma_000.png
   alt: Title Image

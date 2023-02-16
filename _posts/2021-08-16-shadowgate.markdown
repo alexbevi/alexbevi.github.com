@@ -4,7 +4,7 @@ title: "Shadowgate (ICOM Simulations) - 1987"
 date: 2021-08-16 07:33:48 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "ICOM Simulations", MacVenture]
+tags: [adventure, "ICOM Simulations", MacVenture, Mindscape, Kemco]
 ---
 ![](/images/adventure/shadowgate.000.png){:width="70%"}
 

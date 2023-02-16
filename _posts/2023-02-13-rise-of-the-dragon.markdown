@@ -4,7 +4,7 @@ title: "Rise of the Dragon (Dynamix) - 1990"
 date: 2023-02-13 08:52:26 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Dynamix"]
+tags: [adventure, "Dynamix", "Sierra On-Line", "DGDS"]
 image:
   src: /images/adventure/rise/dragon_000.png
   alt: Title Image

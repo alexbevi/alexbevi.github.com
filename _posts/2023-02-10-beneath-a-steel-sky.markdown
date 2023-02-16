@@ -4,7 +4,7 @@ title: "Beneath a Steel Sky (Revolution Software) - 1994"
 date: 2023-02-10 09:46:54 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Revolution Software"]
+tags: [adventure, "Revolution Software", "Virgin Interactive Entertainment"]
 image:
   src: /images/adventure/bass/title.jpg
   alt: Title Image

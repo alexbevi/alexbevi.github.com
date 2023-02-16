@@ -4,7 +4,7 @@ title: "Sanitarium (DreamForge Intertainment) - 1998"
 comments: true
 date: 2021-12-22 06:08:00 -0500
 categories: ["Let's Adventure!"]
-tags: [adventure, "DreamForge"]
+tags: [adventure, "DreamForge", "ASC Games"]
 image:
   src: /images/adventure/sanitarium/2021-12-22 06.22.58.png
   alt: Title Image

@@ -4,7 +4,7 @@ title: "Mystery House (On-Line Systems) - 1980"
 date: 2021-08-03 07:25:36 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, adl, "Sierra On-Line"]
+tags: [adventure, adl, "Sierra On-Line", "Online Systems"]
 image:
   src: /images/adventure/scummvm-hires1-apple2-00000.png
   alt: Title Image

@@ -4,7 +4,7 @@ title: "Grim Fandango (LucasArts) - 1998"
 date: 2022-12-16 06:52:10 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Sierra Online"]
+tags: [adventure, "Sierra Online", GrimE]
 image:
   src: /images/adventure/grim/scummvm-grim-win-00000.png
   alt: Title Image
