@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 27,
+    finished: 28,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 27 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 28 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -318,7 +318,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 248. Amber: Journeys Beyond (Hue Forest Entertainment) - 1996
 249. Blue Ice (Art of Mind Productions) - 1996
 250. Creature Crunch (TechToons Ltd.) - 1996
-251. Urban Runner (Coktel Vision) - 1996
+251. [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
 252. The Dame Was Loaded (Beam Software) - 1996
 253. Discworld II: Missing Presumed...!? (Perfect Entertainment) - 1996
 254. Dragon Lore II: The Heart of the Dragon Man (Cryo Interactive) - 1996
