@@ -17,11 +17,11 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 ```js
 {
   progress: {
-    finished: 29,
+    finished: 30,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 29 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 30 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -36,6 +36,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
 1. **76%** [Rise of the Dragon (Dynamix)]({% post_url 2023-02-13-rise-of-the-dragon %}) - 1990
+1. **69%** [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 1. **66%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992

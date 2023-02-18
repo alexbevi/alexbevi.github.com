@@ -3,7 +3,7 @@ layout: post
 title: "Urban Runner (Coktel Vision) - 1996"
 date: 2023-02-15 07:01:49 -0500
 comments: true
-ccategories: ["Let's Adventure!"]
+categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Sierra On-Line", Gob]
 image:
   src: /images/adventure/urban/scummvm-urban-us-00000.png

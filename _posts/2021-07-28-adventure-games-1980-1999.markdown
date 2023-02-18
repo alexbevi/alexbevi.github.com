@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 29,
+    finished: 30,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 29 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 30 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -113,7 +113,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 42. Space Quest II: Vohaul's Revenge (Sierra On-Line) - 1987
 43. Déjà Vu II: Lost in Las Vegas (ICOM Simulations) - 1988
 44. Gold Rush! (Sierra On-Line) - 1988
-45. Manhunter: New York (Evryware) - 1988
+45. [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
 46. Neuromancer (Interplay Productions) - 1988
 47. King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988
 48. [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
