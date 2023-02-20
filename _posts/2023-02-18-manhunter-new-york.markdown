@@ -6,7 +6,7 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Evryware", "Sierra On-Line", AGI]
 image:
-  src: /images/adventure/mh1/scummvm-mh1-00002.png
+  src: /images/adventure/mh1/scummvm-mh1-00003.png
   alt: Title Image
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
@@ -73,6 +73,8 @@ Though the game is pretty hard to beat without a walkthrough, I'd honestly recom
 
 Maybe that's the version I should have played ...
 
+![](/images/adventure/mh1/scummvm-mh1-00055.png)
+
 **Game Information**
 
 |*Game*|Manhunter: New York|
@@ -103,7 +105,7 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 {% galleria %}
 /images/adventure/mh1/scummvm-mh1-00000.png
 /images/adventure/mh1/scummvm-mh1-00001.png
-/images/adventure/mh1/scummvm-mh1-00003.png
+/images/adventure/mh1/scummvm-mh1-00002.png
 /images/adventure/mh1/scummvm-mh1-00004.png
 /images/adventure/mh1/scummvm-mh1-00005.png
 /images/adventure/mh1/scummvm-mh1-00006.png
@@ -146,5 +148,4 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/mh1/scummvm-mh1-00051.png
 /images/adventure/mh1/scummvm-mh1-00053.png
 /images/adventure/mh1/scummvm-mh1-00054.png
-/images/adventure/mh1/scummvm-mh1-00055.png
 {% endgalleria %}
