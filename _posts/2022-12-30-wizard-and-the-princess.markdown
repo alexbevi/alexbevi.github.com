@@ -4,7 +4,7 @@ title: "Wizard and the Princess (On-Line Systems) - 1980"
 date: 2022-12-30 07:34:58 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, adl, "Sierra On-Line"]
+tags: [adventure, ADL, "Sierra On-Line"]
 image:
   src: /images/adventure/serenia/serenia_000.png
   alt: Title Image

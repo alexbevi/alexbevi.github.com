@@ -4,7 +4,7 @@ title: "King’s Quest: Quest for the Crown (Sierra On-Line) - 1984"
 date: 2021-08-06 05:54:31 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, agi, "Sierra On-Line"]
+tags: [adventure, AGI, "Sierra On-Line"]
 image:
   src: /images/adventure/scummvm-kq1-00000.png
   alt: Title Image

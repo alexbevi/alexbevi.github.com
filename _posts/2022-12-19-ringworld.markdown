@@ -4,7 +4,7 @@ title: "Ringworld: Revenge of the Patriarch (Tsunami Games) - 1992"
 date: 2022-12-19 06:02:55 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Tsunami Games", TSAGE]
+tags: [adventure, "Tsunami Games", TsAGE]
 image:
   src: /images/adventure/ringworld/scummvm-ringworld-cd-00001.png
   alt: Title Image
