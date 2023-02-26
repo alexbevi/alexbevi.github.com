@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 30,
+    finished: 32,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 30 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 32 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -110,7 +110,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 39. The Faery Tale Adventure (MicroIllusions) - 1987
 40. Méwilo (Coktel Vision) - 1987
 41. Maniac Mansion (Lucasfilm Games) - 1987
-42. Space Quest II: Vohaul's Revenge (Sierra On-Line) - 1987
+42. [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
 43. Déjà Vu II: Lost in Las Vegas (ICOM Simulations) - 1988
 44. Gold Rush! (Sierra On-Line) - 1988
 45. [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
@@ -118,7 +118,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 47. King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988
 48. [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 49. Zak McKracken and the Alien Mindbenders (Lucasfilm Games) - 1988
-50. Police Quest II: The Vengeance (Sierra On-Line) - 1988
+50. [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988
 51. Snatcher (Konami) - 1988
 52. B.A.T. (Computer's Dream) - 1989
 53. [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
@@ -299,29 +299,29 @@ As I work through the list I'll link the reviews below. You can also find the re
 228. Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995
 229. Roberta Williams' Phantasmagoria (Sierra On-Line) - 1995
 230. Beavis and Butt-Head in Virtual Stupidity (Viacom New Media) - 1995
-232. Scooby-Doo Mystery (The Illusions Gaming Company) - 1995
-233. Clock Tower (Human Entertainment) - 1995
-234. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
-235. I Have No Mouth, and I Must Scream (The Dreamers Guild) - 1995
-236. Torin's Passage (Sierra On-Line) - 1995
-237. Mission Critical (Legend Entertainment) - 1995
-238. Shivers (Sierra On-Line) - 1995
-239. Simon the Sorcerer II: The Lion, the Wizard and the Wardrobe (Adventure Soft) - 1995
-240. Total Distortion (Pop Rocket) - 1995
-241. Dark Seed II (Destiny Media Technologies) - 1995
-242. The Dig (LucasArts) - 1995
-243. The 11th Hour (Trilobyte) - 1995
-244. Shannara (Legend Entertainment) - 1995
-245. Chronomaster (DreamForge Intertainment) - 1995
-246. Robot City (Brooklyn Multimedia) - 1995
-247. Alien Incident (Housemarque) - 1996
-248. Amber: Journeys Beyond (Hue Forest Entertainment) - 1996
-249. Blue Ice (Art of Mind Productions) - 1996
-250. Creature Crunch (TechToons Ltd.) - 1996
-251. [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
-252. The Dame Was Loaded (Beam Software) - 1996
-253. Discworld II: Missing Presumed...!? (Perfect Entertainment) - 1996
-254. Dragon Lore II: The Heart of the Dragon Man (Cryo Interactive) - 1996
+231. Scooby-Doo Mystery (The Illusions Gaming Company) - 1995
+232. Clock Tower (Human Entertainment) - 1995
+233. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
+234. I Have No Mouth, and I Must Scream (The Dreamers Guild) - 1995
+235. Torin's Passage (Sierra On-Line) - 1995
+236. Mission Critical (Legend Entertainment) - 1995
+237. Shivers (Sierra On-Line) - 1995
+238. Simon the Sorcerer II: The Lion, the Wizard and the Wardrobe (Adventure Soft) - 1995
+239. Total Distortion (Pop Rocket) - 1995
+240. Dark Seed II (Destiny Media Technologies) - 1995
+241. The Dig (LucasArts) - 1995
+242. The 11th Hour (Trilobyte) - 1995
+243. Shannara (Legend Entertainment) - 1995
+244. Chronomaster (DreamForge Intertainment) - 1995
+245. Robot City (Brooklyn Multimedia) - 1995
+246. Alien Incident (Housemarque) - 1996
+247. Amber: Journeys Beyond (Hue Forest Entertainment) - 1996
+248. Blue Ice (Art of Mind Productions) - 1996
+249. Creature Crunch (TechToons Ltd.) - 1996
+250. [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
+251. The Dame Was Loaded (Beam Software) - 1996
+252. Discworld II: Missing Presumed...!? (Perfect Entertainment) - 1996
+253. Dragon Lore II: The Heart of the Dragon Man (Cryo Interactive) - 1996
 255. Fable (Simbiosis Interactive) - 1996
 256. The Gene Machine (Divide By Zero) - 1996
 257. Kingdom II: Shadoan (Virtual Image Productions) - 1996
