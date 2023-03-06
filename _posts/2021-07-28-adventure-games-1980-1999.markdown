@@ -61,10 +61,10 @@ As I work through the list I'll link the reviews below. You can also find the re
 {
   progress: {
     finished: 33,
-    skipped: 6,
+    skipped: 7,
     total: 363
   },
-  complete: "{{ 33 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 33 | plus: 7 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -165,7 +165,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 94. Spellcasting 201: The Sorcerer's Appliance (Legend Entertainment) - 1991
 95. Timequest (Legend Entertainment) - 1991
 96. Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line) - 1991
-97. Metal Slader Glory (HAL Laboratory) - 1991
+97. ~~Metal Slader Glory (HAL Laboratory) - 1991~~ (_Japanese only, though [fan translation](https://www.romhacking.net/translations/3755/) exists_ )
 98. Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991
 99. Monkey Island 2: LeChuck's Revenge (LucasArts) - 1991
 100. Amazon: Guardians of Eden (Access Software) - 1992
