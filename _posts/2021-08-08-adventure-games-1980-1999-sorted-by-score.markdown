@@ -17,11 +17,11 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 ```js
 {
   progress: {
-    finished: 32,
+    finished: 33,
     skipped: 6,
     total: 363
   },
-  complete: "{{ 32 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 33 | plus: 6 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -41,6 +41,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 1. **66%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
+1. **66%** [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
 1. **64%** [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
 1. **64%** [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
@@ -57,4 +58,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **27%** [Kabul Spy (Sirius Software)]({post_url 2023-02-07-kabul-spy %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
-1. **xx%** [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
+1. **xx%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
