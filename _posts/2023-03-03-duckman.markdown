@@ -11,6 +11,38 @@ image:
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 
+[Duckman: The Graphic Adventures of a Private Dick](https://en.wikipedia.org/wiki/Duckman:_The_Graphic_Adventures_of_a_Private_Dick) is a point-and-click adventure video game developed by the Illusions Gaming Company and published by Playmates Interactive based on the American television series, [Duckman](https://en.wikipedia.org/wiki/Duckman). In the game, Duckman has been usurped by a similar-looking impersonator, whom the real Duckman must expose.
+
+![](/images/adventure/duckman/scummvm-duckman-00001.png)
+
+You start the game off with some exposition by Cornfed, your sidekick introducing us to the current state of the world with Duckman and his family being given a TV show, but Duckman's been off at a spa getting drunk and ignoring his responsibilities. I don't remember the show all that well - other than I enjoyed the lewd humour and voice acting - so whether this plot feels appropriate to the characters or not I can't really tell.
+
+![](/images/adventure/duckman/scummvm-duckman-00003.png)
+
+I seem to remember this show was all about innuendo and dick and fart jokes, which the writing of the game and artistic direction definitely tries to capture. It doesn't feel overdone or "in your face" so unless you're completely put off by this style of humour, the game should be playable (and possibly enjoyable).
+
+![](/images/adventure/duckman/scummvm-duckman-00004.png)
+
+The game is a basic point and click adventure, so once you leave the first area (the spa) you're presented with a map screen from which you can choose another location to investigate. New locations pop up as the game progresses, and you can revisit locations repeatedly as you learn more about the plot against Duckman.
+
+![](/images/adventure/duckman/scummvm-duckman-00010.png)
+
+This game is all about item combination puzzles and fetch quests, so move the cursor around each screen and interact with anything that changes the cursor. The solution to most puzzles are pretty obvious, but a couple were challenging enough to get me to refer back to the walkthrough to keep this game moving along.
+
+When the time comes to get the plunger from another character and you have to first insult him in chinese by rearranging characters from a fortune cookie in order to say something rude so he kicks you (with his plunger foot), which you then have to block with a trash can lid to get the plunger to stick to the lid ... that verged on moon logic.
+
+![](/images/adventure/duckman/scummvm-duckman-00005.png)
+
+Character interactions are done using a dialogue system that relies on icons to select topics (similar to [Sam & Max Hit the Road]({% post_url 2023-01-23-sam-and-max-hit-the-road %})). There's actually not a lot of these interactions throughout the game as most characters just dump a wall of text on you to keep you moving along.
+
+You're able to make mistakes that result in Duckman dying, but the game will just back you up to before this mistake so you can try again. I actually think this only happened to me once during this playthrough (using the remote on the robot villain) so I don't know that risk of death is even a concern ... but saving once in a while probably wouldn't hurt.
+
+![](/images/adventure/duckman/scummvm-duckman-00018.png)
+
+For a game that came out in 1997 the graphics seem a bit dated. The game isn't really all that much fun, the music isn't memorable (I think there was background music) and the plot isn't all that interesting.
+
+If this game seems even the slightest bit compelling to you it might be best to just go find a copy of the TV show and watch that instead. You'll likely have a better time, and get more out of it as this game is pretty short too.
+
 ![](/images/adventure/duckman/scummvm-duckman-00020.png)
 
 **Game Information**
@@ -32,25 +64,20 @@ _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/catego
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|x|
-|**Story (25)**|x|
-|**Experience (15)**|x|
-|**Impact (10)**|x|
-||**x%**|
+|**Atmosphere (20)**|10|
+|**Story (25)**|12|
+|**Experience (15)**|9|
+|**Impact (10)**|3|
+||**49%**|
 
 ### Gallery
 
 {% galleria %}
-/images/adventure/duckman/scummvm-duckman-00001.png
 /images/adventure/duckman/scummvm-duckman-00002.png
-/images/adventure/duckman/scummvm-duckman-00003.png
-/images/adventure/duckman/scummvm-duckman-00004.png
-/images/adventure/duckman/scummvm-duckman-00005.png
 /images/adventure/duckman/scummvm-duckman-00006.png
 /images/adventure/duckman/scummvm-duckman-00007.png
 /images/adventure/duckman/scummvm-duckman-00008.png
 /images/adventure/duckman/scummvm-duckman-00009.png
-/images/adventure/duckman/scummvm-duckman-00010.png
 /images/adventure/duckman/scummvm-duckman-00011.png
 /images/adventure/duckman/scummvm-duckman-00012.png
 /images/adventure/duckman/scummvm-duckman-00013.png
@@ -58,6 +85,5 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/duckman/scummvm-duckman-00015.png
 /images/adventure/duckman/scummvm-duckman-00016.png
 /images/adventure/duckman/scummvm-duckman-00017.png
-/images/adventure/duckman/scummvm-duckman-00018.png
 /images/adventure/duckman/scummvm-duckman-00019.png
 {% endgalleria %}

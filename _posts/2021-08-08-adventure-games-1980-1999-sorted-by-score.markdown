@@ -17,11 +17,11 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 ```js
 {
   progress: {
-    finished: 33,
-    skipped: 7,
+    finished: 34,
+    skipped: 8,
     total: 363
   },
-  complete: "{{ 33 | plus: 7 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 34 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -47,6 +47,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 1. **57%** [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 1. **57%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
+1. **49%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
 1. **49%** [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
 1. **47%** [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
 1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
@@ -58,4 +59,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **27%** [Kabul Spy (Sirius Software)]({post_url 2023-02-07-kabul-spy %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
-1. **xx%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
+2. **xx%** [Full Throttle (LucasArts)]({% post_url 2023-03-10-full-throttle %}) - 1995
