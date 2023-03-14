@@ -211,4 +211,4 @@ As documents within the [`local.oplog.rs`](https://www.mongodb.com/docs/manual/r
 
 The result above represents an [`insert`](https://www.mongodb.com/docs/manual/reference/command/insert/) and under the `o` field contains the values that were initially set.
 
-As stated earlier, this method is not guaranteed to work, however it may prove useful if you're trying to identify what document was deleted and your [oplog window]() is large enough that it still contains the document's creation. See [Change the Size of the Oplog](https://www.mongodb.com/docs/manual/tutorial/change-oplog-size/) for more information regarding sizing the oplog.
+As stated earlier, this method is not guaranteed to work, however it may prove useful if you're trying to identify what document was deleted and your [oplog window](https://www.mongodb.com/docs/manual/core/replica-set-oplog/#oplog-window) is large enough that it still contains the document's creation. See [Change the Size of the Oplog](https://www.mongodb.com/docs/manual/tutorial/change-oplog-size/) for more information regarding sizing the oplog.
