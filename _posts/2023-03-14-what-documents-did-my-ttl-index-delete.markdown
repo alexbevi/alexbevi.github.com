@@ -72,9 +72,8 @@ var ns = "test.foo";
 var t1 = new Date("2023-03-14T06:47:41.336-04:00");
 // the number of seconds between TTLMonitor sweeps - default: 60
 var ttlSleep = db.adminCommand({
-  getParameter: 1,
-  ttlMonitorSleepSecs: 1 }
-).ttlMonitorSleepSecs;
+  getParameter: 1, ttlMonitorSleepSecs: 1
+}).ttlMonitorSleepSecs;
 // get the time (in milliseconds) of the starting time and convert
 // the TTLMonitor sleep threshold to milliseconds
 var t2 = new Date(t1.getTime() + (ttlSleep * 1000));
