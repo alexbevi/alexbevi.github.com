@@ -82,6 +82,10 @@ db.getSiblingDB("local").oplog.rs.find({
 });
 ```
 
+<div class="note warning">
+<small>Any query targeting the oplog will perform a full collection scan as you cannot create indexes on the oplog collection!</small>
+</div>
+
 The above operation is purposely more verbose than necessary to illustrate where all the necessary pieces of information came from. Once this is executed it should return a single document as seen below, which represents the document that was deleted:
 
 ```js
