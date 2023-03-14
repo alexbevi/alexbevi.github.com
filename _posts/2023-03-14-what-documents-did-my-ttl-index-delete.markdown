@@ -70,7 +70,7 @@ Unfortunately all this presents us with is confirmation that one document (`"num
 
 ## Enter the Oplog
 
-As the cluster we're connected to is a replica set all write operations are recorded in the [operations log (oplog)](https://www.mongodb.com/docs/manual/core/replica-set-oplog/). As the oplog is a [capped collection](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-capped-collection) present on each replica set member, we can query it directly to see what write operations have propagated at a given time!
+As the cluster we're connected to is a replica set all write operations are recorded in the [operations log (oplog)](https://www.mongodb.com/docs/manual/core/replica-set-oplog/). The oplog is a [capped collection](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-capped-collection) present on each replica set member, and as such we can query it directly to see what write operations have propagated at a given time!
 
 Using the log entry above that confirmed 1 document was deleted we can prepare the following operation to filter the contents of the oplog collection:
 
