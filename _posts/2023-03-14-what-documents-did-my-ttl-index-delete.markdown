@@ -134,7 +134,7 @@ db.getSiblingDB("local").oplog.rs.find({
 }).sort({ ts: -1 });
 ```
 
-As documents within the [`local.oplog.rs`](https://www.mongodb.com/docs/manual/reference/local-database/#mongodb-data-local.oplog.rs) namespace will eventually roll over the above query is **no guaranteed to return anything**, however it's possible that document creation or update commands may still exist that can give you additional information regarding what this removed document contained:
+As documents within the [`local.oplog.rs`](https://www.mongodb.com/docs/manual/reference/local-database/#mongodb-data-local.oplog.rs) namespace will eventually roll over the above query is **not guaranteed to return anything**, however it's possible that document creation or update commands may still exist that can give you additional information regarding what this removed document contained:
 
 ```js
 [
@@ -164,7 +164,8 @@ As documents within the [`local.oplog.rs`](https://www.mongodb.com/docs/manual/r
         "subType": "04"
       }
     },
-    // this field contains the values that were set when the document was created
+    // this field contains the values that were set when
+    // the document was created
     "o": {
       "_id": {
         "$oid": "641050bae52e6d96ee3c40fa"
