@@ -43,7 +43,9 @@ As we continue to monitor the `mongod` log we'll begin to see messages such as t
 {"t":{"$date":"2023-03-14T06:41:26.315-04:00"},"s":"I","c":"INDEX","id":5479200,"ctx":"TTLMonitor","msg":"Deleted expired documents using index","attr":{"namespace":"config.system.sessions","index":"lsidTTLIndex","numDeleted":0,"durationMillis":0}}
 ```
 
-The above logs represent pre-existing TTL indexes MongoDB creates to expire documents from internal collections. As these indexes are out of scope for this article we'll skip over them for now and create a custom TTL index to fit our needs:
+The above logs represent pre-existing TTL indexes MongoDB creates to expire documents from internal collections. As these indexes are out of scope for this article we'll skip over them for now and create a custom TTL index to fit our needs.
+
+## Setup
 
 ```js
 db.foo.drop();
