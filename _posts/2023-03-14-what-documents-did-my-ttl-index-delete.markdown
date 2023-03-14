@@ -121,10 +121,13 @@ We can try to find out additional information about this deleted document by ext
 
 ```js
 db.getSiblingDB("local").oplog.rs.find({
+  // filter by namespace
   ns: "test.foo",
+  // filter by insert or update
   op: { $in: ["i", "u"] },
+  // filter on the o2._id field as it will be present in both inserts and updates
   "o2._id": ObjectId("641050bae52e6d96ee3c40fa")
-}).sort({ ts: -1})
+}).sort({ ts: -1 });
 ```
 
 As documents within the [`local.oplog.rs`](https://www.mongodb.com/docs/manual/reference/local-database/#mongodb-data-local.oplog.rs) namespace will eventually roll over the above query is **no guaranteed to return anything**, however it's possible that document creation or update commands may still exist that can give you additional information regarding what this removed document contained:
