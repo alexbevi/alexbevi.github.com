@@ -35,8 +35,6 @@ Continue to monitor the `mongod` log we'll begin to see messages such as the fol
 {"t":{"$date":"2023-03-14T06:41:26.315-04:00"},"s":"I","c":"INDEX","id":5479200,"ctx":"TTLMonitor","msg":"Deleted expired documents using index","attr":{"namespace":"config.system.sessions","index":"lsidTTLIndex","numDeleted":0,"durationMillis":0}}
 ```
 
-## Setup
-
 This is due to MongoDB utilizing TTL indexes for some internal housekeeping tasks. As these indexes are out of scope for this article we'll skip over them for now and create a new TTL index:
 
 ```js
