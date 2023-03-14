@@ -65,13 +65,18 @@ As the cluster we're connected to is a replica set all write operations are reco
 Using the log entry above that confirmed 1 document was deleted we can prepare the following operation to filter the contents of the oplog collection:
 
 ```js
-// the namespace from the log entry indicating nDeleted > 0 that we're interested in
+// the namespace from the log entry indicating nDeleted > 0
+// that we're interested in
 var ns = "test.foo";
 // the time (with timezone) from the log message
 var t1 = new Date("2023-03-14T06:47:41.336-04:00");
 // the number of seconds between TTLMonitor sweeps - default: 60
-var ttlSleep = db.adminCommand({ getParameter: 1, ttlMonitorSleepSecs: 1 }).ttlMonitorSleepSecs;
-// get the time (in milliseconds) of the starting time and convert the TTLMonitor sleep threshold to milliseconds
+var ttlSleep = db.adminCommand({
+  getParameter: 1,
+  ttlMonitorSleepSecs: 1 }
+).ttlMonitorSleepSecs;
+// get the time (in milliseconds) of the starting time and convert
+// the TTLMonitor sleep threshold to milliseconds
 var t2 = new Date(t1.getTime() + (ttlSleep * 1000));
 db.getSiblingDB("local").oplog.rs.find({
   op: "d",
@@ -127,7 +132,8 @@ db.getSiblingDB("local").oplog.rs.find({
   ns: "test.foo",
   // filter by insert or update
   op: { $in: ["i", "u"] },
-  // filter on the o2._id field as it will be present in both inserts and updates
+  // filter on the o2._id field as it will be present
+  // in both inserts and updates
   "o2._id": ObjectId("641050bae52e6d96ee3c40fa")
 }).sort({ ts: -1 });
 ```
