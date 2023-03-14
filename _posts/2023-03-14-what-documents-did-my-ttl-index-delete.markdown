@@ -10,19 +10,27 @@ image:
   alt: MongoDB Logo
 ---
 
+## Introduction
+
+Have you ever had one or more documents removed from a MongoDB collection and you weren't sure what they were? This can potentially occur if you have a TTL index defined, however the approach being shared below can be adapted to filter the replica set oplog for deletes over any custom time frame you may be interested in. Once the `_id` values of the deleted documents have been identified, the replica set oplog can be further filtered to attempt to surface details about the detailed documents.
+
 ## Overview
 
 [TTL indexes](https://www.mongodb.com/docs/manual/core/index-ttl/) are special single-field indexes that MongoDB can use to automatically remove documents from a collection after a certain amount of time or at a specific clock time. Data expiration is useful for certain types of information like machine generated event data, logs, and session information that only need to persist in a database for a finite amount of time.
 
 The actual removal of documents is handled by a separate thread within the [`mongod`](https://www.mongodb.com/docs/v6.0/reference/program/mongod/#mongodb-binary-bin.mongod) process called the [`TTLMonitor`](https://github.com/mongodb/mongo/blob/r6.2.1/src/mongo/db/catalog/README.md#the-ttlmonitor) (enabled by default via [`ttlMonitorEnabled`](https://www.mongodb.com/docs/v5.0/reference/parameters/#mongodb-parameter-param.ttlMonitorEnabled)), which will wake up and check all TTL indexes for expired documents every 60 seconds (the default value of `ttlMonitorSleepSecs`).
 
-Unfortunately the `mongod` logs won't record any information about TTL index activity unless the operation happens to exceed the [slow query threshold](https://www.mongodb.com/docs/manual/reference/command/profile/#command-fields) (default of `100ms`). For the purposes of this article we want to see more information regarding TTL index activity so we'll begin by increasing the [log verbosity for the `index` component](https://www.mongodb.com/docs/manual/reference/method/db.setLogLevel/#set-verbosity-level-for-a-component):
+By default the `mongod` logs won't record any information about TTL index activity unless the operation happens to exceed the [slow query threshold](https://www.mongodb.com/docs/manual/reference/command/profile/#command-fields) (default of `100ms` - may be different in [MongoDB Atlas](https://www.mongodb.com/docs/atlas/)). For the purposes of this article we want to see more information regarding TTL index activity so we'll begin by increasing the [log verbosity for the `index` component](https://www.mongodb.com/docs/manual/reference/method/db.setLogLevel/#set-verbosity-level-for-a-component):
 
 ```js
 db.setLogLevel(1, 'index');
 ```
 
-Continue to monitor the `mongod` log we'll begin to see messages such as the following begin to be recorded:
+<div class="note info">
+<small>The <tt>setLogLevel</tt> helper calls the <a href="https://www.mongodb.com/docs/master/reference/command/setParameter"><tt>setParameter</tt></a> command, which is <a href="https://www.mongodb.com/docs/atlas/unsupported-commands/">unsupported in MongoDB Atlas</a></small>
+</div>
+
+As we continue to monitor the `mongod` log we'll begin to see messages such as the following begin to be recorded:
 
 ```json
 {"t":{"$date":"2023-03-14T06:41:26.314-04:00"},"s":"D1","c":"INDEX","id":22533,"ctx":"TTLMonitor","msg":"running TTL job for index","attr":{"namespace":"config.tenantMigrationRecipients","key":{"expireAt":1},"name":"TenantMigrationRecipientTTLIndex"}}
@@ -35,7 +43,7 @@ Continue to monitor the `mongod` log we'll begin to see messages such as the fol
 {"t":{"$date":"2023-03-14T06:41:26.315-04:00"},"s":"I","c":"INDEX","id":5479200,"ctx":"TTLMonitor","msg":"Deleted expired documents using index","attr":{"namespace":"config.system.sessions","index":"lsidTTLIndex","numDeleted":0,"durationMillis":0}}
 ```
 
-This is due to MongoDB utilizing TTL indexes for some internal housekeeping tasks. As these indexes are out of scope for this article we'll skip over them for now and create a new TTL index:
+The above logs represent pre-existing TTL indexes MongoDB creates to expire documents from internal collections. As these indexes are out of scope for this article we'll skip over them for now and create a custom TTL index to fit our needs:
 
 ```js
 db.foo.drop();
@@ -56,7 +64,7 @@ Within a minute or two a log entry similar to the following will be recorded tha
 {"t":{"$date":"2023-03-14T06:47:41.336-04:00"},"s":"I","c":"INDEX","id":5479200,"ctx":"TTLMonitor","msg":"Deleted expired documents using index","attr":{"namespace":"test.foo","index":"created_at_1","numDeleted":1,"durationMillis":0}}
 ```
 
-Unfortunately all this presents us with is confirmation that _something_ was removed, but is it possible to find out _what_ was removed?
+Unfortunately all this presents us with is confirmation that one document (`"numDeleted":1`) was removed, but is it possible to find out _what_ was removed?
 
 ## Enter the Oplog
 
