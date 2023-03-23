@@ -33,6 +33,11 @@ _Fuck this stupid puzzle_
 
 According to the [longplay video on YouTube](https://www.youtube.com/watch?v=WsPzjGFOumY), this game only takes about 30 minutes to complete. I'll be honest, even playing through this with a walkthrough it felt SO MUCH LONGER! My goal with this series is to FINISH every one of these games but this stupid sliding puzzle has to be completed in 45 seconds or you DIE. You can't save before the puzzle, so to retry you have to finish the previous maze puzzle again.
 
+![](/images/adventure/geisha/scummvm-geisha-00017.png)
+_Fly your dick ship around and shoot stuff_
+
+The maze is pretty straightforward, but it was frustrating enough initially to get me to look for [a map](https://gamefaqs.gamespot.com/pc/928267-geisha/faqs/78791/chapter-6-penetration). This also lead me to [DrMcCoy's blog post from the time he was working on the Gob engine](https://drmccoy.de/gobsmacked/?p=512#more-512) which I was really hoping would give me debug codes I could use to skip the stupid slide puzzle. No such luck :/
+
 Even though I played the Atari ST version of the game, visually the game isn't the worst. That's probably the only nice thing I'm going to say because the sound effects are jarring, there's really no music, none of the games are fun, progressing isn't intuitive and overall the experience just plain sucks.
 
 DON'T PLAY THIS "GAME".
@@ -78,5 +83,4 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/geisha/scummvm-geisha-00014.png
 /images/adventure/geisha/scummvm-geisha-00015.png
 /images/adventure/geisha/scummvm-geisha-00016.png
-/images/adventure/geisha/scummvm-geisha-00017.png
 {% endgalleria %}
