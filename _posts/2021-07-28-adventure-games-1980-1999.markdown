@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 34,
+    finished: 35,
     skipped: 8,
     total: 363
   },
-  complete: "{{ 34 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 35 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -137,7 +137,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 66. Altered Destiny (Accolade) - 1990
 67. Countdown (Access Software) - 1990
 68. Earthrise: A Guild Investigation (Matt Gruson) - 1990
-69. Geisha (Coktel Vision) - 1990
+69. [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
 70. [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 71. Les Manley in: Search for the King (Accolade) - 1990
 72. Maupiti Island (Lankhor) - 1990
@@ -330,24 +330,24 @@ As I work through the list I'll link the reviews below. You can also find the re
 259. Orion Burger (Sanctuary Woods) - 1996
 260. UFOs (Artech) - 1996
 261. Angel Devoid: Face of the Enemy (Electric Dreams) - 1996
-263. Chronicles of the Sword (Synthetic Dimensions) - 1996
-264. Bad Mojo (Pulse Entertainment) - 1996
-265. Ripper (Take-Two Interactive) - 1996
-266. Spycraft: The Great Game (Activision) - 1996
-267. Zork Nemesis (Zombie LLC) - 1996
-268. Normality (Gremlin Interactive) - 1996
-269. Kingdom O' Magic (SCi) - 1996
-270. The Pandora Directive (Access Software) - 1996
-271. Azrael's Tear (Intelligent Games) - 1996
-272. Harvester (DigiFX Interactive) - 1996
-273. The Lost Files of Sherlock Holmes: The Case of the Rose Tattoo (Mythos Software, Inc.) - 1996
-274. Broken Sword: The Shadow of the Templars (Revolution Software) - 1996
-275. Timelapse (GTE Interactive Media) - 1996
-276. Lighthouse: The Dark Being (Sierra On-Line) - 1996
-277. Ace Ventura (7th Level) - 1996
-278. Blazing Dragons (The Illusions Gaming Company) - 1996
-279. Drowned God: Conspiracy of the Ages (Epic Multimedia Group) - 1996
-280. Martian Chronicles, The (Byron Preiss Multimedia Company) - 1995
+262. Chronicles of the Sword (Synthetic Dimensions) - 1996
+263. Bad Mojo (Pulse Entertainment) - 1996
+264. Ripper (Take-Two Interactive) - 1996
+265. Spycraft: The Great Game (Activision) - 1996
+266. Zork Nemesis (Zombie LLC) - 1996
+267. Normality (Gremlin Interactive) - 1996
+268. Kingdom O' Magic (SCi) - 1996
+269. The Pandora Directive (Access Software) - 1996
+270. Azrael's Tear (Intelligent Games) - 1996
+271. Harvester (DigiFX Interactive) - 1996
+272. The Lost Files of Sherlock Holmes: The Case of the Rose Tattoo (Mythos Software, Inc.) - 1996
+273. Broken Sword: The Shadow of the Templars (Revolution Software) - 1996
+274. Timelapse (GTE Interactive Media) - 1996
+275. Lighthouse: The Dark Being (Sierra On-Line) - 1996
+276. Ace Ventura (7th Level) - 1996
+277. Blazing Dragons (The Illusions Gaming Company) - 1996
+278. Drowned God: Conspiracy of the Ages (Epic Multimedia Group) - 1996
+279. Martian Chronicles, The (Byron Preiss Multimedia Company) - 1995
 281. The Neverhood (The Neverhood, Inc.) - 1996
 282. The Pink Panther: Passport to Peril (Wanderlust Interactive) - 1996
 283. Toonstruck (Burst Studios) - 1996
