@@ -178,3 +178,6 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+feed:
+  disable_in_development: true
