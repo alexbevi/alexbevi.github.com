@@ -4,7 +4,7 @@ title: "Space Quest: The Sarien Encounter (Sierra On-Line) - 1986"
 date: 2021-08-09 08:29:08 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, agi, "Sierra On-Line"]
+tags: [adventure, AGI, "Sierra On-Line"]
 image:
   src: /images/adventure/scummvm-sq1-00000.png
   alt: Title Image
