@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 35,
+    finished: 36,
     skipped: 8,
     total: 363
   },
-  complete: "{{ 35 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 36 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -302,7 +302,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 231. Scooby-Doo Mystery (The Illusions Gaming Company) - 1995
 232. Clock Tower (Human Entertainment) - 1995
 233. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
-234. I Have No Mouth, and I Must Scream (The Dreamers Guild) - 1995
+234. [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
 235. Torin's Passage (Sierra On-Line) - 1995
 236. Mission Critical (Legend Entertainment) - 1995
 237. Shivers (Sierra On-Line) - 1995
