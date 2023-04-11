@@ -69,6 +69,10 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```
 <hr>
 
+<div class="note info">
+<small>The list below was generated on July 28, 2021 and may have diverged from what is currently listed on Wikipedia</small>
+</div>
+
 1. [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 2. [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 3. Mission Asteroid (On-Line Systems) - 1980
