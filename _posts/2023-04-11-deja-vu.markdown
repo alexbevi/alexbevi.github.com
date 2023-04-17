@@ -1,0 +1,84 @@
+---
+layout: post
+title: "Déjà Vu: A Nightmare Comes True (ICOM Simulations) - 1985"
+date: 2023-04-11 12:11:59 -0400
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "ICOM Simulations", "Mindscape", "Kemco", MacVenture]
+image:
+  src: /images/adventure/dejavu/deja-vu-01.png
+  alt: Title Image
+---
+_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+
+[Déjà Vu](https://en.wikipedia.org/wiki/D%C3%A9j%C3%A0_Vu_(video_game)) is a point-and-click adventure game set in the world of 1940s hardboiled detective novels and movies. It was released in 1985 for Macintosh – the first in the [MacVenture](https://en.wikipedia.org/wiki/MacVenture) series – and later ported to several other systems.
+
+![](/images/adventure/dejavu/deja-vu-04.png)
+
+The game takes place in Chicago during December 1941. The game character is Ace Harding, a retired boxer working as a private eye. Ace awakes one morning in a bathroom stall, unable to remember who he is. A dead man is found in an upstairs office, and Ace is about to be framed for the murder. There are some clues as to the identity of the murdered man and to Ace himself. A strap-down chair, mysterious vials, and a syringe are found, suggesting (together with a needle mark on Ace's arm) that an interrogation has taken place.
+
+![](/images/adventure/dejavu/deja-vu-25.png)
+
+As this is a MacVentures game the interface is laid out in a familiar fashion. The game world occupies a third of the screen, which you engage with by selecting a verb from the bottom section of the screen then clicking on. Having been designed with a mouse in mind, the NES ports (which I'm playing) are a bit cumbersome to navigate, but as this was my first exposure to these titles I'm willing to be forgiving of these shortcomings.
+
+![](/images/adventure/dejavu/deja-vu-19.png)
+
+Your goal is to figure out who you are and to clear your name once you realize you're being framed for murder. This is done by collecting and analyzing evidence on every screen. Be warned - there is A LOT you can pick up and it's not all useful.
+
+**Game Information**
+
+|*Game*|Déjà Vu: A Nightmare Comes True|
+|*Developer*|[ICOM Simulations](https://en.wikipedia.org/wiki/ICOM_Simulations)|
+|*Publisher*|Mindscape, Kemco|
+|*Release Date*|1985|
+|*Systems*|Apple IIGS, Macintosh, Atari ST, Commodore 64,<br/>Amiga, DOS, Game Boy Color, Windows, NES|
+|*Game Engine*|[MacVenture](https://wiki.scummvm.org/index.php/MacVenture)|
+
+**Play Information**
+
+|[*How Long To Beat?*](https://howlongtobeat.com/game/4575)|6 hours|
+|*Version Played*|NES via [BizHawk](https://tasvideos.org/BizHawk)|
+|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/ihavenomouth.aspx)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|x|
+|**Story (25)**|x|
+|**Experience (15)**|x|
+|**Impact (10)**|x|
+||**xx%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/dejavu/deja-vu-02.png
+/images/adventure/dejavu/deja-vu-03.png
+/images/adventure/dejavu/deja-vu-05.png
+/images/adventure/dejavu/deja-vu-06.png
+/images/adventure/dejavu/deja-vu-07.png
+/images/adventure/dejavu/deja-vu-08.png
+/images/adventure/dejavu/deja-vu-09.png
+/images/adventure/dejavu/deja-vu-10.png
+/images/adventure/dejavu/deja-vu-11.png
+/images/adventure/dejavu/deja-vu-12.png
+/images/adventure/dejavu/deja-vu-13.png
+/images/adventure/dejavu/deja-vu-14.png
+/images/adventure/dejavu/deja-vu-15.png
+/images/adventure/dejavu/deja-vu-16.png
+/images/adventure/dejavu/deja-vu-17.png
+/images/adventure/dejavu/deja-vu-18.png
+/images/adventure/dejavu/deja-vu-20.png
+/images/adventure/dejavu/deja-vu-21.png
+/images/adventure/dejavu/deja-vu-22.png
+/images/adventure/dejavu/deja-vu-23.png
+/images/adventure/dejavu/deja-vu-24.png
+/images/adventure/dejavu/deja-vu-26.png
+/images/adventure/dejavu/deja-vu-27.png
+/images/adventure/dejavu/deja-vu-28.png
+/images/adventure/dejavu/deja-vu-29.png
+/images/adventure/dejavu/deja-vu-30.png
+/images/adventure/dejavu/deja-vu-31.png
+/images/adventure/dejavu/deja-vu-32.png
+{% endgalleria %}
