@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 36,
-    skipped: 8,
+    finished: 37,
+    skipped: 9,
     total: 363
   },
-  complete: "{{ 36 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 37 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -302,9 +302,9 @@ As I work through the list I'll link the reviews below. You can also find the re
 227. Star Trek: The Next Generation – A Final Unity (Spectrum HoloByte) - 1995
 228. Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995
 229. Roberta Williams' Phantasmagoria (Sierra On-Line) - 1995
-230. Beavis and Butt-Head in Virtual Stupidity (Viacom New Media) - 1995
+230. [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 231. Scooby-Doo Mystery (The Illusions Gaming Company) - 1995
-232. Clock Tower (Human Entertainment) - 1995
+232. ~~Clock Tower (Human Entertainment) - 1995~~ (_Japanese only, though a [fan translation exists](https://www.romhacking.net/translations/302/)_)
 233. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
 234. [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
 235. Torin's Passage (Sierra On-Line) - 1995
@@ -352,87 +352,87 @@ As I work through the list I'll link the reviews below. You can also find the re
 277. Blazing Dragons (The Illusions Gaming Company) - 1996
 278. Drowned God: Conspiracy of the Ages (Epic Multimedia Group) - 1996
 279. Martian Chronicles, The (Byron Preiss Multimedia Company) - 1995
-281. The Neverhood (The Neverhood, Inc.) - 1996
-282. The Pink Panther: Passport to Peril (Wanderlust Interactive) - 1996
-283. Toonstruck (Burst Studios) - 1996
-284. Rama (Dynamix) - 1996
-285. Titanic: Adventure Out of Time (Cyberflix) - 1996
-286. Leisure Suit Larry: Love for Sail! (Sierra On-Line) - 1996
-287. Phantasmagoria: A Puzzle of Flesh (Sierra On-Line) - 1996
-288. YU-NO: A girl who chants love at the bound of this world (ELF) - 1996
-289. Ark of Time (Trecision) - 1997
-290. The City of Lost Children (Psygnosis) - 1997
-291. Crusader: Adventure Out of Time (Index+) - 1997
-292. Egypt 1156 B.C. (Cryo Interactive Entertainment) - 1997
-293. Jack Orlando (TopWare Interactive) - 1997
-294. Riana Rouge (Black Dragon Productions) - 1997
-295. Sentient (Psygnosis) - 1997
-296. The Simpsons: Virtual Springfield (Digital Evolution) - 1997
-297. Versailles 1685 (Cryo Interactive) - 1997
-298. Voodoo Kid (Infogrames, Eric Sterling Collins, Hubert Chardot) - 1997
-299. WuKung: A Legendary Adventure (Abudoe Software) - 1997
-300. Realms of the Haunting (Gremlin Interactive) - 1997
-301. Obsidian (Rocket Science Games) - 1997
-302. Atlantis: The Lost Tales (Cryo Interactive) - 1997
-303. The Last Express (Smoking Car Productions) - 1997
-304. Shivers II: Harvest of Souls (Sierra On-Line) - 1997
-305. Callahan's Crosstime Saloon (Legend Entertainment) - 1997
-306. Safecracker (Daydream Software) - 1997
-307. [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
-308. The Feeble Files (Adventure Soft) - 1997
-309. The Journeyman Project: Pegasus Prime (Presto Studios) - 1997
-310. The Space Bar (Boffo Games) - 1997
-311. Spy Fox in "Dry Cereal" (Humongous Entertainment) - 1997
-312. Temüjin: A Supernatural Adventure (SouthPeak Games) - 1997
-313. Broken Sword II: The Smoking Mirror (Revolution Software) - 1997
-314. The Pink Panther: Hokus Pokus Pink (Wanderlust Interactive) - 1997
-315. Dark Earth (Kalisto Entertainment) - 1997
-316. Armed & Delirious (Makh-Shevet) - 1997
-317. Riven (Cyan) - 1997
-318. The Curse of Monkey Island (LucasArts) - 1997
-319. Zork: Grand Inquisitor (Activision) - 1997
-320. Blade Runner (Westwood Studios) - 1997
-321. Hollywood Monsters (Pendulo Studios) - 1997
-322. Ankh: The Tales of Mystery (Artex Software) - 1998
-323. Morpheus (Soap Bubble Productions) - 1998
-324. Nightlong: Union City Conspiracy (Team17, Trecision) - 1998
-325. ZeroZone (R&P Electronic Media) - 1998
-326. The Journeyman Project 3: Legacy of Time (Presto Studios) - 1998
-327. Black Dahlia (Take-Two Interactive) - 1998
-328. Tex Murphy: Overseer (Access Software) - 1998
-329. Starship Titanic (The Digital Village) - 1998
-330. [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
-331. The X-Files Game (HyperBole Studios) - 1998
-332. [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
-333. Ring: The Legend of the Nibelungen (Arxel Tribe) - 1998
-334. [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
-335. Nancy Drew: Secrets Can Kill (Her Interactive) - 1998
-336. John Saul's Blackstone Chronicles: An Adventure in Terror (Legend Entertainment) - 1998
-337. Juggernaut (Tonkin House) - 1998
-338. King's Quest: Mask of Eternity (Sierra Studios) - 1998
-339. Dark Side of the Moon: A Sci-Fi Adventure (SouthPeak Games) - 1998
-340. Quest for Glory V: Dragon Fire (Sierra On-Line) - 1998
-341. Discworld Noir (Perfect Entertainment, Teeny Weeny Games (PS)) - 1999
-342. The Forgotten: It Begins (Ransom Interactive) - 1999
-343. Paris 1313 (Dramæra) - 1999
-344. Physicus (HEUREKA-Klett Softwareverlag) - 1999
-345. Scooby-Doo: Mystery of the Fun Park Phantom (Engineering Animation, Inc.) - 1999
-346. Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.) - 1999
-347. Zero Critical (Istvan Pely Productions) - 1999
-348. Biosys (JumpStart Solutions Ltd.) - 1999
-349. Beavis and Butt-Head Do U. (The Illusions Gaming Company) - 1999
-350. Amerzone (Microïds) - 1999
-351. Aztec: The Curse in the Heart of the City of Gold (Cryo Interactive) - 1999
-352. Traitors Gate (Daydream Software) - 1999
-353. Dracula: Resurrection (Index+, Canal+ Multimedia and France Telecom Multimedia) - 1999
-354. Faust (Arxel Tribe) - 1999
-355. The Silver Case (Grasshopper Manufacture) - 1999
-356. Spy Fox 2: "Some Assembly Required" (Humongous Entertainment) - 1999
-357. Omikron: The Nomad Soul (Quantic Dream) - 1999
-358. Atlantis II (Cryo Interactive) - 1999
-359. Freddi Fish 4: The Case of the Hogfish Rustlers of Briny Gulch (Humongous Entertainment) - 1999
-360. Nancy Drew: Stay Tuned for Danger (Her Interactive) - 1999
-361. The Longest Journey (Funcom) - 1999
-362. Gabriel Knight 3: Blood of the Sacred, Blood of the Damned (Sierra On-Line) - 1999
-363. Star Trek: Hidden Evil (Presto Studios) - 1999
-364. The Crystal Key (Earthlight Productions) - 1999
+280. The Neverhood (The Neverhood, Inc.) - 1996
+281. The Pink Panther: Passport to Peril (Wanderlust Interactive) - 1996
+282. Toonstruck (Burst Studios) - 1996
+283. Rama (Dynamix) - 1996
+284. Titanic: Adventure Out of Time (Cyberflix) - 1996
+285. Leisure Suit Larry: Love for Sail! (Sierra On-Line) - 1996
+286. Phantasmagoria: A Puzzle of Flesh (Sierra On-Line) - 1996
+287. YU-NO: A girl who chants love at the bound of this world (ELF) - 1996
+288. Ark of Time (Trecision) - 1997
+289. The City of Lost Children (Psygnosis) - 1997
+290. Crusader: Adventure Out of Time (Index+) - 1997
+291. Egypt 1156 B.C. (Cryo Interactive Entertainment) - 1997
+292. Jack Orlando (TopWare Interactive) - 1997
+293. Riana Rouge (Black Dragon Productions) - 1997
+294. Sentient (Psygnosis) - 1997
+295. The Simpsons: Virtual Springfield (Digital Evolution) - 1997
+296. Versailles 1685 (Cryo Interactive) - 1997
+297. Voodoo Kid (Infogrames, Eric Sterling Collins, Hubert Chardot) - 1997
+298. WuKung: A Legendary Adventure (Abudoe Software) - 1997
+299. Realms of the Haunting (Gremlin Interactive) - 1997
+300. Obsidian (Rocket Science Games) - 1997
+301. Atlantis: The Lost Tales (Cryo Interactive) - 1997
+302. The Last Express (Smoking Car Productions) - 1997
+303. Shivers II: Harvest of Souls (Sierra On-Line) - 1997
+304. Callahan's Crosstime Saloon (Legend Entertainment) - 1997
+305. Safecracker (Daydream Software) - 1997
+306. [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
+307. The Feeble Files (Adventure Soft) - 1997
+308. The Journeyman Project: Pegasus Prime (Presto Studios) - 1997
+309. The Space Bar (Boffo Games) - 1997
+310. Spy Fox in "Dry Cereal" (Humongous Entertainment) - 1997
+311. Temüjin: A Supernatural Adventure (SouthPeak Games) - 1997
+312. Broken Sword II: The Smoking Mirror (Revolution Software) - 1997
+313. The Pink Panther: Hokus Pokus Pink (Wanderlust Interactive) - 1997
+314. Dark Earth (Kalisto Entertainment) - 1997
+315. Armed & Delirious (Makh-Shevet) - 1997
+316. Riven (Cyan) - 1997
+317. The Curse of Monkey Island (LucasArts) - 1997
+318. Zork: Grand Inquisitor (Activision) - 1997
+319. Blade Runner (Westwood Studios) - 1997
+320. Hollywood Monsters (Pendulo Studios) - 1997
+321. Ankh: The Tales of Mystery (Artex Software) - 1998
+322. Morpheus (Soap Bubble Productions) - 1998
+323. Nightlong: Union City Conspiracy (Team17, Trecision) - 1998
+324. ZeroZone (R&P Electronic Media) - 1998
+325. The Journeyman Project 3: Legacy of Time (Presto Studios) - 1998
+326. Black Dahlia (Take-Two Interactive) - 1998
+327. Tex Murphy: Overseer (Access Software) - 1998
+328. Starship Titanic (The Digital Village) - 1998
+329. [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
+330. The X-Files Game (HyperBole Studios) - 1998
+331. [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
+332. Ring: The Legend of the Nibelungen (Arxel Tribe) - 1998
+333. [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
+334. Nancy Drew: Secrets Can Kill (Her Interactive) - 1998
+335. John Saul's Blackstone Chronicles: An Adventure in Terror (Legend Entertainment) - 1998
+336. Juggernaut (Tonkin House) - 1998
+337. King's Quest: Mask of Eternity (Sierra Studios) - 1998
+338. Dark Side of the Moon: A Sci-Fi Adventure (SouthPeak Games) - 1998
+339. Quest for Glory V: Dragon Fire (Sierra On-Line) - 1998
+340. Discworld Noir (Perfect Entertainment, Teeny Weeny Games (PS)) - 1999
+341. The Forgotten: It Begins (Ransom Interactive) - 1999
+342. Paris 1313 (Dramæra) - 1999
+343. Physicus (HEUREKA-Klett Softwareverlag) - 1999
+344. Scooby-Doo: Mystery of the Fun Park Phantom (Engineering Animation, Inc.) - 1999
+345. Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.) - 1999
+346. Zero Critical (Istvan Pely Productions) - 1999
+347. Biosys (JumpStart Solutions Ltd.) - 1999
+348. Beavis and Butt-Head Do U. (The Illusions Gaming Company) - 1999
+349. Amerzone (Microïds) - 1999
+350. Aztec: The Curse in the Heart of the City of Gold (Cryo Interactive) - 1999
+351. Traitors Gate (Daydream Software) - 1999
+352. Dracula: Resurrection (Index+, Canal+ Multimedia and France Telecom Multimedia) - 1999
+353. Faust (Arxel Tribe) - 1999
+354. The Silver Case (Grasshopper Manufacture) - 1999
+355. Spy Fox 2: "Some Assembly Required" (Humongous Entertainment) - 1999
+356. Omikron: The Nomad Soul (Quantic Dream) - 1999
+357. Atlantis II (Cryo Interactive) - 1999
+358. Freddi Fish 4: The Case of the Hogfish Rustlers of Briny Gulch (Humongous Entertainment) - 1999
+359. Nancy Drew: Stay Tuned for Danger (Her Interactive) - 1999
+360. The Longest Journey (Funcom) - 1999
+361. Gabriel Knight 3: Blood of the Sacred, Blood of the Damned (Sierra On-Line) - 1999
+362. Star Trek: Hidden Evil (Presto Studios) - 1999
+363. The Crystal Key (Earthlight Productions) - 1999

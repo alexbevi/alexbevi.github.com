@@ -17,11 +17,11 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 ```js
 {
   progress: {
-    finished: 36,
-    skipped: 8,
+    finished: 37,
+    skipped: 9,
     total: 363
   },
-  complete: "{{ 36 | plus: 8 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 37 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -49,6 +49,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 1. **57%** [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 1. **57%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
+1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 1. **49%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
 1. **49%** [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
 1. **47%** [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
