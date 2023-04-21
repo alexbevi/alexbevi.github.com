@@ -18,9 +18,9 @@ I'm also the author of a book on [Redmine Plugin Extension and Development](http
 
 As part of my current role I'm trying to do more public speaking. Here are some examples of presentations I've delivered - even if they weren't all recorded.
 
-* `2023-01-24`: Ruby on Rails Global Summit'23 | _Ruby on Rails and MongoDB_ ([video](https://www.youtube.com/watch?v=UCdVBOJI3Ow&list=TLPQMjQwMTIwMjMqueSlzDsFKg&t=17872s))
-* `2019-11-21`: MongoDB.local Toronto 2019 | _Tips and Tricks for Effective Indexing_ ([slides](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing))
-* `2019-06-17`: MongoDB World 2019 | _The Sights (and Smells) of a Bad Query_ ([slides](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query))
+* `2023-01-24`: Ruby on Rails Global Summit'23 \| _Ruby on Rails and MongoDB_ ([video](https://www.youtube.com/watch?v=UCdVBOJI3Ow&list=TLPQMjQwMTIwMjMqueSlzDsFKg&t=17872s))
+* `2019-11-21`: MongoDB.local Toronto 2019 \| _Tips and Tricks for Effective Indexing_ ([slides](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing))
+* `2019-06-17`: MongoDB World 2019 \| _The Sights (and Smells) of a Bad Query_ ([slides](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query))
 
 ## Software Engineering for Fun!
 
