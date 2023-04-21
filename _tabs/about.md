@@ -6,7 +6,7 @@ order: 4
 
 ![](/images/headshot.png)
 
-The name's Alex, and I'm currently a Senior Product Manager on the Developer Experience team at [MongoDB](https://www.mongodb.com/), focusing on the Ruby Driver and Language Ecosystem.
+The name's Alex, and I'm currently a Senior Product Manager on the Developer Interfaces team at [MongoDB](https://www.mongodb.com/), focusing on the Node.js and Ruby Developer Ecosystems.
 
 I've been writing software professionally since 2000, and have had the opportunity to flex my creative muscle in a number of languages and technologies.
 
@@ -14,25 +14,20 @@ Recently, my projects have been been in [Ruby](http://www.ruby-lang.org/en/) and
 
 I'm also the author of a book on [Redmine Plugin Extension and Development](https://www.packtpub.com/product/redmine-plugin-extension-and-development/9781783288748), which is available from [Packt Publishing](http://www.packtpub.com).
 
+## Presentations
+
+As part of my current role I'm trying to do more public speaking. Here are some examples of presentations I've delivered - even if they weren't all recorded.
+
+* `2023-01-24`: Ruby on Rails Global Summit'23 | _Ruby on Rails and MongoDB_ ([video](https://www.youtube.com/watch?v=UCdVBOJI3Ow&list=TLPQMjQwMTIwMjMqueSlzDsFKg&t=17872s))
+* `2019-11-21`: MongoDB.local Toronto 2019 | _Tips and Tricks for Effective Indexing_ ([slides](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing))
+* `2019-06-17`: MongoDB World 2019 | _The Sights (and Smells) of a Bad Query_ ([slides](https://www.slideshare.net/mongodb/mongodb-world-2019-the-sights-and-smells-of-a-bad-query))
+
 ## Software Engineering for Fun!
 
-To keep the skillset sharp, I enjoy [reverse engineering](http://en.wikipedia.org/wiki/Reverse_engineering) old DOS and Windows games. The goal is usually to build an engine which can then be included with [ScummVM](http://www.scummvm.org).
+To keep the skill-set sharp, I enjoy [reverse engineering](http://en.wikipedia.org/wiki/Reverse_engineering) old DOS and Windows games. The goal is usually to build an engine which can then be included with [ScummVM](http://www.scummvm.org).
 
 I'm also an active [open source](http://en.wikipedia.org/wiki/Open_source) developer, and enjoy hacking on [Redmine](http://www.redmine.org) plugins.
 
 ## Software Engineering for Profit!
 
 Though I don't have a lot of free time lately, if the right project for the right client were to come along, I would definitely want to hear what you had to say :)
-
-<HR>
-<dl>
-  <dd style="font-family: monospace; font-size: 10px">
-    -----BEGIN GEEK CODE BLOCK-----<BR>
-
-    Version: 3.1<BR>
-
-    GCS/IT d-() s+: a C+++$ UBLHISC++(++++)@ P+>+ L+++(++++)>++$ E-()>$ W+++(--)$ !N !o K--? w$ !O M-- !V PS>+++ PE !Y PGP t(+) 5(+) X+(++) !R tv+ b+>++ DI+ D(++) G e+ h---- r+++ y++++
-    <BR>
-    ------END GEEK CODE BLOCK------
-  </dd>
-</dl>
