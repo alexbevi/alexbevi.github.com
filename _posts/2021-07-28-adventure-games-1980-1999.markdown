@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 37,
+    finished: 38,
     skipped: 9,
     total: 363
   },
-  complete: "{{ 37 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 38 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -139,7 +139,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 64. Codename: ICEMAN (Sierra On-Line) - 1989
 65. Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line) - 1989
 66. Altered Destiny (Accolade) - 1990
-67. Countdown (Access Software) - 1990
+67. [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 68. Earthrise: A Guild Investigation (Matt Gruson) - 1990
 69. [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
 70. [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
