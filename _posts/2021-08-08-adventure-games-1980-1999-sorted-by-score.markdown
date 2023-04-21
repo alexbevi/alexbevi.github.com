@@ -47,6 +47,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **64%** [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
 1. **64%** [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
+1. **61%** [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 1. **57%** [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 1. **57%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
