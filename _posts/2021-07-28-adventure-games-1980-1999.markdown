@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 38,
-    skipped: 9,
+    finished: 40,
+    skipped: 10,
     total: 363
   },
-  complete: "{{ 38 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 40 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -95,7 +95,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 20. [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 21. [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 22. Perry Mason: The Case of the Mandarin Murder (Telarium) - 1985
-23. King's Quest II: Romancing the Throne (Sierra On-Line) - 1985
+23. [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
 24. The Black Cauldron (Sierra On-Line) - 1986
 25. J.B. Harold Murder Club (Riverhillsoft) - 1986
 26. [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
@@ -225,7 +225,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 150. Sherlock Holmes: Consulting Detective Vol. III (ICOM Simulations) - 1993
 151. The Journeyman Project (Presto Studios) - 1993
 152. Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993
-153. Tajemnica Statuetki (Metropolis Software House) - 1993
+153. ~~Tajemnica Statuetki (Metropolis Software House) - 1993~~ (_Polish only_)
 154. Veil of Darkness (Event Horizon Software) - 1993
 155. Shadow of the Comet (Infogrames) - 1993
 156. The 7th Guest (Trilobyte) - 1993
