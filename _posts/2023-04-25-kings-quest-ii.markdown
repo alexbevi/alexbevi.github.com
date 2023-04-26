@@ -45,7 +45,7 @@ Your goal is to find 3 golden keys that can be used to unlock the 3 nested doors
 
 ![](/images/adventure/kq2/scummvm-kq2-00004.png)
 
-Being a Sierra game, expect to die a lot. Though there aren't too many stairs you can fall from in this game, there are still plenty of missteps that will kill you. If you fall into wanter, don't forget to type `SWIM` so you don't drown. This game gives you a shortcut for that action (I think you press the `=`), so this is an improvement over the original at least.
+Being a Sierra game, expect to die a lot. Though there aren't too many stairs you can fall from in this game, there are still plenty of missteps that will kill you. If you fall into water, don't forget to type `SWIM` so you don't drown. This game gives you a shortcut for that action (I think you press the `=`), so this is an improvement over the original at least.
 
 Assuming you try every combination of items, character interactions and wait on every screen for any potential timed events to trigger you'll still be able to breeze through this game in a couple hours. If you use a walkthrough, you can finish in about 45 minutes.
 
