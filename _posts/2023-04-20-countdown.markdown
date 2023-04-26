@@ -94,7 +94,7 @@ The underlying story is compelling and kept me interested enough to keep on plug
 |*Publisher*|Access Software|
 |*Release Date*|1990|
 |*Systems*|DOS|
-|*Game Engine*|[BBVS](https://wiki.scummvm.org/index.php/BBVS)|
+|*Game Engine*||
 
 **Play Information**
 

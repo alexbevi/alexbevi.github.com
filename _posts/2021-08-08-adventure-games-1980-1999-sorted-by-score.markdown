@@ -6,8 +6,8 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [series, adventure]
 image:
-  src: /images/adventure/bg.jpg
-  alt: Title Image
+ src: /images/adventure/bg.jpg
+ alt: Title Image
 ---
 <small><em>Image credit: ["Point-n-click, a genre full of magic, humor and intelligence"](https://freegametips.com/point-n-click-a-genre-full-of-magic-humor-and-intelligence/)</em></small>
 
@@ -16,12 +16,12 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 <hr>
 ```js
 {
-  progress: {
-    finished: 38,
-    skipped: 9,
-    total: 363
-  },
-  complete: "{{ 38 | plus: 9 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+ progress: {
+ finished: 40,
+ skipped: 10,
+ total: 363
+ },
+ complete: "{{ 40 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -57,6 +57,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **43%** [Eternam (Infogrames)]({% post_url 2023-02-07-eternam %}) - 1992
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
+1. **41%** [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
 1. **40%** [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
