@@ -17,11 +17,11 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 ```js
 {
  progress: {
- finished: 40,
+ finished: 41,
  skipped: 10,
  total: 363
  },
- complete: "{{ 40 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+ complete: "{{ 41 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -63,6 +63,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **36%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **27%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
+1. **19%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
 1. **xx%** [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985

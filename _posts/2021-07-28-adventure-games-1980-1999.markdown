@@ -60,11 +60,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 40,
+    finished: 41,
     skipped: 10,
     total: 363
   },
-  complete: "{{ 40 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 41 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -75,7 +75,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 
 1. [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 2. [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
-3. Mission Asteroid (On-Line Systems) - 1980
+3. [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 4. Cranston Manor (On-Line Systems) - 1981
 5. [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 6. Adventureland (Adventure International) - 1982
