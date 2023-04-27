@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MongoDB Versioned API"
+title: "MongoDB Stable API"
 date: 2021-10-07 06:17:50 -0400
 comments: true
 categories: [MongoDB]
@@ -10,14 +10,18 @@ image:
   alt: MongoDB Logo
 ---
 
-The [Versioned API For Drivers Specification](https://github.com/mongodb/specifications/blob/master/source/versioned-api/versioned-api.rst) states _"When applications interact with MongoDB, both the driver and the server participate in executing operations. Therefore, when determining application compatibility with MongoDB, both the driver and the server behavior must be taken into account."_
+<div class="note warning">
+<small>MongoDB's <b>Versioned API</b> was renamed to the <b>Stable API</b>, so this guide was updated to use the new terminology</small>
+</div>
 
-As MongoDB [moves toward more frequent releases (a.k.a. continuous delivery)](https://www.mongodb.com/blog/post/new-quarterly-releases-starting-with-mongodb-5-0), they want to enable users to take advantage of rapidly released features, without exposing applications to incompatible server changes due to automatic server upgrades. A versioned API will help accomplish that goal (see ["Upgrade Fearlessly with the MongoDB Versioned API"](https://www.mongodb.com/developer/how-to/upgrade-fearlessly-versioned-api/)).
+The [Stable API For Drivers Specification](https://github.com/mongodb/specifications/blob/master/source/versioned-api/versioned-api.rst) states _"When applications interact with MongoDB, both the driver and the server participate in executing operations. Therefore, when determining application compatibility with MongoDB, both the driver and the server behavior must be taken into account."_
 
-The Versioned API encompasses the subset of MongoDB commands that applications commonly use to read and write data, create collections and indexes, and so on. We commit to keeping these commands backward-compatible in new MongoDB versions. We can add new features (such as new command parameters, new aggregation operators, new commands, etc.) to the Versioned API, but only in backward-compatible ways.
+As MongoDB [moves toward more frequent releases (a.k.a. continuous delivery)](https://www.mongodb.com/blog/post/new-quarterly-releases-starting-with-mongodb-5-0), they want to enable users to take advantage of rapidly released features, without exposing applications to incompatible server changes due to automatic server upgrades. A Stable API will help accomplish that goal (see ["Upgrade Fearlessly with the MongoDB Versioned API"](https://www.mongodb.com/developer/how-to/upgrade-fearlessly-versioned-api/)).
 
-## Identifying Versioned API Commands
-From a mongo shell connected to a 5.0+ cluster the following helper function can be used to determine which commands are included in a specific API version.
+The Stable API encompasses the subset of MongoDB commands that applications commonly use to read and write data, create collections and indexes, and so on. We commit to keeping these commands backward-compatible in new MongoDB versions. We can add new features (such as new command parameters, new aggregation operators, new commands, etc.) to the Stable API, but only in backward-compatible ways.
+
+## Identifying Stable API Commands
+From a mongo or `mongosh` shell connected to a 5.0+ cluster the following helper function can be used to determine which commands are included in a specific API version.
 
 ```js
 function printCommandsByAPIVersion(version) {
@@ -42,9 +46,12 @@ printCommandsByAPIVersion(1);
 ```
 
 ## API v1 Commands
+
+Note this is also [documented](mongodb.com/docs/manual/reference/stable-api-changelog/#database-commands) now, however the output of the `printCommandsByAPIVersion` against a MongoDB 5.0 cluster would output the following:
+
 `abortTransaction`, `aggregate`, `authenticate`, `collMod`, `commitTransaction`, `create`, `createIndexes`, `delete`, `drop`, `dropDatabase`, `dropIndexes`, `endSessions`, `explain`, `find`, `findAndModify`, `getMore`, `hello`, `insert`, `killCursors`, `listCollections`, `listDatabases`, `listIndexes`, `ping`, `refreshSessions`, `saslContinue`, `saslStart`, `update`
 
-## Versioned API Test
+## Stable API Test
 
 The following test using the latest `master` branch of the [Ruby Driver](https://github.com/mongodb/mongo-ruby-driver) can be used to test the behavior of an application with and without strict checking. This example sends a [`replSetGetStatus`](https://docs.mongodb.com/manual/reference/command/replSetGetStatus/) command to the server, and if the `strict` option is set shows the `APIStrictError` being raised:
 
@@ -83,6 +90,6 @@ There are presently no plans or schedules to deprecate version 1, which is reinf
 
 ## Additional References:
 
-* [Reference Documentation](https://docs.mongodb.com/manual/reference/versioned-api/)
-* [Architecture Documentation](https://github.com/mongodb/mongo/blob/master/src/mongo/db/VERSIONED_API_README.md)
+* [Reference Documentation](https://www.mongodb.com/docs/manual/reference/stable-api/)
+* [Architecture Documentation](https://github.com/mongodb/mongo/blob/master/src/mongo/db/STABLE_API_README.md)
 * [DRIVERS-996: Versioned MongoDB API for Drivers](https://jira.mongodb.org/browse/DRIVERS-996)
