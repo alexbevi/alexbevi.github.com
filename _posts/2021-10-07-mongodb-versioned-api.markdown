@@ -10,7 +10,7 @@ image:
   alt: MongoDB Logo
 ---
 
-<div class="note warning">
+<div class="note info">
 <small>MongoDB's <b>Versioned API</b> was renamed to the <b>Stable API</b>, so this guide was updated to use the new terminology</small>
 </div>
 
