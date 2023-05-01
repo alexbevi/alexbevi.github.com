@@ -39,4 +39,7 @@ group :development do
   gem "puma"
   gem "faraday-retry"
   gem "liquid-c"
+  # used to check for dead links
+  # $ htmlproofer --assume-extension ./_site --swap-urls '^/blog/:/'
+  gem "html-proofer"
 end
