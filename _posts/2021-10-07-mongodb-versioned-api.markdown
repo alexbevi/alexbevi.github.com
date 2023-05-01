@@ -47,7 +47,7 @@ printCommandsByAPIVersion(1);
 
 ## API v1 Commands
 
-Note this is also [documented](mongodb.com/docs/manual/reference/stable-api-changelog/#database-commands) now, however the output of the `printCommandsByAPIVersion` against a MongoDB 5.0 cluster would output the following:
+Note this is also [documented](https://mongodb.com/docs/manual/reference/stable-api-changelog/#database-commands) now, however the output of the `printCommandsByAPIVersion` against a MongoDB 5.0 cluster would output the following:
 
 `abortTransaction`, `aggregate`, `authenticate`, `collMod`, `commitTransaction`, `create`, `createIndexes`, `delete`, `drop`, `dropDatabase`, `dropIndexes`, `endSessions`, `explain`, `find`, `findAndModify`, `getMore`, `hello`, `insert`, `killCursors`, `listCollections`, `listDatabases`, `listIndexes`, `ping`, `refreshSessions`, `saslContinue`, `saslStart`, `update`
 

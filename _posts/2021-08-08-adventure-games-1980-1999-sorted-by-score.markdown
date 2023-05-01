@@ -37,7 +37,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
 1. **76%** [Rise of the Dragon (Dynamix)]({% post_url 2023-02-13-rise-of-the-dragon %}) - 1990
-1. **73%** [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({ post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
+1. **73%** [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
 1. **71%** [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988
 1. **69%** [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
