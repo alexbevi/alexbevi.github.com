@@ -6,6 +6,9 @@ $tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
 
 @import "jekyll-theme-chirpy";
 @import "mixins";
+#mermaidSvg { overflow: auto; }
+svg.mermaid { max-width: 100% };
+svg.mermaid:hover { max-width: none };
 
 .note {
   margin: 30px 0;

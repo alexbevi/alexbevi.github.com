@@ -82,5 +82,5 @@ module Jekyll
 
 end
 
-Liquid::Template.register_tag('galleria', Jekyll::GalleriaTag)
+Liquid::Template.register_tag('galleria_old', Jekyll::GalleriaTag)
 Liquid::Template.register_tag('galleria_includes', Jekyll::GalleriaScriptIncludePatch)

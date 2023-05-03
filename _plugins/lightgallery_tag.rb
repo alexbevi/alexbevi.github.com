@@ -1,3 +1,24 @@
+# Title: LightGallery Tag for Jekyll
+# Authors: Alex Bevilacqua <alex@alexbevi.com>
+# Description: incorporate the LightGallery gallery jquery plugin
+#
+# Adaption of "Photos tag for Jekyll" by Devin Weaver, and the derived
+# "Gallery Tag for Jekyll" by Kevin Brown.
+#
+# Installation:
+#
+# {% gallery_includes %}
+#
+# This macro should be added to the `<HEAD>` of your template(s)
+# in order to load the libraries and stylesheets needed by LightGallery
+#
+# Usage:
+#
+# {% gallery %}
+# photo1.jpg
+# /path/to/photos/photo2.jpg
+# {% endgallery %}
+#
 module Jekyll
 
   class PhotosUtil
