@@ -11,6 +11,11 @@ image:
 mermaid: true
 ---
 
+<div class="note info">
+<small>Cross posted to <a href="https://dev.to/alexbevi/identifying-ruby-developers-favourite-ides-for-rubyrails-in-2023-3h4k">DEV</a></small>
+</div>
+
+
 As a Product Manager, data is everything when it comes to making decisions. One of my responsibilities as a PM for Developer Interfaces is to understand how our developer communities work most effectively, and what their preferred tooling and stacks look like.
 
 When focusing on the Ruby developer community, a simple question to ask would be _"What is your favourite editor/IDE when working with Ruby / Rails?"_ JetBrains' developer survey from 2021 found that [48% of Ruby developers mostly use RubyMine](https://www.jetbrains.com/lp/devecosystem-2021/ruby/#Ruby_what-editor-ide-do-you-mostly-use-for-ruby-development) - which may be accurate - but the survey was run by the vendor responsible for RubyMine and may have skewed results based on their sample group consisting of fans/customers/users of their products.
