@@ -10,7 +10,7 @@ image:
   alt: MongoDB Logo
 ---
 
-When [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) establish a connection with a MongoDB cluster a number of network round trips (RTT) are performed. This can result in increased latency when measuring the time to response of an operation following a cold start, so it's worth understanding what the anatomy of an authenticated connection is - as well as what can be done to improve performance by reducing total RTTs.
+When [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) establish a connection with a MongoDB cluster a number of network round trips are performed. This can result in increased latency when measuring the time to response of an operation following a cold start, so it's worth understanding what the anatomy of an authenticated connection is - as well as what can be done to improve an initial operations round trip time (RTT).
 
 # Current State
 
@@ -147,7 +147,7 @@ When using [x.509 certificates to authenticate clients](https://www.mongodb.com/
 ## Use TLS 1.3+
 
 ![](/images/mongo-auth-04.jpg)
-_Source: [thetlsstore.com](https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/)_
+_Source: [thesslstore.com](https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/)_
 
 TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenticate a connection approximately twice as fast as TLS 1.2 ([RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246)) by eliminating a full round trip. TLS 1.3 helps speed up encrypted connections using features such as [TLS false start](https://blogs.windows.com/msedgedev/2016/06/15/building-a-faster-and-more-secure-web-with-tcp-fast-open-tls-false-start-and-tls-1-3/) and [Zero Round Trip Time (0-RTT)](https://blog.cloudflare.com/introducing-0-rtt/).
 
