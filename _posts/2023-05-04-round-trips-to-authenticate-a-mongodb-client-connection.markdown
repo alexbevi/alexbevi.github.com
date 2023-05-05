@@ -62,7 +62,7 @@ To ensure all connections to [MongoDB Atlas](https://www.mongodb.com/atlas/datab
 
 Now that we have established a TLS secured TCP socket connection to a MongoDB host (`mongos` or `mongod`), the MongoDB Driver will send a [`hello`](https://www.mongodb.com/docs/manual/reference/command/hello/) command to perform [the initial handshake](https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst).
 
-This step is required to determine that the host at the other end of the socket is actually a MongoDB server. Assuming the version of the MongoDB Driver supports MongoDB 4.4+ the handshake will also include a [`speculativeAuthenticate`](https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst#speculative-authentication) argument. Specifying this argument to `hello` will speculatively include the first command of an authentication handshake.
+This step is required to determine that the host at the other end of the socket is actually a MongoDB server. Assuming the version of the MongoDB Driver supports MongoDB 4.4+ the handshake will also include a [`speculativeAuthenticate`](https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst#speculative-authentication) argument. Specifying this argument to `hello` will speculatively include the first command of an authentication handshake, thus eliminating one round trip as the `saslStart` command doesn't need to be sent during the authentication handshake.
 
 ```js
 /* Network Round Trips */
@@ -131,7 +131,7 @@ Next let's review what can be done to reduce these round trips where possible.
 
 ## Use x.509 Authentication
 
-When using [x.509 certificates to authenticate clients](https://www.mongodb.com/docs/manual/tutorial/configure-x509-client-authentication/), the [conversation](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst/#mongodb-x509) with the server does not require a `saslContinue`. Assuming this `speculativeAuthenticate` of the initial handshake succeeds (which it should), one full round trip can be removed.
+When using [x.509 certificates to authenticate clients](https://www.mongodb.com/docs/manual/tutorial/configure-x509-client-authentication/), the [conversation](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst/#mongodb-x509) with the server does not require a `saslContinue`. Assuming this `speculativeAuthenticate` of the initial handshake succeeds (which it should), two full round trip can be removed!
 
 ```js
 /* Network Round Trips */
@@ -139,9 +139,9 @@ When using [x.509 certificates to authenticate clients](https://www.mongodb.com/
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
-+  1      // Authentication
++  0      // Authentication
 ---------------------------
-(5 | 7)
+(4 | 6)
 ```
 
 ## Use TLS 1.3+
@@ -158,13 +158,13 @@ TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenti
 +  1      // TCP
 +  1      // TLS
 +  1      // MongoDB
-+ (1 - 3) // Authentication
++ (0 - 3) // Authentication
 ---------------------------
-(4 - 8)
+(3 - 8)
 ```
 
 # Conclusion
 
 In some environments (such as [Function as a Service](https://en.wikipedia.org/wiki/Function_as_a_service)) the cold start time of an application is critically important. The time to authenticate a connection to a MongoDB host and how this can be improved can be useful in improving operational latency of applications.
 
-Out of the box there may be upwards of 8 network round trips (`SRV+TCP+TLS+MONGODB+AUTH`), however this can potentially be cut in half by understanding what configuration and authentication options exist and how they function.
+Out of the box there may be upwards of 8 network round trips (`SRV+TCP+TLS+MONGODB+AUTH`), however this can potentially be cut in half (or more) by understanding what configuration and authentication options exist and how they can be applied.
