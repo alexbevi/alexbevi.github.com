@@ -144,6 +144,8 @@ When using [x.509 certificates to authenticate clients](https://www.mongodb.com/
 (4 | 6)
 ```
 
+Note there's not authentication round trips as the `speculativeAuthenticate` succeeding contains the information typically sent via the `saslStart` command.
+
 ## Use TLS 1.3+
 
 ![](/images/mongo-auth-04.jpg)
