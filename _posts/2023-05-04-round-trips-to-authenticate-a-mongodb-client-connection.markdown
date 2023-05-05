@@ -4,7 +4,7 @@ title: "Round Trips to Authenticate a MongoDB Client Connection"
 date: 2023-05-04 14:40:52 -0400
 comments: true
 categories: MongoDB
-tags:
+tags: [mongodb, connections, drivers]
 image:
   src: /images/mongodb-logo.png
   alt: MongoDB Logo
