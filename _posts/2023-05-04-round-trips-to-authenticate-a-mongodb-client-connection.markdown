@@ -25,19 +25,23 @@ Starting with MongoDB 3.6 instead of having to provide the seed list in the conn
 
 See [_"MongoDB 3.6: Here to SRV you with easier replica set connections"_](https://www.mongodb.com/blog/post/mongodb-3-6-here-to-srv-you-with-easier-replica-set-connections) for more information regarding this topic.
 
-Note that [DNS Caching](https://www.cloudns.net/blog/dns-cache-explained/) will likely improve the performance of these queries, but it's worth noting their presence within the connection establishment and authentication lifecycle.
+Additionally there may be an RTT for `A`/`AAAA`/`CNAME` resolution, however these may be done in parallel and may also be cached. [DNS Caching](https://www.cloudns.net/blog/dns-cache-explained/) will likely improve the performance of these queries, but it's worth noting their presence within the connection establishment and authentication lifecycle.
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 ```
+
+Not that if the `SRV` record returns multiple hosts, those `A`/`AAAA`/`CNAME` records will be resolved in parallel. And DNS servers typically will optimize the traversal returning any intermediate `CNAME`s followed by the `A`/`AAAA` in the same request.
+
+This also assumes UDP-based DNS resolution. If you exceed the UDP packet size, you might first try UDP, receive an error, and retry using TCP (and possibly requiring a TCP handshake to the DNS server as well).
 
 ## TCP Handshake
 
 ![](/images/mongo-auth-03.png)
 _Source: [makeuseof.com](https://www.makeuseof.com/what-is-three-way-handshake-how-does-it-work/)_
 
-Once a host is known from the seed list, next we need to connect to it. This is done using a standard [TCP 3-way Handshake](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/), which constitutes 1 RTT. Note that As there is an `ACK` sent following the `SYN/ACK` this handshake is sometimes considered to be [1.5 RTT](https://networkengineering.stackexchange.com/a/76369).
+Once a host is known from the seed list, next we need to connect to it. This is done using a standard [TCP 3-way Handshake](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/), which constitutes 1 RTT. Note that As there is an `ACK` sent following the `SYN/ACK` this handshake is sometimes considered to be [1.5 RTT](https://networkengineering.stackexchange.com/a/76369), however most TCP stacks will send the first data packet with the `ACK`.
 
 ```js
 /* Network Round Trips */
@@ -74,7 +78,7 @@ This step is required to determine that the host at the other end of the socket 
 
 ## Authentication Handshake
 
-MongoDB supports a number of [SASL (Simple Authentication and Security Layer)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer). By default the SASL mechanism that will be used will be a [SCRAM](https://www.mongodb.com/docs/manual/core/security-scram/) mechanism (either `SCRAM-SHA-1` or `SCRAM-SHA-256`), which effectively means "username and password".
+MongoDB supports a number of [SASL (Simple Authentication and Security Layer)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer). By default the SASL mechanism that will be used will be a [SCRAM](https://www.mongodb.com/docs/manual/core/security-scram/) mechanism (either `SCRAM-SHA-1` or `SCRAM-SHA-256`), which effectively means "username and password". Note that this is a "challenge response" mechanism, so these credentials aren't broadcast in the clear.
 
 As outlined in the [MongoDB Authentication specification](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#id8), a `SCRAM-SHA-256` conversation will be made up of 2 round trips as follows:
 
