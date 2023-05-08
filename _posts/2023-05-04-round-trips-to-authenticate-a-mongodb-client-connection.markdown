@@ -129,7 +129,7 @@ As outlined above there are a number of network round trips required to authenti
 [6 , 10]
 ```
 
-MongoDB 4.4 has been out since at least [September 2020](https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.1---sep-9--2020), so chances are most applications are connecting to at least this version or newer. This would put the average round trip count for authenticating a connection at 6 or 8 (depending on what protocol is being used).
+MongoDB 4.4 has been out since at least [September 2020](https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.1---sep-9--2020), so chances are most applications are connecting to at least this version or newer. This would put the average round trip count for authenticating a connection between 6 and 9 (depending on what protocol is being used and if DNS results were previously cached).
 
 Next let's review what can be done to reduce these round trips where possible.
 
@@ -173,4 +173,4 @@ TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenti
 
 In some environments (such as [Function as a Service](https://en.wikipedia.org/wiki/Function_as_a_service)) the cold start time of an application is critically important. The time to authenticate a connection to a MongoDB host and how this can be improved can be useful in improving operational latency of applications.
 
-Out of the box there may be upwards of 8 network round trips (`SRV+TCP+TLS+MONGODB+AUTH`), however this can potentially be cut in half (or more) by understanding what configuration and authentication options exist and how they can be applied.
+Out of the box there may be upwards of 9 network round trips (`SRV+TCP+TLS+MONGODB+AUTH`), however this can potentially be cut in half (or more) by understanding what configuration and authentication options exist and how they can be applied.
