@@ -45,7 +45,7 @@ Once a host is known from the seed list, next we need to connect to it. This is 
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 ```
 ## TLS Handshake
@@ -57,7 +57,7 @@ To ensure all connections to [MongoDB Atlas](https://www.mongodb.com/atlas/datab
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  2      // TLS
 ```
@@ -70,7 +70,7 @@ This step is required to determine that the host at the other end of the socket 
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
@@ -107,7 +107,7 @@ RTT was improved with MongoDB 4.4+ as 2 round trips can potentially be avoided:
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
@@ -120,13 +120,13 @@ As outlined above there are a number of network round trips required to authenti
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
 + (2 | 3) // Authentication
 ---------------------------
-(6 | 7 | 8 | 11)
+[6 , 10]
 ```
 
 MongoDB 4.4 has been out since at least [September 2020](https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.1---sep-9--2020), so chances are most applications are connecting to at least this version or newer. This would put the average round trip count for authenticating a connection at 6 or 8 (depending on what protocol is being used).
@@ -139,13 +139,13 @@ When using [x.509 certificates to authenticate clients](https://www.mongodb.com/
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
 +  0      // Authentication
 ---------------------------
-(4 | 6)
+[4 , 7]
 ```
 
 Note there's no authentication round trips as the `speculativeAuthenticate` succeeding contains the information typically sent via the `saslStart` command.
@@ -160,13 +160,13 @@ TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenti
 
 ```js
 /* Network Round Trips */
-  (0 | 2) // Protocol
+  (0 | 3) // Protocol
 +  1      // TCP
 +  1      // TLS
 +  1      // MongoDB
 + (0 - 3) // Authentication
 ---------------------------
-(3 - 8)
+[3 , 9]
 ```
 
 # Conclusion
