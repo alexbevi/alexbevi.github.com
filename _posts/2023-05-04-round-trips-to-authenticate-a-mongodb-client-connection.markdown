@@ -29,7 +29,7 @@ Additionally there may be an RTT for `A`/`AAAA`/`CNAME` resolution, however thes
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 ```
 
 Not that if the `SRV` record returns multiple hosts, those `A`/`AAAA`/`CNAME` records will be resolved in parallel. And DNS servers typically will optimize the traversal returning any intermediate `CNAME`s followed by the `A`/`AAAA` in the same request.
@@ -45,7 +45,7 @@ Once a host is known from the seed list, next we need to connect to it. This is 
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 ```
 ## TLS Handshake
@@ -57,7 +57,7 @@ To ensure all connections to [MongoDB Atlas](https://www.mongodb.com/atlas/datab
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  2      // TLS
 ```
@@ -70,7 +70,7 @@ This step is required to determine that the host at the other end of the socket 
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
@@ -107,11 +107,11 @@ RTT was improved with MongoDB 4.4+ as 2 round trips can potentially be avoided:
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
-+ (2 | 3) // Authentication
++ [2 , 3] // Authentication
 ```
 
 # Reducing Round Trips
@@ -120,11 +120,11 @@ As outlined above there are a number of network round trips required to authenti
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
-+ (2 | 3) // Authentication
++ [2 , 3] // Authentication
 ---------------------------
 [6 , 10]
 ```
@@ -139,7 +139,7 @@ When using [x.509 certificates to authenticate clients](https://www.mongodb.com/
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  2      // TLS
 +  1      // MongoDB
@@ -160,11 +160,11 @@ TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenti
 
 ```js
 /* Network Round Trips */
-  (0 | 3) // Protocol
+  [0 , 3] // Protocol
 +  1      // TCP
 +  1      // TLS
 +  1      // MongoDB
-+ (0 - 3) // Authentication
++ [0 , 3] // Authentication
 ---------------------------
 [3 , 9]
 ```
