@@ -7,7 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", SCI]
 image: /images/adventure/pq2/scummvm-pq2-00000.png
 ---
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Police Quest 2](https://en.wikipedia.org/wiki/Police_Quest_II:_The_Vengeance) is a 1988 police procedural adventure video game developed and published by Jim Walls and Sierra On-Line. It is the second installment in the Police Quest series. The game continues the story of police officer Sonny Bonds as he attempts to apprehend an escaped convict.
 

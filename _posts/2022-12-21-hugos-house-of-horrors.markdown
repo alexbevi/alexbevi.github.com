@@ -7,8 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Gray Design Associates"]
 image: /images/adventure/hugo1/scummvm-hugo1-00000.png
 ---
-
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Hugo's House of Horrors](https://en.wikipedia.org/wiki/Hugo%27s_House_of_Horrors) is a parser-based adventure game designed by independent software developer David P. Gray and published as shareware by Gray Design Associates in 1990. The game follows the character Hugo as he searches for his girlfriend Penelope in a haunted house.
 

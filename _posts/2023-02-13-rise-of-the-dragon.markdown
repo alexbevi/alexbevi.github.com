@@ -7,7 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Dynamix", "Sierra On-Line", "DGDS"]
 image: /images/adventure/rise/dragon_000.png
 ---
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Rise of the Dragon](https://en.wikipedia.org/wiki/Rise_of_the_Dragon) is a graphic adventure game released in 1990 for DOS and Macintosh, and later remade for the Sega CD (1993) as well as the Amiga. It was one of the few adventure game titles developed by Dynamix, a company that was better known as an action and flight simulator game developer. The game is set in a dark future cyberpunk version of Los Angeles.
 

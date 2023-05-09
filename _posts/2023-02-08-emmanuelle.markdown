@@ -7,7 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Tomahawk"]
 image: /images/adventure/emmanuelle/emma_000.png
 ---
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Emmanuelle](https://en.wikipedia.org/wiki/Emmanuelle_(video_game)) is an erotic graphical adventure game from Coktel Vision, originally released in 1989 for Amiga, Atari ST, and MS-DOS. The game was developed by Muriel Tramis (better known from her games in the Gobliiins series, Fascination & Lost in Time) and is loosely inspired by Emmanuelle Arsan's emmanuelle series of novels.
 

@@ -7,7 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sirius Software"]
 image: /images/adventure/kabulspy/kabul-spy-04.png
 ---
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 Kabul Spy is an early graphic adventure game by Sirius Software. Released in 1982 it supports some pretty limited noun/verb parsing and a basic story following an American secret agent sent to Afghanistan to rescue Professor Paul Eisenstadt, who is being held by the KGB. Why the KGB you ask? When this game was published the Soviet Union hadn't [withdrawn from Afghanistan](https://en.wikipedia.org/wiki/Soviet_withdrawal_from_Afghanistan) yet ... isn't history fun?
 

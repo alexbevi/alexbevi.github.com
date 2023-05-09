@@ -7,8 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra Online", SCI, AGI]
 image: /images/adventure/lsl1sci/scummvm-lsl1sci-00000.png
 ---
-
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Leisure Suit Larry in the Land of the Lounge Lizards](https://en.wikipedia.org/wiki/Leisure_Suit_Larry_in_the_Land_of_the_Lounge_Lizards) is the first installment in Sierra's Leisure Suit Larry series. The game's story follows a middle-aged male virgin named Larry Laffer as he desperately tries to "get lucky" in the fictional American city of Lost Wages. Land of the Lounge Lizards establishes several elements which recur in the later Leisure Suit Larry games, including Larry's campy attire, perpetual bad luck with women, and penchant for double-entendres. The game's overall plot and basic structure follow that of [Softporn Adventure](https://en.wikipedia.org/wiki/Softporn_Adventure), Sierra's own 1981 Apple II text adventure (that did not feature Larry as the main character).
 

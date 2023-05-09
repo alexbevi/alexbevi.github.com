@@ -7,7 +7,8 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "LucasArts", "SCUMM"]
 image: /images/adventure/samnmax/scummvm-samnmax-00001.png
 ---
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 [Sam & Max Hit the Road](https://en.wikipedia.org/wiki/Sam_%26_Max_Hit_the_Road) is a graphic adventure video game released by LucasArts, based on the comic characters of Sam and Max, the "Freelance Police", an anthropomorphic dog and "hyperkinetic rabbity thing". The characters, created by Steve Purcell, originally debuted in a 1987 [comic book series](https://samandmax.co.uk/comic-books/). Based on the 1989 Sam & Max comic On the Road, the duo take the case of a missing bigfoot from a nearby carnival, traveling to many American culture tourist sites to solve the mystery.
 

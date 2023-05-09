@@ -5,10 +5,10 @@ comments: true
 date: 2021-08-30 08:12:50 -0400
 categories: ["Let's Adventure!"]
 tags: [adventure, "LucasArts", Activision]
+image: /images/adventure/labyrinth-02.png
 ---
-![](/images/adventure/labyrinth-02.png){:width="70%"}
-
-_This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
+> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
 
 Labyrinth is a 1986 graphic adventure game based on the fantasy film [_Labyrinth_](https://en.wikipedia.org/wiki/Labyrinth_(1986_film)), which tasks you with navigating a maze while solving puzzles and evading dangers. Your goal is to find and defeat the main antagonist, Jareth, within 13 real-time hours.
 
