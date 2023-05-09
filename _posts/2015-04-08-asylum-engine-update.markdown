@@ -5,9 +5,7 @@ date: 2015-04-08 09:31:14 -0400
 comments: true
 categories: [ScummVM]
 tags: [scummvm, sanitarium, asylum]
-image:
-  src: /images/scummvm-logo.png
-  alt: Scummvm Logo
+image: /images/scummvm-logo.png
 ---
 
 It's been a number of years since I had a chance to look at this project, but recently I updated the codebase to the latest version (sync with upstream [ScummVM](https://github.com/scummvm/scummvm)) and found that the videos no longer worked.

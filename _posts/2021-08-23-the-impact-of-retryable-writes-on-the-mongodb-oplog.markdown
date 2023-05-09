@@ -5,9 +5,7 @@ date: 2021-08-23 15:18:09 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, replication]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 ![](/images/retrywrites6.png)
@@ -73,17 +71,14 @@ mongod <.. other options ..> \
   --setParameter storeFindAndModifyImagesInSideCollection=true
 ```
 
-<div class="note info">
-  <span>INFO</span>
-  <p>An additional <code>setParameter</code> of <code>featureFlagRetryableFindAndModify=true</code> was required to test this feature prior to MongodB 4.4.7/4.2.16</p>
-</div>
+
+> An additional `setParameter` of `featureFlagRetryableFindAndModify=true` was required to test this feature prior to MongodB 4.4.7/4.2.16
+{: .prompt-info }
 
 This parameter would need to be set on each `mongod` node in the cluster. By doing this the pre/post-images will instead be saved to the `config.image_collection` namespace.
 
-<div class="note info">
-  <span>INFO</span>
-  <p><code>storeFindAndModifyImagesInSideCollection</code> is enabled by default starting in MongoDB 5.1</p>
-</div>
+> `storeFindAndModifyImagesInSideCollection` is enabled by default starting in MongoDB 5.1
+{: .prompt-info }
 
 ![](/images/retrywrites3.png)
 

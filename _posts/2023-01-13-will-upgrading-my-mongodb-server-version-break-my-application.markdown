@@ -5,9 +5,7 @@ date: 2023-01-13 09:21:00 -0500
 comments: true
 categories: MongoDB
 tags: [upgrade, drivers, mongodb]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 Upgrading components is an important part of maintaining a healthy application. The MongoDB Server is continually being developed to include new features and functionality, as well as to fix bugs, potential vulnerabilities and attack vectors. To ensure users are using the "latest and greatest" whenever possible, MongoDB publicizes [Software Lifecycle Schedules](https://www.mongodb.com/support-policy/lifecycles) to make it clear when various components will reach end of life (EOL).
@@ -30,9 +28,8 @@ Each official Driver listed above will contain a compatibility matrix (see the [
 
 ![](/images/driver-compat-1.png)
 
-<div class="note warning">
-<small>Note that at the time of writing MongoDB <strong>does not</strong> have an official Support Policy for Drivers. If this changes in the future it would be reflected in the <a href="https://www.mongodb.com/changes-mongodb-support-policy">Changes to MongoDB Support Policy</a></small>
-</div>
+> Note that at the time of writing MongoDB **does not** have an official Support Policy for Drivers. If this changes in the future it would be reflected in the [Changes to MongoDB Support Policy](https://www.mongodb.com/changes-mongodb-support-policy)
+{: .prompt-warning }
 
 Neither the [Legacy Support Policy](https://www.mongodb.com/support-policy/legacy) nor the [Software Support Policy](https://www.mongodb.com/support-policy/software) call out drivers directly. As a result the best guidance to follow is to ensure the version of the MongoDB Driver your application is using is actively being tested against the version of the MongoDB Server you're using.
 
@@ -91,9 +88,10 @@ As a Java library, dependencies are managed using [Maven](https://maven.apache.o
 
 The most important thing to understand about Driver versions when it comes to MongoDB is that **anything your current Driver was doing successfully while connected to MongoDB X.Y should _continue to work correctly_ while connected to a newer MongoDB Server**. This statement should be accurate if your upgrade path is taking you from a single [major release](https://www.mongodb.com/docs/manual/reference/versioning/) to the next highest release (ex: 5.0 to 6.0).
 
-<div class="note info">
-<small>Backwards breaking changes that would prevent you from successfully connecting to a MongoDB Server from your current application occur <em>extremely rarely</em>. One example that is worth noting involves the <a href="https://www.mongodb.com/docs/manual/release-notes/5.1-compatibility/#std-label-legacy-op-codes-removed">removal of Legacy Opcodes</a> in MongoDB 6.0. If you have a version of a MongoDB Driver that predates the support for MongoDB 3.6 and the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><tt>OP_MSG</tt></a> opcode, trying to interact with MongoDB 6.0+ Servers via these antiquated drivers will result in only errors being thrown due to unknown opcodes being used.</small>
-</div>
+> Backwards breaking changes that would prevent you from successfully connecting to a MongoDB Server from your current application occur **extremely rarely**. One example that is worth noting involves the [removal of Legacy Opcodes](https://www.mongodb.com/docs/manual/release-notes/5.1-compatibility/#std-label-legacy-op-codes-removed) in MongoDB 6.0.
+>
+> If you have a version of a MongoDB Driver that predates the support for MongoDB 3.6 and the [`OP_MSG`](https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg) opcode, trying to interact with MongoDB 6.0+ Servers via these antiquated drivers will result in only errors being thrown due to unknown opcodes being used.
+{: .prompt-warning }
 
 As a general rule of thumb, assuming the only change to your application stack is an upgraded MongoDB Server version:
 

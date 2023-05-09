@@ -5,9 +5,7 @@ date: 2021-03-26 09:16:09 -0400
 comments: true
 categories: [Ruby]
 tags: [mongodb, mongoid, ruby]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 The `N + 1` queries problem is a common issue Rails applications face whereby iterating an array of models and accessing an association results in a sub-optimal pattern of recurring queries.

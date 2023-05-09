@@ -5,9 +5,7 @@ date: 2021-12-23 10:08:19 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, drivers]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 To ensure official [MongoDB Drivers](https://docs.mongodb.com/drivers/) are developed with consistent functionality and APIs MongoDB maintains a set of public specifications (see [GitHub Repository](https://github.com/mongodb/specifications)) that driver engineers can reference while implementing functionality. These specifications can (and should) be used by community engineers building a [community library or driver](https://docs.mongodb.com/drivers/community-supported-drivers/) that will communicate with a MongoDB cluster.

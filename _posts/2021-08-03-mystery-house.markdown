@@ -5,9 +5,7 @@ date: 2021-08-03 07:25:36 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, ADL, "Sierra On-Line", "Online Systems"]
-image:
-  src: /images/adventure/scummvm-hires1-apple2-00000.png
-  alt: Title Image
+image: /images/adventure/scummvm-hires1-apple2-00000.png
 ---
 
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._

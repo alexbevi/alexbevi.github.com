@@ -5,9 +5,7 @@ date: 2022-12-16 06:52:10 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra Online", GrimE]
-image:
-  src: /images/adventure/grim/scummvm-grim-win-00000.png
-  alt: Title Image
+image: /images/adventure/grim/scummvm-grim-win-00000.png
 ---
 
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._

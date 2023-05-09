@@ -6,16 +6,13 @@ comments: true
 pin: true
 categories: [MongoDB]
 tags: [mongodb, wiredtiger, data-corruption, troubleshooting]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
-<blockquote>
-April, 1 2019: I've received a <em>LOT</em> of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a <tt>--repair</tt> flag in 4.0.3 that simplifies this process significantly.
-
-I would recommend reading their <a href="https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown">"Recover a Standalone after an Unexpected Shutdown"</a> tutorial to see if it applies to your recovery scenario.
-</blockquote>
+> **April, 1 2019**: I've received a LOT of feedback on this article since it was published. I would like to point out that although the methods described here may still work, MongoDB introduced a `--repair` flag in 4.0.3 that simplifies this process significantly.
+>
+> I would recommend reading their ["Recover a Standalone after an Unexpected Shutdown"](https://docs.mongodb.com/manual/tutorial/recover-data-following-unexpected-shutdown) tutorial to see if it applies to your recovery scenario.
+{: .prompt-info }
 
 
 Recently at work, we experienced a series of events that could have proven to be catastrophic for one of our datasets. We have a daily process that does daily cleanup, but relies on the presence of control data that is ETL'd in from another process.
@@ -57,11 +54,11 @@ I wanted to next see if I could just copy the collection's backing file directly
 
 Guess what ... didn't work.
 
-**Identify the WiredTiger collection's backing file**
+## Identify the WiredTiger collection's backing file
 
 Since we had access to a working node, plus the collection hadn't been dropped (just purged), I thought maybe the files on each node would be the same. I logged into the primary via the shell to get some info from my collection.
 
-```
+```js
 db.getCollection('borkedCollection').stats()
 
 {
@@ -102,7 +99,7 @@ That `"uri" : "statistics:table:collection-7895--1435676552983097781"` entry loo
 
 I started hunting for a way to extract the data from this file without having to "mount" the file in another MongoDB installation, as I assumed this was not possible. I stumbled across a command line utility for WiredTiger that [happened to have a 'salvage' command](http://source.wiredtiger.com/2.7.0/command_line.html#util_salvage).
 
-**Salvaging the WiredTiger collection**
+## Salvaging the WiredTiger collection
 
 In order to use the `wt` utility, you have to build it from source. Being comfortable in Linux, this was not daunting ;)
 
@@ -113,7 +110,8 @@ In order to use the `wt` utility, you have to build it from source. Being comfor
     ./configure --enable-snappy
     make
 
-**NOTE** adding support for Google's [snappy](https://github.com/google/snappy) compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.
+> Adding support for Google's [snappy](https://github.com/google/snappy) compressor when building WiredTiger will save you some errors that I initially encountered when trying to salvage the data.
+{: .prompt-tip }
 
 Now that I had a `wt` utility, I wanted to test it out on the collection file. It turns out that you need additional supporting files before you can do this. Once I'd copied over the necessary files, my working directory (called `mongo-bak`) looked like this:
 
@@ -139,7 +137,7 @@ which I believe is just counting up the number of documents recovered. Once the 
 
 The only issue is that you still can't load this into MongoDB yet.
 
-**Importing the WiredTiger collection via dump/load into MongoDB**
+## Importing the WiredTiger collection via dump/load into MongoDB
 
 In order to get the data into MongoDB, first we need to generate a dump file from the WiredTiger collection file. This is done using the `wt` utility:
 
@@ -174,7 +172,7 @@ This operation also provides a progress indicator showing how much data has been
 
 Once completed, we can start `mongod` back up, shell in and have a look:
 
-```
+```js
 $ mongo
 MongoDB shell version: 3.2.1
 connecting to: test
@@ -192,7 +190,7 @@ laptop(mongod-3.2.1) Recovery> db.borkedCollection.count()
 
 WTF? The size looks right, but there are no documents???
 
-```
+```js
 laptop(mongod-3.2.1) Recovery> db.borkedCollection.find({}, {_id: 1})
 {
   "_id": ObjectId("55e07f3b2e967329c888ac74")
@@ -209,11 +207,12 @@ Fetched 20 record(s) in 29ms -- More[true]
 
 Well that's promising, but the collection still hasn't been *properly* restored yet.
 
-**Restoring the MongoDB collection to a usable state**
+## Restoring the MongoDB collection to a usable state
 
 This final part is pretty straightforward, as we're just going to do a `mongodump`, followed by a `mongorestore`.
 
-**NOTE** The `mongodump` will fail if you're using a version of MongoDB < 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.
+> The `mongodump` will fail if you're using a version of MongoDB < 3.2, as 3.2 is built against WiredTiger 2.7. I initially tested this using MongoDB 3.0.9 and the dump operation just returned 0 results.
+{: .prompt-tip }
 
 ```
 $ mongodump
@@ -257,7 +256,7 @@ $ mongorestore --drop
 
 Now that we've dumped and reloaded the collection *yet again*, we can shell back in and validate that our recovery attempt has succeeded:
 
-```
+```js
 $ mongo
 MongoDB shell version: 3.2.1
 connecting to: test

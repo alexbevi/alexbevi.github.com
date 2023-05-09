@@ -5,9 +5,7 @@ date: 2022-05-15 08:27:09 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb, drivers]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 One of the great things about [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) is that they are all built around a common set of [specifications](https://github.com/mongodb/specifications). Though these specifications exist to facilitate the development of new language drivers or to consistently implement new features across drivers, being aware of them can help when it comes to troubleshooting issues.

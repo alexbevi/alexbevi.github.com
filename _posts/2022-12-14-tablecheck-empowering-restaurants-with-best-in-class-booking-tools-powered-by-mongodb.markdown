@@ -6,13 +6,11 @@ comments: true
 categories: "MongoDB"
 tags: ["ruby", "rails", "mongodb", "orm", "odm", "customer-success", "cross-post"]
 canonical_url: https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
-<div class="note info">
-<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/">MongoDB Developer Center</a></em></small>
-</div>
+
+> Cross posted from the [MongoDB Developer Center](https://www.mongodb.com/developer/products/mongodb/customer-success-ruby-tablecheck/)
+{: .prompt-info }
 
 [TableCheck](https://tablecheck.com/) is the world’s premiere booking and guest platform. Headquartered in Tokyo, they empower restaurants with tools to elevate their guest experience and create guests for life with features like booking forms, surveys, marketing automation tools and an ecosystem of powerful solutions for restaurants to take their business forward.
 

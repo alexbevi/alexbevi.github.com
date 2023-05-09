@@ -6,9 +6,7 @@ comments: true
 categories: MongoDB
 published: true
 tags: ["drivers", "haskell", "mongodb"]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 MongoDB currently maintains 10 programming language [Drivers](https://www.mongodb.com/docs/drivers/) in-house, including a [Ruby](https://www.mongodb.com/docs/ruby-driver/current/) driver for which I'm presently the Product Manager. Additionally we also have a library of [community maintained drivers](https://www.mongodb.com/docs/drivers/community-supported-drivers/), built using the [MongoDB Driver specifications](https://github.com/mongodb/specifications/tree/master/source) our engineers maintain and publish.
@@ -129,6 +127,5 @@ With the assistance of the Haskell community we were able to identify and addres
 
 We truly appreciate the investment our developer communities make when they put time and effort into building something as powerful as a MongoDB driver and want to ensure we do what we can to offer assistance if possible.
 
-<div class="note info">
-<small><em>Cross posted to <a href="https://dev.to/alexbevi/bug-hunting-with-the-mongodb-haskell-community-469j">DEV</a></em></small>
-</div>
+> Cross posted to [DEV](https://dev.to/alexbevi/bug-hunting-with-the-mongodb-haskell-community-469j)
+{: .prompt-info }

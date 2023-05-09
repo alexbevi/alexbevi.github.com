@@ -4,10 +4,8 @@ title: "Comparing MongoDB to not-MongoDB (ex: DocumentDB or Cosmos DB)"
 date: 2023-03-29 13:12:37 -0400
 comments: true
 categories: MongoDB
-tags:
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+tags: [mongodb, documentdb, cosmosdb, drivers]
+image: /images/mongodb-logo.png
 ---
 
 Let's start off first with [what is MongoDB?](https://www.mongodb.com/what-is-mongodb) MongoDB’s [document model](https://www.mongodb.com/document-databases) is simple for developers to learn and use, while still providing all the capabilities needed to meet the most complex requirements at any scale. To enable developers to quickly integrate their data with their applications, [drivers for 10+ languages](https://www.mongodb.com/docs/drivers/) as well dozens more [community supported libraries](https://www.mongodb.com/docs/drivers/community-supported-drivers/) exist that expose idiomatic interfaces and intuitive APIs.

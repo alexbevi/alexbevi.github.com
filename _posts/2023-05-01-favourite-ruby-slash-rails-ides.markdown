@@ -5,16 +5,12 @@ date: 2023-05-01 15:38:12 -0400
 comments: true
 categories: [Product Management]
 tags: [survey, ruby, rails]
-image:
-  src: /images/ruby-banner.png
-  alt: Title Image
+image: /images/ruby-banner.png
 mermaid: true
 ---
 
-<div class="note info">
-<small>Cross posted to <a href="https://dev.to/alexbevi/identifying-ruby-developers-favourite-ides-for-rubyrails-in-2023-3h4k">DEV</a></small>
-</div>
-
+> Cross posted to [DEV](https://dev.to/alexbevi/identifying-ruby-developers-favourite-ides-for-rubyrails-in-2023-3h4k)
+{: .prompt-info }
 
 As a Product Manager, data is everything when it comes to making decisions. One of my responsibilities as a PM for Developer Interfaces is to understand how our developer communities work most effectively, and what their preferred tooling and stacks look like.
 

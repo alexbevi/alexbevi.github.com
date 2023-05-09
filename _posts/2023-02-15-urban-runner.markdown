@@ -5,9 +5,7 @@ date: 2023-02-15 07:01:49 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Sierra On-Line", Gob]
-image:
-  src: /images/adventure/urban/scummvm-urban-us-00000.png
-  alt: Title Image
+image: /images/adventure/urban/scummvm-urban-us-00000.png
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 

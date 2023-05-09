@@ -5,13 +5,11 @@ date: 2023-01-12 15:14:50 -0500
 comments: true
 categories: "MongoDB"
 tags: ["mongodb", "sharding", "diagnostics", "troubleshooting"]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
-<div class="note info">
-<small>The following is more of a diagnostic journey than anything else, and does not reflect a current issue with MongoDB Atlas.</small>
-</div>
+
+> The following is more of a diagnostic journey than anything else, and does not reflect a current issue with MongoDB Atlas.
+{: .prompt-info }
 
 While I was still working as a Technical Services Engineer at MongoDB in 2021 a small number of customers were reporting that their applications would start throwing errors similar to the following after upgrading from MongoDB 3.6 to 4.0:
 

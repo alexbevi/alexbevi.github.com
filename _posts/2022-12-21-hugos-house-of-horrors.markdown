@@ -5,9 +5,7 @@ date: 2022-12-21 20:20:48 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Gray Design Associates"]
-image:
-  src: /images/adventure/hugo1/scummvm-hugo1-00000.png
-  alt: Title Image
+image: /images/adventure/hugo1/scummvm-hugo1-00000.png
 ---
 
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._

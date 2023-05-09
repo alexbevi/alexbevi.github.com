@@ -5,14 +5,11 @@ date: 2021-10-07 06:17:50 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
-<div class="note info">
-<small>MongoDB's <b>Versioned API</b> was renamed to the <b>Stable API</b>, so this guide was updated to use the new terminology</small>
-</div>
+> MongoDB's **Versioned API** was renamed to the **Stable API**, so this guide was updated to use the new terminology
+{: .prompt-info }
 
 The [Stable API For Drivers Specification](https://github.com/mongodb/specifications/blob/master/source/versioned-api/versioned-api.rst) states _"When applications interact with MongoDB, both the driver and the server participate in executing operations. Therefore, when determining application compatibility with MongoDB, both the driver and the server behavior must be taken into account."_
 

@@ -5,9 +5,7 @@ date: 2020-01-23 05:34:53 -0500
 comments: true
 categories: [MongoDB]
 tags: [troubleshooting]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 I recently found myself troubleshooting another [MongoDB](https://www.mongodb.com/) startup issue due to potential corruption within a [WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/) file. As I have previously covered this topic (see ["Recovering a WiredTiger collection from a corrupt MongoDB installation"]({% post_url 2016-02-10-recovering-a-wiredtiger-collection-from-a-corrupt-mongodb-installation %})), I wanted to share the diagnostic and troubleshooting journey in case it helps anyone who experiences this issue in the future.
 

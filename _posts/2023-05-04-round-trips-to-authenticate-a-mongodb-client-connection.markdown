@@ -5,9 +5,7 @@ date: 2023-05-04 14:40:52 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, connections, drivers]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 When [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) establish a connection with a MongoDB cluster a number of network round trips are performed. This can result in increased latency when measuring the time to response of an operation following a cold start, so it's worth understanding what the anatomy of an authenticated connection is - as well as what can be done to improve an initial operations round trip time (RTT).

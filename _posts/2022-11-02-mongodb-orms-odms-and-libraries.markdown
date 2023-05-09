@@ -5,14 +5,12 @@ date: 2022-11-02 06:28:40 -0400
 comments: true
 categories: MongoDB
 tags: ["ruby", "rails", "mongodb", "orm", "odm", "cross-post"]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 canonical_url: https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/
 ---
-<div class="note info">
-<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/">MongoDB Developer Center</a></em></small>
-</div>
+
+> Cross posted from the [MongoDB Developer Center](https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/)
+{: .prompt-info }
 
 Though developers have always been capable of manually writing complex queries to interact with a database, this approach can be tedious and error-prone. [Object-Relational Mappers](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (or ORMs) improve the developer experience, as they accomplish multiple meaningful tasks:
 

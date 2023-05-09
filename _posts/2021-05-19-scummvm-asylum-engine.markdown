@@ -5,9 +5,7 @@ date: 2021-05-19 06:32:45 -0400
 comments: true
 categories: ScummVM
 tags: [sanitarium, asylum, scummvm]
-image:
-  src: /images/scummvm-logo.png
-  alt: Scummvm Logo
+image: /images/scummvm-logo.png
 ---
 
 With [PR#2982 - ENGINES: Sanitarium engine](https://github.com/scummvm/scummvm/pull/2982) being recently merged into [ScummVM](https://www.scummvm.org/) I wanted to take some time to chronicle the original development efforts which began in 2009.

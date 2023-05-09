@@ -5,21 +5,19 @@ date: 2023-03-23 04:19:14 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Tomahawk", Gob]
-image:
-  src: /images/adventure/geisha/scummvm-geisha-00001.png
-  alt: Title Image
+image: /images/adventure/geisha/scummvm-geisha-00001.png
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 
-<div class="note warning">
-<small><strong>WARNING!</strong> This game is terrible. Also the screenshots contain nudity ... which doesn't change the fact that this game sucks!</small>
-</div>
+> This game is terrible. Also the screenshots contain nudity ... which doesn't change the fact that this game sucks!
+{: .prompt-warning }
 
 [Geisha](https://en.wikipedia.org/wiki/Geisha_(video_game)) is an erotic adventure video game developed by Coktel Vision and MDO and published by Tomahawk in 1990 for Amiga, Atari ST, and DOS. The game uses a point-and-click interface, and includes several minigames including a card game and an action sequence.
 
 You read that right ... another "erotic adventure" from the makers of [Emmanuelle]({% post_url 2023-02-08-emmanuelle %}), the previous pile of shit from Coktel Vision and Tomahawk.
 
 ![](/images/adventure/geisha/scummvm-geisha-00005.png)
+_It takes like 45 seconds to draw this guy's stupid face one line at a time!_
 
 The story makes no sense, but from what I was able to interpret, something something something girl and robot body, something about an escape .... dragons? I really tried to be impartial and give this a chance, but I have no idea what I was supposed to be doing at any point other than play minigames - all of which were boring or stupid.
 

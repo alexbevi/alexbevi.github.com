@@ -5,9 +5,7 @@ date: 2023-03-14 07:32:05 -0400
 comments: true
 categories: MongoDB
 tags: [indexing, ttl, mongodb]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 ## Introduction
@@ -26,9 +24,8 @@ By default the `mongod` logs won't record any information about TTL index activi
 db.setLogLevel(1, 'index');
 ```
 
-<div class="note info">
-<small>The <tt>setLogLevel</tt> helper calls the <a href="https://www.mongodb.com/docs/master/reference/command/setParameter"><tt>setParameter</tt></a> command, which is <a href="https://www.mongodb.com/docs/atlas/unsupported-commands/">unsupported in MongoDB Atlas</a></small>
-</div>
+> The `setLogLevel` helper calls the [`setParameter`](https://www.mongodb.com/docs/master/reference/command/setParameter) command, which is [unsupported in MongoDB Atlas](https://www.mongodb.com/docs/atlas/unsupported-commands/)
+{: .prompt-info}
 
 As we continue to monitor the `mongod` log we'll begin to see messages such as the following begin to be recorded:
 
@@ -94,9 +91,8 @@ db.getSiblingDB("local").oplog.rs.find({
 });
 ```
 
-<div class="note warning">
-<small>Any query targeting the oplog will perform a full collection scan as you cannot create indexes on the oplog collection!</small>
-</div>
+> Any query targeting the oplog will perform a full collection scan as you cannot create indexes on the oplog collection!
+{: .prompt-danger }
 
 The above operation is purposely more verbose than necessary to illustrate where all the necessary pieces of information came from. Once this is executed it should return a single document as seen below, which represents the document that was deleted:
 

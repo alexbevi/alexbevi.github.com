@@ -5,20 +5,20 @@ date: 2020-07-15 08:37:08 -0400
 comments: true
 categories: [MongoDB]
 tags: [mongodb, changestreams]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
-<div class="note info">
-<small>As of MongoDB 6.0, <a href="https://www.mongodb.com/blog/post/change-streams-mongodb-6-0-support-pre-post-image-retrieval-ddl-operations">Change Streams Support Pre- and Post-Image Retrieval, DDL operations, and more!</a>
-</small>
-</div>
+> As of MongoDB 6.0, [Change Streams Support Pre- and Post-Image Retrieval, DDL operations, and more!](https://www.mongodb.com/blog/post/change-streams-mongodb-6-0-support-pre-post-image-retrieval-ddl-operations)
+{: .prompt-info }
 
-**Warning - Not for Production Use**
-
-_MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information._<br>
-_Until officially announced as stable/official the methods described herein should not be considered as "production ready". This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication._
+> **Warning - Not for Production Use (in MongoDB 4.4)**
+>
+> MongoDB's source code is available (through an [SSPL license](https://www.mongodb.com/licensing/server-side-public-license)) and the [Core Server](https://jira.mongodb.org/projects/SERVER/issues) project in MongoDB's JIRA is publicly accessible, which is where I found this information.
+>
+> Until officially announced as stable/official the methods described herein should not be considered as "production ready".
+>
+> This post is for informational purposes and though at the time of writing it I am a MongoDB Inc. employee this should not be considered an official communication.
+{: .prompt-danger }
 
 ### Introduction
 

@@ -5,9 +5,7 @@ date: 2023-03-30 06:41:33 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "The Dreamers Guild", "Cyberdreams", SAGA]
-image:
-  src: /images/adventure/ihnm/scummvm-ihnm-00001.png
-  alt: Title Image
+image: /images/adventure/ihnm/scummvm-ihnm-00001.png
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 

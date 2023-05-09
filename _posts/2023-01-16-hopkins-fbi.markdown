@@ -5,9 +5,7 @@ date: 2023-01-16 06:24:01 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "MP Entertainment"]
-image:
-  src: /images/adventure/hopkins/scummvm-hopkins-win-00002.png
-  alt: Title Image
+image: /images/adventure/hopkins/scummvm-hopkins-win-00002.png
 published: true
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
@@ -63,7 +61,7 @@ This purgatory/clone thing was kind of interesting but wasn't fully baked and wi
 ![](/images/adventure/hopkins/scummvm-hopkins-win-00041.png)
 _I'll take optimized navigation to avoid tedium_
 
-My playthrough used ScummVM, which didn't implement the [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D) styled maze/shooter in the underwater base during the final chapter. After watching a long play on YouTube though ([Hopkins FBI LongPlay 2 of 2](https://www.youtube.com/watch?v=2UCTwEqUy-Q)) 
+My playthrough used ScummVM, which didn't implement the [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D) styled maze/shooter in the underwater base during the final chapter. After watching a long play on YouTube though ([Hopkins FBI LongPlay 2 of 2](https://www.youtube.com/watch?v=2UCTwEqUy-Q))
 I don't think I really missed out on much, and it allowed me to move through this portion a lot faster.
 
 ![](/images/adventure/hopkins/hopkins-wolf3d.png)

@@ -5,9 +5,7 @@ date: 2022-07-04 11:44:20 -0400
 comments: true
 categories: [Personal]
 tags: [mongodb, career]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 ## Past
@@ -37,13 +35,12 @@ I've been working as a Ruby developer for more than a decade at this point, both
 
 I fell in love with the language and found it adopted and incorporated a lot of the best practices, ideas and design patterns of other languages. My feelings towards the language and community somewhat echo what [Matz](https://en.wikipedia.org/wiki/Yukihiro_Matsumoto) (the author of the [Ruby language](https://www.ruby-lang.org/en/)) stated more succinctly in [_The Ruby Programming Language_](https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/):
 
-<div class="note info">
-<small><em>I knew many languages before I created Ruby, but I was never fully satisfied with them. They were uglier, tougher, more complex, or more simple than I expected. I wanted to create my own language that satisfied me, as a programmer. I knew a lot about the language’s target audience: myself. To my surprise, many programmers all over the world feel very much like I do. They feel happy when they discover and program in Ruby.
-<br>
-Throughout the development of the Ruby language, I’ve focused my energies on making programming faster and easier. All features in Ruby, including object-oriented features, are designed to work as ordinary programmers (e.g., me) expect them to work. Most programmers feel it is elegant, easy to use, and a pleasure to program.
-<br>...<br>
-Ruby is designed to make programmers happy.</em></small>
-</div>
+> _I knew many languages before I created Ruby, but I was never fully satisfied with them. They were uglier, tougher, more complex, or more simple than I expected. I wanted to create my own language that satisfied me, as a programmer. I knew a lot about the language’s target audience: myself. To my surprise, many programmers all over the world feel very much like I do. They feel happy when they discover and program in Ruby._
+>
+> _Throughout the development of the Ruby language, I’ve focused my energies on making programming faster and easier. All features in Ruby, including object-oriented features, are designed to work as ordinary programmers (e.g., me) expect them to work. Most programmers feel it is elegant, easy to use, and a pleasure to program._
+> ...
+> >Ruby is designed to make programmers happy._
+{: .prompt-tip }
 
 ## Future
 

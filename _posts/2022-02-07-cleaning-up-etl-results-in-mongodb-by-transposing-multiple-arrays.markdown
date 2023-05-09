@@ -5,9 +5,7 @@ date: 2022-02-07 09:05:00 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, aggregation, etl]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 When performing an ETL from a normalized relational dataset there's a good chance a 1:1 conversion won't produce the desired results on the first pass. For example, if the goal is to [Model One-to-Many Relationships with Embedded Documents](https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/#std-label-data-modeling-example-one-to-many) but the dataset contains a number of relationships mapped to individual fields as arrays of scalar values, you'll likely want to convert these to subdocuments to facilitate access and interaction from your applications.
@@ -37,10 +35,8 @@ In this example, our data has been imported from a legacy system with the above 
 }
 ```
 
-<div class="note info">
-  <span>NOTE</span>
-  <p>The initial schema is a result of limitations with the initial import strategy. The goals of this article are to showcase how these limitations an be overcome once the initial ETL from source system to MongoDB has been completed.</p>
-</div>
+> The initial schema is a result of limitations with the initial import strategy. The goals of this article are to showcase how these limitations an be overcome once the initial ETL from source system to MongoDB has been completed.
+{: .prompt-info }
 
 The desired end state is a document with all events mapped to an array of subdocuments:
 
@@ -141,10 +137,8 @@ db.punch_cards.aggregate([
 ]);
 ```
 
-<div class="note info">
-  <span>NOTE</span>
-  <p>These pipeline examples only project the <code>events</code> field. To include additional fields (ex: <code>date</code>, <code>category</code>) these would have to be included in the <a href="https://docs.mongodb.com/manual/reference/operator/aggregation/project"><code>$project</code></a> stage explicitely.</p>
-</div>
+> These pipeline examples only project the `events` field. To include additional fields (ex: `date`, `category`) these would have to be included in the [`$project`](https://docs.mongodb.com/manual/reference/operator/aggregation/project) stage explicitly.</p>
+{: .prompt-info }
 
 ## The "Hard" Way
 

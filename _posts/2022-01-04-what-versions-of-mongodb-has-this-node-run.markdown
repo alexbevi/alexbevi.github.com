@@ -5,9 +5,7 @@ date: 2022-01-04 15:33:44 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 Ever wanted to know how many different versions of MongoDB the current node has run under? Assuming the node's [`local` database](https://docs.mongodb.com/manual/reference/local-database) hasn't been reset (for example via an [initial sync](https://docs.mongodb.com/manual/core/replica-set-sync/#std-label-replica-set-initial-sync)), it will contain a [`startup_log`](https://docs.mongodb.com/manual/reference/local-database/#mongodb-data-local.startup_log) collection that holds this information. On startup, each `mongod` instance inserts a document into the `startup_log` [capped collection](https://docs.mongodb.com/manual/core/capped-collections/) (capped at 10MB) with diagnostic information about the `mongod` instance itself and host information.

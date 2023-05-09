@@ -5,9 +5,7 @@ date: 2023-01-12 14:52:45 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Delphine Software International", CruisE, "Erbe Software", "Interplay Entertainment", "U.S. Gold"]
-image:
-  src: /images/adventure/cruise/scummvm-cruise-00000.png
-  alt: Title Image
+image: /images/adventure/cruise/scummvm-cruise-00000.png
 published: true
 ---
 

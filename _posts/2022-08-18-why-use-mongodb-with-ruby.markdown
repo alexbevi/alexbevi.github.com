@@ -5,14 +5,12 @@ date: 2022-08-18 11:23:27 -0400
 comments: true
 categories: MongoDB
 tags: ["ruby", "rails", "mongodb", "cross-post"]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 canonical_url: https://www.mongodb.com/developer/products/mongodb/why-use-mongodb-with-ruby/
 ---
-<div class="note info">
-<small><em>Cross posted from <a href="https://www.mongodb.com/developer/products/mongodb/why-use-mongodb-with-ruby/">MongoDB Developer Center</a></em></small>
-</div>
+
+> Cross posted from the [MongoDB Developer Center](https://www.mongodb.com/developer/products/mongodb/why-use-mongodb-with-ruby/)
+{: .prompt-info }
 
 Before discovering Ruby and Ruby on Rails I was a .NET developer. At that time I'd make ad-hoc changes to my development database, export my table/function/stored procedure/view definitions to text files and check them into source control with any code changes. Using `diff` functionality I'd compare the schema changes that the DBAs needed to apply to production and we'd script that out separately.
 

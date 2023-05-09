@@ -5,9 +5,7 @@ date: 2022-03-02 06:50:39 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, changestream, performance]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 [Change Streams](https://docs.mongodb.com/manual/changeStreams/) allow applications to access real-time data changes without the complexity and risk of tailing the [oplog](https://docs.mongodb.com/manual/reference/glossary/#std-term-oplog). Applications can use change streams to subscribe to all data changes on a single collection, a database, or an entire deployment, and immediately react to them.
@@ -215,10 +213,8 @@ After making this change, resuming our change stream returns _"Adding 2000 more 
 2022-03-02T14:11:48.054Z Change received: "This is the last document we'd expect" (token: 82621F5724000000012B022C0100296E5A1004D9EC8991B42F4F71BA61FC5BA26E2DED46645F69640064621F57243284546A99671ABE0004)
 ```
 
-<div class="note warning">
-  <span>WARNING</span>
-  <p>Though this improves the performance of our isolated test, this batching behavior is in place for a reason (one example outlined in <a href="https://jira.mongodb.org/browse/SERVER-27829"><code>SERVER-27829</code></a>). Changing <code>internalDocumentSourceCursorBatchSizeBytes</code> in production may adversely affect other workloads and would not be advisable.</p>
-</div>
+> Though this improves the performance of our isolated test, this batching behavior is in place for a reason (one example outlined in [`SERVER-27829`](https://jira.mongodb.org/browse/SERVER-27829)). Changing `internalDocumentSourceCursorBatchSizeBytes` in production may adversely affect other workloads and would not be advisable.
+{: .prompt-warning }
 
 ## Summary
 

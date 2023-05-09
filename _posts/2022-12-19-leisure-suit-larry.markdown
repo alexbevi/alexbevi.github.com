@@ -5,9 +5,7 @@ date: 2022-12-19 06:25:05 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra Online", SCI, AGI]
-image:
-  src: /images/adventure/lsl1sci/scummvm-lsl1sci-00000.png
-  alt: Title Image
+image: /images/adventure/lsl1sci/scummvm-lsl1sci-00000.png
 ---
 
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._

@@ -52,6 +52,5 @@ Running the above code doesn't require a MongoDB connection string or an active 
 
 AppProfiler was designed to be injected into a Rails application, however as can be seen above, it can easily be adapted to work on a standalone Ruby script as well.
 
-<div class="note info">
-<small><em>Cross posted to <a href="https://dev.to/alexbevi/performance-profiling-a-mongoid-issue-using-appprofiler-38p4">DEV</a></em></small>
-</div>
+> Cross posted to [DEV](https://dev.to/alexbevi/performance-profiling-a-mongoid-issue-using-appprofiler-38p4)
+{: .prompt-info }

@@ -5,9 +5,7 @@ date: 2022-11-29 10:50:52 -0500
 comments: true
 categories: MongoDB
 tags: ["javascript", "mongodb", "scripting", "queries", "indexing"]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 
 # Efficiently Identifying Duplicates using MongoDB
@@ -180,8 +178,7 @@ db.foo.aggregate([
 db.foo.deleteMany({ user_id: { $in: toDelete.flat() } });
 ```
 
-<div class="note warning">
-Be very careful whenever batch removing data and test in a lower environment first!
-</div>
+> Be very careful whenever batch removing data and test in a lower environment first!
+{: .prompt-danger }
 
 Hopefully you found this helpful. If you did, feel free to drop a comment below ;)

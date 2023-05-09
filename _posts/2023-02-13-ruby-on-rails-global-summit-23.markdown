@@ -5,9 +5,7 @@ date: 2023-02-13 13:08:21 -0500
 comments: true
 categories: [Presentations]
 tags: [ruby, rails, ruby-on-rails, conferences, talks]
-image:
-  src: /images/ror-summit-23.png
-  alt: Title Image
+image: /images/ror-summit-23.png
 ---
 
 This year (January 24, 2023) I had the opportunity to present at [Ruby on Rails Global Summit '23](https://geekle.us/schedule/ruby), which was a [Geekle](https://geekle.us/) sponsored event. As I'm currently a Senior Product Manager at [MongoDB](https://www.mongodb.com/) focusing on the [Ruby](https://www.mongodb.com/docs/ruby-driver/current/) and [Node.js](https://www.mongodb.com/docs/drivers/node/current/) Drivers this was a chance to show the audience what a great fit the [Mongoid ODM](https://www.mongodb.com/docs/mongoid/current/) is for Ruby on Rails developers.

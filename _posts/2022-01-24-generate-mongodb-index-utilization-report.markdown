@@ -5,9 +5,7 @@ date: 2022-01-24 09:49:50 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, queries, indexing]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 When MongoDB 3.2 introduced the [`$indexStats`](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/) aggregation pipeline stage [`accesses` details](https://docs.mongodb.com/manual/reference/operator/aggregation/indexStats/#std-label-indexStats-output-accesses) were suddenly accessible to users. As a result, scripts could now be written to better understand how frequently [indexes](https://docs.mongodb.com/manual/indexes/) were being accessed by operations.
 

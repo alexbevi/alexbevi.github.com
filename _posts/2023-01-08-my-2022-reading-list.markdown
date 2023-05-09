@@ -5,9 +5,7 @@ date: 2023-01-08 20:18:16 -0500
 comments: true
 categories: [Personal]
 tags: [books, audiobooks, reading]
-image:
-  src: /images/books.jpg
-  alt: Title Image
+image: /images/books.jpg
 ---
 
 I love to read, but I've found lately I have less time to actually sit down with a book. As a result I've been listening to a lot more audio books through [Audible](https://www.audible.ca/). Since I was able to get through multiple books this year I figured I'd throw a quick summary together to cover what I'd "read".

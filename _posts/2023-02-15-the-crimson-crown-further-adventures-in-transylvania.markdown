@@ -5,9 +5,7 @@ date: 2023-02-15 21:56:56 -0500
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Penguin Software"]
-image:
-  src: /images/adventure/crimson/Crimson_00001.png
-  alt: Title Image
+image: /images/adventure/crimson/Crimson_00001.png
 ---
 _This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %})._
 

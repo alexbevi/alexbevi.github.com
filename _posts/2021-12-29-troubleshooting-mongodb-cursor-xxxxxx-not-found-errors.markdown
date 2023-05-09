@@ -5,9 +5,7 @@ date: 2021-12-29 09:26:53 -0500
 comments: true
 categories: [MongoDB]
 tags: [mongodb, queries]
-image:
-  src: /images/mongodb-logo.png
-  alt: MongoDB Logo
+image: /images/mongodb-logo.png
 ---
 Read operations that return multiple documents do not immediately return all values matching the query. Because a query can potentially match very large sets of documents, these operations rely upon an object called a cursor. A cursor fetches documents in batches to reduce both memory consumption and network bandwidth usage.
 
