@@ -5,9 +5,11 @@ date: 2021-05-31 06:55:45 -0400
 comments: true
 categories: Programming
 tags: [scummvm, ruby]
+image: /images/scummvm-logo.png
 ---
 
 > **2021-06-01**: Note that you can actually generate the games list directly from the `scummvm` binary by running `scummvm --list-all-games`. Oops ...
+{: .prompt-info }
 
 A long time ago I reached out to the ScummVM leadership about a script I'd been working on that could be used to scrape detection entries and generate a definitive games list.
 

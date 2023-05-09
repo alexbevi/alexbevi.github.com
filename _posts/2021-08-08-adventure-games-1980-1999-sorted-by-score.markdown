@@ -14,12 +14,12 @@ This page is a list of the reviewed games from the ["Let's Adventure!"](https://
 <hr>
 ```js
 {
- progress: {
- finished: 41,
- skipped: 10,
- total: 363
- },
- complete: "{{ 41 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  progress: {
+    finished: 41,
+    skipped: 10,
+    total: 363
+  },
+  complete: "{{ 41 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
