@@ -155,8 +155,7 @@ _Source: [thesslstore.com](https://www.thesslstore.com/blog/tls-1-3-handshake-tl
 
 TLS 1.3 ([RFC 8446](https://datatracker.ietf.org/doc/html/rfc8446)) can authenticate a connection approximately twice as fast as TLS 1.2 ([RFC 5246](https://datatracker.ietf.org/doc/html/rfc5246)) by eliminating a full round trip.
 
-TLS 1.3 helps speed up encrypted connections using features such as [TLS false start](https://blogs.windows.com/msedgedev/2016/06/15/building-a-faster-and-more-secure-web-with-tcp-fast-open-tls-false-start-and-tls-1-3/) and [Zero Round Trip Time (0-RTT)](https://blog.cloudflare.com/introducing-0-rtt/). See ["TLS 1.3: Everything you need to know"](https://www.thesslstore.com/blog/tls-1-3-everything-possibly-needed-know/) for more information.
-
+Though not necessarily supported (at time of writing) by the MongoDB Server, TLS 1.3 additionally can help speed up encrypted connections using features such as [TLS false start](https://blogs.windows.com/msedgedev/2016/06/15/building-a-faster-and-more-secure-web-with-tcp-fast-open-tls-false-start-and-tls-1-3/) and [Zero Round Trip Time (0-RTT)](https://blog.cloudflare.com/introducing-0-rtt/). See ["TLS 1.3: Everything you need to know"](https://www.thesslstore.com/blog/tls-1-3-everything-possibly-needed-know/) for more information.
 
 ```js
 /* Network Round Trips */
