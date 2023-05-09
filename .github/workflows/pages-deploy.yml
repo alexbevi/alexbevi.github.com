@@ -20,6 +20,7 @@ jobs:
         # however this may be very slow for large repositories!
         with:
           fetch-depth: '0'
+          submodules: true
       - name: 💎 setup ruby
         uses: ruby/setup-ruby@v1
         with:
