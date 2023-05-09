@@ -19,7 +19,7 @@ When [MongoDB Drivers](https://www.mongodb.com/docs/drivers/) establish a connec
 
 ## Connection Protocol
 
-Typically a MongoDB connection string will contain a [standard seed list](https://www.mongodb.com/docs/manual/reference/connection-string/#std-label-connections-standard-connection-string-format), which is represented by the `mongodb://` protocol followed by a list of server (ex: `mongodb://localhost:27017,localhost:27018....`).
+Typically a MongoDB connection string will contain a [standard seed list](https://www.mongodb.com/docs/manual/reference/connection-string/#std-label-connections-standard-connection-string-format), which is represented by the `mongodb://` protocol followed by a list of servers (ex: `mongodb://localhost:27017,localhost:27018....`).
 
 Starting with MongoDB 3.6 instead of having to provide the seed list in the connection string manually a [DNS-constructed seed list](https://www.mongodb.com/docs/manual/reference/connection-string/#std-label-connections-dns-seedlist) could be used as well. With this configuration the `mongodb+srv://` protocol is used to communicate both the seed list as well as any options by performing two (2) DNS queries to resolve the following DNS records: [`SRV`](https://en.wikipedia.org/wiki/SRV_record) and [`TXT`](https://en.wikipedia.org/wiki/TXT_record).
 
@@ -32,7 +32,7 @@ Additionally there may be an RTT for `A`/`AAAA`/`CNAME` resolution, however thes
   [0 , 3] // Protocol
 ```
 
-Not that if the `SRV` record returns multiple hosts, those `A`/`AAAA`/`CNAME` records will be resolved in parallel. And DNS servers typically will optimize the traversal returning any intermediate `CNAME`s followed by the `A`/`AAAA` in the same request.
+Note that if the `SRV` record returns multiple hosts, those `A`/`AAAA`/`CNAME` records will be resolved in parallel. And DNS servers typically will optimize the traversal returning any intermediate `CNAME`s followed by the `A`/`AAAA` in the same request.
 
 This also assumes UDP-based DNS resolution. If you exceed the UDP packet size, you might first try UDP, receive an error, and retry using TCP (and possibly requiring a TCP handshake to the DNS server as well).
 
@@ -41,7 +41,7 @@ This also assumes UDP-based DNS resolution. If you exceed the UDP packet size, y
 ![](/images/mongo-auth-03.png)
 _Source: [makeuseof.com](https://www.makeuseof.com/what-is-three-way-handshake-how-does-it-work/)_
 
-Once a host is known from the seed list, next we need to connect to it. This is done using a standard [TCP 3-way Handshake](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/), which constitutes 1 RTT. Note that As there is an `ACK` sent following the `SYN/ACK` this handshake is sometimes considered to be [1.5 RTT](https://networkengineering.stackexchange.com/a/76369), however most TCP stacks will send the first data packet with the `ACK`.
+Once a host is known from the seed list, next we need to connect to it. This is done using a standard [TCP 3-way Handshake](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/), which constitutes 1 RTT. Note that as there is an `ACK` sent following the `SYN/ACK` this handshake is sometimes considered to be [1.5 RTT](https://networkengineering.stackexchange.com/a/76369), however most TCP stacks will send the first data packet with the `ACK`.
 
 ```js
 /* Network Round Trips */
@@ -78,7 +78,7 @@ This step is required to determine that the host at the other end of the socket 
 
 ## Authentication Handshake
 
-MongoDB supports a number of [SASL (Simple Authentication and Security Layer)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer). By default the SASL mechanism that will be used will be a [SCRAM](https://www.mongodb.com/docs/manual/core/security-scram/) mechanism (either `SCRAM-SHA-1` or `SCRAM-SHA-256`), which effectively means "username and password". Note that this is a "challenge response" mechanism, so these credentials aren't broadcast in the clear.
+MongoDB supports a number of [SASL (Simple Authentication and Security Layer)](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer) mechanisms. By default the SASL mechanism that will be used will be a [SCRAM](https://www.mongodb.com/docs/manual/core/security-scram/) mechanism (either `SCRAM-SHA-1` or `SCRAM-SHA-256`), which effectively means "username and password". Note that this is a "challenge response" mechanism, so these credentials aren't broadcast in the clear.
 
 As outlined in the [MongoDB Authentication specification](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#id8), a `SCRAM-SHA-256` conversation will be made up of 2 round trips as follows:
 
