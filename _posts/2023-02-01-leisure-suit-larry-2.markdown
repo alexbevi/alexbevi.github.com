@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", "SCI"]
 image: /images/adventure/lsl2/scummvm-lsl2-00000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places)](https://en.wikipedia.org/wiki/Leisure_Suit_Larry_Goes_Looking_for_Love_(in_Several_Wrong_Places)) is the second game in the Leisure Suit Larry series of graphical adventure games, designed by Al Lowe and published by Sierra On-Line in 1988. Like its predecessor, Leisure Suit Larry in the Land of the Lounge Lizards, it was developed for multiple platforms, including MS-DOS, Atari ST and Amiga. It utilizes Sierra's Creative Interpreter (SCI0) engine, featuring 16-color EGA graphics and a mouse-based interface for movement. The story continues the exploits of Larry Laffer, who becomes stranded on a tropical island during an ill-fated vacation.

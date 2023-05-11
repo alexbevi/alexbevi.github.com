@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "LucasArts", SCUMM]
 image: /images/adventure/ft/scummvm-ft-00000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Full Throttle](https://en.wikipedia.org/wiki/Full_Throttle_(1995_video_game)) is a graphic adventure game set in the near future that follows Ben, the leader of a biker gang, who is framed for the murder of a beloved motorcycle manufacturing mogul and seeks to clear his and his gang's names.

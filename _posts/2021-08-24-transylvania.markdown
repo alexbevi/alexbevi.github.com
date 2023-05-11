@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Penguin Software"]
 image: /images/adventure/transylvania-01.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Transylvania](https://en.wikipedia.org/wiki/Transylvania_(video_game)) is an adventure game from 1982 that follows the player on a quest to rescue Princess Sabrina. _Far away a clock strikes 12..._

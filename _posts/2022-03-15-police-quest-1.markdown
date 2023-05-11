@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra Online"]
 image: /images/adventure/pq1vga/scummvm-pq1sci-00000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Police Quest: In Pursuit of the Death Angel](https://en.wikipedia.org/wiki/Police_Quest:_In_Pursuit_of_the_Death_Angel) is an adventure game (and police simulation) produced by Jim Walls for Sierra On-Line, and originally released in 1987 built on their AGI engine. It was remade in 1992 using 256-color VGA graphics and the SCI engine, which dramatically improved the appearance and audio of the game, and replaced the command line interface with point and click.

@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Beam Software", "Ultra Games"]
 image: /images/adventure/nightshade/Nightshade.2022-12-31 08.18.17.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Nightshade](https://en.wikipedia.org/wiki/Nightshade_(1992_video_game)), fully titled Nightshade Part 1: The Claws of Sutekh onscreen, is an action-adventure video game released in 1992 for the Nintendo Entertainment System. It was developed by Beam Software and published by Ultra Games. The game was meant to be the first part in a series, but no sequels were ever made; however, it served as the basis for Beam Software's Super NES video game adaptation of [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_(1993_video_game)). Though it's not covered in this series, I've [reviewed Shadowrun previously]({% post_url 2016-02-23-just-finished-shadowrun %}).

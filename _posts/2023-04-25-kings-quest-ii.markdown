@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", AGI]
 image: /images/adventure/kq2/scummvm-kq2-00000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [King's Quest II: Romancing the Throne](https://en.wikipedia.org/wiki/King%27s_Quest_II) is the second installment in the King's Quest series of graphic adventure games by Sierra On-Line. It was originally released in 1985 for PC DOS/PCjr, and later made available for the Apple II/IIGS, Atari ST, and Amiga. It uses the same AGI game engine as King's Quest I: Quest for the Crown and features King Graham as the player character. The title is a spoof of the 1984 film Romancing the Stone.

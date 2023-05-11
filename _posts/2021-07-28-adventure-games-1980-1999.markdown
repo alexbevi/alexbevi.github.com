@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Journey into Adventure Games (1980-1999)"
+title: "Let's Adventure! A Journey into Adventure Games (1980-1999)"
 date: 2021-07-28 13:01:39 -0400
 comments: true
 categories: ["Let's Adventure!"]

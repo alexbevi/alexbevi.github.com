@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "DreamForge", "ASC Games"]
 image: /images/adventure/sanitarium/2021-12-22 06.22.58.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 I took a little break from this series to work on other writing projects, but considering [ScummVM announced](https://www.scummvm.org/news/20211118/) support for this title officially I figured it was time to finally get back in the saddle and run through some adventure games again :)

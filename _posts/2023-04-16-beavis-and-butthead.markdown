@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Viacom New Media", BBVS]
 image: /images/adventure/bbvs/scummvm-bbvs-00000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 [Beavis and Butt-Head in Virtual Stupidity](https://en.wikipedia.org/wiki/Beavis_and_Butt-Head_in_Virtual_Stupidity) is a point-and-click adventure computer game based on the American animated television series created by Mike Judge, Beavis and Butt-Head, that was developed by ICOM Simulations and published by Viacom New Media.

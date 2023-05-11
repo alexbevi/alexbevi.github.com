@@ -7,7 +7,7 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "ICOM Simulations", MacVenture, Mindscape, Kemco]
 image: /images/adventure/shadowgate.000.png
 ---
-> This review is part of the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
 Shadowgate is a black-and-white 1987 point-and-click adventure video game originally for the Apple Macintosh in the MacVenture series. The game is named for its setting, Castle Shadowgate, residence of the evil Warlock Lord. The player, as the "last of a great line of hero-kings" is charged with the task of saving the world by defeating the Warlock Lord, who is attempting to summon up the demon Behemoth out of Hell.
