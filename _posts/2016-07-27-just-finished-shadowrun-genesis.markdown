@@ -111,7 +111,9 @@ If you haven't given this game a shot, I would highly recommend it. It turned ou
 
 If you have any recommendations for other games in this genre I should check out, or if you want to share your opinion on this or the SNES title, please feel free to leave me a comment.
 
-{% galleria %}
+## Gallery
+
+{% gallery_thumbs %}
 /images/shadowrun-gens/shadowrun.003.png
 /images/shadowrun-gens/shadowrun.004.png
 /images/shadowrun-gens/shadowrun.005.png
@@ -132,4 +134,4 @@ If you have any recommendations for other games in this genre I should check out
 /images/shadowrun-gens/shadowrun.024.png
 /images/shadowrun-gens/shadowrun.025.png
 /images/shadowrun-gens/shadowrun.026.png
-{% endgalleria %}
+{% endgallery_thumbs %}

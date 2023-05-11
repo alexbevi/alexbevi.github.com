@@ -63,7 +63,9 @@ It was fun though, and though I probably won't replay this game again in the fut
 
 My screenshots are below, though it seems that the emulator I was using ([Snes9x EX](http://www.explusalpha.com/home/snes9x-ex) on my Moto G) overwrote some of my earlier images. Oh well. Enjoy :P
 
-{% galleria %}
+## Gallery
+
+{% gallery_thumbs %}
 /images/robotrek/Robotrek_(USA).000.png
 /images/robotrek/Robotrek_(USA).001.png
 /images/robotrek/Robotrek_(USA).002.png
@@ -102,4 +104,4 @@ My screenshots are below, though it seems that the emulator I was using ([Snes9x
 /images/robotrek/Robotrek_(USA).035.png
 /images/robotrek/Robotrek_(USA).036.png
 /images/robotrek/Robotrek_(USA).037.png
-{% endgalleria %}
+{% endgallery_thumbs %}

@@ -57,9 +57,9 @@ I really enjoyed this game, and am currently working my way through the sequel, 
 
 Assuming I don't brick my phone again, hopefully I'll have a review for that next :D.
 
-{% galleria %}
+{% gallery_thumbs %}
 /images/bof/bof.001.png
 /images/bof/bof.002.png
 /images/bof/bof.003.png
 /images/bof/bof.004.png
-{% endgalleria %}
+{% endgallery_thumbs %}

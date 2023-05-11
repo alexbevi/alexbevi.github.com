@@ -96,7 +96,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 24. The Black Cauldron (Sierra On-Line) - 1986
 25. J.B. Harold Murder Club (Riverhillsoft) - 1986
 26. [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
-27. Murder on the Mississippi (Activision) - 1986
+27. [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 28. The Scoop (Telarium) - 1986
 29. Tass Times in Tonetown (Interplay Productions, Brainwave Creations) - 1986
 30. Uninvited (ICOM Simulations) - 1986

@@ -61,7 +61,17 @@ I learned this the hard way as I only play this game on occasion, and ended up f
 
 I thoroughly enjoyed playing this game and would highly recommend this to anyone out there that likes JRPGs, action RPGs and 8/16-bit gaming in general. The graphics, music and gameplay are all very well done, and the story lines are interesting, even if there is occasionally some cheesy dialog :P
 
-{% galleria %}
+I finished this game over a month ago, so I'm still pretty slow cranking out these reviews ...
+
+I'm currently working my way through [The 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga) for SNES since I clearly need *more* pain and frustration in my life :P When that game is annoying me, I'm also working on Sega Genesis version of [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_\(1994_video_game\)).
+
+That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I'm actually really enjoying it, and it is VERY different the the SNES game of the same name.
+
+Hopefully I'll have more for you in the near(er) future 
+
+## Gallery
+
+{% gallery_thumbs %}
 /images/sd3/sd3.000.png
 /images/sd3/sd3.001.png
 /images/sd3/sd3.002.png
@@ -102,12 +112,4 @@ I thoroughly enjoyed playing this game and would highly recommend this to anyone
 /images/sd3/sd3.045.png
 /images/sd3/sd3.046.png
 /images/sd3/sd3.047.png
-{% endgalleria %}
-
-I finished this game over a month ago, so I'm still pretty slow cranking out these reviews ...
-
-I'm currently working my way through [The 7th Saga](https://en.wikipedia.org/wiki/The_7th_Saga) for SNES since I clearly need *more* pain and frustration in my life :P When that game is annoying me, I'm also working on Sega Genesis version of [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_\(1994_video_game\)).
-
-That game was recommended by some of my readers on Reddit so I figured I had to give it a whirl. So far I'm actually really enjoying it, and it is VERY different the the SNES game of the same name.
-
-Hopefully I'll have more for you in the near(er) future :)
+{% endgallery_thumbs %}

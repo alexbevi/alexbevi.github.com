@@ -8,7 +8,7 @@ tags: [rpg, snes]
 published: true
 ---
 
-I had this game finished around Christmas, but I find my motivation for writing these articles is starting to languish. I'm hoping to get that spark back with the next couple of titles i'll be tackling, even though Shadownrun was one of my favourite SNES games of all time.
+I had this game finished around Christmas, but I find my motivation for writing these articles is starting to languish. I'm hoping to get that spark back with the next couple of titles i'll be tackling, even though Shadowrun was one of my favourite SNES games of all time.
 
 ![](/images/shadowrun/shadowrun.001.png)
 
@@ -68,7 +68,7 @@ After you've finally fought your way through the various sections of the game, y
 
 Once done, things explode, and you can close the books on this adventure.
 
-The game alludes to there being a potential sequel in the works, but this never materialized. There was another Shadownrun title for [Sega Genesis](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)), but this was a completely different game. I might play through this and do a write up one day, but I've tried playing it a couple times over the years and could never get into it (if you think I should, or want to share an opinion, there is a comments section below ... :P).
+The game alludes to there being a potential sequel in the works, but this never materialized. There was another Shadowrun title for [Sega Genesis](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)), but this was a completely different game. I might play through this and do a write up one day, but I've tried playing it a couple times over the years and could never get into it (if you think I should, or want to share an opinion, there is a comments section below ... :P).
 
 ![](/images/shadowrun/shadowrun.027.png)
 
@@ -78,7 +78,11 @@ The music was also a fantastic complement to the dark atmosphere of the game. [3
 
 If you're revisiting the SNES and looking for something you may have overlooked during the mid '90s, pick this up and give it a spin.
 
-{% galleria %}
+Next up, [Seiken Densetsu 3](https://en.wikipedia.org/wiki/Seiken_Densetsu_3). This one will probably take me a while to complete, then a longer while to actually do a write up on.
+
+## Gallery
+
+{% gallery_thumbs %}
 /images/shadowrun/shadowrun.000.png
 /images/shadowrun/shadowrun.002.png
 /images/shadowrun/shadowrun.003.png
@@ -102,6 +106,5 @@ If you're revisiting the SNES and looking for something you may have overlooked 
 /images/shadowrun/shadowrun.026.png
 /images/shadowrun/shadowrun.028.png
 /images/shadowrun/shadowrun.029.png
-{% endgalleria %}
+{% endgallery_thumbs %}
 
-Next up, [Seiken Densetsu 3](https://en.wikipedia.org/wiki/Seiken_Densetsu_3). This one will probably take me a while to complete, then a longer while to actually do a write up on.

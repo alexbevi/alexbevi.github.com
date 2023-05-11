@@ -58,7 +58,7 @@ module Jekyll
     end
   end
 
-  class LightGalleryTag < Liquid::Block
+  class LightGalleryInlineTag < Liquid::Block
     def initialize(tag_name, markup, tokens)
       # No initializing needed
       super
@@ -97,7 +97,44 @@ module Jekyll
     end
   end
 
+  class LightGalleryStaticThumbnailTag < Liquid::Block
+    def initialize(tag_name, markup, tokens)
+      # No initializing needed
+      super
+    end
+
+    def render(context)
+      # Convert the entire content array into one large string
+      lines = super
+      # split the text by newlines
+      lines = lines.split("\n")
+
+      p = PhotosUtil.new(context)
+
+      gallery = "<div id='static-thumbnails'>"
+      lines.each_with_index do |line, i|
+        next if line.empty?
+        filename, title = line.split(":")
+        title = (title.nil?) ? filename : title.strip
+        gallery << "<a data-sizes='(min-width: 40em) 80vw, 100vw' href='#{p.path_for(filename)}'><img src='#{p.path_for(filename)}'></a>"
+      end
+      gallery << "</div>"
+      gallery << "<script>"
+      gallery << "lightGallery(document.getElementById('static-thumbnails'), {"
+      gallery << "  animateThumb: false, thumbWidth: '80px', thumbHeight: '80px'"
+      gallery << "  zoomFromOrigin: false,"
+      gallery << "  allowMediaOverlap: true,"
+      gallery << "  toggleThumb: true,"
+      gallery << "});"
+      gallery << "</script>"
+
+      gallery
+    end
+  end
+
 end
 
-Liquid::Template.register_tag('galleria', Jekyll::LightGalleryTag)
+Liquid::Template.register_tag('galleria', Jekyll::LightGalleryInlineTag)
+Liquid::Template.register_tag('gallery_thumbs', Jekyll::LightGalleryStaticThumbnailTag)
+
 Liquid::Template.register_tag('galleria_includes', Jekyll::LightGalleryScriptIncludePatch)

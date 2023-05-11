@@ -18,11 +18,49 @@ The game takes place in Chicago during December 1941. The game character is Ace 
 
 ![](/images/adventure/dejavu/deja-vu-25.png)
 
-As this is a MacVentures game the interface is laid out in a familiar fashion. The game world occupies a third of the screen, which you engage with by selecting a verb from the bottom section of the screen then clicking on. Having been designed with a mouse in mind, the NES ports (which I'm playing) are a bit cumbersome to navigate, but as this was my first exposure to these titles I'm willing to be forgiving of these shortcomings.
+As this is a MacVentures game the interface is laid out in a familiar fashion. The game world occupies a third of the screen, which you engage with by selecting a verb from the bottom section of the screen then clicking on. Having been designed with a mouse in mind, the NES port (which I'm playing) is a bit cumbersome to navigate, but as this was my first exposure to these titles I'm willing to be forgiving of these shortcomings.
 
 ![](/images/adventure/dejavu/deja-vu-19.png)
 
 Your goal is to figure out who you are and to clear your name once you realize you're being framed for murder. This is done by collecting and analyzing evidence on every screen. Be warned - there is A LOT you can pick up and it's not all useful.
+
+This is done by first selecting a verb (`EXAM`, `SPEAK`, `HIT`, `CLOSE`, `OPEN`, `TAKE`, `LEAVE`, `USE`), then moving the cursor over the target you want to interact with. There is no visual indication that what you're trying to interact with will be valid, so there's a lot of trial and error as you move through the game.
+
+![](/images/adventure/dejavu/deja-vu-26.png)
+_Remember that random pencil you found ... I hope you remembered to `TAKE` it with you ..._
+
+Inventory management is a huge part of this game as the goal is to find clues not only to your identity but eventually to clear your name as you've been framed for murder. Items can be nested 2 or 3 levels deep, so you'll need to make sure you try and `OPEN` _everything_. Additionally there are item combination puzzles so you'll want to make sure to try using items with each other.
+
+The game world is split between multiple locations that you need to navigate between by taking a cab. Each cab ride costs $0.75, but you have a limited number of coins. In the basement of Joe's Bar there's a casino where you can play the slot machines to try and earn some extra money. If you gamble away all your coins you'll end up in an unwinnable situation ... so save early and save often ;)
+
+![](/images/adventure/dejavu/deja-vu-08.png)
+_Make sure you save your game before playing the slot machines ... just in case_
+
+As you progress through the story you'll realize you've been drugged, which is affecting your memory. Once you identify the what you've been given and what the remedy is, figure out how to administer this to yourself and do it without accidentally dying ... you learn who you are, but this doesn't really clear up what you need to do to proceed through to the end of the game.
+
+![](/images/adventure/dejavu/deja-vu-20.png)
+
+I actually found this part a bit frustrating as I didn't originally find the capsules and couldn't take the medicine that's supposed to restore your memory. Once I got a walkthrough and backtracked I was able to sort this out, but it sort of felt like a forced fetch quest - which I guess is pretty common of this genre of game.
+
+![](/images/adventure/dejavu/deja-vu-28.png)
+
+In the deepest parts of the sewer there's an area where you can discard evidence permanently. This is how you win the game as you need to take the evidence you find that frames you for murder and dispose of it. If you don't do this JUST RIGHT, when you go to the police station at the end of the game you'll wind up just being arrested instead of cleared of all charges.
+
+You can't just randomly drop evidence either; it needs to be discarded in exactly this spot. This isn't really clear while you're playing the game, and I didn't find any clues that indicated the sewer was where you needed to do this so I'm guessing it was meant to be a "trial and error" type of discovery for players. I didn't love this as it's not very intuitive, and really the game doesn't make it apparent how you're supposed to "win".
+
+![](/images/adventure/dejavu/deja-vu-27.png)
+
+Make sure you save often as you play as there are multiple areas where you can be randomly killed. In the sewers you may run into a crocodile that will eat you and there are muggers randomly trying to rob and kill you. You can knock the mugger out a couple times using `HIT`, but after that you have to give him cash or he'll shoot you.
+
+You'll likely also die a few times by taking the wrong medicine trying to clear up your lost memory, or just using the wrong items on yourself trying to figure out what is useful. This is part of the fun of adventure games though so roll the dice and see what does and doesn't kill you :D
+
+![](/images/adventure/dejavu/deja-vu-32.png)
+
+Overall this game has a decent story, and the NES port has pretty good music. I never tried playing any of the other ports so I'm not sure how they fare, but aside from the DOS version with the gross colour palette they seem to look ok as well.
+
+Seeing as this was their first game I can forgive some of the technical and procedural challenges I had finishing it. It is kind of weird knowing that this is the same company that ended up making licensed Beavis and Butthead games in the '90s like [Beavis and Butt-Head in Virtual Stupidity]({% post_url 2023-04-16-beavis-and-butthead %}).
+
+I'm looking forward to playing the sequel to see where this story goes.
 
 **Game Information**
 
@@ -43,11 +81,11 @@ Your goal is to figure out who you are and to clear your name once you realize y
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|x|
-|**Story (25)**|x|
-|**Experience (15)**|x|
-|**Impact (10)**|x|
-||**xx%**|
+|**Atmosphere (20)**|11|
+|**Story (25)**|15|
+|**Experience (15)**|6|
+|**Impact (10)**|3|
+||**50%**|
 
 ### Gallery
 
@@ -57,7 +95,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/dejavu/deja-vu-05.png
 /images/adventure/dejavu/deja-vu-06.png
 /images/adventure/dejavu/deja-vu-07.png
-/images/adventure/dejavu/deja-vu-08.png
 /images/adventure/dejavu/deja-vu-09.png
 /images/adventure/dejavu/deja-vu-10.png
 /images/adventure/dejavu/deja-vu-11.png
@@ -68,16 +105,11 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/dejavu/deja-vu-16.png
 /images/adventure/dejavu/deja-vu-17.png
 /images/adventure/dejavu/deja-vu-18.png
-/images/adventure/dejavu/deja-vu-20.png
 /images/adventure/dejavu/deja-vu-21.png
 /images/adventure/dejavu/deja-vu-22.png
 /images/adventure/dejavu/deja-vu-23.png
 /images/adventure/dejavu/deja-vu-24.png
-/images/adventure/dejavu/deja-vu-26.png
-/images/adventure/dejavu/deja-vu-27.png
-/images/adventure/dejavu/deja-vu-28.png
 /images/adventure/dejavu/deja-vu-29.png
 /images/adventure/dejavu/deja-vu-30.png
 /images/adventure/dejavu/deja-vu-31.png
-/images/adventure/dejavu/deja-vu-32.png
 {% endgalleria %}
