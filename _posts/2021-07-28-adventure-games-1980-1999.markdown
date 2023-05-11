@@ -58,11 +58,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 ```js
 {
   progress: {
-    finished: 41,
-    skipped: 10,
+    finished: 42,
+    skipped: 11,
     total: 363
   },
-  complete: "{{ 41 | plus: 10 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  complete: "{{ 42 | plus: 11 | times: 100.0 | divided_by: 363 | round: 2 }}%"
 }
 ```
 <hr>
@@ -389,7 +389,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 317. The Curse of Monkey Island (LucasArts) - 1997
 318. Zork: Grand Inquisitor (Activision) - 1997
 319. Blade Runner (Westwood Studios) - 1997
-320. Hollywood Monsters (Pendulo Studios) - 1997
+320. ~~Hollywood Monsters (Pendulo Studios) - 1997~~ (_Spanish only, though a [fan translation](https://shinji-nerd-life.blogspot.com/2012/03/hollywood-monsters-in-english.html) exists_)
 321. Ankh: The Tales of Mystery (Artex Software) - 1998
 322. Morpheus (Soap Bubble Productions) - 1998
 323. Nightlong: Union City Conspiracy (Team17, Trecision) - 1998
