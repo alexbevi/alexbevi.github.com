@@ -10,6 +10,24 @@ image: /images/adventure/motm/vice-screen-2023050105435383.png
 > This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
+[Murder on the Mississippi](https://en.wikipedia.org/wiki/Murder_on_the_Mississippi) is a 1986 detective adventure game developed and published by Activision for the Commodore 64, Commodore 128 and the Apple II computers, where you assume the role of Sir Charles Foxworth and must solve a murder mystery on the luxury ship "Delta Princess". The story is based loosely on the Agatha Christie novel [Death on the Nile](https://en.wikipedia.org/wiki/Death_on_the_Nile).
+
+![](/images/adventure/motm/vice-screen-2023050306364137.png)
+
+When playing these earlier PC games it's important to call out what they did right, and where they may have been innovative. This game starts off with some theme music and an animated introduction, the sets the stage for our character's journey. Once you're in your cabin and gain control of Sir Charles, you have an opportunity to move around and get acquainted with the controls.
+
+You leave your cabin and start walking around, testing doors and learning how to navigate the ship. Eventually you'll make your way from cabin #3 (your home cabin) to the other side of the ship and cabin #4. Once inside you discover a murder has taken place and it's crime solving time.
+
+![](/images/adventure/motm/vice-screen-2023050306430613.png)
+
+Unlike most verb-based adventure games, Murder on the Mississippi offers you only a handful of options on every screen. These options will change depending on whether there's an NPC on screen or not, but ultimately you can always `WALK AROUND`, `INSPECT` or `EXAMINE EVIDENCE`. Inspecting the environment is contextual, so you need to be "near" something that you can interact with (such as a table, cabinet, etc).
+
+If you're lucky, there may be a clue hidden in, around, behind or under whatever you happen to be inspecting.
+
+![](/images/adventure/motm/vice-screen-2023051006232817.png)
+_If all goes well you make it to New Orleans_
+
+
 **Game Information**
 
 |*Game*|Murder on the Mississippi|
@@ -39,8 +57,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 
 {% galleria %}
 /images/adventure/motm/vice-screen-2023050306314973.png
-/images/adventure/motm/vice-screen-2023050306364137.png
-/images/adventure/motm/vice-screen-2023050306430613.png
 /images/adventure/motm/vice-screen-2023050306464122.png
 /images/adventure/motm/vice-screen-2023050306535797.png
 /images/adventure/motm/vice-screen-2023050406183980.png
@@ -61,5 +77,4 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/motm/vice-screen-2023051006093506.png
 /images/adventure/motm/vice-screen-2023051006131633.png
 /images/adventure/motm/vice-screen-2023051006190505.png
-/images/adventure/motm/vice-screen-2023051006232817.png
 {% endgalleria %}

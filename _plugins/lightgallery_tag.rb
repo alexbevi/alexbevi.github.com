@@ -76,7 +76,7 @@ module Jekyll
       gallery << "<script>"
       gallery << "const lgContainer = document.getElementById('inline-gallery-container');"
       gallery << "const inlineGallery = lightGallery(lgContainer, {"
-      gallery << "    container: lgContainer,"
+      gallery << "    container: lgContainer, licenceKey: \"C2D2C2BD-16BC4564-A4EAE653-401CB884\","
       gallery << "    dynamic: true,"
       gallery << "    hash: false,"
       gallery << "    closable: false,"
