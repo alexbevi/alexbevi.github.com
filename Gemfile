@@ -39,8 +39,9 @@ if RUBY_PLATFORM =~ /linux-musl/
 end
 
 group :development do
-  gem "puma"
   gem "faraday-retry"
-  gem "liquid-c"
   gem "stringex"
 end
+
+gem "puma"
+gem "liquid-c"
