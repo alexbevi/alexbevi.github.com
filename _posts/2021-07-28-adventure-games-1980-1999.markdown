@@ -56,7 +56,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 
 <hr>
 {%- assign games_finished = 43  -%}
-{%- assign games_skipped  = 11  -%}
+{%- assign games_skipped  = 12  -%}
 {%- assign games_total    = 363 -%}
 ```js
 {
@@ -330,7 +330,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 255. The Gene Machine (Divide By Zero) - 1996
 256. Kingdom II: Shadoan (Virtual Image Productions) - 1996
 257. Monty Python & the Quest for the Holy Grail (7th Level) - 1996
-258. Mutation of J.B. (Invention) - 1996
+258. ~~Mutation of J.B. (Invention) - 1996~~ (_Slovak and German only_)
 259. Orion Burger (Sanctuary Woods) - 1996
 260. UFOs (Artech) - 1996
 261. Angel Devoid: Face of the Enemy (Electric Dreams) - 1996

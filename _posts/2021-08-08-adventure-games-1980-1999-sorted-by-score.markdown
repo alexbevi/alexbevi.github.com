@@ -13,7 +13,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 
 <hr>
 {%- assign games_finished = 43  -%}
-{%- assign games_skipped  = 11  -%}
+{%- assign games_skipped  = 12  -%}
 {%- assign games_total    = 363 -%}
 ```js
 {
