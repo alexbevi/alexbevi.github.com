@@ -55,14 +55,17 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
+{%- assign games_finished = 43  -%}
+{%- assign games_skipped  = 11  -%}
+{%- assign games_total    = 363 -%}
 ```js
 {
-  progress: {
-    finished: 42,
-    skipped: 11,
-    total: 363
+  "progress": {
+    "finished": {{ games_finished }},
+     "skipped": {{ games_skipped }},
+       "total": {{ games_total }}
   },
-  complete: "{{ 42 | plus: 11 | times: 100.0 | divided_by: 363 | round: 2 }}%"
+  "journey_completed": "{{ games_finished | plus: games_skipped | times: 100.0 | divided_by: games_total | round: 2 }}%"
 }
 ```
 <hr>
@@ -345,7 +348,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 273. Broken Sword: The Shadow of the Templars (Revolution Software) - 1996
 274. Timelapse (GTE Interactive Media) - 1996
 275. Lighthouse: The Dark Being (Sierra On-Line) - 1996
-276. Ace Ventura (7th Level) - 1996
+276. [Ace Ventura (7th Level)]({ post_url 2023-05-16-ace-ventura %}) - 1996
 277. Blazing Dragons (The Illusions Gaming Company) - 1996
 278. Drowned God: Conspiracy of the Ages (Epic Multimedia Group) - 1996
 279. Martian Chronicles, The (Byron Preiss Multimedia Company) - 1995
