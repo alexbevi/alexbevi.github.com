@@ -1,0 +1,86 @@
+---
+layout: post
+title: "DreamWeb (Creative Reality) - 1994"
+date: 2023-05-18 06:41:18 -0400
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "Creative Reality", "Empire", "Dreamweb"]
+image: /images/adventure/dreamweb/scummvm-dreamweb-cd-00000.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+In October 2012, the creators and copyright holders of DreamWeb, Creative Reality and Neil Dodwell, released the game as freeware for use with ScummVM. It is available for download from [their Downloads page](https://www.scummvm.org/games/#games-dreamweb:dreamweb). Unlike the version [cracked by Razor1911](http://www.textfiles.com/piracy/RAZOR/dream.nfo), the freeware version includes the copy protection (guessing the pattern at the alter near the endgame) as well as the network logon passwords.
+
+
+
+
+**Game Information**
+
+|*Game*|DreamWeb|
+|*Developer*|[Creative Reality](https://www.mobygames.com/company/1331/creative-reality/)|
+|*Publisher*|Empire|
+|*Release Date*|1994|
+|*Systems*|DOS, Amiga|
+|*Game Engine*|[Dreamweb](https://wiki.scummvm.org/index.php/Dreamweb)|
+
+**Play Information**
+
+|[*How Long To Beat?*](https://howlongtobeat.com/game/2882)|3.5 hours|
+|*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
+|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/aceventura.aspx)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|x|
+|**Story (25)**|x|
+|**Experience (15)**|x|
+|**Impact (10)**|x|
+||**xx%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00001.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00002.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00003.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00004.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00005.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00006.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00007.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00008.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00009.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00010.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00011.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00012.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00013.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00014.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00015.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00016.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00017.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00018.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00019.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00020.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00021.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00022.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00023.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00024.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00025.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00026.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00027.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00028.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00029.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00030.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00031.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00032.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00033.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00034.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00035.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00036.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00037.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00038.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00039.png
+/images/adventure/dreamweb/scummvm-dreamweb-cd-00040.png
+{% endgalleria %}

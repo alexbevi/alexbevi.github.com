@@ -4,20 +4,26 @@ title: "Ace Ventura (7th Level) - 1996"
 date: 2023-05-16 08:30:06 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Activision"]
+tags: [adventure, "7th Level", "Bomico Entertainment Software"]
 image: /images/adventure/ace/krnl386_002.png
 ---
 > This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
+[Ace Ventura: The CD-Rom Game](https://en.wikipedia.org/wiki/Ace_Ventura:_The_CD-Rom_Game) is an adventure game released for the PC based on the animated series [Ace Ventura: Pet Detective](https://en.wikipedia.org/wiki/Ace_Ventura:_Pet_Detective_(TV_series)).
+
+The game is a classic point and click adventure game that resembles the tone of the Leisure Suit Larry series by Sierra Games, in that it approaches the adult style of humor featured, which is implied but never shown, all while remaining faithful to the family-friendly tone established in the corresponding animated series broadcasting at the time.
+
+
+
 
 **Game Information**
 
-|*Game*|Murder on the Mississippi|
-|*Developer*|[Activision](https://en.wikipedia.org/wiki/On-Line_Systems)|
-|*Publisher*|Activision|
-|*Release Date*|1986|
-|*Systems*|Apple II, Commodore 64/128, MSX2, Atari 800/XE/XL|
+|*Game*|Ace Ventura|
+|*Developer*|[7th Level](https://en.wikipedia.org/wiki/7th_Level)|
+|*Publisher*|Bomico Entertainment Software|
+|*Release Date*|October 31, 1996|
+|*Systems*|Windows|
 |*Game Engine*||
 
 **Play Information**

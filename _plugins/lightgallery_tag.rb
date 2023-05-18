@@ -72,27 +72,32 @@ module Jekyll
 
       p = PhotosUtil.new(context)
 
+
       gallery = "<div id='inline-gallery-container' class='inline-gallery-container'></div>"
-      gallery << "<script>"
-      gallery << "const lgContainer = document.getElementById('inline-gallery-container');"
-      gallery << "const inlineGallery = lightGallery(lgContainer, {"
-      gallery << "    container: lgContainer, licenseKey: \"C2D2C2BD-16BC4564-A4EAE653-401CB884\","
-      gallery << "    dynamic: true,"
-      gallery << "    hash: false,"
-      gallery << "    closable: false,"
-      gallery << "    showMaximizeIcon: true,"
-      gallery << "    appendSubHtmlTo: '.lg-item',"
-      gallery << "    slideDelay: 100,"
-      gallery << "    dynamicEl: [ "
+      gallery << "<script type=\"module\">"
+      gallery << "import lightGallery from \"https://cdn.skypack.dev/lightgallery@2.4.0\";"
+      gallery << "import lgZoom from \"https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom\";"
+      gallery << "import lgThumbnail from \"https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail\";"
+      gallery << "const $lgContainer = document.getElementById(\"inline-gallery-container\");"
+      gallery << "const inlineGallery = lightGallery($lgContainer, {"
+      gallery << "  container: $lgContainer,"
+      gallery << "  licenseKey: \"C2D2C2BD-16BC4564-A4EAE653-401CB884\","
+      gallery << "  dynamic: true,"
+      gallery << "  hash: false,"
+      gallery << "  closable: false,"
+      gallery << "  showMaximizeIcon: true,"
+      gallery << "  slideDelay: 10,"
+      gallery << "  plugins: [lgZoom, lgThumbnail],"
+      gallery << "  dynamicEl: ["
       lines.each_with_index do |line, i|
         next if line.empty?
         filename, title = line.split(":")
         title = (title.nil?) ? filename : title.strip
         gallery << "{ src: '#{p.path_for(filename)}', thumb: '#{p.path_for(filename)}' },"
       end
-      gallery << "], thumbWidth: 60, thumbHeight: \"40px\", thumbMargin: 4 });"
+      gallery << "]});"
       gallery << "inlineGallery.openGallery();"
-
+      gallery << "</script>"
       gallery
     end
   end
