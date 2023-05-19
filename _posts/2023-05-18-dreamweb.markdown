@@ -64,7 +64,7 @@ This is actually an important mechanic in this game as more than once you'll fin
 
 ![](/images/adventure/dreamweb/scummvm-dreamweb-cd-00039.png)
 
-Overall I genuinely enjoyed playing this game. It's extremely dark and almost has a cyberpunk type of feel to it, especially once you finally finish the game only to realize your reward is being returned to your life to face the consequences of your actions. This results in a standoff with the police where they ultimately kill you, releasing your aura back to the Dreamweb for the cycle to being again.
+Overall I genuinely enjoyed playing this game. It's extremely dark and almost has a cyberpunk type of feel to it, especially once you finally finish the game only to realize your reward is being returned to your life to face the consequences of your actions. This results in a standoff with the police where they ultimately kill you, releasing your aura back to the Dreamweb for the cycle to begin again.
 
 The ambient music playing throughout enhances the "Blade Runner"-esque nature of the game, though you're not chasing replicants here. I actually felt like DreamWeb would make a good addition to the cyberpunk genre along with titles like [Shadowrun]({% post_url 2016-02-23-just-finished-shadowrun %}), [Rise of the Dragon]({% post_url 2023-02-13-rise-of-the-dragon %}) or [Manhunter: New York]({% post_url 2023-02-18-manhunter-new-york %}).
 
