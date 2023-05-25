@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 44  -%}
+{%- assign games_finished = 45  -%}
 {%- assign games_skipped  = 12  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -62,6 +62,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 1. **41%** [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
 1. **40%** [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
+1. **39%** [Companions of Xanth (Legend Entertainment)]({% post_url 2023-05-23-companions-of-xanth %}) - 1993
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982

@@ -34,17 +34,18 @@ When writing for Game Over we also had a fixed set of criteria (Graphics, Sound,
 
 The scoring we'll be using for this series will focus on the following:
 
-**Atmosphere**: This will focus on how the game makes you feel while you're playing it and includes inputs such as _Music_, _Sound Effects_, _Graphics_, _Cut Scenes_ and overall quality.
-<br>Max Points: **20**
-
-**Story**: Adventure games are very story-driven, and as such the story needs to be evaluated as a top-level criteria. Focus will be on _Quality_, _Immersion_, _Complexity_, _Progression and Pacing_.
-<br>Max Points: **25**
-
-**Experience**: How much _Fun_ was the game? Was the _Difficulty_ too high/low? Were the puzzles a _Challenge_ or were they repetitive and felt derivative and lazy? Was there any introduction for the player or are you dropped in blind?
-<br>Max Points: **15**
-
-**Impact**: Did you enjoy the overall experience? Would you play this again? Would you want to know more about this world and its characters in subsequent adventures?
-<br>Max Points: **10**
+>**Atmosphere**: This will focus on how the game makes you feel while you're playing it and includes inputs such as _Music_, _Sound Effects_, _Graphics_, _Cut Scenes_ and overall quality.
+><br>Max Points: **20**
+>
+>**Story**: Adventure games are very story-driven, and as such the story needs to be evaluated as a top-level criteria. Focus will be on _Quality_, _Immersion_, _Complexity_, _Progression and Pacing_.
+><br>Max Points: **25**
+>
+>**Experience**: How much _Fun_ was the game? Was the _Difficulty_ too high/low? Were the puzzles a _Challenge_ or were they repetitive and felt derivative and lazy? Was there any introduction for the player or are you dropped in blind?
+><br>Max Points: **15**
+>
+>**Impact**: Did you enjoy the overall experience? Would you play this again? Would you want to know more about this world and its characters in subsequent adventures?
+><br>Max Points: **10**
+{: .prompt-info }
 
 Each game will be ranked using the above, and a percentage generated from the scores to show the overall score of the game.
 
@@ -55,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 44  -%}
+{%- assign games_finished = 45  -%}
 {%- assign games_skipped  = 12  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -234,7 +235,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 159. Return to Zork (Infocom) - 1993
 160. Myst (Cyan) - 1993
 161. Simon the Sorcerer (Adventure Soft) - 1993
-162. Companions of Xanth (Legend Entertainment) - 1993
+162. [Companions of Xanth (Legend Entertainment)]({% post_url 2023-05-23-companions-of-xanth %}) - 1993
 163. Police Quest: Open Season (Sierra On-Line) - 1993
 164. [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 165. Star Trek: Judgment Rites (Interplay) - 1993
