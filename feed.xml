@@ -1,4 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-23T09:10:20-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">DreamWeb (Creative Reality) - 1994</title><link href="https://www.alexbevi.com/blog/2023/05/18/dreamweb/" rel="alternate" type="text/html" title="DreamWeb (Creative Reality) - 1994" /><published>2023-05-18T06:41:18-04:00</published><updated>2023-05-19T11:29:31-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/18/dreamweb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/18/dreamweb/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-05-24T20:49:36-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Companions of Xanth (Legend Entertainment) - 1993</title><link href="https://www.alexbevi.com/blog/2023/05/23/companions-of-xanth/" rel="alternate" type="text/html" title="Companions of Xanth (Legend Entertainment) - 1993" /><published>2023-05-23T17:15:47-04:00</published><updated>2023-05-24T20:48:44-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/23/companions-of-xanth</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/23/companions-of-xanth/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Companions_of_Xanth">Companions of Xanth</a> is based on Piers Anthony’s <a href="https://en.wikipedia.org/wiki/Xanth">Xanth novels</a> and loosely follows the plot of his 1993 novel <em>Demons Don’t Dream</em>, in which a young man uses a computer game to enter and explore the world of Xanth.</p>
+
+<p>Typical of Piers Anthony’s novels, the game is filled with puns and visual gags, and some knowledge of the Xanth universe is helpful; for those players who haven’t read any of the Xanth novels, an in-game ‘Com-Pendium of Xanth’ is provided to the player for the majority of the game.</p>
+
+<p><img src="/images/adventure/xanth/xanth_001.png" alt="" /></p>
+
+<p>The whole premise of this game is that you’ve been sucked into this fantasy world through your computer to act as an avatar for a force of good (or evil?) to undergo a quest to find some legendary artifact. Your opponent, who is the avatar for the other force of good (or evil?) is another person from Earth that has been recruited in the same fashion as you.</p>
+
+<p>As you begin to explore the house on Earth where the game starts you’re presented with a pretty standard adventure game interface. The left hand side of the screen contains the fixed verb list, below that is navigation and options, to the right is your “party” view followed by descriptive text and your inventory.</p>
+
+<p><img src="/images/adventure/xanth/xanth_017.png" alt="" /></p>
+
+<p>After figuring out how to initially navigate, answering the phone, accepting the bet, getting the package and putting the disk in your computer you’ll be whisked off to the world of Xanth. This is a fantasy setting that apparently you (the player) don’t believe in. As a result you’re seen by the residents of the world as a floating computer screen.</p>
+
+<p><img src="/images/adventure/xanth/xanth_005.png" alt="" />
+<em>The animation speeds are painfully slow during these sequences</em></p>
+
+<p>Aside from the static view of the world you see most of the time, on occasion you’ll be greeted with a cut scene. This appears to be digitized photos animated at a rate of like 1 frame per minute, as the “action” during these exchanges just crawls. I tried cranking up the CPU cycles in DOSBox-X a few times to see if it helped, but it really wasn’t any better.</p>
+
+<p><img src="/images/adventure/xanth/xanth_006.png" alt="" />
+<em>Nada the Naga Princess joins you on your quest to save Xanth</em></p>
+
+<p>You’re not alone on this adventure, as you are joined by a companion from Xanth. I can’t remember if you could actually choose or if you were forced down a fixed selection path but I went with Nada Naga. Her icon will be present in the “party” view whenever she’s with you, and on every screen you can ask her questions, or ask for tips. She’s actually quite useful and helping to direct you to your next goal, and occasionally is a required piece of a multi-pronged puzzle you’ll have to solve.</p>
+
+<p><img src="/images/adventure/xanth/xanth_010.png" alt="" />
+<em>The boat is a censor-ship … get it … GET IT??????</em></p>
+
+<p>The puzzles is where this game kind of falls apart - especially if you’re not a native English speaker. EVERYTHING in this game is a pun, and on more than one occasion the solution requires you to not only know that it’s a pun, or double-entendre - but how to turn that phrase into meaning something literal.</p>
+
+<p>I can’t imagine this was fun for kids playing in the early 90’s. I would have been 13 when this came out and the solutions to these puzzles would have just frustrated me to no end. Getting past the “Fireman and Hot Dog” for example requires you to ask Nada if she’s feeling hot, and when she says she is to ask her to put her hair in a bun. Then you take that bun, and put mustard on it. The fireman’s “hot dog” is afraid of the bun with mustard on it so he disappears.</p>
+
+<p>To get the fireman to move along you need to <code class="language-plaintext highlighter-rouge">WAIT</code> for a minute, and he’ll give you fire water (because I guess he’s an alcoholic). Would a younger player know that this is alcohol - which then is needed in solving a fetch quest/item combo puzzle? Probably not …</p>
+
+<p><img src="/images/adventure/xanth/xanth_022.png" alt="" /></p>
+
+<p>Waiting is also a recurring solution to puzzles. There is a dedicated <code class="language-plaintext highlighter-rouge">WAIT</code> command that will occasionally cause some condition on the current screen to change. Sometimes this is to get a different dialogue option, sometimes it’s to allow something to happen. For example the shimmering door in the desert will <em>eventually</em> appear if you alternate <code class="language-plaintext highlighter-rouge">WAIT</code>ing and asking Nada questions. I think she alludes to you having to be patient or something - I honestly don’t remember.</p>
+
+<p>The main screen area can contain a larger text area when more information needs to be communicated, which is nicer than having to continually scroll the 2 lines the info bar typically presents you with.</p>
+
+<p><img src="/images/adventure/xanth/xanth_019.png" alt="" /></p>
+
+<p>There are a dozen or so NPCs that you will interact with throughout the game, and this is done via a standard dialogue tree. These interactions do advance the plot, but typically not before setting up some random fetch quest that involves a tedious amount of backtracking.</p>
+
+<p>Though most areas are pretty short, some areas like the Burrow are enormous and maze-like. Thankfully the game gives you a <code class="language-plaintext highlighter-rouge">MAP</code> view that makes navigating these sections of the game a lot easier as they contain landmarks on each tile to help you remember what was where.</p>
+
+<p><img src="/images/adventure/xanth/xanth_013.png" alt="" />
+<em>You’ll be really happy there’s a map once you reach the Burrow</em></p>
+
+<p>From a gameplay perspective there is some generic looping ambient music, but it just fades into the background along with any sound effects so playing this game on mute would not detract from the overall experience. The artwork is pretty good on the static screens, but the cut scenes are so janky that you might forget about the parts of the game you were just enjoying visually.</p>
+
+<p><img src="/images/adventure/xanth/xanth_026.png" alt="" />
+<em>Oh right, you get points too</em></p>
+
+<p>Companions of Xanth is not breaking any new ground in the adventure game genre. The writing is not particularly good, but this may just be the adaptation of Piers Anthony’s work focusing too heavily on the puns and wordplay and less on character development and world building. I did leave this experience wanting to know a bit more about the world of Xanth, but not the game world - the books. I have a feeling these worlds are better experienced in writing than in game form, but that’s just my 2 cents.</p>
+
+<p><strong>Game Information</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Companions of Xanth</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Legend_Entertainment">Legend Entertainment</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Legend Entertainment</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>November 1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Play Information</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/20742"><em>How Long To Beat?</em></a></td>
+      <td>4 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/companionsofxanth.aspx">Walkthrough 1</a>, <a href="http://www.gameboomers.com/wtcheats/pcCc/compxanth.htm">Walkthrough 2</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>39%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/xanth/xanth_002.png', thumb: '/images/adventure/xanth/xanth_002.png' },{ src: '/images/adventure/xanth/xanth_003.png', thumb: '/images/adventure/xanth/xanth_003.png' },{ src: '/images/adventure/xanth/xanth_004.png', thumb: '/images/adventure/xanth/xanth_004.png' },{ src: '/images/adventure/xanth/xanth_007.png', thumb: '/images/adventure/xanth/xanth_007.png' },{ src: '/images/adventure/xanth/xanth_008.png', thumb: '/images/adventure/xanth/xanth_008.png' },{ src: '/images/adventure/xanth/xanth_009.png', thumb: '/images/adventure/xanth/xanth_009.png' },{ src: '/images/adventure/xanth/xanth_011.png', thumb: '/images/adventure/xanth/xanth_011.png' },{ src: '/images/adventure/xanth/xanth_012.png', thumb: '/images/adventure/xanth/xanth_012.png' },{ src: '/images/adventure/xanth/xanth_014.png', thumb: '/images/adventure/xanth/xanth_014.png' },{ src: '/images/adventure/xanth/xanth_015.png', thumb: '/images/adventure/xanth/xanth_015.png' },{ src: '/images/adventure/xanth/xanth_016.png', thumb: '/images/adventure/xanth/xanth_016.png' },{ src: '/images/adventure/xanth/xanth_018.png', thumb: '/images/adventure/xanth/xanth_018.png' },{ src: '/images/adventure/xanth/xanth_020.png', thumb: '/images/adventure/xanth/xanth_020.png' },{ src: '/images/adventure/xanth/xanth_021.png', thumb: '/images/adventure/xanth/xanth_021.png' },{ src: '/images/adventure/xanth/xanth_023.png', thumb: '/images/adventure/xanth/xanth_023.png' },{ src: '/images/adventure/xanth/xanth_024.png', thumb: '/images/adventure/xanth/xanth_024.png' },{ src: '/images/adventure/xanth/xanth_025.png', thumb: '/images/adventure/xanth/xanth_025.png' },{ src: '/images/adventure/xanth/xanth_027.png', thumb: '/images/adventure/xanth/xanth_027.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DreamWeb (Creative Reality) - 1994</title><link href="https://www.alexbevi.com/blog/2023/05/18/dreamweb/" rel="alternate" type="text/html" title="DreamWeb (Creative Reality) - 1994" /><published>2023-05-18T06:41:18-04:00</published><updated>2023-05-24T20:48:44-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/18/dreamweb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/18/dreamweb/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -113,7 +254,7 @@
     </tr>
     <tr>
       <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/aceventura.aspx">Walkthrough</a></td>
+      <td><a href="https://www.walkthroughking.com/text/dreamweb.aspx">Walkthrough</a>, <a href="https://www.starehry.eu/download/adventure/docs/Dreamweb-Manual.pdf">Manual</a></td>
     </tr>
   </tbody>
 </table>
@@ -1259,142 +1400,4 @@
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/bbvs/scummvm-bbvs-00001.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00001.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00002.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00002.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00005.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00005.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00006.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00006.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00007.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00007.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00008.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00008.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00009.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00009.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00010.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00010.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00014.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00014.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00016.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00016.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00017.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00017.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00018.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00018.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00019.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00019.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00020.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00020.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00021.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00021.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Viacom New Media" /><category term="BBVS" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/bbvs/scummvm-bbvs-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/bbvs/scummvm-bbvs-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Déjà Vu: A Nightmare Comes True (ICOM Simulations) - 1985</title><link href="https://www.alexbevi.com/blog/2023/04/11/deja-vu/" rel="alternate" type="text/html" title="Déjà Vu: A Nightmare Comes True (ICOM Simulations) - 1985" /><published>2023-04-11T12:11:59-04:00</published><updated>2023-05-11T12:28:38-04:00</updated><id>https://www.alexbevi.com/blog/2023/04/11/deja-vu</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/04/11/deja-vu/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/D%C3%A9j%C3%A0_Vu_(video_game)">Déjà Vu</a> is a point-and-click adventure game set in the world of 1940s hardboiled detective novels and movies. It was released in 1985 for Macintosh – the first in the <a href="https://en.wikipedia.org/wiki/MacVenture">MacVenture</a> series – and later ported to several other systems.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-04.png" alt="" /></p>
-
-<p>The game takes place in Chicago during December 1941. The game character is Ace Harding, a retired boxer working as a private eye. Ace awakes one morning in a bathroom stall, unable to remember who he is. A dead man is found in an upstairs office, and Ace is about to be framed for the murder. There are some clues as to the identity of the murdered man and to Ace himself. A strap-down chair, mysterious vials, and a syringe are found, suggesting (together with a needle mark on Ace’s arm) that an interrogation has taken place.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-25.png" alt="" /></p>
-
-<p>As this is a MacVentures game the interface is laid out in a familiar fashion. The game world occupies a third of the screen, which you engage with by selecting a verb from the bottom section of the screen then clicking on. Having been designed with a mouse in mind, the NES port (which I’m playing) is a bit cumbersome to navigate, but as this was my first exposure to these titles I’m willing to be forgiving of these shortcomings.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-19.png" alt="" /></p>
-
-<p>Your goal is to figure out who you are and to clear your name once you realize you’re being framed for murder. This is done by collecting and analyzing evidence on every screen. Be warned - there is A LOT you can pick up and it’s not all useful.</p>
-
-<p>This is done by first selecting a verb (<code class="language-plaintext highlighter-rouge">EXAM</code>, <code class="language-plaintext highlighter-rouge">SPEAK</code>, <code class="language-plaintext highlighter-rouge">HIT</code>, <code class="language-plaintext highlighter-rouge">CLOSE</code>, <code class="language-plaintext highlighter-rouge">OPEN</code>, <code class="language-plaintext highlighter-rouge">TAKE</code>, <code class="language-plaintext highlighter-rouge">LEAVE</code>, <code class="language-plaintext highlighter-rouge">USE</code>), then moving the cursor over the target you want to interact with. There is no visual indication that what you’re trying to interact with will be valid, so there’s a lot of trial and error as you move through the game.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-26.png" alt="" />
-<em>Remember that random pencil you found … I hope you remembered to <code class="language-plaintext highlighter-rouge">TAKE</code> it with you …</em></p>
-
-<p>Inventory management is a huge part of this game as the goal is to find clues not only to your identity but eventually to clear your name as you’ve been framed for murder. Items can be nested 2 or 3 levels deep, so you’ll need to make sure you try and <code class="language-plaintext highlighter-rouge">OPEN</code> <em>everything</em>. Additionally there are item combination puzzles so you’ll want to make sure to try using items with each other.</p>
-
-<p>The game world is split between multiple locations that you need to navigate between by taking a cab. Each cab ride costs $0.75, but you have a limited number of coins. In the basement of Joe’s Bar there’s a casino where you can play the slot machines to try and earn some extra money. If you gamble away all your coins you’ll end up in an unwinnable situation … so save early and save often ;)</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-08.png" alt="" />
-<em>Make sure you save your game before playing the slot machines … just in case</em></p>
-
-<p>As you progress through the story you’ll realize you’ve been drugged, which is affecting your memory. Once you identify the what you’ve been given and what the remedy is, figure out how to administer this to yourself and do it without accidentally dying … you learn who you are, but this doesn’t really clear up what you need to do to proceed through to the end of the game.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-20.png" alt="" /></p>
-
-<p>I actually found this part a bit frustrating as I didn’t originally find the capsules and couldn’t take the medicine that’s supposed to restore your memory. Once I got a walkthrough and backtracked I was able to sort this out, but it sort of felt like a forced fetch quest - which I guess is pretty common of this genre of game.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-28.png" alt="" /></p>
-
-<p>In the deepest parts of the sewer there’s an area where you can discard evidence permanently. This is how you win the game as you need to take the evidence you find that frames you for murder and dispose of it. If you don’t do this JUST RIGHT, when you go to the police station at the end of the game you’ll wind up just being arrested instead of cleared of all charges.</p>
-
-<p>You can’t just randomly drop evidence either; it needs to be discarded in exactly this spot. This isn’t really clear while you’re playing the game, and I didn’t find any clues that indicated the sewer was where you needed to do this so I’m guessing it was meant to be a “trial and error” type of discovery for players. I didn’t love this as it’s not very intuitive, and really the game doesn’t make it apparent how you’re supposed to “win”.</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-27.png" alt="" /></p>
-
-<p>Make sure you save often as you play as there are multiple areas where you can be randomly killed. In the sewers you may run into a crocodile that will eat you and there are muggers randomly trying to rob and kill you. You can knock the mugger out a couple times using <code class="language-plaintext highlighter-rouge">HIT</code>, but after that you have to give him cash or he’ll shoot you.</p>
-
-<p>You’ll likely also die a few times by taking the wrong medicine trying to clear up your lost memory, or just using the wrong items on yourself trying to figure out what is useful. This is part of the fun of adventure games though so roll the dice and see what does and doesn’t kill you :D</p>
-
-<p><img src="/images/adventure/dejavu/deja-vu-32.png" alt="" /></p>
-
-<p>Overall this game has a decent story, and the NES port has pretty good music. I never tried playing any of the other ports so I’m not sure how they fare, but aside from the DOS version with the gross colour palette they seem to look ok as well.</p>
-
-<p>Seeing as this was their first game I can forgive some of the technical and procedural challenges I had finishing it. It is kind of weird knowing that this is the same company that ended up making licensed Beavis and Butthead games in the ’90s like <a href="/blog/2023/04/16/beavis-and-butthead/">Beavis and Butt-Head in Virtual Stupidity</a>.</p>
-
-<p>I’m looking forward to playing the sequel to see where this story goes.</p>
-
-<p><strong>Game Information</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Déjà Vu: A Nightmare Comes True</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/ICOM_Simulations">ICOM Simulations</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Mindscape, Kemco</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1985</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Apple IIGS, Macintosh, Atari ST, Commodore 64,<br />Amiga, DOS, Game Boy Color, Windows, NES</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php/MacVenture">MacVenture</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Play Information</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/4575"><em>How Long To Beat?</em></a></td>
-      <td>6 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>NES via <a href="https://tasvideos.org/BizHawk">BizHawk</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/ihavenomouth.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>50%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/dejavu/deja-vu-02.png', thumb: '/images/adventure/dejavu/deja-vu-02.png' },{ src: '/images/adventure/dejavu/deja-vu-03.png', thumb: '/images/adventure/dejavu/deja-vu-03.png' },{ src: '/images/adventure/dejavu/deja-vu-05.png', thumb: '/images/adventure/dejavu/deja-vu-05.png' },{ src: '/images/adventure/dejavu/deja-vu-06.png', thumb: '/images/adventure/dejavu/deja-vu-06.png' },{ src: '/images/adventure/dejavu/deja-vu-07.png', thumb: '/images/adventure/dejavu/deja-vu-07.png' },{ src: '/images/adventure/dejavu/deja-vu-09.png', thumb: '/images/adventure/dejavu/deja-vu-09.png' },{ src: '/images/adventure/dejavu/deja-vu-10.png', thumb: '/images/adventure/dejavu/deja-vu-10.png' },{ src: '/images/adventure/dejavu/deja-vu-11.png', thumb: '/images/adventure/dejavu/deja-vu-11.png' },{ src: '/images/adventure/dejavu/deja-vu-12.png', thumb: '/images/adventure/dejavu/deja-vu-12.png' },{ src: '/images/adventure/dejavu/deja-vu-13.png', thumb: '/images/adventure/dejavu/deja-vu-13.png' },{ src: '/images/adventure/dejavu/deja-vu-14.png', thumb: '/images/adventure/dejavu/deja-vu-14.png' },{ src: '/images/adventure/dejavu/deja-vu-15.png', thumb: '/images/adventure/dejavu/deja-vu-15.png' },{ src: '/images/adventure/dejavu/deja-vu-16.png', thumb: '/images/adventure/dejavu/deja-vu-16.png' },{ src: '/images/adventure/dejavu/deja-vu-17.png', thumb: '/images/adventure/dejavu/deja-vu-17.png' },{ src: '/images/adventure/dejavu/deja-vu-18.png', thumb: '/images/adventure/dejavu/deja-vu-18.png' },{ src: '/images/adventure/dejavu/deja-vu-21.png', thumb: '/images/adventure/dejavu/deja-vu-21.png' },{ src: '/images/adventure/dejavu/deja-vu-22.png', thumb: '/images/adventure/dejavu/deja-vu-22.png' },{ src: '/images/adventure/dejavu/deja-vu-23.png', thumb: '/images/adventure/dejavu/deja-vu-23.png' },{ src: '/images/adventure/dejavu/deja-vu-24.png', thumb: '/images/adventure/dejavu/deja-vu-24.png' },{ src: '/images/adventure/dejavu/deja-vu-29.png', thumb: '/images/adventure/dejavu/deja-vu-29.png' },{ src: '/images/adventure/dejavu/deja-vu-30.png', thumb: '/images/adventure/dejavu/deja-vu-30.png' },{ src: '/images/adventure/dejavu/deja-vu-31.png', thumb: '/images/adventure/dejavu/deja-vu-31.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="ICOM Simulations" /><category term="Mindscape" /><category term="Kemco" /><category term="MacVenture" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dejavu/deja-vu-01.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dejavu/deja-vu-01.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/bbvs/scummvm-bbvs-00001.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00001.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00002.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00002.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00005.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00005.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00006.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00006.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00007.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00007.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00008.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00008.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00009.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00009.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00010.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00010.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00014.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00014.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00016.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00016.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00017.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00017.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00018.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00018.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00019.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00019.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00020.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00020.png' },{ src: '/images/adventure/bbvs/scummvm-bbvs-00021.png', thumb: '/images/adventure/bbvs/scummvm-bbvs-00021.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Viacom New Media" /><category term="BBVS" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/bbvs/scummvm-bbvs-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/bbvs/scummvm-bbvs-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
