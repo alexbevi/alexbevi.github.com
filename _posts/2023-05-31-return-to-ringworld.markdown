@@ -46,6 +46,8 @@ Since this is an adventure game, the story is central to the experience, and in 
 
 Character interactions will either follow the typical linear progression or offer you a dialogue tree you can follow. The conversations are well written and they do a good job of injecting a lot of elements from the books such as characters, locations, historic events, species and slang (TANJ!). Since I really enjoyed these books as a teenager the settings you were dropped into and the elements of the world you engaged with felt natural.
 
+![](/images/adventure/r2rw/r2rw_009.png)
+
 Background music and sound effects were limited, but present. The music in general mostly felt generic, but I appreciated that it was there as my characters waded through all the mazes (yes, here I go again with the mazes!). All character dialogue is voice acted, and honestly they did a pretty good job of it. I ended up disabling speech and going with just text as I could read faster than the actors could deliver the lines. This is one game that offered support for the Roland MT-32, so if playing in ScummVM or DOSBox you can emulate this interface for some better synthesized tunes (check out a sample [of the intro sequence](https://www.youtube.com/watch?v=Rajzeyau-Lo)).
 
 ![](/images/adventure/r2rw/r2rw_031.png)
@@ -93,7 +95,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/r2rw/r2rw_006.png
 /images/adventure/r2rw/r2rw_007.png
 /images/adventure/r2rw/r2rw_008.png
-/images/adventure/r2rw/r2rw_009.png
 /images/adventure/r2rw/r2rw_010.png
 /images/adventure/r2rw/r2rw_012.png
 /images/adventure/r2rw/r2rw_014.png
