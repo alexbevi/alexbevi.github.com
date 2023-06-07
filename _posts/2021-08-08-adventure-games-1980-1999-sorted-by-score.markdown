@@ -12,8 +12,8 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 45  -%}
-{%- assign games_skipped  = 12  -%}
+{%- assign games_finished = 46  -%}
+{%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
 {
@@ -52,6 +52,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **61%** [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 1. **57%** [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 1. **57%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
+1. **56%** [Return to Ringworld (Tsunami Games)]({% post_url 2023-05-31-return-to-ringworld %}) - 1994
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 1. **50%** [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 1. **49%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
