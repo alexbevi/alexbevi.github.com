@@ -42,7 +42,7 @@ Overall this game was an enjoyable adventure, though the story was pretty sparse
 
 
 
-**Game Information**
+### Game Information
 
 |*Game*|Transylvania|
 |*Developer*|[Penguin Software](https://en.wikipedia.org/wiki/Penguin_Software)|
@@ -51,7 +51,7 @@ Overall this game was an enjoyable adventure, though the story was pretty sparse
 |*Systems*|Apple II, Atari 8-bit, Commodore 64, FM-7, Macintosh, PC-88, PC-98|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|1.5 hours|
 |*Version Played*|Apple II via [AppleWin](https://github.com/AppleWin/AppleWin)|

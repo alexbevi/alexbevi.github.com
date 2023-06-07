@@ -62,7 +62,7 @@ Seeing as this was their first game I can forgive some of the technical and proc
 
 I'm looking forward to playing the sequel to see where this story goes.
 
-**Game Information**
+### Game Information
 
 |*Game*|Déjà Vu: A Nightmare Comes True|
 |*Developer*|[ICOM Simulations](https://en.wikipedia.org/wiki/ICOM_Simulations)|
@@ -71,7 +71,7 @@ I'm looking forward to playing the sequel to see where this story goes.
 |*Systems*|Apple IIGS, Macintosh, Atari ST, Commodore 64,<br/>Amiga, DOS, Game Boy Color, Windows, NES|
 |*Game Engine*|[MacVenture](https://wiki.scummvm.org/index.php/MacVenture)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/4575)|6 hours|
 |*Version Played*|NES via [BizHawk](https://tasvideos.org/BizHawk)|

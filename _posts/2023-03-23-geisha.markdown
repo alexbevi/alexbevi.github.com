@@ -44,7 +44,7 @@ DON'T PLAY THIS "GAME".
 ![](/images/adventure/geisha/scummvm-geisha-00019.png)
 _Game Over ... thank god!_
 
-**Game Information**
+### Game Information
 
 |*Game*|Geisha|
 |*Developer*|[Coktel Vision](https://en.wikipedia.org/wiki/Coktel_Vision)|
@@ -53,7 +53,7 @@ _Game Over ... thank god!_
 |*Systems*|DOS, Amiga, Atari ST|
 |*Game Engine*|[Gob](https://wiki.scummvm.org/index.php/Gob)|
 
-**Play Information**
+### My Playthrough
 
 |*How Long To Beat?*|30 minutes?|
 |*Version Played*|Atari ST via [ScummVM](https://www.scummvm.org/)|

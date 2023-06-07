@@ -61,7 +61,7 @@ Blue Force came out at the height of Sierra Online's dominance of the adventure 
 
 I'm looking forward to playing other Tsunami games as this series progresses.
 
-**Game Information**
+### Game Information
 
 |*Game*|Blue Force|
 |*Developer*|[Tsunami Games](https://en.wikipedia.org/wiki/Tsunami_Games)|
@@ -70,7 +70,7 @@ I'm looking forward to playing other Tsunami games as this series progresses.
 |*Systems*|DOS|
 |*Game Engine*|[TsAGE](https://wiki.scummvm.org/index.php?title=TsAGE)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|2 hours|
 |*[How Long To Beat?](https://howlongtobeat.com/game?id=1205)*|4 hours|

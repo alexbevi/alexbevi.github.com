@@ -58,7 +58,7 @@ Infamous Adventures [did a VGA remake of this game in 2018](https://infamousadve
 
 ![](/images/adventure/sq2/scummvm-sq2-00026.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Police Quest II: The Vengeance|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -67,7 +67,7 @@ Infamous Adventures [did a VGA remake of this game in 2018](https://infamousadve
 |*Systems*|DOS, Macintosh, Apple II, Apple IIGS, Amiga, Atari ST|
 |*Game Engine*|[AGI](https://wiki.scummvm.org/index.php/AGI)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/8864)*|3.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

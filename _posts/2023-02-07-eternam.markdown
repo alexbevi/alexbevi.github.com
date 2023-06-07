@@ -80,7 +80,7 @@ This game is really weird. The controls are lousy, the story is bizarre and play
 ![](/images/adventure/eternam/etercrk_050.png){:width="70%"}
 _No fuss, no muss - just "the end"_
 
-**Game Information**
+### Game Information
 
 |*Game*|Eternam|
 |*Developer*|[Infogrames](https://en.wikipedia.org/wiki/Infogrames_Europe_SA)|
@@ -88,7 +88,7 @@ _No fuss, no muss - just "the end"_
 |*Release Date*|1992|
 |*Systems*|IBM PC (DOS), FM Towns|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/31411)*|7 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

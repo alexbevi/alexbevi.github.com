@@ -30,7 +30,7 @@ Since this was the first graphical adventure game you can't really compare it to
 
 ![](/images/adventure/scummvm-hires1-apple2-00009.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Mystery House|
 |*Developer*|[Online Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
@@ -39,7 +39,7 @@ Since this was the first graphical adventure game you can't really compare it to
 |*Systems*|Apple II|
 |*Game Engine*|[ADL (Adventure Development Language)](https://wiki.scummvm.org/index.php?title=ADL)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|40 minutes|
 |*Version Played*|Apple II via [ScummVM](https://www.scummvm.org/)|

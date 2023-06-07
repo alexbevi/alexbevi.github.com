@@ -61,7 +61,7 @@ _And that's all she wrote ... until next time!_
 I'm likely going to score this game a little higher than it may deserve because I have a bit of a history with it. Back in 2005 I stumbled across Tool-assisted speed running and the [TASVideos](https://tasvideos.org/) community. Back in those days I went by the handle _Maximus_, and one of my first published videos was ["NES Nightshade by Maximus in 08:27.67"](https://tasvideos.org/744M). Fun fact, a much younger me also wrote the original [TAS Movie Editor](https://tasvideos.org/Forum/Topics/4448), but this functionality was subsumed into Bizhawk eventually making the solution unnecessary.
 
 
-**Game Information**
+### Game Information
 
 |*Game*|Nightshade|
 |*Developer*|[Beam Software](https://en.wikipedia.org/wiki/Beam_Software)|
@@ -70,7 +70,7 @@ I'm likely going to score this game a little higher than it may deserve because 
 |*Systems*|NES|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/6603)*|1.5 hours|
 |*Version Played*|NES via [Bizhawk](https://github.com/TASEmulators/BizHawk)|

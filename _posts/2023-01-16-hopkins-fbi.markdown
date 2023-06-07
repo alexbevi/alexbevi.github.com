@@ -84,7 +84,7 @@ The game also attempted to up the musical quality by including a couple songs by
 
 Overall this was an "OK" adventure game, but I wouldn't really recommend it.
 
-**Game Information**
+### Game Information
 
 |*Game*|Hopkins FBI|
 |*Developer*|[MP Entertainment](https://en.wikipedia.org/w/index.php?title=MP_Entertainment&action=edit&redlink=1)|
@@ -93,7 +93,7 @@ Overall this was an "OK" adventure game, but I wouldn't really recommend it.
 |*Systems*|OS/2 Warp, Windows, Linux|
 |*Game Engine*|[Hopkins](https://wiki.scummvm.org/index.php?title=Hopkins)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/4502)*|4.5 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

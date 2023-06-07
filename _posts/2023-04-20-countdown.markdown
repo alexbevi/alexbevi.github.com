@@ -86,7 +86,7 @@ I really liked this game, but found it to be pretty challenging. You'll die A LO
 
 The underlying story is compelling and kept me interested enough to keep on plugging away to the end. If you're going to try this out for yourself, be warned that this is definitely an adventure game from the "non-LucasArts" camp, where you can die literally everywhere, and end up in unwinnable situations.
 
-**Game Information**
+### Game Information
 
 |*Game*|Countdown|
 |*Developer*|[Access Software](https://en.wikipedia.org/wiki/Access_Software)|
@@ -95,7 +95,7 @@ The underlying story is compelling and kept me interested enough to keep on plug
 |*Systems*|DOS|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/1951)|4 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

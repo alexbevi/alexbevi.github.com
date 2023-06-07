@@ -54,7 +54,7 @@ Though I personally love this game and find the story to be what keeps me coming
 
 If you've never played an adventure game before, I would highly recommend Full Throttle (or the remastered version). This title really embodies what was being produced at the height of the golden age of graphical adventure games and is still a great experience today.
 
-**Game Information**
+### Game Information
 
 |*Game*|Full Throttle|
 |*Developer*|[LucasArts](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -63,7 +63,7 @@ If you've never played an adventure game before, I would highly recommend Full T
 |*Systems*|DOS, Mac OS, Windows|
 |*Game Engine*|[SCUMM](https://wiki.scummvm.org/index.php/SCUMM)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/3748)*|6.5 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

@@ -52,7 +52,7 @@ Grim Fandango doesn't have a huge amount of replayability, but it is a lot of fu
 
 ![](/images/adventure/grim/scummvm-grim-win-00034.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Grim Fandango|
 |*Developer*|[LucasArts](https://en.wikipedia.org/wiki/LucasArts)|
@@ -61,7 +61,7 @@ Grim Fandango doesn't have a huge amount of replayability, but it is a lot of fu
 |*Systems*|Windows|
 |*Game Engine*|[GrimE](https://wiki.scummvm.org/index.php?title=GrimE)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/4123)*|11 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

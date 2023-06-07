@@ -92,7 +92,7 @@ Autopilot is a killer feature since you do SO MUCH backtracking and navigation, 
 
 As far as detective stories go this is a pretty good one. The pacing is good, the interfaces are intuitive and though moving from conversation to conversation via the navigation system can be a bit of a drag, it's not that bad overall. I'm a curious to see how the re-implementation of this game changes up these elements, but I guess I'll find out when the time comes :)
 
-**Game Information**
+### Game Information
 
 |*Game*|Mean Streets|
 |*Developer*|[Access Software](https://en.wikipedia.org/wiki/Access_Software)|
@@ -101,7 +101,7 @@ As far as detective stories go this is a pretty good one. The pacing is good, th
 |*Systems*|DOS, Amiga, Atari ST, Commodore 64|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/9730)*|8.5 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

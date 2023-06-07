@@ -56,7 +56,7 @@ I enjoyed the updated graphics such as the interior of the car while driving, bu
 
 Police Quest 1 was [reported to have been used as a training tool](https://en.wikipedia.org/wiki/Police_Quest:_In_Pursuit_of_the_Death_Angel#cite_note-8) for police officers, which can explain a lot of the rigidity. Unfortunately this hurts the overall play experience.
 
-**Game Information**
+### Game Information
 
 |*Game*|Police Quest: In Pursuit of the Death Angel|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -65,7 +65,7 @@ Police Quest 1 was [reported to have been used as a training tool](https://en.wi
 |*Systems*|DOS, Amiga, Atari ST, Apple II, Apple IIGS|
 |*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)/[Sierra's Creative Interpreter (SCI)](https://wiki.scummvm.org/index.php?title=SCI)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|3.5 hours|
 |*[How Long To Beat?](https://howlongtobeat.com/game?id=7196)*|5 hours|

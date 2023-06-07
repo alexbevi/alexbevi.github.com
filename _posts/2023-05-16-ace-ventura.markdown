@@ -54,7 +54,7 @@ Overall experience here was pretty lackluster. There's really nothing notable ab
 
 If it weren't in the list for this series there's no reason I'd ever have played this game, and honestly wouldn't recommend it to anyone else.
 
-**Game Information**
+### Game Information
 
 |*Game*|Ace Ventura|
 |*Developer*|[7th Level](https://en.wikipedia.org/wiki/7th_Level)|
@@ -63,7 +63,7 @@ If it weren't in the list for this series there's no reason I'd ever have played
 |*Systems*|Windows|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/16664)|3.5 hours|
 |*Version Played*|Windows via [DOSBox-X](https://dosbox-x.com/)|

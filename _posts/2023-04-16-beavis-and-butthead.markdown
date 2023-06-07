@@ -55,7 +55,7 @@ There is a very narrow audience that this game would appeal to - though I have t
 
 I don't think you'd consider the humour in this game "raunchy" by any means, but in the mid 90's standards were a lot higher (or lower?). You know what you're getting into when you pick up this title, and honestly it doesn't really disappoint. It's not a great game, but for a one time playthrough you'll have a good time.
 
-**Game Information**
+### Game Information
 
 |*Game*|Beavis and Butt-Head in Virtual Stupidity|
 |*Developer*|[Viacom New Media](https://en.wikipedia.org/wiki/Viacom_(2005%E2%80%93present))|
@@ -64,7 +64,7 @@ I don't think you'd consider the humour in this game "raunchy" by any means, but
 |*Systems*|Windows, PlayStation (JP Only)|
 |*Game Engine*|[BBVS](https://wiki.scummvm.org/index.php/BBVS)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/991)|4 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

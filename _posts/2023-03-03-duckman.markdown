@@ -44,7 +44,7 @@ If this game seems even the slightest bit compelling to you it might be best to 
 
 ![](/images/adventure/duckman/scummvm-duckman-00020.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Duckman: The Graphic Adventures of a Private Dick|
 |*Developer*|[The Illusions Gaming Company](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -53,7 +53,7 @@ If this game seems even the slightest bit compelling to you it might be best to 
 |*Systems*|Windows|
 |*Game Engine*|[Illusions](https://wiki.scummvm.org/index.php/Illusions)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/16694)*|3 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

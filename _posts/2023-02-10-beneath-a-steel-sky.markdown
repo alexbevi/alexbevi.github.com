@@ -51,7 +51,7 @@ Overall the story is compelling, the game play is intuitive and progresses natur
 
 ![](/images/adventure/bass/scummvm-sky-00030.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Beneath a Steel Sky|
 |*Developer*|[Revolution Software](https://en.wikipedia.org/wiki/Revolution_Software)|
@@ -60,7 +60,7 @@ Overall the story is compelling, the game play is intuitive and progresses natur
 |*Systems*|DOS, Amiga, Amiga CD32, Atari ST, iOS|
 |*Game Engine*|[Sky](https://wiki.scummvm.org/index.php?title=Sky)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/1005)*|6 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

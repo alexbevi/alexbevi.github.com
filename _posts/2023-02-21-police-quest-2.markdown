@@ -83,7 +83,7 @@ Police Quest 2 has aged pretty well, which may be partly due to it being a text-
 
 This can be a challenging game if you're not well versed in adventure games, but if you've never played it before I'd definitely recommend giving it a shot.
 
-**Game Information**
+### Game Information
 
 |*Game*|Police Quest II: The Vengeance|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -92,7 +92,7 @@ This can be a challenging game if you're not well versed in adventure games, but
 |*Systems*|DOS, Amiga, Atari ST, NEC PC-9801|
 |*Game Engine*|[SCI](https://wiki.scummvm.org/index.php/SCI)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/7194)*|5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

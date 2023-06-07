@@ -46,7 +46,7 @@ Though Shadowgate isn't the first in the MacVentures series, it's definitely my 
 
 ![](/images/adventure/shadowgate.015.png){:width="70%"}
 
-**Game Information**
+### Game Information
 
 |*Game*|Shadowgate|
 |*Developer*|[ICOM Simulations](https://en.wikipedia.org/wiki/ICOM_Simulations)|
@@ -55,7 +55,7 @@ Though Shadowgate isn't the first in the MacVentures series, it's definitely my 
 |*Systems*|Apple IIGS, Atari ST, Amiga, CD-i, Game Boy Color, Apple Macintosh,<br>Nintendo Entertainment System, Palm OS, DOS,<br>Pocket PC (ARM, MIPS), Mobile Phone|
 |*Game Engine*|[MacVenture](https://wiki.scummvm.org/index.php?title=MacVenture)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|1 hour|
 |*Version Played*|NES via [NES.emu](https://github.com/Rakashazi/emu-ex-plus-alpha) for Android|

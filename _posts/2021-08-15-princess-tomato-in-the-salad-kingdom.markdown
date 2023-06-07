@@ -48,7 +48,7 @@ Overall I still enjoy playing through this game. I like revisiting the story and
 
 ![](/images/adventure/princess-tomato.032.png){:width="70%"}
 
-**Game Information**
+### Game Information
 
 |*Game*|Princess Tomato in the Salad Kingdom|
 |*Developer*|[Hudson Soft](https://en.wikipedia.org/wiki/Hudson_Soft)|
@@ -57,7 +57,7 @@ Overall I still enjoy playing through this game. I like revisiting the story and
 |*Systems*|NEC PC-8801, NEC PC-6001, FM-7, MSX, NES/Famicom|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|2 hours 40 minutes|
 |*Version Played*|NES via [NES.emu](https://github.com/Rakashazi/emu-ex-plus-alpha) for Android|

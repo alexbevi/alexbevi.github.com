@@ -54,7 +54,7 @@ Although the graphics are a bit dated at this point, I don't think anyone pickin
 ![](/images/adventure/samnmax/scummvm-samnmax-00041.png)
 _The end credits are interactive and let you shoot the dolls like you would at a carnival ... fun!_
 
-**Game Information**
+### Game Information
 
 |*Game*|Sam & Max Hit the Road|
 |*Developer*|[LucasArts](https://en.wikipedia.org/wiki/LucasArts)|
@@ -63,7 +63,7 @@ _The end credits are interactive and let you shoot the dolls like you would at a
 |*Systems*|DOS, Mac OS, Windows, Amiga|
 |*Game Engine*|[SCUMM](https://wiki.scummvm.org/index.php?title=SCUMM)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/8112)*|5.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

@@ -72,7 +72,7 @@ If you're a fan of the movie I'd be curious to hear if the game progression is e
 
 ![](/images/adventure/labyrinth-21.png){:width="70%"}
 
-**Game Information**
+### Game Information
 
 |*Game*|[Labyrinth: The Computer Game](https://en.wikipedia.org/wiki/Labyrinth:_The_Computer_Game)|
 |*Developer*|[Lucasfilm Games](https://en.wikipedia.org/wiki/LucasArts)|
@@ -81,7 +81,7 @@ If you're a fan of the movie I'd be curious to hear if the game progression is e
 |*Systems*|Apple IIe and IIc, Commodore 64/128, MSX2|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|3 hour|
 |*Version Played*|Commodore 64 via [VICE](https://vice-emu.sourceforge.io/) for Windows|

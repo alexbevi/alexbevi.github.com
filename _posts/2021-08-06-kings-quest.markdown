@@ -40,7 +40,7 @@ Overall this game is still very accessible and playable, even as a text parser g
 
 ![](/images/adventure/scummvm-kq1-00026.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|King's Quest: Quest for the Crown|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -49,7 +49,7 @@ Overall this game is still very accessible and playable, even as a text parser g
 |*Systems*|PCjr, Tandy 1000, Amiga, Apple II, Apple IIGS,<br>Atari ST, Macintosh, DOS, Master System|
 |*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|31 minutes|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

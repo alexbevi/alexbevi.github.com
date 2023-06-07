@@ -40,7 +40,7 @@ Other than Mystery House that I have extremely fond memories of due to having pl
 
 [The Digital Antiquarian](https://www.filfre.net/) has a great write up on this game ([Part 1](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-1/), [Part 2](https://www.filfre.net/2011/10/the-wizard-and-the-princess-part-2/)) that I'd highly recommend if you want to dive a little deeper into this title.
 
-**Game Information**
+### Game Information
 
 |*Game*|Wizard and the Princess|
 |*Developer*|[On-Line Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
@@ -49,7 +49,7 @@ Other than Mystery House that I have extremely fond memories of due to having pl
 |*Systems*|Apple II, Apple II Plus, Atari 8-bit, Commodore 64<br>IBM PC, PCjr, FM-7, PC-88, PC-98|
 |*Game Engine*|[ADL (Adventure Development Language)](https://wiki.scummvm.org/index.php?title=ADL)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/4543)*|26 minutes|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

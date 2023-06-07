@@ -36,7 +36,7 @@ When I first played this game I was probably 13 or 14 and the setting, scenario 
 ![](/images/adventure/lsl1sci/scummvm-lsl1sci-00021.png)
 _Game Over ... Good on you buddy_
 
-**Game Information**
+### Game Information
 
 |*Game*|Leisure Suit Larry in the Land of the Lounge Lizards|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -45,7 +45,7 @@ _Game Over ... Good on you buddy_
 |*Systems*|DOS, Amiga, Apple II, Atari ST, Apple IIGS, TRS-80,<br>Windows, OSX, Xbox Live Arcade, PlayStation Network, iOS, Android|
 |*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)/[Sierra's Creative Interpreter (SCI)](https://wiki.scummvm.org/index.php?title=SCI)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/5271)*|3 hours|
 |*Version Played*|DOS (SCI Remake) via [ScummVM](https://www.scummvm.org/)|

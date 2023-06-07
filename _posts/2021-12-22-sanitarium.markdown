@@ -50,7 +50,7 @@ It's been a long time since I actually played through this game, and though I ma
 
 The darker setting and theme resonates with me and for anyone that enjoys a good, solid story I'd highly recommend giving this game a play.
 
-**Game Information**
+### Game Information
 
 |*Game*|[Sanitarium](https://en.wikipedia.org/wiki/Sanitarium_(video_game))|
 |*Developer*|[DreamForge Intertainment](https://en.wikipedia.org/wiki/DreamForge_Intertainment)|
@@ -59,7 +59,7 @@ The darker setting and theme resonates with me and for anyone that enjoys a good
 |*Systems*|Windows|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|7 hours|
 |*Version Played*|Windows via [ScummVM](https://www.scummvm.org/)|

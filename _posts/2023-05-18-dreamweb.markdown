@@ -76,7 +76,7 @@ Though extremely linear in nature, this game can be pretty challenging. You'll l
 
 DreamWeb wasn't well received critically when it was released, but I think it's actually a very good entry in the pantheon of adventure games - and not one to miss. If you're a fan of more mature darker stories and are willing to do the work up front to read through the supporting material I think you'll really enjoy this gaming experience.
 
-**Game Information**
+### Game Information
 
 |*Game*|DreamWeb|
 |*Developer*|[Creative Reality](https://www.mobygames.com/company/1331/creative-reality/)|
@@ -85,7 +85,7 @@ DreamWeb wasn't well received critically when it was released, but I think it's 
 |*Systems*|DOS, Amiga|
 |*Game Engine*|[Dreamweb](https://wiki.scummvm.org/index.php/Dreamweb)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/2882)|3.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

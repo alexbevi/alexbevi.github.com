@@ -74,7 +74,7 @@ Maybe that's the version I should have played ...
 
 ![](/images/adventure/mh1/scummvm-mh1-00055.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Manhunter: New York|
 |*Developer*|[Evryware](https://en.wikipedia.org/wiki/Evryware)|
@@ -83,7 +83,7 @@ Maybe that's the version I should have played ...
 |*Systems*|DOS, Amiga, Atari ST, Apple IIGS, Tandy 1000|
 |*Game Engine*|[AGI](https://wiki.scummvm.org/index.php/AGI)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/5603)*|4.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

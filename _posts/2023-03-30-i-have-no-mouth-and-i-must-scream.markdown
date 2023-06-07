@@ -55,7 +55,7 @@ Overall I had a good time with this game, and plan on reading the short story in
 
 As far as adventure games go I Have No Mouth, and I Must Scream doesn't really introduce anything unique or innovative to the genre, but still makes for a good experience. The strong story is what sets this apart, and though I highly doubt I'd ever play this again I very much enjoyed my time with this game.
 
-**Game Information**
+### Game Information
 
 |*Game*|I Have No Mouth, and I Must Scream|
 |*Developer*|[The Dreamers Guild](https://en.wikipedia.org/wiki/The_Dreamers_Guild)|
@@ -64,7 +64,7 @@ As far as adventure games go I Have No Mouth, and I Must Scream doesn't really i
 |*Systems*|Mac OS, DOS|
 |*Game Engine*|[SAGA](https://wiki.scummvm.org/index.php/SAGA)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/4575)|6 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

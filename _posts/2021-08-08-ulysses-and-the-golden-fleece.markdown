@@ -32,7 +32,7 @@ I'm sure if I took the time to properly explore this game I'd have learned the m
 
 That's my 2 cents on this. The visuals are nice for 1981, but I wouldn't recommend this title unless you're trying to complete a bunch of similar titles for your own blog/video series ;)
 
-**Game Information**
+### Game Information
 
 |*Game*|Ulysses and the Golden Fleece|
 |*Developer*|[On-Line Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
@@ -41,7 +41,7 @@ That's my 2 cents on this. The visuals are nice for 1981, but I wouldn't recomme
 |*Systems*|Apple II, Atari 8-bit, Commodore 64, DOS|
 |*Game Engine*|[ADL (Adventure Development Language)](https://wiki.scummvm.org/index.php?title=ADL)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|< 1 hour|
 |*Version Played*|Apple II via [AppleWin](https://github.com/AppleWin/AppleWin)|

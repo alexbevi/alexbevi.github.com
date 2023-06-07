@@ -63,7 +63,7 @@ I love visual novels, but this one wasn't great. Maybe I'm spoiled by more recen
 
 So far though I'm not loving these [Coktel Vision](/tags/coktel-vision/) titles.
 
-**Game Information**
+### Game Information
 
 |*Game*|Urban Runner|
 |*Developer*|[Coktel Vision](https://en.wikipedia.org/wiki/Coktel_Vision)|
@@ -72,7 +72,7 @@ So far though I'm not loving these [Coktel Vision](/tags/coktel-vision/) titles.
 |*Systems*|DOS, Windows|
 |*Game Engine*|[Gob](https://wiki.scummvm.org/index.php/Gob)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/24339)*|5.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

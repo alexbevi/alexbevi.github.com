@@ -57,7 +57,7 @@ As for this game, I'd recommend maybe passing it by. [Ringworld: Revenge of the 
 ![](/images/adventure/r2rw/r2rw_034.png)
 _And just like that another adventure comes to an end_
 
-**Game Information**
+### Game Information
 
 |*Game*|Return to Ringworld|
 |*Developer*|[Tsunami Games](https://en.wikipedia.org/wiki/Tsunami_Games)|
@@ -66,7 +66,7 @@ _And just like that another adventure comes to an end_
 |*Systems*|DOS|
 |*Game Engine*|[TsAGE](https://wiki.scummvm.org/index.php/TsAGE)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/19610)|4 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

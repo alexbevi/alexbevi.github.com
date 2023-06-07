@@ -42,7 +42,7 @@ This game was promoted as an entry level game to get players used to these types
 If you're just starting out with adventure games I highly doubt you'd be going back _this far_ as your entry point into the genre, but if you do this is a pretty easy game to get you going.
 
 
-**Game Information**
+### Game Information
 
 |*Game*|Mission Asteroid|
 |*Developer*|[On-Line Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
@@ -51,7 +51,7 @@ If you're just starting out with adventure games I highly doubt you'd be going b
 |*Systems*|Apple II, Atari 8-bit, Commodore 64|
 |*Game Engine*|[ADL](https://wiki.scummvm.org/index.php/ADL)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/47413)|1 hours|
 |*Version Played*|Apple II via [microM8](https://paleotronic.com/software/microm8/)|

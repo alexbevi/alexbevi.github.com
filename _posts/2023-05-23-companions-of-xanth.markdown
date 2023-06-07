@@ -65,7 +65,7 @@ _Oh right, you get points too_
 
 Companions of Xanth is not breaking any new ground in the adventure game genre. The writing is not particularly good, but this may just be the adaptation of Piers Anthony's work focusing too heavily on the puns and wordplay and less on character development and world building. I did leave this experience wanting to know a bit more about the world of Xanth, but not the game world - the books. I have a feeling these worlds are better experienced in writing than in game form, but that's just my 2 cents.
 
-**Game Information**
+### Game Information
 
 |*Game*|Companions of Xanth|
 |*Developer*|[Legend Entertainment](https://en.wikipedia.org/wiki/Legend_Entertainment)|
@@ -74,7 +74,7 @@ Companions of Xanth is not breaking any new ground in the adventure game genre. 
 |*Systems*|DOS|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/20742)|4 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

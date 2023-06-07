@@ -34,7 +34,7 @@ I'd highly recommend playing through this game. If text parser games aren't your
 
 ![](/images/adventure/scummvm-sq1-00026.png)
 
-**Game Information**
+### Game Information
 
 |*Game*|Space Quest: The Sarien Encounter|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -43,7 +43,7 @@ I'd highly recommend playing through this game. If text parser games aren't your
 |*Systems*|DOS, Macintosh, Apple II, Apple IIGS, Amiga, Atari ST|
 |*Game Engine*|[Adventure Game Interpreter (AGI)](https://wiki.scummvm.org/index.php?title=AGI)|
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|45 minutes|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

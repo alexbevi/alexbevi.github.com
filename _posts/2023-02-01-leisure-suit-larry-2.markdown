@@ -65,7 +65,7 @@ These old text parser games are a lot of fun as great care has been put into dev
 
 If crude, suggestive, innuendo-filled games are your thing, you'll likely enjoy this game as well as the rest in the [Leisure Suit Larry](https://en.wikipedia.org/wiki/Category:Leisure_Suit_Larry_games) series of games.
 
-**Game Information**
+### Game Information
 
 |*Game*|Leisure Suit Larry Goes Looking for Love (in Several Wrong Places)|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -74,7 +74,7 @@ If crude, suggestive, innuendo-filled games are your thing, you'll likely enjoy 
 |*Systems*|DOS, Amiga, Atari ST|
 |*Game Engine*|[SCI](https://wiki.scummvm.org/index.php?title=SCI)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/5269)*|4 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

@@ -47,7 +47,7 @@ This game just makes no sense. Maybe if you've read the books this is loosely ba
 
 Nothing about this game made any sense. If it made sense to YOU, please explain in the comments below :)
 
-**Game Information**
+### Game Information
 
 |*Game*|Emmanuelle|
 |*Developer*|[Coktel Vision](https://en.wikipedia.org/wiki/Coktel_Vision)|
@@ -55,7 +55,7 @@ Nothing about this game made any sense. If it made sense to YOU, please explain 
 |*Release Date*|1989|
 |*Systems*|DOS, Amiga, Atari ST|
 
-**Play Information**
+### My Playthrough
 
 |How Long to Beat?|1 hour|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

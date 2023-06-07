@@ -64,7 +64,7 @@ I didn't think I was going to like this game, but in the end I really did. The m
 
 Murder on the Mississippi is not a great game, but I had a good time working through the mystery and eventually finding the killer. Though you literally have to investigate EVERYTHING to try and surface clues where there's no indication anything might exist, the game is still pretty short and can be enjoyable (unless you're [this Japanese gamer that spent 2 years making a strategy guide to clear the game](https://originalnews.nico/372062)).
 
-**Game Information**
+### Game Information
 
 |*Game*|Murder on the Mississippi|
 |*Developer*|[Activision](https://en.wikipedia.org/wiki/On-Line_Systems)|
@@ -73,7 +73,7 @@ Murder on the Mississippi is not a great game, but I had a good time working thr
 |*Systems*|Apple II, Commodore 64/128, MSX2, Atari 800/XE/XL|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*How Long To Beat?*|4 hours|
 |*Version Played*|Commodore 64 via [VICE](https://vice-emu.sourceforge.io/)|

@@ -59,7 +59,7 @@ Overall, this game's fine. It's a sequel using the same game engine that tells t
 
 [AGD Interactive released a remake](http://www.agdinteractive.com/games/kq2/about/about.html) of this game with updated graphics, sound and music in 2002. Though I haven't played it myself I've heard nothing but good things about it (and their [other games](http://www.agdinteractive.com/games/games.html)), so if you're looking to play this game maybe skip the original and go straight to the remake.
 
-**Game Information**
+### Game Information
 
 |*Game*|King's Quest II: Romancing the Throne|
 |*Developer*|[Sierra On-Line](https://en.wikipedia.org/wiki/Sierra_Entertainment)|
@@ -68,7 +68,7 @@ Overall, this game's fine. It's a sequel using the same game engine that tells t
 |*Systems*|DOS, Macintosh, Apple II, Apple IIGS,<br>Amiga, Atari ST, PCjr|
 |*Game Engine*|[AGI](https://wiki.scummvm.org/index.php/AGI)|
 
-**Play Information**
+### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/5028)|3 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

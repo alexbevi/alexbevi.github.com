@@ -40,7 +40,7 @@ You find Penelope in a subsequent room, escape from this "house of horrors" and 
 
 The game really isn't bad for a text-parser game late in the life of text-parser games. David P Gray would go on to release two more titles in the Hugo trilogy (which I'll get to eventually). You can still buy the games directly from the author [from his website](https://www.dgray.com/hwpage.htm). I'd recommend going there just to bask in the glory of a webpage that still feels like it's from 2001 :D.
 
-**Game Information**
+### Game Information
 
 |*Game*|[Hugo's House of Horrors](https://en.wikipedia.org/wiki/Hugo%27s_House_of_Horrors)|
 |*Developer*|[Gray Design Associates](https://en.wikipedia.org/w/index.php?title=Gray_Design_Associates)|
@@ -49,7 +49,7 @@ The game really isn't bad for a text-parser game late in the life of text-parser
 |*Systems*|DOS, Windows|
 |*Game Engine*|[Hugo](https://wiki.scummvm.org/index.php?title=Hugo)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/4543)*|1 hour|
 |*Version Played*|DOS via [ScummVM](http://scummvm.org/) for Windows|

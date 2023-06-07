@@ -62,7 +62,7 @@ Playing through this game gave me a chance to not only relive my past playthroug
 
 A lot about Rise of the Dragon still resonates with me, and for anyone looking for a quick cyberpunk adventure game, I'd still recommend this title.
 
-**Game Information**
+### Game Information
 
 |*Game*|Rise of the Dragon|
 |*Developer*|[Dynamix](https://en.wikipedia.org/wiki/Dynamix)|
@@ -71,7 +71,7 @@ A lot about Rise of the Dragon still resonates with me, and for anyone looking f
 |*Systems*|Amiga, DOS, Macintosh, Mega-CD|
 |*Game Engine*|[DGDS](https://wiki.scummvm.org/index.php/DGDS)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/7838)*|5 hours|
 |*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|

@@ -59,7 +59,7 @@ I didn't have a lot of fun with this game, though it was an upgrade from the fir
 
 For a deeper dive into the development journey of Transylvania I highly recommend [The Digital Antiquarian's retrospective](https://www.filfre.net/2012/10/transylvania/) of the game.
 
-**Game Information**
+### Game Information
 
 |*Game*|The Crimson Crown: - Further Adventures in Transylvania|
 |*Developer*|[Penguin Software](https://en.wikipedia.org/wiki/Penguin_Software)|
@@ -68,7 +68,7 @@ For a deeper dive into the development journey of Transylvania I highly recommen
 |*Systems*|Amiga, Apple II, Atari ST, Commodore 64, DOS, FM-7, Macintosh, PC-88, PC-98|
 |*Game Engine*||
 
-**Play Information**
+### My Playthrough
 
 |*Time to Completion*|2 hours|
 |*Version Played*|Atari ST via [Steem SSE](https://sourceforge.net/projects/steemsse/)|

@@ -58,7 +58,7 @@ If you're looking for a great science fiction experience go read the books :)
 ![](/images/adventure/ringworld/scummvm-ringworld-cd-00023.png)
 _The end ... until Ringworld 2 that is ..._
 
-**Game Information**
+### Game Information
 
 |*Game*|Ringworld: Revenge of the Patriarch|
 |*Developer*|[Tsunami Games](https://en.wikipedia.org/wiki/Tsunami_Games)|
@@ -67,7 +67,7 @@ _The end ... until Ringworld 2 that is ..._
 |*Systems*|DOS|
 |*Game Engine*|[TsAGE](https://wiki.scummvm.org/index.php?title=TsAGE)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/19609)*|3 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|

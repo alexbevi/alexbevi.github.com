@@ -58,7 +58,7 @@ After what feels like an eternity you finally get to the endgame where you have 
 
 The game engine had a lot of promise and could have made some great adventures, but unfortunately _Cruise for a Corpse_ is all we got.
 
-**Game Information**
+### Game Information
 
 |*Game*|Cruise for a Corpse|
 |*Developer*|[Delphine Software International](https://en.wikipedia.org/wiki/Delphine_Software_International)|
@@ -67,7 +67,7 @@ The game engine had a lot of promise and could have made some great adventures, 
 |*Systems*|Amiga, Atari ST, DOS|
 |*Game Engine*|[CruisE](https://wiki.scummvm.org/index.php?title=CruisE)|
 
-**Play Information**
+### My Playthrough
 
 |*[How Long To Beat?](https://howlongtobeat.com/game/2055)*|3 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
