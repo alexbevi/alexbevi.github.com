@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 46  -%}
+{%- assign games_finished = 47  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -308,7 +308,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 232. ~~Clock Tower (Human Entertainment) - 1995~~ (_Japanese only, though a [fan translation exists](https://www.romhacking.net/translations/302/)_)
 233. Ripley's Believe It or Not!: The Riddle of Master Lu (Sanctuary Woods) - 1995
 234. [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
-235. Torin's Passage (Sierra On-Line) - 1995
+235. [Torin's Passage (Sierra On-Line)]({% post_url 2023-06-07-torins-passage %}) - 1995
 236. Mission Critical (Legend Entertainment) - 1995
 237. Shivers (Sierra On-Line) - 1995
 238. Simon the Sorcerer II: The Lion, the Wizard and the Wardrobe (Adventure Soft) - 1995
