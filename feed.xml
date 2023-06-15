@@ -1,4 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-07T06:09:43-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Return to Ringworld (Tsunami Games) - 1994</title><link href="https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld/" rel="alternate" type="text/html" title="Return to Ringworld (Tsunami Games) - 1994" /><published>2023-05-31T16:44:49-04:00</published><updated>2023-06-07T06:09:08-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-14T20:20:35-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Torin’s Passage (Sierra On-Line) - 1995</title><link href="https://www.alexbevi.com/blog/2023/06/07/torins-passage/" rel="alternate" type="text/html" title="Torin’s Passage (Sierra On-Line) - 1995" /><published>2023-06-07T20:54:41-04:00</published><updated>2023-06-14T17:57:04-04:00</updated><id>https://www.alexbevi.com/blog/2023/06/07/torins-passage</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/06/07/torins-passage/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Torin%27s_Passage">Torin’s Passage</a> is a point-and-click adventure game developed and published by Sierra On-Line in 1995. The game was designed by Al Lowe, author of the Leisure Suit Larry series.</p>
+
+<p>The game starts off with some royalty being killed by a wizard and what you assume is the royal baby being saved by a maid or something. She saves Torin, but is punished for this good deed by being shackled with a collar that keeps slowly tightening until it will eventually kill her. I think she then becomes evil or something and teams up with the wizard that killed the royal family, but honestly I sort of spaced out pretty quickly.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00001.png" alt="" /></p>
+
+<p>My main issue with this game was the story comes off as a generic fantasy crammed full of tropes but laid out in what feels like the laziest way possible. Torin grows up with farmers as his adopted parents, something happens, an evil sorceress captures your adopted family and you then need to go save them. This is done by traveling to the “lands below” by throwing magic powder at crystals that send you deeper and deeper into the earth.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00019.png" alt="" /></p>
+
+<p>Each chapter of the game represents your descent through the layers of the world as you slowly work your way to the core where your parents may be. This is done by completing fetch quest after fetch quest, solving a handful of puzzles and constantly backtracking.</p>
+
+<p>This is pretty standard fare for a lot of adventure games, but everything in this game just sort of feels forced and a bit sloppy. I get that Al Lowe wanted to write a game that he could play with his young daughter, but the game he wrote seemed to just be a rip off of <a href="https://en.wikipedia.org/wiki/Who_Framed_Roger_Rabbit">Who Framed Roger Rabbit</a> and King’s Quest VII.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00016.png" alt="" />
+<em>Maybe I’m being too critical, but the game just looks like shit</em></p>
+
+<p>Adding insult to injury, the game just doesn’t look that good. For a game that came out in late 1995 I really expected a lot more. The UI is bland and takes up the lower third of the screen. Your inventory is always visible, and you can take any item in your inventory and put it on the center pedestal to “zoom in” and examine the items. Very few items are worth doing this with, and when you do the “lasers” (green circle things) on each side of the inventory shoot it for some reason.</p>
+
+<p>Just look at it. If this were a game from the mid 80’s I’d be a lot more forgiving, but again … this is 1995 and Sierra has made a LOT of much MUCH better games. Weirdly enough the visual style of this game reminded more of the <a href="https://en.wikipedia.org/wiki/Link:_The_Faces_of_Evil_and_Zelda:_The_Wand_of_Gamelon">CD-i Zelda games</a> more than anything else. Google some pictures from those games and tell me you don’t see it ;)</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00020.png" alt="" /></p>
+
+<p>I mentioned this game reminded me of Roger Rabbit because you’ve got a sidekick throughout named Boogle that seems to provide the exact same style of comic relief. Sometimes it’s even identical (they lifted some lines and scenarios directly from the movie).</p>
+
+<p>The Boogle character at least adds a bit of variety to the game as he can transform into things you can use to solve certain puzzles. Typically you’ll use each Boogle form exactly once though, so the amount of variety it adds is limited.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00034.png" alt="" />
+<em>Oh god … puns … so many puns</em></p>
+
+<p>Unlike the Leisure Suit Larry games though, Torin’s Passage isn’t very funny - or for that matter, fun. From the time you start playing until the time you finally decide you’ve had enough and are ready to move on to a better game you’ll just feel like you’re going through the motions of playing a game.</p>
+
+<p>I just didn’t find the writing to be all that compelling - and I am a fan of Al Lowe (including following him on <a href="https://twitter.com/allowe">Twitter</a>). I’m not sure how actively involved he was in the actual content generation (since he was the director), but the game just felt derivative and slapped together.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00027.png" alt="" /></p>
+
+<p>What I did find a bit innovative was the built in hint system. You have a hint timer that you can configure, which after elapsing allows you to get a hint on how to proceed. If you’re newer to the genre this might come in handy as some of the puzzles are a bit obtuse and overly complex.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00021.png" alt="" /></p>
+
+<p>There are a couple puzzles at the end of Chapter 4 (I think that’s the right chapter) where you need to move these miniature dudes around in order to unlock (something). The whole “harmony” concept means you need to shuffle them around until you align them by colour, but which colours go where is not immediately obvious.</p>
+
+<p>Once you finally solve this (likely with a walkthrough), you’ll then have to do basically the same fucking puzzle but instead by rotating 2 characters at a time to get them in descending orders. This took FOREVER, and was NOT FUN. I really, REALLY hate arbitrary puzzles that feel like padding. I don’t have a problem with challenging puzzles, especially if it feels like you’ve gained the tools to solve the puzzle by naturally playing the game.</p>
+
+<p><img src="/images/adventure/torin/scummvm-torin-00039.png" alt="" />
+<em>No ending - just credits</em></p>
+
+<p>When you finally muddle your way to the finale, the game just sort of ends (cuts to credits). Apparently this is because Al Lowe planned for Torin’s Passage to be the first of <a href="https://web.archive.org/web/20010128170800/http://larry.adventuregamer.com/allinterview.html">5 games in a series</a>. Obviously this never came to pass, and it’s likely because this game just wasn’t all that good.</p>
+
+<p>Sierra Online made so many better games before this title came out, so it’s extremely disappointing to have to trudge through this turd. Boogle could have been a game changer if they’d incorporated him more deeply into the plot (or bothered to introduce him at all). The mechanic of having horizontal and vertical sliders so you can pan around a larger scene without having to walk around was interesting, but again, this wasn’t introduced. When you needed to actually use this panning mechanic to solve a puzzle it wasn’t obvious that this was how you approach the solution.</p>
+
+<p>I would not recommend this title to anyone. It’s just not fun, or interesting, or innovative in any way. Some component pieces had promise and might have (or possible DID) work better in other games, but Torin’s Passage isn’t worth anyone’s time today.</p>
+
+<h3 id="game-information">Game Information</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Torin’s Passage</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>October 31, 1995</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Windows 3.x, Windows 95, Mac OS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php/SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/10531"><em>How Long To Beat?</em></a></td>
+      <td>5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Windows via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="http://www.sierrahelp.com/Walkthroughs/TorinsPassageWalkthrough.html">Walkthrough</a>, <a href="https://www.youtube.com/watch?v=ocv2PF1ohWs">Longplay</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>44%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/torin/scummvm-torin-00002.png', thumb: '/images/adventure/torin/scummvm-torin-00002.png' },{ src: '/images/adventure/torin/scummvm-torin-00003.png', thumb: '/images/adventure/torin/scummvm-torin-00003.png' },{ src: '/images/adventure/torin/scummvm-torin-00004.png', thumb: '/images/adventure/torin/scummvm-torin-00004.png' },{ src: '/images/adventure/torin/scummvm-torin-00005.png', thumb: '/images/adventure/torin/scummvm-torin-00005.png' },{ src: '/images/adventure/torin/scummvm-torin-00006.png', thumb: '/images/adventure/torin/scummvm-torin-00006.png' },{ src: '/images/adventure/torin/scummvm-torin-00007.png', thumb: '/images/adventure/torin/scummvm-torin-00007.png' },{ src: '/images/adventure/torin/scummvm-torin-00008.png', thumb: '/images/adventure/torin/scummvm-torin-00008.png' },{ src: '/images/adventure/torin/scummvm-torin-00009.png', thumb: '/images/adventure/torin/scummvm-torin-00009.png' },{ src: '/images/adventure/torin/scummvm-torin-00010.png', thumb: '/images/adventure/torin/scummvm-torin-00010.png' },{ src: '/images/adventure/torin/scummvm-torin-00011.png', thumb: '/images/adventure/torin/scummvm-torin-00011.png' },{ src: '/images/adventure/torin/scummvm-torin-00012.png', thumb: '/images/adventure/torin/scummvm-torin-00012.png' },{ src: '/images/adventure/torin/scummvm-torin-00013.png', thumb: '/images/adventure/torin/scummvm-torin-00013.png' },{ src: '/images/adventure/torin/scummvm-torin-00014.png', thumb: '/images/adventure/torin/scummvm-torin-00014.png' },{ src: '/images/adventure/torin/scummvm-torin-00015.png', thumb: '/images/adventure/torin/scummvm-torin-00015.png' },{ src: '/images/adventure/torin/scummvm-torin-00017.png', thumb: '/images/adventure/torin/scummvm-torin-00017.png' },{ src: '/images/adventure/torin/scummvm-torin-00018.png', thumb: '/images/adventure/torin/scummvm-torin-00018.png' },{ src: '/images/adventure/torin/scummvm-torin-00022.png', thumb: '/images/adventure/torin/scummvm-torin-00022.png' },{ src: '/images/adventure/torin/scummvm-torin-00023.png', thumb: '/images/adventure/torin/scummvm-torin-00023.png' },{ src: '/images/adventure/torin/scummvm-torin-00024.png', thumb: '/images/adventure/torin/scummvm-torin-00024.png' },{ src: '/images/adventure/torin/scummvm-torin-00025.png', thumb: '/images/adventure/torin/scummvm-torin-00025.png' },{ src: '/images/adventure/torin/scummvm-torin-00026.png', thumb: '/images/adventure/torin/scummvm-torin-00026.png' },{ src: '/images/adventure/torin/scummvm-torin-00028.png', thumb: '/images/adventure/torin/scummvm-torin-00028.png' },{ src: '/images/adventure/torin/scummvm-torin-00029.png', thumb: '/images/adventure/torin/scummvm-torin-00029.png' },{ src: '/images/adventure/torin/scummvm-torin-00030.png', thumb: '/images/adventure/torin/scummvm-torin-00030.png' },{ src: '/images/adventure/torin/scummvm-torin-00031.png', thumb: '/images/adventure/torin/scummvm-torin-00031.png' },{ src: '/images/adventure/torin/scummvm-torin-00032.png', thumb: '/images/adventure/torin/scummvm-torin-00032.png' },{ src: '/images/adventure/torin/scummvm-torin-00033.png', thumb: '/images/adventure/torin/scummvm-torin-00033.png' },{ src: '/images/adventure/torin/scummvm-torin-00035.png', thumb: '/images/adventure/torin/scummvm-torin-00035.png' },{ src: '/images/adventure/torin/scummvm-torin-00036.png', thumb: '/images/adventure/torin/scummvm-torin-00036.png' },{ src: '/images/adventure/torin/scummvm-torin-00037.png', thumb: '/images/adventure/torin/scummvm-torin-00037.png' },{ src: '/images/adventure/torin/scummvm-torin-00038.png', thumb: '/images/adventure/torin/scummvm-torin-00038.png' },{ src: '/images/adventure/torin/scummvm-torin-00040.png', thumb: '/images/adventure/torin/scummvm-torin-00040.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/torin/scummvm-torin-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/torin/scummvm-torin-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return to Ringworld (Tsunami Games) - 1994</title><link href="https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld/" rel="alternate" type="text/html" title="Return to Ringworld (Tsunami Games) - 1994" /><published>2023-05-31T16:44:49-04:00</published><updated>2023-06-07T06:09:08-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/31/return-to-ringworld/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1242,166 +1381,4 @@
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kq2/scummvm-kq2-00006.png', thumb: '/images/adventure/kq2/scummvm-kq2-00006.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00007.png', thumb: '/images/adventure/kq2/scummvm-kq2-00007.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00008.png', thumb: '/images/adventure/kq2/scummvm-kq2-00008.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00009.png', thumb: '/images/adventure/kq2/scummvm-kq2-00009.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00010.png', thumb: '/images/adventure/kq2/scummvm-kq2-00010.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00011.png', thumb: '/images/adventure/kq2/scummvm-kq2-00011.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00014.png', thumb: '/images/adventure/kq2/scummvm-kq2-00014.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00015.png', thumb: '/images/adventure/kq2/scummvm-kq2-00015.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00016.png', thumb: '/images/adventure/kq2/scummvm-kq2-00016.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00018.png', thumb: '/images/adventure/kq2/scummvm-kq2-00018.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00020.png', thumb: '/images/adventure/kq2/scummvm-kq2-00020.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="AGI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Countdown (Access Software) - 1990</title><link href="https://www.alexbevi.com/blog/2023/04/20/countdown/" rel="alternate" type="text/html" title="Countdown (Access Software) - 1990" /><published>2023-04-20T06:41:28-04:00</published><updated>2023-06-07T06:05:53-04:00</updated><id>https://www.alexbevi.com/blog/2023/04/20/countdown</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/04/20/countdown/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p>In <a href="https://en.wikipedia.org/wiki/Countdown_(video_game)">Countdown</a> you play as Mason Powers, a CIA agent who wakes up in a Turkish mental hospital, suffering from partial amnesia and accused of murdering his supervisor. Powers must escape the hospital, find out who framed him, piece together his memory, and prevent terrorists from blowing up a peace conference.</p>
-
-<p><img src="/images/adventure/countdown/count_004.png" alt="" /></p>
-
-<p>As the title of the game implies, you’ve got a limited time to finish this game before the bomb goes off. I’m not actually sure if this is communicated as you first start playing or if it’s in the game manual, but you’ve apparently only got 96 hours of game time to get everything sorted out.</p>
-
-<p>You start off in the insane asylum and can see something glinting under the bed. Using the mouse you can select from a number of verbs, which you then use to interact with the game environment.</p>
-
-<p><img src="/images/adventure/countdown/count_007.png" alt="" /></p>
-
-<p>Character movement appears to be rotoscoped, and instead of tiny sprites on screen everything is big and detailed. Though this game seems to use a similar engine as <a href="/blog/2023/01/19/mean-streets/">Mean Streets</a> (which only came out a year earlier), the quality of the graphics is much much better. You can move Mason around the screen with the keyboard and use the mouse to interact with the environment.</p>
-
-<p><img src="/images/adventure/countdown/count_029.png" alt="" /></p>
-
-<p>As you progress you’ll encounter certain characters you can interact with. This is done via a menu that offers options as to how you can approach the conversation. For example, you can ask for <code class="language-plaintext highlighter-rouge">HELP</code>, <code class="language-plaintext highlighter-rouge">HASSLE</code> them, be <code class="language-plaintext highlighter-rouge">PLEASANT</code>, try to <code class="language-plaintext highlighter-rouge">BLUFF</code>, <code class="language-plaintext highlighter-rouge">OFFER</code> something or <code class="language-plaintext highlighter-rouge">ASK ABOUT</code> a keyword. There’s actually a HUGE amount of trial and error required here as you need to try different approaches (combinations of actions) with each character before they’ll let you ask them about anything.</p>
-
-<p>This isn’t immediately obvious and if you don’t approach a conversation correctly you need to exit and re-initiate or you can’t proceed. This is not intuitive and can leave you feeling like you’ve hit a dead end.</p>
-
-<p><img src="/images/adventure/countdown/count_012.png" alt="" />
-<em>Oh goody, a maze</em></p>
-
-<p>Some game sequences involve an overhead view where you have to avoid guards as you make your way to the next room. The guards will all follow a predetermined path so once you know what this is it’s not that hard to avoid them. Unfortunately when you leave a room and go back into one of these scenes the guards may be nearby and if they spot you it’s game over, so make sure to save often.</p>
-
-<p><img src="/images/adventure/countdown/count_005.png" alt="" />
-<em>Trying to escape from the asylum will result in you getting caught … a lot</em></p>
-
-<p>To escape the initial sequence in the asylum you also have to navigate an arbitrary maze. Thankfully there are no guards in this section, but I hate mazes and find them tedious … and this one was no different. It really feels like it’s artificially delaying your progress and is just “busy work” for the player. Thankfully this is the only maze in the game :)</p>
-
-<p><img src="/images/adventure/countdown/count_030.png" alt="" /></p>
-
-<p>Travel in this game is done via a menu, and you can select to either take a train or a plane to most destinations. Taking the train will take much longer (time-wise) and since the game is on a timer this can be problematic. The endgame sequence requires you to catch a train to Paris, but if you’ve taken too long getting to the terminal the train will be gone and you have to start over (either from an old save file, or from the very beginning).</p>
-
-<p>Unlike Mean Streets the travel mechanics in this game are pretty straightforward, but you have limited money to move around Europe with so make sure you’re paying attention as the story unfolds and try not to backtrack too often.</p>
-
-<p><img src="/images/adventure/countdown/count_027.png" alt="" /></p>
-
-<p>When you return to your apartment you’ll find a CAD system, which is sort of like a laptop. This can be used to look up information on characters you learn about, analyze inventory items or read email. You’ll only get a couple email messages throughout the game, and when you read them they’re gone … so pay close attention.</p>
-
-<p>Certain items (such as notes, memos or documents) can be analyzed. This is done by zooming in and out using the CAD system, which at a certain resolution will result in you being able to read some additional text on screen. Once you find the correct resolution you’ll typically be given an additional keyword you can ask characters about or a new location you can travel to.</p>
-
-<p>Unfortunately as new information becomes available you’re not given any audio or visual cue.</p>
-
-<p><img src="/images/adventure/countdown/count_032.png" alt="" /></p>
-
-<p>The story is actually quite good, and each character you interact with drops clues as to how you ended up in the asylum, who you work for, what the mission was and ultimately what you need to do to stop the terrorist plot. Assuming you don’t miss anything by approaching a conversation incorrectly you’ll be able to piece everything together from these interactions.</p>
-
-<p><img src="/images/adventure/countdown/count_031.png" alt="" /></p>
-
-<p>Not everything is obvious though … For example, in Venice after you meet with the stripper and get some additional information from her you’ll want to search her dressing room. You don’t know this is a goal, but assuming you do you’ll need to wait for the guard to leave. There are no clues that the guard even will leave, so unless you have the foresight to just stand still for 2-3 minutes until he moves … you’re stuck.</p>
-
-<p>This was not obvious, and from the character interactions in this area there are no clues that he might leave on his own for some reason.</p>
-
-<p><img src="/images/adventure/countdown/count_035.png" alt="" />
-<em>Move the brick next to his leg. No, not that brick, the other one … no, the other one … ARGH</em></p>
-
-<p>As good as the story may be, this game is HARD. You can’t move the mouse around the screen and have hotspots identified - you have to select a verb and click on EVERYTHING. What’s worse is on some screens there are SO MANY dead ends that you can interact with but don’t really offer anything useful. Additionally, you’ll need to try and <code class="language-plaintext highlighter-rouge">MOVE</code> literally EVERYTHING.</p>
-
-<p>This game mechanic must be a carryover from Mean Streets - where it was also extremely frustrating. You never know when something will be hidden <em>beneath</em> something else.</p>
-
-<p><img src="/images/adventure/countdown/count_034.png" alt="" />
-<em>Nice kitty!</em></p>
-
-<p>There are a handful of puzzle sequences as well. Most puzzles are pretty straightforward, but you’ll likely still die a dozen times trying to get the timing “just right”. For example, when you’re captured and tied up above a tiger, once the rope burns and you fall you need to lure the tiger into a cage, then run out and close the cage. This seems easy, but trying to navigate the mouse and keyboard together fast enough will result in the tiger getting out and eating you the first few tries.</p>
-
-<p><img src="/images/adventure/countdown/count_037.png" alt="" /></p>
-
-<p>If all goes well and you didn’t forget to pick up any key items, and you didn’t screw up any of the character interactions, and you didn’t run out of money, and you didn’t run out of time, and you didn’t get stuck because a puzzle was non-obvious … you’ll make it to Paris where you have 60 seconds to defuse an atomic bomb. No pressure …</p>
-
-<p>Assuming you’ve used the CAD to review EVERYTHING you picked up one of the notes does give you the info you need to properly defuse the bomb (or you can just use a walkthrough). Once you complete this, the game is over and you’ve saved the world. Good job!</p>
-
-<p><img src="/images/adventure/countdown/count_039.png" alt="" /></p>
-
-<p>I really liked this game, but found it to be pretty challenging. You’ll die A LOT just trying to get out of the initial sequence in the asylum, and you might blow a good hour in the basement maze if you suck at mazes like I do …</p>
-
-<p>The underlying story is compelling and kept me interested enough to keep on plugging away to the end. If you’re going to try this out for yourself, be warned that this is definitely an adventure game from the “non-LucasArts” camp, where you can die literally everywhere, and end up in unwinnable situations.</p>
-
-<h3 id="game-information">Game Information</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Countdown</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Access_Software">Access Software</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Access Software</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1990</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/1951"><em>How Long To Beat?</em></a></td>
-      <td>4 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/countdown.aspx">Walkthrough</a>, <a href="https://www.youtube.com/watch?v=SoqPTNkFh88">Longplay</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>61%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/countdown/count_001.png', thumb: '/images/adventure/countdown/count_001.png' },{ src: '/images/adventure/countdown/count_002.png', thumb: '/images/adventure/countdown/count_002.png' },{ src: '/images/adventure/countdown/count_003.png', thumb: '/images/adventure/countdown/count_003.png' },{ src: '/images/adventure/countdown/count_006.png', thumb: '/images/adventure/countdown/count_006.png' },{ src: '/images/adventure/countdown/count_008.png', thumb: '/images/adventure/countdown/count_008.png' },{ src: '/images/adventure/countdown/count_009.png', thumb: '/images/adventure/countdown/count_009.png' },{ src: '/images/adventure/countdown/count_010.png', thumb: '/images/adventure/countdown/count_010.png' },{ src: '/images/adventure/countdown/count_011.png', thumb: '/images/adventure/countdown/count_011.png' },{ src: '/images/adventure/countdown/count_013.png', thumb: '/images/adventure/countdown/count_013.png' },{ src: '/images/adventure/countdown/count_017.png', thumb: '/images/adventure/countdown/count_017.png' },{ src: '/images/adventure/countdown/count_018.png', thumb: '/images/adventure/countdown/count_018.png' },{ src: '/images/adventure/countdown/count_020.png', thumb: '/images/adventure/countdown/count_020.png' },{ src: '/images/adventure/countdown/count_021.png', thumb: '/images/adventure/countdown/count_021.png' },{ src: '/images/adventure/countdown/count_022.png', thumb: '/images/adventure/countdown/count_022.png' },{ src: '/images/adventure/countdown/count_023.png', thumb: '/images/adventure/countdown/count_023.png' },{ src: '/images/adventure/countdown/count_024.png', thumb: '/images/adventure/countdown/count_024.png' },{ src: '/images/adventure/countdown/count_025.png', thumb: '/images/adventure/countdown/count_025.png' },{ src: '/images/adventure/countdown/count_026.png', thumb: '/images/adventure/countdown/count_026.png' },{ src: '/images/adventure/countdown/count_028.png', thumb: '/images/adventure/countdown/count_028.png' },{ src: '/images/adventure/countdown/count_033.png', thumb: '/images/adventure/countdown/count_033.png' },{ src: '/images/adventure/countdown/count_036.png', thumb: '/images/adventure/countdown/count_036.png' },{ src: '/images/adventure/countdown/count_038.png', thumb: '/images/adventure/countdown/count_038.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/countdown/count_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/countdown/count_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kq2/scummvm-kq2-00006.png', thumb: '/images/adventure/kq2/scummvm-kq2-00006.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00007.png', thumb: '/images/adventure/kq2/scummvm-kq2-00007.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00008.png', thumb: '/images/adventure/kq2/scummvm-kq2-00008.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00009.png', thumb: '/images/adventure/kq2/scummvm-kq2-00009.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00010.png', thumb: '/images/adventure/kq2/scummvm-kq2-00010.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00011.png', thumb: '/images/adventure/kq2/scummvm-kq2-00011.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00014.png', thumb: '/images/adventure/kq2/scummvm-kq2-00014.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00015.png', thumb: '/images/adventure/kq2/scummvm-kq2-00015.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00016.png', thumb: '/images/adventure/kq2/scummvm-kq2-00016.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00018.png', thumb: '/images/adventure/kq2/scummvm-kq2-00018.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00020.png', thumb: '/images/adventure/kq2/scummvm-kq2-00020.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="AGI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
