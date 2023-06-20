@@ -1,4 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-14T20:20:35-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Torin’s Passage (Sierra On-Line) - 1995</title><link href="https://www.alexbevi.com/blog/2023/06/07/torins-passage/" rel="alternate" type="text/html" title="Torin’s Passage (Sierra On-Line) - 1995" /><published>2023-06-07T20:54:41-04:00</published><updated>2023-06-14T17:57:04-04:00</updated><id>https://www.alexbevi.com/blog/2023/06/07/torins-passage</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/06/07/torins-passage/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-20T07:03:16-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Gabriel Knight: Sins of the Fathers (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2023/06/14/gabriel-knight-sins-of-the-fathers/" rel="alternate" type="text/html" title="Gabriel Knight: Sins of the Fathers (Sierra On-Line) - 1993" /><published>2023-06-14T18:02:58-04:00</published><updated>2023-06-20T07:02:34-04:00</updated><id>https://www.alexbevi.com/blog/2023/06/14/gabriel-knight-sins-of-the-fathers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/06/14/gabriel-knight-sins-of-the-fathers/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Gabriel_Knight:_Sins_of_the_Fathers">Gabriel Knight: Sins of the Fathers</a> is a 1993 point-and-click adventure game, developed and published by Sierra On-Line for MS-DOS, Macintosh, and Windows, and released on December 17, 1993. The CD-ROM version features the voice talents of Tim Curry, Mark Hamill, Michael Dorn, Efrem Zimbalist, Jr., and Leah Remini. The game’s story focuses on Gabriel Knight, a struggling novelist and owner of a rare book store in New Orleans, who opts to research a recent spate of murders around the city that have a connection to voodoo. In the process, he is slowly revealed to be a descendant of a German family who are involved in combatting people who use supernatural forces, and discovers a link between the killings and his family’s past.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00048.png" alt="" /></p>
+
+<p>First off, I love the darker and more mature theme of this game. While investigating the murder (“for his book”), Gabriel has access to crime scenes and evidence as his friend Detective Mosley believes it’s just research. Mosley thinks Gabriel is going to include him as a character, so he gives him a lot more access than he likely should have.</p>
+
+<p>Several key story points trigger cut scenes that are presented as multi-panel art boxes. As this gives the game a Graphic Novel feel I actually like it a lot more than if they resorted to FMVs or scripted events.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00011.png" alt="" /></p>
+
+<p>You move around the French Quarter of New Orleans via a quick travel map, with additional locations being added as you advance the story. There really aren’t too many locations in this game, with several only being visited once. When you move to the greater New Orleans map, there are a couple more locations you have access to, but overall the game keeps you focused on a dozen or less areas you need to return to.</p>
+
+<p>This makes the game feel a lot bigger than it actually is, but not overwhelming as you will need to backtrack to a number of these key locations as you uncover new dialogue options that you’ll then need to try out on every character you’ve spoken to already.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00003.png" alt="" /></p>
+
+<p>Character interactions are all presented on a static screen with various topics you can ask. Every character gets the the same key topics, with some character-specific topics also presented to help flesh out their backgrounds and motivations. These are actually colour-coded which is a nice quality of life feature to help you identify when you’ve surfaced a keyword you should likely go ask others about.</p>
+
+<p>If you’re playing the CD version of the game, all interactions are voiced by professional actors and it really shows in the quality of the delivery. Tim Curry’s performance as Gabriel Knight really draws you into the story. Though this game was remade for the <a href="https://www.postudios.com/company/games/gabrielknight20th/">20th Anniversary by Phoenix Online Studios</a> I don’t know that I’d have enjoyed it nearly as much with a different cast.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00034.png" alt="" /></p>
+
+<p>The theme of underground cartels, secret organizations and voodoo is ever present throughout this game and most game scenes represent this extremely well. Though this is still an SCI game using pixel art, it is very expressive and stays true to the darker content and themes of the game.</p>
+
+<p>To really draw you in the soundtrack also fits perfectly and further draws you into the overall experience. Sierra Music Central has the <a href="http://www.sierramusiccentral.com/gk1cd.html">full soundtrack</a> available for free if you want to check out any tracks. My personal favourite would be the <a href="http://www.sierramusiccentral.com/musics/gk1cd/GK1Track05.mp3">theme to St. George’s Bookshop</a> - go ahead, give it a listen.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00001.png" alt="" /></p>
+
+<p>The game takes place over the course of 10 days, with the story progressing in a linear fashion. Each day you have a certain number of key events you need to complete in order to progress, and you’ll know you’ve finished these because Gabriel will indicate it’s getting late and time to head home. Though the game is very well structured and if you exhaust all the dialogue options available with each character each day you shouldn’t get stuck, I found myself unable to progress past day 4 for longer than I care to admit.</p>
+
+<p>After doing a bit of hunting around online for the solution, apparently <a href="https://www.neoseeker.com/forums/1378/t225489-day-4-won-end/">others have hit the same roadblock</a> so I felt a little less stupid needing to look for help. Turns out I needed to go to Moonbeam and show her the markings from the tomb you copied earlier using the sketchbook (which teaches you about the Rada drums I believe).</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00031.png" alt="" />
+<em>It takes a bit of patience, but the pattern matching puzzles aren’t too difficult</em></p>
+
+<p>There are a few instances in this game where you’ll need to work with the Rada drums in order to either decode or send message. Initially I thought this was going to be tedious, but it was relatively well done and you weren’t presented with a ridiculous number of useless options you’d need to wade through in order to match the right patterns.</p>
+
+<p>As long as you’re paying attention to the clues the game is giving you it’s not too difficult to figure out what the message is you’re supposed to write on the tomb with the brick either. Thankfully the game will tell you right away if it’s the wrong message when you exit the screen so you’re not just blindly waiting for some scripted event to occur that’s never going to happen.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00006.png" alt="" /></p>
+
+<p>Since this is a Sierra SCI game the top of the screen hides the menu bar, which is a bit more involved than most of the Quest series. The typical action icons exist (<code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">TALK</code>, <code class="language-plaintext highlighter-rouge">WALK</code>, <code class="language-plaintext highlighter-rouge">TAKE</code>, etc) and you can access your inventory, but there’s also an option for the tape recorder. Since Gabriel is an author and is interviewing people for his book, he’s recording all conversations for future reference.</p>
+
+<p>This is extremely useful as you can revisit every conversation you’ve had and review what topics were discussed and what the answers were. For those of us that don’t write everything down but wonder on occasion “what did XXX say about YYY?”, this is an invaluable tool.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00046.png" alt="" />
+<em>These zombies will fuck you up</em></p>
+
+<p>Certain situations Gabriel finds himself in can lead to death and a game over. This is not unexpected in a Sierra Online game, but it was refreshing to find that these were rare occurrences, and were somewhat expected. I’m not sure if there are any game-ending deaths earlier in the game, but later when you’re trying to get out of Snake Mound and you wake the zombies, if one of them catches you they’ll make quick work of you.</p>
+
+<p>When you finally find the voodoo honfour, if you summon Brother Eagle but don’t get out of the hallway in time, he’ll catch and kill you.</p>
+
+<p>Unlike most Sierra Online games, this game doesn’t have a speed toggle in the settings and Gabriel walks pretty slowly. I’m guessing speeding up the game likely wouldn’t only affect his walk speed so it probably wouldn’t help you in these situations, but it would have been nice elsewhere in the game where you’re slowly navigating certain screens.</p>
+
+<p><img src="/images/adventure/gk1/scummvm-gk1-cd-win-00051.png" alt="" /></p>
+
+<p>Sins of the Fathers is one of my all time favourite adventure games. The story is just fantastic and keeps you drawn in until the very end. The pacing is spot on and though some of the puzzles can be a bit difficult, nothing you do feels like busy work to pad out the game.</p>
+
+<p>There really aren’t a lot of locations you need to visit, so backtracking is less of a chore, and if you missed something or forgot to ask someone something it doesn’t take long to fill that gap to advance the plot. I also didn’t find there were any unwinnable situations as I don’t believe a given day will end unless you’ve done everything and picked up everything that’s required.</p>
+
+<p>This is a title I would highly recommend to anyone interested in adventure gaming. Do yourself a favour though and play this game on ScummVM with <a href="https://docs.scummvm.org/en/v2.6.1/advanced_topics/understand_audio.html#what-is-mt-32">MT-32 device emulation</a>. It makes an already awesome soundtrack all that much more awesome!</p>
+
+<p>I never finished either of the sequels, though I did try them and was disappointed so not looking forward to having to slog through those when the time comes. For now though I’m still basking in a great gaming experience.</p>
+
+<h3 id="game-information">Game Information</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Gabriel Knight: Sins of the Fathers</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>December 17, 1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Macintosh, Windows</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php/SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/3784"><em>How Long To Beat?</em></a></td>
+      <td>10.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Windows via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthrough/full/gabriel-knight-sins-of-the-fathers">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>89%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Torin’s Passage (Sierra On-Line) - 1995</title><link href="https://www.alexbevi.com/blog/2023/06/07/torins-passage/" rel="alternate" type="text/html" title="Torin’s Passage (Sierra On-Line) - 1995" /><published>2023-06-07T20:54:41-04:00</published><updated>2023-06-14T17:57:04-04:00</updated><id>https://www.alexbevi.com/blog/2023/06/07/torins-passage</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/06/07/torins-passage/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1246,139 +1396,4 @@
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-18.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-18.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-52.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-52.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-01-47.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-01-47.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-04-43.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-04-43.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-22-04.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-22-04.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="ADL" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/asteroid/screenshot-2023-April-26-19-29-46.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/asteroid/screenshot-2023-April-26-19-29-46.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest II: Romancing the Throne (Sierra On-Line) - 1985</title><link href="https://www.alexbevi.com/blog/2023/04/25/kings-quest-ii/" rel="alternate" type="text/html" title="King’s Quest II: Romancing the Throne (Sierra On-Line) - 1985" /><published>2023-04-25T06:13:16-04:00</published><updated>2023-06-07T06:05:53-04:00</updated><id>https://www.alexbevi.com/blog/2023/04/25/kings-quest-ii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/04/25/kings-quest-ii/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/King%27s_Quest_II">King’s Quest II: Romancing the Throne</a> is the second installment in the King’s Quest series of graphic adventure games by Sierra On-Line. It was originally released in 1985 for PC DOS/PCjr, and later made available for the Apple II/IIGS, Atari ST, and Amiga. It uses the same AGI game engine as King’s Quest I: Quest for the Crown and features King Graham as the player character. The title is a spoof of the 1984 film Romancing the Stone.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00001.png" alt="" /></p>
-
-<p>Since the events of the first game you’ve taken over as king of Daventry, but are now getting lonely and want to go out and meet some women. Since Tinder doesn’t exist yet you rely on your magic mirror to find you a suitable match - which it does. Having seen a princess locked up in a tower somewhere you set off on an adventure to save said princess, bring her back with you and make her your queen.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00002.png" alt="" /></p>
-
-<p>This followup entry to <a href="/blog/2021/08/06/kings-quest/">King’s Quest: Quest for the Crown</a> uses the same AGI game engine. Being parser-based you have to type your commands in and they will be interpreted based on how well you’ve conveyed your intent. The types of interactions you can have are pretty limited, but you can forgive game engines from the mid-80s for their lack of sophistication.</p>
-
-<p>Most interactions will follow the <code class="language-plaintext highlighter-rouge">VERB SUBJECT</code> format, such as <code class="language-plaintext highlighter-rouge">TALK MAN</code> or <code class="language-plaintext highlighter-rouge">GET TRIDENT</code>.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00012.png" alt="" /></p>
-
-<p>Make sure you <code class="language-plaintext highlighter-rouge">LOOK</code> at everything, and if it is potentially something you can pick up, <code class="language-plaintext highlighter-rouge">GET</code> it. These early Sierra games are essentially just a series of item combination puzzles, and you can find yourself in unwinnable situations if you forgot to get something early on. Personally I find this to be part of the appeal of these games, as it really forces you to be meticulous with how you approach each screen.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00005.png" alt="" /></p>
-
-<p>For some reason this world is populated with fairy tale characters such as Little Red Riding hood, a fairy godmother … and Dracula. You’re not really given any background as to <em>why</em> these characters exist in this universe so you sort of just have to accept it.</p>
-
-<p>What this game introduces that I don’t believe was in the previous game is time-delayed events on certain screens. For example, you’ll need to give Red Riding Hood a basket of food, but she only appears on certain screens - and only after waiting on that screen for a random amount of time. These types of puzzles are needlessly frustrating as you have no indication that (a) you’re on the right screen, (b) you’ve waited long enough and should exit/re-enter/try-again or (c) the event will be triggered at all.</p>
-
-<p>Again, I’ll forgive these puzzle designs due to how old the game is … but it is extremely frustrating when you have to move between screens and just stand there waiting - hoping to trigger some event.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00013.png" alt="" /></p>
-
-<p>Though the graphics really aren’t all that much better than the first game, for 1985 this was pretty impressive. The AGI engine is essentially a vector graphics engine as each screen is “drawn” based on the coordinate and fill instructions provided by the artists. Priority maps on each screen also create a sense of depth as you’re able to walk in front of or behind scenery, or be blocked from progressing if you collide with something you shouldn’t be able to walk through.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00003.png" alt="" /></p>
-
-<p>Your goal is to find 3 golden keys that can be used to unlock the 3 nested doors to the realm where Valanice is imprisoned. Reading the inscription on the doors will give you a clue as to where the key is, which you then need to find and ue to unlock the door. The clues are pretty vague, but since the game world is small as long as you pick everything up, talk to everyone and try every combination of <code class="language-plaintext highlighter-rouge">GIVE &lt;X&gt; TO &lt;Y&gt;</code> on each screen you should be able to sort most puzzles out.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00004.png" alt="" /></p>
-
-<p>Being a Sierra game, expect to die a lot. Though there aren’t too many stairs you can fall from in this game, there are still plenty of missteps that will kill you. If you fall into water, don’t forget to type <code class="language-plaintext highlighter-rouge">SWIM</code> so you don’t drown. This game gives you a shortcut for that action (I think you press the <code class="language-plaintext highlighter-rouge">=</code>), so this is an improvement over the original at least.</p>
-
-<p>Assuming you try every combination of items, character interactions and wait on every screen for any potential timed events to trigger you’ll still be able to breeze through this game in a couple hours. If you use a walkthrough, you can finish in about 45 minutes.</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00017.png" alt="" /></p>
-
-<p>Once you open all the magic doors and step through, you’ll make your way to the ivory tower and rescue the princess. To finish the game you need to <code class="language-plaintext highlighter-rouge">KISS</code> her (make sure you’re standing close enough), then say <code class="language-plaintext highlighter-rouge">HOME</code> to magically return to Daventry. There must have been clues alluding to these steps somewhere during the game that I missed, but I found myself stuck here for a bit until I resorted to a walkthrough. The whole “say the magic word” thing wasn’t clear at all …</p>
-
-<p><img src="/images/adventure/kq2/scummvm-kq2-00019.png" alt="" />
-<em>The End</em></p>
-
-<p>Overall, this game’s fine. It’s a sequel using the same game engine that tells the continuation of King Graham’s story. There’s not a lot of improvement over the original, there’s no real background music or sound effects other than certain screens. Other than your motivation for going from point A to B being “find the girl” there’s not much story or character development.</p>
-
-<p><a href="http://www.agdinteractive.com/games/kq2/about/about.html">AGD Interactive released a remake</a> of this game with updated graphics, sound and music in 2002. Though I haven’t played it myself I’ve heard nothing but good things about it (and their <a href="http://www.agdinteractive.com/games/games.html">other games</a>), so if you’re looking to play this game maybe skip the original and go straight to the remake.</p>
-
-<h3 id="game-information">Game Information</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>King’s Quest II: Romancing the Throne</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>May 1985</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Macintosh, Apple II, Apple IIGS,<br />Amiga, Atari ST, PCjr</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php/AGI">AGI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/5028"><em>How Long To Beat?</em></a></td>
-      <td>3 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="http://gamerwalkthroughs.com/kings-quest-2/">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>41%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kq2/scummvm-kq2-00006.png', thumb: '/images/adventure/kq2/scummvm-kq2-00006.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00007.png', thumb: '/images/adventure/kq2/scummvm-kq2-00007.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00008.png', thumb: '/images/adventure/kq2/scummvm-kq2-00008.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00009.png', thumb: '/images/adventure/kq2/scummvm-kq2-00009.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00010.png', thumb: '/images/adventure/kq2/scummvm-kq2-00010.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00011.png', thumb: '/images/adventure/kq2/scummvm-kq2-00011.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00014.png', thumb: '/images/adventure/kq2/scummvm-kq2-00014.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00015.png', thumb: '/images/adventure/kq2/scummvm-kq2-00015.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00016.png', thumb: '/images/adventure/kq2/scummvm-kq2-00016.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00018.png', thumb: '/images/adventure/kq2/scummvm-kq2-00018.png' },{ src: '/images/adventure/kq2/scummvm-kq2-00020.png', thumb: '/images/adventure/kq2/scummvm-kq2-00020.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="AGI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq2/scummvm-kq2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-18.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-18.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-52.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-19-58-52.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-01-47.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-01-47.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-04-43.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-04-43.png' },{ src: '/images/adventure/asteroid/screenshot-2023-April-26-20-22-04.png', thumb: '/images/adventure/asteroid/screenshot-2023-April-26-20-22-04.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="ADL" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/asteroid/screenshot-2023-April-26-19-29-46.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/asteroid/screenshot-2023-April-26-19-29-46.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
