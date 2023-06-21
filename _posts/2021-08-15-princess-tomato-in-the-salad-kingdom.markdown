@@ -18,19 +18,19 @@ Apparently the original was a text parser game. Though I don't intend to play an
 
 I remember renting this game when I was a kid from a local video store (ask your parents kids!) around the same time I had discovered [Shadowgate](https://en.wikipedia.org/wiki/Shadowgate). The interface was similar but "dumbed down" a bit to make it completely menu driven without the need for a cursor.
 
-![](/images/adventure/princess-tomato.008.png){:width="70%"}
+![](/images/adventure/princess-tomato.008.png)
 
 The world is interacted with using a fixed number of verbs that surround the screen. The final verb `PERCY` only becomes available when you rescue the thirsty persimmon on the second screen of the game. Percy then becomes your sidekick and can provide tips, insight into certain situation or comic relief.
 
-![](/images/adventure/princess-tomato.021.png){:width="70%"}
+![](/images/adventure/princess-tomato.021.png)
 
 With all characters being vegetables, there are plenty of opportunities for puns to be slipped into the dialog and story. The story is well paced and interesting enough to keep you rolling through the various fetch-quests that make up the game play. Princess Tomato has been kidnapped by Minister Pumpkin and is forcing her to marry him so he can reign over the Salad kingdom. You play as Sir Cucumber who has been tasked with rescuing the princess.
 
-![](/images/adventure/princess-tomato.017.png){:width="70%"}
+![](/images/adventure/princess-tomato.017.png)
 
 The bad guys in this game are humans known as "Farmies", who have aligned with Minister Pumpkin and are acting as his enforcers. Throughout the later part of the game you'll run into Farmies and other enemies and have to thrown down in a hard core Rock-Paper-Scissors themed battle.
 
-![](/images/adventure/princess-tomato.018.png){:width="70%"}
+![](/images/adventure/princess-tomato.018.png)
 
 The fights themselves are pretty straightforward and not overly difficult, but there is a certain novelty to it that keeps it interesting.
 
@@ -38,15 +38,15 @@ Though only available in the NES version, there is an excellent soundtrack to ba
 
 I mentioned the fetch quests that make up the majority of the game, but the remaining gameplay consists of maze navigation.
 
-![](/images/adventure/princess-tomato.019.png){:width="70%"}
+![](/images/adventure/princess-tomato.019.png)
 
 In my younger years mazes were more fun and busting out the graph paper to track your progress held a certain appeal, but now I find these to generally just be frustrating. Thankfully, walkthroughs are easy enough to find and can get you through these sections quickly enough if you so choose.
 
-![](/images/adventure/princess-tomato.026.png){:width="70%"}
+![](/images/adventure/princess-tomato.026.png)
 
 Overall I still enjoy playing through this game. I like revisiting the story and I like menu-driven adventure games such as this one and the [MacVenture games](https://en.wikipedia.org/wiki/MacVenture). I know this game may not appeal to everyone, but if you're looking for something a little different in an adventure game, give Princess Tomato a try.
 
-![](/images/adventure/princess-tomato.032.png){:width="70%"}
+![](/images/adventure/princess-tomato.032.png)
 
 ### Game Information
 

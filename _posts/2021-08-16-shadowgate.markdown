@@ -18,17 +18,17 @@ Since part of the fun of this series is trying to get these games to run on the 
 
 As much fun as it was getting the MacOS environment up and running, since Shadowgate was also released for the NES I decided to play through that version instead.
 
-![](/images/adventure/shadowgate.001.png){:width="70%"}
+![](/images/adventure/shadowgate.001.png)
 
 The NES release of Shadowgate is the only one to have music. I still remember the [Entryway music](https://www.youtube.com/watch?v=wCbR_LpT8Zs&t=67s) as being my favourite track, and was not disappointed hearing this looping in the background during this play through.
 
 The game is split into three "views". There is a game view that shows the entirety of the current room, and inventory view and an action view. These views are interacted with using a cursor.  The action view contains verbs that when selected allow you to either apply an action to the game view or inventory view. For example, you can `OPEN` a door you see in the game view, or `MOVE` to a marked exit.
 
-![](/images/adventure/shadowgate.009.png){:width="70%"}
+![](/images/adventure/shadowgate.009.png)
 
 Every new room of the castle you investigate offers new puzzles, most having a "wrong choice" that will result in you dying and having to reload a previous save. As a result, "Save Early, Save Often" as it's not always obvious what a wrong choice may look like. For example, opening the wrong crypt will spill corrosive ooze that won't kill you unless you try to exit through the wrong door.
 
-![](/images/adventure/shadowgate.007.png){:width="70%"}
+![](/images/adventure/shadowgate.007.png)
 
 As you move through the rooms the torches you have slowly fade. If you forget to light new torches the game ends and you die, but additional torches can be found along the way.
 
@@ -36,7 +36,7 @@ Game play is very much item collection and combination based. The very first scr
 
 The game is very linear but the story progresses intuitively. If you pay attention to the clues the puzzles aren't overly difficult, but I did have to refer to a walkthrough a couple times mostly out of laziness. I find these types of menu-driven games to be enjoyable as they feel like upgraded versions of the interactive fiction text adventures (like [Zork](https://en.wikipedia.org/wiki/Zork_I)) I started off with as a kid.
 
-![](/images/adventure/shadowgate.013.png){:width="70%"}
+![](/images/adventure/shadowgate.013.png)
 
 Assuming you found all the right items, were able to find the ferryman and cross over to the warlocks lair and solve the puzzle to open the door you'll finally find the warlock you've been sent to beat. You have to combine multiple items to create the staff that can be used to shoot the behemoth, causing it to return to the abyss while dragging the warlock down with him.
 
@@ -44,7 +44,7 @@ Overall I enjoyed the game. I've played through this title many times over the y
 
 Though Shadowgate isn't the first in the MacVentures series, it's definitely my favourite. If you've never tried a menu-driven adventure game and are wondering where to start, look no further ;)
 
-![](/images/adventure/shadowgate.015.png){:width="70%"}
+![](/images/adventure/shadowgate.015.png)
 
 ### Game Information
 
