@@ -62,7 +62,7 @@ Certain situations Gabriel finds himself in can lead to death and a game over. T
 
 When you finally find the voodoo honfour, if you summon Brother Eagle but don't get out of the hallway in time, he'll catch and kill you.
 
-Unlike most Sierra Online games, this game doesn't have a speed toggle in the settings and Gabriel walks pretty slowly. I'm guessing speeding up the game likely wouldn't only affect his walk speed so it probably wouldn't help you in these situations, but it would have been nice elsewhere in the game where you're slowly navigating certain screens.
+Like most Sierra Online games, this game has a speed toggle in the settings - which you'll likely want to increase as Gabriel walks pretty slowly. I'm guessing speeding up the game likely wouldn't only affect his walk speed though so it probably wouldn't help you in these situations.
 
 ![](/images/adventure/gk1/scummvm-gk1-cd-win-00051.png)
 
