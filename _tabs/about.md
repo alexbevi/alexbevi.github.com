@@ -18,6 +18,7 @@ I'm also the author of a book on [Redmine Plugin Extension and Development](http
 
 As part of my current role I'm trying to do more public speaking. Here are some examples of presentations I've delivered - even if they weren't all recorded.
 
+* `2023-05-25`: Learning Bytes \| _Prisma ORM with MongoDB_ ([video](https://learn.mongodb.com/courses/prisma-orm-with-mongodb))
 * `2023-04-01`: Learning Bytes \| _Mongoose ODM with MongoDB_ ([video](https://learn.mongodb.com/learn/course/mongoose-odm-with-mongodb/learning-byte/learn))
 * `2023-01-24`: Ruby on Rails Global Summit'23 \| _Ruby on Rails and MongoDB_ ([video](https://www.youtube.com/watch?v=UCdVBOJI3Ow&list=TLPQMjQwMTIwMjMqueSlzDsFKg&t=17872s))
 * `2019-11-21`: MongoDB.local Toronto 2019 \| _Tips and Tricks for Effective Indexing_ ([slides](https://www.slideshare.net/mongodb/mongodb-local-toronto-2019-tips-and-tricks-for-effective-indexing))
