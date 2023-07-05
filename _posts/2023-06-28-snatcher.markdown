@@ -16,6 +16,15 @@ image: /images/adventure/snatcher/Snatcher 2023-06-21 06.33.52.png
 
 The game follows Gillian Seed, an amnesiac who joins an anti-Snatcher agency in search of his past. Gameplay takes place primarily through a menu-based interface through which the player can choose to examine items, search rooms, speak to characters, explore a semi-open world, and perform other actions.
 
+Part of the fun for me in playing these games is getting to mess around with new emulators. I'm using an old MacBook Pro to play most of these games, so I figured I'd give [OpenEmu](http://openemu.org/) a try since I have a couple Sega CD games on my list and this emulator is only available for OSX.
+
+![](/images/adventure/snatcher/iScreen Shoter - OpenEmu - 230628053228.png)
+_OMG! Play time recording!!!_
+
+Typically I'd play console games on Android using [Ex Plus Alpha](https://www.explusalpha.com/) (which I did for [Shadowgate]({% post_url 2021-08-16-shadowgate %})). I've bought all the emulators (NES.emu, SNES.emu, etc) and have been using them for years, but one features I've really wanted was the ability to record playtime. I went so far as to open [an issue in GitHub](https://github.com/Rakashazi/emu-ex-plus-alpha/issues/37) for it in 2015, but this never got any traction.
+
+OpenEmu appears to support this out of the box, which was a very pleasant surprise. Furthermore you can easily remap the keys for quick save/load, fast forward, rewind and taking a screenshot which I found extremely convenient. I will most likely be using OpenEmu for any future games that it supports as I find the interface and experience a lot better than other multi-emulator systems (such as [RetroArch](https://www.retroarch.com/)).
+
 ![](/images/adventure/snatcher/Snatcher 2023-06-21 11.32.37.png)
 
 Similar to ICOM Simulations type games, Snatcher is predominantly a visual novel. You're presented with a number of actions you can perform on each static screen that allow you to learn more about your surroundings or interact with a character. You'll find yourself having to go through the motions of `LOOK`ing at everything available, then `INVESTIGATE`-ing everything you just looked at, then repeating because you may have uncovered new options to perform these 2 actions on.
@@ -39,19 +48,31 @@ Gillian acquires a limited number of inventory items throughout the game that ca
 
 ![](/images/adventure/snatcher/Snatcher 2023-06-26 11.56.45.png)
 
-Throughout the game you're accompanied by a robot companion named "Metal Gear". By interacting with him you're able to save your game, make video phone calls and perform certain environment interactions (like scanning )
+Throughout the game you're accompanied by a robot companion named "Metal Gear". By interacting with him you're able to save your game, make video phone calls and perform certain environment interactions (like scanning for SNOW-9, scanning for movement or if it's dark turning on a light). Metal Gear will also nudge you along with some hints as to where you should go next or what you might want to try on a certain screen.
 
+![](/images/adventure/snatcher/Snatcher 2023-06-23 06.20.06.png)
 
+Aside from the usual "go from screen to screen mashing through all menu options", there are a handful of puzzles you'll need to complete. At one point you need to create a reconstruction of a suspect based on the descriptions provided by someone you interview. This is ... painful. Technically you could just keep trying all possible combinations until you get it right but that will take _forever_! This was very much a section I relied on the walkthrough for.
 
-Part of the fun for me in playing these games is getting to mess around with new emulators. I'm using an old MacBook Pro to play most of these games, so I figured I'd give [OpenEmu](http://openemu.org/) a try since I have a couple Sega CD games on my list and this emulator is only available for OSX.
+![](/images/adventure/snatcher/Snatcher 2023-06-21 19.11.02.png)
 
-![](/images/adventure/snatcher/iScreen Shoter - OpenEmu - 230628053228.png)
-_OMG! Play time recording!!!_
+Unlike visual novel style games, Snatcher also includes arcade sequences. These areas involve having to move the cursor around the screen and shooting robots before they shoot back. Honestly they're not too challenging, and if you happen to die the game lets you resume at the screen before the sequence began. This is beneficial as I forgot to save for a while when I got to this first section and got myself killed pretty quickly :P
 
-Typically I'd play console games on Android using [Ex Plus Alpha](https://www.explusalpha.com/) (which I did for [Shadowgate]({% post_url 2021-08-16-shadowgate %})). I've bought all the emulators (NES.emu, SNES.emu, etc) and have been using them for years, but one features I've really wanted was the ability to record playtime. I went so far as to open [an issue in GitHub](https://github.com/Rakashazi/emu-ex-plus-alpha/issues/37) for it in 2015, but this never got any traction.
+![](/images/adventure/snatcher/Snatcher 2023-06-23 05.17.26.png)
 
-OpenEmu appears to support this out of the box, which was a very pleasant surprise. Furthermore you can easily remap the keys for quick save/load, fast forward, rewind and taking a screenshot which I found extremely convenient. I will most likely be using OpenEmu for any future games that it supports as I find the interface and experience a lot better than other multi-emulator systems (such as [RetroArch](https://www.retroarch.com/)).
+The content of this game is much more mature, and Gillian has conversation options to basically hit on every woman you meet. Apparently the Sega CD release censors some of the graphics and removes some of these options, but there's enough in there to give you a good idea as to what kind of a guy the main character is.
 
+A lot of these conversation options are hidden until you `INVESTIGATE` the same option multiple times (sometimes a few dozen times).
+
+This is actually one of my biggest complaints about this game. There are too many sequences that won't advance until you repeat the same option many times until a new selection becomes available in the menu. Often the feedback you get from Gillian or Metal Gear will be the same for many of those selections so it's not obvious that they're waiting for you to keep repeating the option.
+
+![](/images/adventure/snatcher/Snatcher 2023-06-25 07.54.41.png)
+
+Overall this game was a pleasant surprise. The story is really compelling and well structured, and though it can be challenging to get it to progress in certain areas, it's generally an intuitive game to play.
+
+I'm a huge fan of cyberpunk in general, and I like visual novels and menu driven games so Snatcher sort of hit a number of gaming sweet spots for me. The music is atmospheric and adds to the experience nicely, and the voice acting quality was better than I would have expected.
+
+For anyone looking for a story that feels like it's in the Blade Runner universe, look no further than Snatcher.
 
 ![](/images/adventure/snatcher/Snatcher 2023-06-28 15.08.12.png)
 
@@ -74,11 +95,11 @@ OpenEmu appears to support this out of the box, which was a very pleasant surpri
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|x|
-|**Story (25)**|x|
-|**Experience (15)**|x|
-|**Impact (10)**|x|
-||**x%**|
+|**Atmosphere (20)**|14|
+|**Story (25)**|16|
+|**Experience (15)**|6|
+|**Impact (10)**|7|
+||**61%**|
 
 ### Gallery
 
@@ -95,7 +116,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/snatcher/Snatcher 2023-06-21 06.56.47.png
 /images/adventure/snatcher/Snatcher 2023-06-21 11.29.37.png
 /images/adventure/snatcher/Snatcher 2023-06-21 11.33.02.png
-/images/adventure/snatcher/Snatcher 2023-06-21 19.11.02.png
 /images/adventure/snatcher/Snatcher 2023-06-21 19.18.27.png
 /images/adventure/snatcher/Snatcher 2023-06-21 19.22.56.png
 /images/adventure/snatcher/Snatcher 2023-06-21 19.24.49.png
@@ -109,12 +129,9 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/snatcher/Snatcher 2023-06-22 09.59.23.png
 /images/adventure/snatcher/Snatcher 2023-06-23 05.11.10.png
 /images/adventure/snatcher/Snatcher 2023-06-23 05.12.11.png
-/images/adventure/snatcher/Snatcher 2023-06-23 05.17.26.png
 /images/adventure/snatcher/Snatcher 2023-06-23 06.19.12.png
-/images/adventure/snatcher/Snatcher 2023-06-23 06.20.06.png
 /images/adventure/snatcher/Snatcher 2023-06-25 07.47.05.png
 /images/adventure/snatcher/Snatcher 2023-06-25 07.52.07.png
-/images/adventure/snatcher/Snatcher 2023-06-25 07.54.41.png
 /images/adventure/snatcher/Snatcher 2023-06-25 07.56.36.png
 /images/adventure/snatcher/Snatcher 2023-06-25 08.14.41.png
 /images/adventure/snatcher/Snatcher 2023-06-25 08.14.58.png

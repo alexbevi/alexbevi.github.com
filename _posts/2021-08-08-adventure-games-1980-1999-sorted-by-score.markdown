@@ -50,6 +50,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **64%** [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 1. **63%** [DreamWeb (Creative Reality)]({% post_url 2023-05-18-dreamweb %}) - 1994
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
+1. **61%** [Snatcher (Konami)]({% post_url 2023-06-28-snatcher %}) - 1988
 1. **61%** [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 1. **57%** [Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)]({% post_url 2022-12-19-leisure-suit-larry %}) - 1987
 1. **57%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
@@ -75,4 +76,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **19%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
-1. **xx%** [Snatcher (Konami)]({% post_url 2023-06-28-snatcher %}) - 1988
