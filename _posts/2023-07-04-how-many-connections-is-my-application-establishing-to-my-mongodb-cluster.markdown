@@ -21,6 +21,8 @@ These specifications help us understand how many connections may be opened, and 
 * The MongoDB Server version (>= 4.4)
 * The MongoDB Driver version (does it support MongoDB Server 4.4+)
 
+Just a quick note regarding _Connection Pools_: the default value of [`minPoolSize`](https://github.com/mongodb/specifications/blob/master/source/connection-monitoring-and-pooling/connection-monitoring-and-pooling.rst#id1) is `0`, which means that using the defaults when a _Connection Pool_ is created it will not contain any connections. For the purposes of this article I imply that at least one connection has been created in the pool and ready for use.
+
 ### Single-Threaded `MongoClient`
 
 The MongoDB [C Driver](https://www.mongodb.com/docs/drivers/c/) and [PHP Driver](https://www.mongodb.com/docs/drivers/php/) provide single-threaded `MongoClient` implementations. As such, they do not offer connection pools at all which makes understanding how many connections can be established straightforward[^1].
@@ -29,6 +31,9 @@ The MongoDB [C Driver](https://www.mongodb.com/docs/drivers/c/) and [PHP Driver]
 _Connections from a Single Threaded `MongoClient`_
 
 With this configuration, a single connection (`c1`) will be established to each [replica set member](https://www.mongodb.com/docs/manual/core/replica-set-members/), or if the cluster is [Sharded](https://www.mongodb.com/docs/manual/sharding/) each [`mongos`](https://www.mongodb.com/docs/manual/core/sharded-cluster-query-router/) present in the seed list when the `MongoClient` was created[^2]. This single connection will be used for data operations as well as to perform [server monitoring](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#single-threaded-monitoring).
+
+> Note that when connecting to a Sharded Cluster using a [DNS Seed List](https://www.mongodb.com/docs/manual/reference/connection-string/#dns-seed-list-connection-format) connection string, the [`srvMaxHosts`](https://github.com/mongodb/specifications/blob/master/source/initial-dns-seedlist-discovery/initial-dns-seedlist-discovery.rst#srvmaxhosts) URI option can be configured to limit the number of `mongos`' that will be connected to.
+{: .prompt-tip }
 
 > Assuming a cluster with 3 nodes, each `MongoClient` instance would create 3 connections.
 {: .prompt-info }
@@ -39,7 +44,7 @@ Prior to MongoDB 4.4, MongoDB Drivers would use a [polling protocol to perform s
 
 ![](/images/mongo-conns-02.png)
 
-This dedicated monitor thread (`m1`) as well as a the 1 or more connections in the connection pool (`p1`) result in at least 2 connections per host. Note that if [`minPoolSize`](https://www.mongodb.com/docs/manual/reference/connection-string/#mongodb-urioption-urioption.minPoolSize) is > 1 this number of connections will _always_ remain open against each host a connection pool has been created for.
+This dedicated monitor thread (`m1`) as well as a the 1 or more connections in the connection pool (`p1`) result in at least 2 connections per host. Note that if [`minPoolSize`](https://www.mongodb.com/docs/manual/reference/connection-string/#mongodb-urioption-urioption.minPoolSize) (default: 0) is > 1 this number of connections will _always_ remain open against each host a connection pool has been created for.
 
 > Assuming a cluster with 3 nodes, each `MongoClient` instance would create 6 connections.
 {: .prompt-info }
@@ -61,14 +66,15 @@ Similar to the polling protocol, a dedicated monitor thread (`m1`) will be opene
 > If `minPoolSize=5` then each `MongoClient` would create 21 connections (using the formula `(minPoolSize + 2) x nodes`)
 {: .prompt-tip }
 
-## Summary
+## What if I'm using AWS Lambda?
 
 Depending on your application's architecture, it's possible to blow past your connection limits pretty quickly. This is one reason why the documented guidance for [managing connections with AWS Lambda](https://www.mongodb.com/docs/atlas/manage-connections-aws-lambda/) has the first bullet point of _"Define the client to the MongoDB server outside the [AWS Lambda handler function](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html)"_.
 
 If each Lambda function were to connect to a MongoDB 4.4+ cluster using a connection string of `mongodb+srv://xxx.mongodb.net/?minPoolSize=5` and the cluster only had 3000 connections configured, within 150 near-concurrent function executions the cluster could potentially reach the connection limit! This is obviously an extreme scenario, but is meant to help illustrate the impact creating many `MongoClient` instances can potentially have on your cluster.
 
+I plan on going into much more detail regarding AWS Lambda and MongoDB connection behavior in a future article.
 ----
 
 [^1]: <small>The MongoDB C driver has two connection modes: single-threaded and [pooled](https://mongoc.org/libmongoc/current/connection-pooling.html#pooled-mode). Single-threaded mode is optimized for embedding the driver within languages like PHP. Multi-threaded programs should use pooled mode: this mode minimizes the total connection count, and in pooled mode background threads monitor the MongoDB server topology, so the program need not block to scan it.</small>
 [^2]: <small>`MongoClient`s created using a [DNS Seed List](https://www.mongodb.com/docs/manual/reference/connection-string/#dns-seed-list-connection-format) connection string can [poll the `SRV` record to discover additional `mongos`'](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst)</small>
-[^3]: <small>Polling interval can be configured via the [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#heartbeatfrequencyms) URI option, but must be more than the [`minHeartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#minheartbeatfrequencyms) of 500ms.
+[^3]: <small>Polling interval can be configured via the [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#heartbeatfrequencyms) URI option, but must be more than the [`minHeartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#minheartbeatfrequencyms) of 500ms. In MongoDB Atlas environments the `heartbeatFrequencyMS` is lowered from the default (10000) to 5000.
