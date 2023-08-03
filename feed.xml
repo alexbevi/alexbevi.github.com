@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-07-26T15:30:37-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">How Many Connections is My Application Establishing to My MongoDB Cluster?</title><link href="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/" rel="alternate" type="text/html" title="How Many Connections is My Application Establishing to My MongoDB Cluster?" /><published>2023-07-04T10:16:14-04:00</published><updated>2023-07-26T15:29:12-04:00</updated><id>https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/"><![CDATA[<p><a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> is the best way to host your MongoDB data, but it’s important to be aware that like any other managed service there can be limitations. For example, MongoDB Atlas - depending on the selected tier - will impose a <a href="https://www.mongodb.com/docs/atlas/reference/atlas-limits/#connection-limits-and-cluster-tier">connection limit</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-03T09:15:13-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0</title><link href="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/" rel="alternate" type="text/html" title="Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0" /><published>2023-08-03T08:59:29-04:00</published><updated>2023-08-03T09:13:57-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/"><![CDATA[<p>One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> operation will now be returned by default.</p>
+
+<h2 id="current-state">Current State</h2>
+
+<p>Up until now, as opposed to returning the requested document, this family of API methods would return a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/ModifyResult.html"><code class="language-plaintext highlighter-rouge">ModifyResult</code></a>, which would contain the requested document in a <code class="language-plaintext highlighter-rouge">value</code> field. This design was due to these APIs leveraging the MongoDB Server’s <a href="https://www.mongodb.com/docs/manual/reference/command/findAndModify/"><code class="language-plaintext highlighter-rouge">findOneAndModify</code></a> command and wrapping the command’s <a href="https://www.mongodb.com/docs/manual/reference/command/findAndModify/#output">output</a> directly.</p>
+
+<p>To demonstrate, let’s adapt the code from the Driver’s documented <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/">usage examples</a> to update one document in our <em>movies</em> collection using the <a href="https://mongodb.github.io/node-mongodb-native/5.7/classes/Collection.html#findOneAndUpdate"><code class="language-plaintext highlighter-rouge">findOneAndUpdate</code></a> API.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">database</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">db</span><span class="p">(</span><span class="dl">"</span><span class="s2">sample_mflix</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">movies</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nf">collection</span><span class="p">(</span><span class="dl">"</span><span class="s2">movies</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// Query for a movie that has the title 'The Room'</span>
+<span class="kd">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">The Room</span><span class="dl">"</span> <span class="p">};</span>
+<span class="kd">const</span> <span class="nx">updatedMovie</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">movies</span><span class="p">.</span><span class="nf">findOneAndUpdate</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span>
+  <span class="p">{</span> <span class="na">$set</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">imdb.rating</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span> <span class="dl">"</span><span class="s2">imdb.votes</span><span class="dl">"</span><span class="p">:</span> <span class="mi">25750</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">projection</span><span class="p">:</span> <span class="p">{</span> <span class="na">_id</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">imdb</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="na">returnDocument</span><span class="p">:</span> <span class="dl">"</span><span class="s2">after</span><span class="dl">"</span> <span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">updatedMovie</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>{
+  lastErrorObject: { n: 1, updatedExisting: true },
+  value: {
+    title: 'The Room',
+    imdb: { rating: 3.4, votes: 25750, id: 368226 }
+  },
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: new Timestamp({ t: 1689343889, i: 2 }),
+    signature: {
+      hash: Binary.createFromBase64("3twlRKhDSGIW25WVHZl17EV2ulM=", 0),
+      keyId: new Long("7192273593030410245")
+    }
+  },
+  operationTime: new Timestamp({ t: 1689343889, i: 2 })
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>One of the options we set was a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument"><code class="language-plaintext highlighter-rouge">returnDocument</code></a> of <code class="language-plaintext highlighter-rouge">after</code>, which should return the updated document. Though the expectation may be that the function call would return the document directly, as we can see this isn’t the case.</p>
+
+<p>The document can be accessed using <code class="language-plaintext highlighter-rouge">updatedMovie.value</code>, but this has never been a great developer experience.</p>
+
+<h2 id="what-can-we-do-right-now">What can we do right now?</h2>
+
+<p>Starting with the <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">Node.js Driver 5.7.0</a> release a new <code class="language-plaintext highlighter-rouge">FindOneAnd*Options</code> property called <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata"><code class="language-plaintext highlighter-rouge">includeResultMetadata</code></a> has been introduced. When this property is set to false (default is true) the findOneAnd* APIs will return the requested document as expected.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">updatedMovie</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">movies</span><span class="p">.</span><span class="nf">findOneAndUpdate</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span>
+  <span class="p">{</span> <span class="na">$set</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">imdb.rating</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3.3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">imdb.votes</span><span class="dl">"</span><span class="p">:</span> <span class="mi">25999</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">projection</span><span class="p">:</span> <span class="p">{</span> <span class="na">_id</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">imdb</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="na">includeResultMetadata</span><span class="p">:</span> <span class="kc">false</span> <span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">dir</span><span class="p">(</span><span class="nx">updatedMovie</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>{ title: 'The Room', imdb: { rating: 3.3, votes: 25999, id: 368226 } }
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="what-about-typescript">What about TypeScript?</h2>
+
+<p>If your application uses TypeScript and the MongoDB Node.js Driver, anywhere a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> call is made, if the requested document is required it will be accessed via the <code class="language-plaintext highlighter-rouge">value</code> property of the <code class="language-plaintext highlighter-rouge">ModifyResult</code>. This occurs when <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is not set or when it is set to <code class="language-plaintext highlighter-rouge">true</code> (the current default value).</p>
+
+<p><img src="/images/product1605-02.png" alt="" /></p>
+
+<p>Type hinting will indicate the Schema associated with the collection the operation was executed against. As we would expect, when the <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is changed to <code class="language-plaintext highlighter-rouge">false</code> inline validation will indicate there’s an issue as the <code class="language-plaintext highlighter-rouge">value</code> property no longer exists on the type associated with the result</p>
+
+<p><img src="/images/product1605-01.png" alt="" /></p>
+
+<p>Attempting to compile our TypeScript project will also fail.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>TSError: ⨯ Unable to compile TypeScript:
+index.ts:31:17 - error TS18047: 'updatedMovie' is possibly 'null'.
+
+31     console.dir(updatedMovie.value);
+                   ~~~~~~~~~~~~
+index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&lt;Movie&gt;'.
+
+31     console.dir(updatedMovie.value);
+                                ~~~~~
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>If you’re using the <code class="language-plaintext highlighter-rouge">findOneAnd*</code> family of APIs in your JavaScript or TypeScript project, upgrading the MongoDB Node.js Driver to 5.7.0+ and adding the <code class="language-plaintext highlighter-rouge">includeResultMetadata: false</code> option to those API calls will allow you to adapt your application to the new behavior prior to the 6.0.0 release.</p>
+
+<p>Once 6.0.0 is released, <code class="language-plaintext highlighter-rouge">includeResultMetadata: false</code> will become the default behavior. If your application relies on the previous behavior of these APIs, setting <code class="language-plaintext highlighter-rouge">includeResultMetadata: true</code> will allow you to continue to access the <code class="language-plaintext highlighter-rouge">ModifyResult</code> directly.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a findOneAnd* operation will now be returned by default.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How Many Connections is My Application Establishing to My MongoDB Cluster?</title><link href="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/" rel="alternate" type="text/html" title="How Many Connections is My Application Establishing to My MongoDB Cluster?" /><published>2023-07-04T10:16:14-04:00</published><updated>2023-07-26T15:29:12-04:00</updated><id>https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/"><![CDATA[<p><a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> is the best way to host your MongoDB data, but it’s important to be aware that like any other managed service there can be limitations. For example, MongoDB Atlas - depending on the selected tier - will impose a <a href="https://www.mongodb.com/docs/atlas/reference/atlas-limits/#connection-limits-and-cluster-tier">connection limit</a>.</p>
 
 <p>Depending on the architecture of your application and how you’ve configured your <a href="https://www.mongodb.com/docs/manual/administration/connection-pool-overview/">connection pools</a> it’s possible you’ve approached or exceeded these limits before and weren’t really sure why. Thankfully MongoDB Atlas provides a number of configurable alerts (such as <a href="https://www.mongodb.com/docs/atlas/reference/alert-conditions/#mongodb-alert-Connections---of-configured-limit-is"><code class="language-plaintext highlighter-rouge">Connections % of configured limit</code></a>) which can notify you if you’re approaching a limit, but where are these connections coming from in the first place?</p>
 
@@ -1223,213 +1338,4 @@
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/motm/vice-screen-2023050306314973.png', thumb: '/images/adventure/motm/vice-screen-2023050306314973.png' },{ src: '/images/adventure/motm/vice-screen-2023050306464122.png', thumb: '/images/adventure/motm/vice-screen-2023050306464122.png' },{ src: '/images/adventure/motm/vice-screen-2023050306535797.png', thumb: '/images/adventure/motm/vice-screen-2023050306535797.png' },{ src: '/images/adventure/motm/vice-screen-2023050406183980.png', thumb: '/images/adventure/motm/vice-screen-2023050406183980.png' },{ src: '/images/adventure/motm/vice-screen-2023050406205070.png', thumb: '/images/adventure/motm/vice-screen-2023050406205070.png' },{ src: '/images/adventure/motm/vice-screen-2023050406315309.png', thumb: '/images/adventure/motm/vice-screen-2023050406315309.png' },{ src: '/images/adventure/motm/vice-screen-2023050406403035.png', thumb: '/images/adventure/motm/vice-screen-2023050406403035.png' },{ src: '/images/adventure/motm/vice-screen-2023050406420320.png', thumb: '/images/adventure/motm/vice-screen-2023050406420320.png' },{ src: '/images/adventure/motm/vice-screen-2023050406425507.png', thumb: '/images/adventure/motm/vice-screen-2023050406425507.png' },{ src: '/images/adventure/motm/vice-screen-2023050406451362.png', thumb: '/images/adventure/motm/vice-screen-2023050406451362.png' },{ src: '/images/adventure/motm/vice-screen-2023050406461270.png', thumb: '/images/adventure/motm/vice-screen-2023050406461270.png' },{ src: '/images/adventure/motm/vice-screen-2023050407004446.png', thumb: '/images/adventure/motm/vice-screen-2023050407004446.png' },{ src: '/images/adventure/motm/vice-screen-2023050508340488.png', thumb: '/images/adventure/motm/vice-screen-2023050508340488.png' },{ src: '/images/adventure/motm/vice-screen-2023051006013764.png', thumb: '/images/adventure/motm/vice-screen-2023051006013764.png' },{ src: '/images/adventure/motm/vice-screen-2023051006093506.png', thumb: '/images/adventure/motm/vice-screen-2023051006093506.png' },{ src: '/images/adventure/motm/vice-screen-2023051006131633.png', thumb: '/images/adventure/motm/vice-screen-2023051006131633.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Activision" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/motm/vice-screen-2023050105435383.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/motm/vice-screen-2023050105435383.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Round Trips to Authenticate a MongoDB Client Connection</title><link href="https://www.alexbevi.com/blog/2023/05/04/round-trips-to-authenticate-a-mongodb-client-connection/" rel="alternate" type="text/html" title="Round Trips to Authenticate a MongoDB Client Connection" /><published>2023-05-04T14:40:52-04:00</published><updated>2023-05-09T14:47:45-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/04/round-trips-to-authenticate-a-mongodb-client-connection</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/04/round-trips-to-authenticate-a-mongodb-client-connection/"><![CDATA[<p>When <a href="https://www.mongodb.com/docs/drivers/">MongoDB Drivers</a> establish a connection with a MongoDB cluster a number of network round trips are performed. This can result in increased latency when measuring the time to response of an operation following a cold start, so it’s worth understanding what the anatomy of an authenticated connection is - as well as what can be done to improve an initial operations round trip time (RTT).</p>
-
-<h1 id="current-state">Current State</h1>
-
-<p><img src="/images/mongo-auth-01.png" alt="" /></p>
-
-<h2 id="connection-protocol">Connection Protocol</h2>
-
-<p>Typically a MongoDB connection string will contain a <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#std-label-connections-standard-connection-string-format">standard seed list</a>, which is represented by the <code class="language-plaintext highlighter-rouge">mongodb://</code> protocol followed by a list of servers (ex: <code class="language-plaintext highlighter-rouge">mongodb://localhost:27017,localhost:27018....</code>).</p>
-
-<p>Starting with MongoDB 3.6 instead of having to provide the seed list in the connection string manually a <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#std-label-connections-dns-seedlist">DNS-constructed seed list</a> could be used as well. With this configuration the <code class="language-plaintext highlighter-rouge">mongodb+srv://</code> protocol is used to communicate both the seed list as well as any options by performing two (2) DNS queries to resolve the following DNS records: <a href="https://en.wikipedia.org/wiki/SRV_record"><code class="language-plaintext highlighter-rouge">SRV</code></a> and <a href="https://en.wikipedia.org/wiki/TXT_record"><code class="language-plaintext highlighter-rouge">TXT</code></a>.</p>
-
-<p>See <a href="https://www.mongodb.com/blog/post/mongodb-3-6-here-to-srv-you-with-easier-replica-set-connections"><em>“MongoDB 3.6: Here to SRV you with easier replica set connections”</em></a> for more information regarding this topic.</p>
-
-<p>Additionally there may be an RTT for <code class="language-plaintext highlighter-rouge">A</code>/<code class="language-plaintext highlighter-rouge">AAAA</code>/<code class="language-plaintext highlighter-rouge">CNAME</code> resolution, however these may be done in parallel and may also be cached. <a href="https://www.cloudns.net/blog/dns-cache-explained/">DNS Caching</a> will likely improve the performance of these queries, but it’s worth noting their presence within the connection establishment and authentication lifecycle.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Note that if the <code class="language-plaintext highlighter-rouge">SRV</code> record returns multiple hosts, those <code class="language-plaintext highlighter-rouge">A</code>/<code class="language-plaintext highlighter-rouge">AAAA</code>/<code class="language-plaintext highlighter-rouge">CNAME</code> records will be resolved in parallel. And DNS servers typically will optimize the traversal returning any intermediate <code class="language-plaintext highlighter-rouge">CNAME</code>s followed by the <code class="language-plaintext highlighter-rouge">A</code>/<code class="language-plaintext highlighter-rouge">AAAA</code> in the same request.</p>
-
-<p>This also assumes UDP-based DNS resolution. If you exceed the UDP packet size, you might first try UDP, receive an error, and retry using TCP (and possibly requiring a TCP handshake to the DNS server as well).</p>
-
-<h2 id="tcp-handshake">TCP Handshake</h2>
-
-<p><img src="/images/mongo-auth-03.png" alt="" />
-<em>Source: <a href="https://www.makeuseof.com/what-is-three-way-handshake-how-does-it-work/">makeuseof.com</a></em></p>
-
-<p>Once a host is known from the seed list, next we need to connect to it. This is done using a standard <a href="https://www.geeksforgeeks.org/tcp-3-way-handshake-process/">TCP 3-way Handshake</a>, which constitutes 1 RTT. Note that as there is an <code class="language-plaintext highlighter-rouge">ACK</code> sent following the <code class="language-plaintext highlighter-rouge">SYN/ACK</code> this handshake is sometimes considered to be <a href="https://networkengineering.stackexchange.com/a/76369">1.5 RTT</a>, however most TCP stacks will send the first data packet with the <code class="language-plaintext highlighter-rouge">ACK</code>.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h2 id="tls-handshake">TLS Handshake</h2>
-
-<p><img src="/images/mongo-auth-02.png" alt="" />
-<em>Source: <a href="https://www.cloudflare.com/en-gb/learning/ssl/what-happens-in-a-tls-handshake/">cloudflare.com</a></em></p>
-
-<p>To ensure all connections to <a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> are secure, <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security (TLS)</a> is enabled by default. Following a successful TCP handshake, a <a href="https://www.cloudflare.com/en-gb/learning/ssl/what-happens-in-a-tls-handshake/">TLS handshake</a> will be performed.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">2</span>      <span class="c1">// TLS</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="mongodb-handshake">MongoDB Handshake</h2>
-
-<p>Now that we have established a TLS secured TCP socket connection to a MongoDB host (<code class="language-plaintext highlighter-rouge">mongos</code> or <code class="language-plaintext highlighter-rouge">mongod</code>), the MongoDB Driver will send a <a href="https://www.mongodb.com/docs/manual/reference/command/hello/"><code class="language-plaintext highlighter-rouge">hello</code></a> command to perform <a href="https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst">the initial handshake</a>.</p>
-
-<p>This step is required to determine that the host at the other end of the socket is actually a MongoDB server. Assuming the version of the MongoDB Driver supports MongoDB 4.4+ the handshake will also include a <a href="https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst#speculative-authentication"><code class="language-plaintext highlighter-rouge">speculativeAuthenticate</code></a> argument. Specifying this argument to <code class="language-plaintext highlighter-rouge">hello</code> will speculatively include the first command of an authentication handshake, thus eliminating one round trip as the <code class="language-plaintext highlighter-rouge">saslStart</code> command doesn’t need to be sent during the authentication handshake.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">2</span>      <span class="c1">// TLS</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// MongoDB</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="authentication-handshake">Authentication Handshake</h2>
-
-<p>MongoDB supports a number of <a href="https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer">SASL (Simple Authentication and Security Layer)</a> mechanisms. By default the SASL mechanism that will be used will be a <a href="https://www.mongodb.com/docs/manual/core/security-scram/">SCRAM</a> mechanism (either <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> or <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code>), which effectively means “username and password”. Note that this is a “challenge response” mechanism, so these credentials aren’t broadcast in the clear.</p>
-
-<p>As outlined in the <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#id8">MongoDB Authentication specification</a>, a <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code> conversation will be made up of 2 round trips as follows:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="na">saslStart</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">mechanism</span><span class="p">:</span><span class="dl">"</span><span class="s2">SCRAM-SHA-256</span><span class="dl">"</span><span class="p">,</span> <span class="na">options</span><span class="p">:</span> <span class="p">{</span><span class="na">skipEmptyExchange</span><span class="p">:</span> <span class="kc">true</span><span class="p">},</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...=</span><span class="dl">"</span><span class="p">)}</span>
-<span class="o">&lt;&lt;</span> <span class="p">{</span><span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...=</span><span class="dl">"</span><span class="p">),</span> <span class="na">done</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">ok</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="na">saslContinue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...==</span><span class="dl">"</span><span class="p">)}</span>
-<span class="o">&lt;&lt;</span> <span class="p">{</span><span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...==</span><span class="dl">"</span><span class="p">),</span> <span class="na">done</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">ok</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>For <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#backwards-compatibility">backwards compatibility</a> with MongoDB 4.2 or earlier, MongoDB Drivers support a longer <code class="language-plaintext highlighter-rouge">SCRAM</code> conversation which includes an additional <code class="language-plaintext highlighter-rouge">saslContinue</code> command being sent as follows:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="na">saslStart</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">mechanism</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SCRAM-SHA-1</span><span class="dl">"</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...</span><span class="dl">"</span><span class="p">),</span> <span class="na">options</span><span class="p">:</span> <span class="p">{</span><span class="na">skipEmptyExchange</span><span class="p">:</span> <span class="kc">true</span><span class="p">}}</span>
-<span class="o">&lt;&lt;</span> <span class="p">{</span><span class="na">conversationId</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">...</span><span class="dl">"</span><span class="p">),</span> <span class="na">done</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">ok</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="na">saslContinue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">...</span><span class="dl">"</span><span class="p">)}</span>
-<span class="o">&lt;&lt;</span> <span class="p">{</span><span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="dl">"</span><span class="s2">...</span><span class="dl">"</span><span class="p">),</span> <span class="na">done</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">ok</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="na">saslContinue</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">""</span><span class="p">)}</span>
-<span class="o">&lt;&lt;</span> <span class="p">{</span><span class="na">conversationId</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nc">BinData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="dl">""</span><span class="p">),</span> <span class="na">done</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">ok</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>RTT was improved with MongoDB 4.4+ as 2 round trips can potentially be avoided:</p>
-
-<ol>
-  <li>when <code class="language-plaintext highlighter-rouge">speculativeAuthenticate</code> is used the <code class="language-plaintext highlighter-rouge">saslStart</code> command is incorporated into the initial MongoDB handshake</li>
-  <li>when the <code class="language-plaintext highlighter-rouge">saslStart</code> command contains the <code class="language-plaintext highlighter-rouge">skipEmptyExchange: true</code> option, the second <code class="language-plaintext highlighter-rouge">saslContinue</code> command can be skipped</li>
-</ol>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">2</span>      <span class="c1">// TLS</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// MongoDB</span>
-<span class="o">+</span> <span class="p">[</span><span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Authentication</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h1 id="reducing-round-trips">Reducing Round Trips</h1>
-
-<p>As outlined above there are a number of network round trips required to authenticate a client connection to a MongoDB host using a username and password:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">2</span>      <span class="c1">// TLS</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// MongoDB</span>
-<span class="o">+</span> <span class="p">[</span><span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Authentication</span>
-<span class="o">---------------------------</span>
-<span class="p">[</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>MongoDB 4.4 has been out since at least <a href="https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.1---sep-9--2020">September 2020</a>, so chances are most applications are connecting to at least this version or newer. This would put the average round trip count for authenticating a connection between 6 and 9 (depending on what protocol is being used and if DNS results were previously cached).</p>
-
-<p>Next let’s review what can be done to reduce these round trips where possible.</p>
-
-<h2 id="use-x509-authentication">Use x.509 Authentication</h2>
-
-<p>When using <a href="https://www.mongodb.com/docs/manual/tutorial/configure-x509-client-authentication/">x.509 certificates to authenticate clients</a>, the <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst/#mongodb-x509">conversation</a> with the server does not require a <code class="language-plaintext highlighter-rouge">saslContinue</code>. Assuming this <code class="language-plaintext highlighter-rouge">speculativeAuthenticate</code> of the initial handshake succeeds (which it should), two full round trip can be removed!</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">2</span>      <span class="c1">// TLS</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// MongoDB</span>
-<span class="o">+</span>  <span class="mi">0</span>      <span class="c1">// Authentication</span>
-<span class="o">---------------------------</span>
-<span class="p">[</span><span class="mi">4</span> <span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Note there’s no authentication round trips as the <code class="language-plaintext highlighter-rouge">speculativeAuthenticate</code> succeeding contains the information typically sent via the <code class="language-plaintext highlighter-rouge">saslStart</code> command.</p>
-
-<h2 id="use-tls-13">Use TLS 1.3+</h2>
-
-<p><img src="/images/mongo-auth-04.jpg" alt="" />
-<em>Source: <a href="https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/">thesslstore.com</a></em></p>
-
-<p>TLS 1.3 (<a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a>) can authenticate a connection approximately twice as fast as TLS 1.2 (<a href="https://datatracker.ietf.org/doc/html/rfc5246">RFC 5246</a>) by eliminating a full round trip.</p>
-
-<p>Though not necessarily supported (at time of writing) by the MongoDB Server, additional non-standard TLS 1.3 configurations can further help speed up encrypted connections - such as <a href="https://blogs.windows.com/msedgedev/2016/06/15/building-a-faster-and-more-secure-web-with-tcp-fast-open-tls-false-start-and-tls-1-3/">TLS false start</a> and <a href="https://blog.cloudflare.com/introducing-0-rtt/">Zero Round Trip Time (0-RTT)</a>. See <a href="https://www.thesslstore.com/blog/tls-1-3-everything-possibly-needed-know/">“TLS 1.3: Everything you need to know”</a> for more information.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="cm">/* Network Round Trips */</span>
-  <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Protocol</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TCP</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// TLS</span>
-<span class="o">+</span>  <span class="mi">1</span>      <span class="c1">// MongoDB</span>
-<span class="o">+</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// Authentication</span>
-<span class="o">---------------------------</span>
-<span class="p">[</span><span class="mi">3</span> <span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>In some environments (such as <a href="https://en.wikipedia.org/wiki/Function_as_a_service">Function as a Service</a>) the cold start time of an application is critically important. The time to authenticate a connection to a MongoDB host and how this can be improved can be useful in improving operational latency of applications.</p>
-
-<p>Out of the box there may be upwards of 9 network round trips (<code class="language-plaintext highlighter-rouge">SRV+TCP+TLS+MONGODB+AUTH</code>), however this can potentially be cut in half (or more) by understanding what configuration and authentication options exist and how they can be applied.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="connections" /><category term="drivers" /><summary type="html"><![CDATA[When MongoDB Drivers establish a connection with a MongoDB cluster a number of network round trips are performed. This can result in increased latency when measuring the time to response of an operation following a cold start, so it’s worth understanding what the anatomy of an authenticated connection is - as well as what can be done to improve an initial operations round trip time (RTT).]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/motm/vice-screen-2023050306314973.png', thumb: '/images/adventure/motm/vice-screen-2023050306314973.png' },{ src: '/images/adventure/motm/vice-screen-2023050306464122.png', thumb: '/images/adventure/motm/vice-screen-2023050306464122.png' },{ src: '/images/adventure/motm/vice-screen-2023050306535797.png', thumb: '/images/adventure/motm/vice-screen-2023050306535797.png' },{ src: '/images/adventure/motm/vice-screen-2023050406183980.png', thumb: '/images/adventure/motm/vice-screen-2023050406183980.png' },{ src: '/images/adventure/motm/vice-screen-2023050406205070.png', thumb: '/images/adventure/motm/vice-screen-2023050406205070.png' },{ src: '/images/adventure/motm/vice-screen-2023050406315309.png', thumb: '/images/adventure/motm/vice-screen-2023050406315309.png' },{ src: '/images/adventure/motm/vice-screen-2023050406403035.png', thumb: '/images/adventure/motm/vice-screen-2023050406403035.png' },{ src: '/images/adventure/motm/vice-screen-2023050406420320.png', thumb: '/images/adventure/motm/vice-screen-2023050406420320.png' },{ src: '/images/adventure/motm/vice-screen-2023050406425507.png', thumb: '/images/adventure/motm/vice-screen-2023050406425507.png' },{ src: '/images/adventure/motm/vice-screen-2023050406451362.png', thumb: '/images/adventure/motm/vice-screen-2023050406451362.png' },{ src: '/images/adventure/motm/vice-screen-2023050406461270.png', thumb: '/images/adventure/motm/vice-screen-2023050406461270.png' },{ src: '/images/adventure/motm/vice-screen-2023050407004446.png', thumb: '/images/adventure/motm/vice-screen-2023050407004446.png' },{ src: '/images/adventure/motm/vice-screen-2023050508340488.png', thumb: '/images/adventure/motm/vice-screen-2023050508340488.png' },{ src: '/images/adventure/motm/vice-screen-2023051006013764.png', thumb: '/images/adventure/motm/vice-screen-2023051006013764.png' },{ src: '/images/adventure/motm/vice-screen-2023051006093506.png', thumb: '/images/adventure/motm/vice-screen-2023051006093506.png' },{ src: '/images/adventure/motm/vice-screen-2023051006131633.png', thumb: '/images/adventure/motm/vice-screen-2023051006131633.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Activision" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/motm/vice-screen-2023050105435383.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/motm/vice-screen-2023050105435383.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
