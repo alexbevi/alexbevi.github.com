@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Behavioral Changes to the <tt>findOneAnd*</tt> family of APIs in Node.js Driver 6.0.0"
+title: "Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0"
 date: 2023-08-03 08:59:29 -0400
 comments: true
 categories: MongoDB
