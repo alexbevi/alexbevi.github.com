@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0"
+title: "Changes to findOneAnd* APIs in Node.js Driver 6.0.0"
 date: 2023-08-03 08:59:29 -0400
 comments: true
 categories: MongoDB
@@ -45,13 +45,13 @@ console.log(updatedMovie);
 }
 ```
 
-One of the options we set was a [`returnDocument`](https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument) of `after`, which should return the updated document. Though the expectation may be that the function call would return the document directly, as we can see this isn’t the case.
+One of the options we set was a [`returnDocument`](https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument) of `after`, which should return the updated document. Though the expectation may be that the function call would return the document directly, instead you would get the output above.
 
-The document can be accessed using `updatedMovie.value`, but this has never been a great developer experience.
+While the document you’re looking for can be accessed using `updatedMovie.value`, that isn’t the most intuitive experience. But changes are on the way!
 
 ## What can we do right now?
 
-Starting with the [Node.js Driver 5.7.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0) release a new `FindOneAnd*Options` property called [`includeResultMetadata`](https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata) has been introduced. When this property is set to false (default is true) the findOneAnd* APIs will return the requested document as expected.
+Starting with the [Node.js Driver 5.7.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0) release, a new `FindOneAnd*Options` property called [`includeResultMetadata`](https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata) has been introduced. When this property is set to false (default is true), the `findOneAnd*` APIs will return the requested document as expected.
 
 ```js
 const updatedMovie = await movies.findOneAndUpdate(query,
@@ -69,7 +69,7 @@ If your application uses TypeScript and the MongoDB Node.js Driver, anywhere a `
 
 ![](/images/product1605-02.png)
 
-Type hinting will indicate the Schema associated with the collection the operation was executed against. As we would expect, when the `includeResultMetadata` is changed to `false` inline validation will indicate there’s an issue as the `value` property no longer exists on the type associated with the result
+Type hinting will indicate the Schema associated with the collection that the operation was executed against. As we would expect, when the `includeResultMetadata` is changed to `false`, inline validation will indicate there’s an issue since the `value` property no longer exists on the type associated with the result
 
 ![](/images/product1605-01.png)
 
@@ -85,6 +85,8 @@ index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId<M
 31     console.dir(updatedMovie.value);
                                 ~~~~~
 ```
+
+This makes it incredibly easy to identify where in the code changes need to be made.
 
 ## Next Steps
 
