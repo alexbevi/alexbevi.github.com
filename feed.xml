@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-03T15:01:31-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0</title><link href="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/" rel="alternate" type="text/html" title="Behavioral Changes to the findOneAnd* family of APIs in Node.js Driver 6.0.0" /><published>2023-08-03T08:59:29-04:00</published><updated>2023-08-03T15:00:49-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/"><![CDATA[<p>One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> operation will now be returned by default.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-04T09:37:38-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Changes to findOneAnd* APIs in Node.js Driver 6.0.0</title><link href="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/" rel="alternate" type="text/html" title="Changes to findOneAnd* APIs in Node.js Driver 6.0.0" /><published>2023-08-03T08:59:29-04:00</published><updated>2023-08-04T09:36:48-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/"><![CDATA[<p>One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> operation will now be returned by default.</p>
 
 <h2 id="current-state">Current State</h2>
 
@@ -57,13 +57,13 @@
 }
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>One of the options we set was a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument"><code class="language-plaintext highlighter-rouge">returnDocument</code></a> of <code class="language-plaintext highlighter-rouge">after</code>, which should return the updated document. Though the expectation may be that the function call would return the document directly, as we can see this isn’t the case.</p>
+<p>One of the options we set was a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument"><code class="language-plaintext highlighter-rouge">returnDocument</code></a> of <code class="language-plaintext highlighter-rouge">after</code>, which should return the updated document. Though the expectation may be that the function call would return the document directly, instead you would get the output above.</p>
 
-<p>The document can be accessed using <code class="language-plaintext highlighter-rouge">updatedMovie.value</code>, but this has never been a great developer experience.</p>
+<p>While the document you’re looking for can be accessed using <code class="language-plaintext highlighter-rouge">updatedMovie.value</code>, that isn’t the most intuitive experience. But changes are on the way!</p>
 
 <h2 id="what-can-we-do-right-now">What can we do right now?</h2>
 
-<p>Starting with the <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">Node.js Driver 5.7.0</a> release a new <code class="language-plaintext highlighter-rouge">FindOneAnd*Options</code> property called <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata"><code class="language-plaintext highlighter-rouge">includeResultMetadata</code></a> has been introduced. When this property is set to false (default is true) the findOneAnd* APIs will return the requested document as expected.</p>
+<p>Starting with the <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">Node.js Driver 5.7.0</a> release, a new <code class="language-plaintext highlighter-rouge">FindOneAnd*Options</code> property called <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata"><code class="language-plaintext highlighter-rouge">includeResultMetadata</code></a> has been introduced. When this property is set to false (default is true), the <code class="language-plaintext highlighter-rouge">findOneAnd*</code> APIs will return the requested document as expected.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -84,7 +84,7 @@
 
 <p><img src="/images/product1605-02.png" alt="" /></p>
 
-<p>Type hinting will indicate the Schema associated with the collection the operation was executed against. As we would expect, when the <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is changed to <code class="language-plaintext highlighter-rouge">false</code> inline validation will indicate there’s an issue as the <code class="language-plaintext highlighter-rouge">value</code> property no longer exists on the type associated with the result</p>
+<p>Type hinting will indicate the Schema associated with the collection that the operation was executed against. As we would expect, when the <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is changed to <code class="language-plaintext highlighter-rouge">false</code>, inline validation will indicate there’s an issue since the <code class="language-plaintext highlighter-rouge">value</code> property no longer exists on the type associated with the result</p>
 
 <p><img src="/images/product1605-01.png" alt="" /></p>
 
@@ -108,6 +108,8 @@ index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&l
 31     console.dir(updatedMovie.value);
                                 ~~~~~
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This makes it incredibly easy to identify where in the code changes need to be made.</p>
 
 <h2 id="next-steps">Next Steps</h2>
 
