@@ -54,8 +54,7 @@ It's hard to fault Tony Tough for feeling like a LucasArts knock-off as it's don
 
 _Tony Tough and the Night of Roasted Moths_ is a lot of fun to play mainly due to the dry comedic style of writing that permeates all character interactions and Tony's observations. The game is visually appealing, and clearly took a page out of the LucasArts book of point-and-click adventure game design.
 
-There were two sequels to this game ([Tony Tough™ in A Rake's Progress](https://www.tony-tough.com/en/tony-tough-a-rakes-progress) and [The Army Of Dorkiness
-The Project](https://www.tony-tough.com/en/tony-tough-and-the-army-of-dorkiness)), which I won't be covering during this series but am definitely curious to try out one day.
+There was a sequel ([Tony Tough™ in A Rake's Progress](https://www.tony-tough.com/en/tony-tough-a-rakes-progress)) which I won't be covering during this series but am definitely curious to try out one day. The developers are also working on [The Army Of Dorkiness Project](https://www.tony-tough.com/en/tony-tough-and-the-army-of-dorkiness) which is meant to bring Tony Tough back for a third time.
 
 I would recommend this title to anyone looking for a game similar to the later LucasArts adventure games.
 
