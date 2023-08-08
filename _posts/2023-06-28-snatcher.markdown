@@ -3,7 +3,7 @@ layout: post
 title: "Snatcher (Konami) - 1988"
 date: 2023-06-28 15:15:31 -0400
 comments: true
-ategories: ["Let's Adventure!"]
+categories: ["Let's Adventure!"]
 tags: [adventure, "Konami"]
 image: /images/adventure/snatcher/Snatcher 2023-06-21 06.33.52.png
 ---

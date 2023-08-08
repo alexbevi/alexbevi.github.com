@@ -9,9 +9,9 @@ tags: [scummvm, adventure]
 
 The [ScummVM](http://www.scummvm.org) project recently added support for [Tony Tough and the Night of the Roasted Moths](http://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths).
 
-The original developer, [Giovanni Bajo](https://github.com/rasky) appeared on the [scummvm-devel](http://sourceforge.net/mailarchive/forum.php?forum_name=scummvm-devel) mailing list and offered some insight into the development of the original engine.
+The original developer, [Giovanni Bajo](https://github.com/rasky) appeared on the [scummvm-devel](https://lists.scummvm.org/listinfo/scummvm-devel) mailing list and offered some insight into the development of the original engine.
 
-The following is extracted from the [original post](http://sourceforge.net/mailarchive/message.php?msg_id=30015071).
+The following is extracted from the [original post](https://lists.scummvm.org/pipermail/scummvm-devel/2012-October/010774.html).
 
 <!-- more -->
 

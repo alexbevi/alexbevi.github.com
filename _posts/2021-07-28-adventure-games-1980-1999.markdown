@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 49  -%}
+{%- assign games_finished = 50  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -418,7 +418,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 342. Paris 1313 (Dramæra) - 1999
 343. Physicus (HEUREKA-Klett Softwareverlag) - 1999
 344. Scooby-Doo: Mystery of the Fun Park Phantom (Engineering Animation, Inc.) - 1999
-345. Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.) - 1999
+345. [Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.)]({% post_url 2023-07-31-tony-tough %}) - 1999
 346. Zero Critical (Istvan Pely Productions) - 1999
 347. Biosys (JumpStart Solutions Ltd.) - 1999
 348. Beavis and Butt-Head Do U. (The Illusions Gaming Company) - 1999

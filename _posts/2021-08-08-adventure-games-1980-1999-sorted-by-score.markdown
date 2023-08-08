@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 49  -%}
+{%- assign games_finished = 50  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -42,6 +42,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **73%** [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
 1. **71%** [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988
 1. **69%** [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
+1. **69%** [Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.)]({% post_url 2023-07-31-tony-tough %}) - 1999
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 1. **66%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
