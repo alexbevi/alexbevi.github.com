@@ -10,6 +10,9 @@ image: /images/adventure/tony/scummvm-tony-00001.png
 > This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 {: .prompt-info }
 
+> This game is available for free from the developers at https://www.tony-tough.com/en/shop#games
+{: .prompt-tip }
+
 A dastardly alien is stealing all of the children's Halloween candy! Tony Tough P.I. will not stand for this. He sets out to stop the fiend before it's too late, and the alien takes over the world! [Tony Tough and the Night of Roasted Moths](https://en.wikipedia.org/wiki/Tony_Tough_and_the_Night_of_Roasted_Moths) is a traditional 2D "point and click" adventure with a crazy story. The humor and style are reminiscent of old LucasArts games, like Day of the Tentacle.
 
 ![](/images/adventure/tony/scummvm-tony-00020.png)
