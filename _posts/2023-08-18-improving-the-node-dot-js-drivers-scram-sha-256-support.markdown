@@ -11,9 +11,7 @@ image: /images/mongodb-logo.png
 MongoDB always strives to offer best-in-class features, functionality, and security. A number of [authentication mechanisms](https://www.mongodb.com/docs/manual/core/authentication/#authentication-mechanisms) currently exist to verify the identity of a connecting client to your cluster, and when using the [Salted Challenge Response Authentication Mechanism (`SCRAM`)](https://www.mongodb.com/docs/manual/core/security-scram/) there are two possible hashing functions: `SCRAM-SHA-1` and `SCRAM-SHA-256`.
 
 The [MongoDB Driver Authentication Specification](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#defaults) outlines that when attempting to authenticate using SCRAM:
-
 > "If `SCRAM-SHA-256` is present in the list of mechanism, then it MUST be used as the default; otherwise, `SCRAM-SHA-1` MUST be used as the default [...]".
-{: .prompt-info }
 
 A MongoDB Server (`mongos` or `mongod`) can be configured with a list of possible [`authenticationMechanisms`](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.authenticationMechanisms). As a result, MongoDB can be configured to return new authentication mechanisms which can upgrade already running applications to more secure authentication. This is the case when `SCRAM-SHA-256` is added to a cluster that previously only supported `SCRAM-SHA-1`.
 
