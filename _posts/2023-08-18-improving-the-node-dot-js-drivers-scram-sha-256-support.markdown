@@ -10,17 +10,20 @@ image: /images/mongodb-logo.png
 
 MongoDB always strives to offer best-in-class features, functionality, and security. A number of [authentication mechanisms](https://www.mongodb.com/docs/manual/core/authentication/#authentication-mechanisms) currently exist to verify the identity of a connecting client to your cluster, and when using the [Salted Challenge Response Authentication Mechanism (`SCRAM`)](https://www.mongodb.com/docs/manual/core/security-scram/) there are two possible hashing functions: `SCRAM-SHA-1` and `SCRAM-SHA-256`.
 
-The [MongoDB Driver Authentication Specification](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#defaults) outlines that when attempting to authenticate using SCRAM: _"If `SCRAM-SHA-256` is present in the list of mechanism, then it MUST be used as the default; otherwise, `SCRAM-SHA-1` MUST be used as the default [...]"_.
+The [MongoDB Driver Authentication Specification](https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#defaults) outlines that when attempting to authenticate using SCRAM:
+
+> "If `SCRAM-SHA-256` is present in the list of mechanism, then it MUST be used as the default; otherwise, `SCRAM-SHA-1` MUST be used as the default [...]".
+{: .prompt-info }
 
 A MongoDB Server (`mongos` or `mongod`) can be configured with a list of possible [`authenticationMechanisms`](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.authenticationMechanisms). As a result, MongoDB can be configured to return new authentication mechanisms which can upgrade already running applications to more secure authentication. This is the case when `SCRAM-SHA-256` is added to a cluster that previously only supported `SCRAM-SHA-1`.
 
-Prior to hashing passwords with SHA-256, they will first be [prepared using SASLprep](https://datatracker.ietf.org/doc/html/rfc5802). The MongoDB Node.js Driver leverages an external library ([`saslprep`](https://github.com/reklatsmasters/saslprep)) for this functionality, which was an [optional dependency](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies) and only used if available. Though a number of checks were in place to ensure the library was available (and loaded), an [edge case was found](https://jira.mongodb.org/browse/NODE-5289) where these checks could fail and report availability incorrectly.
+Prior to hashing passwords with `SHA-256`, they will first be [prepared using SASLprep](https://datatracker.ietf.org/doc/html/rfc5802). The MongoDB Node.js Driver leverages an external library ([`saslprep`](https://github.com/reklatsmasters/saslprep)) for this functionality, which was an [optional dependency](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies) and only used if available. Though a number of checks were in place to ensure the library was available (and loaded), an [edge case was found](https://jira.mongodb.org/browse/NODE-5289) where these checks could fail and report availability incorrectly.
 
 ## Potential Issue
 
 Most applications won’t experience this issue, however if your Node.js project is being bundled using an alternate bundler (such as [`webpack`](https://webpack.js.org/)) it’s possible a variation of this issue may surface.
 
-If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to [`continueScramConversation`](https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c
+If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to [`continueScramConversation`](https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c)
 
 ```
 {
