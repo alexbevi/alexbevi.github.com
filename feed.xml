@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-14T21:09:46-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Uninvited (ICOM Simulations) - 1986</title><link href="https://www.alexbevi.com/blog/2023/08/09/uninvited/" rel="alternate" type="text/html" title="Uninvited (ICOM Simulations) - 1986" /><published>2023-08-09T07:15:38-04:00</published><updated>2023-08-14T21:08:50-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/09/uninvited</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/09/uninvited/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-18T08:52:10-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Improving the Node.js Driver’s SCRAM-SHA-256 Support</title><link href="https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support/" rel="alternate" type="text/html" title="Improving the Node.js Driver’s SCRAM-SHA-256 Support" /><published>2023-08-18T08:40:18-04:00</published><updated>2023-08-18T08:51:13-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support/"><![CDATA[<p>MongoDB always strives to offer best-in-class features, functionality, and security. A number of <a href="https://www.mongodb.com/docs/manual/core/authentication/#authentication-mechanisms">authentication mechanisms</a> currently exist to verify the identity of a connecting client to your cluster, and when using the <a href="https://www.mongodb.com/docs/manual/core/security-scram/">Salted Challenge Response Authentication Mechanism (<code class="language-plaintext highlighter-rouge">SCRAM</code>)</a> there are two possible hashing functions: <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> and <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code>.</p>
+
+<p>The <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#defaults">MongoDB Driver Authentication Specification</a> outlines that when attempting to authenticate using SCRAM: <em>“If <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code> is present in the list of mechanism, then it MUST be used as the default; otherwise, <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> MUST be used as the default […]”</em>.</p>
+
+<p>A MongoDB Server (<code class="language-plaintext highlighter-rouge">mongos</code> or <code class="language-plaintext highlighter-rouge">mongod</code>) can be configured with a list of possible <a href="https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.authenticationMechanisms"><code class="language-plaintext highlighter-rouge">authenticationMechanisms</code></a>. As a result, MongoDB can be configured to return new authentication mechanisms which can upgrade already running applications to more secure authentication. This is the case when <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code> is added to a cluster that previously only supported <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code>.</p>
+
+<p>Prior to hashing passwords with SHA-256, they will first be <a href="https://datatracker.ietf.org/doc/html/rfc5802">prepared using SASLprep</a>. The MongoDB Node.js Driver leverages an external library (<a href="https://github.com/reklatsmasters/saslprep"><code class="language-plaintext highlighter-rouge">saslprep</code></a>) for this functionality, which was an <a href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies">optional dependency</a> and only used if available. Though a number of checks were in place to ensure the library was available (and loaded), an <a href="https://jira.mongodb.org/browse/NODE-5289">edge case was found</a> where these checks could fail and report availability incorrectly.</p>
+
+<h2 id="potential-issue">Potential Issue</h2>
+
+<p>Most applications won’t experience this issue, however if your Node.js project is being bundled using an alternate bundler (such as <a href="https://webpack.js.org/"><code class="language-plaintext highlighter-rouge">webpack</code></a>) it’s possible a variation of this issue may surface.</p>
+
+<p>If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to [<code class="language-plaintext highlighter-rouge">continueScramConversation</code>](https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>{
+  "errorType": "TypeError",
+  "errorMessage": "saslprep is not a function",
+  "stack": [
+    "TypeError: saslprep is not a function",
+    "    at continueScramConversation ([...]/index.js:xxx:yyy)",
+    [...]
+  ]
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>TypeError: l is not a function
+    at continueScramConversation (/app/webpack:[...]/mongodb/lib/core/auth/scram.js:xxx:yy)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Note that <a href="https://mongoosejs.com/">Mongoose</a> applications can also be affected, as Mongoose wraps the Node.js driver:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>TypeError: (0 , o.saslprep) is not a function
+    at continueScramConversation (/app/webpack:[...]/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:xxx:yy)
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>The underlying issue was addressed in versions <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">5.7.0</a>, <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v4.17.0">4.17.0</a> and <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v3.7.4">3.7.4</a> of the MongoDB Node.js driver, so depending on the version of the Driver being used by your application a minor version update will address this.</p>
+
+<p>Upgrading your application’s libraries and deploying to production may not always be possible in a timely fashion. If this is the case and you happen to hit the issue described above a workaround would be to append the <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#mongodb-urioption-urioption.authMechanism"><code class="language-plaintext highlighter-rouge">authMechanism</code> option</a> to your connection string with a value of <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>mongodb+srv://xyz.mongodb.net/test?authMechanism=SCRAM-SHA-1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This will force the driver to attempt authorization using the <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> hashing algorithm. Note that connection string changes would still require the application to be restarted for those changes to take effect.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[MongoDB always strives to offer best-in-class features, functionality, and security. A number of authentication mechanisms currently exist to verify the identity of a connecting client to your cluster, and when using the Salted Challenge Response Authentication Mechanism (SCRAM) there are two possible hashing functions: SCRAM-SHA-1 and SCRAM-SHA-256.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Uninvited (ICOM Simulations) - 1986</title><link href="https://www.alexbevi.com/blog/2023/08/09/uninvited/" rel="alternate" type="text/html" title="Uninvited (ICOM Simulations) - 1986" /><published>2023-08-09T07:15:38-04:00</published><updated>2023-08-14T21:08:50-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/09/uninvited</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/09/uninvited/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1201,156 +1258,4 @@ index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&l
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/xanth/xanth_002.png', thumb: '/images/adventure/xanth/xanth_002.png' },{ src: '/images/adventure/xanth/xanth_003.png', thumb: '/images/adventure/xanth/xanth_003.png' },{ src: '/images/adventure/xanth/xanth_004.png', thumb: '/images/adventure/xanth/xanth_004.png' },{ src: '/images/adventure/xanth/xanth_007.png', thumb: '/images/adventure/xanth/xanth_007.png' },{ src: '/images/adventure/xanth/xanth_008.png', thumb: '/images/adventure/xanth/xanth_008.png' },{ src: '/images/adventure/xanth/xanth_009.png', thumb: '/images/adventure/xanth/xanth_009.png' },{ src: '/images/adventure/xanth/xanth_011.png', thumb: '/images/adventure/xanth/xanth_011.png' },{ src: '/images/adventure/xanth/xanth_012.png', thumb: '/images/adventure/xanth/xanth_012.png' },{ src: '/images/adventure/xanth/xanth_014.png', thumb: '/images/adventure/xanth/xanth_014.png' },{ src: '/images/adventure/xanth/xanth_015.png', thumb: '/images/adventure/xanth/xanth_015.png' },{ src: '/images/adventure/xanth/xanth_016.png', thumb: '/images/adventure/xanth/xanth_016.png' },{ src: '/images/adventure/xanth/xanth_018.png', thumb: '/images/adventure/xanth/xanth_018.png' },{ src: '/images/adventure/xanth/xanth_020.png', thumb: '/images/adventure/xanth/xanth_020.png' },{ src: '/images/adventure/xanth/xanth_021.png', thumb: '/images/adventure/xanth/xanth_021.png' },{ src: '/images/adventure/xanth/xanth_023.png', thumb: '/images/adventure/xanth/xanth_023.png' },{ src: '/images/adventure/xanth/xanth_024.png', thumb: '/images/adventure/xanth/xanth_024.png' },{ src: '/images/adventure/xanth/xanth_025.png', thumb: '/images/adventure/xanth/xanth_025.png' },{ src: '/images/adventure/xanth/xanth_027.png', thumb: '/images/adventure/xanth/xanth_027.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DreamWeb (Creative Reality) - 1994</title><link href="https://www.alexbevi.com/blog/2023/05/18/dreamweb/" rel="alternate" type="text/html" title="DreamWeb (Creative Reality) - 1994" /><published>2023-05-18T06:41:18-04:00</published><updated>2023-06-07T06:05:53-04:00</updated><id>https://www.alexbevi.com/blog/2023/05/18/dreamweb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/05/18/dreamweb/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/DreamWeb">DreamWeb</a> is an MS-DOS and Amiga point-and-click cyberpunk top-down adventure game released in 1994, developed by Creative Reality and published by Empire Interactive Entertainment. The game features mature themes and a dark plot filled with violence and brief full frontal nudity; a rarity for games at the time.</p>
-
-<p>You play as Ryan, a bartender in a futuristic city who’s been having weird dreams of an entity known as the Dreamweb. In the dream that opens the game, Ryan is asked by the master monk of the Keepers to be the deliverer and kill the seven evils, who are united to break the Dreamweb and send mankind spiraling into chaos.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00031.png" alt="" /></p>
-
-<p>ScummVM announced support for DreamWeb in May of 2012, and though I tried it out at the time I honestly didn’t like the game. I’m pretty sure this was because I didn’t really do anything more than load it, try to move around, get thoroughly confused and quit. To appreciate this game you need to actually read the material that it’s distributed with (the <em>“Diary of a (Mad?) Man”</em> - which is available for free on the ScummVM site) as it helps setup the backstory.</p>
-
-<p>The interface is also a very different as you only get about 33% of the screen dedicated to the game world. The rest is taken up by a top bar that gives you tools like save/load/inspect, and down the left hand side of the screen is a large view of Ryan. This actually acts as your inventory access as well as a zoom window so you can more closely inspect things on screen you may want to interact with.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00006.png" alt="" />
-<em>Nothing like barging into the can to have a conversation while someone’s taking a shit</em></p>
-
-<p>Each screen is static and doesn’t scroll, though as you move the mouse around you’ll find hotspots called out in the zoom window that you can interact with. If you can move in a certain direction this will be shown using arrows, and if there are characters on screen you can interact with, they’ll spill their line of dialogue along with a voice-acted version of the text.</p>
-
-<p>There’s no branching dialogue trees in this game, which is kind of a nice change. Everyone has a fixed message they want to relay, and once they’ve done that you can either ask them to repeat it or move along.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00014.png" alt="" /></p>
-
-<p>You can interact with almost every single element of the environment that has a label. When you do so, depending on what it is you’ve selected you may be presented with additional interaction options in the top right of the screen indicating actions you can take. This is sort of the verb menu you’d get in other adventure games, though I have to admit I found this more contextual approach a lot more intuitive.</p>
-
-<p>This is how you can pick up items, combine items and talk to people.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00018.png" alt="" />
-<em>I guess if you gotta go, go out with a “bang” …</em></p>
-
-<p>As the monks have selected you to terminate the 7 evils, ultimately your goal is to hunt down these individuals and murder them. Killing the first target is sort of the hardest as it’s sort of like the “training mission” to get you acclimated to the game, controls, world and story. Figuring out how to get a gun is a bit challenging, and figuring out where the first target (David Crane) is takes some trial and error.</p>
-
-<p>You basically just need to click on everything, inspect everything, talk to everyone and try using everything you’ve picked up on everything you come across. This is standard adventure game fare, but I found for some reason this game was a bit more confusing to “get the hang of” - possibly due to the interface feeling so different than typical Sierra Online or LucasArts style games.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00027.png" alt="" /></p>
-
-<p>Trying to figure out where to go next may seem challenging, but once you’ve given yourself a chance to get used to the controls and the flow of this game, it actually progresses in a very linear fashion. Ryan will call out new information in a very obvious way, and traveling to new locations is just a matter of going outside and selecting from the list of available locations.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00033.png" alt="" /></p>
-
-<p>From the travel screen you can cycle through all available locations, as well as get information about each by clicking the note icon in the upper right hand side of the screen. As you move around the game world and inspect everything and talk to everyone, you’ll slowly learn various door codes and network logins and passwords. You’ll need these to be able to explore all key locations as well as progress the story.</p>
-
-<p>Navigating the network unfortunately can be a bit confusing.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00021.png" alt="" /></p>
-
-<p>There are only a couple of commands you actually need to use and these are documented in the manual under the <em>“The Network Monitor”</em> section. The manual sort of hints at you needing to <code class="language-plaintext highlighter-rouge">LOGON RYAN</code> to get started, and that you’ll need a password. If you read the material that comes with the game, the last page of the diary has your network password.</p>
-
-<p>You’ll find various cartridges scattered throughout the game, which you can put into these network monitors and explore. Some of them require you to use a different login to access the contents, which you’ll find by exploring.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00023.png" alt="" /></p>
-
-<p>Almost everything can be picked up and carried with you, but you have very limited inventory space. Fortunately if you need to drop anything it will remain visible on the screen in case you need to come back later and pick it back up.</p>
-
-<p>This is actually an important mechanic in this game as more than once you’ll find yourself needing to pick things up and immediately drop them because something might be hidden underneath. Because your inventory is limited to 30 slots, you’ll want to make sure you carefully select what you do and don’t carry around with you.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00039.png" alt="" /></p>
-
-<p>Overall I genuinely enjoyed playing this game. It’s extremely dark and almost has a cyberpunk type of feel to it, especially once you finally finish the game only to realize your reward is being returned to your life to face the consequences of your actions. This results in a standoff with the police where they ultimately kill you, releasing your aura back to the Dreamweb for the cycle to begin again.</p>
-
-<p>The ambient music playing throughout enhances the “Blade Runner”-esque nature of the game, though you’re not chasing replicants here. I actually felt like DreamWeb would make a good addition to the cyberpunk genre along with titles like <a href="/blog/2016/02/23/just-finished-shadowrun/">Shadowrun</a>, <a href="/blog/2023/02/13/rise-of-the-dragon/">Rise of the Dragon</a> or <a href="/blog/2023/02/18/manhunter-new-york/">Manhunter: New York</a>.</p>
-
-<p><img src="/images/adventure/dreamweb/scummvm-dreamweb-cd-00040.png" alt="" /></p>
-
-<p>In October 2012, the creators and copyright holders of DreamWeb, Creative Reality and Neil Dodwell, released the game as freeware for use with ScummVM. It is available for download from <a href="https://www.scummvm.org/games/#games-dreamweb:dreamweb">their Downloads page</a>. Unlike the version <a href="http://www.textfiles.com/piracy/RAZOR/dream.nfo">cracked by Razor1911</a>, the freeware version includes the copy protection (guessing the pattern at the alter near the endgame) as well as the network logon passwords.</p>
-
-<p>Though extremely linear in nature, this game can be pretty challenging. You’ll likely need a walkthrough to get through the Network Monitor stuff unless you’re taking an extremely methodical and thorough approach to your playthrough.</p>
-
-<p>DreamWeb wasn’t well received critically when it was released, but I think it’s actually a very good entry in the pantheon of adventure games - and not one to miss. If you’re a fan of more mature darker stories and are willing to do the work up front to read through the supporting material I think you’ll really enjoy this gaming experience.</p>
-
-<h3 id="game-information">Game Information</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>DreamWeb</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://www.mobygames.com/company/1331/creative-reality/">Creative Reality</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Empire</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1994</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Amiga</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php/Dreamweb">Dreamweb</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/2882"><em>How Long To Beat?</em></a></td>
-      <td>3.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/dreamweb.aspx">Walkthrough</a>, <a href="https://www.starehry.eu/download/adventure/docs/Dreamweb-Manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>63%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00001.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00001.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00002.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00002.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00003.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00003.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00004.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00004.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00005.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00005.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00007.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00007.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00008.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00008.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00009.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00009.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00010.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00010.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00011.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00011.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00012.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00012.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00013.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00013.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00015.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00015.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00016.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00016.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00017.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00017.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00019.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00019.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00020.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00020.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00022.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00022.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00024.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00024.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00025.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00025.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00026.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00026.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00028.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00028.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00029.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00029.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00030.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00030.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00032.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00032.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00034.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00034.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00035.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00035.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00036.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00036.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00037.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00037.png' },{ src: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00038.png', thumb: '/images/adventure/dreamweb/scummvm-dreamweb-cd-00038.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Creative Reality" /><category term="Empire" /><category term="Dreamweb" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dreamweb/scummvm-dreamweb-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dreamweb/scummvm-dreamweb-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/xanth/xanth_002.png', thumb: '/images/adventure/xanth/xanth_002.png' },{ src: '/images/adventure/xanth/xanth_003.png', thumb: '/images/adventure/xanth/xanth_003.png' },{ src: '/images/adventure/xanth/xanth_004.png', thumb: '/images/adventure/xanth/xanth_004.png' },{ src: '/images/adventure/xanth/xanth_007.png', thumb: '/images/adventure/xanth/xanth_007.png' },{ src: '/images/adventure/xanth/xanth_008.png', thumb: '/images/adventure/xanth/xanth_008.png' },{ src: '/images/adventure/xanth/xanth_009.png', thumb: '/images/adventure/xanth/xanth_009.png' },{ src: '/images/adventure/xanth/xanth_011.png', thumb: '/images/adventure/xanth/xanth_011.png' },{ src: '/images/adventure/xanth/xanth_012.png', thumb: '/images/adventure/xanth/xanth_012.png' },{ src: '/images/adventure/xanth/xanth_014.png', thumb: '/images/adventure/xanth/xanth_014.png' },{ src: '/images/adventure/xanth/xanth_015.png', thumb: '/images/adventure/xanth/xanth_015.png' },{ src: '/images/adventure/xanth/xanth_016.png', thumb: '/images/adventure/xanth/xanth_016.png' },{ src: '/images/adventure/xanth/xanth_018.png', thumb: '/images/adventure/xanth/xanth_018.png' },{ src: '/images/adventure/xanth/xanth_020.png', thumb: '/images/adventure/xanth/xanth_020.png' },{ src: '/images/adventure/xanth/xanth_021.png', thumb: '/images/adventure/xanth/xanth_021.png' },{ src: '/images/adventure/xanth/xanth_023.png', thumb: '/images/adventure/xanth/xanth_023.png' },{ src: '/images/adventure/xanth/xanth_024.png', thumb: '/images/adventure/xanth/xanth_024.png' },{ src: '/images/adventure/xanth/xanth_025.png', thumb: '/images/adventure/xanth/xanth_025.png' },{ src: '/images/adventure/xanth/xanth_027.png', thumb: '/images/adventure/xanth/xanth_027.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/xanth/xanth_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
