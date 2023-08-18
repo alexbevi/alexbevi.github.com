@@ -21,7 +21,7 @@ Prior to hashing passwords with `SHA-256`, they will first be [prepared using SA
 
 Most applications won’t experience this issue, however if your Node.js project is being bundled using an alternate bundler (such as [`webpack`](https://webpack.js.org/)) it’s possible a variation of this issue may surface.
 
-If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to [`continueScramConversation`](https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c)
+If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to [`continueScramConversation`](https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c) similar to the following examples:
 
 ```
 {
