@@ -10,7 +10,7 @@ canonical_url: https://www.mongodb.com/blog/post/behavioral-changes-find-one-fam
 ---
 
 > Cross posted from the [MongoDB Blog](https://www.mongodb.com/blog/post/behavioral-changes-find-one-family-apis-node-js-driver-6-0-0)
-{: .prompt-info }
+{: .prompt-tip }
 
 One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a `findOneAnd*` operation will now be returned by default.
 

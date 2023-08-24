@@ -6,7 +6,12 @@ comments: true
 categories: MongoDB
 tags: [mongodb, drivers, nodejs, typescript, javascript]
 image: /images/mongodb-logo.png
+canonical_url: https://www.mongodb.com/blog/post/improving-nodejs-drivers-scram-sha-256-support
 ---
+
+> Cross posted from the [MongoDB Blog](https://www.mongodb.com/blog/post/improving-nodejs-drivers-scram-sha-256-support)
+{: .prompt-tip }
+
 
 MongoDB always strives to offer best-in-class features, functionality, and security. A number of [authentication mechanisms](https://www.mongodb.com/docs/manual/core/authentication/#authentication-mechanisms) currently exist to verify the identity of a connecting client to your cluster, and when using the [Salted Challenge Response Authentication Mechanism (`SCRAM`)](https://www.mongodb.com/docs/manual/core/security-scram/) there are two possible hashing functions: `SCRAM-SHA-1` and `SCRAM-SHA-256`.
 
