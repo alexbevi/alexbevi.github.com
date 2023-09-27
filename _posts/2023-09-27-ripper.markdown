@@ -1,0 +1,174 @@
+---
+layout: post
+title: "Ripper (Take-Two Interactive) - 1996"
+date: 2023-09-27 05:54:42 -0400
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "Take-Two Interactive"]
+image: /images/adventure/ripper/ripper_000.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+[Ripper](https://en.wikipedia.org/wiki/Ripper_(video_game)) is a 1996 interactive movie point-and-click adventure game developed and published by Take-Two Interactive for MS-DOS and Macintosh. The cast includes Christopher Walken, Paul Giamatti, Karen Allen, Burgess Meredith (in his final performance before his death the following year), David Patrick Kelly, Ossie Davis, and John Rhys-Davies. The villain of the game is chosen at random from the four main characters. A limited number of the clues and puzzles, plus a single line of dialogue in the ending, change according to the villain's identity.
+
+![](/images/adventure/ripper/ripper_005.png)
+
+This is an FMV game, so you start off with an intro movie that sets up the premise for the game. Right away you're drawn into this world as the credits roll and you realize the cast is a bunch of actual actors - all while [Blue Öyster Cult's _(Don't Fear) The Reaper_](https://www.youtube.com/watch?v=Dy4HA3vUv2c) plays in the background. This interactive movie is going to play out more like a movie than a game ... I can feel it ... and I'm fucking excited!
+
+![](/images/adventure/ripper/ripper_001.png)
+
+Once the opening sequence completes you find yourself in a room with Detective Magnotta, played by none other than Christopher Walken. He delivers his lines in a very "Walkenesque" fashion, which just further draws you into the game world right off the hop. As a meta note, Walken and _Don't Fear the Reaper_ would be reunited a few years later on the SNL skit ["More Cowbell"](https://en.wikipedia.org/wiki/More_Cowbell).
+
+![](/images/adventure/ripper/ripper_022.png)
+
+You play the part of a reporter - Jake Quinlan - who is covering the Ripper murders. Apparently the Ripper communicates with you directly for some reason, so you find yourself on at the scene of a murder where you first meet Magnotta. There are a very limited number of things you can do in the game world, so you sweep the mouse over the screen to see if the cursor changes to a different kind of icon.
+
+Basically you can move around, inspect, pick up, use or talk - typical adventure game actions. Unlike most adventure games though, these actions are very intentional on their targets so you can't pick the wrong one. If you can talk to a character, that will be your only option on that scene.
+
+![](/images/adventure/ripper/ripper_049.png)
+
+When you have the option to interact with a character this is done with a simple list of topics. As you progress through the game additional topics will become available for various characters depending on other interactions you've had with the game world. You'll need to pay _extremely close_ attention to everything everyone says as most conversations can't be repeated and it's easy to miss a clue or a cue that lets you know where to go next.
+
+![](/images/adventure/ripper/ripper_053.png)
+
+The game actually comes with a built in notebook you can use to record clues as you progress. This is an interesting mechanic, but it would be way more useful if it would record the clues for you automatically. Other than near the end of the game, unless you manually enter content into the notebook it will just remain empty.
+
+This seems like a missed opportunity, as this game is very easy to get lost in which will result in a lot of backtracking and questioning everyone repeatedly to see if there are any new conversation topics. This can very quickly become tedious.
+
+![](/images/adventure/ripper/ripper_056.png)
+
+Though the actual gameplay of this "game" can be a bit annoying and repetitive, the acting in the cut scenes and character interactions more than make up for it. The underlying story of the game, including your pursuit of the Ripper and the backstory of the main characters, how they're connected and how they're all connected to the ripper murders is fantastic. I found myself rushing through the actual interactive elements of this game just so I could get the story to progress as the story is what really shines through here.
+
+![](/images/adventure/ripper/ripper_055.png)
+
+Parts of this game take place in cyberspace. Your "data angel" interfaces with a list of virtual icons that lead to "wells". These wells contain clues, story elements or software. Each well requires a password, which will either be written down somewhere or shared via a conversation. It is *so easy* to miss these passwords and get stuck, so you'll likely find yourself referring to a walkthrough in order to progress through this game ... I know I did.
+
+Once you finally get into a well, chances are you'll either be presented with a combat sequence or a puzzle. This is where the game really fell apart for me, because I fucking hated every single one of these sequences.
+
+![](/images/adventure/ripper/ripper_041.png)
+
+The puzzles are brutally hard. I did not enjoy a single one of these and either looked up the solution or skipped the sequence entirely. I'm pretty sure the developers knew they were artificially padding the game with this bullshit because there's a cheat code you can use to skip literally every puzzle or combat sequence. I'm just going to list them here (copied from [cheatbook.de](https://www.cheatbook.de/files/ripper.htm)) in case you happen to take a run at this game after reading this review and find yourself as frustrated as I was and looking for a quick way to progress:
+
+````
+Puzzle in Catherine's Appartment      - PISCES
+Catherine's Well                      - ARCADE
+Falcon Eddie's Well                   - PARADISE
+Catherine's Brain                     - CAFFEINE
+Web Runners' Well                     - ZZTOP
+Dr. Burton's Secret Lab               - SPARKY
+Falcon Eddie's Secret Well (Puzzle)   - HEADACHE
+Falcon Eddie's Secret Well (Book)     - SPONGE
+Weapon 1 Well                         - ASPIRIN
+Anti-Viral Well                       - RETZEL
+Anti-Rival Well puzzle                - exterminator
+Warp Space puzzle                     - warp
+Wofforod's Well puzzle                - vulcan
+```
+
+Just type these passwords in at the beginning of the sequence and you'll skip it entirely.
+
+![](/images/adventure/ripper/ripper_057.png)
+
+As you investigate you'll find things you can scan into your WAC, which is a portable computer/phone/database thing. Clues are stored here, and some of them can be interacted with if you find pieces of software to do so. For example, you'll need to unlock an audio-lock at some point, so you'll record a conversation with someone then use audio editing software to rearrange the clip into a voice key.
+
+Actually as soon as the game begins Magnotta throws a cup on the ground and breaks it. You need to reassemble this in your WAC (after picking it up) to get a clue that's written on the cup. This sequence is a pain in the ass, so you basically have 5 minutes of gameplay before the game gets in the way of the story :P
+
+![](/images/adventure/ripper/ripper_042.png)
+
+Occasionally the game will alert you that you have an incoming WAC transmission. These are used to progress the story once you've exhausted the various conversation topics and have analyzed and picked up everything in all available locations. When I first started playing the game I had nothing but problems with the WAC as the videos didn't render properly. It turns out this is a problem with the game itself; not DOSBox. You need to ensure you've patched the game to at least [version 1.05](https://archive.org/details/ripperpatch) as this addresses a number of video issues, so make sure you do this before you start playing.
+
+![](/images/adventure/ripper/ripper_054.png)
+
+The CG in this game is sort of what you'd expect for this time period ... not great. All video is also super heavily compressed so there are artifacts galore, and a low framerate as well. I honestly didn't find it detracted too much from the experience though as the acting more than made up for the visual quality.
+
+My main gripe though, was that I found myself constantly switching CDs. Yeah I know this is an old game, and FMV games typically were multi-disc, but when playing in 2023 this is frustrating enough to be worth mentioning. There are 6 discs to this game, so you'll be prompted to switch discs pretty often.
+
+![](/images/adventure/ripper/ripper_060.png)
+
+It takes a lot of slogging, but you'll eventually find your way to virtual White Chapel where you confront the ripper ... after solving one more meaningless puzzle. So many puzzles ...
+
+This game would have made a good movie. As a game it sort of sucks. The puzzles are brutally hard, the actual interactive elements are sort of boring and navigating between scenes is painfully slowly and purposely drawn out. I would highly recommend reading the [Wired article](https://www.wired.com/story/ripper/) about the game's development and maybe just watching a [longplay on YouTube](https://www.youtube.com/watch?v=LWpWokMLyRs) if you're looking to experience _Ripper_.
+
+I had extremely high hopes for this game given the A-list cast, an extremely interesting premise and story line and elements of cyberpunk, but the game fell flat. I wouldn't recommend playing this, though it might be worth checking out clips just to experience some of the performances the actors give.
+
+![](/images/adventure/ripper/ripper_063.png)
+
+## Game Information
+
+|*Game*|Ripper|
+|*Developer*|[Take-Two Interactive](https://en.wikipedia.org/wiki/Take-Two_Interactive)|
+|*Publisher*|Take-Two Interactive|
+|*Release Date*|February 29, 1996|
+|*Systems*|DOS, Mac OS|
+|*Game Engine*||
+
+### My Playthrough
+
+|[*How Long To Beat?*](https://howlongtobeat.com/game/7829)|9 hours|
+|*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|
+|*Notes*|[Walkthrough](http://www.gameboomers.com/wtcheats/pcRr/ripper.htm)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|10|
+|**Story (25)**|23|
+|**Experience (15)**|2|
+|**Impact (10)**|2|
+||**53%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/ripper/ripper_002.png
+/images/adventure/ripper/ripper_003.png
+/images/adventure/ripper/ripper_004.png
+/images/adventure/ripper/ripper_006.png
+/images/adventure/ripper/ripper_008.png
+/images/adventure/ripper/ripper_009.png
+/images/adventure/ripper/ripper_010.png
+/images/adventure/ripper/ripper_011.png
+/images/adventure/ripper/ripper_012.png
+/images/adventure/ripper/ripper_013.png
+/images/adventure/ripper/ripper_014.png
+/images/adventure/ripper/ripper_015.png
+/images/adventure/ripper/ripper_016.png
+/images/adventure/ripper/ripper_017.png
+/images/adventure/ripper/ripper_018.png
+/images/adventure/ripper/ripper_019.png
+/images/adventure/ripper/ripper_020.png
+/images/adventure/ripper/ripper_021.png
+/images/adventure/ripper/ripper_023.png
+/images/adventure/ripper/ripper_024.png
+/images/adventure/ripper/ripper_025.png
+/images/adventure/ripper/ripper_026.png
+/images/adventure/ripper/ripper_027.png
+/images/adventure/ripper/ripper_028.png
+/images/adventure/ripper/ripper_029.png
+/images/adventure/ripper/ripper_030.png
+/images/adventure/ripper/ripper_031.png
+/images/adventure/ripper/ripper_032.png
+/images/adventure/ripper/ripper_033.png
+/images/adventure/ripper/ripper_034.png
+/images/adventure/ripper/ripper_035.png
+/images/adventure/ripper/ripper_036.png
+/images/adventure/ripper/ripper_037.png
+/images/adventure/ripper/ripper_038.png
+/images/adventure/ripper/ripper_039.png
+/images/adventure/ripper/ripper_040.png
+/images/adventure/ripper/ripper_043.png
+/images/adventure/ripper/ripper_044.png
+/images/adventure/ripper/ripper_045.png
+/images/adventure/ripper/ripper_046.png
+/images/adventure/ripper/ripper_047.png
+/images/adventure/ripper/ripper_048.png
+/images/adventure/ripper/ripper_050.png
+/images/adventure/ripper/ripper_051.png
+/images/adventure/ripper/ripper_052.png
+/images/adventure/ripper/ripper_058.png
+/images/adventure/ripper/ripper_059.png
+/images/adventure/ripper/ripper_061.png
+/images/adventure/ripper/ripper_062.png
+{% endgalleria %}

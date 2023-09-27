@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 52  -%}
+{%- assign games_finished = 53  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -337,7 +337,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 261. Angel Devoid: Face of the Enemy (Electric Dreams) - 1996
 262. Chronicles of the Sword (Synthetic Dimensions) - 1996
 263. Bad Mojo (Pulse Entertainment) - 1996
-264. Ripper (Take-Two Interactive) - 1996
+264. [Ripper (Take-Two Interactive)]({% post_url 2023-09-27-ripper %}) - 1996
 265. Spycraft: The Great Game (Activision) - 1996
 266. Zork Nemesis (Zombie LLC) - 1996
 267. Normality (Gremlin Interactive) - 1996
