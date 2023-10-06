@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 53  -%}
+{%- assign games_finished = 54  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -392,7 +392,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 316. Riven (Cyan) - 1997
 317. The Curse of Monkey Island (LucasArts) - 1997
 318. Zork: Grand Inquisitor (Activision) - 1997
-319. Blade Runner (Westwood Studios) - 1997
+319. [Blade Runner (Westwood Studios)]({% post_url 2023-10-05-blade-runner %}) - 1997
 320. ~~Hollywood Monsters (Pendulo Studios) - 1997~~ (_Spanish only, though a [fan translation](https://shinji-nerd-life.blogspot.com/2012/03/hollywood-monsters-in-english.html) exists_)
 321. Ankh: The Tales of Mystery (Artex Software) - 1998
 322. Morpheus (Soap Bubble Productions) - 1998
