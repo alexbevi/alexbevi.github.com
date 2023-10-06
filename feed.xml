@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-27T07:21:55-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Ripper (Take-Two Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2023/09/27/ripper/" rel="alternate" type="text/html" title="Ripper (Take-Two Interactive) - 1996" /><published>2023-09-27T05:54:42-04:00</published><updated>2023-09-27T07:20:38-04:00</updated><id>https://www.alexbevi.com/blog/2023/09/27/ripper</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/09/27/ripper/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-06T06:59:56-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Blade Runner (Westwood Studios) - 1997</title><link href="https://www.alexbevi.com/blog/2023/10/05/blade-runner/" rel="alternate" type="text/html" title="Blade Runner (Westwood Studios) - 1997" /><published>2023-10-05T05:25:07-04:00</published><updated>2023-10-06T06:58:34-04:00</updated><id>https://www.alexbevi.com/blog/2023/10/05/blade-runner</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/10/05/blade-runner/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Blade_Runner_(1997_video_game)">Blade Runner</a> is a point-and-click adventure game developed by Westwood Studios and published by Virgin Interactive for Microsoft Windows, released on November 14, 1997. The game is not a direct adaptation of the 1982 Ridley Scott film Blade Runner but is instead a “sidequel”, telling an original story, which runs parallel to the film’s plot, occasionally intersecting with it.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00001.png" alt="" /></p>
+
+<p>Set in 2019 Los Angeles, the game tells the story of Ray McCoy, an elite detective charged with hunting down a group of dangerous replicants (bioengineered androids designed to look and act like humans). Although several of the film’s characters appear in the game, with some of the original actors returning to voice them, the film’s protagonist, Rick Deckard, does not appear in a speaking role. Instead, he is referred to on multiple occasions, is seen several times, and his activities as depicted in the film are mentioned. Other parallels with the film include the reproduction of several prominent locations, as well as scenes and dialogue closely modelled on the original. The game also features extracts from the film’s soundtrack.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00016.png" alt="" /></p>
+
+<p>When the game starts you’re investigating an attack at an animal store. Apparently the place has been shot up, but it doesn’t appear to be a robbery so McCoy is tasked with trying to find out who did it an why. This is done by sweeping the cursor over the scene to see when it either turns green (so you can interact with something), or blue (so you can move in that direction).</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00008.png" alt="" /></p>
+
+<p>This game has an interesting character interaction mechanic, as you can select a <em>Conversation Choice</em> from you options screen before engaging in a conversation. These choices set the tone for the conversation and depending on what you pick can effect the information you get back. This is what I assumed at least, but I only played around with it at the very beginning of the game, then set it to the question mark and sort of just left it there.</p>
+
+<p>The KIA, which is your personal computer (and where you change options or save/load the game) is also where you can review the evidence you’ve collected during your investigation. This is extremely helpful as you can review conversations you’ve had, as well as see what evidence you’ve picked up or hardcopies you’ve printed while analyzing photos.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00012.png" alt="" /></p>
+
+<p>Remember that <a href="https://www.youtube.com/watch?v=qHepKd38pr0">scene in the movie where Deckard is enhancing a photo?</a> You guessed it, that mechanic makes its way into this game, and is actually used a few times to advance the plot. Honestly I remember when I originally played this game I spent a lot of time with each photo you get access to just trying to enhance every possible section to see if it hid more clues.</p>
+
+<p>It’s pretty cool how these 2D photos can be sort of navigated in 3D, as you can uncover details “behind” or “around” certain sections to make details appear such as faces.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00010.png" alt="" /></p>
+
+<p>Not all aspects of the movie translate to “fun” when made into playable elements of the game. The Voight-Kampff test that is used to determine if someone is a replicant or human can be administered to various characters, but I found that it was more tedious than enjoyable. You’re basically just clicking one of three buttons to ask questions of varying degrees of “difficulty” to the subject. You don’t see the subject reacting - just a picture of an eyeball and an arbitrary meter than is supposed to (I think) show “reaction time”.</p>
+
+<p>I sort of just kept mashing the buttons until the game decided on a result and I was allowed to move on.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00022.png" alt="" /></p>
+
+<p>There are a handful of characters you can interact with throughout the game, and as you progress you’ll be given certain dialogue options you can use to learn more about your investigation. You can only ask characters about a certain topic once (in most cases), so it’s extra helpful that anything important to the main story is also captured in your KIA as evidence so that you can revisit it later if needed.</p>
+
+<p>This game is fully voiced, and the voice actors are quite good. The background music is also very atmospheric and borrows heavily from the movie. This makes for an extremely immersive experience.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00006.png" alt="" /></p>
+
+<p>Your job as a blade runner is ultimately to “retire” replicants. As such, you’ve got your trusty sidearm with you at all times, which you can whip out pretty much any time and start firing. There’s a firing range at the police station you can visit at any point and run through to get some practice, and you will need to take out a couple characters (and some rats in the sewers), but overall the gun plays a pretty minor role over the course of the game.</p>
+
+<p>There are three different difficulty levels you can play through the game at (Easy, Normal, Hard), and I opted for easy. This gives you unlimited ammo and I’m assuming also makez it easier to kill your targets … and possibly some other things I didn’t notice.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00002.png" alt="" /></p>
+
+<p>Overall I’d say this is a pretty solid, well made game … but the cutscenes are awful. For a game made in 1997 the character models are rigid and lack emotion, the lip syncing is terrible at best and the movements are wooden. It really detracts from an otherwise excellent game as it feels like it was slapped together. Seriously, when you watch the cutscenes it looks like someone made a stop-action video with marionettes.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00026.png" alt="" /></p>
+
+<p>For me, the story is everything in these games … and Blade Runner doesn’t disappoint. Since it’s based in the same “universe” as the original movie you get to enjoy some minor crossovers, but overall it’s a new adventure that leverages the elements of the movie that made it a cult classic. Your humanity is brought into question, you’re framed for a crime and need to clear your name and your decisions throughout the game have consequences.</p>
+
+<p><img src="/images/adventure/br/scummvm-bladerunner-win-00029.png" alt="" /></p>
+
+<p>There are multiple endings, but I didn’t go back to try any of these out. I do think it’s pretty cool that the game leaves it up to you how you want to finish act 5 and decide “which side you’re on”.</p>
+
+<p>I’ve had this game on my short list for almost a decade because I remember owning this when it came out and never finishing it. I was a huge fan of the movie and had fond memories of the game’s story as well, but never managed to make it more than half way through at the time.</p>
+
+<p>When <a href="https://www.vice.com/en/article/xwnmjq/dedicated-fans-spent-8-years-making-the-1997-blade-runner-game-run-on-a-modern-pc">the reverse engineering began</a> and it looked like this game would be playable in ScummVM I got extremely excited. This game was recently re-released as the “Enhanced Edition”, but apparently that version was so badly done they <a href="https://www.ign.com/articles/blade-runner-enhanced-edition-unpopular-adds-original-1997-version">re-re-released it with the 1997 version</a>. The ScummVM devs really did some great work bringing this game back for modern systems, and I believe they also added the subtitles to the game.</p>
+
+<p>Cutscene quality aside, I’d recommend this game to any adventure game fan - as long as they’re playing the original release via ScummVM ;)</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Ripper</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Westwood_Studios">Westwood Studios</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Virgin Interactive Entertainment</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>November 14, 1997</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Bladerunner">BLADERUNNER</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/1121"><em>How Long To Beat?</em></a></td>
+      <td>7.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Windows via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="http://www.gameboomers.com/wtcheats/pcBb/BladeRun1.htm">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>67%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/br/scummvm-bladerunner-win-00003.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00003.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00004.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00004.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00005.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00005.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00007.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00007.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00009.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00009.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00011.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00011.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00013.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00013.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00014.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00014.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00015.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00015.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00017.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00017.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00018.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00018.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00019.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00019.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00020.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00020.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00021.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00021.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00023.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00023.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00024.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00024.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00025.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00025.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00027.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00027.png' },{ src: '/images/adventure/br/scummvm-bladerunner-win-00028.png', thumb: '/images/adventure/br/scummvm-bladerunner-win-00028.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/br/scummvm-bladerunner-win-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/br/scummvm-bladerunner-win-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ripper (Take-Two Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2023/09/27/ripper/" rel="alternate" type="text/html" title="Ripper (Take-Two Interactive) - 1996" /><published>2023-09-27T05:54:42-04:00</published><updated>2023-09-27T07:20:38-04:00</updated><id>https://www.alexbevi.com/blog/2023/09/27/ripper</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/09/27/ripper/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1167,143 +1311,4 @@ index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&l
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Torin’s Passage (Sierra On-Line) - 1995</title><link href="https://www.alexbevi.com/blog/2023/06/07/torins-passage/" rel="alternate" type="text/html" title="Torin’s Passage (Sierra On-Line) - 1995" /><published>2023-06-07T20:54:41-04:00</published><updated>2023-06-14T17:57:04-04:00</updated><id>https://www.alexbevi.com/blog/2023/06/07/torins-passage</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/06/07/torins-passage/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Torin%27s_Passage">Torin’s Passage</a> is a point-and-click adventure game developed and published by Sierra On-Line in 1995. The game was designed by Al Lowe, author of the Leisure Suit Larry series.</p>
-
-<p>The game starts off with some royalty being killed by a wizard and what you assume is the royal baby being saved by a maid or something. She saves Torin, but is punished for this good deed by being shackled with a collar that keeps slowly tightening until it will eventually kill her. I think she then becomes evil or something and teams up with the wizard that killed the royal family, but honestly I sort of spaced out pretty quickly.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00001.png" alt="" /></p>
-
-<p>My main issue with this game was the story comes off as a generic fantasy crammed full of tropes but laid out in what feels like the laziest way possible. Torin grows up with farmers as his adopted parents, something happens, an evil sorceress captures your adopted family and you then need to go save them. This is done by traveling to the “lands below” by throwing magic powder at crystals that send you deeper and deeper into the earth.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00019.png" alt="" /></p>
-
-<p>Each chapter of the game represents your descent through the layers of the world as you slowly work your way to the core where your parents may be. This is done by completing fetch quest after fetch quest, solving a handful of puzzles and constantly backtracking.</p>
-
-<p>This is pretty standard fare for a lot of adventure games, but everything in this game just sort of feels forced and a bit sloppy. I get that Al Lowe wanted to write a game that he could play with his young daughter, but the game he wrote seemed to just be a rip off of <a href="https://en.wikipedia.org/wiki/Who_Framed_Roger_Rabbit">Who Framed Roger Rabbit</a> and King’s Quest VII.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00016.png" alt="" />
-<em>Maybe I’m being too critical, but the game just looks like shit</em></p>
-
-<p>Adding insult to injury, the game just doesn’t look that good. For a game that came out in late 1995 I really expected a lot more. The UI is bland and takes up the lower third of the screen. Your inventory is always visible, and you can take any item in your inventory and put it on the center pedestal to “zoom in” and examine the items. Very few items are worth doing this with, and when you do the “lasers” (green circle things) on each side of the inventory shoot it for some reason.</p>
-
-<p>Just look at it. If this were a game from the mid 80’s I’d be a lot more forgiving, but again … this is 1995 and Sierra has made a LOT of much MUCH better games. Weirdly enough the visual style of this game reminded more of the <a href="https://en.wikipedia.org/wiki/Link:_The_Faces_of_Evil_and_Zelda:_The_Wand_of_Gamelon">CD-i Zelda games</a> more than anything else. Google some pictures from those games and tell me you don’t see it ;)</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00020.png" alt="" /></p>
-
-<p>I mentioned this game reminded me of Roger Rabbit because you’ve got a sidekick throughout named Boogle that seems to provide the exact same style of comic relief. Sometimes it’s even identical (they lifted some lines and scenarios directly from the movie).</p>
-
-<p>The Boogle character at least adds a bit of variety to the game as he can transform into things you can use to solve certain puzzles. Typically you’ll use each Boogle form exactly once though, so the amount of variety it adds is limited.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00034.png" alt="" />
-<em>Oh god … puns … so many puns</em></p>
-
-<p>Unlike the Leisure Suit Larry games though, Torin’s Passage isn’t very funny - or for that matter, fun. From the time you start playing until the time you finally decide you’ve had enough and are ready to move on to a better game you’ll just feel like you’re going through the motions of playing a game.</p>
-
-<p>I just didn’t find the writing to be all that compelling - and I am a fan of Al Lowe (including following him on <a href="https://twitter.com/allowe">Twitter</a>). I’m not sure how actively involved he was in the actual content generation (since he was the director), but the game just felt derivative and slapped together.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00027.png" alt="" /></p>
-
-<p>What I did find a bit innovative was the built in hint system. You have a hint timer that you can configure, which after elapsing allows you to get a hint on how to proceed. If you’re newer to the genre this might come in handy as some of the puzzles are a bit obtuse and overly complex.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00021.png" alt="" /></p>
-
-<p>There are a couple puzzles at the end of Chapter 4 (I think that’s the right chapter) where you need to move these miniature dudes around in order to unlock (something). The whole “harmony” concept means you need to shuffle them around until you align them by colour, but which colours go where is not immediately obvious.</p>
-
-<p>Once you finally solve this (likely with a walkthrough), you’ll then have to do basically the same fucking puzzle but instead by rotating 2 characters at a time to get them in descending orders. This took FOREVER, and was NOT FUN. I really, REALLY hate arbitrary puzzles that feel like padding. I don’t have a problem with challenging puzzles, especially if it feels like you’ve gained the tools to solve the puzzle by naturally playing the game.</p>
-
-<p><img src="/images/adventure/torin/scummvm-torin-00039.png" alt="" />
-<em>No ending - just credits</em></p>
-
-<p>When you finally muddle your way to the finale, the game just sort of ends (cuts to credits). Apparently this is because Al Lowe planned for Torin’s Passage to be the first of <a href="https://web.archive.org/web/20010128170800/http://larry.adventuregamer.com/allinterview.html">5 games in a series</a>. Obviously this never came to pass, and it’s likely because this game just wasn’t all that good.</p>
-
-<p>Sierra Online made so many better games before this title came out, so it’s extremely disappointing to have to trudge through this turd. Boogle could have been a game changer if they’d incorporated him more deeply into the plot (or bothered to introduce him at all). The mechanic of having horizontal and vertical sliders so you can pan around a larger scene without having to walk around was interesting, but again, this wasn’t introduced. When you needed to actually use this panning mechanic to solve a puzzle it wasn’t obvious that this was how you approach the solution.</p>
-
-<p>I would not recommend this title to anyone. It’s just not fun, or interesting, or innovative in any way. Some component pieces had promise and might have (or possible DID) work better in other games, but Torin’s Passage isn’t worth anyone’s time today.</p>
-
-<h3 id="game-information">Game Information</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Torin’s Passage</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>October 31, 1995</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Windows 3.x, Windows 95, Mac OS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php/SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/10531"><em>How Long To Beat?</em></a></td>
-      <td>5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>Windows via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="http://www.sierrahelp.com/Walkthroughs/TorinsPassageWalkthrough.html">Walkthrough</a>, <a href="https://www.youtube.com/watch?v=ocv2PF1ohWs">Longplay</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>44%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/torin/scummvm-torin-00002.png', thumb: '/images/adventure/torin/scummvm-torin-00002.png' },{ src: '/images/adventure/torin/scummvm-torin-00003.png', thumb: '/images/adventure/torin/scummvm-torin-00003.png' },{ src: '/images/adventure/torin/scummvm-torin-00004.png', thumb: '/images/adventure/torin/scummvm-torin-00004.png' },{ src: '/images/adventure/torin/scummvm-torin-00005.png', thumb: '/images/adventure/torin/scummvm-torin-00005.png' },{ src: '/images/adventure/torin/scummvm-torin-00006.png', thumb: '/images/adventure/torin/scummvm-torin-00006.png' },{ src: '/images/adventure/torin/scummvm-torin-00007.png', thumb: '/images/adventure/torin/scummvm-torin-00007.png' },{ src: '/images/adventure/torin/scummvm-torin-00008.png', thumb: '/images/adventure/torin/scummvm-torin-00008.png' },{ src: '/images/adventure/torin/scummvm-torin-00009.png', thumb: '/images/adventure/torin/scummvm-torin-00009.png' },{ src: '/images/adventure/torin/scummvm-torin-00010.png', thumb: '/images/adventure/torin/scummvm-torin-00010.png' },{ src: '/images/adventure/torin/scummvm-torin-00011.png', thumb: '/images/adventure/torin/scummvm-torin-00011.png' },{ src: '/images/adventure/torin/scummvm-torin-00012.png', thumb: '/images/adventure/torin/scummvm-torin-00012.png' },{ src: '/images/adventure/torin/scummvm-torin-00013.png', thumb: '/images/adventure/torin/scummvm-torin-00013.png' },{ src: '/images/adventure/torin/scummvm-torin-00014.png', thumb: '/images/adventure/torin/scummvm-torin-00014.png' },{ src: '/images/adventure/torin/scummvm-torin-00015.png', thumb: '/images/adventure/torin/scummvm-torin-00015.png' },{ src: '/images/adventure/torin/scummvm-torin-00017.png', thumb: '/images/adventure/torin/scummvm-torin-00017.png' },{ src: '/images/adventure/torin/scummvm-torin-00018.png', thumb: '/images/adventure/torin/scummvm-torin-00018.png' },{ src: '/images/adventure/torin/scummvm-torin-00022.png', thumb: '/images/adventure/torin/scummvm-torin-00022.png' },{ src: '/images/adventure/torin/scummvm-torin-00023.png', thumb: '/images/adventure/torin/scummvm-torin-00023.png' },{ src: '/images/adventure/torin/scummvm-torin-00024.png', thumb: '/images/adventure/torin/scummvm-torin-00024.png' },{ src: '/images/adventure/torin/scummvm-torin-00025.png', thumb: '/images/adventure/torin/scummvm-torin-00025.png' },{ src: '/images/adventure/torin/scummvm-torin-00026.png', thumb: '/images/adventure/torin/scummvm-torin-00026.png' },{ src: '/images/adventure/torin/scummvm-torin-00028.png', thumb: '/images/adventure/torin/scummvm-torin-00028.png' },{ src: '/images/adventure/torin/scummvm-torin-00029.png', thumb: '/images/adventure/torin/scummvm-torin-00029.png' },{ src: '/images/adventure/torin/scummvm-torin-00030.png', thumb: '/images/adventure/torin/scummvm-torin-00030.png' },{ src: '/images/adventure/torin/scummvm-torin-00031.png', thumb: '/images/adventure/torin/scummvm-torin-00031.png' },{ src: '/images/adventure/torin/scummvm-torin-00032.png', thumb: '/images/adventure/torin/scummvm-torin-00032.png' },{ src: '/images/adventure/torin/scummvm-torin-00033.png', thumb: '/images/adventure/torin/scummvm-torin-00033.png' },{ src: '/images/adventure/torin/scummvm-torin-00035.png', thumb: '/images/adventure/torin/scummvm-torin-00035.png' },{ src: '/images/adventure/torin/scummvm-torin-00036.png', thumb: '/images/adventure/torin/scummvm-torin-00036.png' },{ src: '/images/adventure/torin/scummvm-torin-00037.png', thumb: '/images/adventure/torin/scummvm-torin-00037.png' },{ src: '/images/adventure/torin/scummvm-torin-00038.png', thumb: '/images/adventure/torin/scummvm-torin-00038.png' },{ src: '/images/adventure/torin/scummvm-torin-00040.png', thumb: '/images/adventure/torin/scummvm-torin-00040.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/torin/scummvm-torin-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/torin/scummvm-torin-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00002.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00004.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00005.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00007.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00008.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00009.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00010.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00012.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00013.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00014.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00015.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00016.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00017.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00018.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00019.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00020.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00021.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00022.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00023.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00024.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00025.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00026.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00027.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00028.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00029.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00030.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00032.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00033.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00035.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00036.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00038.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00039.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00040.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00041.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00042.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00043.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00044.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00045.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00047.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00049.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00050.png' },{ src: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png', thumb: '/images/adventure/gk1/scummvm-gk1-cd-win-00052.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gk1/scummvm-gk1-cd-win-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
