@@ -70,7 +70,7 @@ Cutscene quality aside, I'd recommend this game to any adventure game fan - as l
 
 ## Game Information
 
-|*Game*|Ripper|
+|*Game*|Blade Runner|
 |*Developer*|[Westwood Studios](https://en.wikipedia.org/wiki/Westwood_Studios)|
 |*Publisher*|Virgin Interactive Entertainment|
 |*Release Date*|November 14, 1997|
