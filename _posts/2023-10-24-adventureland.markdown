@@ -39,10 +39,11 @@ For a graphical adventure game released in 1982 the game is what you'd expect. T
 There are no sound effects or music or story - and the game is incredibly short. It took me about half an hour to work through this, though the [How Long To Beat](https://howlongtobeat.com/game/23143) timing is apparently only 5 minutes.
 
 ![](/images/adventure/advland/020.png)
+_Find all 13 treasures, drop them in the stump ... and that's all she wrote_
 
 To make this game a bit more challenging there are a handful of ways you can die (ex: carrying the mud to the screen where the dragon is). When this happens you wind up in Limbo, where you just walk through a door that results in you "restarting" the game from the beginning. You can also reach a dead end by doing certain actions too early (ex: chopping down the tree before climbing it to pick up the skeleton keys).
 
-This is a very early adventure game - and an improvement to an _even EARLIER_ adventure game at that! It doesn't really do anything new or innovative compared to other games released around this time so I can't find any reason to recommend it. If you feel ambitious and want to type out the source code, go for it - or head on over to https://github.com/ahope1/Beeb-Adventureland instead ;) There's a great companion article called ["Digging up Adventureland (Scott Adams, 1980)"](https://ahopeful.wordpress.com/2020/09/13/digging-up-adventureland-scott-adams-1980/) that details the creation of that BBC BASIC port of the TRS-80 code.
+This is a very early adventure game - and an improvement to an _even EARLIER_ adventure game at that! It doesn't really do anything new or innovative compared to other games released around this time so I can't find any reason to recommend it. If you feel ambitious and want to type out the source code, go for it - or head on over to this [GitHub repository](https://github.com/ahope1/Beeb-Adventureland) instead ;) There's a great companion article called ["Digging up Adventureland (Scott Adams, 1980)"](https://ahopeful.wordpress.com/2020/09/13/digging-up-adventureland-scott-adams-1980/) that details the creation of that BBC BASIC port of the TRS-80 code.
 
 
 
