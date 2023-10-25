@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 55  -%}
+{%- assign games_finished = 56  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -79,7 +79,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 3. [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 4. Cranston Manor (On-Line Systems) - 1981
 5. [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
-6. Adventureland (Adventure International) - 1982
+6. [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 7. [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
 8. Time Zone (On-Line Systems) - 1982
 9. [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
