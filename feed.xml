@@ -1,4 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-25T06:43:06-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Adventureland (Adventure International) - 1982</title><link href="https://www.alexbevi.com/blog/2023/10/24/adventureland/" rel="alternate" type="text/html" title="Adventureland (Adventure International) - 1982" /><published>2023-10-24T06:59:43-04:00</published><updated>2023-10-25T06:42:19-04:00</updated><id>https://www.alexbevi.com/blog/2023/10/24/adventureland</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/10/24/adventureland/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-10-28T10:13:15-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Lost in Time (Coktel Vision) - 1993</title><link href="https://www.alexbevi.com/blog/2023/10/26/lost-in-time/" rel="alternate" type="text/html" title="Lost in Time (Coktel Vision) - 1993" /><published>2023-10-26T20:13:12-04:00</published><updated>2023-10-28T10:12:26-04:00</updated><id>https://www.alexbevi.com/blog/2023/10/26/lost-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/10/26/lost-in-time/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Lost_in_Time_(video_game)">Lost in Time</a> is a computer adventure game developed and published by Coktel Vision in 1993. It was promoted as being “The first Interactive Adventure Film using Full Motion Video Technology” and contained four graphical elements: full motion video, hand painted and digitized backgrounds and 3D decor.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00001.png" alt="" /></p>
+
+<p>This game had a lot of promise based on the description, and when I started reading up on the story I got a little excited. Unfortunately, that didn’t last and as soon as you start playing this game you realize it’s just not that good.</p>
+
+<p>Lost in Time doesn’t really introduce the story at all as the game sort of just “starts” in the hold of a ship. You’ll piece together bits of backstory as you go and discover there’s some undertones of time travel and you’re at the center of it all somehow but it didn’t really flow very well.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00007.png" alt="" /></p>
+
+<p>Eventually you’ll open a door and find Melkior, who is a member of the time police or something to that effect. You’ll need to free him, but this will involve solving a bunch of item combination puzzles, which first involves finding the items.</p>
+
+<p>This game is one giant fetch quest, but it manages to execute these in the most obtuse and least fun ways possible. Each static screen only has a handful of hot-spots you can interact with so it’s not too difficult to identify <em>what</em> you need to click on, but it’s not obvious that you’ll need to revisit some of these repeatedly.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00008.png" alt="" />
+<em>You’ll see this screen a lot throughout the game</em></p>
+
+<p>There were a couple releases of this game - text only and fully voice acted. I opted for the latter, which in hindsight was a mistake. The voice acting in this game is atrocious. The lip synching is typically off (which is fine for 1993), but the actors are really shooting for the moon with their performances. It doesn’t help that every time Doralice (the protagonist) has anything you say you get this same visual representation of half her face moving up and down.</p>
+
+<p>It was a missed opportunity when they released this game on CD that they did’t include the subtitles that were present in the disk version. The voice acting is slow and drawn out - and you can’t skip any of it. I’m fairly certain you couldn’t make the text advance any faster in the disk version but it felt less irritating none the less.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00005.png" alt="" />
+<em>What are jokers and why do I have three of them?</em></p>
+
+<p>The game has (what I believe to be) a hint system called “Jokers”. The game doesn’t give you any indication what these are, why they’re limited, or why they’re only present in select places. Even going back and reading through the <a href="https://www.starehry.eu/download/adventure/docs/Lostintime-Manual.pdf">game’s manual</a> only tells you:</p>
+
+<blockquote>
+  <p><em>“There are a few “jokers” available in various places throughout the game that will give you some hints if you are stuck. You are only allowed to use three”</em></p>
+</blockquote>
+
+<p>If you’re curious to play this game give the manual a read as it does introduce the game’s concepts and characters much better than the game itself does.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00013.png" alt="" /></p>
+
+<p>To play this game is to just click every labelled hotspot (multiple times), then try and combine everything with everything. For the limited number of interactive areas per screen there are A LOT of items you’ll need to collect, combine and try on each screen. Since this is an adventure game this mechanic isn’t surprising, but the types of item combinations you need to perform are unintuitive in many cases.</p>
+
+<p>You’ll also need to be aware of items that contain other items that you’ll need to “remove” from their containers to use them properly. You may also find yourself combining items “in the wrong order” which doesn’t give you any indication that you’re doing something wrong …</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00022.png" alt="" /></p>
+
+<p>Since there’s going to be a lot of backtracking it is convenient that the game gives you a fast-travel map. There are only three “levels” in this game, so there’s really not much you need to explore, but the sheer amount of backtracking to these static screens just to attempt to use every new item with every existing item and every possible hotspot draws this out unnecessarily.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00028.png" alt="" /></p>
+
+<p>The reviews of this game (at time of release) were generally positive for how the live-action video was incorporated. Honestly it’s pretty hard to watch and feels out of place and not overly well done. Seeing as this game came out the same years as “The 7th Guest” and “Myst” you can’t even point to it and say “well, it was good for 1993”.</p>
+
+<p>Unfortunately it’s not just the video and voice acting that sucks in this game. The sound effects feel out of place throughout the game and really give you the sense that they’re just stock effects the developers threw together. Overall it’s just not a good game.</p>
+
+<p><img src="/images/adventure/lit/scummvm-lit-us-00034.png" alt="" />
+<em>OMG THE GAME ENDS WITH HIM LOOKING AT THE CAMERA AND FUCKING WINKING!!!</em></p>
+
+<p>Lost in Time is not fun. So far Coktel Vision games just aren’t very good … and there are still many more to go in this series. It’s so frustrating that you need to “re-look” at many areas in this game <em>after</em> you pick items up as they may contain another item that wasn’t visible when you first inspected the area. For example, there’s a drawer you open at one point to pick up a diary … then if you click the drawer again you open it <em>more</em> to find something else. WHY NOT JUST SHOW 2 ITEMS IN THE DRAWER THE FIRST TIME???</p>
+
+<p>You can also miss items easily, and will lose the game if you don’t remember to “remove” the flower from the bag on the last screen before catching the snake and throwing the bag in the fire. Why you ask? Because you need to throw the flower at the main antagonist to make him sneeze and fall to his death off a log bridge you somehow find yourself on for the final conflict.</p>
+
+<p>I really wanted to like this game, but I really didn’t. I wouldn’t recommend this to anyone.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Lost in Time</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Coktel_Vision">Coktel Vision</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Coktel Vision, Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Gob">Gob</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/25077"><em>How Long To Beat?</em></a></td>
+      <td>4 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/lostintime.aspx">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>19%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/lit/scummvm-lit-us-00002.png', thumb: '/images/adventure/lit/scummvm-lit-us-00002.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00003.png', thumb: '/images/adventure/lit/scummvm-lit-us-00003.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00004.png', thumb: '/images/adventure/lit/scummvm-lit-us-00004.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00006.png', thumb: '/images/adventure/lit/scummvm-lit-us-00006.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00009.png', thumb: '/images/adventure/lit/scummvm-lit-us-00009.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00010.png', thumb: '/images/adventure/lit/scummvm-lit-us-00010.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00011.png', thumb: '/images/adventure/lit/scummvm-lit-us-00011.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00012.png', thumb: '/images/adventure/lit/scummvm-lit-us-00012.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00014.png', thumb: '/images/adventure/lit/scummvm-lit-us-00014.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00015.png', thumb: '/images/adventure/lit/scummvm-lit-us-00015.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00016.png', thumb: '/images/adventure/lit/scummvm-lit-us-00016.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00017.png', thumb: '/images/adventure/lit/scummvm-lit-us-00017.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00018.png', thumb: '/images/adventure/lit/scummvm-lit-us-00018.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00019.png', thumb: '/images/adventure/lit/scummvm-lit-us-00019.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00020.png', thumb: '/images/adventure/lit/scummvm-lit-us-00020.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00021.png', thumb: '/images/adventure/lit/scummvm-lit-us-00021.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00023.png', thumb: '/images/adventure/lit/scummvm-lit-us-00023.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00024.png', thumb: '/images/adventure/lit/scummvm-lit-us-00024.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00025.png', thumb: '/images/adventure/lit/scummvm-lit-us-00025.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00026.png', thumb: '/images/adventure/lit/scummvm-lit-us-00026.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00027.png', thumb: '/images/adventure/lit/scummvm-lit-us-00027.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00029.png', thumb: '/images/adventure/lit/scummvm-lit-us-00029.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00030.png', thumb: '/images/adventure/lit/scummvm-lit-us-00030.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00031.png', thumb: '/images/adventure/lit/scummvm-lit-us-00031.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00032.png', thumb: '/images/adventure/lit/scummvm-lit-us-00032.png' },{ src: '/images/adventure/lit/scummvm-lit-us-00033.png', thumb: '/images/adventure/lit/scummvm-lit-us-00033.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Coktel Vision" /><category term="Sierra On-Line" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lit/scummvm-lit-us-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lit/scummvm-lit-us-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Adventureland (Adventure International) - 1982</title><link href="https://www.alexbevi.com/blog/2023/10/24/adventureland/" rel="alternate" type="text/html" title="Adventureland (Adventure International) - 1982" /><published>2023-10-24T06:59:43-04:00</published><updated>2023-10-25T06:42:19-04:00</updated><id>https://www.alexbevi.com/blog/2023/10/24/adventureland</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/10/24/adventureland/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1177,90 +1320,4 @@ index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&l
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/tony/scummvm-tony-00002.png', thumb: '/images/adventure/tony/scummvm-tony-00002.png' },{ src: '/images/adventure/tony/scummvm-tony-00003.png', thumb: '/images/adventure/tony/scummvm-tony-00003.png' },{ src: '/images/adventure/tony/scummvm-tony-00004.png', thumb: '/images/adventure/tony/scummvm-tony-00004.png' },{ src: '/images/adventure/tony/scummvm-tony-00007.png', thumb: '/images/adventure/tony/scummvm-tony-00007.png' },{ src: '/images/adventure/tony/scummvm-tony-00008.png', thumb: '/images/adventure/tony/scummvm-tony-00008.png' },{ src: '/images/adventure/tony/scummvm-tony-00009.png', thumb: '/images/adventure/tony/scummvm-tony-00009.png' },{ src: '/images/adventure/tony/scummvm-tony-00010.png', thumb: '/images/adventure/tony/scummvm-tony-00010.png' },{ src: '/images/adventure/tony/scummvm-tony-00011.png', thumb: '/images/adventure/tony/scummvm-tony-00011.png' },{ src: '/images/adventure/tony/scummvm-tony-00012.png', thumb: '/images/adventure/tony/scummvm-tony-00012.png' },{ src: '/images/adventure/tony/scummvm-tony-00013.png', thumb: '/images/adventure/tony/scummvm-tony-00013.png' },{ src: '/images/adventure/tony/scummvm-tony-00014.png', thumb: '/images/adventure/tony/scummvm-tony-00014.png' },{ src: '/images/adventure/tony/scummvm-tony-00017.png', thumb: '/images/adventure/tony/scummvm-tony-00017.png' },{ src: '/images/adventure/tony/scummvm-tony-00018.png', thumb: '/images/adventure/tony/scummvm-tony-00018.png' },{ src: '/images/adventure/tony/scummvm-tony-00019.png', thumb: '/images/adventure/tony/scummvm-tony-00019.png' },{ src: '/images/adventure/tony/scummvm-tony-00022.png', thumb: '/images/adventure/tony/scummvm-tony-00022.png' },{ src: '/images/adventure/tony/scummvm-tony-00023.png', thumb: '/images/adventure/tony/scummvm-tony-00023.png' },{ src: '/images/adventure/tony/scummvm-tony-00024.png', thumb: '/images/adventure/tony/scummvm-tony-00024.png' },{ src: '/images/adventure/tony/scummvm-tony-00025.png', thumb: '/images/adventure/tony/scummvm-tony-00025.png' },{ src: '/images/adventure/tony/scummvm-tony-00026.png', thumb: '/images/adventure/tony/scummvm-tony-00026.png' },{ src: '/images/adventure/tony/scummvm-tony-00027.png', thumb: '/images/adventure/tony/scummvm-tony-00027.png' },{ src: '/images/adventure/tony/scummvm-tony-00028.png', thumb: '/images/adventure/tony/scummvm-tony-00028.png' },{ src: '/images/adventure/tony/scummvm-tony-00029.png', thumb: '/images/adventure/tony/scummvm-tony-00029.png' },{ src: '/images/adventure/tony/scummvm-tony-00030.png', thumb: '/images/adventure/tony/scummvm-tony-00030.png' },{ src: '/images/adventure/tony/scummvm-tony-00031.png', thumb: '/images/adventure/tony/scummvm-tony-00031.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Nayma Software" /><category term="Prograph Research" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/tony/scummvm-tony-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/tony/scummvm-tony-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How Many Connections is My Application Establishing to My MongoDB Cluster?</title><link href="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/" rel="alternate" type="text/html" title="How Many Connections is My Application Establishing to My MongoDB Cluster?" /><published>2023-07-04T10:16:14-04:00</published><updated>2023-07-26T15:29:12-04:00</updated><id>https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/07/04/how-many-connections-is-my-application-establishing-to-my-mongodb-cluster/"><![CDATA[<p><a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> is the best way to host your MongoDB data, but it’s important to be aware that like any other managed service there can be limitations. For example, MongoDB Atlas - depending on the selected tier - will impose a <a href="https://www.mongodb.com/docs/atlas/reference/atlas-limits/#connection-limits-and-cluster-tier">connection limit</a>.</p>
-
-<p>Depending on the architecture of your application and how you’ve configured your <a href="https://www.mongodb.com/docs/manual/administration/connection-pool-overview/">connection pools</a> it’s possible you’ve approached or exceeded these limits before and weren’t really sure why. Thankfully MongoDB Atlas provides a number of configurable alerts (such as <a href="https://www.mongodb.com/docs/atlas/reference/alert-conditions/#mongodb-alert-Connections---of-configured-limit-is"><code class="language-plaintext highlighter-rouge">Connections % of configured limit</code></a>) which can notify you if you’re approaching a limit, but where are these connections coming from in the first place?</p>
-
-<h2 id="mongodb-drivers">MongoDB Drivers</h2>
-
-<p>Your application has been built using one of <a href="https://www.mongodb.com/docs/drivers/">MongoDB’s Drivers</a>, which are all built according to a number of <a href="https://github.com/mongodb/specifications">published specifications</a>. Most noteworthy when it comes to how many connections an application may establish to a MongoDB cluster are the <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst">Server Monitoring</a> and <a href="https://github.com/mongodb/specifications/blob/master/source/connection-monitoring-and-pooling/connection-monitoring-and-pooling.rst">Connection Monitoring and Pooling</a> (CMAP) specifications.</p>
-
-<p>These specifications help us understand how many connections may be opened, and what variables we should be aware of that can affect these connections such as:</p>
-<ul>
-  <li>Is the MongoClient single-threaded or multi-threaded</li>
-  <li>The MongoDB Server version (&gt;= 4.4)</li>
-  <li>The MongoDB Driver version (does it support MongoDB Server 4.4+)</li>
-</ul>
-
-<p>Just a quick note regarding <em>Connection Pools</em>: the default value of <a href="https://github.com/mongodb/specifications/blob/master/source/connection-monitoring-and-pooling/connection-monitoring-and-pooling.rst#id1"><code class="language-plaintext highlighter-rouge">minPoolSize</code></a> is <code class="language-plaintext highlighter-rouge">0</code>, which means that using the defaults when a <em>Connection Pool</em> is created it will not contain any connections. For the purposes of this article I imply that at least one connection has been created in the pool and ready for use.</p>
-
-<h3 id="single-threaded-mongoclient">Single-Threaded <code class="language-plaintext highlighter-rouge">MongoClient</code></h3>
-
-<p>The MongoDB <a href="https://www.mongodb.com/docs/drivers/c/">C Driver</a> and <a href="https://www.mongodb.com/docs/drivers/php/">PHP Driver</a> provide single-threaded <code class="language-plaintext highlighter-rouge">MongoClient</code> implementations. As such, they do not offer connection pools at all which makes understanding how many connections can be established straightforward<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
-
-<p><img src="/images/mongo-conns-01.png" alt="" />
-<em>Connections from a Single Threaded <code class="language-plaintext highlighter-rouge">MongoClient</code></em></p>
-
-<p>With this configuration, a single connection (<code class="language-plaintext highlighter-rouge">c1</code>) will be established to each <a href="https://www.mongodb.com/docs/manual/core/replica-set-members/">replica set member</a>, or if the cluster is <a href="https://www.mongodb.com/docs/manual/sharding/">Sharded</a> each <a href="https://www.mongodb.com/docs/manual/core/sharded-cluster-query-router/"><code class="language-plaintext highlighter-rouge">mongos</code></a> present in the seed list when the <code class="language-plaintext highlighter-rouge">MongoClient</code> was created<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. This single connection will be used for data operations as well as to perform <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#single-threaded-monitoring">server monitoring</a>.</p>
-
-<blockquote class="prompt-tip">
-  <p>Note that when connecting to a Sharded Cluster using a <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#dns-seed-list-connection-format">DNS Seed List</a> connection string, the <a href="https://github.com/mongodb/specifications/blob/master/source/initial-dns-seedlist-discovery/initial-dns-seedlist-discovery.rst#srvmaxhosts"><code class="language-plaintext highlighter-rouge">srvMaxHosts</code></a> URI option can be configured to limit the number of <code class="language-plaintext highlighter-rouge">mongos</code>’ that will be connected to.</p>
-</blockquote>
-
-<blockquote class="prompt-info">
-  <p>Assuming a cluster with 3 nodes, each <code class="language-plaintext highlighter-rouge">MongoClient</code> instance would create 3 connections.</p>
-</blockquote>
-
-<h3 id="mongodb-server-42-and-earlier-polling-monitoring">MongoDB Server 4.2 and earlier (Polling Monitoring)</h3>
-
-<p>Prior to MongoDB 4.4, MongoDB Drivers would use a <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#polling-protocol">polling protocol to perform server monitoring</a>. This process would involve opening a dedicated <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#monitor-thread">monitor thread</a> per host, which would be polled (by default<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>) every 10 seconds (multi-threaded) or 60 seconds (single-threaded) to determine if the state of the host or cluster topology had changed.</p>
-
-<p><img src="/images/mongo-conns-02.png" alt="" /></p>
-
-<p>This dedicated monitor thread (<code class="language-plaintext highlighter-rouge">m1</code>) as well as a the 1 or more connections in the connection pool (<code class="language-plaintext highlighter-rouge">p1</code>) result in at least 2 connections per host. Note that if <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#mongodb-urioption-urioption.minPoolSize"><code class="language-plaintext highlighter-rouge">minPoolSize</code></a> (default: 0) is &gt; 1 this number of connections will <em>always</em> remain open against each host a connection pool has been created for.</p>
-
-<blockquote class="prompt-info">
-  <p>Assuming a cluster with 3 nodes, each <code class="language-plaintext highlighter-rouge">MongoClient</code> instance would create 6 connections.</p>
-</blockquote>
-<blockquote class="prompt-tip">
-  <p>If <code class="language-plaintext highlighter-rouge">minPoolSize=5</code> then each <code class="language-plaintext highlighter-rouge">MongoClient</code> would create 18 connections (using the formula <code class="language-plaintext highlighter-rouge">(minPoolSize + 1) x nodes</code>)</p>
-</blockquote>
-
-<h3 id="mongodb-server-44-and-later-streaming-monitoring">MongoDB Server 4.4 and later (Streaming Monitoring)</h3>
-
-<p>Starting with MongoDB 4.4, MongoDB Drivers would begin using a <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#streaming-protocol">streaming protocol to perform server monitoring</a> - assuming those Drivers were compatible with MongoDB 4.4. The goal of this new protocol was to ensure connected applications could discover topology changes in as close to realtime as possible.</p>
-
-<p>As the polling protocol only polled at fixed intervals, it was possible for topology changes to go undiscovered for upwards of 10 seconds. The streaming protocol would “push” updates from the server to the clients, as opposed to the previous “pull” model, which allowed applications to update their view of the cluster far more quickly.</p>
-
-<p><img src="/images/mongo-conns-03.png" alt="" /></p>
-
-<p>Similar to the polling protocol, a dedicated monitor thread (<code class="language-plaintext highlighter-rouge">m1</code>) will be opened per host, as well as 1 or more connections in the connection pool (<code class="language-plaintext highlighter-rouge">p1</code>). Further to these connections though a third connection (<code class="language-plaintext highlighter-rouge">r1</code>) is opened per node for <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#measuring-rtt">measuring RTT</a> (round trip time). This is needed as the monitor thread is open and listening once established, and will only receive updates from the server as they occur. Measuring RTT require the measurement of the time taken for an operation to travel from the client to the server and back, which the streaming monitor no longer provides.</p>
-
-<blockquote class="prompt-info">
-  <p>Assuming a cluster with 3 nodes, each <code class="language-plaintext highlighter-rouge">MongoClient</code> instance would create 9 connections.</p>
-</blockquote>
-<blockquote class="prompt-tip">
-  <p>If <code class="language-plaintext highlighter-rouge">minPoolSize=5</code> then each <code class="language-plaintext highlighter-rouge">MongoClient</code> would create 21 connections (using the formula <code class="language-plaintext highlighter-rouge">(minPoolSize + 2) x nodes</code>)</p>
-</blockquote>
-
-<h2 id="what-if-im-using-aws-lambda">What if I’m using AWS Lambda?</h2>
-
-<p>Depending on your application’s architecture, it’s possible to blow past your connection limits pretty quickly. This is one reason why the documented guidance for <a href="https://www.mongodb.com/docs/atlas/manage-connections-aws-lambda/">managing connections with AWS Lambda</a> has the first bullet point of <em>“Define the client to the MongoDB server outside the <a href="http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html">AWS Lambda handler function</a>“</em>.</p>
-
-<p>If each Lambda function were to connect to a MongoDB 4.4+ cluster using a connection string of <code class="language-plaintext highlighter-rouge">mongodb+srv://xxx.mongodb.net/?minPoolSize=5</code> and the cluster only had 3000 connections configured, within 150 near-concurrent function executions the cluster could potentially reach the connection limit! This is obviously an extreme scenario, but is meant to help illustrate the impact creating many <code class="language-plaintext highlighter-rouge">MongoClient</code> instances can potentially have on your cluster.</p>
-
-<h2 id="i-plan-on-going-into-much-more-detail-regarding-aws-lambda-and-mongodb-connection-behavior-in-a-future-article">I plan on going into much more detail regarding AWS Lambda and MongoDB connection behavior in a future article.</h2>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>The MongoDB C driver has two connection modes: single-threaded and <a href="https://mongoc.org/libmongoc/current/connection-pooling.html#pooled-mode">pooled</a>. Single-threaded mode is optimized for embedding the driver within languages like PHP. Multi-threaded programs should use pooled mode: this mode minimizes the total connection count, and in pooled mode background threads monitor the MongoDB server topology, so the program need not block to scan it.</small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p><small><code class="language-plaintext highlighter-rouge">MongoClient</code>s created using a <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#dns-seed-list-connection-format">DNS Seed List</a> connection string can <a href="https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst">poll the <code class="language-plaintext highlighter-rouge">SRV</code> record to discover additional <code class="language-plaintext highlighter-rouge">mongos</code>’</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3" role="doc-endnote">
-      <p><small>Polling interval can be configured via the <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#heartbeatfrequencyms"><code class="language-plaintext highlighter-rouge">heartbeatFrequencyMS</code></a> URI option, but must be more than the <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#minheartbeatfrequencyms"><code class="language-plaintext highlighter-rouge">minHeartbeatFrequencyMS</code></a> of 500ms. In MongoDB Atlas environments the <code class="language-plaintext highlighter-rouge">heartbeatFrequencyMS</code> is lowered from the default (10000) to 5000.</small> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="connections" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB Atlas is the best way to host your MongoDB data, but it’s important to be aware that like any other managed service there can be limitations. For example, MongoDB Atlas - depending on the selected tier - will impose a connection limit.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/tony/scummvm-tony-00002.png', thumb: '/images/adventure/tony/scummvm-tony-00002.png' },{ src: '/images/adventure/tony/scummvm-tony-00003.png', thumb: '/images/adventure/tony/scummvm-tony-00003.png' },{ src: '/images/adventure/tony/scummvm-tony-00004.png', thumb: '/images/adventure/tony/scummvm-tony-00004.png' },{ src: '/images/adventure/tony/scummvm-tony-00007.png', thumb: '/images/adventure/tony/scummvm-tony-00007.png' },{ src: '/images/adventure/tony/scummvm-tony-00008.png', thumb: '/images/adventure/tony/scummvm-tony-00008.png' },{ src: '/images/adventure/tony/scummvm-tony-00009.png', thumb: '/images/adventure/tony/scummvm-tony-00009.png' },{ src: '/images/adventure/tony/scummvm-tony-00010.png', thumb: '/images/adventure/tony/scummvm-tony-00010.png' },{ src: '/images/adventure/tony/scummvm-tony-00011.png', thumb: '/images/adventure/tony/scummvm-tony-00011.png' },{ src: '/images/adventure/tony/scummvm-tony-00012.png', thumb: '/images/adventure/tony/scummvm-tony-00012.png' },{ src: '/images/adventure/tony/scummvm-tony-00013.png', thumb: '/images/adventure/tony/scummvm-tony-00013.png' },{ src: '/images/adventure/tony/scummvm-tony-00014.png', thumb: '/images/adventure/tony/scummvm-tony-00014.png' },{ src: '/images/adventure/tony/scummvm-tony-00017.png', thumb: '/images/adventure/tony/scummvm-tony-00017.png' },{ src: '/images/adventure/tony/scummvm-tony-00018.png', thumb: '/images/adventure/tony/scummvm-tony-00018.png' },{ src: '/images/adventure/tony/scummvm-tony-00019.png', thumb: '/images/adventure/tony/scummvm-tony-00019.png' },{ src: '/images/adventure/tony/scummvm-tony-00022.png', thumb: '/images/adventure/tony/scummvm-tony-00022.png' },{ src: '/images/adventure/tony/scummvm-tony-00023.png', thumb: '/images/adventure/tony/scummvm-tony-00023.png' },{ src: '/images/adventure/tony/scummvm-tony-00024.png', thumb: '/images/adventure/tony/scummvm-tony-00024.png' },{ src: '/images/adventure/tony/scummvm-tony-00025.png', thumb: '/images/adventure/tony/scummvm-tony-00025.png' },{ src: '/images/adventure/tony/scummvm-tony-00026.png', thumb: '/images/adventure/tony/scummvm-tony-00026.png' },{ src: '/images/adventure/tony/scummvm-tony-00027.png', thumb: '/images/adventure/tony/scummvm-tony-00027.png' },{ src: '/images/adventure/tony/scummvm-tony-00028.png', thumb: '/images/adventure/tony/scummvm-tony-00028.png' },{ src: '/images/adventure/tony/scummvm-tony-00029.png', thumb: '/images/adventure/tony/scummvm-tony-00029.png' },{ src: '/images/adventure/tony/scummvm-tony-00030.png', thumb: '/images/adventure/tony/scummvm-tony-00030.png' },{ src: '/images/adventure/tony/scummvm-tony-00031.png', thumb: '/images/adventure/tony/scummvm-tony-00031.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Nayma Software" /><category term="Prograph Research" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/tony/scummvm-tony-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/tony/scummvm-tony-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
