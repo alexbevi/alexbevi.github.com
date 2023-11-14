@@ -65,7 +65,7 @@ For example, per the [Authentication specification](https://github.com/mongodb/s
 2. otherwise, if database is specified (in the connection string), it is used.
 3. otherwise, the `admin` database is used.
 
-Given this order of operations, if the `SRV` record resolves, but the `TXT` record _doesn't_, assuming the driver doesn't error out first the database provided in the connection string will be used for authentication. Using our original example of `mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/myFirstDatabase`, the `myFirstDatabase` database will be used to authenticate .... which will result in an authentication failure such as `MongoServerError: Authentication failed.`.
+Given this order of operations, if the `SRV` record resolves, but the `TXT` record _doesn't_, assuming the driver doesn't error out first the database provided in the connection string will be used for authentication. Using our original example of `mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/myFirstDatabase`, the `myFirstDatabase` database will be used to authenticate .... which will result in an authentication failure such as `MongoServerError: Authentication failed`.
 
 Furthermore, though MongoDB's drivers support automatic retryability of [reads](https://www.mongodb.com/docs/manual/core/retryable-reads/) and [writes](https://www.mongodb.com/docs/manual/core/retryable-writes/), these DNS query failures aren't retryable. There is currently a project proposed ([DRIVERS-2757](https://jira.mongodb.org/browse/DRIVERS-2757)) to improve this in the future, but for now these errors bubble up to the application immediately.
 
