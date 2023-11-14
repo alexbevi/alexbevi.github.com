@@ -8,7 +8,7 @@ tags: [mongodb, drivers, networking, connections]
 image: /images/mongodb-logo.png
 ---
 
-MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) and [Mongoose ODM](https://mongoosejs.com/) can occasionally throw errors such as `querySrv ECONNREFUSED _mongodb._tcp.cluster0.abcde.mongodb.net` or `Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.abcde.mongodb.net`. Though MongoDB Atlas has documented many solution to [troubleshoot connection issues](https://www.mongodb.com/docs/atlas/troubleshoot-connection/), including how to handle ["Connection Refused using SRV Connection String"](https://www.mongodb.com/docs/atlas/troubleshoot-connection/#connection-refused-using-srv-connection-string) scenarios, but why does this happen in the first place?
+If your application uses MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) or [Mongoose ODM](https://mongoosejs.com/), occasionally you may observe errors such as `querySrv ECONNREFUSED _mongodb._tcp.cluster0.abcde.mongodb.net` or `Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.abcde.mongodb.net` being thrown. The MongoDB Atlas documentation outlines several methods to [troubleshoot connection issues](https://www.mongodb.com/docs/atlas/troubleshoot-connection/), including how to handle ["Connection Refused using SRV Connection String"](https://www.mongodb.com/docs/atlas/troubleshoot-connection/#connection-refused-using-srv-connection-string) scenarios, but why does this happen in the first place?
 
 ## About DNS seedlists
 
