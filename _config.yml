@@ -49,7 +49,7 @@ google_site_verification: google_meta_tag_verification # fill in to your verific
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: UA-36490021-1 # fill in your Google Analytics ID
 
 # Prefer color scheme setting.
 #
