@@ -56,7 +56,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 57  -%}
+{%- assign games_finished = 58  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -97,7 +97,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 21. [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 22. Perry Mason: The Case of the Mandarin Murder (Telarium) - 1985
 23. [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
-24. The Black Cauldron (Sierra On-Line) - 1986
+24. [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 25. J.B. Harold Murder Club (Riverhillsoft) - 1986
 26. [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 27. [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
