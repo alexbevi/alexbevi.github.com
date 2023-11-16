@@ -1,4 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-14T17:44:37-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">querySrv errors when connecting to MongoDB Atlas</title><link href="https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas/" rel="alternate" type="text/html" title="querySrv errors when connecting to MongoDB Atlas" /><published>2023-11-13T14:42:13-05:00</published><updated>2023-11-14T17:33:48-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas/"><![CDATA[<p>If your application uses MongoDB’s <a href="https://www.mongodb.com/docs/drivers/node/current/">Node.js driver</a> or <a href="https://mongoosejs.com/">Mongoose ODM</a>, occasionally you may observe errors such as <code class="language-plaintext highlighter-rouge">querySrv ECONNREFUSED _mongodb._tcp.cluster0.abcde.mongodb.net</code> or <code class="language-plaintext highlighter-rouge">Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.abcde.mongodb.net</code> being thrown. The MongoDB Atlas documentation outlines several methods to <a href="https://www.mongodb.com/docs/atlas/troubleshoot-connection/">troubleshoot connection issues</a>, including how to handle <a href="https://www.mongodb.com/docs/atlas/troubleshoot-connection/#connection-refused-using-srv-connection-string">“Connection Refused using SRV Connection String”</a> scenarios, but why does this happen in the first place?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-16T06:06:30-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Black Cauldron (Sierra On-Line) - 1986</title><link href="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/" rel="alternate" type="text/html" title="The Black Cauldron (Sierra On-Line) - 1986" /><published>2023-11-14T07:05:18-05:00</published><updated>2023-11-16T06:05:48-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/The_Black_Cauldron_(video_game)">The Black Cauldron</a> is an adventure game designed by Al Lowe of Sierra On-Line and published in 1986. The game is based on the Disney film <a href="https://en.wikipedia.org/wiki/The_Black_Cauldron_(film)">The Black Cauldron</a>, which was itself based on the Chronicles of Prydain novel of the same name by Lloyd Alexander. It was made shortly after the first King’s Quest game, so it resembles that game in many ways. Along with The Dark Crystal it remains one of only a few adventure games by Sierra to be based on films.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00015.png" alt="" /></p>
+
+<p>Though this game was released in 1986, I played the v2 release from 1988 which I believe is “updated” somewhat because it felt like I was playing King’s Quest III but using Roger Wilco from Space Quest I. If you look at the screenshots from the <a href="https://www.mobygames.com/game/194/the-black-cauldron/screenshots/apple2gs/">Apple IIgs release</a> it looks more like KQ1.</p>
+
+<p><img src="/images/adventure/bc/iScreen Shoter - 20231114072843099.png" alt="" />
+<em>I tried watching the movie a bit while playing the game, but lost interest pretty quickly</em></p>
+
+<p>Honestly, the movie this game was based on isn’t something I have fond memories of as a child. I seem to remember watching it and not really liking it as it felt like a lamer version of <a href="https://en.wikipedia.org/wiki/The_Sword_in_the_Stone_(1963_film)">The Sword in the Stone</a> (which I loved). I even had the movie playing in the background for a bit to see if I could get back into it … but I couldn’t.</p>
+
+<p>As a result, I had to rely on the story as the game presented it and couldn’t fill in the gaps from memory. This proved to be challenging as there’s really not much of an introduction - after the title screen you’re just dropped into the first scene in front of Dallben’s cottage. When you go inside he tells you to go feed your pig … because she’s special for some reason.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00001.png" alt="" /></p>
+
+<p>To get into the cottage you have to <code class="language-plaintext highlighter-rouge">DO</code> the door once you walk up to it. This threw me off at first, as the game doesn’t have a text parser and you only have access to 3 verbs at any point: <code class="language-plaintext highlighter-rouge">USE</code>, <code class="language-plaintext highlighter-rouge">DO</code> and <code class="language-plaintext highlighter-rouge">LOOK</code> - with these all being mapped to function keys.</p>
+
+<p>Though it felt “wrong” at first, this interface was actually extremely innovative and forward thinking as the same concept would ultimately dominate the “point and click” variations of these games once using the mouse became the primary driver for interaction.</p>
+
+<p>If you replace the function keys with a command bar of actions (like in Sierra SCI games), or the context popup menus from LucasFilm games - this game did it first.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00009.png" alt="" /></p>
+
+<p>This is an AGI game, so you primary navigate using the directional arrows on your keyboard - but you can also use the mouse. I found this incredibly useful for navigating tight diagonal sections such as climbing the rope to the Horned King’s castle. If you try and do this with incremental <code class="language-plaintext highlighter-rouge">UP</code>+<code class="language-plaintext highlighter-rouge">LEFT</code> presses, you’re going to fall - and you’re going to die.</p>
+
+<p>Since this is a Sierra game, death is around most corners. You also occasionally get thirsty or hungry, and if you don’t deal with that quickly - you die. Honestly this wasn’t too big of a challenge once you find the “food wallet” as it contains unlimited food, and the water flask can be filled to contain three or four drinks worth of water.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00003.png" alt="" /></p>
+
+<p>Progressing through the game just involves mashing the <code class="language-plaintext highlighter-rouge">LOOK</code> and <code class="language-plaintext highlighter-rouge">DO</code> keys on most screens to identify what you’re supposed to interact with, then interacting with it. Since the same hotkey is used for opening/closing things, talking to characters, and picking up items you get used to the limited actions the game provides pretty quickly.</p>
+
+<p>Some locations (like the cupboard in cottage) contain multiple items. As you pick items up, if there’s something “behind” it, the game will show you this right away so you’re unlikely to miss anything. This is really helpful, though I did miss the lute the first time around because when you <code class="language-plaintext highlighter-rouge">DO</code> the hole in the tree the first time it just tells you there’s a lute there - the second <code class="language-plaintext highlighter-rouge">DO</code> actually picks it up.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00012.png" alt="" /></p>
+
+<p>The game world is a lot smaller than most AGI games of this era, so it doesn’t take long to explore it all. Eventually you make it to the castle where there’s a princess you’re supposed to rescue - though I don’t remember her being introduced at any point before you find her.</p>
+
+<p>Once you find the room in the basement where she can squeeze through a hold and escape, she’s gone until the final credit sequence. I have a feeling based on the bit of the move I was able to watch that she’s a lot more important to the plot, but this isn’t really communicated by the game.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00014.png" alt="" /></p>
+
+<p>You’ll find a sword in the castle that you can pick up and <code class="language-plaintext highlighter-rouge">USE</code> on the castle guard. If you don’t, he’ll catch you and it’s game over (except the first time you enter the castle and he throws you in the basement instead). Of all the items you can pick up and use, the sword is one of the only ones that you can “see” being used as the action of swinging it is animated. The other is the fairy dust, which if you sprinkle it you’ll be able to fly around for a few seconds, which is useful later in the game as it lets you skip jumping on stones to cross the swamp.</p>
+
+<p>Though you can use the other items they’ll just give you a description on screen as to what their effect (or lack thereof) was.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00017.png" alt="" /></p>
+
+<p>Eventually you get to the 3 witches (I think that’s what they are) who you trade your sword to for the black cauldron, which is promptly stolen by a dragon and flown back to the Horned King’s castle. You then need to backtrack all the way to the castle, find the Horned King in the basement and show him the mirror - which makes him stumble backwards and fall into the cauldron.</p>
+
+<p><img src="/images/adventure/bc/scummvm-bc-1-00020.png" alt="" /></p>
+
+<p>Playing through this game is predominantly silent. There is a title screen with PC speaker music, and some sound effects throughout (beeps and boops mostly) but that’s about it.</p>
+
+<p>Apparently this game actually has multiple endings and there’re some branching paths. The annoying monster you meet right at the beginning (Gurgi) can show up and jump in the cauldron at the end instead of the Horned King if you follow a certain path. This is apparently how the movie plays out (I had to look this up), which is kind of cool.</p>
+
+<p>Overall this game was just “Ok”. I thought replacing the text parser with a couple of function keys was an interesting choice and streamlined the interaction with the game world. This is definitely a very approachable adventure game, and though I didn’t fully watch the movie before playing it - it does seem to follow the plot. If you’re a fan of the movie I have a feeling you’d enjoy playing this game.</p>
+
+<p>I didn’t realize the movie this was based on was the first Disney animated film to (1) receive a PG rating, and (2) to include computer generated imagery. Considering this was released in 1985, the latter point is pretty impressive :)</p>
+
+<p>If you’re a fan of the movie, you might enjoy playing this game but as an adventure game fan I wouldn’t recommend it. For anyone looking for a Sierra AGI game from this era, there are better options.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>The Black Cauldron</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1986</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, Apple II, Apple IIGS, Atari ST, IBM PC</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=AGI">AGI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/9784"><em>How Long To Beat?</em></a></td>
+      <td>3 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.sierrachest.com/index.php?a=games&amp;id=265&amp;title=black-cauldron&amp;fld=walkthrough&amp;pid=100">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>34%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/bc/scummvm-bc-1-00002.png', thumb: '/images/adventure/bc/scummvm-bc-1-00002.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00004.png', thumb: '/images/adventure/bc/scummvm-bc-1-00004.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00005.png', thumb: '/images/adventure/bc/scummvm-bc-1-00005.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00006.png', thumb: '/images/adventure/bc/scummvm-bc-1-00006.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00007.png', thumb: '/images/adventure/bc/scummvm-bc-1-00007.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00008.png', thumb: '/images/adventure/bc/scummvm-bc-1-00008.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00010.png', thumb: '/images/adventure/bc/scummvm-bc-1-00010.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00011.png', thumb: '/images/adventure/bc/scummvm-bc-1-00011.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00013.png', thumb: '/images/adventure/bc/scummvm-bc-1-00013.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00016.png', thumb: '/images/adventure/bc/scummvm-bc-1-00016.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00018.png', thumb: '/images/adventure/bc/scummvm-bc-1-00018.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00019.png', thumb: '/images/adventure/bc/scummvm-bc-1-00019.png' },{ src: '/images/adventure/bc/scummvm-bc-1-00021.png', thumb: '/images/adventure/bc/scummvm-bc-1-00021.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="AGI" /><category term="Sierra On-Line" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/bc/scummvm-bc-1-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/bc/scummvm-bc-1-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">querySrv errors when connecting to MongoDB Atlas</title><link href="https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas/" rel="alternate" type="text/html" title="querySrv errors when connecting to MongoDB Atlas" /><published>2023-11-13T14:42:13-05:00</published><updated>2023-11-14T17:33:48-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/13/querysrv-errors-when-connecting-to-mongodb-atlas/"><![CDATA[<p>If your application uses MongoDB’s <a href="https://www.mongodb.com/docs/drivers/node/current/">Node.js driver</a> or <a href="https://mongoosejs.com/">Mongoose ODM</a>, occasionally you may observe errors such as <code class="language-plaintext highlighter-rouge">querySrv ECONNREFUSED _mongodb._tcp.cluster0.abcde.mongodb.net</code> or <code class="language-plaintext highlighter-rouge">Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.abcde.mongodb.net</code> being thrown. The MongoDB Atlas documentation outlines several methods to <a href="https://www.mongodb.com/docs/atlas/troubleshoot-connection/">troubleshoot connection issues</a>, including how to handle <a href="https://www.mongodb.com/docs/atlas/troubleshoot-connection/#connection-refused-using-srv-connection-string">“Connection Refused using SRV Connection String”</a> scenarios, but why does this happen in the first place?</p>
 
 <h2 id="about-dns-seedlists">About DNS seedlists</h2>
 
@@ -1295,125 +1442,4 @@ Wofforod's Well puzzle                - vulcan
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="ICOM Simulations" /><category term="Mindscape" /><category term="Kemco" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Changes to findOneAnd* APIs in Node.js Driver 6.0.0</title><link href="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/" rel="alternate" type="text/html" title="Changes to findOneAnd* APIs in Node.js Driver 6.0.0" /><published>2023-08-03T08:59:29-04:00</published><updated>2023-08-24T11:30:09-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/03/behavioral-changes-to-the-findoneand-star-family-of-apis-in-node-dot-js-driver-6-dot-0-0/"><![CDATA[<blockquote class="prompt-tip">
-  <p>Cross posted from the <a href="https://www.mongodb.com/blog/post/behavioral-changes-find-one-family-apis-node-js-driver-6-0-0">MongoDB Blog</a></p>
-</blockquote>
-
-<p>One exciting change that is coming in release 6.0.0 of the Node.js Driver is that the modified (or original) document targeted by a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> operation will now be returned by default.</p>
-
-<h2 id="current-state">Current State</h2>
-
-<p>Up until now, as opposed to returning the requested document, this family of API methods would return a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/ModifyResult.html"><code class="language-plaintext highlighter-rouge">ModifyResult</code></a>, which would contain the requested document in a <code class="language-plaintext highlighter-rouge">value</code> field. This design was due to these APIs leveraging the MongoDB Server’s <a href="https://www.mongodb.com/docs/manual/reference/command/findAndModify/"><code class="language-plaintext highlighter-rouge">findOneAndModify</code></a> command and wrapping the command’s <a href="https://www.mongodb.com/docs/manual/reference/command/findAndModify/#output">output</a> directly.</p>
-
-<p>To demonstrate, let’s adapt the code from the Driver’s documented <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/">usage examples</a> to update one document in our <em>movies</em> collection using the <a href="https://mongodb.github.io/node-mongodb-native/5.7/classes/Collection.html#findOneAndUpdate"><code class="language-plaintext highlighter-rouge">findOneAndUpdate</code></a> API.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">database</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">db</span><span class="p">(</span><span class="dl">"</span><span class="s2">sample_mflix</span><span class="dl">"</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">movies</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nf">collection</span><span class="p">(</span><span class="dl">"</span><span class="s2">movies</span><span class="dl">"</span><span class="p">);</span>
-<span class="c1">// Query for a movie that has the title 'The Room'</span>
-<span class="kd">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">The Room</span><span class="dl">"</span> <span class="p">};</span>
-<span class="kd">const</span> <span class="nx">updatedMovie</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">movies</span><span class="p">.</span><span class="nf">findOneAndUpdate</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span>
-  <span class="p">{</span> <span class="na">$set</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">imdb.rating</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span> <span class="dl">"</span><span class="s2">imdb.votes</span><span class="dl">"</span><span class="p">:</span> <span class="mi">25750</span> <span class="p">}</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="na">projection</span><span class="p">:</span> <span class="p">{</span> <span class="na">_id</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">imdb</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="na">returnDocument</span><span class="p">:</span> <span class="dl">"</span><span class="s2">after</span><span class="dl">"</span> <span class="p">});</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">updatedMovie</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre>{
-  lastErrorObject: { n: 1, updatedExisting: true },
-  value: {
-    title: 'The Room',
-    imdb: { rating: 3.4, votes: 25750, id: 368226 }
-  },
-  ok: 1,
-  '$clusterTime': {
-    clusterTime: new Timestamp({ t: 1689343889, i: 2 }),
-    signature: {
-      hash: Binary.createFromBase64("3twlRKhDSGIW25WVHZl17EV2ulM=", 0),
-      keyId: new Long("7192273593030410245")
-    }
-  },
-  operationTime: new Timestamp({ t: 1689343889, i: 2 })
-}
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>One of the options we set was a <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#returnDocument"><code class="language-plaintext highlighter-rouge">returnDocument</code></a> of <code class="language-plaintext highlighter-rouge">after</code>, which should return the updated document. Though the expectation may be that the function call would return the document directly, instead you would get the output above.</p>
-
-<p>While the document you’re looking for can be accessed using <code class="language-plaintext highlighter-rouge">updatedMovie.value</code>, that isn’t the most intuitive experience. But changes are on the way!</p>
-
-<h2 id="what-can-we-do-right-now">What can we do right now?</h2>
-
-<p>Starting with the <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">Node.js Driver 5.7.0</a> release, a new <code class="language-plaintext highlighter-rouge">FindOneAnd*Options</code> property called <a href="https://mongodb.github.io/node-mongodb-native/5.7/interfaces/FindOneAndUpdateOptions.html#includeResultMetadata"><code class="language-plaintext highlighter-rouge">includeResultMetadata</code></a> has been introduced. When this property is set to false (default is true), the <code class="language-plaintext highlighter-rouge">findOneAnd*</code> APIs will return the requested document as expected.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">updatedMovie</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">movies</span><span class="p">.</span><span class="nf">findOneAndUpdate</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span>
-  <span class="p">{</span> <span class="na">$set</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">imdb.rating</span><span class="dl">"</span><span class="p">:</span> <span class="mf">3.3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">imdb.votes</span><span class="dl">"</span><span class="p">:</span> <span class="mi">25999</span> <span class="p">}</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="na">projection</span><span class="p">:</span> <span class="p">{</span> <span class="na">_id</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">imdb</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span> <span class="na">includeResultMetadata</span><span class="p">:</span> <span class="kc">false</span> <span class="p">});</span>
-<span class="nx">console</span><span class="p">.</span><span class="nf">dir</span><span class="p">(</span><span class="nx">updatedMovie</span><span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>{ title: 'The Room', imdb: { rating: 3.3, votes: 25999, id: 368226 } }
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="what-about-typescript">What about TypeScript?</h2>
-
-<p>If your application uses TypeScript and the MongoDB Node.js Driver, anywhere a <code class="language-plaintext highlighter-rouge">findOneAnd*</code> call is made, if the requested document is required it will be accessed via the <code class="language-plaintext highlighter-rouge">value</code> property of the <code class="language-plaintext highlighter-rouge">ModifyResult</code>. This occurs when <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is not set or when it is set to <code class="language-plaintext highlighter-rouge">true</code> (the current default value).</p>
-
-<p><img src="/images/product1605-02.png" alt="" /></p>
-
-<p>Type hinting will indicate the Schema associated with the collection that the operation was executed against. As we would expect, when the <code class="language-plaintext highlighter-rouge">includeResultMetadata</code> is changed to <code class="language-plaintext highlighter-rouge">false</code>, inline validation will indicate there’s an issue since the <code class="language-plaintext highlighter-rouge">value</code> property no longer exists on the type associated with the result</p>
-
-<p><img src="/images/product1605-01.png" alt="" /></p>
-
-<p>Attempting to compile our TypeScript project will also fail.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre>TSError: ⨯ Unable to compile TypeScript:
-index.ts:31:17 - error TS18047: 'updatedMovie' is possibly 'null'.
-
-31     console.dir(updatedMovie.value);
-                   ~~~~~~~~~~~~
-index.ts:31:30 - error TS2339: Property 'value' does not exist on type 'WithId&lt;Movie&gt;'.
-
-31     console.dir(updatedMovie.value);
-                                ~~~~~
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>This makes it incredibly easy to identify where in the code changes need to be made.</p>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<p>If you’re using the <code class="language-plaintext highlighter-rouge">findOneAnd*</code> family of APIs in your JavaScript or TypeScript project, upgrading the MongoDB Node.js Driver to 5.7.0+ and adding the <code class="language-plaintext highlighter-rouge">includeResultMetadata: false</code> option to those API calls will allow you to adapt your application to the new behavior prior to the 6.0.0 release.</p>
-
-<p>Once 6.0.0 is released, <code class="language-plaintext highlighter-rouge">includeResultMetadata: false</code> will become the default behavior. If your application relies on the previous behavior of these APIs, setting <code class="language-plaintext highlighter-rouge">includeResultMetadata: true</code> will allow you to continue to access the <code class="language-plaintext highlighter-rouge">ModifyResult</code> directly.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[Cross posted from the MongoDB Blog]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="ICOM Simulations" /><category term="Mindscape" /><category term="Kemco" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
