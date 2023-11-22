@@ -1,4 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-16T06:06:30-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Black Cauldron (Sierra On-Line) - 1986</title><link href="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/" rel="alternate" type="text/html" title="The Black Cauldron (Sierra On-Line) - 1986" /><published>2023-11-14T07:05:18-05:00</published><updated>2023-11-16T06:05:48-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-22T05:11:58-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Dark Seed (Cyberdreams) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/20/darkseed/" rel="alternate" type="text/html" title="Dark Seed (Cyberdreams) - 1992" /><published>2023-11-20T06:41:32-05:00</published><updated>2023-11-22T05:11:05-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/20/darkseed</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/20/darkseed/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Dark_Seed_(video_game)">Dark Seed</a> is a psychological horror point-and-click adventure game developed and published by Cyberdreams in 1992. It exhibits a normal world and a dark world counterpart, which is based on artwork by H. R. Giger. It was one of the first point-and-click adventure games to use high-resolution (640 × 350 pixels) graphics, to Giger’s demand.</p>
+
+<p><img src="/images/adventure/darkseed/start_001.png" alt="" /></p>
+
+<p>You play Mike Dawson, an ad company manager who, in pursuit of his goal in life to become a writer, purchases a solitary mansion in a small town called Woodland Hills. Although the low cost and hush-hush transactions when purchasing the house do raise your suspicion, the solitary environment and sheer beauty of the house crush common sense and you decide to buy the house. That’s when trouble begin. Upon reaching the house, you suddenly feel tired. You find a bed and fall asleep…</p>
+
+<p>… and wake up from a terrible dream, only to find out that your life has just become a worse nightmare: an unknown source has implanted a seed of darkness in your mind, and you only have three days to find a way to stop it.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/darkseed/tos_00a.png" alt="" />
+<em>Game error number 66 you say … I’m sure everything’s still fine though … right?</em></p>
+
+<p>I have a feeling this is an issue with the environment I was playing the game in, but I could not get past the first section of the game no matter what I tried. I would go through the initial motions to take a shower and take pills, go downstairs and answer the door, go outside and pick up the package … and the game would just restart! I honestly thought this was on purpose the first few times, but when I’d go to save or load the game it showed an error message … which seemed odd.</p>
+
+<p><img src="/images/adventure/darkseed/command_000.png" alt="" />
+<em>It’s been a hot minute since I’ve busted out the <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/attrib"><code class="language-plaintext highlighter-rouge">ATTRIB</code></a> command</em></p>
+
+<p>After cruising the internet I stumbled on a <a href="https://www.gameboomers.com/forum/ubbthreads.php/topics/136455/dos-game-dark-seed">discussion that seemed to cover the exact issue</a> I was experiencing, and the solution was to change the properties of the installed files.</p>
+
+<p>On the off chance anyone reads this review that has this problem, the solution is to go to the install directory for Darkseed in DOSBox and run <code class="language-plaintext highlighter-rouge">ATTRIB -R *.*</code> to remove the readonly attribute on the game’s files.</p>
+
+<p><img src="/images/adventure/darkseed/start_002.png" alt="" />
+<em>What a pretty doll someone sent me for some reason that isn’t suspicious at all</em></p>
+
+<p>Once I could successfully pick up the package on Day 1, the game allowed me to progress an there were no further issues.</p>
+
+<p>Dark Seed takes place over the course of 3 days, with each day of game time taking roughly an hour of actual time. Time and timing is a huge factor in this game - certain events only happen at certain times, and if you take too much or too little time you can miss things. This is actually extremely frustrating as there’s typically no indication that a certain event will be triggered at a specific time.</p>
+
+<p><img src="/images/adventure/darkseed/tos_009.png" alt="" /></p>
+
+<p>If it gets too late in the day Mike will decide it’s time for bed and go to sleep. Assuming you’ve done nothing about the headaches or you pass the 3 day mark, the alien embryo implanted in your brain will hatch and it’s game over.</p>
+
+<p>Seeing as time is such a huge element of this game, it’s a bit surprising that you don’t have a default mechanism at your disposal to tell time right from the beginning. You can find a watch in the attic (hidden under a trunk you need to push out of the way), or you can backtrack to your living room and look at the grandfather clock, but I would have expected it to be a lot more prominently displayed (maybe in the main game UI).</p>
+
+<p><img src="/images/adventure/darkseed/tos_010.png" alt="" /></p>
+
+<p>The game’s <a href="https://archive.org/details/DARK_SEED_QUICK_REFERENCE_CARD">Quick Reference Card</a> tells you you can press the <code class="language-plaintext highlighter-rouge">T</code> key at any point to advance time to the top of the next hour in case you find yourself “with lots of time to kill”. They allude to the fact you need to wait around for certain events to trigger, but not what they may be, when they’ll occur or on what screens.</p>
+
+<p>My gameplay process (once I better understood the time mechanic) was to save the game, go to various screens and mash the <code class="language-plaintext highlighter-rouge">T</code> key a bunch of times to see if anything triggered before Mike said he was tired and it was time for bed. This would at least give me some clue as to what might be needed on that screen (and at what time). This isn’t particularly fun - but it at least helped me progress.</p>
+
+<p><img src="/images/adventure/darkseed/tos_000.png" alt="" /></p>
+
+<p>The interface is that of a typical point-and-click game from this time period. You have your inventory at the top of the screen and a handful of interaction options you can cycle through by right-clicking the mouse. Mike can be moved around the screen, and if you mouse over a hot-spot you can cycle through various action icons like <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">TAKE</code>, <code class="language-plaintext highlighter-rouge">USE</code>, etc.</p>
+
+<p>The game world is pretty small and is split into two main areas: reality, and the dark world. Reality is Mike’s house, the town and a cemetary. These make up about a dozen areas you can explore, which have a mirror version in the dark world. This is actually a pretty cool dynamic, as part of the puzzle solving process is changing things in reality to see how it changes the dark world.</p>
+
+<p>For example, when you get thrown in jail you can stash some items under the pillow. When you find yourself in jail in the dark world, those items will be waiting for you.</p>
+
+<p>Getting to the dark world is done by walking through the mirror in your living room. You need to fix the mirror first (it’s missing a chunk in the bottom corner that gets sent to you in the mail), but this happens pretty early in the game.</p>
+
+<p><img src="/images/adventure/darkseed/tos_007.png" alt="" /></p>
+
+<p>Navigating the dark world is pretty straightforward once you realize it’s a mirror image of reality. There are some aliens you’ll need to interact with and a couple puzzles to solve, but you actually don’t have a whole lot to do here - which is a shame because it looks awesome.</p>
+
+<p>Since the artwork was inspired by H. R. Giger’s work, everything has this Aliens vibe. The creature designs definitely have that unique Giger style, and every cutscene plays out so much better as a result.</p>
+
+<p>Unfortunately it’s not obvious what you need to do most of the time, and it’s VERY easy to miss things and find yourself in an unwinnable situation. For example, if you enter the dark world too late in the day Mike might fall asleep on a random screen if he decides it’s bed time - and this results in you dying. The game doesn’t actually tell you that’s what’s happening though - you just randomly fall over and the game restarts.</p>
+
+<p>Save early, save often - maintain MANY save files!</p>
+
+<p><img src="/images/adventure/darkseed/tos_018.png" alt="" /></p>
+
+<p>Most of the clues you get are from examining items you find along the way. They do help point you in the right direction most of the time, but this game can be pretty challenging where there are gaps in the narrative.</p>
+
+<p>As you proceed you’ll find yourself listening to the same short music samples looping on each screen. These are very repetitive and very annoying. You spend a lot of time roaming around your house, and the house “theme” is the worst of them all. If the goal was to create a sense of “you’re going insane” - mission accomplished!</p>
+
+<p>It’s a bit of a slog to get through this game, but thankfully it’s easy to find walkthroughs … and the game itself is pretty short.</p>
+
+<p><img src="/images/adventure/darkseed/tos_020.png" alt="" />
+<em>You sell your house - game over</em></p>
+
+<p>Apparently your objective was to smash the mirror in your house to sever the connection between reality and the dark world. Building the magic hammer you need to smash the mirror is the only item combination puzzle in the game, so it’s not intuitive - and also it’s not really obvious this is what you’re supposed to be doing.</p>
+
+<p>Regardless, you make this hammer, go back to reality to start the car in the garage, go back to the dark world to launch some spaceship (that is the mirror version of the car I think), go back to reality to smash the mirror and the game is over.</p>
+
+<p>I struggled a lot with the endgame as nothing you had to do made any sense. I tried … failed … consulted the walkthrough … and was done with it.</p>
+
+<p><img src="/images/adventure/darkseed/tos_017.png" alt="" /></p>
+
+<p>This game had a lot of promise. I really liked the premise, and the story is actually pretty interesting but you find yourself rushing through everything because of the rigid time mechanic.</p>
+
+<p>It’s also not a very hard game, though certain puzzles aren’t intuitive which can be frustrating.</p>
+
+<p>Though I wouldn’t recommend this game, I can’t say I had a bad time playing it. I’m actually looking forward to the sequel (<a href="https://www.mobygames.com/game/4257/dark-seed-ii/">Dark Seed II</a>) to see how they build on the initial story and if they can iron out some of the rough edges.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Dark Seed</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Cyberdreams">Cyberdreams</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Cyberdreams</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, Amiga CD32, DOS, Macintosh, Sega Saturn, PlayStation</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/2221"><em>How Long To Beat?</em></a></td>
+      <td>1.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/darkseed.aspx">Walkthrough</a>, <a href="https://archive.org/details/DARK_SEED_QUICK_REFERENCE_CARD">Quick Reference Card</a>, <a href="https://archive.org/details/vgmuseum_miscgame_darkseed-manual/mode/2up">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>59%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/darkseed/start_003.png', thumb: '/images/adventure/darkseed/start_003.png' },{ src: '/images/adventure/darkseed/tos_001.png', thumb: '/images/adventure/darkseed/tos_001.png' },{ src: '/images/adventure/darkseed/tos_002.png', thumb: '/images/adventure/darkseed/tos_002.png' },{ src: '/images/adventure/darkseed/tos_003.png', thumb: '/images/adventure/darkseed/tos_003.png' },{ src: '/images/adventure/darkseed/tos_004.png', thumb: '/images/adventure/darkseed/tos_004.png' },{ src: '/images/adventure/darkseed/tos_005.png', thumb: '/images/adventure/darkseed/tos_005.png' },{ src: '/images/adventure/darkseed/tos_006.png', thumb: '/images/adventure/darkseed/tos_006.png' },{ src: '/images/adventure/darkseed/tos_008.png', thumb: '/images/adventure/darkseed/tos_008.png' },{ src: '/images/adventure/darkseed/tos_011.png', thumb: '/images/adventure/darkseed/tos_011.png' },{ src: '/images/adventure/darkseed/tos_012.png', thumb: '/images/adventure/darkseed/tos_012.png' },{ src: '/images/adventure/darkseed/tos_013.png', thumb: '/images/adventure/darkseed/tos_013.png' },{ src: '/images/adventure/darkseed/tos_014.png', thumb: '/images/adventure/darkseed/tos_014.png' },{ src: '/images/adventure/darkseed/tos_015.png', thumb: '/images/adventure/darkseed/tos_015.png' },{ src: '/images/adventure/darkseed/tos_016.png', thumb: '/images/adventure/darkseed/tos_016.png' },{ src: '/images/adventure/darkseed/tos_019.png', thumb: '/images/adventure/darkseed/tos_019.png' },]});inlineGallery.openGallery();</script>
+
+<hr />
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/302/dark-seed/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Cyberdreams" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/darkseed/start_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/darkseed/start_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Black Cauldron (Sierra On-Line) - 1986</title><link href="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/" rel="alternate" type="text/html" title="The Black Cauldron (Sierra On-Line) - 1986" /><published>2023-11-14T07:05:18-05:00</published><updated>2023-11-16T06:05:48-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/14/the-black-cauldron/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1301,145 +1483,4 @@ Wofforod's Well puzzle                - vulcan
 </pre></td><td class="rouge-code"><pre>mongodb+srv://xyz.mongodb.net/test?authMechanism=SCRAM-SHA-1
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>This will force the driver to attempt authorization using the <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> hashing algorithm. Note that connection string changes would still require the application to be restarted for those changes to take effect.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[Cross posted from the MongoDB Blog]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Uninvited (ICOM Simulations) - 1986</title><link href="https://www.alexbevi.com/blog/2023/08/09/uninvited/" rel="alternate" type="text/html" title="Uninvited (ICOM Simulations) - 1986" /><published>2023-08-09T07:15:38-04:00</published><updated>2023-08-14T21:08:50-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/09/uninvited</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/09/uninvited/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Uninvited_(video_game)">Uninvited</a> is a black-and-white horror-themed point-and-click adventure game. It was originally developed for the Macintosh by ICOM Simulations released in 1986 by Mindscape as part of the MacVenture series.</p>
-
-<p>The following year, a color version of the game was released for the Amiga and Atari ST, and in 1991 for the Nintendo Entertainment System, which is the version I played for this review.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 06.23.04.png" alt="" /></p>
-
-<p>I’ve now played basically all the MacVentures titles for the NES because those are the versions that I personally grew up with. I really enjoy these menu-driven, story heavy adventure games that are essentially just visual novels. Though I didn’t really love <a href="/blog/2023/04/11/deja-vu/">Déjà Vu</a>, <a href="/blog/2021/08/16/shadowgate/">Shadowgate</a> remains one of my favourite game to this day.</p>
-
-<p>As with those titles, the game screen is divided between 3 main areas: the stage (where you can see the current room), your inventory then your verb list/navigation helper. Since this is a Nintendo game you navigate the interface with the D-pad, but for the other ports you would be able to do this using a mouse.</p>
-
-<p><img src="/images/adventure/uninvited/13.jpg" alt="" />
-<em>Screenshot lovingly borrowed from <a href="http://www.honestgamers.com/6774/amiga/uninvited/review.html">Honest Gamers’ review</a> of the Amiga port of Uninvited</em></p>
-
-<p>Since I’m starting to get to that point in my review journey where I may not have an opportunity to play any games for certain systems, I <em>really</em> wanted to be able to play through this game on an Amiga emulator as I haven’t tackled that system yet. I tried … really I did! I got <a href="https://fs-uae.net/">FS-UAE</a> setup, but couldn’t get anything to run properly (even with the proper Kickstart ROM). I tried <a href="https://dirkwhoffmann.github.io/vAmiga/">vAmiga</a> as it looked extremely promising, but still nothing wants to work for me.</p>
-
-<p>I snagged a screenshot from another site just to show the difference between the interfaces. I plan on completing one game for this series on the Amiga if it kills me … but Uninvited won’t be it.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 06.24.57.png" alt="" /></p>
-
-<p>You find yourself crashed in front of a mansion. Your sister is missing, so chances are she’s inside. In you go to try and find her only to discover the house is full of ghosts and demos and a shitload of items you can pick up. As you progress you discover the house once belonged to a sorcerer with a number of apprentices. Dracan, the most talented apprentice, became corrupt and killed the other inhabitants with his magic, resulting in the house becoming haunted.</p>
-
-<p>None of this really explains why your sister is being held captive, but whatever … ghosts and stuff.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 06.47.12.png" alt="" /></p>
-
-<p>Your goal is to survive long enough to find your sister. This will involve examining everything, picking up everything and trying to use everything on everything in every room and on every creature you encounter. You know might call this “playing an adventure game” … and you’d be right.</p>
-
-<p>There are SO many things you can pick up in this game, and the vast majority of them are red herrings. Don’t forget to try and <code class="language-plaintext highlighter-rouge">OPEN</code> everything you pick up as well as they may contain OTHER items you can interact with. Some items (scrolls mostly) contain spells you can learn. Like Shadowgate, you’ll need to use these spells to help solve specific puzzles.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 06.17.16.png" alt="" /></p>
-
-<p>Most creatures you can interact with will kill you if you approach the interaction incorrectly. See that ghost lady over there? Just because you happen to have a bottle of “No Ghost” with you, remember to <code class="language-plaintext highlighter-rouge">OPEN</code> it first before trying to <code class="language-plaintext highlighter-rouge">USE</code> it on her or that’ll be the end of you.</p>
-
-<p>This game feels a lot bigger than Shadowgate and seems to have a lot more to do. There’s even a maze you’ll need to navigate in order to get a key item. I really dislike mazes in most games, but in this case it wasn’t overly difficult - just a bit tedious. Make sure you didn’t forget to take the pendent out of the mailbox when you first started the game … you’ll need it in the maze to scare off zombies. Oh, you forgot to pick it up …. whelp …. sucks to be you!</p>
-
-<p>I didn’t realize I could use the <code class="language-plaintext highlighter-rouge">TELEMAZE</code> spell to quickly exit the maze once I was done. I know in retrospect it’s pretty obvious that’s what the spell was for but I completely forgot about it …</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 07.00.41.png" alt="" />
-<em>I’m pretty sure that’s actually the combination you need … you’re welcome</em></p>
-
-<p>The majority of the puzzles aren’t difficult, but finding the items you need to solve a specific puzzle can be tricky. Finding the combination to the safe requires you to find a list of chemicals then find their values on the periodic table. If you know this is what you’re supposed to do it’s not too hard either, but I missed the note that had that clue on it so I resorted to a walkthrough to get past this section.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 07.11.48.png" alt="" />
-<em>Domestic violence was apparently acceptable to Nintendo’s censors</em></p>
-
-<p>Eventually you find your way through the mansion, find your sister, throw a goblet at the demon that was possessing her, climb out the window and win the game. Overall it’s not a bad game, though the story is pretty weak.</p>
-
-<p>The Nintendo port of the game once again comes with a descent soundtrack (check out the track called <a href="https://www.youtube.com/watch?v=sPu270Eoedc&amp;list=PL25CE9EE664153901&amp;index=2">“Daylight”</a> for a taste), which makes the experience of navigating the mansion a bit more enjoyable. I don’t believe the other ports have background music, so this is definitely a quality of life improvement.</p>
-
-<p><img src="/images/adventure/uninvited/Uninvited 2023-08-09 07.13.33.png" alt="" /></p>
-
-<p>Personally I’ve played through all these ICOM Simulations games for the Nintendo countless times as they were favourites of mine when I was a kid. I don’t have rose-coloured glasses on when it comes to the overall quality of these titles. Honestly, Uninvited is pretty derivative of Shadowgate and doesn’t really add anything new to the mix - other than the keys open multiple doors in this game (instead of it being one key per door).</p>
-
-<p>For fans of this very specific type of menu driven adventure game I might recommend giving Uninvited a shot. If you have a hankering for this type of gameplay experience I’d recommend going back to Shadowgate instead.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Uninvited</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/ICOM_Simulations">ICOM Simulations</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Mindscape, Kemco</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1986</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Apple IIGS, Macintosh, Atari ST, Commodore 64<br />Amiga, NES, DOS, Windows, Windows Mobile</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/13050"><em>How Long To Beat?</em></a></td>
-      <td>2 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>NES via <a href="http://openemu.org/">OpenEmu</a> &gt; <a href="https://nestopia.sourceforge.net/">Nestopia</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.ign.com/articles/2002/06/21/uninvited-walkthroughfaq-362946">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>44%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.16.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-08 06.17.33.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.21.36.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.24.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.29.47.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.37.44.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.42.04.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.43.29.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.45.16.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.48.22.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.49.56.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.50.43.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 06.54.59.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.01.17.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.02.02.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.03.48.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.05.18.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.10.58.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.11.26.png' },{ src: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png', thumb: '/images/adventure/uninvited/Uninvited 2023-08-09 07.12.34.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="ICOM Simulations" /><category term="Mindscape" /><category term="Kemco" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/uninvited/Uninvited%202023-08-08%2006.13.26.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>This will force the driver to attempt authorization using the <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> hashing algorithm. Note that connection string changes would still require the application to be restarted for those changes to take effect.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[Cross posted from the MongoDB Blog]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
