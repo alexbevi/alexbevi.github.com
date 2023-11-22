@@ -77,8 +77,7 @@ As you proceed you'll find yourself listening to the same short music samples lo
 
 It's a bit of a slog to get through this game, but thankfully it's easy to find walkthroughs ... and the game itself is pretty short.
 
-![](/images/adventure/darkseed/tos_020.png)
-_You sell your house - game over_
+![](/images/adventure/darkseed/tos_017.png)
 
 Apparently your objective was to smash the mirror in your house to sever the connection between reality and the dark world. Building the magic hammer you need to smash the mirror is the only item combination puzzle in the game, so it's not intuitive - and also it's not really obvious this is what you're supposed to be doing.
 
@@ -86,7 +85,8 @@ Regardless, you make this hammer, go back to reality to start the car in the gar
 
 I struggled a lot with the endgame as nothing you had to do made any sense. I tried ... failed ... consulted the walkthrough ... and was done with it.
 
-![](/images/adventure/darkseed/tos_017.png)
+![](/images/adventure/darkseed/tos_020.png)
+_You sell your house - game over_
 
 This game had a lot of promise. I really liked the premise, and the story is actually pretty interesting but you find yourself rushing through everything because of the rigid time mechanic.
 
