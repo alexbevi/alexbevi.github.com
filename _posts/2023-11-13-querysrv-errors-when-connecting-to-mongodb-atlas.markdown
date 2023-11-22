@@ -16,7 +16,7 @@ To coincide with the release of MongoDB 3.6, all drivers (at the time) implement
 
 This functionality was introduced to abstract away the complexity of MongoDB's connection strings (for MongoDB Atlas users at least) by moving the component parts of a [connection string](https://www.mongodb.com/docs/manual/reference/connection-string/) to two DNS records: a [service record (`SRV`)](https://en.wikipedia.org/wiki/SRV_record) and a [text record (`TXT`)](https://en.wikipedia.org/wiki/TXT_record).
 
-Users now only need to supply a connection string such as `mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/myFirstDatabase`, and regardless as to whether the underlying cluster was a replica set or sharded, the connection string would remain the same. Furthermore, if the replica set were changed (members added/removed, shards added/removed), no change would be needed at the application level![^1]
+Users now only need to supply a connection string such as `mongodb+srv://<username>:<password>@cluster0.abcde.mongodb.net/myFirstDatabase`, and regardless as to whether the underlying cluster was a replica set or sharded, the connection string would remain the same. Furthermore, use of `mongodb+srv://` enables drivers to detect additions/removals of `mongos` in a sharded cluster[^1]
 
 Tools such as [`nslookup`](https://linux.die.net/man/1/nslookup) or [`dig`](https://linux.die.net/man/1/dig) can be used to view the contents of these DNS records, such as in the following example:
 
@@ -163,4 +163,4 @@ It sure can be, as intermittent/transient network events can also impact MongoDB
 
 **Footnotes**
 
-[^1]: <small>Applications would need to be restarted for replica set member changes to be detected. Sharded clusters could detect additions/removals of `mongos`' if the driver(s) have implemented the [polling `SRV` records for `mongos` discovery](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst) specification</small>
+[^1]: <small>Sharded clusters could detect additions/removals of `mongos`' if the driver(s) have implemented the [polling `SRV` records for `mongos` discovery](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst) specification</small>
