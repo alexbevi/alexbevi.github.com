@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-22T18:53:09-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Dark Seed (Cyberdreams) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/20/darkseed/" rel="alternate" type="text/html" title="Dark Seed (Cyberdreams) - 1992" /><published>2023-11-20T06:41:32-05:00</published><updated>2023-11-22T11:15:40-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/20/darkseed</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/20/darkseed/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-25T08:45:52-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Legend of Kyrandia: Fables and Fiends (Westwood Studios) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Fables and Fiends (Westwood Studios) - 1992" /><published>2023-11-24T06:19:38-05:00</published><updated>2023-11-25T08:45:06-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/The_Legend_of_Kyrandia">The Legend of Kyrandia: Fables and Fiends</a> (or The Legend of Kyrandia: Book One) is a 2D point-and-click adventure game, and the first game in the Fables &amp; Fiends series. It was developed by Westwood Studios and published by Virgin Games in August 1992.</p>
+
+<p>Players take on the role of a young prince who must end the tyrannical chaos of an evil court jester in his kingdom. The game makes use of a simple interface system that allows the player to interact with objects and people, while solving various puzzles using a variety of items and special abilities.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00001.png" alt="" /></p>
+
+<p>You start off with a decent cinematic sequence that introduces Kallak - a mystic - who’s also your grandfather. Your parents were murdered by the evil jester Malcolm, who shows up out of nowhere and turns Kallak to stone. He leaves a note behind that you’re supposed to show to Zanthia so she can tell you what to do next.</p>
+
+<p>Though the characters and plot are introduced quickly and simply, it’s a bit generic here and all you know is “I’ve got item A that needs to be taken to location A” … so off we go.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00002.png" alt="" /></p>
+
+<p>Interacting with the game world is pretty straightforward and involves just clicking on everything. The cursor only changes shape to indicate a direction you can move, but if you can interact with something (or pick it up) you won’t know until you click on it. When you can pick something up, the cursor takes the shape of the thing you’ve grabbed, and you can either drop it or put it in one of the 10 inventory slots you have available.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00009.png" alt="" />
+<em>The birthstone puzzle is random every time you play, so just save every time you get one right and load when you don’t</em></p>
+
+<p>The game will remember where you drop items, so though you have limited inventory slots, it’s really not a big deal. Some of the puzzles involve trial and error so you may want to collect a bunch of duplicates of items before attempting the puzzle. For example, the birthstone puzzle involves placing gems in a specific sequence (randomized on each playthrough). If you put the wrong stone on the alter, it vanishes and if you need the same stone later, you’ll have to go find it in the forest again.</p>
+
+<p>I picked up a bunch of duplicates before attempting this puzzle and just dropped them on the ground in front of the alter. Then as I muddled may way through the puzzle I had more than enough gems to eventually solve the sequence required to move on with the game.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00010.png" alt="" /></p>
+
+<p>You’ll meet Malcolm pretty early in the game, but he just sort of taunts you and leaves you alone. He’ll show up again later to delay your progress but hiding a key item you’ll then need to find, but other than that he doesn’t really pose any sort of threat to you.</p>
+
+<p>I played through the DOS CD version of the game, so I got to “enjoy” the voice acting as a result. You can tell they swung for the fences a bit here - especially the actor that played Malcolm. It’s not the worst voice acting for this era of game … but it’s pretty bad.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00006.png" alt="" />
+<em>When Brandon tells you the snake poisoned him you should probably do something about it</em></p>
+
+<p>The puzzles in this game really aren’t that difficult, and are typically just a series of fetch quests. There are a couple of ways that you can die, so it’s important to be diligent with your save-game hygiene. I got caught off guard a couple times and found myself replaying large sections of the game because I bumbled into a death scenario accidentally.</p>
+
+<p>Your main goal in this game is to amass magical power so that you can fight Malcolm and free Kallak from the stone spell that was cast on him. This is done by getting an amulet that displays in the lower-right portion of the screen as 4 stones. Each time you learn a spell one of these stones lights up, and if you click it you’ll cast that spell.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00017.png" alt="" /></p>
+
+<p>Seeing as you only have 4 spell slots I would have expected magic to play a larger part in the game, but it really doesn’t. Heck, the spell that turns you into a pegasus is only used once and the final spell you learn from the ghost of your mother is used twice.</p>
+
+<p>Once you use these spells, all magic becomes unavailable, but these charge back up after a little while and you can use them again.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00011.png" alt="" /></p>
+
+<p>For me, the biggest challenge of this game was navigating the maze that is the caves. You find yourself trapped after stepping on a pressure plate, and you’ll need to go collect bricks to weigh down a counterweight to reopen the gate. This involves navigating a maze, but any time you go to a dark room you’ll be killed.</p>
+
+<p>You find fireberries that you can pick up and drop to illuminate a room, but you can only move up to 3 rooms before the berries become ineffective. If you drop a berry it’ll keep that room lit thereafter, but you’ll need to make sure that once you run out of berries, the next room you go to contains a bush with more berries.</p>
+
+<p><img src="https://wiki.scummvm.org/images/6/64/Kyramap2.png" alt="" />
+<em>A map of the caves is super helpful</em></p>
+
+<p>The ScummVM wiki helpfully shares a map of the caves, so I ended up using that to get through this section a bit quicker. Typically this type of spelunking involves getting 3 berries, going to one room, dropping a berry, saving, then going to the next room - rinse - repeat. If you run out of berries and die in the next room, reload and pick a different room.</p>
+
+<p>It’s tedious, but not overly challenging.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00015.png" alt="" /></p>
+
+<p>Though you’re trying to get magic spells, the second half of the game also involves mixing potions that act as single-use spells. This was just another excuse to pad the game out with backtracking fetch-quests, as mixing the potions wrong involved depleting consumable items you’d then need to go back and re-fetch to try again in a different combination.</p>
+
+<p>I really didn’t enjoy this section as it felt forced and wasn’t really introduced meaningfully.</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00022.png" alt="" /></p>
+
+<p>You’ll eventually make your way to Kyrandia castle where Malcolm is, gain the final spell, navigate another maze, solve a couple more puzzles and face off with Malcolm. The final fight is a bit anticlimactic and just involves trial and error until you land on the right spell (make yourself invisible) and stand in the right place (in front of the mirror on the right).</p>
+
+<p>Malcolm casts the spell to turn you to stone, it bounces off the mirror and turns him to stone instead. This frees Kallak from his and you become the new king of Kyrandia. Mission accomplished!</p>
+
+<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00024.png" alt="" /></p>
+
+<p>The first installment in the Legend of Kyrandia series is nothing groundbreaking. Some of the writing is clever and I really like the main villain, though he doesn’t really do anything during the game other than show up a couple times to delay your progress.</p>
+
+<p>If you’re going to play this game I’d recommend ScummVM with <a href="https://docs.scummvm.org/en/v2.6.1/advanced_topics/understand_audio.html#what-is-mt-32">MT-32 device emulation</a> for the music and sound. The music is <em>much better</em> in MT-32 mode, as are a lot of the adventure games from this era that supported this audio device.</p>
+
+<p>I’m looking forward to the sequels to this game, though the initial entry didn’t really make much of an impression.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>The Legend of Kyrandia: Fables and Fiends</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Westwood_Studios">Westwood Studios</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Virgin Interactive</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>August 1, 1992</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, DOS, FM Towns, Macintosh, NEC PC-9801</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Kyra">Kyra</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/10015"><em>How Long To Beat?</em></a></td>
+      <td>3.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/legendofkyrandia.aspx">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>56%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="Kyra" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dark Seed (Cyberdreams) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/20/darkseed/" rel="alternate" type="text/html" title="Dark Seed (Cyberdreams) - 1992" /><published>2023-11-20T06:41:32-05:00</published><updated>2023-11-22T11:15:40-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/20/darkseed</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/20/darkseed/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1419,68 +1578,4 @@ Wofforod's Well puzzle                - vulcan
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/mh2/scummvm-mh2-00000.png', thumb: '/images/adventure/mh2/scummvm-mh2-00000.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00004.png', thumb: '/images/adventure/mh2/scummvm-mh2-00004.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00005.png', thumb: '/images/adventure/mh2/scummvm-mh2-00005.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00006.png', thumb: '/images/adventure/mh2/scummvm-mh2-00006.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00007.png', thumb: '/images/adventure/mh2/scummvm-mh2-00007.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00009.png', thumb: '/images/adventure/mh2/scummvm-mh2-00009.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00011.png', thumb: '/images/adventure/mh2/scummvm-mh2-00011.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00013.png', thumb: '/images/adventure/mh2/scummvm-mh2-00013.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00014.png', thumb: '/images/adventure/mh2/scummvm-mh2-00014.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00015.png', thumb: '/images/adventure/mh2/scummvm-mh2-00015.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00016.png', thumb: '/images/adventure/mh2/scummvm-mh2-00016.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00017.png', thumb: '/images/adventure/mh2/scummvm-mh2-00017.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00018.png', thumb: '/images/adventure/mh2/scummvm-mh2-00018.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00019.png', thumb: '/images/adventure/mh2/scummvm-mh2-00019.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00021.png', thumb: '/images/adventure/mh2/scummvm-mh2-00021.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00022.png', thumb: '/images/adventure/mh2/scummvm-mh2-00022.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00023.png', thumb: '/images/adventure/mh2/scummvm-mh2-00023.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00028.png', thumb: '/images/adventure/mh2/scummvm-mh2-00028.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00029.png', thumb: '/images/adventure/mh2/scummvm-mh2-00029.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00030.png', thumb: '/images/adventure/mh2/scummvm-mh2-00030.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00031.png', thumb: '/images/adventure/mh2/scummvm-mh2-00031.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00032.png', thumb: '/images/adventure/mh2/scummvm-mh2-00032.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00033.png', thumb: '/images/adventure/mh2/scummvm-mh2-00033.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Evryware" /><category term="Sierra On-Line" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mh2/scummvm-mh2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mh2/scummvm-mh2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Improving the Node.js Driver’s SCRAM-SHA-256 Support</title><link href="https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support/" rel="alternate" type="text/html" title="Improving the Node.js Driver’s SCRAM-SHA-256 Support" /><published>2023-08-18T08:40:18-04:00</published><updated>2023-08-24T11:30:09-04:00</updated><id>https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/08/18/improving-the-node-dot-js-drivers-scram-sha-256-support/"><![CDATA[<blockquote class="prompt-tip">
-  <p>Cross posted from the <a href="https://www.mongodb.com/blog/post/improving-nodejs-drivers-scram-sha-256-support">MongoDB Blog</a></p>
-</blockquote>
-
-<p>MongoDB always strives to offer best-in-class features, functionality, and security. A number of <a href="https://www.mongodb.com/docs/manual/core/authentication/#authentication-mechanisms">authentication mechanisms</a> currently exist to verify the identity of a connecting client to your cluster, and when using the <a href="https://www.mongodb.com/docs/manual/core/security-scram/">Salted Challenge Response Authentication Mechanism (<code class="language-plaintext highlighter-rouge">SCRAM</code>)</a> there are two possible hashing functions: <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> and <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code>.</p>
-
-<p>The <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.rst#defaults">MongoDB Driver Authentication Specification</a> outlines that when attempting to authenticate using SCRAM:</p>
-<blockquote>
-  <p>“If <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code> is present in the list of mechanism, then it MUST be used as the default; otherwise, <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> MUST be used as the default […]”.</p>
-</blockquote>
-
-<p>A MongoDB Server (<code class="language-plaintext highlighter-rouge">mongos</code> or <code class="language-plaintext highlighter-rouge">mongod</code>) can be configured with a list of possible <a href="https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.authenticationMechanisms"><code class="language-plaintext highlighter-rouge">authenticationMechanisms</code></a>. As a result, MongoDB can be configured to return new authentication mechanisms which can upgrade already running applications to more secure authentication. This is the case when <code class="language-plaintext highlighter-rouge">SCRAM-SHA-256</code> is added to a cluster that previously only supported <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code>.</p>
-
-<p>Prior to hashing passwords with <code class="language-plaintext highlighter-rouge">SHA-256</code>, they will first be <a href="https://datatracker.ietf.org/doc/html/rfc5802">prepared using SASLprep</a>. The MongoDB Node.js driver leverages an external library (<a href="https://github.com/reklatsmasters/saslprep"><code class="language-plaintext highlighter-rouge">saslprep</code></a>) for this functionality, which was an <a href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json#optionaldependencies">optional dependency</a> and only used if available. Though a number of checks were in place to ensure the library was available (and loaded), an <a href="https://jira.mongodb.org/browse/NODE-5289">edge case was found</a> where these checks could fail and report availability incorrectly.</p>
-
-<h2 id="potential-issue">Potential Issue</h2>
-
-<p>Most applications won’t experience this issue, however if your Node.js project is being bundled using an alternate bundler (such as <a href="https://webpack.js.org/"><code class="language-plaintext highlighter-rouge">webpack</code></a>) it’s possible a variation of this issue may surface.</p>
-
-<p>If your application was affected, it would be unable to connect to your MongoDB cluster. The stack trace from the error that would be thrown should include a call to <a href="https://github.com/mongodb/node-mongodb-native/blob/51a573fe99506b81c"><code class="language-plaintext highlighter-rouge">continueScramConversation</code></a> similar to the following examples:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="rouge-code"><pre>{
-  "errorType": "TypeError",
-  "errorMessage": "saslprep is not a function",
-  "stack": [
-    "TypeError: saslprep is not a function",
-    "    at continueScramConversation ([...]/index.js:xxx:yyy)",
-    [...]
-  ]
-}
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>TypeError: l is not a function
-    at continueScramConversation (/app/webpack:[...]/mongodb/lib/core/auth/scram.js:xxx:yy)
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Note that <a href="https://mongoosejs.com/">Mongoose</a> applications can also be affected, as Mongoose wraps the Node.js driver:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>TypeError: (0 , o.saslprep) is not a function
-    at continueScramConversation (/app/webpack:[...]/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:xxx:yy)
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<p>The underlying issue was addressed in versions <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.7.0">5.7.0</a>, <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v4.17.0">4.17.0</a> and <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v3.7.4">3.7.4</a> of the MongoDB Node.js driver, so depending on the version of the driver being used by your application a minor version update will address this.</p>
-
-<p>Upgrading your application’s libraries and deploying to production may not always be possible in a timely fashion. If this is the case and you happen to hit the issue described above a workaround would be to append the <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#mongodb-urioption-urioption.authMechanism"><code class="language-plaintext highlighter-rouge">authMechanism</code> option</a> to your connection string with a value of <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> as follows:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>mongodb+srv://xyz.mongodb.net/test?authMechanism=SCRAM-SHA-1
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>This will force the driver to attempt authorization using the <code class="language-plaintext highlighter-rouge">SCRAM-SHA-1</code> hashing algorithm. Note that connection string changes would still require the application to be restarted for those changes to take effect.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="nodejs" /><category term="typescript" /><category term="javascript" /><summary type="html"><![CDATA[Cross posted from the MongoDB Blog]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/mh2/scummvm-mh2-00000.png', thumb: '/images/adventure/mh2/scummvm-mh2-00000.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00004.png', thumb: '/images/adventure/mh2/scummvm-mh2-00004.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00005.png', thumb: '/images/adventure/mh2/scummvm-mh2-00005.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00006.png', thumb: '/images/adventure/mh2/scummvm-mh2-00006.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00007.png', thumb: '/images/adventure/mh2/scummvm-mh2-00007.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00009.png', thumb: '/images/adventure/mh2/scummvm-mh2-00009.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00011.png', thumb: '/images/adventure/mh2/scummvm-mh2-00011.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00013.png', thumb: '/images/adventure/mh2/scummvm-mh2-00013.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00014.png', thumb: '/images/adventure/mh2/scummvm-mh2-00014.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00015.png', thumb: '/images/adventure/mh2/scummvm-mh2-00015.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00016.png', thumb: '/images/adventure/mh2/scummvm-mh2-00016.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00017.png', thumb: '/images/adventure/mh2/scummvm-mh2-00017.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00018.png', thumb: '/images/adventure/mh2/scummvm-mh2-00018.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00019.png', thumb: '/images/adventure/mh2/scummvm-mh2-00019.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00021.png', thumb: '/images/adventure/mh2/scummvm-mh2-00021.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00022.png', thumb: '/images/adventure/mh2/scummvm-mh2-00022.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00023.png', thumb: '/images/adventure/mh2/scummvm-mh2-00023.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00028.png', thumb: '/images/adventure/mh2/scummvm-mh2-00028.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00029.png', thumb: '/images/adventure/mh2/scummvm-mh2-00029.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00030.png', thumb: '/images/adventure/mh2/scummvm-mh2-00030.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00031.png', thumb: '/images/adventure/mh2/scummvm-mh2-00031.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00032.png', thumb: '/images/adventure/mh2/scummvm-mh2-00032.png' },{ src: '/images/adventure/mh2/scummvm-mh2-00033.png', thumb: '/images/adventure/mh2/scummvm-mh2-00033.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Evryware" /><category term="Sierra On-Line" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mh2/scummvm-mh2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mh2/scummvm-mh2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
