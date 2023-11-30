@@ -111,7 +111,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 ### Gallery
 
 {% galleria %}
-
 /images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png
 /images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png
 /images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png

@@ -1,0 +1,167 @@
+---
+layout: post
+title: "Frederik Pohl's Gateway (Legend Entertainment) - 1992"
+date: 2023-11-29 21:14:21 -0500
+comments: true
+tags: [adventure, "Legend Entertainment"]
+image: /images/adventure/gate/gate_000.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+[Frederik Pohl's Gateway](https://en.wikipedia.org/wiki/Gateway_(video_game)) is a 1992 interactive fiction video game released by Legend Entertainment, and written by Glen Dahlgren and Mike Verdu. It is based on Frederik Pohl's Heechee universe.
+
+When humans finally managed to colonize the planet Venus, they discovered a gigantic system of artificial underground tunnels there. It is assumed that a highly advanced alien race known as Heechee has constructed those tunnels thousands of years ago. Eventually, an abandoned, yet fully functional Heechee spaceship is discovered. One of the explorers boards it, which leads humanity towards the discovery of a space station with many similar ships - all with coordinates of unknown planets already punched in. This station becomes known as the Gateway, being humanity's only connecting point to the rest of the universe.
+
+![](/images/adventure/gate/gate_021.png)
+
+Since traveling to the potentially dangerous destinations involves a great deal of risk, only some particularly courageous (or perhaps reckless) adventurers, called "prospectors", volunteered to go on these journeys. The protagonist of the game is one of those prospectors, having won the membership alongside a small sum of money and a one-way ticket to the Gateway. Eventually, he discovers an ancient device that contain a warning against a mysterious alien species known as Assassins - and the prospector is entrusted with the task of protecting the humans from that threat.[^1]
+
+![](/images/adventure/gate/gate_012.png)
+
+Gateway is a text adventure with graphics, based on the [Heechee (or Gateway) saga](https://en.wikipedia.org/wiki/Heechee_Saga) series of books.  I've never heard of this series, but after playing this game I'm actually sort of looking forward to reading these books. Also, as this is a book series it's not surprising that the game involves _A LOT_ of reading. This is a text adventure through and through.
+
+It is identical in interface and general concept to Legend's other text-driven adventures: the player may opt for text-only input as well as selecting verbs from a list. Clicking on objects or characters within the graphical representation of the location provides a text description. Puzzles are mostly inventory-based, though there are logic-related tasks as well. The player character explores various planets during the course of the journey. In a few cases, it is possible to die in the game.
+
+The game runs on the [Legend](https://wiki.scummvm.org/index.php?title=Legend) engine, which is also used by other Legend Entertainment titles such as [Spellcasting 101](https://www.mobygames.com/game/1027/spellcasting-101-sorcerers-get-all-the-girls/), [Timequest](https://www.mobygames.com/game/1026/timequest/) and [Erik the Unready](https://www.mobygames.com/game/431/eric-the-unready/). There was some work done on implementing the _Legend_ engine in ScummVM (see [fork for details](https://github.com/dreammaster/scummvm/tree/legend/engines/legend)) but this work has stalled. If you've got some C++ chops and feel like taking a stab at continuing this work, progress is just a `git clone` away ;)
+
+![](/images/adventure/gate/gate_001.png)
+
+The game starts off with a wall of text, a handful of static screens overlaid with more text, then you get dropped into the game world where you're presented with a whole lot more text. I personally love text adventures, but if this is not your jam ... you may not like this game.
+
+It's actually worth calling out how much of this game involves massive walls of text and expository dumps. Seeing as this is based on a book (or series of books) AND it's a text adventure none of this should be a surprise ... but it's still a LOT of reading.
+
+![](/images/adventure/gate/gate_039.png)
+
+There are some characters you can interact with, which will change the view to show you a different view where that character dumps more narrative on you. As you'd expect by now, this will involve a lot more reading as ... you guessed it ... another wall of text is coming your way, but presented a little bit differently just to mix things up a bit.
+
+The game has a MIDI soundtrack with a handful of looping samples, and though there is a "viewport" on each screen that draws the current scene, this isn't really required. You can switch to a pure text rendition of the game via the UI if you so choose, which just gives you more space to read what the games throwing at you in great, great detail.
+
+![](/images/adventure/gate/gate_050.png)
+
+Though it may sound like I'm dumping on the massive amount of reading this game forces you to do, I actually quite like it. The game's interface is extremely intuitive, and makes it fairly straightforward to determine what actions you can take on what screens, as well as what direction(s) you can move. There is a column of verbs you can click on (if you so choose), which when selected present you with what modifiers the verb expects, then another column of nouns that you can interact with.
+
+If you pay attention and actually read all the text that's being thrown your way, progressing through the game isn't overly difficult.
+
+![](/images/adventure/gate/gate_055.png)
+
+What IS difficult (or at least frutstrating) is that there are a number of interactions in the game that require repeating the same action multiple times. For example, digging out the ore requires you to `DIG ROCK` twice, but this isn't obvious based on the feedback the game gives you when you do it the first time.
+
+The second frustration would be the sheer volume of puzzles that require you to `WAIT` on a specific screen until a certain time for an event to be triggered. Typically the game will tell you where you need to be and at what time, but occasionally you'll have to just keep typing `WAIT`, or `WAIT UNTIL HH:MM` to force a longer wait until a fixed time.
+
+![](/images/adventure/gate/gate_061.png)
+
+I personally really dislike these types of puzzles in adventure games, as it feels like artificial padding. If you want me to hide in a box and wait for someone to come in and do something I'll observe, make the act of hiding in the box be the event trigger ...
+
+The story is split into 3 parts, with each being self contained but building on the events of the last part. For part 1 you're introduced to the world, including the lore and background on the Gateway and the Heechee. You learn about exploring space as a prospector and how the game expects you to proceed. You'll eventually join the Orion program and discover that humanity is in peril and only you can save them. You visit planets, activate these pillar things on each and that does .... something.
+
+![](/images/adventure/gate/gate_043.png)
+
+Once you activate four of these monuments you find out you've alerted the big baddy who's going to wipe out all of humanity - unless you stop them. This takes place inside a simulation or an AI or something, and involves solving more puzzles in some weird settings (like a random cocktail party, then hell).
+
+![](/images/adventure/gate/gate_066.png)
+
+Though you're typically not in any danger for most of the game, you can die in certain situations. Thankfully it's really easy to save and restore here (it's just another command) so it's worth saving early and ofter. I found myself saving, then mashing `WAIT` on many screens just to see if it would trigger something to change. If it didn't, I'd just `RESTORE` my last save and try something different.
+
+![](/images/adventure/gate/gate_071.png)
+
+This game uses a similar engine to [Companions of Xanth]({% post_url 2023-05-23-companions-of-xanth %}), but I'm guessing a much earlier version. Overall I actually really enjoyed playing through this title, and found it was reminiscent of some of my favourite menu-driven adventure games such as [Shadowgate]({% post_url 2021-08-16-shadowgate %}) or [Princess Tomato in the Salad Kingdom]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}).
+
+The story is engaging, and though there's a lot of exposition, you find yourself carefully reading everything that everyone says as the world that is being described is really interesting and immersive. I found myself having to use a walkthrough many times as I likely missed details I shouldn't have glossed over, or I was just in the wrong place at the wrong time and had some `WAIT`ing to do ...
+
+Gateway isn't a game you're going to play for the graphics, the sound effects or the music. If this was released by Sierra in 1982 you wouldn't have been disappointed, and for adventure game fans that love story above all else, there's plenty to enjoy here still.
+
+## Game Information
+
+|*Game*|Frederik Pohl's Gateway|
+|*Developer*|[Legend Entertainment](https://en.wikipedia.org/wiki/Legend_Entertainment)|
+|*Publisher*|Legend Entertainment|
+|*Release Date*|June 1992|
+|*Systems*|DOS, Windows 95|
+|*Game Engine*|[Legend](https://wiki.scummvm.org/index.php?title=Legend)|
+
+### My Playthrough
+
+|[*How Long To Beat?*](https://howlongtobeat.com/game/50649)|3.5 hours|
+|*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
+|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/gateway.aspx)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|4|
+|**Story (25)**|22|
+|**Experience (15)**|8|
+|**Impact (10)**|5|
+||**56%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/gate/gate_002.png
+/images/adventure/gate/gate_003.png
+/images/adventure/gate/gate_004.png
+/images/adventure/gate/gate_005.png
+/images/adventure/gate/gate_006.png
+/images/adventure/gate/gate_007.png
+/images/adventure/gate/gate_008.png
+/images/adventure/gate/gate_009.png
+/images/adventure/gate/gate_010.png
+/images/adventure/gate/gate_011.png
+/images/adventure/gate/gate_013.png
+/images/adventure/gate/gate_014.png
+/images/adventure/gate/gate_015.png
+/images/adventure/gate/gate_016.png
+/images/adventure/gate/gate_017.png
+/images/adventure/gate/gate_018.png
+/images/adventure/gate/gate_019.png
+/images/adventure/gate/gate_020.png
+/images/adventure/gate/gate_022.png
+/images/adventure/gate/gate_023.png
+/images/adventure/gate/gate_024.png
+/images/adventure/gate/gate_025.png
+/images/adventure/gate/gate_026.png
+/images/adventure/gate/gate_027.png
+/images/adventure/gate/gate_028.png
+/images/adventure/gate/gate_029.png
+/images/adventure/gate/gate_030.png
+/images/adventure/gate/gate_031.png
+/images/adventure/gate/gate_032.png
+/images/adventure/gate/gate_033.png
+/images/adventure/gate/gate_034.png
+/images/adventure/gate/gate_035.png
+/images/adventure/gate/gate_036.png
+/images/adventure/gate/gate_037.png
+/images/adventure/gate/gate_038.png
+/images/adventure/gate/gate_040.png
+/images/adventure/gate/gate_041.png
+/images/adventure/gate/gate_042.png
+/images/adventure/gate/gate_044.png
+/images/adventure/gate/gate_045.png
+/images/adventure/gate/gate_046.png
+/images/adventure/gate/gate_047.png
+/images/adventure/gate/gate_048.png
+/images/adventure/gate/gate_049.png
+/images/adventure/gate/gate_051.png
+/images/adventure/gate/gate_052.png
+/images/adventure/gate/gate_053.png
+/images/adventure/gate/gate_054.png
+/images/adventure/gate/gate_056.png
+/images/adventure/gate/gate_057.png
+/images/adventure/gate/gate_058.png
+/images/adventure/gate/gate_059.png
+/images/adventure/gate/gate_060.png
+/images/adventure/gate/gate_062.png
+/images/adventure/gate/gate_063.png
+/images/adventure/gate/gate_064.png
+/images/adventure/gate/gate_065.png
+/images/adventure/gate/gate_067.png
+/images/adventure/gate/gate_068.png
+/images/adventure/gate/gate_069.png
+/images/adventure/gate/gate_070.png
+{% endgalleria %}
+
+**Footnotes**
+
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/317/frederik-pohls-gateway/)</small>
