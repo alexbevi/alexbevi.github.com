@@ -83,7 +83,7 @@ Gateway isn't a game you're going to play for the graphics, the sound effects or
 ### My Playthrough
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/50649)|3.5 hours|
-|*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
+|*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|
 |*Notes*|[Walkthrough](https://www.walkthroughking.com/text/gateway.aspx)|
 
 ### Score
