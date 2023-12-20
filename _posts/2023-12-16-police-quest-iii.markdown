@@ -25,7 +25,7 @@ Sonny has been promoted following the events of Police Quest II, and the game st
 ![](/images/adventure/pq3/scummvm-pq3-00005.png)
 _Picking the wrong option when filing paperwork can lead to a game over_
 
-Following the proper protocol at all times is a requirement to being successful in any Police Quest game, and luckily for you these protocols are well documented in the game's [Manual](https://archive.org/details/Police_Quest_3_-_Manual). There are all sorts of procedures outlined here such as how to handle felony situations, obtaining entry into private property, courtroom procedures and forceful entry into dwellings. If it's in the manual, you're likely going to need to do it at some point in the game so it's not a bad idea to do the reading up front so you know what you're dealing with.
+Following the proper protocol at all times is a requirement to being successful in any Police Quest game, and luckily for you these protocols are well documented in the game's [manual](https://archive.org/details/Police_Quest_3_-_Manual). There are all sorts of procedures outlined here such as how to handle felony situations, obtaining entry into private property, courtroom procedures and forceful entry into dwellings. If it's in the manual, you're likely going to need to do it at some point in the game so it's not a bad idea to do the reading up front so you know what you're dealing with.
 
 ![](/images/adventure/pq3/scummvm-pq3-00013.png)
 

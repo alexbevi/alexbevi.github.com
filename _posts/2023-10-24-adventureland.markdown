@@ -3,7 +3,7 @@ layout: post
 title: "Adventureland (Adventure International) - 1982"
 date: 2023-10-24 06:59:43 -0400
 comments: true
-ategories: ["Let's Adventure!"]
+categories: ["Let's Adventure!"]
 tags: [adventure, "Adventure International"]
 image: /images/adventure/advland/000.png
 ---
