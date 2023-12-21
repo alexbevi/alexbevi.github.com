@@ -68,7 +68,9 @@ $ ll -tr *.MP4
 
 Since I want to upload these videos to YouTube for the team to review, I need a single video file. After hunting around for scripts that could do this for me, I did find a few that looked promising - such as [GoPro-Concat-Automation](https://github.com/scuc/GoPro-Concat-Automation) and [gopro-linux](https://github.com/KonradIT/gopro-linu). Ultimately I wanted to be able to just do this myself with a single command, so though these tools got me most of the way there, I ended up opting for my own script instead:
 
-```
+```bash
+# run from the directory where your videos are located
+# ex: /Volumes/SDCARD/DCIM/100GOPRO/
 ffmpeg -f concat -safe 0 \
     -i <(for f in `ls -tr *.MP4`; do echo "file '$PWD/$f'"; done) \
     -c copy output.mp4
