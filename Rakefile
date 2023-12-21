@@ -28,6 +28,7 @@ task :new_post, :title do |t, args|
     post.puts "comments: true"
     post.puts "categories: "
     post.puts "tags: "
+    post.puts "image: "
     post.puts "---"
   end
 end
