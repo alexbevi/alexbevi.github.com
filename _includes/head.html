@@ -93,21 +93,6 @@
   {% galleria_includes %}
   {% include metadata-hook.html %}
 
-  <script>
-    (function(d,t) {
-      var BASE_URL="http://10.0.0.56:3000";
-      var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=BASE_URL+"/packs/js/sdk.js";
-      g.defer = true;
-      g.async = true;
-      s.parentNode.insertBefore(g,s);
-      g.onload=function(){
-        window.chatwootSDK.run({
-          websiteToken: 'LPMrgkwevLKztni9ThkNcoeS',
-          baseUrl: BASE_URL
-        })
-      }
-    })(document,"script");
-  </script>
-
+  <!-- adsense meta tag -->
+  <meta name="google-adsense-account" content="ca-pub-6215800856413580">
 </head>
