@@ -1,5 +1,5 @@
 User-agent: *
-
+Allow: /ads.txt
 Disallow: /norobots/
 
 Sitemap: https://www.alexbevi.com/sitemap.xml
