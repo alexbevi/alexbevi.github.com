@@ -4,7 +4,7 @@ permalink: robots.txt
 ---
 
 User-agent: *
-
+Allow: /ads.txt
 Disallow: /norobots/
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
