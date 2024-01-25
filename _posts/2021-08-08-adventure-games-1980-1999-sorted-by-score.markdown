@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 64  -%}
+{%- assign games_finished = 65  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -27,6 +27,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 ```
 <hr>
 
+1. **91%** [Maniac Mansion: Day of the Tentacle (LucasArts)]({% post_url 2024-01-20-day-of-the-tentacle %}) - 1993
 1. **89%** [Full Throttle (LucasArts)]({% post_url 2023-03-10-full-throttle %}) - 1995
 1. **89%** [Gabriel Knight: Sins of the Fathers (Sierra On-Line)]({% post_url 2023-06-14-gabriel-knight-sins-of-the-fathers %}) - 1993
 1. **87%** [Grim Fandango (LucasArts)]({% post_url 2022-12-16-grim-fandango %}) - 1998
