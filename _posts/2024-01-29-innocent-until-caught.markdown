@@ -93,12 +93,13 @@ You can now board the train successfully. You have to follow this sequence as in
 Note that you _can't_ change your audio configuration and then load a save state. If you do so the audio just won't work and you'll have to play the rest of the game in silence. This was a bit frustrating as I wanted to play through using either the Soundblaster or Roland configuration ... but I started with Adlib so that's what I rolled with.
 
 ![](/images/adventure/iuc/innocent_020.png)
+_The game does give you A LOT of clues as to what you may need to do next_
 
 The music is atmospheric and appropriate - though limited. There are a handful of background songs that the game will cycle through based on the screen you're on, and the samples are pretty short so you'll notice the looping. This is a pretty minor complaint though as the songs are pretty good.
 
 Aside from some technical challenges and a maze that I could have done without, this game came as a pleasant surprise. I've heard of it numerous times over the years but never took the time to try it out myself - but I'm really glad I did.
 
-Since there's a sequel ([Guilty](https://en.wikipedia.org/wiki/Guilty_(video_game)) that came out a couple years later I'm now looking forward to when I get to tackle that title as well.
+Since there's a sequel ([Guilty](https://en.wikipedia.org/wiki/Guilty_(video_game))) that came out a couple years later I'm now looking forward to when I get to tackle that title as well.
 
 I'd recommend this game, though you'll likely need a walkthrough to solve some of the puzzles. Do yourself a favour though and setup your preferred audio device before you start the game ;)
 
