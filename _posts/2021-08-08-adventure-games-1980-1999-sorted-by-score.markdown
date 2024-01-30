@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 65  -%}
+{%- assign games_finished = 66  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -38,6 +38,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **81%** [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 1. **80%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
+1. **79%** [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
 1. **76%** [Rise of the Dragon (Dynamix)]({% post_url 2023-02-13-rise-of-the-dragon %}) - 1990
 1. **73%** [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
