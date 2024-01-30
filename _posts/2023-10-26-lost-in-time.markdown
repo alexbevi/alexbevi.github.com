@@ -52,7 +52,7 @@ Since there's going to be a lot of backtracking it is convenient that the game g
 
 ![](/images/adventure/lit/scummvm-lit-us-00028.png)
 
-The reviews of this game (at time of release) were generally positive for how the live-action video was incorporated. Honestly it's pretty hard to watch and feels out of place and not overly well done. Seeing as this game came out the same years as "The 7th Guest" and "Myst" you can't even point to it and say "well, it was good for 1993".
+The reviews of this game (at time of release) were generally positive for how the live-action video was incorporated. Honestly it's pretty hard to watch and feels out of place and not overly well done. Seeing as this game came out the same years as [The 7th Guest](https://en.wikipedia.org/wiki/The_7th_Guest) and [Myst](https://en.wikipedia.org/wiki/Myst) you can't even point to it and say _"well, it was good for 1993"_.
 
 Unfortunately it's not just the video and voice acting that sucks in this game. The sound effects feel out of place throughout the game and really give you the sense that they're just stock effects the developers threw together. Overall it's just not a good game.
 
