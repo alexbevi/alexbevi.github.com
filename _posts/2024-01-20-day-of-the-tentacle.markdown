@@ -69,7 +69,7 @@ Assertion failed: (endP >= beginP), function BaseString, file str-base.cpp, line
 [1]    22698 abort      scummvm
 ```
 
-I ended up have to restart from the beginning because I didn't save my game once ... oops.
+I ended up have to restart from the beginning because I didn't save my game once ... oops. I also filed this with the ScummVM team as [_#14892 - DOTT: Crash when trying to play MM on Ed's computer_](https://bugs.scummvm.org/ticket/14892).
 
 If it were possible to play more games in this series or in this universe I'd be all in, but unfortunately it doesn't look like this will be the case anytime soon. As a result, if you haven't played Day of the Tentacle I'd highly recommend either the original version or picking up the [remastered version on GOG](https://www.gog.com/index.php/en/game/day_of_the_tentacle_remastered)
 
