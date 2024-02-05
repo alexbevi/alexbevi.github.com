@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Node.js Driver failing to connect due to unsafe legacy renegotiation disabled"
+title: "Node.js Driver failing to connect due to \"unsafe legacy renegotiation disabled\""
 date: 2024-02-05 09:06:53 -0500
 comments: true
 categories: [MongoDB]
