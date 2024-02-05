@@ -42,7 +42,7 @@ const client = new MongoClient("mongodb+srv://...", {
 
 SUCCESS! The above example allows a `SecureContext` object to be created with the `secureOptions` selected from the [enumerated OpenSSL options Node.js has defined](https://nodejs.org/api/crypto.html#openssl-options).
 
-> Though the Node.js driver allows direct configuration of the `SecureContext` object, as other [MongoDB drivers](https://www.mongodb.com/docs/drivers/) _may_ not [DRIVERS-2823](https://jira.mongodb.org/browse/DRIVERS-2823) is being considered to ensure this type of configuration is available.
+> Though the Node.js driver allows direct configuration of the `SecureContext` object, as other [MongoDB drivers](https://www.mongodb.com/docs/drivers/) _may not_, [DRIVERS-2823](https://jira.mongodb.org/browse/DRIVERS-2823) is being considered to ensure this type of configuration is available.
 {: .prompt-tip }
 
 ## Alternative Configuration
