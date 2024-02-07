@@ -1,4 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-06T21:45:30-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Node.js Driver failing to connect due to “unsafe legacy renegotiation disabled”</title><link href="https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled/" rel="alternate" type="text/html" title="Node.js Driver failing to connect due to “unsafe legacy renegotiation disabled”" /><published>2024-02-05T09:06:53-05:00</published><updated>2024-02-05T17:44:54-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled/"><![CDATA[<h2 id="overview">Overview</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-07T17:59:15-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Loom (Lucasfilm Games) - 1990</title><link href="https://www.alexbevi.com/blog/2024/02/06/loom/" rel="alternate" type="text/html" title="Loom (Lucasfilm Games) - 1990" /><published>2024-02-06T16:24:23-05:00</published><updated>2024-02-07T17:58:28-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/06/loom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/06/loom/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Loom_(video_game)">Loom</a> is a 1990 fantasy-themed graphic adventure game by Lucasfilm Games. The project was led by Brian Moriarty, a former Infocom employee and author of classic text adventures Wishbringer (1985), Trinity (1986), and Beyond Zork (1987). It was the fourth game to use the SCUMM adventure game engine, and the first of those to avoid the verb–object interface introduced in Maniac Mansion.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00028.png" alt="" /></p>
+
+<p>Bobbin Threadbare is a young man from the Guild of Weavers. He is outcast from the guild and blamed for the lack of prosperity in recent times, though he does not know why. On his seventeenth birthday he is summoned by the Elders of the guild, who intend to decide his fate. However, shortly thereafter all the inhabitants of the village except Bobbin are turned into swans. Bobbin finds out that he is the child of the Great Loom, found by Lady Cygna, who tried to use the loom’s powers to save the guild. Bobbin’s stepmother Dame Hetchel teaches him the art of weaving magical drafts, and Bobbin embarks on a journey to find the lost flock, and the answers to his questions.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00014.png" alt="" /></p>
+
+<p>Loom is an adventure game that sets itself apart from other titles in the genre through its unique gameplay system: the player character does not carry items around, but rather manipulates objects through the use of spells (called “drafts” in the game). The drafts themselves are woven by playing magical notes on a special instrument called “distaff”. All the puzzles in the game are solved by learning and correctly applying these drafts.<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00004.png" alt="" /></p>
+
+<p>Each draft is a sequence of four notes within one octave. The player learns new drafts by exploring the environment and interacting with it through a simple point-and-click interface. Once a draft has been learned, it may be applied in a different situation in order to solve a problem. Drafts range from simple general actions (such as opening) to more specific and complex commands, e.g. turning straw into gold. Drafts can also be “reversed”, i.e. played backwards, in order to execute the opposite action (for example, closing something instead of opening). As the game progresses Bobbin learns to play higher notes on the distaff, allowing him to access more drafts.<sup id="fnref:1:2" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00003.png" alt="" /></p>
+
+<p>The game begins with an <a href="https://www.youtube.com/watch?v=BcydSMadbcw">audio drama (YouTube)</a> that you originally would have listened to on casette tape (as your parents kids). This audio drama sets the stage for the game world and lays out the history of the world and how everyone is a member of one of four guilds. Bobbin is a member of the Guild of Weavers.</p>
+
+<p>There is a whole lot of backstory presented in this audio drama, and I’ll be honest - I didn’t listen to all of it because it’s 30 minutes long and my attention span is … shorter than that. I did however read the synopsis on <a href="https://en.wikipedia.org/wiki/Loom_(video_game)#Prologue">Wikipedia</a> which answers a lot of questions, such as “whats with these swans?”.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00008.png" alt="" /></p>
+
+<p>Though Loom has three difficulty settings (I played on “Standard”), it’s an extremely simple game. Unlike most adventure games, there is no inventory management to worry about, no dialogue trees to navigate and very little backtracking. Your goals are pretty straightforward and can all be accomplished by doing essentially the same thing on every screen.</p>
+
+<p>You click the mouse around the screen until the thing you click on is called out in the lower right of the screen. If this happens, you’ll either hear four notes on your distaff indicating there’s a new draft you can learn, or you’ll interact with whatever you just clicked on.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00005.png" alt="" /></p>
+
+<p>Basically every draft you learn can be played either forwards or backwards. For example, once you learn the “Straw to Gold” draft, if you happen to select a pile of gold and play the draft backwards, it’ll now turn “Gold to Straw”. This mechanic is used throughout the game and in most cases presents a pretty obvious solution to a given puzzle.</p>
+
+<p>It is important to write down the drafts you learn though, as the game doesn’t record them for you (unless you’re in “Tutorial” mode). If you play on the hardest difficulty you’ll need to listen to the drafts and try to remember the notes as there is no visual indicator as to what was just played on the distaff.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00016.png" alt="" />
+<em>Remember to <code class="language-plaintext highlighter-rouge">LOOK</code> at everything by double-clicking before you select and cast a draft!</em></p>
+
+<p>Being a LucasArts adventure there’s <em>supposed to be</em> no way to die or wind up in an unwinnable situation. I did find myself getting stuck at one point because I was following a walkthrough and I apparently jumped ahead a little too quickly. At one point you need to examine a pool to learn the “Reflect” draft, but before doing this I only single-clicked and inspected the pool - then cast a draft that drained the pool.</p>
+
+<p>As a result, I never learned the necessary draft and found myself stuck once I reached the area where I needed to steal the young boy’s identity so I could sneak into the guild of blacksmith’s.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00019.png" alt="" />
+<em>You’re responsible for that boy’s brutal murder. Actions have consequences Bobbin!</em></p>
+
+<p>Though this is a LucasArts adventure game, the themes it deals with are actually pretty dark. Once you reflect your image onto the young boy so you can sneak into the guild of blacksmith’s, the dragon you escaped from finds the boy napping and mistaking him for you, kills him out of revenge. The ghost of that child is then used to solve a puzzle a little later in the game.</p>
+
+<p>You do “heal” the boy to bring him back to life, but this was gorier than I anticipated.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00022.png" alt="" /></p>
+
+<p>The story advances through character closeups and general on-screen exposition dumps. Unlike other adventure games of this era, none of these interactions are … interactive. You aren’t actually conversing with a character, they’re just delivering one chunk of dialogue and letting you move on.</p>
+
+<p>Since the story progresses in an extremely linear fashion it makes sense that these interactions would as well, but it does make this game feel a little like it’s on rails.</p>
+
+<p>The world you’re exploring is interesting and there is a lot of lore here, but you miss a good chunk of it if you don’t invest the time to listen to that audio drama.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00025.png" alt="" /></p>
+
+<p>Once you reach the endgame things actually get extremely easy. The fabric of the world is torn open and you need to go around casting (“drafting”?) <code class="language-plaintext highlighter-rouge">HEAL</code> on all the tears after healing whoever is dead/dying on the other side of the tear. You’ll then end up by the loom and Chaos will start drafting songs you need to play in reverse.</p>
+
+<p>Finally you cast the song that turns you into a swan and that’s the end of the game.</p>
+
+<p><img src="/images/adventure/loom/scummvm-loom-fm-00030.png" alt="" /></p>
+
+<p>Loom is a very interesting game with a unique game mechanic at the time. The music is all <a href="https://en.wikipedia.org/wiki/Pyotr_Ilyich_Tchaikovsky">Tchaikovsky</a> compositions, the visuals are all excellent and the story is compelling. You really do have to invest the time to dig into all the material that comes with the game before you play it in order to truly appreciate Bobbin Threadbare’s world, but if you don’t bother then this is just a relatively simple point-and-click adventure.</p>
+
+<p>There aren’t that many areas in this game to explore, and each area <em>maybe</em> has 2-3 action areas that you could potentially interact with. The draft you need to use on each action area is generally intuitive, so if you remembered to write them down (and wrote them down properly), it’s not hard to burn through this game.</p>
+
+<p>I would definitely rank this title pretty low on my list of favourites when it comes to LucasArts’ catalogue, but as an entry level adventure game it’s not that bad.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Loom</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/LucasArts">LucasArts</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>LucasArts</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>January 1990</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Mac OS, Amiga, Atari ST, FM Towns, TurboGrafx-16, Steam</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCUMM">SCUMM</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/5367"><em>How Long To Beat?</em></a></td>
+      <td>3 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>FM Towns via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthrough/full/loom">Walkthrough</a>, <a href="https://www.choicestgames.com/2013/07/list-of-drafts-for-loom.html">Drafts</a>, <a href="https://archive.org/details/vgmuseum_lucasfilm_loom-manual/mode/2up">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>56%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/loom/scummvm-loom-fm-00001.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00001.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00002.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00002.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00006.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00006.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00007.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00007.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00009.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00009.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00010.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00010.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00011.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00011.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00012.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00012.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00013.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00013.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00015.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00015.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00017.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00017.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00018.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00018.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00020.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00020.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00021.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00021.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00023.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00023.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00024.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00024.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00026.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00026.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00027.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00027.png' },{ src: '/images/adventure/loom/scummvm-loom-fm-00029.png', thumb: '/images/adventure/loom/scummvm-loom-fm-00029.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/176/loom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="LucasArts" /><category term="SCUMM" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/loom/scummvm-loom-fm-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/loom/scummvm-loom-fm-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Node.js Driver failing to connect due to “unsafe legacy renegotiation disabled”</title><link href="https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled/" rel="alternate" type="text/html" title="Node.js Driver failing to connect due to “unsafe legacy renegotiation disabled”" /><published>2024-02-05T09:06:53-05:00</published><updated>2024-02-05T17:44:54-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/05/node-dot-js-driver-failing-to-connect-due-to-unsafe-legacy-renegotiation-disabled/"><![CDATA[<h2 id="overview">Overview</h2>
 
 <p>In <a href="https://www.mongodb.com/community/forums/t/mongoserverselectionerror-c83200000a000152-ssl-routinesunsafe-legacy-renegotiation-disabled/262568">this community forum post</a> there was a report of the <a href="https://www.mongodb.com/docs/drivers/node/current/">MongoDB Node.js driver</a> failing to connect with the following error:</p>
 
@@ -1327,186 +1491,4 @@ ffmpeg <span class="nt">-f</span> concat <span class="nt">-safe</span> 0 <span c
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="Kyra" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dark Seed (Cyberdreams) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/20/darkseed/" rel="alternate" type="text/html" title="Dark Seed (Cyberdreams) - 1992" /><published>2023-11-20T06:41:32-05:00</published><updated>2023-11-22T11:15:40-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/20/darkseed</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/20/darkseed/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Dark_Seed_(video_game)">Dark Seed</a> is a psychological horror point-and-click adventure game developed and published by Cyberdreams in 1992. It exhibits a normal world and a dark world counterpart, which is based on artwork by H. R. Giger. It was one of the first point-and-click adventure games to use high-resolution (640 × 350 pixels) graphics, to Giger’s demand.</p>
-
-<p><img src="/images/adventure/darkseed/start_001.png" alt="" /></p>
-
-<p>You play Mike Dawson, an ad company manager who, in pursuit of his goal in life to become a writer, purchases a solitary mansion in a small town called Woodland Hills. Although the low cost and hush-hush transactions when purchasing the house do raise your suspicion, the solitary environment and sheer beauty of the house crush common sense and you decide to buy the house. That’s when the trouble begins. Upon reaching the house, you suddenly feel tired. You find a bed and fall asleep…</p>
-
-<p>… and wake up from a terrible dream, only to find out that your life has just become a worse nightmare: an unknown source has implanted a seed of darkness in your mind, and you only have three days to find a way to stop it.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/darkseed/tos_00a.png" alt="" />
-<em>Game error number 66 you say … I’m sure everything’s still fine though … right?</em></p>
-
-<p>I have a feeling this is an issue with the environment I was playing the game in, but I could not get past the first section of the game no matter what I tried. I would go through the initial motions to take a shower and take pills, go downstairs and answer the door, go outside and pick up the package … and the game would just restart! I honestly thought this was on purpose the first few times, but when I’d go to save or load the game it showed an error message … which seemed odd.</p>
-
-<p><img src="/images/adventure/darkseed/command_000.png" alt="" />
-<em>It’s been a hot minute since I’ve busted out the <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/attrib"><code class="language-plaintext highlighter-rouge">ATTRIB</code></a> command</em></p>
-
-<p>After cruising the internet I stumbled on a <a href="https://www.gameboomers.com/forum/ubbthreads.php/topics/136455/dos-game-dark-seed">discussion that seemed to cover the exact issue</a> I was experiencing, and the solution was to change the properties of the installed files.</p>
-
-<p>On the off chance anyone reads this review that has this problem, the solution is to go to the install directory for Darkseed in DOSBox and run <code class="language-plaintext highlighter-rouge">ATTRIB -R *.*</code> to remove the readonly attribute on the game’s files.</p>
-
-<p><img src="/images/adventure/darkseed/start_002.png" alt="" />
-<em>What a pretty doll someone sent me for some reason that isn’t suspicious at all</em></p>
-
-<p>Once I could successfully pick up the package on Day 1, the game allowed me to progress an there were no further issues.</p>
-
-<p>Dark Seed takes place over the course of 3 days, with each day of game time taking roughly an hour of actual time. Time and timing is a huge factor in this game - certain events only happen at certain times, and if you take too much or too little time you can miss things. This is actually extremely frustrating as there’s typically no indication that a certain event will be triggered at a specific time.</p>
-
-<p><img src="/images/adventure/darkseed/tos_009.png" alt="" /></p>
-
-<p>If it gets too late in the day Mike will decide it’s time for bed and go to sleep. Assuming you’ve done nothing about the headaches or you pass the 3 day mark, the alien embryo implanted in your brain will hatch and it’s game over.</p>
-
-<p>Seeing as time is such a huge element of this game, it’s a bit surprising that you don’t have a default mechanism at your disposal to tell time right from the beginning. You can find a watch in the attic (hidden under a trunk you need to push out of the way), or you can backtrack to your living room and look at the grandfather clock, but I would have expected it to be a lot more prominently displayed (maybe in the main game UI).</p>
-
-<p><img src="/images/adventure/darkseed/tos_010.png" alt="" /></p>
-
-<p>The game’s <a href="https://archive.org/details/DARK_SEED_QUICK_REFERENCE_CARD">Quick Reference Card</a> tells you you can press the <code class="language-plaintext highlighter-rouge">T</code> key at any point to advance time to the top of the next hour in case you find yourself “with lots of time to kill”. They allude to the fact you need to wait around for certain events to trigger, but not what they may be, when they’ll occur or on what screens.</p>
-
-<p>My gameplay process (once I better understood the time mechanic) was to save the game, go to various screens and mash the <code class="language-plaintext highlighter-rouge">T</code> key a bunch of times to see if anything triggered before Mike said he was tired and it was time for bed. This would at least give me some clue as to what might be needed on that screen (and at what time). This isn’t particularly fun - but it at least helped me progress.</p>
-
-<p><img src="/images/adventure/darkseed/tos_000.png" alt="" /></p>
-
-<p>The interface is that of a typical point-and-click game from this time period. You have your inventory at the top of the screen and a handful of interaction options you can cycle through by right-clicking the mouse. Mike can be moved around the screen, and if you mouse over a hot-spot you can cycle through various action icons like <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">TAKE</code>, <code class="language-plaintext highlighter-rouge">USE</code>, etc.</p>
-
-<p>The game world is pretty small and is split into two main areas: reality, and the dark world. Reality is Mike’s house, the town and a cemetary. These make up about a dozen areas you can explore, which have a mirror version in the dark world. This is actually a pretty cool dynamic, as part of the puzzle solving process is changing things in reality to see how it changes the dark world.</p>
-
-<p>For example, when you get thrown in jail you can stash some items under the pillow. When you find yourself in jail in the dark world, those items will be waiting for you.</p>
-
-<p>Getting to the dark world is done by walking through the mirror in your living room. You need to fix the mirror first (it’s missing a chunk in the bottom corner that gets sent to you in the mail), but this happens pretty early in the game.</p>
-
-<p><img src="/images/adventure/darkseed/tos_007.png" alt="" /></p>
-
-<p>Navigating the dark world is pretty straightforward once you realize it’s a mirror image of reality. There are some aliens you’ll need to interact with and a couple puzzles to solve, but you actually don’t have a whole lot to do here - which is a shame because it looks awesome.</p>
-
-<p>Since the artwork was inspired by H. R. Giger’s work, everything has this Aliens vibe. The creature designs definitely have that unique Giger style, and every cutscene plays out so much better as a result.</p>
-
-<p>Unfortunately it’s not obvious what you need to do most of the time, and it’s VERY easy to miss things and find yourself in an unwinnable situation. For example, if you enter the dark world too late in the day Mike might fall asleep on a random screen if he decides it’s bed time - and this results in you dying. The game doesn’t actually tell you that’s what’s happening though - you just randomly fall over and the game restarts.</p>
-
-<p>Save early, save often - maintain MANY save files!</p>
-
-<p><img src="/images/adventure/darkseed/tos_018.png" alt="" /></p>
-
-<p>Most of the clues you get are from examining items you find along the way. They do help point you in the right direction most of the time, but this game can be pretty challenging where there are gaps in the narrative.</p>
-
-<p>As you proceed you’ll find yourself listening to the same short music samples looping on each screen. These are very repetitive and very annoying. You spend a lot of time roaming around your house, and the house “theme” is the worst of them all. If the goal was to create a sense of “you’re going insane” - mission accomplished!</p>
-
-<p>It’s a bit of a slog to get through this game, but thankfully it’s easy to find walkthroughs … and the game itself is pretty short.</p>
-
-<p><img src="/images/adventure/darkseed/tos_017.png" alt="" /></p>
-
-<p>Apparently your objective was to smash the mirror in your house to sever the connection between reality and the dark world. Building the magic hammer you need to smash the mirror is the only item combination puzzle in the game, so it’s not intuitive - and also it’s not really obvious this is what you’re supposed to be doing.</p>
-
-<p>Regardless, you make this hammer, go back to reality to start the car in the garage, go back to the dark world to launch some spaceship (that is the mirror version of the car I think), go back to reality to smash the mirror and the game is over.</p>
-
-<p>I struggled a lot with the endgame as nothing you had to do made any sense. I tried … failed … consulted the walkthrough … and was done with it.</p>
-
-<p><img src="/images/adventure/darkseed/tos_020.png" alt="" />
-<em>You sell your house - game over</em></p>
-
-<p>This game had a lot of promise. I really liked the premise, and the story is actually pretty interesting but you find yourself rushing through everything because of the rigid time mechanic.</p>
-
-<p>It’s also not a very hard game, though certain puzzles aren’t intuitive which can be frustrating.</p>
-
-<p>Though I wouldn’t recommend this game, I can’t say I had a bad time playing it. I’m actually looking forward to the sequel (<a href="https://www.mobygames.com/game/4257/dark-seed-ii/">Dark Seed II</a>) to see how they build on the initial story and if they can iron out some of the rough edges.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Dark Seed</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Cyberdreams">Cyberdreams</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Cyberdreams</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1992</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Amiga, Amiga CD32, DOS, Macintosh, Sega Saturn, PlayStation</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/2221"><em>How Long To Beat?</em></a></td>
-      <td>1.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/darkseed.aspx">Walkthrough</a>, <a href="https://archive.org/details/DARK_SEED_QUICK_REFERENCE_CARD">Quick Reference Card</a>, <a href="https://archive.org/details/vgmuseum_miscgame_darkseed-manual/mode/2up">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>59%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/darkseed/start_003.png', thumb: '/images/adventure/darkseed/start_003.png' },{ src: '/images/adventure/darkseed/tos_001.png', thumb: '/images/adventure/darkseed/tos_001.png' },{ src: '/images/adventure/darkseed/tos_002.png', thumb: '/images/adventure/darkseed/tos_002.png' },{ src: '/images/adventure/darkseed/tos_003.png', thumb: '/images/adventure/darkseed/tos_003.png' },{ src: '/images/adventure/darkseed/tos_004.png', thumb: '/images/adventure/darkseed/tos_004.png' },{ src: '/images/adventure/darkseed/tos_005.png', thumb: '/images/adventure/darkseed/tos_005.png' },{ src: '/images/adventure/darkseed/tos_006.png', thumb: '/images/adventure/darkseed/tos_006.png' },{ src: '/images/adventure/darkseed/tos_008.png', thumb: '/images/adventure/darkseed/tos_008.png' },{ src: '/images/adventure/darkseed/tos_011.png', thumb: '/images/adventure/darkseed/tos_011.png' },{ src: '/images/adventure/darkseed/tos_012.png', thumb: '/images/adventure/darkseed/tos_012.png' },{ src: '/images/adventure/darkseed/tos_013.png', thumb: '/images/adventure/darkseed/tos_013.png' },{ src: '/images/adventure/darkseed/tos_014.png', thumb: '/images/adventure/darkseed/tos_014.png' },{ src: '/images/adventure/darkseed/tos_015.png', thumb: '/images/adventure/darkseed/tos_015.png' },{ src: '/images/adventure/darkseed/tos_016.png', thumb: '/images/adventure/darkseed/tos_016.png' },{ src: '/images/adventure/darkseed/tos_019.png', thumb: '/images/adventure/darkseed/tos_019.png' },]});inlineGallery.openGallery();</script>
-
-<hr />
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/302/dark-seed/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Cyberdreams" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/darkseed/start_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/darkseed/start_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="Kyra" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
