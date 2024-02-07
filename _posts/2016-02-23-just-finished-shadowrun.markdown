@@ -74,7 +74,7 @@ The game alludes to there being a potential sequel in the works, but this never 
 
 Overall I still love this game. This is where I was introduced to cyberpunk as a kid, and I even went as far as getting the Shadowrun books ([Never Deal with a Dragon](http://www.amazon.com/Never-Deal-Dragon-Shadownrun-Vol/dp/0451450787)) that this game was very loosely based on.
 
-The music was also a fantastic complement to the dark atmosphere of the game. [3AM On A Summer Night](https://www.youtube.com/watch?v=C8nwTVPsMi8) might actually be one of my favourite tracks from the 16-bit era that wasn't composed by Nobuo Uematsu ;)
+The music was also a fantastic complement to the dark atmosphere of the game. [3AM On A Summer Night](https://www.youtube.com/watch?v=ZON1ryN5xlM) might actually be one of my favourite tracks from the 16-bit era that wasn't composed by Nobuo Uematsu ;)
 
 If you're revisiting the SNES and looking for something you may have overlooked during the mid '90s, pick this up and give it a spin.
 
