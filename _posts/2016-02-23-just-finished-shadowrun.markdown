@@ -82,7 +82,7 @@ Next up, [Seiken Densetsu 3](https://en.wikipedia.org/wiki/Seiken_Densetsu_3). T
 
 ## Gallery
 
-{% gallery_thumbs %}
+{% galleria %}
 /images/shadowrun/shadowrun.000.png
 /images/shadowrun/shadowrun.002.png
 /images/shadowrun/shadowrun.003.png
@@ -106,5 +106,5 @@ Next up, [Seiken Densetsu 3](https://en.wikipedia.org/wiki/Seiken_Densetsu_3). T
 /images/shadowrun/shadowrun.026.png
 /images/shadowrun/shadowrun.028.png
 /images/shadowrun/shadowrun.029.png
-{% endgallery_thumbs %}
+{% endgalleria %}
 
