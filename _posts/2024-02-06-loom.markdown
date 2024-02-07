@@ -1,0 +1,133 @@
+---
+layout: post
+title: "Loom (Lucasfilm Games) - 1990"
+date: 2024-02-06 16:24:23 -0500
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "LucasArts", SCUMM]
+image: /images/adventure/loom/scummvm-loom-fm-00000.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+[Loom](https://en.wikipedia.org/wiki/Loom_(video_game)) is a 1990 fantasy-themed graphic adventure game by Lucasfilm Games. The project was led by Brian Moriarty, a former Infocom employee and author of classic text adventures Wishbringer (1985), Trinity (1986), and Beyond Zork (1987). It was the fourth game to use the SCUMM adventure game engine, and the first of those to avoid the verb–object interface introduced in Maniac Mansion.
+
+![](/images/adventure/loom/scummvm-loom-fm-00028.png)
+
+Bobbin Threadbare is a young man from the Guild of Weavers. He is outcast from the guild and blamed for the lack of prosperity in recent times, though he does not know why. On his seventeenth birthday he is summoned by the Elders of the guild, who intend to decide his fate. However, shortly thereafter all the inhabitants of the village except Bobbin are turned into swans. Bobbin finds out that he is the child of the Great Loom, found by Lady Cygna, who tried to use the loom's powers to save the guild. Bobbin's stepmother Dame Hetchel teaches him the art of weaving magical drafts, and Bobbin embarks on a journey to find the lost flock, and the answers to his questions.[^1]
+
+![](/images/adventure/loom/scummvm-loom-fm-00014.png)
+
+Loom is an adventure game that sets itself apart from other titles in the genre through its unique gameplay system: the player character does not carry items around, but rather manipulates objects through the use of spells (called "drafts" in the game). The drafts themselves are woven by playing magical notes on a special instrument called "distaff". All the puzzles in the game are solved by learning and correctly applying these drafts.[^1]
+
+![](/images/adventure/loom/scummvm-loom-fm-00004.png)
+
+Each draft is a sequence of four notes within one octave. The player learns new drafts by exploring the environment and interacting with it through a simple point-and-click interface. Once a draft has been learned, it may be applied in a different situation in order to solve a problem. Drafts range from simple general actions (such as opening) to more specific and complex commands, e.g. turning straw into gold. Drafts can also be "reversed", i.e. played backwards, in order to execute the opposite action (for example, closing something instead of opening). As the game progresses Bobbin learns to play higher notes on the distaff, allowing him to access more drafts.[^1]
+
+![](/images/adventure/loom/scummvm-loom-fm-00003.png)
+
+The game begins with an [audio drama (YouTube)](https://www.youtube.com/watch?v=BcydSMadbcw) that you originally would have listened to on casette tape (as your parents kids). This audio drama sets the stage for the game world and lays out the history of the world and how everyone is a member of one of four guilds. Bobbin is a member of the Guild of Weavers.
+
+There is a whole lot of backstory presented in this audio drama, and I'll be honest - I didn't listen to all of it because it's 30 minutes long and my attention span is ... shorter than that. I did however read the synopsis on [Wikipedia](https://en.wikipedia.org/wiki/Loom_(video_game)#Prologue) which answers a lot of questions, such as "whats with these swans?".
+
+![](/images/adventure/loom/scummvm-loom-fm-00008.png)
+
+Though Loom has three difficulty settings (I played on "Standard"), it's an extremely simple game. Unlike most adventure games, there is no inventory management to worry about, no dialogue trees to navigate and very little backtracking. Your goals are pretty straightforward and can all be accomplished by doing essentially the same thing on every screen.
+
+You click the mouse around the screen until the thing you click on is called out in the lower right of the screen. If this happens, you'll either hear four notes on your distaff indicating there's a new draft you can learn, or you'll interact with whatever you just clicked on.
+
+![](/images/adventure/loom/scummvm-loom-fm-00005.png)
+
+Basically every draft you learn can be played either forwards or backwards. For example, once you learn the "Straw to Gold" draft, if you happen to select a pile of gold and play the draft backwards, it'll now turn "Gold to Straw". This mechanic is used throughout the game and in most cases presents a pretty obvious solution to a given puzzle.
+
+It is important to write down the drafts you learn though, as the game doesn't record them for you (unless you're in "Tutorial" mode). If you play on the hardest difficulty you'll need to listen to the drafts and try to remember the notes as there is no visual indicator as to what was just played on the distaff.
+
+![](/images/adventure/loom/scummvm-loom-fm-00016.png)
+_Remember to `LOOK` at everything by double-clicking before you select and cast a draft!_
+
+Being a LucasArts adventure there's _supposed to be_ no way to die or wind up in an unwinnable situation. I did find myself getting stuck at one point because I was following a walkthrough and I apparently jumped ahead a little too quickly. At one point you need to examine a pool to learn the "Reflect" draft, but before doing this I only single-clicked and inspected the pool - then cast a draft that drained the pool.
+
+As a result, I never learned the necessary draft and found myself stuck once I reached the area where I needed to steal the young boy's identity so I could sneak into the guild of blacksmith's.
+
+![](/images/adventure/loom/scummvm-loom-fm-00019.png)
+_You're responsible for that boy's brutal murder. Actions have consequences Bobbin!_
+
+Though this is a LucasArts adventure game, the themes it deals with are actually pretty dark. Once you reflect your image onto the young boy so you can sneak into the guild of blacksmith's, the dragon you escaped from finds the boy napping and mistaking him for you, kills him out of revenge. The ghost of that child is then used to solve a puzzle a little later in the game.
+
+You do "heal" the boy to bring him back to life, but this was gorier than I anticipated.
+
+![](/images/adventure/loom/scummvm-loom-fm-00022.png)
+
+The story advances through character closeups and general on-screen exposition dumps. Unlike other adventure games of this era, none of these interactions are ... interactive. You aren't actually conversing with a character, they're just delivering one chunk of dialogue and letting you move on.
+
+Since the story progresses in an extremely linear fashion it makes sense that these interactions would as well, but it does make this game feel a little like it's on rails.
+
+The world you're exploring is interesting and there is a lot of lore here, but you miss a good chunk of it if you don't invest the time to listen to that audio drama.
+
+![](/images/adventure/loom/scummvm-loom-fm-00025.png)
+
+Once you reach the endgame things actually get extremely easy. The fabric of the world is torn open and you need to go around casting ("drafting"?) `HEAL` on all the tears after healing whoever is dead/dying on the other side of the tear. You'll then end up by the loom and Chaos will start drafting songs you need to play in reverse.
+
+Finally you cast the song that turns you into a swan and that's the end of the game.
+
+![](/images/adventure/loom/scummvm-loom-fm-00030.png)
+
+Loom is a very interesting game with a unique game mechanic at the time. The music is all [Tchaikovsky](https://en.wikipedia.org/wiki/Pyotr_Ilyich_Tchaikovsky) compositions, the visuals are all excellent and the story is compelling. You really do have to invest the time to dig into all the material that comes with the game before you play it in order to truly appreciate Bobbin Threadbare's world, but if you don't bother then this is just a relatively simple point-and-click adventure.
+
+There aren't that many areas in this game to explore, and each area _maybe_ has 2-3 action areas that you could potentially interact with. The draft you need to use on each action area is generally intuitive, so if you remembered to write them down (and wrote them down properly), it's not hard to burn through this game.
+
+I would definitely rank this title pretty low on my list of favourites when it comes to LucasArts' catalogue, but as an entry level adventure game it's not that bad.
+
+## Game Information
+
+|*Game*|Loom|
+|*Developer*|[LucasArts](https://en.wikipedia.org/wiki/LucasArts)|
+|*Publisher*|LucasArts|
+|*Release Date*|January 1990|
+|*Systems*|DOS, Mac OS, Amiga, Atari ST, FM Towns, TurboGrafx-16, Steam|
+|*Game Engine*|[SCUMM](https://wiki.scummvm.org/index.php?title=SCUMM)|
+
+### My Playthrough
+
+|[*How Long To Beat?*](https://howlongtobeat.com/game/5367)|3 hours|
+|*Version Played*|FM Towns via [ScummVM](https://www.scummvm.org/)|
+|*Notes*|[Walkthrough](https://adventuregamers.com/walkthrough/full/loom), [Drafts](https://www.choicestgames.com/2013/07/list-of-drafts-for-loom.html), [Manual](https://archive.org/details/vgmuseum_lucasfilm_loom-manual/mode/2up)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Atmosphere (20)**|14|
+|**Story (25)**|13|
+|**Experience (15)**|8|
+|**Impact (10)**|4|
+||**56%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/loom/scummvm-loom-fm-00001.png
+/images/adventure/loom/scummvm-loom-fm-00002.png
+/images/adventure/loom/scummvm-loom-fm-00006.png
+/images/adventure/loom/scummvm-loom-fm-00007.png
+/images/adventure/loom/scummvm-loom-fm-00009.png
+/images/adventure/loom/scummvm-loom-fm-00010.png
+/images/adventure/loom/scummvm-loom-fm-00011.png
+/images/adventure/loom/scummvm-loom-fm-00012.png
+/images/adventure/loom/scummvm-loom-fm-00013.png
+/images/adventure/loom/scummvm-loom-fm-00015.png
+/images/adventure/loom/scummvm-loom-fm-00017.png
+/images/adventure/loom/scummvm-loom-fm-00018.png
+/images/adventure/loom/scummvm-loom-fm-00020.png
+/images/adventure/loom/scummvm-loom-fm-00021.png
+/images/adventure/loom/scummvm-loom-fm-00023.png
+/images/adventure/loom/scummvm-loom-fm-00024.png
+/images/adventure/loom/scummvm-loom-fm-00026.png
+/images/adventure/loom/scummvm-loom-fm-00027.png
+/images/adventure/loom/scummvm-loom-fm-00029.png
+{% endgalleria %}
+
+**Footnotes**
+
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/176/loom/)</small>
+
