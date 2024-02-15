@@ -18,7 +18,7 @@ When I stumbled across the [CRPG Addict's blog](https://crpgaddict.blogspot.com/
 
 It's worth calling out the reviewers at [The Adventure Gamer](https://advgamer.blogspot.com/), who have been blogging about these games in a similar fashion as the CRPG Addict for nearly as long. Both sites go far more in depth than I plan to and focus on documenting their playthroughs. My goal here is to summarize the experience, though the format may change over time depending on how well received this is (and if I can stay focused or not :P).
 
-### Guidelines
+## Guidelines
 
 The [Full Game List](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing) is 363 titles, however I only plan on playing those that are available in English. Any title that can be played using ScummVM likely will be as this facilitates things like keeping track of play time, taking screenshots, managing save states and more.
 
@@ -26,7 +26,7 @@ I don't plan on playing the games in order either, as this might become a bit te
 
 For a number of the older Sierra Online games there are SCI remakes that replaced the text parser with a point-and-click interface. I may review some of these games twice to cover both experiences, however this likely won't be the norm.
 
-### Scoring
+## Scoring
 
 My criteria won't be as involved as the [CRPG Addict's GIMLET](https://crpgaddict.blogspot.com/2010/04/ranking-and-rating-crpgs.html), however I want to be consistent with how each game is being measured.
 
@@ -49,14 +49,14 @@ The scoring we'll be using for this series will focus on the following:
 
 Each game will be ranked using the above, and a percentage generated from the scores to show the overall score of the game.
 
-### Games List
+## Games List
 
 The games list for this journey is available via [this Google Sheet](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing), and has been taken from [Wikipedia's List of Graphic Adventure Games](https://en.wikipedia.org/wiki/List_of_graphic_adventure_games). This only includes entries from 1980 through 1999.
 
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 67  -%}
+{%- assign games_finished = 68  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -154,7 +154,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 78. Spellcasting 101: Sorcerers Get All The Girls (Legend Entertainment) - 1990
 79. The Secret of Monkey Island (Lucasfilm Games) - 1990
 80. King's Quest V: Absence Makes the Heart Go Yonder! (Sierra On-Line) - 1990
-81. The Adventures of Willy Beamish (Dynamix) - 1991
+81. [The Adventures of Willy Beamish (Dynamix)]({% post_url 2024-02-12-the-adventures-of-willy-beamish %}) - 1991
 82. Conquests of the Longbow: The Legend of Robin Hood (Sierra On-Line) - 1991
 83. [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 84. Fascination (Coktel Vision) - 1991
