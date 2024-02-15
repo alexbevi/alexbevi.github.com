@@ -1,4 +1,183 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-07T17:59:15-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Loom (Lucasfilm Games) - 1990</title><link href="https://www.alexbevi.com/blog/2024/02/06/loom/" rel="alternate" type="text/html" title="Loom (Lucasfilm Games) - 1990" /><published>2024-02-06T16:24:23-05:00</published><updated>2024-02-07T17:58:28-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/06/loom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/06/loom/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-15T06:51:33-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Adventures of Willy Beamish (Dynamix) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/" rel="alternate" type="text/html" title="The Adventures of Willy Beamish (Dynamix) - 1991" /><published>2024-02-12T19:48:56-05:00</published><updated>2024-02-15T06:50:41-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/The_Adventures_of_Willy_Beamish">The Adventures of Willy Beamish</a> is a graphic adventure game developed by Dynamix and published in 1991 by Sierra On-Line. The game pioneered the use of in-game graphics drawn to resemble classic hand-drawn cartoon animation. It was initially released for MS-DOS and the Amiga and was ported to the Sega CD in 1993.</p>
+
+<p><img src="/images/adventure/willy/willy_044.png" alt="" /></p>
+
+<p>You play Willy Beamish, an eight-year-old kid who is just trying to get through life without losing his lunch money. But he’ll have to deal with parents, teachers, babysitters, and bratty sisters. The player must solve different puzzles to ensure Willy can progress, get out of trouble and generally avoid ending up grounded.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/willy/willy_030.png" alt="" />
+<em>He’s talking about his frog “Horny”</em></p>
+
+<p>The in-game time progresses even if no action is taken. This means many puzzles have to be solved in a certain time frame or rely on being in the right place at the right time. A special aspect of this game is the bar which shows Willy’s relationship with his parents. It gets affected by the way certain situations are resolved, e.g. it increases if Willy refuses to play with his sister, and when it is full they send Willy to a military school and the game is lost.<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/willy/willy_015.png" alt="" />
+<em>If that meter hits “Cadet School” it’s game over … literally</em></p>
+
+<p>Avoiding getting in trouble is pretty easy as decisions in this game are typically made during dialogue tree option selection. Almost every character you interact with will present Willy with an option, and one of those options will be the “wrong” one which effects your <em>Trouble Meter</em>.</p>
+
+<p>This will happen on almost every screen of the game for about the first half of the game, so save early - save often.</p>
+
+<p><img src="/images/adventure/willy/willy_002.png" alt="" /></p>
+
+<p>For 1991, this game looks great. The cartoony style really draws you into the game world and gives the characters some emotional depth during conversations. The colours are mostly bright and vibrant and complement the youthful innocence of Willy and his friends. This is in stark contrast to Dynamix’s previous title, <a href="/blog/2023/02/13/rise-of-the-dragon/">Rise of the Dragon</a>.</p>
+
+<p><img src="/images/adventure/willy/willy_008.png" alt="" />
+<em>Your mom pawns your sister off on you a lot it seems</em></p>
+
+<p>The story revolves around Willy trying to raise money for his entry fee into the Nintari world tournament (get it - “Nintendo + Atari” - so clever …). The family thinks his dad is about to get a huge promotion, but it turns out he gets laid off instead and they’ll need to live a little leaner until he finds work again. Though Willy can do some odd jobs around the house for money like mowing the lawn, walking the dog or washing the car - he’ll need to do something bigger for the $2500 he needs.</p>
+
+<p><img src="/images/adventure/willy/willy_028.png" alt="" /></p>
+
+<p>Willy has a pet frog (named “Horny”) that’s with him throughout the game, and there’s a frog-jumping competition on the second or third day of the game with a convenient grand prize of $2500. Your main goal is to get Horny trained up and entered into the competition so that he can compete.</p>
+
+<p><img src="/images/adventure/willy/willy_029.png" alt="" /></p>
+
+<p>The frog jumping competition is one of 2 minigames, though it’s sort of “on rails”. If you figure out that you can feed Horny cola to tweak him out, he’ll win first prize but random drug testing will surface that he was “chemically enhanced” and you’ll lose the game. Otherwise you’ll lose to Turbo Frog - which is what’s supposed to happen anyway - and Horny will escape into the Tootsweet factory to progress the plot.</p>
+
+<p>The minigame here is just a distraction and isn’t really a “game”. It’s just a bit of button mashing between story dumps and isn’t really fun to “play” - it’s just there.</p>
+
+<p><img src="/images/adventure/willy/willy_032.png" alt="" /></p>
+
+<p>The secondary plot of the game revolves around the Tootsweet owners trying to take over the city you live in. Willy’s dad will apply for a job as their head of PR and get that, only to be thrown under the bus right away as the fall guy for the company. There’s a plumbers strike going on as well which is causing the water to turn brown, so you’ll need to resolve that as well I guess.</p>
+
+<p><img src="/images/adventure/willy/willy_022.png" alt="" /></p>
+
+<p>The inventory screen serves two purposes in this game: item storage and time management. Since there are scripted events that take place on various days you have the option of advancing time here to trigger those events. Honestly once I figured this out I’d just save my game at the beginning of the day and just advance time a bunch to see what triggered when on various screens - then reload and proceed incrementally if I found anything.</p>
+
+<p><img src="/images/adventure/willy/willy_037.png" alt="" /></p>
+
+<p>You sort of figure this mechanic out for yourself, as the <a href="https://archive.org/details/AdventuresOfWillyBeamishManual/mode/2up">game manual</a> doesn’t allude to time-based events. Luckily you don’t really need to worry about this as there are only a couple of these events throughout the game, such as Willy having to go to bed at the end of the day.</p>
+
+<p>Timing plays a bigger part in puzzles though as a number of these involve using items or pushing buttons in a specific order within a very short amount of time. This is where I died the most, as there certain puzzle sequences that you need to do extremely quickly or it’s game over.</p>
+
+<p><img src="/images/adventure/willy/willy_041.png" alt="" />
+<em>Solve this quickly or the guards will catch you</em></p>
+
+<p>Though frustrating at times, I did appreciate that these “real time” puzzles added a sense of urgency. Typically adventure games would give you infinite time to pick and combine items, select a target and execute some action. Willy generally has a few seconds to react if the puzzle he’s trying to solve involves escaping from a dangerous situation.</p>
+
+<p><img src="/images/adventure/willy/willy_039.png" alt="" /></p>
+
+<p>Most puzzles are pretty straightforward, though near the end of the game you’ll need to get a bouncer to leave his post at the door of the bar so you can go in. The solution to this puzzle is extremely convoluted and requires you to call a psychic hotline, record the message, call the bar, ask for the bouncer and play the message. None of this is intuitive, and I’m pretty sure without a walkthrough most people wouldn’t muddle their way through this today.</p>
+
+<p>If you’re playing this game for the first time would you know that “432-SIGN” could be translated to “432-7446”? Remember pay phones? Remember phone numbers that would use the lettering on the numbers to form words? I’m sure they still exist …</p>
+
+<p><img src="/images/adventure/willy/willy_018.png" alt="" /></p>
+
+<p>There are maybe a dozen locations you can visit throughout the game, with some only becoming available on later days. You have limited time to explore as time continues to advance, and eventually Willy will have to go home to bed, but I didn’t find myself getting lost or stuck at any point.</p>
+
+<p>Basically you just go to each location, talk to whoever is there, pick up anything that isn’t nailed down and try to use everything on … everything. It’s not always obvious what item combinations are required so there is a lot of trial and error involved.</p>
+
+<p>You’ll also want to right-click multiple times on each item you pick up as some of them have a third function on certain screens.</p>
+
+<p><img src="/images/adventure/willy/willy_045.png" alt="" /></p>
+
+<p>Occasionally an item will allow you to shoot or throw it, in which case the cursor will be presented as a target or crosshair. I’m pretty sure this only occurs twice, but if you don’t know this is the case it can be frustrating as you die over and over trying to “use” an item in a situation when you actually need to “shoot” it.</p>
+
+<p><img src="/images/adventure/willy/willy_046.png" alt="" />
+<em>You win the Nintari championship and call it a day</em></p>
+
+<p>Overall I didn’t really like this game as much as I thought I would. I’m a huge fan of Rise of the Dragon, and I generally like their <a href="https://dynamix.fandom.com/wiki/VCR_Interface">VCR interface</a> they use for their games. The background music is fitting and helps enhance the gameplay, but the story is pretty thin and the pacing of the game is slowed by convoluted puzzles.</p>
+
+<p>I played the original DOS release (not the CD ROM version) so I’m not sure if the voice acting they added made any meaningful difference to the experience. I thought the writing overall was pretty good and the general vibe of the game was “saturday morning cartoon come to life”, which I think is what they were going for.</p>
+
+<p>If you’re looking for a goofy game starring a 9 year old kid and his frog, The Adventures of Willy Beamish has you covered. Just be prepared to reach for a walkthrough …</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>The Adventures of Willy Beamish</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1991</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, DOS, Macintosh, Sega CD</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=DGDS">DGDS</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/9758"><em>How Long To Beat?</em></a></td>
+      <td>4.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://archive.org/details/AdventuresOfWillyBeamishManual">Manual</a>, <a href="https://www.walkthroughking.com/text/adventuresofwillybeamish.aspx">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>59%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/willy/willy_000.raw1.png', thumb: '/images/adventure/willy/willy_000.raw1.png' },{ src: '/images/adventure/willy/willy_001.png', thumb: '/images/adventure/willy/willy_001.png' },{ src: '/images/adventure/willy/willy_001.raw1.png', thumb: '/images/adventure/willy/willy_001.raw1.png' },{ src: '/images/adventure/willy/willy_002.raw1.png', thumb: '/images/adventure/willy/willy_002.raw1.png' },{ src: '/images/adventure/willy/willy_003.png', thumb: '/images/adventure/willy/willy_003.png' },{ src: '/images/adventure/willy/willy_004.png', thumb: '/images/adventure/willy/willy_004.png' },{ src: '/images/adventure/willy/willy_005.png', thumb: '/images/adventure/willy/willy_005.png' },{ src: '/images/adventure/willy/willy_006.png', thumb: '/images/adventure/willy/willy_006.png' },{ src: '/images/adventure/willy/willy_007.png', thumb: '/images/adventure/willy/willy_007.png' },{ src: '/images/adventure/willy/willy_009.png', thumb: '/images/adventure/willy/willy_009.png' },{ src: '/images/adventure/willy/willy_010.png', thumb: '/images/adventure/willy/willy_010.png' },{ src: '/images/adventure/willy/willy_011.png', thumb: '/images/adventure/willy/willy_011.png' },{ src: '/images/adventure/willy/willy_012.png', thumb: '/images/adventure/willy/willy_012.png' },{ src: '/images/adventure/willy/willy_013.png', thumb: '/images/adventure/willy/willy_013.png' },{ src: '/images/adventure/willy/willy_014.png', thumb: '/images/adventure/willy/willy_014.png' },{ src: '/images/adventure/willy/willy_016.png', thumb: '/images/adventure/willy/willy_016.png' },{ src: '/images/adventure/willy/willy_017.png', thumb: '/images/adventure/willy/willy_017.png' },{ src: '/images/adventure/willy/willy_019.png', thumb: '/images/adventure/willy/willy_019.png' },{ src: '/images/adventure/willy/willy_020.png', thumb: '/images/adventure/willy/willy_020.png' },{ src: '/images/adventure/willy/willy_021.png', thumb: '/images/adventure/willy/willy_021.png' },{ src: '/images/adventure/willy/willy_023.png', thumb: '/images/adventure/willy/willy_023.png' },{ src: '/images/adventure/willy/willy_024.png', thumb: '/images/adventure/willy/willy_024.png' },{ src: '/images/adventure/willy/willy_025.png', thumb: '/images/adventure/willy/willy_025.png' },{ src: '/images/adventure/willy/willy_026.png', thumb: '/images/adventure/willy/willy_026.png' },{ src: '/images/adventure/willy/willy_027.png', thumb: '/images/adventure/willy/willy_027.png' },{ src: '/images/adventure/willy/willy_031.png', thumb: '/images/adventure/willy/willy_031.png' },{ src: '/images/adventure/willy/willy_033.png', thumb: '/images/adventure/willy/willy_033.png' },{ src: '/images/adventure/willy/willy_034.png', thumb: '/images/adventure/willy/willy_034.png' },{ src: '/images/adventure/willy/willy_035.png', thumb: '/images/adventure/willy/willy_035.png' },{ src: '/images/adventure/willy/willy_036.png', thumb: '/images/adventure/willy/willy_036.png' },{ src: '/images/adventure/willy/willy_038.png', thumb: '/images/adventure/willy/willy_038.png' },{ src: '/images/adventure/willy/willy_040.png', thumb: '/images/adventure/willy/willy_040.png' },{ src: '/images/adventure/willy/willy_042.png', thumb: '/images/adventure/willy/willy_042.png' },{ src: '/images/adventure/willy/willy_043.png', thumb: '/images/adventure/willy/willy_043.png' },{ src: '/images/adventure/willy/willy_047.png', thumb: '/images/adventure/willy/willy_047.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/1916/the-adventures-of-willy-beamish/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="DGDS" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/willy/willy_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/willy/willy_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Loom (Lucasfilm Games) - 1990</title><link href="https://www.alexbevi.com/blog/2024/02/06/loom/" rel="alternate" type="text/html" title="Loom (Lucasfilm Games) - 1990" /><published>2024-02-06T16:24:23-05:00</published><updated>2024-02-07T17:58:28-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/06/loom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/06/loom/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1332,163 +1511,4 @@ ffmpeg <span class="nt">-f</span> concat <span class="nt">-safe</span> 0 <span c
       <p><small>Description from <a href="https://www.mobygames.com/game/317/frederik-pohls-gateway/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Fables and Fiends (Westwood Studios) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Fables and Fiends (Westwood Studios) - 1992" /><published>2023-11-24T06:19:38-05:00</published><updated>2023-11-30T17:10:26-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/24/the-legend-of-kyrandia/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/The_Legend_of_Kyrandia">The Legend of Kyrandia: Fables and Fiends</a> (or The Legend of Kyrandia: Book One) is a 2D point-and-click adventure game, and the first game in the Fables &amp; Fiends series. It was developed by Westwood Studios and published by Virgin Games in August 1992.</p>
-
-<p>Players take on the role of a young prince who must end the tyrannical chaos of an evil court jester in his kingdom. The game makes use of a simple interface system that allows the player to interact with objects and people, while solving various puzzles using a variety of items and special abilities.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00001.png" alt="" /></p>
-
-<p>You start off with a decent cinematic sequence that introduces Kallak - a mystic - who’s also your grandfather. Your parents were murdered by the evil jester Malcolm, who shows up out of nowhere and turns Kallak to stone. He leaves a note behind that you’re supposed to show to Zanthia so she can tell you what to do next.</p>
-
-<p>Though the characters and plot are introduced quickly and simply, it’s a bit generic here and all you know is “I’ve got item A that needs to be taken to location A” … so off we go.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00002.png" alt="" /></p>
-
-<p>Interacting with the game world is pretty straightforward and involves just clicking on everything. The cursor only changes shape to indicate a direction you can move, but if you can interact with something (or pick it up) you won’t know until you click on it. When you can pick something up, the cursor takes the shape of the thing you’ve grabbed, and you can either drop it or put it in one of the 10 inventory slots you have available.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00009.png" alt="" />
-<em>The birthstone puzzle is random every time you play, so just save every time you get one right and load when you don’t</em></p>
-
-<p>The game will remember where you drop items, so though you have limited inventory slots, it’s really not a big deal. Some of the puzzles involve trial and error so you may want to collect a bunch of duplicates of items before attempting the puzzle. For example, the birthstone puzzle involves placing gems in a specific sequence (randomized on each playthrough). If you put the wrong stone on the alter, it vanishes and if you need the same stone later, you’ll have to go find it in the forest again.</p>
-
-<p>I picked up a bunch of duplicates before attempting this puzzle and just dropped them on the ground in front of the alter. Then as I muddled may way through the puzzle I had more than enough gems to eventually solve the sequence required to move on with the game.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00010.png" alt="" /></p>
-
-<p>You’ll meet Malcolm pretty early in the game, but he just sort of taunts you and leaves you alone. He’ll show up again later to delay your progress but hiding a key item you’ll then need to find, but other than that he doesn’t really pose any sort of threat to you.</p>
-
-<p>I played through the DOS CD version of the game, so I got to “enjoy” the voice acting as a result. You can tell they swung for the fences a bit here - especially the actor that played Malcolm. It’s not the worst voice acting for this era of game … but it’s pretty bad.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00006.png" alt="" />
-<em>When Brandon tells you the snake poisoned him you should probably do something about it</em></p>
-
-<p>The puzzles in this game really aren’t that difficult, and are typically just a series of fetch quests. There are a couple of ways that you can die, so it’s important to be diligent with your save-game hygiene. I got caught off guard a couple times and found myself replaying large sections of the game because I bumbled into a death scenario accidentally.</p>
-
-<p>Your main goal in this game is to amass magical power so that you can fight Malcolm and free Kallak from the stone spell that was cast on him. This is done by getting an amulet that displays in the lower-right portion of the screen as 4 stones. Each time you learn a spell one of these stones lights up, and if you click it you’ll cast that spell.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00017.png" alt="" /></p>
-
-<p>Seeing as you only have 4 spell slots I would have expected magic to play a larger part in the game, but it really doesn’t. Heck, the spell that turns you into a pegasus is only used once and the final spell you learn from the ghost of your mother is used twice.</p>
-
-<p>Once you use these spells, all magic becomes unavailable, but these charge back up after a little while and you can use them again.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00011.png" alt="" /></p>
-
-<p>For me, the biggest challenge of this game was navigating the maze that is the caves. You find yourself trapped after stepping on a pressure plate, and you’ll need to go collect bricks to weigh down a counterweight to reopen the gate. This involves navigating a maze, but any time you go to a dark room you’ll be killed.</p>
-
-<p>You find fireberries that you can pick up and drop to illuminate a room, but you can only move up to 3 rooms before the berries become ineffective. If you drop a berry it’ll keep that room lit thereafter, but you’ll need to make sure that once you run out of berries, the next room you go to contains a bush with more berries.</p>
-
-<p><img src="https://wiki.scummvm.org/images/6/64/Kyramap2.png" alt="" />
-<em>A map of the caves is super helpful</em></p>
-
-<p>The ScummVM wiki helpfully shares a map of the caves, so I ended up using that to get through this section a bit quicker. Typically this type of spelunking involves getting 3 berries, going to one room, dropping a berry, saving, then going to the next room - rinse - repeat. If you run out of berries and die in the next room, reload and pick a different room.</p>
-
-<p>It’s tedious, but not overly challenging.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00015.png" alt="" /></p>
-
-<p>Though you’re trying to get magic spells, the second half of the game also involves mixing potions that act as single-use spells. This was just another excuse to pad the game out with backtracking fetch-quests, as mixing the potions wrong involved depleting consumable items you’d then need to go back and re-fetch to try again in a different combination.</p>
-
-<p>I really didn’t enjoy this section as it felt forced and wasn’t really introduced meaningfully.</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00022.png" alt="" /></p>
-
-<p>You’ll eventually make your way to Kyrandia castle where Malcolm is, gain the final spell, navigate another maze, solve a couple more puzzles and face off with Malcolm. The final fight is a bit anticlimactic and just involves trial and error until you land on the right spell (make yourself invisible) and stand in the right place (in front of the mirror on the right).</p>
-
-<p>Malcolm casts the spell to turn you to stone, it bounces off the mirror and turns him to stone instead. This frees Kallak from his and you become the new king of Kyrandia. Mission accomplished!</p>
-
-<p><img src="/images/adventure/kyra1/scummvm-kyra1-cd-1-00024.png" alt="" /></p>
-
-<p>The first installment in the Legend of Kyrandia series is nothing groundbreaking. Some of the writing is clever and I really like the main villain, though he doesn’t really do anything during the game other than show up a couple times to delay your progress.</p>
-
-<p>If you’re going to play this game I’d recommend ScummVM with <a href="https://docs.scummvm.org/en/v2.6.1/advanced_topics/understand_audio.html#what-is-mt-32">MT-32 device emulation</a> for the music and sound. The music is <em>much better</em> in MT-32 mode, as are a lot of the adventure games from this era that supported this audio device.</p>
-
-<p>I’m looking forward to the sequels to this game, though the initial entry didn’t really make much of an impression.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>The Legend of Kyrandia: Fables and Fiends</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Westwood_Studios">Westwood Studios</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Virgin Interactive</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>August 1, 1992</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Amiga, DOS, FM Towns, Macintosh, NEC PC-9801</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Kyra">Kyra</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/10015"><em>How Long To Beat?</em></a></td>
-      <td>3.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/legendofkyrandia.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>56%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00003.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00004.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00005.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00008.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00012.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00013.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00014.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00016.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00018.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00019.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00020.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00021.png' },{ src: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png', thumb: '/images/adventure/kyra1/scummvm-kyra1-cd-1-00023.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="Kyra" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
