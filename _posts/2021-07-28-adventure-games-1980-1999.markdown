@@ -18,6 +18,10 @@ When I stumbled across the [CRPG Addict's blog](https://crpgaddict.blogspot.com/
 
 It's worth calling out the reviewers at [The Adventure Gamer](https://advgamer.blogspot.com/), who have been blogging about these games in a similar fashion as the CRPG Addict for nearly as long. Both sites go far more in depth than I plan to and focus on documenting their playthroughs. My goal here is to summarize the experience, though the format may change over time depending on how well received this is (and if I can stay focused or not :P).
 
+## Up Next
+
+{% gist alexbevi/ae81e21c364d6b416306833170fd5bf7 %}
+
 ## Guidelines
 
 The [Full Game List](https://docs.google.com/spreadsheets/d/1ucULLS34DjNupizmq8j3jDPg0WgIDsvMJAZ_zEcEMyc/edit?usp=sharing) is 363 titles, however I only plan on playing those that are available in English. Any title that can be played using ScummVM likely will be as this facilitates things like keeping track of play time, taking screenshots, managing save states and more.
