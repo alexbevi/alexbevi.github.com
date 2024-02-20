@@ -1,4 +1,160 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-16T22:16:34-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Adventures of Willy Beamish (Dynamix) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/" rel="alternate" type="text/html" title="The Adventures of Willy Beamish (Dynamix) - 1991" /><published>2024-02-12T19:48:56-05:00</published><updated>2024-02-15T06:50:41-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-20T07:27:16-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/" rel="alternate" type="text/html" title="Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989" /><published>2024-02-16T16:27:05-05:00</published><updated>2024-02-20T07:26:20-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/16/space-quest-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Space_Quest_III">Space Quest III: The Pirates of Pestulon</a> is a 1989 graphic adventure game by Sierra On-Line, and the third game in the Space Quest series. Players assume the role of Roger Wilco, a lowly space janitor, who becomes involved in rescuing a pair of computer programmers from a sinister video game company. The game received positive reviews from critics, and contributed further to the series’ commercial success for Sierra.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00017.png" alt="" /></p>
+
+<p>Narrowly escaping the events of <a href="/blog/2023/02/24/space-quest-2/">Space Quest II: Vohaul’s Revenge</a>, Roger Wilco’s escape pod floats through space. As just another metallic item of junk, it’s soon picked up by an interstellar garbage hauler. Waking up in a pile of trash, quite familiar for this janitor-turned-hero, Roger Wilco must somehow escape. Once given access to the rest of the galaxy, he’ll soon find himself having to avoid a collections cyborg for payments overdue, dealing with the corporate prison of software company Scummsoft, and having to digest the greasy food from the galaxy’s finest hamburger joint.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00022.png" alt="" /></p>
+
+<p>Like <a href="/blog/2023/02/21/police-quest-2/">Police Quest II</a> and <a href="/blog/2023/02/01/leisure-suit-larry-2/">Leisure Suit Larry II</a>, Space Quest III uses Sierra’s <a href="http://sciwiki.sierrahelp.com/index.php/Sierra_SCI_Release_List#SCI0_.28late.29">SCI0</a> engine, which requires you to interact with the game world via a text parser. Though you have a mouse cursor ever-present, this really only allows you to move around the screen the same way the arrow keys on the keyboard would.</p>
+
+<p>The text parser allows you to enter noun/verb combinations and experience the results of your request via cheeky feedback from the game. Though this control mechanism may be a bit foreign to modern gamers, it’s incredibly well done in Space Quest III, and you’re encouraged to try <em>everything</em> to as you’ll almost always be rewarded with either a funny or snarky response.</p>
+
+<p>If you’re interested in the internals of the engine I’d highly recommend giving the blog post <a href="https://www.benshoof.org/blog/sci-scripts"><em>“Sierra Creative Interpreter – Scripts”</em></a> a read, as it’s by one of the ScummVM authors (Chris Benshoof	aka. <em>sluicebox</em>) who’s invested heavily in tooling and decompilation of SCI resources and scripts.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00009.png" alt="" /></p>
+
+<p>As you navigate the game world you’ll be treated to decent sound effects and atmospheric music. The best way to experience the sound effects and music in this game is by emulating the <a href="https://en.wikipedia.org/wiki/Roland_MT-32">Roland MT-32</a>.</p>
+
+<p>It’s relatively easy to do this in ScummVM if you know where to find the the necessary ROMs to get <a href="https://bmaupin.github.io/wiki/archive/applications/games/scummvm.html#getting-roland-mt-32-emulation-working">MT-32 emulation working</a>. Though you had Adlib and Soundblaster available at the time, MT-32 was just so much better. <a href="https://www.youtube.com/watch?v=9NSV8_ItVwc&amp;list=PL_BhbJAAueZS-5vMC4m7jCfxqaWfypLmt">Check out this playlist on YouTube</a> to get a sense of how much better the audio sounded using this device!</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00012.png" alt="" /></p>
+
+<p>The first third of the game has you trying to escape from a Terminator-like cyborg that is out to collect on a dept Roger incurred in the previous game. After you find a ship in the initial stage and set a course for Phleebhut, the cyborg follows him there and attempts to hunt him down and capture him.</p>
+
+<p>You’ve only got a limited amount of “time” to figure out how to defeat the cyborg (and steal the invisibility belt that he has). While you try to do this you’ll find myriad ways in which to get yourself killed.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00014.png" alt="" />
+<em>You know you want to watch a <a href="https://www.youtube.com/watch?v=oN32uIpg538">10 minute video</a> compilation of death scenes from SQ3.</em></p>
+
+<p>Since this is a Sierra game, and death literally awaits you around every corner and on every screen it’s very much appreciated how much effort went into scripting the death sequences. Though I typically spend a disproportionate amount of time dying on purpose playing these games just to see what happens, I think I enjoyed the outcome more than usual with Space Quest III.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00018.png" alt="" /></p>
+
+<p>Once you escape the cyborg, you’ll travel to Monolith Burger. This section is pretty short as all you need to do is order a happy meal (or value meal or something like that), eat it to find a decoder ring - then play the Astro Chicken game. This game can be a pain in the ass as you have to land the falling chicken on the landing pad 10 times in a row without it bouncing off. This may sound easy at first, but timing the deceleration of the chicken while maneuvering it across the screen proved to be a lot more challenging than I expected.</p>
+
+<p>After you succeed (or fail enough times that the game feels sorry for you) you’ll be presented with an encoded message. Lucky for you you just found a decoder ring, which you can use to find a secret message from the programmers of Astro Chicken - the <a href="https://spacequest.fandom.com/wiki/Two_Guys_From_Andromeda">two guys from Andromeda</a>.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00024.png" alt="" /></p>
+
+<p>Turns out the two guys are being held captive on Pestulon, which is a moon of Ortega. First you need to navigate to Ortega, disable the shield generator around Pestulon, fly to Pestulon and deal with the pirates. What kind of pirates are we talking about? Well, that would be software pirates!</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00027.png" alt="" />
+<em>Not what I expected based on the title of the game</em></p>
+
+<p>Elmo Pug, the leader of the “Pirates of Pestulon” (aka. ScumSoft) abducted the 2 guys to force them to design awful games they can flood the galaxy with. There is definitely some light-hearted jabbing at LucasArts with some of the references here, but that just makes me appreciate the writing of this game even more.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00029.png" alt="" /></p>
+
+<p>The final sequence of the game involves a couple of mini games. You first have to defeat Elmo Pug in a rock ‘em sock ‘em robots style battle, then escape on your ship and win a space battle. Though not overly difficult, you can lose during both of these sequences, so make sure you have save games before each begin so you can reload when you inevitably die the first few times.</p>
+
+<p>After the space battle you fly the 2 guys to Earth and land in the parking lot of Sierra Online, where Ken Williams hires the 2 guys to work for him as programmers.</p>
+
+<p><img src="/images/adventure/sq3/scummvm-sq3-00033.png" alt="" /></p>
+
+<p>As I play through these games the main thing I typically look for is narrative strength. The graphics don’t need to be great, the music can be so-so and the input mechanics can be clunky, but if the experience of actually <em>playing through</em> the adventure is enjoyable I’ll rate it a lot higher.</p>
+
+<p>Space Quest III is very short, but the writing is funny and the pacing is good. You don’t really need a walkthrough because every time you die you’ll be presented with a popup that typically (a) makes fun of you for dying and (b) nudges you in the right direction to avoid dying again.</p>
+
+<p>Though I rated <a href="/blog/2021/08/09/space-quest-the-sarien-encounter/">Space Quest: The Sarien Encounter</a> pretty highly, it’s primitive and less accessible than this sequel. If you want to try your hand at a parser-driven adventure game I’d highly recommend Space Quest III.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Space Quest III: The Pirates of Pestulon</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>March 24, 1989</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Macintosh, Amiga, Atari ST</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/8865"><em>How Long To Beat?</em></a></td>
+      <td>3 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuredoor.net/walkthroughs/space-quest-iii-pirates-pestulon-walkthrough/">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>70%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq3/scummvm-sq3-00000.png', thumb: '/images/adventure/sq3/scummvm-sq3-00000.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00001.png', thumb: '/images/adventure/sq3/scummvm-sq3-00001.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00003.png', thumb: '/images/adventure/sq3/scummvm-sq3-00003.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00004.png', thumb: '/images/adventure/sq3/scummvm-sq3-00004.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00005.png', thumb: '/images/adventure/sq3/scummvm-sq3-00005.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00006.png', thumb: '/images/adventure/sq3/scummvm-sq3-00006.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00007.png', thumb: '/images/adventure/sq3/scummvm-sq3-00007.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00008.png', thumb: '/images/adventure/sq3/scummvm-sq3-00008.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00010.png', thumb: '/images/adventure/sq3/scummvm-sq3-00010.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00011.png', thumb: '/images/adventure/sq3/scummvm-sq3-00011.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00013.png', thumb: '/images/adventure/sq3/scummvm-sq3-00013.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00015.png', thumb: '/images/adventure/sq3/scummvm-sq3-00015.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00016.png', thumb: '/images/adventure/sq3/scummvm-sq3-00016.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00019.png', thumb: '/images/adventure/sq3/scummvm-sq3-00019.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00020.png', thumb: '/images/adventure/sq3/scummvm-sq3-00020.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00021.png', thumb: '/images/adventure/sq3/scummvm-sq3-00021.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00023.png', thumb: '/images/adventure/sq3/scummvm-sq3-00023.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00025.png', thumb: '/images/adventure/sq3/scummvm-sq3-00025.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00026.png', thumb: '/images/adventure/sq3/scummvm-sq3-00026.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00028.png', thumb: '/images/adventure/sq3/scummvm-sq3-00028.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00030.png', thumb: '/images/adventure/sq3/scummvm-sq3-00030.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00031.png', thumb: '/images/adventure/sq3/scummvm-sq3-00031.png' },{ src: '/images/adventure/sq3/scummvm-sq3-00032.png', thumb: '/images/adventure/sq3/scummvm-sq3-00032.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/142/space-quest-iii-the-pirates-of-pestulon/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Adventures of Willy Beamish (Dynamix) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/" rel="alternate" type="text/html" title="The Adventures of Willy Beamish (Dynamix) - 1991" /><published>2024-02-12T19:48:56-05:00</published><updated>2024-02-15T06:50:41-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1353,162 +1509,4 @@ ffmpeg <span class="nt">-f</span> concat <span class="nt">-safe</span> 0 <span c
       <p><small><a href="https://sierrachest.com/index.php?a=engines&amp;id=18">The Sierra Chest</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="ADL" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Frederik Pohl’s Gateway (Legend Entertainment) - 1992</title><link href="https://www.alexbevi.com/blog/2023/11/29/gateway/" rel="alternate" type="text/html" title="Frederik Pohl’s Gateway (Legend Entertainment) - 1992" /><published>2023-11-29T21:14:21-05:00</published><updated>2023-11-30T17:49:34-05:00</updated><id>https://www.alexbevi.com/blog/2023/11/29/gateway</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/11/29/gateway/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Gateway_(video_game)">Frederik Pohl’s Gateway</a> is a 1992 interactive fiction video game released by Legend Entertainment, and written by Glen Dahlgren and Mike Verdu. It is based on Frederik Pohl’s Heechee universe.</p>
-
-<p>When humans finally managed to colonize the planet Venus, they discovered a gigantic system of artificial underground tunnels there. It is assumed that a highly advanced alien race known as Heechee has constructed those tunnels thousands of years ago. Eventually, an abandoned, yet fully functional Heechee spaceship is discovered. One of the explorers boards it, which leads humanity towards the discovery of a space station with many similar ships - all with coordinates of unknown planets already punched in. This station becomes known as the Gateway, being humanity’s only connecting point to the rest of the universe.</p>
-
-<p><img src="/images/adventure/gate/gate_021.png" alt="" /></p>
-
-<p>Since traveling to the potentially dangerous destinations involves a great deal of risk, only some particularly courageous (or perhaps reckless) adventurers, called “prospectors”, volunteered to go on these journeys. The protagonist of the game is one of those prospectors, having won the membership alongside a small sum of money and a one-way ticket to the Gateway. Eventually, he discovers an ancient device that contain a warning against a mysterious alien species known as Assassins - and the prospector is entrusted with the task of protecting the humans from that threat.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/gate/gate_012.png" alt="" /></p>
-
-<p>Gateway is a text adventure with graphics, based on the <a href="https://en.wikipedia.org/wiki/Heechee_Saga">Heechee (or Gateway) saga</a> series of books.  I’ve never heard of this series, but after playing this game I’m actually sort of looking forward to reading these books. Also, as this is a book series it’s not surprising that the game involves <em>A LOT</em> of reading. This is a text adventure through and through.</p>
-
-<p>It is identical in interface and general concept to Legend’s other text-driven adventures: the player may opt for text-only input as well as selecting verbs from a list. Clicking on objects or characters within the graphical representation of the location provides a text description. Puzzles are mostly inventory-based, though there are logic-related tasks as well. The player character explores various planets during the course of the journey. In a few cases, it is possible to die in the game.</p>
-
-<p>The game runs on the <a href="https://wiki.scummvm.org/index.php?title=Legend">Legend</a> engine, which is also used by other Legend Entertainment titles such as <a href="https://www.mobygames.com/game/1027/spellcasting-101-sorcerers-get-all-the-girls/">Spellcasting 101</a>, <a href="https://www.mobygames.com/game/1026/timequest/">Timequest</a> and <a href="https://www.mobygames.com/game/431/eric-the-unready/">Erik the Unready</a>. There was some work done on implementing the <em>Legend</em> engine in ScummVM (see <a href="https://github.com/dreammaster/scummvm/tree/legend/engines/legend">fork for details</a>) but this work has stalled. If you’ve got some C++ chops and feel like taking a stab at continuing this work, progress is just a <code class="language-plaintext highlighter-rouge">git clone</code> away ;)</p>
-
-<p><img src="/images/adventure/gate/gate_001.png" alt="" /></p>
-
-<p>The game starts off with a wall of text, a handful of static screens overlaid with more text, then you get dropped into the game world where you’re presented with a whole lot more text. I personally love text adventures, but if this is not your jam … you may not like this game.</p>
-
-<p>It’s actually worth calling out how much of this game involves massive walls of text and expository dumps. Seeing as this is based on a book (or series of books) AND it’s a text adventure none of this should be a surprise … but it’s still a LOT of reading.</p>
-
-<p><img src="/images/adventure/gate/gate_039.png" alt="" /></p>
-
-<p>There are some characters you can interact with, which will change the view to show you a different view where that character dumps more narrative on you. As you’d expect by now, this will involve a lot more reading as … you guessed it … another wall of text is coming your way, but presented a little bit differently just to mix things up a bit.</p>
-
-<p>The game has a MIDI soundtrack with a handful of looping samples, and though there is a “viewport” on each screen that draws the current scene, this isn’t really required. You can switch to a pure text rendition of the game via the UI if you so choose, which just gives you more space to read what the games throwing at you in great, great detail.</p>
-
-<p><img src="/images/adventure/gate/gate_050.png" alt="" /></p>
-
-<p>Though it may sound like I’m dumping on the massive amount of reading this game forces you to do, I actually quite like it. The game’s interface is extremely intuitive, and makes it fairly straightforward to determine what actions you can take on what screens, as well as what direction(s) you can move. There is a column of verbs you can click on (if you so choose), which when selected present you with what modifiers the verb expects, then another column of nouns that you can interact with.</p>
-
-<p>If you pay attention and actually read all the text that’s being thrown your way, progressing through the game isn’t overly difficult.</p>
-
-<p><img src="/images/adventure/gate/gate_055.png" alt="" /></p>
-
-<p>What IS difficult (or at least frutstrating) is that there are a number of interactions in the game that require repeating the same action multiple times. For example, digging out the ore requires you to <code class="language-plaintext highlighter-rouge">DIG ROCK</code> twice, but this isn’t obvious based on the feedback the game gives you when you do it the first time.</p>
-
-<p>The second frustration would be the sheer volume of puzzles that require you to <code class="language-plaintext highlighter-rouge">WAIT</code> on a specific screen until a certain time for an event to be triggered. Typically the game will tell you where you need to be and at what time, but occasionally you’ll have to just keep typing <code class="language-plaintext highlighter-rouge">WAIT</code>, or <code class="language-plaintext highlighter-rouge">WAIT UNTIL HH:MM</code> to force a longer wait until a fixed time.</p>
-
-<p><img src="/images/adventure/gate/gate_061.png" alt="" /></p>
-
-<p>I personally really dislike these types of puzzles in adventure games, as it feels like artificial padding. If you want me to hide in a box and wait for someone to come in and do something I’ll observe, make the act of hiding in the box be the event trigger …</p>
-
-<p>The story is split into 3 parts, with each being self contained but building on the events of the last part. For part 1 you’re introduced to the world, including the lore and background on the Gateway and the Heechee. You learn about exploring space as a prospector and how the game expects you to proceed. You’ll eventually join the Orion program and discover that humanity is in peril and only you can save them. You visit planets, activate these pillar things on each and that does …. something.</p>
-
-<p><img src="/images/adventure/gate/gate_043.png" alt="" /></p>
-
-<p>Once you activate four of these monuments you find out you’ve alerted the big baddy who’s going to wipe out all of humanity - unless you stop them. This takes place inside a simulation or an AI or something, and involves solving more puzzles in some weird settings (like a random cocktail party, then hell).</p>
-
-<p><img src="/images/adventure/gate/gate_066.png" alt="" /></p>
-
-<p>Though you’re typically not in any danger for most of the game, you can die in certain situations. Thankfully it’s really easy to save and restore here (it’s just another command) so it’s worth saving early and ofter. I found myself saving, then mashing <code class="language-plaintext highlighter-rouge">WAIT</code> on many screens just to see if it would trigger something to change. If it didn’t, I’d just <code class="language-plaintext highlighter-rouge">RESTORE</code> my last save and try something different.</p>
-
-<p><img src="/images/adventure/gate/gate_071.png" alt="" /></p>
-
-<p>This game uses a similar engine to <a href="/blog/2023/05/23/companions-of-xanth/">Companions of Xanth</a>, but I’m guessing a much earlier version. Overall I actually really enjoyed playing through this title, and found it was reminiscent of some of my favourite menu-driven adventure games such as <a href="/blog/2021/08/16/shadowgate/">Shadowgate</a> or <a href="/blog/2021/08/15/princess-tomato-in-the-salad-kingdom/">Princess Tomato in the Salad Kingdom</a>.</p>
-
-<p>The story is engaging, and though there’s a lot of exposition, you find yourself carefully reading everything that everyone says as the world that is being described is really interesting and immersive. I found myself having to use a walkthrough many times as I likely missed details I shouldn’t have glossed over, or I was just in the wrong place at the wrong time and had some <code class="language-plaintext highlighter-rouge">WAIT</code>ing to do …</p>
-
-<p>Gateway isn’t a game you’re going to play for the graphics, the sound effects or the music. If this was released by Sierra in 1982 you wouldn’t have been disappointed, and for adventure game fans that love story above all else, there’s plenty to enjoy here still.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Frederik Pohl’s Gateway</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Legend_Entertainment">Legend Entertainment</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Legend Entertainment</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>June 1992</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Windows 95</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Legend">Legend</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/50649"><em>How Long To Beat?</em></a></td>
-      <td>3.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/gateway.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>56%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/gate/gate_002.png', thumb: '/images/adventure/gate/gate_002.png' },{ src: '/images/adventure/gate/gate_003.png', thumb: '/images/adventure/gate/gate_003.png' },{ src: '/images/adventure/gate/gate_004.png', thumb: '/images/adventure/gate/gate_004.png' },{ src: '/images/adventure/gate/gate_005.png', thumb: '/images/adventure/gate/gate_005.png' },{ src: '/images/adventure/gate/gate_006.png', thumb: '/images/adventure/gate/gate_006.png' },{ src: '/images/adventure/gate/gate_007.png', thumb: '/images/adventure/gate/gate_007.png' },{ src: '/images/adventure/gate/gate_008.png', thumb: '/images/adventure/gate/gate_008.png' },{ src: '/images/adventure/gate/gate_009.png', thumb: '/images/adventure/gate/gate_009.png' },{ src: '/images/adventure/gate/gate_010.png', thumb: '/images/adventure/gate/gate_010.png' },{ src: '/images/adventure/gate/gate_011.png', thumb: '/images/adventure/gate/gate_011.png' },{ src: '/images/adventure/gate/gate_013.png', thumb: '/images/adventure/gate/gate_013.png' },{ src: '/images/adventure/gate/gate_014.png', thumb: '/images/adventure/gate/gate_014.png' },{ src: '/images/adventure/gate/gate_015.png', thumb: '/images/adventure/gate/gate_015.png' },{ src: '/images/adventure/gate/gate_016.png', thumb: '/images/adventure/gate/gate_016.png' },{ src: '/images/adventure/gate/gate_017.png', thumb: '/images/adventure/gate/gate_017.png' },{ src: '/images/adventure/gate/gate_018.png', thumb: '/images/adventure/gate/gate_018.png' },{ src: '/images/adventure/gate/gate_019.png', thumb: '/images/adventure/gate/gate_019.png' },{ src: '/images/adventure/gate/gate_020.png', thumb: '/images/adventure/gate/gate_020.png' },{ src: '/images/adventure/gate/gate_022.png', thumb: '/images/adventure/gate/gate_022.png' },{ src: '/images/adventure/gate/gate_023.png', thumb: '/images/adventure/gate/gate_023.png' },{ src: '/images/adventure/gate/gate_024.png', thumb: '/images/adventure/gate/gate_024.png' },{ src: '/images/adventure/gate/gate_025.png', thumb: '/images/adventure/gate/gate_025.png' },{ src: '/images/adventure/gate/gate_026.png', thumb: '/images/adventure/gate/gate_026.png' },{ src: '/images/adventure/gate/gate_027.png', thumb: '/images/adventure/gate/gate_027.png' },{ src: '/images/adventure/gate/gate_028.png', thumb: '/images/adventure/gate/gate_028.png' },{ src: '/images/adventure/gate/gate_029.png', thumb: '/images/adventure/gate/gate_029.png' },{ src: '/images/adventure/gate/gate_030.png', thumb: '/images/adventure/gate/gate_030.png' },{ src: '/images/adventure/gate/gate_031.png', thumb: '/images/adventure/gate/gate_031.png' },{ src: '/images/adventure/gate/gate_032.png', thumb: '/images/adventure/gate/gate_032.png' },{ src: '/images/adventure/gate/gate_033.png', thumb: '/images/adventure/gate/gate_033.png' },{ src: '/images/adventure/gate/gate_034.png', thumb: '/images/adventure/gate/gate_034.png' },{ src: '/images/adventure/gate/gate_035.png', thumb: '/images/adventure/gate/gate_035.png' },{ src: '/images/adventure/gate/gate_036.png', thumb: '/images/adventure/gate/gate_036.png' },{ src: '/images/adventure/gate/gate_037.png', thumb: '/images/adventure/gate/gate_037.png' },{ src: '/images/adventure/gate/gate_038.png', thumb: '/images/adventure/gate/gate_038.png' },{ src: '/images/adventure/gate/gate_040.png', thumb: '/images/adventure/gate/gate_040.png' },{ src: '/images/adventure/gate/gate_041.png', thumb: '/images/adventure/gate/gate_041.png' },{ src: '/images/adventure/gate/gate_042.png', thumb: '/images/adventure/gate/gate_042.png' },{ src: '/images/adventure/gate/gate_044.png', thumb: '/images/adventure/gate/gate_044.png' },{ src: '/images/adventure/gate/gate_045.png', thumb: '/images/adventure/gate/gate_045.png' },{ src: '/images/adventure/gate/gate_046.png', thumb: '/images/adventure/gate/gate_046.png' },{ src: '/images/adventure/gate/gate_047.png', thumb: '/images/adventure/gate/gate_047.png' },{ src: '/images/adventure/gate/gate_048.png', thumb: '/images/adventure/gate/gate_048.png' },{ src: '/images/adventure/gate/gate_049.png', thumb: '/images/adventure/gate/gate_049.png' },{ src: '/images/adventure/gate/gate_051.png', thumb: '/images/adventure/gate/gate_051.png' },{ src: '/images/adventure/gate/gate_052.png', thumb: '/images/adventure/gate/gate_052.png' },{ src: '/images/adventure/gate/gate_053.png', thumb: '/images/adventure/gate/gate_053.png' },{ src: '/images/adventure/gate/gate_054.png', thumb: '/images/adventure/gate/gate_054.png' },{ src: '/images/adventure/gate/gate_056.png', thumb: '/images/adventure/gate/gate_056.png' },{ src: '/images/adventure/gate/gate_057.png', thumb: '/images/adventure/gate/gate_057.png' },{ src: '/images/adventure/gate/gate_058.png', thumb: '/images/adventure/gate/gate_058.png' },{ src: '/images/adventure/gate/gate_059.png', thumb: '/images/adventure/gate/gate_059.png' },{ src: '/images/adventure/gate/gate_060.png', thumb: '/images/adventure/gate/gate_060.png' },{ src: '/images/adventure/gate/gate_062.png', thumb: '/images/adventure/gate/gate_062.png' },{ src: '/images/adventure/gate/gate_063.png', thumb: '/images/adventure/gate/gate_063.png' },{ src: '/images/adventure/gate/gate_064.png', thumb: '/images/adventure/gate/gate_064.png' },{ src: '/images/adventure/gate/gate_065.png', thumb: '/images/adventure/gate/gate_065.png' },{ src: '/images/adventure/gate/gate_067.png', thumb: '/images/adventure/gate/gate_067.png' },{ src: '/images/adventure/gate/gate_068.png', thumb: '/images/adventure/gate/gate_068.png' },{ src: '/images/adventure/gate/gate_069.png', thumb: '/images/adventure/gate/gate_069.png' },{ src: '/images/adventure/gate/gate_070.png', thumb: '/images/adventure/gate/gate_070.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/317/frederik-pohls-gateway/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="adventure" /><category term="Legend Entertainment" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/gate/gate_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="ADL" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
