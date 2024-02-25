@@ -1,4 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-20T16:04:13-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/" rel="alternate" type="text/html" title="Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989" /><published>2024-02-16T16:27:05-05:00</published><updated>2024-02-20T07:26:20-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/16/space-quest-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-25T10:44:49-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Harvester (DigiFX Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2024/02/23/harvester/" rel="alternate" type="text/html" title="Harvester (DigiFX Interactive) - 1996" /><published>2024-02-23T04:49:50-05:00</published><updated>2024-02-25T10:43:51-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/23/harvester</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/23/harvester/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Harvester_(video_game)">Harvester</a> is a 1996 point-and-click adventure game written and directed by Gilbert P. Austin, known for its violent content, cult following, and examination of violence. Players take on the role of Steve Mason, an eighteen-year-old man who awakens in a Midwestern town in 1953 with no memory of who he is and a vague sense he does not belong there. Over the course of the next week, he is coerced or manipulated into performing a series of seemingly mundane tasks with increasingly violent consequences at the behest of “The Order of the Harvest Moon,” a cult-like organization which seems to dominate the town and which promises to reveal the truth about Steve and his presence in Harvest.</p>
+
+<p><img src="/images/adventure/harvester/harvest_044.png" alt="" />
+<em>Investigating grisly murders is hungry work for this small town sheriff</em></p>
+
+<p>Similar to <a href="https://en.wikipedia.org/wiki/Phantasmagoria_(video_game)">Phantasmagoria</a> which came out a year earlier, Harvester is an adventure horror <a href="https://en.wikipedia.org/wiki/Full-motion_video">FMV</a> game. Having played through a few FMV titles in this series already my expectations for the quality of the acting and pre-rendered cutscenes was immediately very low.</p>
+
+<p><img src="/images/adventure/harvester/harvest_019.png" alt="" /></p>
+
+<p>You play the part of Steve Mason, who appears to have amnesia and possibly from the future. Steve is played by Kurt Kistler, who’s acting is not great, but given this is a mid-90s FMV game I would consider his performance acceptable. Kurt’s lack of acting chops is due to this<a href="https://www.facebook.com/notes/407927256880345/"> being his first acting gig</a> (he played keyboard in a band previously).</p>
+
+<p><img src="/images/adventure/harvester/harvest_010.png" alt="" /></p>
+
+<p>The story is dark and compelling right from the get-go, even if it seems thin and you’re just sort of dropped into this world without any direction. You have free reign to move around the game world, which is split into four quadrants - all of which are accessible.</p>
+
+<p>Hovering over locations will tell you what they are, and clicking on them will take you there instantly. This is preferable to long, drawn out navigation sequences though it might have been nice to have some animation on this screen so it’s not so bland.</p>
+
+<p><img src="/images/adventure/harvester/harvest_008.png" alt="" /></p>
+
+<p>Each location you visit will have characters you can interact with, and each interaction will unfold a bit more of the plot and give you more background about the characters, their relationships and the town.</p>
+
+<p>At the center of town is the Lodge, which apparently everyone wants to be a member of and seems to <em>really</em> want you to join as well.</p>
+
+<p><img src="/images/adventure/harvester/harvest_005.png" alt="" />
+<em>Mom is a stereotypical 50’s homebody</em></p>
+
+<p>The first characters you’ll meet are your mom and brother. This is where you initially learn how to interact with characters, as well as a bit more about the town of Harvest and the fact that you’re engaged and apparently getting married in a few weeks.</p>
+
+<p>These interactions take the form of typical dialogue tree selections, though there’s always an <code class="language-plaintext highlighter-rouge">OTHER</code> option where you can type anything. Other than typing out the options you can select from the tree, the only time I found this “useful” was to ask Mr. Pottsdam about the <em>“peephole”</em> in the bathroom …</p>
+
+<p><img src="/images/adventure/harvester/harvest_026.png" alt="" /></p>
+
+<p>Stephanie - your future bride - also has amnesia. What a coincidence! Similar to you she has no idea who her “family” is or how she got here, but her dad really wants the two of you to get married because your father owns the local meat processing plant and this guy apparently loves meat.</p>
+
+<p>Your initial interactions with Mr. Pottsdam mention “meat” way too often. Also, of all the voice acting in this game, Mr. Pottsdam’s has to be my favourite.</p>
+
+<p><img src="/images/adventure/harvester/harvest_030.png" alt="" />
+<em>They really lean into the gay stereotypes at the fire station</em></p>
+
+<p>The game takes place over the course of several days - typically both day and night. In order to progress through the game you’ll need to complete various tasks to trigger the transition from day to night.</p>
+
+<p>This will include talking to various characters and completing many, many fetch quests.</p>
+
+<p><img src="/images/adventure/harvester/harvest_011.png" alt="" />
+<em>This game really wants you to know it’s for a mature audience</em></p>
+
+<p>The puzzles in Harvester vary from very obvious to extremely obtuse. It’s very rare that you’ll be able to complete a puzzle by only fetching a single item. As a result, a good chunk of this game will involve hunting for items, typical inventory management tasks and attempting item combinations.</p>
+
+<p><img src="/images/adventure/harvester/harvest_046.png" alt="" />
+<em>The more beat up Steve looks, the closer to a game over you are</em></p>
+
+<p>Unlike typical point and click adventure games, Harvester allows you to use weapons as there are fights in this game. Since you can take damage, you also have a health indicator in your inventory showing how close to death you are.</p>
+
+<p>Though this is sort of an interesting mechanic, it’s not all that useful as you typically won’t know how much damage you can take until it’s too late anyway and you’ve already died.</p>
+
+<p><img src="/images/adventure/harvester/harvest_007.png" alt="" />
+<em>Get used to seeing this screen</em></p>
+
+<p>Speaking of death, you will die so very much in this game - typically by either picking the wrong conversation option, waiting too long during a timed sequence or just getting your ass kicked by a monster (though this is mostly later in the game).</p>
+
+<p>As you have access to weapons pretty much throughout the game and you can attack almost every NPC, if you kill most of them you’ll end up in jail - which is another game over scenario.</p>
+
+<p><img src="/images/adventure/harvester/harvest_000.raw1.png" alt="" />
+<em>A series of fetch quests or a simple act of murder - what would you pick?</em></p>
+
+<p>You typically have multiple ways to solve a fetch quest (which is what makes up most of the puzzles in the game). Certain scenarios allow you to either finish the quest for the person that requested it, or kill that person and just take the item.</p>
+
+<p>This can be a great way to breeze through longer sections of this game, but be careful as this won’t always work and may land you in jail.</p>
+
+<p><img src="/images/adventure/harvester/harvest_029.png" alt="" />
+<em>Your future “father in law” is a piece of shit</em></p>
+
+<p>The subject matter in this game isn’t for the faint of heart. Not only is there a lot of violence and gore, but there are allusions to child molestation and eventually a distraught mother killing herself and her daughter.</p>
+
+<p>Though it might seem a bit excessive, or just there for the “shock factor” it actually does help advance the plot and reinforce the central themes that develop Steve’s character towards the endgame.</p>
+
+<p>It’s hard to review this game without bringing up the fact that the actor playing Steve <a href="https://publicsite.dps.texas.gov/SexOffenderRegistry/Search/Rapsheet?Sid=08470942">got into a bit of trouble</a>, but I don’t think his role in this game was foreshadowing future events in any way.</p>
+
+<p><img src="/images/adventure/harvester/harvest_028.png" alt="" /></p>
+
+<p>Your ultimate goal is to gain entry into the lodge, which you can only do after performing a series of fetch quests, robberies and acts of vandalism requested by The Sergeant at Arms - who only communicates with you telepathically for some reason that’s never explained.</p>
+
+<p>As you progress through these quests your interactions with the townspeople gets weirder and weirder. You’ll find that completing the quests results in the people you were stealing from dying as a result of your actions.</p>
+
+<p>It sort of feels like desensitizing Steve to the deaths of these people is maybe the point …</p>
+
+<p><img src="/images/adventure/harvester/harvest_048.png" alt="" />
+<em>Yuppers, that key is hidden inside that guy’s head</em></p>
+
+<p>Once you get into the lodge you’ll have to navigate through three floors of puzzles and monsters. There is A LOT of combat in this area, and typically these just involve you picking one of the melee weapons at your disposal and mashing the left mouse button.</p>
+
+<p>There are some healing items scattered around that you can take if you take too much damage, but realistically this sequence of the game (that is about the last third of the game really) requires saving on every screen and reloading if you take too much damage.</p>
+
+<p><img src="/images/adventure/harvester/harvest_053.png" alt="" /></p>
+
+<p>Harvester gives you 25 save slots, and believe me you’ll need all of them for the lodge sequence. Even using a walkthrough I died a hell of a lot.</p>
+
+<p>The first floor isn’t too bad, though some of the puzzles require significant mental gymnastics to solve. Luckily when you enter the lodge all of your inventory items are cleared out so you only need to worry about using and combining the new items you find along the way.</p>
+
+<p><img src="/images/adventure/harvester/harvest_049.png" alt="" /></p>
+
+<p>As you move deeper and deeper into the lodge you find that each room (called a “Temple”) exists to teach you some sort of “lesson” (or the opposite of what you’d expect to learn). As you wind your way through these rooms up to the final confrontation it turns out you and Stephanie have been trapped in a VR simulation and you’re the only two real people in this world.</p>
+
+<p><img src="/images/adventure/harvester/harvest_055.png" alt="" />
+<em>You needed a skull and spinal cord to get into the lodge, and you need the same to get out …</em></p>
+
+<p>The ultimate goal has been to train you to be a serial killer, and your final test is to either kill Stephanie in the simulation so she dies in real life - or marry her in the sim and the two of you die in real life.</p>
+
+<p>You get to choose your own ending here, and since you are able to save the game before making this final selection you have the opportunity to experience both endgames pretty easily.</p>
+
+<p><img src="/images/adventure/harvester/harvest_056.png" alt="" /></p>
+
+<p>Honestly, I thought I was going to love this game, and for about the first half of my play through - I did. I liked the setting, I liked the characters, I found the plot was progressing well and I really wanted to know more about the lodge.</p>
+
+<p>The problem was once you get through the first half of the game it sort of seems like they ran out of content to keep the story progressing towards the conclusion. The whole “training you to be a serial killer” plot didn’t really make any sense, and though you can force yourself to see how it fits into the narrative … it’s definitely forced.</p>
+
+<p><img src="/images/adventure/harvester/harvest_043.png" alt="" />
+<em>This game goes for shock and gore whenever possible</em></p>
+
+<p>Though this game likely went under that radar for a lot of adventure gamers at the time, there were some very vocal and dedicated fans. For example, if you want to learn a bit more about the misadventures of Kurt Kistler you can check out <a href="https://youtu.be/6koKTUidgPc">“Harvester Show #10: The Pedophile We All Know”</a>.</p>
+
+<p>If you are a fan of adventure horror games and have a soft-spot for FMV titles then Harvester should be right up your alley. If that extremely specific combination of genres doesn’t tickle your fancy though, this game probably isn’t for you.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Harvester</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/DigiFX_Interactive">DigiFX Interactive</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Merit Studios, Virgin Interactive</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>August 31, 1996</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/16577"><em>How Long To Beat?</em></a></td>
+      <td>7 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://cdn.akamai.steamstatic.com/steam/apps/287020/manuals/Manual.pdf">Manual</a>, <a href="https://www.arrpeegeez.com/2023/04/harvester-walkthrough-guide.html">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>51%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/harvester/harvest_000.png', thumb: '/images/adventure/harvester/harvest_000.png' },{ src: '/images/adventure/harvester/harvest_001.raw1.png', thumb: '/images/adventure/harvester/harvest_001.raw1.png' },{ src: '/images/adventure/harvester/harvest_002.png', thumb: '/images/adventure/harvester/harvest_002.png' },{ src: '/images/adventure/harvester/harvest_002.raw1.png', thumb: '/images/adventure/harvester/harvest_002.raw1.png' },{ src: '/images/adventure/harvester/harvest_003.png', thumb: '/images/adventure/harvester/harvest_003.png' },{ src: '/images/adventure/harvester/harvest_003.raw1.png', thumb: '/images/adventure/harvester/harvest_003.raw1.png' },{ src: '/images/adventure/harvester/harvest_004.png', thumb: '/images/adventure/harvester/harvest_004.png' },{ src: '/images/adventure/harvester/harvest_006.png', thumb: '/images/adventure/harvester/harvest_006.png' },{ src: '/images/adventure/harvester/harvest_009.png', thumb: '/images/adventure/harvester/harvest_009.png' },{ src: '/images/adventure/harvester/harvest_012.png', thumb: '/images/adventure/harvester/harvest_012.png' },{ src: '/images/adventure/harvester/harvest_013.png', thumb: '/images/adventure/harvester/harvest_013.png' },{ src: '/images/adventure/harvester/harvest_014.png', thumb: '/images/adventure/harvester/harvest_014.png' },{ src: '/images/adventure/harvester/harvest_015.png', thumb: '/images/adventure/harvester/harvest_015.png' },{ src: '/images/adventure/harvester/harvest_016.png', thumb: '/images/adventure/harvester/harvest_016.png' },{ src: '/images/adventure/harvester/harvest_017.png', thumb: '/images/adventure/harvester/harvest_017.png' },{ src: '/images/adventure/harvester/harvest_018.png', thumb: '/images/adventure/harvester/harvest_018.png' },{ src: '/images/adventure/harvester/harvest_020.png', thumb: '/images/adventure/harvester/harvest_020.png' },{ src: '/images/adventure/harvester/harvest_021.png', thumb: '/images/adventure/harvester/harvest_021.png' },{ src: '/images/adventure/harvester/harvest_022.png', thumb: '/images/adventure/harvester/harvest_022.png' },{ src: '/images/adventure/harvester/harvest_023.png', thumb: '/images/adventure/harvester/harvest_023.png' },{ src: '/images/adventure/harvester/harvest_024.png', thumb: '/images/adventure/harvester/harvest_024.png' },{ src: '/images/adventure/harvester/harvest_025.png', thumb: '/images/adventure/harvester/harvest_025.png' },{ src: '/images/adventure/harvester/harvest_027.png', thumb: '/images/adventure/harvester/harvest_027.png' },{ src: '/images/adventure/harvester/harvest_031.png', thumb: '/images/adventure/harvester/harvest_031.png' },{ src: '/images/adventure/harvester/harvest_032.png', thumb: '/images/adventure/harvester/harvest_032.png' },{ src: '/images/adventure/harvester/harvest_033.png', thumb: '/images/adventure/harvester/harvest_033.png' },{ src: '/images/adventure/harvester/harvest_034.png', thumb: '/images/adventure/harvester/harvest_034.png' },{ src: '/images/adventure/harvester/harvest_035.png', thumb: '/images/adventure/harvester/harvest_035.png' },{ src: '/images/adventure/harvester/harvest_036.png', thumb: '/images/adventure/harvester/harvest_036.png' },{ src: '/images/adventure/harvester/harvest_037.png', thumb: '/images/adventure/harvester/harvest_037.png' },{ src: '/images/adventure/harvester/harvest_038.png', thumb: '/images/adventure/harvester/harvest_038.png' },{ src: '/images/adventure/harvester/harvest_039.png', thumb: '/images/adventure/harvester/harvest_039.png' },{ src: '/images/adventure/harvester/harvest_040.png', thumb: '/images/adventure/harvester/harvest_040.png' },{ src: '/images/adventure/harvester/harvest_041.png', thumb: '/images/adventure/harvester/harvest_041.png' },{ src: '/images/adventure/harvester/harvest_042.png', thumb: '/images/adventure/harvester/harvest_042.png' },{ src: '/images/adventure/harvester/harvest_045.png', thumb: '/images/adventure/harvester/harvest_045.png' },{ src: '/images/adventure/harvester/harvest_047.png', thumb: '/images/adventure/harvester/harvest_047.png' },{ src: '/images/adventure/harvester/harvest_050.png', thumb: '/images/adventure/harvester/harvest_050.png' },{ src: '/images/adventure/harvester/harvest_051.png', thumb: '/images/adventure/harvester/harvest_051.png' },{ src: '/images/adventure/harvester/harvest_052.png', thumb: '/images/adventure/harvester/harvest_052.png' },{ src: '/images/adventure/harvester/harvest_054.png', thumb: '/images/adventure/harvester/harvest_054.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="DigiFX Interactive" /><category term="Merit Studios" /><category term="Virgin Interactive" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/harvester/harvest_001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/harvester/harvest_001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/" rel="alternate" type="text/html" title="Space Quest III: The Pirates of Pestulon (Sierra On-Line) - 1989" /><published>2024-02-16T16:27:05-05:00</published><updated>2024-02-20T07:26:20-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/16/space-quest-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/16/space-quest-iii/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1374,139 +1583,4 @@ ffmpeg <span class="nt">-f</span> concat <span class="nt">-safe</span> 0 <span c
       <p><small>Description from <a href="https://www.mobygames.com/game/148/police-quest-3-the-kindred/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Dark Crystal (On-Line Systems) - 1983</title><link href="https://www.alexbevi.com/blog/2023/12/08/the-dark-crystal/" rel="alternate" type="text/html" title="The Dark Crystal (On-Line Systems) - 1983" /><published>2023-12-08T11:59:49-05:00</published><updated>2023-12-11T19:43:25-05:00</updated><id>https://www.alexbevi.com/blog/2023/12/08/the-dark-crystal</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/12/08/the-dark-crystal/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/The_Dark_Crystal_(video_game)">The Dark Crystal</a> is a graphic adventure game based on Jim Henson’s 1982 fantasy film, The Dark Crystal. The game was designed by Roberta Williams and was the first Hi-Res Adventure directly released under the SierraVenture label in 1983.</p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00004.png" alt="" /></p>
-
-<p>The Dark Crystal is closely based on Jim Henson’s film of the same name. The game is set in Thra, a world with three suns, which come together every thousand years in an event known as “The Great Conjunction”. The player controls Jen, the last survivor of the Gelfings, a race of mole-like people. He must find a dark crystal and its broken shard, and repair it to end the reign of a tyrannical lord.</p>
-
-<p>Like other installments of the Hi-Res Adventures series, the game is entirely text-based, with non-animated graphics to illustrate the areas. Movement between areas and interaction with the game world is performed by typing commands consisting of either one or two words (a combination of a verb and an object).<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00010.png" alt="" /></p>
-
-<p>You interact with the game world via the text parser. Though the verb/noun combinations you need to identify to progress from screen to screen are pretty easy to figure out, I did find myself getting stuck on occasion when the game expected an obtuse sequence of commands. Navigation is handled by going in a direction (<code class="language-plaintext highlighter-rouge">EAST</code>, <code class="language-plaintext highlighter-rouge">NORTH</code>) and typically when you enter a new screen (or <code class="language-plaintext highlighter-rouge">LOOK</code> at it) everything you need to know or interact with is called out pretty clearly.</p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00019.png" alt="" />
-<em>This screen took me forever to get past</em></p>
-
-<p>This game follows the plot of the movie <a href="https://en.wikipedia.org/wiki/The_Dark_Crystal">The Dark Crystal</a>, so I’m guessing if you’re a fan - or have seen it recently - maybe some of these puzzles would make a bit more sense. There is one section where you need to get into the castle where the solution is to get <a href="https://darkcrystal.fandom.com/wiki/Fizzgig_(Character)">Fizzgig</a> to climb through the bars of a door to get a key that’s on the other side.</p>
-
-<p>On the surface this type of puzzle isn’t really challenging, but up to this point in the game you have not had to interact with a multi-part prompt where you issue multiple commands with <em>no feedback</em> after entering the first. You have to <code class="language-plaintext highlighter-rouge">SEND FIZZGIG</code> through the bars, but when you send him it just says something like “Where?”. The response is then <code class="language-plaintext highlighter-rouge">SEND BARS</code> (or maybe just <code class="language-plaintext highlighter-rouge">BARS</code>) but if you do this wrong you have to start over and it’s not clear you were even on the right track to begin with.</p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00015.png" alt="" />
-<em>Oh look, I’ve died again</em></p>
-
-<p>Being such an early adventure game I’m ok with slightly obtuse puzzles, and being a Sierra game, I expect death around every corner. And you will die on most screens.</p>
-
-<p>Though there isn’t any music throughout the game and limited sound effects, the scene drawing for a game released in 1983 really isn’t that bad. My main complaint would be that there are so few colours presented that it’s basically monochrome, but this is likely due to the Apple II only having 6 colors to choose from (Ken Williams would enhance the ADL interpreter to support dithering and expand that palette to 21 colours<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>).</p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00023.png" alt="" /></p>
-
-<p>There are a handful of items you can pick up and use throughout the game, but these are few and far between. It does vary the gameplay a little and add some depth to a couple puzzles. Unlike later Sierra titles you won’t find yourself overwhelmed with options, and every item you pick up is almost immediately useful, so try everything you pick up on the screen you found it!</p>
-
-<p><img src="/images/adventure/dark/scummvm-hires6-apple2-00025.png" alt="" /></p>
-
-<p>The movie this game is based on isn’t something I have fond memories of (or really any memory of), so playing through this game doesn’t really stir up any nostalgia. I’m sure it follows the plot pretty closely, and if you enjoyed the movie you’ll likely enjoy the game.</p>
-
-<p>For a very early graphical adventure game it’s definitely well done and really shows off the power of the ADL engine. If you’re an interactive fiction fan you’ll likely enjoy this experience, but otherwise this one’s probably not worth playing through.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>The Dark Crystal</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/On-Line_Systems">On-Line Systems</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>On-Line Systems</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1983</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Apple II, Atari 8-bit</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=ADL">ADL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/57460"><em>How Long To Beat?</em></a></td>
-      <td>3 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>Apple II via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.sierrachest.com/index.php?a=games&amp;id=199&amp;title=dark-crystal&amp;fld=walkthrough&amp;pid=100">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>31%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/dark/scummvm-hires6-apple2-00001.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00001.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00002.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00002.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00003.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00003.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00005.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00005.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00006.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00006.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00007.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00007.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00008.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00008.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00009.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00009.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00011.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00011.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00012.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00012.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00013.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00013.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00014.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00014.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00016.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00016.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00017.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00017.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00018.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00018.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00020.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00020.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00021.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00021.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00022.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00022.png' },{ src: '/images/adventure/dark/scummvm-hires6-apple2-00024.png', thumb: '/images/adventure/dark/scummvm-hires6-apple2-00024.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/16877/hi-res-adventure-6-the-dark-crystal/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p><small><a href="https://sierrachest.com/index.php?a=engines&amp;id=18">The Sierra Chest</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="ADL" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dark/scummvm-hires6-apple2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
