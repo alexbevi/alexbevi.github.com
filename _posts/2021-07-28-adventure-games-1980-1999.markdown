@@ -348,7 +348,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 268. Kingdom O' Magic (SCi) - 1996
 269. The Pandora Directive (Access Software) - 1996
 270. Azrael's Tear (Intelligent Games) - 1996
-271. Harvester (DigiFX Interactive) - 1996
+271. [Harvester (DigiFX Interactive)]({% post_url 2024-02-23-harvester %}) - 1996
 272. The Lost Files of Sherlock Holmes: The Case of the Rose Tattoo (Mythos Software, Inc.) - 1996
 273. Broken Sword: The Shadow of the Templars (Revolution Software) - 1996
 274. Timelapse (GTE Interactive Media) - 1996
