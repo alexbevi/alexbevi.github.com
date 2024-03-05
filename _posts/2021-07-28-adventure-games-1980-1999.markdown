@@ -60,7 +60,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 70  -%}
+{%- assign games_finished = 71  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -162,7 +162,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 82. Conquests of the Longbow: The Legend of Robin Hood (Sierra On-Line) - 1991
 83. [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 84. Fascination (Coktel Vision) - 1991
-85. EcoQuest: The Search for Cetus (Sierra On-Line) - 1991
+85. [EcoQuest: The Search for Cetus (Sierra On-Line)]({% post_url 2024-02-28-ecoquest %}) - 1991
 86. Elvira II: The Jaws of Cerberus (Horrorsoft) - 1991
 87. Gobliiins (Coktel Vision) - 1991
 88. Heart of China (Dynamix) - 1991

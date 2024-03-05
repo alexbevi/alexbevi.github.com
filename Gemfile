@@ -43,5 +43,4 @@ group :development do
   gem "stringex"
 end
 
-gem "puma"
 gem "liquid-c"
