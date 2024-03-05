@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-02-26T10:18:22-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Harvester (DigiFX Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2024/02/23/harvester/" rel="alternate" type="text/html" title="Harvester (DigiFX Interactive) - 1996" /><published>2024-02-23T04:49:50-05:00</published><updated>2024-02-25T10:43:51-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/23/harvester</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/23/harvester/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-03-05T07:36:31-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">EcoQuest: The Search for Cetus (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/28/ecoquest/" rel="alternate" type="text/html" title="EcoQuest: The Search for Cetus (Sierra On-Line) - 1991" /><published>2024-02-28T06:36:42-05:00</published><updated>2024-03-05T07:35:38-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/28/ecoquest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/28/ecoquest/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/EcoQuest:_The_Search_for_Cetus">EcoQuest: The Search for Cetus</a> is an educational adventure designed to teach about the importance of environmental ethics.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00005.png" alt="" /></p>
+
+<p>The player is cast into the role of Adam, the twelve-year-old son of the famous ecologist Noah Greene. One day, his father rescues a dolphin from an abandoned fish net. As Adam becomes more friendly with the creature, he is amazed to discover that the dolphin can talk! Adam finds out that his new friend is Delphineus, the messenger of the whale king Cetus. As a qualified scuba diver, Adam is chosen to venture into the underwater kingdom of animals known as Eluria, and help its inhabitants.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00022.png" alt="" /></p>
+
+<p>EcoQuest uses Sierra’s <a href="http://sciwiki.sierrahelp.com/index.php/Sierra_Creative_Interpreter#SCI1.1">SCI1.1</a> game engine, so the typical actions are accessible for you to cycle through (<code class="language-plaintext highlighter-rouge">MOVE</code>, <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">TALK</code>), but unlike any other Sierra title you also have a <code class="language-plaintext highlighter-rouge">RECYCLE</code> action available.</p>
+
+<p>As this is effectively an “<a href="https://en.wikipedia.org/wiki/Educational_entertainment">Edutainment</a>” title the player is meant to learn as the game progresses, and what Sierra’s trying to teach you seems to be how humans littering and polluting can effect the environment.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00008.png" alt="" />
+<em>All that pollution can’t be good for anything living in the water right?</em></p>
+
+<p>Once you meet Delphineus, figure out how to get the diving gear and make your way out into the ocean the game really begins. Delphineus fills you in on some backstory, including that Cetus - the Great Whale King - is missing.</p>
+
+<p>He’ll take you to the underwater kingdom of Eluria, but first you need to get acclimatized to the two moving around the game world. Unlike most adventure games that take place on land, you’ll be in the water for the vast majority of this game so you get around by swimming.</p>
+
+<p>This is no different from walking other than on certain screens where you can surface, you’ll also be able to dive back down underwater.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00002.png" alt="" />
+<em>You’ll use this bag a lot throughout the game</em></p>
+
+<p>As with most Sierra Online games, there is a point system that rewards you for taking various actions as you progress. In EcoQuest one of the main ways you get points is by recycling garbage.</p>
+
+<p>After picking up the garbage bag on the first screen of the game you’ll have a <code class="language-plaintext highlighter-rouge">RECYCLE</code> action available for use, which when clicked on a piece of garbage will instruct Adam to dispose of it.</p>
+
+<p>Recycling adds nothing to the game and is just busywork for the player to get more points, but I’m assuming was Sierra’s way of trying to teach kids to be mindful of the environment.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00014.png" alt="" /></p>
+
+<p>Once you reach the kingdom of Eluria the main plot points will unfold. First you’ll be introduced to the game’s main antagonist, who appears to be a giant manta ray. He just sort of swims by overhead but Delphineus lets you know this is someone to be afraid of.</p>
+
+<p>Second, you’ll learn there’s a prophecy that a child of man would come and save Eluria. How convenient seeing as that’s exactly what you are …</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00019.png" alt="" /></p>
+
+<p>The artwork in this game is excellent, and really draws you into the game world. Even though EcoQuest is more of a “beginner” adventure, it’s very approachable and has a good enough story to entice you to continue playing.</p>
+
+<p>The music and sound effects aren’t great, but aren’t terrible either. The background music samples are typically short, so if you’re on the same screen for a while trying to solve a puzzle it’s very noticeable how often the samples loop.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00017.png" alt="" />
+<em>In the CD version these interactions are fully voiced</em></p>
+
+<p>If you play the CD version of the game then everything is voice acted, and the voice acting isn’t bad. A number of the characters you’ll meet in Eluria definitely feel like they were inspired by <a href="https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)">Disney’s “The Little Mermaid”</a>, and the voice actors leaned into their their depictions of these characters pretty heavily.</p>
+
+<p>Though this can come across as campy, I really enjoyed it.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00020.png" alt="" /></p>
+
+<p>As far as gameplay is concerned, most of the game is just basic fetch quests and item combination puzzles. Every screen plays out about the same as you’ll have to (a) talk to someone, (b) pick up a bunch of stuff, (c) maybe recycle some garbage, (d) maybe use some items.</p>
+
+<p>Unlike other Sierra games, EcoQuest is somewhat unique as there are no unwinnable states and I’m fairly certain you also can’t die.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00003.png" alt="" />
+<em>This is the solution to one of the last puzzles in the game</em></p>
+
+<p>The item combination puzzles are a bit more difficult, but the game does a pretty good job of shoving the solution in your face - as long as you’re paying attention.</p>
+
+<p>There are no dead ends and no red herrings, so as long as you pick up everything the solution to most puzzles will be pretty obvious as it will typically involving using something or giving something to someone.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00012.png" alt="" /></p>
+
+<p>To add some variety to the gameplay there are a couple puzzles you’ll need to solve as well. The sliding tile puzzle is a pain in the ass, but if you click the <em>Help</em> button the game will automatically play itself.</p>
+
+<p>Clicking <em>Help</em> repeatedly will just keep sliding the tiles for you until the puzzle is solved, so if like me you really don’t like these types of puzzles you’ll appreciate this type of quality of life feature in the game.</p>
+
+<p>The other puzzle just involves rotating 9 sections of a column in a specific order until they lock into place. This one is pretty straightforward and can be brute forced through trial and error relatively quickly.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00026.png" alt="" /></p>
+
+<p>Near the end of the game you’ll find some radioactive waste that you’ll need to get cleaned up. This is done by floating a transmitter up to the surface to alert a salvage crew as to the location of the waste.</p>
+
+<p>The solution here is an item combination puzzle which the game taught you about on the first screen of the game. Hopefully you were paying attention …</p>
+
+<p>Once you get that cleaned up Delphineus will be captured by the manta ray and you’ll need to save him. You’ll also find Cetus, who appears to have been harpooned by a sunken fishing boat. You’ll need to save him, which will involve cutting the head of the harpoon off from inside his mouth. Good think you found a hacksaw a few screens back.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00025.png" alt="" /></p>
+
+<p>You’ll free Cetus, free Delphineus and get into a showdown with the manta ray. Why the manta ray is evil, or what it’s motivation is to torment the citizens of Eluria aren’t really explained,  but you’re going to have to deal with him to finish the game.</p>
+
+<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00028.png" alt="" /></p>
+
+<p>Stabbing the manta ray with a lion fish spine will stun it enough for Cetus to whack it with it’s tail. I think you ultimately kill the manta ray, which seems at odds with the more pacifist messaging throughout this game.</p>
+
+<p>EcoQuest is definitely targeted at a younger player, and it does a good job of holding your hand through most of the game. The end result is that it’s really not all that much fun to play as there’s limited variety to the types of interactions you’ll have with the game world.</p>
+
+<p>The game is also incredibly short, which may also be due to the target audience.</p>
+
+<p>I’m pretty sure I played this game briefly around the time it came out and didn’t find it all that engaging or entertaining. My opinion hasn’t changed all that much now that I’ve actually completed the game, but I would recommend playing the CD version if you actually want to try this game as the voice acting definitely enhances the play experience.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>EcoQuest: The Search for Cetus</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1991</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/3052"><em>How Long To Beat?</em></a></td>
+      <td>2.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/ecoquest.aspx">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>36%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00001.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00001.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00004.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00004.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00006.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00006.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00007.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00007.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00009.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00009.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00010.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00010.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00011.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00011.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00013.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00013.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00015.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00015.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00016.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00016.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00018.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00018.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00021.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00021.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00023.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00023.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00024.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00024.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00027.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00027.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/584/ecoquest-the-search-for-cetus/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Harvester (DigiFX Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2024/02/23/harvester/" rel="alternate" type="text/html" title="Harvester (DigiFX Interactive) - 1996" /><published>2024-02-23T04:49:50-05:00</published><updated>2024-02-25T10:43:51-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/23/harvester</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/23/harvester/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1410,177 +1598,4 @@ ffmpeg <span class="nt">-f</span> concat <span class="nt">-safe</span> 0 <span c
 
 <p>This uses <a href="https://ffmpeg.org/">FFmpeg</a> to concatenate the videos and copy them to a new file called <code class="language-plaintext highlighter-rouge">output.mp4</code>. The input list for the videos is just a bash command to generate a list of MP4 files with the full path to the file in chronological order by create date.</p>
 
-<p>Note that <code class="language-plaintext highlighter-rouge">safe</code> mode is disabled (see <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Options"><code class="language-plaintext highlighter-rouge">ffmpeg</code> options</a>) as having it enabled can result in the video creation failing for file-naming reasons. Why is this enabled by default and not disabled you might ask … <a href="https://trac.ffmpeg.org/ticket/5558">#5558 <em>concat protocol should run in “-safe 0” mode by default</em></a> has more info on that topic.</p>]]></content><author><name></name></author><category term="video" /><category term="ffmpeg" /><category term="video" /><category term="scripting" /><summary type="html"><![CDATA[I have a HERO10 Black that I use to record video from my kids hockey games (such as this one), but since I typically move around with the camera between periods, the videos end up being “chaptered”, or multiple single videos. Though you’d think you could just sort these files by filename, GoPro’s file naming convention doesn’t actually lend itself well to this, and doing so results in out of sequence video.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/camera-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/camera-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Police Quest III: The Kindred (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2023/12/16/police-quest-iii/" rel="alternate" type="text/html" title="Police Quest III: The Kindred (Sierra On-Line) - 1991" /><published>2023-12-16T08:34:11-05:00</published><updated>2023-12-20T06:33:37-05:00</updated><id>https://www.alexbevi.com/blog/2023/12/16/police-quest-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2023/12/16/police-quest-iii/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Police_Quest_III:_The_Kindred">Police Quest III: The Kindred</a> is a 1991 police procedural point-and-click adventure video game developed and published by Jim Walls and Sierra On-Line.</p>
-
-<p>Sonny Bonds, the sergeant of Lytton police department, thought he could finally enjoy peaceful life with his wife Marie after the drug lord Jessie Bains has been put away for good. However, a series of gruesome murders perpetrated by a sinister cult known as “The Kindred” shocks the city. Marie becomes a victim of their attack and falls into a coma. It becomes Sonny’s very personal mission to track down the attackers and make them pay for their crimes.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00035.png" alt="" /></p>
-
-<p>The Kindred is the third installment of the Police Quest series, its events taking place after those described in <a href="/blog/2023/02/21/police-quest-2/">Police Quest II: The Vengeance</a>. The game brings back some of the elements of the first game, such as a modified version of driving sequences and police procedures unrelated to the main plot the protagonist must go through. Computer work is particularly emphasized, requiring the player to perform tasks such as using facial composite software or figuring out murder patterns by studying a map. Like other Sierra adventures of the time, the game uses an icon-based interface for interaction with the environment.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00002.png" alt="" /></p>
-
-<p>Sonny has been promoted following the events of Police Quest II, and the game starts off with you giving a briefing to the other detectives to kick things off. There are multiple narrative threads in this title which gives it some additional depth, and you dive right into one of them as soon as the game starts. Detective Pat Morales has apparently got a complaint lodged against her for use of abusive language. Since these games are effectively police procedure simulators, you’re going to need to start off by interviewing her, then deciding what to do about said complaint and file the appropriate paperwork.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00005.png" alt="" />
-<em>Picking the wrong option when filing paperwork can lead to a game over</em></p>
-
-<p>Following the proper protocol at all times is a requirement to being successful in any Police Quest game, and luckily for you these protocols are well documented in the game’s <a href="https://archive.org/details/Police_Quest_3_-_Manual">manual</a>. There are all sorts of procedures outlined here such as how to handle felony situations, obtaining entry into private property, courtroom procedures and forceful entry into dwellings. If it’s in the manual, you’re likely going to need to do it at some point in the game so it’s not a bad idea to do the reading up front so you know what you’re dealing with.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00013.png" alt="" /></p>
-
-<p>Detective Morales will prove to be a pain in your ass throughout the game. Once you find your way downstairs on the first day and get into the squad car you’ll have to drive out to observe a failure to sign, as the driver that the detective pulled over doesn’t want to sign a citation because the officer was being rude. Yup … it’s Morales again.</p>
-
-<p>This is another segment of the game where you’re presented with a couple options as to how you can respond, and if you pick the wrong one - it’s game over. You can send the pregnant woman to jail (which is what Detective Morales suggests), but doing so gets the department sued for $1 million and you lose your job (game over).</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00041.png" alt="" /></p>
-
-<p>Being a Sierra game, expect almost every decision you make to potentially result in death. This actually makes the game a little easier to complete as exercising good game save hygiene will allow you to trial-and-error your way through most scenarios. Just save, try something, fail, reload, try the other option and move along … rinse and repeat.</p>
-
-<p>You’ll still need to pay attention and take notes though - especially when characters mention things like case numbers, serial numbers and addresses.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00028.png" alt="" /></p>
-
-<p>There’s a computer you’ll need to use to look up case details or search for items by serial number. These pieces of information are typically mentioned during conversations with other characters and may only be referenced once. If you miss a case number when the chief is briefing you, it may not be available again and you’ll have to reload a previous save and repeat the conversation to get that piece of information (or use a walkthrough).</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00032.png" alt="" /></p>
-
-<p>The computer is actually used for a number of scenarios in this game. My favourite is the scene where you bring a homeless woman back to the office because she claims she saw someone suspicious and wants to describe them to you. Instead of a police artist generating a composite image based on her description, you use the computer to generate a face based on her prompts. This is actually kind of fun and breaks up some of the monotony of police procedure.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00026.png" alt="" /></p>
-
-<p>Along with the ongoing issues with Detective Morales (who ends up being assigned as your partner on Day 2) is the subplot involving the attempted murder of your wife. Mary is stabbed in the parking lot of the mall, and your captain knows you won’t rest until the case is solved so he assigns it to you to investigate.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00039.png" alt="" /></p>
-
-<p>Investigating the case involves a lot of driving back and forth between locations and the police station. The tedious manual driving from <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a> is back, but this time without any visual differentiation on the map (as the VGA remake of PQ1 provided). You just drive in a direction and wait for the road signs to tell you where you are - and if you’re approaching a location.</p>
-
-<p>I did not enjoy this at all. It honestly felt like filler most of the time and was there to slow you down.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00021.png" alt="" /></p>
-
-<p>You’ll have to deal with a handful of highway patrol scenarios early on, which aren’t too difficult but require you to drive back and forth until the relevant event triggers. You’ll also have to drive back and forth to various locations and the police station to advance the story as the game progresses. There is a lot of driving in this game, and honestly I would have appreciated a “fast travel” type of option near the end …</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00046.png" alt="" /></p>
-
-<p>The locations you drive to will require investigation, and this involves more police procedure (properly collecting and handling evidence). You have a field kit in the trunk of your car that you need to open and take everything out of each time you visit a crime scene. Once you collect and bag evidence you need to return the field kit items back to the kit before you can leave the scene. This just seems like something they could have automated for you, as it artificially delays you from progressing to get a message like “You can’t get into the car until you return the field kit items to their respective slots in the kit”, or something like that.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00023.png" alt="" /></p>
-
-<p>After each scene you will either return to the police station or the hospital. If you go back to the station you’ll either be booking a perpetrator (if you arrested someone) or booking evidence. When booking evidence you’ll need to enter the case number the evidence belongs to, so make sure you’ve taken note of these. If you book a perp, you’ll need to provide the correct booking code. These are all in the manual, so you just need to make sure you pick the right one (it’s not that hard).</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00037.png" alt="" /></p>
-
-<p>The subplot about your wife actually leads into a thread about multiple murders that have some kind of occult ties to them. You’ll need to keep track of the locations of these murders as there’s a final segment on the computer where you need to plot the crimes on a map of the city and draw a pattern to try to tie them together. Assuming you do this correctly you’ll draw a pentagram that will give you the location of the final crime scene.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00044.png" alt="" /></p>
-
-<p>It’ll come as no surprise that Detective Morales is tied up in all of this (there are signs throughout the game). The game also manages to link the series antagonist (Jesse Bains) to this game as well by introducing his brother near the end as being affiliated with one of the perpetrators you were trying to hunt down.</p>
-
-<p>Though I may not love the driving in this game and find it overused, the strong story more than makes up for it. This is no surprise as the game was written by <a href="https://en.wikipedia.org/wiki/Jane_Jensen">Jane Jensen</a>, who would also go on to write <a href="/blog/2023/06/14/gabriel-knight-sins-of-the-fathers/">Gabriel Knight: Sins of the Fathers</a>, so you know you’re in for some twists and turns and a sprinkling of the occult.</p>
-
-<p><img src="/images/adventure/pq3/scummvm-pq3-00051.png" alt="" /></p>
-
-<p>I have very fond memories of this game, and I really enjoyed going back to it - but it’s not as good as I remembered. Though there are a lot of digitized sound effects, and occasionally there is background music most of the time you just have generic background noise. The driving segments of the game are overused and just make everything feel slower as a result.</p>
-
-<p>You do get to use the gun near the end of the game (exactly twice), but it’s not really obvious either time that this is necessary until you die and are prompted that maybe you should be “more prepared” next time.</p>
-
-<p>Although I did find some aspects of this game entertaining, overall I was just trying to get to the end so that I could move on. If not for the strong story I would probably recommend skipping this game, but if you’ve played the first 2 entries in the series you might as experience the conclusion of Sonny Bonds’ story arc.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Police Quest III: The Kindred</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1991</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Amiga</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/7195"><em>How Long To Beat?</em></a></td>
-      <td>4.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://gamerwalkthroughs.com/police-quest-3-the-kindred/">Walkthrough</a>, <a href="https://archive.org/details/Police_Quest_3_-_Manual">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>59%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/pq3/scummvm-pq3-00001.png', thumb: '/images/adventure/pq3/scummvm-pq3-00001.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00003.png', thumb: '/images/adventure/pq3/scummvm-pq3-00003.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00004.png', thumb: '/images/adventure/pq3/scummvm-pq3-00004.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00006.png', thumb: '/images/adventure/pq3/scummvm-pq3-00006.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00007.png', thumb: '/images/adventure/pq3/scummvm-pq3-00007.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00008.png', thumb: '/images/adventure/pq3/scummvm-pq3-00008.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00009.png', thumb: '/images/adventure/pq3/scummvm-pq3-00009.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00010.png', thumb: '/images/adventure/pq3/scummvm-pq3-00010.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00011.png', thumb: '/images/adventure/pq3/scummvm-pq3-00011.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00012.png', thumb: '/images/adventure/pq3/scummvm-pq3-00012.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00014.png', thumb: '/images/adventure/pq3/scummvm-pq3-00014.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00015.png', thumb: '/images/adventure/pq3/scummvm-pq3-00015.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00016.png', thumb: '/images/adventure/pq3/scummvm-pq3-00016.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00017.png', thumb: '/images/adventure/pq3/scummvm-pq3-00017.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00018.png', thumb: '/images/adventure/pq3/scummvm-pq3-00018.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00019.png', thumb: '/images/adventure/pq3/scummvm-pq3-00019.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00020.png', thumb: '/images/adventure/pq3/scummvm-pq3-00020.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00022.png', thumb: '/images/adventure/pq3/scummvm-pq3-00022.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00024.png', thumb: '/images/adventure/pq3/scummvm-pq3-00024.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00025.png', thumb: '/images/adventure/pq3/scummvm-pq3-00025.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00027.png', thumb: '/images/adventure/pq3/scummvm-pq3-00027.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00029.png', thumb: '/images/adventure/pq3/scummvm-pq3-00029.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00030.png', thumb: '/images/adventure/pq3/scummvm-pq3-00030.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00031.png', thumb: '/images/adventure/pq3/scummvm-pq3-00031.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00033.png', thumb: '/images/adventure/pq3/scummvm-pq3-00033.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00034.png', thumb: '/images/adventure/pq3/scummvm-pq3-00034.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00036.png', thumb: '/images/adventure/pq3/scummvm-pq3-00036.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00038.png', thumb: '/images/adventure/pq3/scummvm-pq3-00038.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00040.png', thumb: '/images/adventure/pq3/scummvm-pq3-00040.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00042.png', thumb: '/images/adventure/pq3/scummvm-pq3-00042.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00043.png', thumb: '/images/adventure/pq3/scummvm-pq3-00043.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00045.png', thumb: '/images/adventure/pq3/scummvm-pq3-00045.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00047.png', thumb: '/images/adventure/pq3/scummvm-pq3-00047.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00048.png', thumb: '/images/adventure/pq3/scummvm-pq3-00048.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00049.png', thumb: '/images/adventure/pq3/scummvm-pq3-00049.png' },{ src: '/images/adventure/pq3/scummvm-pq3-00050.png', thumb: '/images/adventure/pq3/scummvm-pq3-00050.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/148/police-quest-3-the-kindred/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pq3/scummvm-pq3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Note that <code class="language-plaintext highlighter-rouge">safe</code> mode is disabled (see <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Options"><code class="language-plaintext highlighter-rouge">ffmpeg</code> options</a>) as having it enabled can result in the video creation failing for file-naming reasons. Why is this enabled by default and not disabled you might ask … <a href="https://trac.ffmpeg.org/ticket/5558">#5558 <em>concat protocol should run in “-safe 0” mode by default</em></a> has more info on that topic.</p>]]></content><author><name></name></author><category term="video" /><category term="ffmpeg" /><category term="video" /><category term="scripting" /><summary type="html"><![CDATA[I have a HERO10 Black that I use to record video from my kids hockey games (such as this one), but since I typically move around with the camera between periods, the videos end up being “chaptered”, or multiple single videos. Though you’d think you could just sort these files by filename, GoPro’s file naming convention doesn’t actually lend itself well to this, and doing so results in out of sequence video.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/camera-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/camera-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
