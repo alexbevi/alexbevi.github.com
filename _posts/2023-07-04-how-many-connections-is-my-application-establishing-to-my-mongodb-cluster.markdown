@@ -73,6 +73,7 @@ Depending on your application's architecture, it's possible to blow past your co
 If each Lambda function were to connect to a MongoDB 4.4+ cluster using a connection string of `mongodb+srv://xxx.mongodb.net/?minPoolSize=5` and the cluster only had 3000 connections configured, within 150 near-concurrent function executions the cluster could potentially reach the connection limit! This is obviously an extreme scenario, but is meant to help illustrate the impact creating many `MongoClient` instances can potentially have on your cluster.
 
 I plan on going into much more detail regarding AWS Lambda and MongoDB connection behavior in a future article.
+
 ----
 
 [^1]: <small>The MongoDB C driver has two connection modes: single-threaded and [pooled](https://mongoc.org/libmongoc/current/connection-pooling.html#pooled-mode). Single-threaded mode is optimized for embedding the driver within languages like PHP. Multi-threaded programs should use pooled mode: this mode minimizes the total connection count, and in pooled mode background threads monitor the MongoDB server topology, so the program need not block to scan it.</small>
