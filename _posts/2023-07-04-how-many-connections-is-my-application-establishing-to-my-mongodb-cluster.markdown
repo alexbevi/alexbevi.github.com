@@ -76,6 +76,8 @@ I plan on going into much more detail regarding AWS Lambda and MongoDB connectio
 
 ----
 
+**Footnotes**
+
 [^1]: <small>The MongoDB C driver has two connection modes: single-threaded and [pooled](https://mongoc.org/libmongoc/current/connection-pooling.html#pooled-mode). Single-threaded mode is optimized for embedding the driver within languages like PHP. Multi-threaded programs should use pooled mode: this mode minimizes the total connection count, and in pooled mode background threads monitor the MongoDB server topology, so the program need not block to scan it.</small>
 [^2]: <small>`MongoClient`s created using a [DNS Seed List](https://www.mongodb.com/docs/manual/reference/connection-string/#dns-seed-list-connection-format) connection string can [poll the `SRV` record to discover additional `mongos`'](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst)</small>
 [^3]: <small>Polling interval can be configured via the [`heartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#heartbeatfrequencyms) URI option, but must be more than the [`minHeartbeatFrequencyMS`](https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.rst#minheartbeatfrequencyms) of 500ms. In MongoDB Atlas environments the `heartbeatFrequencyMS` is lowered from the default (10000) to 5000.
