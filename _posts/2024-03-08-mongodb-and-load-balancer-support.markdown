@@ -176,7 +176,7 @@ mongosh --quiet "mongodb://localhost:37000/test?loadBalanced=true" --eval "while
 Success! It is worth noting though that this configuration works for us locally as we have direct control of the `mongos` processes startup parameters.
 
 > MongoDB Atlas `mongos`' could not be placed behind a load balancer directly as startup parameter configuration access is not available!
-{: .prompt-warn }
+{: .prompt-warning }
 
 ## Conclusion
 
