@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 71  -%}
+{%- assign games_finished = 72  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -83,6 +83,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **41%** [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
 1. **40%** [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 1. **39%** [Companions of Xanth (Legend Entertainment)]({% post_url 2023-05-23-companions-of-xanth %}) - 1993
+1. **39%** [Codename: ICEMAN (Sierra On-Line)](% post_url 2024-03-20-codename-iceman %) - 1989
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **36%** [EcoQuest: The Search for Cetus (Sierra On-Line)]({% post_url 2024-02-28-ecoquest %}) - 1991
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
@@ -98,4 +99,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
-
