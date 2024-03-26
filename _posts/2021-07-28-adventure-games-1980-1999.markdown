@@ -141,7 +141,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 61. Indiana Jones and the Last Crusade (Lucasfilm Games) - 1989
 62. Quest for Glory: So You Want to Be a Hero (Sierra On-Line) - 1989
 63. The Colonel's Bequest (Sierra On-Line) - 1989
-64. [Codename: ICEMAN (Sierra On-Line)](% post_url 2024-03-20-codename-iceman %) - 1989
+64. [Codename: ICEMAN (Sierra On-Line)]({% post_url 2024-03-20-codename-iceman %}) - 1989
 65. Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line) - 1989
 66. Altered Destiny (Accolade) - 1990
 67. [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
