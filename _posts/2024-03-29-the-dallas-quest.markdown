@@ -72,7 +72,7 @@ It's possible my lack of familiarity with the property the game is based on migh
 
 ![](/images/adventure/dallas/screenshot-2024-March-29-08-27-03.png)
 
-The Dallas Quest is interesting in that it was an early adventure game based on a popular TV show (at the time). These types licensed tie-ins are usually reserved for movies (like [Labyrinth: The Computer Game)]({% post_url 2021-08-30-labyrinth %})) so I guess that should speak to how popular this show must have been.
+The Dallas Quest is interesting in that it was an early adventure game based on a popular TV show (at the time). These types licensed tie-ins are usually reserved for movies (like [Labyrinth: The Computer Game)]({% post_url 2021-08-30-labyrinth %}) so I guess that should speak to how popular this show must have been.
 
 Other than the intro music and a couple segments where you have to play a bugle there isn't much in the way of sound effects or music. The graphics are decent (for the time) and I had a lot of fun mucking around with a TRS-80 emulator - but I don't think there's a modern audience for this title.
 
