@@ -41,6 +41,12 @@ _After getting the monkey to free me from the parachute the game craps out_
 
 Though I was enjoying the TRS-80 playthrough, I could only go so far before the game errored out. I wasn't sure if this was a bad disk image, emulation problem or something else but I never ended up figuring it out so wound up starting over again using an Apple II emulator and ROM instead.
 
+![](/images/adventure/dallas/screenshot-2024-March-29-07-46-55.png)
+
+Switching over to the Apple II version of the game lets you once again experience the glory of the cracktro scene. Though not animated or interactive, I still appreciate the work that these programmers put into these digital taggings.
+
+I might do a deeper dive into this topic in the future, but for now ... back to trying to find this map that leads to an oil field ...
+
 ![](/images/adventure/dallas/screenshot-2024-March-29-07-57-48.png)
 
 This game is a lot goofier than I would have expected. Maybe this is what the writing on the show was like, but I have no real interest in finding out so feel free to let me know in the comments :)
@@ -98,7 +104,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 ### Gallery
 
 {% galleria %}
-/images/adventure/dallas/screenshot-2024-March-29-07-46-55.png
 /images/adventure/dallas/screenshot-2024-March-29-07-47-21.png
 /images/adventure/dallas/screenshot-2024-March-29-07-48-45.png
 /images/adventure/dallas/screenshot-2024-March-29-07-50-11.png
