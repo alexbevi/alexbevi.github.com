@@ -1,4 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-03-29T21:05:54-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Dallas Quest (Datasoft) - 1984</title><link href="https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest/" rel="alternate" type="text/html" title="Dallas Quest (Datasoft) - 1984" /><published>2024-03-29T09:45:36-04:00</published><updated>2024-03-29T21:05:20-04:00</updated><id>https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-19T06:52:05-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Lure of the Temptress (Revolution Software) - 1992</title><link href="https://www.alexbevi.com/blog/2024/04/16/lure-of-the-temptress/" rel="alternate" type="text/html" title="Lure of the Temptress (Revolution Software) - 1992" /><published>2024-04-16T06:45:29-04:00</published><updated>2024-04-19T06:51:04-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/16/lure-of-the-temptress</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/16/lure-of-the-temptress/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Lure_of_the_Temptress">Lure of the Temptress</a> is a point-and-click adventure game published by Virgin Interactive Entertainment in June 1992 for Atari ST, MS-DOS, and Amiga. It was the first game developed by Revolution Software and uses their proprietary <a href="https://en.wikipedia.org/wiki/Virtual_Theatre">Virtual Theatre</a> engine.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00010.png" alt="" /></p>
+
+<p>The medieval town of Turnvale has fallen into the hands of the evil sorceress Selena. She is controlling an army of an orc-like warrior race Skorl, who serve her with devotion. The Skorl hate humans and have terrorized the town and the nearby land. Diermot is an ordinary fellow who was captured by the Skorl and thrown into prison. His first task will be to escape. After gaining his freedom, Diermot will also have to find out how to liberate his entire homeland from the clutches of the villains.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1.png" alt="" /></p>
+
+<p>The game starts off with a short intro sequence that lays out the story. This is presented as mostly static images followed by walls of text, but it gets the point across pretty succinctly and then turns control over to you.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-00001.png" alt="" /></p>
+
+<p>Interaction with the game world is intuitive for anyone familiar with adventure games. You move a cursor around the screen, which will change shape and call out action areas in the top left when you hover over them.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-00008.png" alt="" /></p>
+
+<p>Right-clicking on an action area will bring up a list of verbs you can select from to interact with it, and depending on the verb additional options will be made available.</p>
+
+<p>Though certain verbs such as <code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">PULL</code>, <code class="language-plaintext highlighter-rouge">PUSH</code>, and <code class="language-plaintext highlighter-rouge">USE</code> are typically always available, additional interaction options like <code class="language-plaintext highlighter-rouge">TALK TO</code> won’t appear unless you select an NPC, or <code class="language-plaintext highlighter-rouge">OPEN</code> if you select a door.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-00003.png" alt="" /></p>
+
+<p>The initial sequence in the prison where you start the game gets you acclimatized to the controls and introduces you to the first NPC, Ratpouch.</p>
+
+<p>This was also where this became immediately frustrating, as once we escaped the dungeon Ratpouch wouldn’t follow me. I think I was about 20 minutes into this game before I was <a href="https://www.gog.com/forum/lure_of_the_temptress/ratpouch_keeps_disappearing_and_reappearing_through_the_exit_of_the_sewers">looking on forums for help</a> to get this stupid NPC to follow me.</p>
+
+<p>One interesting mechanic of this game is that certain NPCs will join you throughout the game, and once they do you can give them commands via the <code class="language-plaintext highlighter-rouge">TELL</code> verb. You can use this give them simple tasks, or chain together multiple commands to give them something more complex to do.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00005.png" alt="" /></p>
+
+<p>Command chaining is required at one point in a cave where pulling certain skulls will open doors, but you need to coordinate these actions from different rooms. You’ll need to tell your companion NPC to first go to a different room, then pull a skull, then the other, then go to yet another room.</p>
+
+<p>Figuring out the proper sequence of commands can be a bit frustrating as regardless of what commands Diermot issues, the result is the NPC agreeing and heading off to perform the actions … even if they’re not going to be helpful.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-00005.png" alt="" /></p>
+
+<p>Navigating the game world is straightforward as all exits are easily identifiable. The cursor will change to an arrow if you can exit the current screen in that direction, and once a door has been opened, the cursor will change to an arrow when you hover over it as well.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-00011.png" alt="" /></p>
+
+<p>The game’s visual style is good, and though there aren’t really any cutscenes the odd time that one is presented it’s typically well done.</p>
+
+<p>Unlike many games of this era, death isn’t waiting around every corner. I only found a handful of situations in this game that would result in a game over but I still found myself saving frequently “just in case”.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00009.png" alt="" /></p>
+
+<p>Though only used twice, there is a combat element to this game. When in the cave you find an axe and will have to fight a boar looking creature. I don’t know if this is also supposed to be a Skorl, but there’s really no details given and you kind of just get dropped into this sequence and are left to figure it out.</p>
+
+<p>Combat just involves moving the mouse to either a high/medium/low position in front of you then left/right clicking to attack or block. Clicking both mouse buttons jumps. You need to hit this boar thing about 6-7 times to kill it, and if he hits you that many times you’ll die.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00014.png" alt="" /></p>
+
+<p>The story progresses through a series of interactions with characters in town, then in the castle. These interactions are navigated using dialog trees, which are pretty common for adventure games of this era.</p>
+
+<p>You’re typically presented with a number of options to choose from, with additional options being added based on other interactions you’ve had, items you’ve picked up or plot points you’ve completed.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00004.png" alt="" /></p>
+
+<p>Characters have their own “schedules”, so they’ll roam around town and perform certain actions at certain times. If a character bumps into you or another NPC they’ll apologize and try to navigate around the obstacle.</p>
+
+<p>This can get a little funny when you have 2-3 characters on screen and you sort of stand between them all and watch them jostle around, constantly apologizing.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00011.png" alt="" /></p>
+
+<p>These NPCs include the Skorl, and to advance to the castle you’ll need to talk to Mallin to get a clue that there’s a Skorl acting suspiciously. When this happens you need to find a Skorl NPC and follow him around until he goes into a shop, where you can spy on him through the window.</p>
+
+<p>When you learn the Skorl is going to take the shopkeeper to the castle in a barrel, you take his place to get transported there instead.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-2.png" alt="" /></p>
+
+<p>The final sequence is pretty straightforward and involves some item combination puzzles and a timing puzzle whereby you have to <code class="language-plaintext highlighter-rouge">TELL</code> Minnow to pull a lever so you can turn a crank and lower the drawbridge.</p>
+
+<p>Crossing the drawbridge triggers the second combat sequence of the game with another boar looking thing. After defeating him you advance to Selena’s room, where she turns into a scorpion and you automatically throw the Eye of Gethryn at her and the game is done.</p>
+
+<p><img src="/images/adventure/lure/scummvm-lure-1-00018.png" alt="" /></p>
+
+<p>Overall this game is not great, but it’s not bad. The puzzles weren’t overly complicated and there really aren’t that many areas to explore so the fact that there’s a lot of backtracking to complete fetch quests or find NPCs to talk to doesn’t get too frustrating.</p>
+
+<p>I had problems getting the music to work, but this is <a href="https://www.gog.com/forum/lure_of_the_temptress/lure_of_temptress_no_music_plays_intermittently">apparently also a common issue</a>. I ended up sorting this out by changing my ScummVM configuration to use FluidSynth instead of the MT-32 emulator I typically used.</p>
+
+<p>This got the sound and music working, but the background music is typically just one or two notes repeated periodically. It’s actually pretty annoying so the effort I went to to get this fixed wasn’t really worth it.</p>
+
+<p>I did find the <code class="language-plaintext highlighter-rouge">TELL</code> mechanic innovative, though underused. Being able to direct multiple NPCs at once could have made for some interesting puzzle designs, but I’m satisfied with what I got so this isn’t really a complaint.</p>
+
+<p>Lure of the Temptress is <a href="https://scummvm.org/games/#games-lure:lure">free to download from ScummVM</a> so there’s really no reason not to give it a go if you’re a fan of the genre. It’s relatively short and fairly straightforward to play, though if you’re looking for a much better title from Revolution Software I would point you to <a href="/blog/2023/02/10/beneath-a-steel-sky/">Beneath a Steel Sky</a> instead 😉.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Lure of the Temptress</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Revolution_Software">Revolution Software</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="Virgin Interactive Entertainment">Virgin Interactive Entertainment</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>June 1992</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Amiga, Atari ST</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Lure">Virtual Theatre</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/5448"><em>How Long To Beat?</em></a></td>
+      <td>4 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/lureofthetemptress.aspx">Walkthrough</a>, <a href="https://openretro.org/file/76de1d3a7edfa87b461d18a6195ddcded6c3d964/Manual%20%28en%2Cit%29.pdf">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>46%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/lure/scummvm-lure-00002.png', thumb: '/images/adventure/lure/scummvm-lure-00002.png' },{ src: '/images/adventure/lure/scummvm-lure-00004.png', thumb: '/images/adventure/lure/scummvm-lure-00004.png' },{ src: '/images/adventure/lure/scummvm-lure-00006.png', thumb: '/images/adventure/lure/scummvm-lure-00006.png' },{ src: '/images/adventure/lure/scummvm-lure-00007.png', thumb: '/images/adventure/lure/scummvm-lure-00007.png' },{ src: '/images/adventure/lure/scummvm-lure-00009.png', thumb: '/images/adventure/lure/scummvm-lure-00009.png' },{ src: '/images/adventure/lure/scummvm-lure-00010.png', thumb: '/images/adventure/lure/scummvm-lure-00010.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00000.png', thumb: '/images/adventure/lure/scummvm-lure-1-00000.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00001.png', thumb: '/images/adventure/lure/scummvm-lure-1-00001.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00002.png', thumb: '/images/adventure/lure/scummvm-lure-1-00002.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00003.png', thumb: '/images/adventure/lure/scummvm-lure-1-00003.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00006.png', thumb: '/images/adventure/lure/scummvm-lure-1-00006.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00007.png', thumb: '/images/adventure/lure/scummvm-lure-1-00007.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00008.png', thumb: '/images/adventure/lure/scummvm-lure-1-00008.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00012.png', thumb: '/images/adventure/lure/scummvm-lure-1-00012.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00013.png', thumb: '/images/adventure/lure/scummvm-lure-1-00013.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00015.png', thumb: '/images/adventure/lure/scummvm-lure-1-00015.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00016.png', thumb: '/images/adventure/lure/scummvm-lure-1-00016.png' },{ src: '/images/adventure/lure/scummvm-lure-1-00017.png', thumb: '/images/adventure/lure/scummvm-lure-1-00017.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/1134/lure-of-the-temptress/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Revolution Software" /><category term="Virgin Interactive Entertainment" /><category term="Virtual Theatre" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lure/scummvm-lure-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lure/scummvm-lure-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Dallas Quest (Datasoft) - 1984</title><link href="https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest/" rel="alternate" type="text/html" title="Dallas Quest (Datasoft) - 1984" /><published>2024-03-29T09:45:36-04:00</published><updated>2024-03-29T21:05:20-04:00</updated><id>https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/03/29/the-dallas-quest/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1602,197 +1784,4 @@ system_default = system_default_sect
 
 [system_default_sect]
 Options = UnsafeLegacyRenegotiation
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="connections" /><summary type="html"><![CDATA[Overview]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Innocent Until Caught (Divide By Zero) - 1993</title><link href="https://www.alexbevi.com/blog/2024/01/29/innocent-until-caught/" rel="alternate" type="text/html" title="Innocent Until Caught (Divide By Zero) - 1993" /><published>2024-01-29T06:39:02-05:00</published><updated>2024-01-30T06:56:36-05:00</updated><id>https://www.alexbevi.com/blog/2024/01/29/innocent-until-caught</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/01/29/innocent-until-caught/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Innocent_Until_Caught">Innocent Until Caught</a> is a graphic adventure game with an icon-based point-and-click interface.</p>
-
-<p><img src="/images/adventure/iuc/innocent_004.png" alt="" /></p>
-
-<p>Jack T. Ladd is a thief, his hunting-ground is the whole galaxy, and at the moment, he’s in big trouble. He’s got 28 days to pay his taxes - or else the interstellar tax agency will hunt him down. Termination is a viable punishment for tax offenders in these days, you know. Stranded blank on the barren, run-down planet Tayte, Jack decides that he has to make some cash. Quick.</p>
-
-<p>Innocent Until Caught is pretty standard in terms of design but introduces some innovations when it comes to the interface. It features a mini-window at the bottom left of the screen which is alternately a mini-map of the area (showing all exits) and a looking glass for detecting small items. The inventory is a box-window in which objects can be placed wherever player wants (even on top of others). Also, the plot is illustrated by a few rendered sequences, some of the first used in adventure games.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/iuc/innocent_002.png" alt="" />
-<em>Not too shabby looking for a cutscene from 1993</em></p>
-
-<p>From the minute I started playing this game I got <a href="/blog/2023/02/10/beneath-a-steel-sky/">Beneath a Steel Sky</a> vibes. I didn’t realize that game came out a year later, so maybe I should be saying the reverse, but regardless of semantics Innocent Until Caught struck a tone with me. I am a huge sucker for games that seem to take place in either a post-apocalyptic future, a dystopian future or a cyberpunk setting.</p>
-
-<p>This game is set in a dystopian future, but right away you’re treated to the comedic undertones that highlight the entire plot. It doesn’t take much of a stretch to envision this game having been written by <a href="https://en.wikipedia.org/wiki/Al_Lowe">Al Lowe</a> as the backdrop for a slightly darker Leisure Suit Larry adventure.</p>
-
-<p><img src="/images/adventure/iuc/innocent_021.png" alt="" />
-<em>You know you wanna know what happens next …</em></p>
-
-<p>Innocent Until Caught offers a pretty straightforward interface, though it overloads each interface area to perform double-duty. The bottom left area is a mini-map, however when you’re <code class="language-plaintext highlighter-rouge">LOOK</code>ing at something it will tell you what you’re hovering over. The mini-map also shows all exits to the current screen you can follow, which can be clicked on if you have <code class="language-plaintext highlighter-rouge">WALK</code> selected.</p>
-
-<p>The middle area is your action/verb bar as well as the <code class="language-plaintext highlighter-rouge">STATUS</code> button. The status area gives you details about your progress and is where you can find save/load and configuration options.</p>
-
-<p><img src="/images/adventure/iuc/innocent_033.png" alt="" /></p>
-
-<p>Your status screen also shows a profile of Jack T. Ladd which serves absolutely no purpose until the very end of the game, at which point you can use this to change your clothes to impersonate a guard.</p>
-
-<p>Inventory management and item combinations are a massive part of this game. The third status area of the user interface which takes up about 2/3 of the screen is the inventory. There are just so many items you can pick up throughout this game - and I’m pretty sure ALL of them are required to progress.</p>
-
-<p><img src="/images/adventure/iuc/innocent_016.png" alt="" /></p>
-
-<p>If there’s one thing I have to gripe about when it comes to this game it’s the <a href="https://www.urbandictionary.com/define.php?term=moon%20logic">moon logic</a> you need to apply to certain puzzles and item combinations. If you thought <a href="https://musingsofanitpickinggirl.wordpress.com/2018/10/15/can-we-talk-about-the-monkey-wrench-puzzle/">Monkey Island’s “Monkey Wrench”</a> puzzle was obtuse, wait until you get a load of this game.</p>
-
-<p>Need to break into a bank? Get the plans for it from the bank first, then <code class="language-plaintext highlighter-rouge">USE</code> those plans in the sewer to find your way to an alcove that shows where the wall is the weakest. To get through that wall you’ll need to blow a hole in it. Put a mushroom in front of the alcove, then release a fly that will fly into the mushroom causing it to explode. How do you catch that fly? First find a jar and a lid (make sure to combine them when you find them). How do you get the fly in the jar? Fill it with mayonnaise of course!</p>
-
-<p><img src="/images/adventure/iuc/innocent_018.png" alt="" /></p>
-
-<p>Fly flies into the mushroom and BOOM goes the wall. Well that was easy … right?</p>
-
-<p>I’m assuming there must have been some conversational hint or observation when you <code class="language-plaintext highlighter-rouge">INSPECT</code> something somewhere because I read through the <a href="http://www.replacementdocs.com/download.php?view.6546">manual</a> and didn’t find any mention of the fly … or a mushroom. The manual does give you a couple clues to some of these puzzles though like <em>“Try to find an alternative way to enter the zoo. When you do, how you smell might mean the difference between life and death.”</em></p>
-
-<p><img src="/images/adventure/iuc/innocent_001.raw1.png" alt="" />
-<em>Yet another feat of mental gymnastics will be required to get past this monster</em></p>
-
-<p>Though the puzzles can be ridiculously difficult to solve, the game as a whole is pretty forgiving. I didn’t die once - not did I find myself in an unwinnable situation. I don’t actually know if it’s possible to do either of these as I’m assuming the game just doesn’t let you advance until you have all the necessary items to progress past the area you’re trying to get to.</p>
-
-<p>I leaned on the walkthrough pretty heavily during this playthrough so I’m not 100% sure if this is the case, but whenever I tried to put Jack in danger the game just sort of told me “you can’t do that”.</p>
-
-<p><img src="/images/adventure/iuc/innocent_017.png" alt="" /></p>
-
-<p>When you’re not scanning every inch of every screen to <code class="language-plaintext highlighter-rouge">SEE</code> if there’s an item to pick up, you can progress the plot by <code class="language-plaintext highlighter-rouge">TALK</code>ing to most characters. These interactions take place in a conversation view where you typically have 3 options you can choose from in any situation. You can also inspect what you’re being told to pull out keywords from a conversation to ask more about this (the cursor will turn to a question mark when you find a keyword in a response).</p>
-
-<p>I only used this once or twice during the game so it’s not a major mechanic, but it does add some variety to these interactions.</p>
-
-<p><img src="/images/adventure/iuc/innocent_023.png" alt="" /></p>
-
-<p>The writing in this game is excellent, and it’s worth noting that the themes and dialogue of Innocent Until Caught are not for kids. I think this actually drew me in more as it felt like a more mature game and it gave the writers more leeway to inject adult humour and themes throughout.</p>
-
-<p>I was very much sucked into this game world and enjoyed <em>most</em> of the experience … but then you try to break out of jail.</p>
-
-<p><img src="/images/adventure/iuc/innocent_024.png" alt="" /></p>
-
-<p>The jailbreak sequence involves navigating a maze. I HATE MAZES. This was just unnecessarily drawn out because there’s nothing to do but grind your way through using trial and error until you muddle your way to the end. I’m sure there are people that genuinely enjoy mazes, but I’m not one of those people so I call them out whenever I encounter them (as I did with <a href="/blog/2023/09/06/manhunter-san-francisco/">Manhunter 2: San Francisco</a>, <a href="/blog/2023/05/31/return-to-ringworld/">Return to Ringworld</a> and <a href="/blog/2023/11/24/the-legend-of-kyrandia/">The Legend of Kyrandia: Fables and Fiends</a>).</p>
-
-<p>Thankfully this is only one sequence and you can burn through it in about 20-30 minutes (depending on how much backtracking you have to do).</p>
-
-<p><img src="/images/adventure/iuc/innocent_013.png" alt="" />
-<em>If you’re unable to board the train, you’re using DOSBox and your CPU cycles are below 6000</em></p>
-
-<p>The majority of the initial act of the game takes place in 5 different areas which are accessible by subway. Once you visit each area (by waiting for the subway to get there) you’ll be able to “fast travel” by getting on the subway at any stop, looking at the subway map and just clicking the stop you want to go to. This is EXTREMELY convenient as it allows you to bypass the drawn out subway ride between stops.</p>
-
-<p>One issue I had with the subway was that I found myself unable to progress the first time I played this game. Every time the subway car would stop and open the doors I clicked like a maniac to get Jack to board the train cycling through every verb/action available … but nothing worked. It turns out that this is a known (but poorly documented) issue you’ll run into if playing the game via DOSBox.</p>
-
-<p>If you want to avoid the frustration, start the game as follows:</p>
-
-<ol>
-  <li>Launch DOSBox</li>
-  <li>Increase the <a href="https://www.dosbox.com/wiki/Performance#CPU_Cycles_.28speed_up.2Fslow_down.29">CPU cycles</a> beyond 6000 (default is 3000)</li>
-  <li>Run <code class="language-plaintext highlighter-rouge">INNOCENT.EXE</code> to start the game</li>
-</ol>
-
-<p>You can now board the train successfully. You have to follow this sequence as increasing the cycles once the game is already running doesn’t seem to work. Once you’ve done the above you can restore a game right before you board the train and you should board successfully.</p>
-
-<p>Note that you <em>can’t</em> change your audio configuration and then load a save state. If you do so the audio just won’t work and you’ll have to play the rest of the game in silence. This was a bit frustrating as I wanted to play through using either the Soundblaster or Roland configuration … but I started with Adlib so that’s what I rolled with.</p>
-
-<p><img src="/images/adventure/iuc/innocent_020.png" alt="" />
-<em>The game does give you A LOT of clues as to what you may need to do next</em></p>
-
-<p>The music is atmospheric and appropriate - though limited. There are a handful of background songs that the game will cycle through based on the screen you’re on, and the samples are pretty short so you’ll notice the looping. This is a pretty minor complaint though as the songs are pretty good.</p>
-
-<p>Aside from some technical challenges and a maze that I could have done without, this game came as a pleasant surprise. I’ve heard of it numerous times over the years but never took the time to try it out myself - but I’m really glad I did.</p>
-
-<p>Since there’s a sequel (<a href="https://en.wikipedia.org/wiki/Guilty_(video_game)">Guilty</a>) that came out a couple years later I’m now looking forward to when I get to tackle that title as well.</p>
-
-<p>I’d recommend this game, though you’ll likely need a walkthrough to solve some of the puzzles. Do yourself a favour though and setup your preferred audio device before you start the game ;)</p>
-
-<p><img src="/images/adventure/iuc/innocent_035.png" alt="" /></p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Innocent Until Caught</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://www.mobygames.com/company/1104/divide-by-zero-ltd/">Divide By Zero</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Psygnosis</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Amiga</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Interspective">Interspective</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/16722"><em>How Long To Beat?</em></a></td>
-      <td>5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/innocentuntilcaught.aspx">Walkthrough</a>, <a href="http://www.replacementdocs.com/download.php?view.6546">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>79%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/iuc/innocent_000.raw1.png', thumb: '/images/adventure/iuc/innocent_000.raw1.png' },{ src: '/images/adventure/iuc/innocent_001.png', thumb: '/images/adventure/iuc/innocent_001.png' },{ src: '/images/adventure/iuc/innocent_002.raw1.png', thumb: '/images/adventure/iuc/innocent_002.raw1.png' },{ src: '/images/adventure/iuc/innocent_003.png', thumb: '/images/adventure/iuc/innocent_003.png' },{ src: '/images/adventure/iuc/innocent_003.raw1.png', thumb: '/images/adventure/iuc/innocent_003.raw1.png' },{ src: '/images/adventure/iuc/innocent_004.raw1.png', thumb: '/images/adventure/iuc/innocent_004.raw1.png' },{ src: '/images/adventure/iuc/innocent_005.png', thumb: '/images/adventure/iuc/innocent_005.png' },{ src: '/images/adventure/iuc/innocent_005.raw1.png', thumb: '/images/adventure/iuc/innocent_005.raw1.png' },{ src: '/images/adventure/iuc/innocent_006.png', thumb: '/images/adventure/iuc/innocent_006.png' },{ src: '/images/adventure/iuc/innocent_006.raw1.png', thumb: '/images/adventure/iuc/innocent_006.raw1.png' },{ src: '/images/adventure/iuc/innocent_007.png', thumb: '/images/adventure/iuc/innocent_007.png' },{ src: '/images/adventure/iuc/innocent_007.raw1.png', thumb: '/images/adventure/iuc/innocent_007.raw1.png' },{ src: '/images/adventure/iuc/innocent_008.png', thumb: '/images/adventure/iuc/innocent_008.png' },{ src: '/images/adventure/iuc/innocent_008.raw1.png', thumb: '/images/adventure/iuc/innocent_008.raw1.png' },{ src: '/images/adventure/iuc/innocent_009.png', thumb: '/images/adventure/iuc/innocent_009.png' },{ src: '/images/adventure/iuc/innocent_009.raw1.png', thumb: '/images/adventure/iuc/innocent_009.raw1.png' },{ src: '/images/adventure/iuc/innocent_010.png', thumb: '/images/adventure/iuc/innocent_010.png' },{ src: '/images/adventure/iuc/innocent_011.png', thumb: '/images/adventure/iuc/innocent_011.png' },{ src: '/images/adventure/iuc/innocent_012.png', thumb: '/images/adventure/iuc/innocent_012.png' },{ src: '/images/adventure/iuc/innocent_014.png', thumb: '/images/adventure/iuc/innocent_014.png' },{ src: '/images/adventure/iuc/innocent_015.png', thumb: '/images/adventure/iuc/innocent_015.png' },{ src: '/images/adventure/iuc/innocent_019.png', thumb: '/images/adventure/iuc/innocent_019.png' },{ src: '/images/adventure/iuc/innocent_022.png', thumb: '/images/adventure/iuc/innocent_022.png' },{ src: '/images/adventure/iuc/innocent_025.png', thumb: '/images/adventure/iuc/innocent_025.png' },{ src: '/images/adventure/iuc/innocent_026.png', thumb: '/images/adventure/iuc/innocent_026.png' },{ src: '/images/adventure/iuc/innocent_027.png', thumb: '/images/adventure/iuc/innocent_027.png' },{ src: '/images/adventure/iuc/innocent_028.png', thumb: '/images/adventure/iuc/innocent_028.png' },{ src: '/images/adventure/iuc/innocent_029.png', thumb: '/images/adventure/iuc/innocent_029.png' },{ src: '/images/adventure/iuc/innocent_030.png', thumb: '/images/adventure/iuc/innocent_030.png' },{ src: '/images/adventure/iuc/innocent_031.png', thumb: '/images/adventure/iuc/innocent_031.png' },{ src: '/images/adventure/iuc/innocent_032.png', thumb: '/images/adventure/iuc/innocent_032.png' },{ src: '/images/adventure/iuc/innocent_034.png', thumb: '/images/adventure/iuc/innocent_034.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/2086/innocent-until-caught/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Divide By Zero" /><category term="Psygnosis" /><category term="Interspective" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/iuc/innocent_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/iuc/innocent_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="connections" /><summary type="html"><![CDATA[Overview]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
