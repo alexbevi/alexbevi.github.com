@@ -4,7 +4,7 @@ title: "Beneath a Steel Sky (Revolution Software) - 1994"
 date: 2023-02-10 09:46:54 -0500
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Revolution Software", "Virgin Interactive Entertainment"]
+tags: [adventure, "Revolution Software", "Virgin Interactive Entertainment", "Virtual Theatre"]
 image: /images/adventure/bass/title.jpg
 ---
 > This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
@@ -58,7 +58,7 @@ Overall the story is compelling, the game play is intuitive and progresses natur
 |*Publisher*|Virgin Interactive Entertainment|
 |*Release Date*|March, 1994|
 |*Systems*|DOS, Amiga, Amiga CD32, Atari ST, iOS|
-|*Game Engine*|[Sky](https://wiki.scummvm.org/index.php?title=Sky)|
+|*Game Engine*|[Virtual Theatre](https://wiki.scummvm.org/index.php?title=Sky)|
 
 ### My Playthrough
 
