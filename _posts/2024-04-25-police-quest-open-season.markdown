@@ -103,7 +103,7 @@ You'll ultimately find the killer then neutralize them by spraying them in the f
 ![](/images/adventure/pq4/scummvm-pq4-cd-00049.png)
 _The End_
 
-Sierra should have left this series alone after Police Quest 3. I guess after [Jim Walls](https://en.wikipedia.org/wiki/Jim_Walls) left to join Tsunami Media (where he made [Blue Force]({% post_url 2022-03-31-blue-force %})) they wanted to keep the series alive so they brought on [Darryl F. Gates](https://en.wikipedia.org/wiki/Daryl_Gates) to fill the void.
+Sierra should have left this series alone after Police Quest 3. I guess after [Jim Walls](https://en.wikipedia.org/wiki/Jim_Walls) left to join Tsunami Media (where he made [Blue Force]({% post_url 2022-03-31-blue-force %})) they wanted to keep the series alive so they brought on [Daryl F. Gates](https://en.wikipedia.org/wiki/Daryl_Gates) to fill the void.
 
 That void should have remained unfilled. Gates also consulted on Sierra's SWAT series, which I equally didn't enjoy playing ...
 
@@ -122,8 +122,7 @@ I don't recommend this game. Go back and play any of PQ 1 through 3 instead.
 
 |[*How Long To Beat?*](https://howlongtobeat.com/game/7197)|6.5 hours|
 |*Version Played*|DOS via [ScummVM](https://www.scummvm.org/)|
-|*Notes*|[Walkthrough](https://gamerwalkthroughs.com/police-quest-4-open-season/
-)|
+|*Notes*|[Walkthrough](https://gamerwalkthroughs.com/police-quest-4-open-season/)|
 
 ### Score
 
