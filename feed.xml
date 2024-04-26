@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-26T07:19:19-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Police Quest: Open Season (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/" rel="alternate" type="text/html" title="Police Quest: Open Season (Sierra On-Line) - 1993" /><published>2024-04-25T05:18:42-04:00</published><updated>2024-04-26T07:18:39-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-26T07:27:57-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Police Quest: Open Season (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/" rel="alternate" type="text/html" title="Police Quest: Open Season (Sierra On-Line) - 1993" /><published>2024-04-25T05:18:42-04:00</published><updated>2024-04-26T07:27:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -97,7 +97,7 @@
 <p><img src="/images/adventure/pq4/scummvm-pq4-cd-00049.png" alt="" />
 <em>The End</em></p>
 
-<p>Sierra should have left this series alone after Police Quest 3. I guess after <a href="https://en.wikipedia.org/wiki/Jim_Walls">Jim Walls</a> left to join Tsunami Media (where he made <a href="/blog/2022/03/31/blue-force/">Blue Force</a>) they wanted to keep the series alive so they brought on <a href="https://en.wikipedia.org/wiki/Daryl_Gates">Darryl F. Gates</a> to fill the void.</p>
+<p>Sierra should have left this series alone after Police Quest 3. I guess after <a href="https://en.wikipedia.org/wiki/Jim_Walls">Jim Walls</a> left to join Tsunami Media (where he made <a href="/blog/2022/03/31/blue-force/">Blue Force</a>) they wanted to keep the series alive so they brought on <a href="https://en.wikipedia.org/wiki/Daryl_Gates">Daryl F. Gates</a> to fill the void.</p>
 
 <p>That void should have remained unfilled. Gates also consulted on Sierra’s SWAT series, which I equally didn’t enjoy playing …</p>
 
@@ -148,11 +148,7 @@
     </tr>
     <tr>
       <td><em>Notes</em></td>
-      <td>[Walkthrough](https://gamerwalkthroughs.com/police-quest-4-open-season/</td>
-    </tr>
-    <tr>
-      <td>)</td>
-      <td> </td>
+      <td><a href="https://gamerwalkthroughs.com/police-quest-4-open-season/">Walkthrough</a></td>
     </tr>
   </tbody>
 </table>
