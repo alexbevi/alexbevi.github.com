@@ -99,7 +99,7 @@ Eventually you'll grab a can of grog, spray LeChuck with it and the game will be
 ![](/images/adventure/mi1/scummvm-monkey-00045.png)
 _The End_
 
-I basically loved everything about this game. The writing was fantastic, the story was compelling, the puzzles were challenging but intuitive, the music was great, it's visually appealing and the dialogue was engaging.
+I basically loved everything about this game. The writing was fantastic, the story was compelling, the puzzles were challenging but intuitive, the music was great, it's visually appealing and the dialogue was engaging. If you're already a fan of this game, I'd encourage you to go read the Video Game History Foundation's [30th anniversary of Monkey Island](https://gamehistory.org/monkeyisland/) article as it contains lots of development details and insights.
 
 There are 2 sequels to this game that I plan on playing for this series, and I am really looking forward to getting to those. I know there's a fourth game, but [Escape from Monkey Island](https://en.wikipedia.org/wiki/Escape_from_Monkey_Island) came out in 2000 so is just outside the range I set - though I might circle back to it one day just for fun.
 
@@ -111,8 +111,6 @@ Though this is a LucasArts game, there is exactly one game over screen in The Se
 You can easily just walk out of the water and escape certain death, but if you just let the game idle for more than 10 minutes, Guybrush will die. Unlike Sierra games of this era, instead of prompting you with a game over screen, the verb list changes to represent your new set of options.
 
 This is just another example of the clever game design, excellent writing and underlying humor that permeates this title through and through. I would highly recommend this game to anyone - whether they're a fan of the genre or not.
-
-https://gamehistory.org/monkeyisland/
 
 ## Game Information
 
