@@ -1,4 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-04-26T10:47:55-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Event Monitoring with Mongoose</title><link href="https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose/" rel="alternate" type="text/html" title="Event Monitoring with Mongoose" /><published>2024-04-26T09:58:52-04:00</published><updated>2024-04-26T10:47:18-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose/"><![CDATA[<p>I previously wrote about <a href="/blog/2022/05/15/mongodb-driver-monitoring/">MongoDB Driver Monitoring</a>, but there are <a href="/blog/2022/11/02/mongodb-orms-odms-and-libraries/">ODM libraries</a> and framework integrations that are built atop the drivers that can take advantage of this functionality.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-07T06:57:26-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Secret of Monkey Island (Lucasfilm Games) - 1990</title><link href="https://www.alexbevi.com/blog/2024/04/30/the-secret-of-monkey-island/" rel="alternate" type="text/html" title="The Secret of Monkey Island (Lucasfilm Games) - 1990" /><published>2024-04-30T05:03:32-04:00</published><updated>2024-05-07T06:56:32-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/30/the-secret-of-monkey-island</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/30/the-secret-of-monkey-island/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island">The Secret of Monkey Island</a> is a 1990 point-and-click graphic adventure game developed and published by Lucasfilm Games.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00001.png" alt="" /></p>
+
+<p>Deep in the Caribbean lies Melee Island, ruled by the governor Elaine Marley. The cruel pirate LeChuck is deeply in love with her - so deeply that he refuses to accept his own death. As a ghost, he dwells with his undead crew somewhere near the mysterious Monkey Island. Meanwhile, a young fellow named Guybrush Threepwood is determined to become a real pirate. At the Scumm Bar, he meets three pirates who tell him he has to complete three difficult tasks in order to be worthy of this title. But as Guybrush is trying to complete these tasks, he encounters the lovely governor, and this meeting changes his life forever. Risking to incur the wrath of LeChuck, Guybrush has to prove his wit is as sharp as his sword, and figure out a way to foil the ghost pirate’s plans.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00007.png" alt="" /></p>
+
+<p>Without pulling any punches I might as well just start off with the fact that this is possibly one of the best adventure games of all time. From the <a href="https://www.youtube.com/watch?v=Pdd2CNlcqn0">amazing soundtrack</a> and excellent pixel art to the captivating story and the extremely forgiving game play, Secret of Monkey Island is extremely welcoming to anyone looking to get started with this genre of game.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00031.png" alt="" /></p>
+
+<p>Being an early SCUMM game you’re presented with a very familiar screen layout with the main view on top, a verb list in the lower left and inventory in the lower right. Moving the mouse cursor around the screen will call out any action areas you can interact with, and based on which verb is selected, you can perform said action on whatever you just clicked on.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00012.png" alt="" /></p>
+
+<p>As you progress on your quest to become a mighty pirate, you’ll find yourself picking up a lot of items. As a result, most puzzles in this game involve either completing fetch quests, or item combination puzzles.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00014.png" alt="" /></p>
+
+<p>The game typically points you in the right direction as to what you need to do next, which item you need or how things need to be combined so though it can be challenging at times, I never found the game to get frustrating.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00006.png" alt="" /></p>
+
+<p>Most characters in the game can be engaged with, opening up a conversation system with branching dialogue options. There are typically a number of nonsense options in each conversation that will are just a distraction, but the writing in this game is so good (and funny) that it’s almost worth exploring these even if you know you’re picking the “wrong” option.</p>
+
+<p>Graphically this game is top notch, as can be seen in character portraits and background artwork. As a result you’re typically not just sweeping your cursor around the screen hoping to find some magic pixel to interact with - the detail of the backgrounds make whatever thing you’re supposed to interact with pretty apparent.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00019.png" alt="" /></p>
+
+<p>The Secret of Monkey Island introduces a unique battle mechanic, which is actually weirdly intuitive and easy to learn. One of the quests you need to embark on is to defeat the legendary swordmaster, but to do this you’ll need to build up a repertoire of insults.</p>
+
+<p>“Battles” consist of you hurling an insult, and the other pirate either having a witty comeback or a generic comment (ex: “I am rubber you are glue”). If they have a comeback, they win a round and can insult you, and you need to “defend” with a comeback. If a pirate uses an insult in battle you haven’t learned, it’s added to your list of insults for future battles - as are the comebacks pirates have used.</p>
+
+<p>If you match a comeback to an insult, you’ll win a round, and if you win 3 or 4 rounds you win the fight.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00021.png" alt="" /></p>
+
+<p>Eventually you’ll build up enough insults to challenge (and hopefully defeat) the legendary swordmaster. This is actually pretty interesting as she’ll lob insults you’ve never heard before but you can still successfully parry with comebacks you’ve already learned - assuming you pick the right ones.</p>
+
+<p>This is just another example of how well this game is written, as so much care was put into crafting this battle system that they wrote multiple insults that would make sense (and sort of be funny) with the same comebacks.</p>
+
+<p>I personally loved this game mechanic and am impressed it wasn’t overplayed. They really only use it in the lead up to the swordmaster fight - then never again. With such a unique element to the game it may have been tempting to overplay it, but you gotta give the designers credit for fighting that urge and making a really well balanced game.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00022.png" alt="" /></p>
+
+<p>The game is split into three main chapters, two of which take place on islands you can navigate from an overhead map view. This makes each area feel a lot bigger than it actually is, as there are typically a handful of actual locations to visit.</p>
+
+<p>These locations are called out as you move your cursor over them, and clicking on them will make Guybrush walk there. In chapter 3 you eventually get access to a boat, which moves extremely slowly, but if you double click an area of the screen that’s further away from you he paddles quickly and the boat moves a lot faster.</p>
+
+<p>I appreciated this type of optimization in the game as it can be tedious waiting for the character to slowly progress on the map just to give an area a false sense of scale.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00030.png" alt="" /></p>
+
+<p>As the story progresses you’ll prove yourself to be a mighty pirate, meet the governor, fall for her and then have to go rescue her once the Ghost Pirate LeChuck kidnaps her. This is done by recruiting a crew and buying a boat, but once you do this crew sort of abandons you to instead soak up some rays on the deck.</p>
+
+<p>The bulk of this second chapter consists of you completing a massive item combination puzzle as the directions to Monkey Island are presented to you in the form of a recipe.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00032.png" alt="" /></p>
+
+<p>Everything you’ll need to get to the island are on the ship, so this giant fetch quest just involves searching the ship, picking up items, referring to the recipe (once you find it) to see what should get thrown in the pot - then throwing it in the pot.</p>
+
+<p>Once the recipe is complete everyone on the ship falls asleep and you wake up off the shore of Monkey Island. How convenient!</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00036.png" alt="" /></p>
+
+<p>Once you find Monkey Island you’ll need to get yourself there, but you don’t seem to have a rowboat. Good thing you learning how to fire yourself out of a cannon earlier in the game.</p>
+
+<p>To me at least this was an example of good puzzle design, as you’d already learned how cannons could be used, and you happen to have a long piece of rope, embers from a fire, gunpowder and a pot you can use as a helmet …</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00037.png" alt="" /></p>
+
+<p>There are only a few characters to meet on the island once you get there, but they drop some hints as to where LeChuck is and what they need from you. After embarking on another series of fetch quests, you’ll eventually get the key to enter the underground where LeChuck’s ghost ship is anchored.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00042.png" alt="" /></p>
+
+<p>From the ghost ship you retrieve the root and give it back to the cannibals so they can make you som root beer you can use to get rid of ghosts. When you bring the root back, the cannibals prepare the root beer, you return to the ghost ship and find out you just missed them.</p>
+
+<p>LeChunk has taken Governor Marley back to Melee Island to marry her. Instead of having to manually backtrack, your crew appears at this point and after a brief cutscene you automatically return to Melee Island with them.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00044.png" alt="" /></p>
+
+<p>The final showdown with Lechuck is pretty easy, though you need to move quickly or he’ll punch you off screen and delay the fight. It’s kind of funny that you make it this far with the magic root beer, you go to use it on LeChuck and it gets jammed on some pocket lint.</p>
+
+<p>Eventually you’ll grab a can of grog, spray LeChuck with it and the game will be over.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00045.png" alt="" />
+<em>The End</em></p>
+
+<p>I basically loved everything about this game. The writing was fantastic, the story was compelling, the puzzles were challenging but intuitive, the music was great, it’s visually appealing and the dialogue was engaging.</p>
+
+<p>There are 2 sequels to this game that I plan on playing for this series, and I am really looking forward to getting to those. I know there’s a fourth game, but <a href="https://en.wikipedia.org/wiki/Escape_from_Monkey_Island">Escape from Monkey Island</a> came out in 2000 so is just outside the range I set - though I might circle back to it one day just for fun.</p>
+
+<p><img src="/images/adventure/mi1/scummvm-monkey-00047.png" alt="" />
+<em>The only game over in this game</em></p>
+
+<p>Though this is a LucasArts game, there is exactly one game over screen in The Secret of Monkey Island, and it’s a bit of an easter egg. Right from the beginning of the game Guybrush mentions his talent is holding his breath for 10 minutes - which is something you’ll leverage at one point when you’re thrown in the ocean to drown.</p>
+
+<p>You can easily just walk out of the water and escape certain death, but if you just let the game idle for more than 10 minutes, Guybrush will die. Unlike Sierra games of this era, instead of prompting you with a game over screen, the verb list changes to represent your new set of options.</p>
+
+<p>This is just another example of the clever game design, excellent writing and underlying humor that permeates this title through and through. I would highly recommend this game to anyone - whether they’re a fan of the genre or not.</p>
+
+<p>https://gamehistory.org/monkeyisland/</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>The Secret of Monkey Island</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/LucasArts">Lucasfilm Games</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Lucasfilm Games</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>October 1990</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, Atari ST, CDTV, DOS, FM Towns, Mac OS, Sega CD</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCUMM">SCUMM</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/10162"><em>How Long To Beat?</em></a></td>
+      <td>6.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthrough/full/the-secret-of-monkey-island">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>87%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/mi1/scummvm-monkey-00002.png', thumb: '/images/adventure/mi1/scummvm-monkey-00002.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00003.png', thumb: '/images/adventure/mi1/scummvm-monkey-00003.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00004.png', thumb: '/images/adventure/mi1/scummvm-monkey-00004.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00005.png', thumb: '/images/adventure/mi1/scummvm-monkey-00005.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00008.png', thumb: '/images/adventure/mi1/scummvm-monkey-00008.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00009.png', thumb: '/images/adventure/mi1/scummvm-monkey-00009.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00010.png', thumb: '/images/adventure/mi1/scummvm-monkey-00010.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00011.png', thumb: '/images/adventure/mi1/scummvm-monkey-00011.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00013.png', thumb: '/images/adventure/mi1/scummvm-monkey-00013.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00015.png', thumb: '/images/adventure/mi1/scummvm-monkey-00015.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00016.png', thumb: '/images/adventure/mi1/scummvm-monkey-00016.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00017.png', thumb: '/images/adventure/mi1/scummvm-monkey-00017.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00018.png', thumb: '/images/adventure/mi1/scummvm-monkey-00018.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00020.png', thumb: '/images/adventure/mi1/scummvm-monkey-00020.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00023.png', thumb: '/images/adventure/mi1/scummvm-monkey-00023.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00024.png', thumb: '/images/adventure/mi1/scummvm-monkey-00024.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00025.png', thumb: '/images/adventure/mi1/scummvm-monkey-00025.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00026.png', thumb: '/images/adventure/mi1/scummvm-monkey-00026.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00027.png', thumb: '/images/adventure/mi1/scummvm-monkey-00027.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00028.png', thumb: '/images/adventure/mi1/scummvm-monkey-00028.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00033.png', thumb: '/images/adventure/mi1/scummvm-monkey-00033.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00034.png', thumb: '/images/adventure/mi1/scummvm-monkey-00034.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00035.png', thumb: '/images/adventure/mi1/scummvm-monkey-00035.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00038.png', thumb: '/images/adventure/mi1/scummvm-monkey-00038.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00039.png', thumb: '/images/adventure/mi1/scummvm-monkey-00039.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00040.png', thumb: '/images/adventure/mi1/scummvm-monkey-00040.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00041.png', thumb: '/images/adventure/mi1/scummvm-monkey-00041.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00043.png', thumb: '/images/adventure/mi1/scummvm-monkey-00043.png' },{ src: '/images/adventure/mi1/scummvm-monkey-00046.png', thumb: '/images/adventure/mi1/scummvm-monkey-00046.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/616/the-secret-of-monkey-island/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="SCUMM" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mi1/scummvm-monkey-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mi1/scummvm-monkey-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Event Monitoring with Mongoose</title><link href="https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose/" rel="alternate" type="text/html" title="Event Monitoring with Mongoose" /><published>2024-04-26T09:58:52-04:00</published><updated>2024-04-26T10:47:18-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/26/event-monitoring-with-mongoose/"><![CDATA[<p>I previously wrote about <a href="/blog/2022/05/15/mongodb-driver-monitoring/">MongoDB Driver Monitoring</a>, but there are <a href="/blog/2022/11/02/mongodb-orms-odms-and-libraries/">ODM libraries</a> and framework integrations that are built atop the drivers that can take advantage of this functionality.</p>
 
 <p>For example, <a href="https://mongoosejs.com/docs/guide.html"><code class="language-plaintext highlighter-rouge">mongoose</code></a> can be easily configured to expose <a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/monitoring/cluster-monitoring/">cluster monitoring</a>, <a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/monitoring/connection-monitoring/">connection pool monitoring</a> and <a href="https://www.mongodb.com/docs/drivers/node/current/fundamentals/monitoring/command-monitoring/">command monitoring</a> capabilities.</p>
 
@@ -1594,183 +1794,4 @@ shard01
       <p><small>Description from <a href="https://www.mobygames.com/game/142/space-quest-iii-the-pirates-of-pestulon/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Adventures of Willy Beamish (Dynamix) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/" rel="alternate" type="text/html" title="The Adventures of Willy Beamish (Dynamix) - 1991" /><published>2024-02-12T19:48:56-05:00</published><updated>2024-02-15T06:50:41-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/12/the-adventures-of-willy-beamish/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/The_Adventures_of_Willy_Beamish">The Adventures of Willy Beamish</a> is a graphic adventure game developed by Dynamix and published in 1991 by Sierra On-Line. The game pioneered the use of in-game graphics drawn to resemble classic hand-drawn cartoon animation. It was initially released for MS-DOS and the Amiga and was ported to the Sega CD in 1993.</p>
-
-<p><img src="/images/adventure/willy/willy_044.png" alt="" /></p>
-
-<p>You play Willy Beamish, an eight-year-old kid who is just trying to get through life without losing his lunch money. But he’ll have to deal with parents, teachers, babysitters, and bratty sisters. The player must solve different puzzles to ensure Willy can progress, get out of trouble and generally avoid ending up grounded.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/willy/willy_030.png" alt="" />
-<em>He’s talking about his frog “Horny”</em></p>
-
-<p>The in-game time progresses even if no action is taken. This means many puzzles have to be solved in a certain time frame or rely on being in the right place at the right time. A special aspect of this game is the bar which shows Willy’s relationship with his parents. It gets affected by the way certain situations are resolved, e.g. it increases if Willy refuses to play with his sister, and when it is full they send Willy to a military school and the game is lost.<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/willy/willy_015.png" alt="" />
-<em>If that meter hits “Cadet School” it’s game over … literally</em></p>
-
-<p>Avoiding getting in trouble is pretty easy as decisions in this game are typically made during dialogue tree option selection. Almost every character you interact with will present Willy with an option, and one of those options will be the “wrong” one which effects your <em>Trouble Meter</em>.</p>
-
-<p>This will happen on almost every screen of the game for about the first half of the game, so save early - save often.</p>
-
-<p><img src="/images/adventure/willy/willy_002.png" alt="" /></p>
-
-<p>For 1991, this game looks great. The cartoony style really draws you into the game world and gives the characters some emotional depth during conversations. The colours are mostly bright and vibrant and complement the youthful innocence of Willy and his friends. This is in stark contrast to Dynamix’s previous title, <a href="/blog/2023/02/13/rise-of-the-dragon/">Rise of the Dragon</a>.</p>
-
-<p><img src="/images/adventure/willy/willy_008.png" alt="" />
-<em>Your mom pawns your sister off on you a lot it seems</em></p>
-
-<p>The story revolves around Willy trying to raise money for his entry fee into the Nintari world tournament (get it - “Nintendo + Atari” - so clever …). The family thinks his dad is about to get a huge promotion, but it turns out he gets laid off instead and they’ll need to live a little leaner until he finds work again. Though Willy can do some odd jobs around the house for money like mowing the lawn, walking the dog or washing the car - he’ll need to do something bigger for the $2500 he needs.</p>
-
-<p><img src="/images/adventure/willy/willy_028.png" alt="" /></p>
-
-<p>Willy has a pet frog (named “Horny”) that’s with him throughout the game, and there’s a frog-jumping competition on the second or third day of the game with a convenient grand prize of $2500. Your main goal is to get Horny trained up and entered into the competition so that he can compete.</p>
-
-<p><img src="/images/adventure/willy/willy_029.png" alt="" /></p>
-
-<p>The frog jumping competition is one of 2 minigames, though it’s sort of “on rails”. If you figure out that you can feed Horny cola to tweak him out, he’ll win first prize but random drug testing will surface that he was “chemically enhanced” and you’ll lose the game. Otherwise you’ll lose to Turbo Frog - which is what’s supposed to happen anyway - and Horny will escape into the Tootsweet factory to progress the plot.</p>
-
-<p>The minigame here is just a distraction and isn’t really a “game”. It’s just a bit of button mashing between story dumps and isn’t really fun to “play” - it’s just there.</p>
-
-<p><img src="/images/adventure/willy/willy_032.png" alt="" /></p>
-
-<p>The secondary plot of the game revolves around the Tootsweet owners trying to take over the city you live in. Willy’s dad will apply for a job as their head of PR and get that, only to be thrown under the bus right away as the fall guy for the company. There’s a plumbers strike going on as well which is causing the water to turn brown, so you’ll need to resolve that as well I guess.</p>
-
-<p><img src="/images/adventure/willy/willy_022.png" alt="" /></p>
-
-<p>The inventory screen serves two purposes in this game: item storage and time management. Since there are scripted events that take place on various days you have the option of advancing time here to trigger those events. Honestly once I figured this out I’d just save my game at the beginning of the day and just advance time a bunch to see what triggered when on various screens - then reload and proceed incrementally if I found anything.</p>
-
-<p><img src="/images/adventure/willy/willy_037.png" alt="" /></p>
-
-<p>You sort of figure this mechanic out for yourself, as the <a href="https://archive.org/details/AdventuresOfWillyBeamishManual/mode/2up">game manual</a> doesn’t allude to time-based events. Luckily you don’t really need to worry about this as there are only a couple of these events throughout the game, such as Willy having to go to bed at the end of the day.</p>
-
-<p>Timing plays a bigger part in puzzles though as a number of these involve using items or pushing buttons in a specific order within a very short amount of time. This is where I died the most, as there certain puzzle sequences that you need to do extremely quickly or it’s game over.</p>
-
-<p><img src="/images/adventure/willy/willy_041.png" alt="" />
-<em>Solve this quickly or the guards will catch you</em></p>
-
-<p>Though frustrating at times, I did appreciate that these “real time” puzzles added a sense of urgency. Typically adventure games would give you infinite time to pick and combine items, select a target and execute some action. Willy generally has a few seconds to react if the puzzle he’s trying to solve involves escaping from a dangerous situation.</p>
-
-<p><img src="/images/adventure/willy/willy_039.png" alt="" /></p>
-
-<p>Most puzzles are pretty straightforward, though near the end of the game you’ll need to get a bouncer to leave his post at the door of the bar so you can go in. The solution to this puzzle is extremely convoluted and requires you to call a psychic hotline, record the message, call the bar, ask for the bouncer and play the message. None of this is intuitive, and I’m pretty sure without a walkthrough most people wouldn’t muddle their way through this today.</p>
-
-<p>If you’re playing this game for the first time would you know that “432-SIGN” could be translated to “432-7446”? Remember pay phones? Remember phone numbers that would use the lettering on the numbers to form words? I’m sure they still exist …</p>
-
-<p><img src="/images/adventure/willy/willy_018.png" alt="" /></p>
-
-<p>There are maybe a dozen locations you can visit throughout the game, with some only becoming available on later days. You have limited time to explore as time continues to advance, and eventually Willy will have to go home to bed, but I didn’t find myself getting lost or stuck at any point.</p>
-
-<p>Basically you just go to each location, talk to whoever is there, pick up anything that isn’t nailed down and try to use everything on … everything. It’s not always obvious what item combinations are required so there is a lot of trial and error involved.</p>
-
-<p>You’ll also want to right-click multiple times on each item you pick up as some of them have a third function on certain screens.</p>
-
-<p><img src="/images/adventure/willy/willy_045.png" alt="" /></p>
-
-<p>Occasionally an item will allow you to shoot or throw it, in which case the cursor will be presented as a target or crosshair. I’m pretty sure this only occurs twice, but if you don’t know this is the case it can be frustrating as you die over and over trying to “use” an item in a situation when you actually need to “shoot” it.</p>
-
-<p><img src="/images/adventure/willy/willy_046.png" alt="" />
-<em>You win the Nintari championship and call it a day</em></p>
-
-<p>Overall I didn’t really like this game as much as I thought I would. I’m a huge fan of Rise of the Dragon, and I generally like their <a href="https://dynamix.fandom.com/wiki/VCR_Interface">VCR interface</a> they use for their games. The background music is fitting and helps enhance the gameplay, but the story is pretty thin and the pacing of the game is slowed by convoluted puzzles.</p>
-
-<p>I played the original DOS release (not the CD ROM version) so I’m not sure if the voice acting they added made any meaningful difference to the experience. I thought the writing overall was pretty good and the general vibe of the game was “saturday morning cartoon come to life”, which I think is what they were going for.</p>
-
-<p>If you’re looking for a goofy game starring a 9 year old kid and his frog, The Adventures of Willy Beamish has you covered. Just be prepared to reach for a walkthrough …</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>The Adventures of Willy Beamish</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1991</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Amiga, DOS, Macintosh, Sega CD</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=DGDS">DGDS</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/9758"><em>How Long To Beat?</em></a></td>
-      <td>4.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://archive.org/details/AdventuresOfWillyBeamishManual">Manual</a>, <a href="https://www.walkthroughking.com/text/adventuresofwillybeamish.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>59%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/willy/willy_000.raw1.png', thumb: '/images/adventure/willy/willy_000.raw1.png' },{ src: '/images/adventure/willy/willy_001.png', thumb: '/images/adventure/willy/willy_001.png' },{ src: '/images/adventure/willy/willy_001.raw1.png', thumb: '/images/adventure/willy/willy_001.raw1.png' },{ src: '/images/adventure/willy/willy_002.raw1.png', thumb: '/images/adventure/willy/willy_002.raw1.png' },{ src: '/images/adventure/willy/willy_003.png', thumb: '/images/adventure/willy/willy_003.png' },{ src: '/images/adventure/willy/willy_004.png', thumb: '/images/adventure/willy/willy_004.png' },{ src: '/images/adventure/willy/willy_005.png', thumb: '/images/adventure/willy/willy_005.png' },{ src: '/images/adventure/willy/willy_006.png', thumb: '/images/adventure/willy/willy_006.png' },{ src: '/images/adventure/willy/willy_007.png', thumb: '/images/adventure/willy/willy_007.png' },{ src: '/images/adventure/willy/willy_009.png', thumb: '/images/adventure/willy/willy_009.png' },{ src: '/images/adventure/willy/willy_010.png', thumb: '/images/adventure/willy/willy_010.png' },{ src: '/images/adventure/willy/willy_011.png', thumb: '/images/adventure/willy/willy_011.png' },{ src: '/images/adventure/willy/willy_012.png', thumb: '/images/adventure/willy/willy_012.png' },{ src: '/images/adventure/willy/willy_013.png', thumb: '/images/adventure/willy/willy_013.png' },{ src: '/images/adventure/willy/willy_014.png', thumb: '/images/adventure/willy/willy_014.png' },{ src: '/images/adventure/willy/willy_016.png', thumb: '/images/adventure/willy/willy_016.png' },{ src: '/images/adventure/willy/willy_017.png', thumb: '/images/adventure/willy/willy_017.png' },{ src: '/images/adventure/willy/willy_019.png', thumb: '/images/adventure/willy/willy_019.png' },{ src: '/images/adventure/willy/willy_020.png', thumb: '/images/adventure/willy/willy_020.png' },{ src: '/images/adventure/willy/willy_021.png', thumb: '/images/adventure/willy/willy_021.png' },{ src: '/images/adventure/willy/willy_023.png', thumb: '/images/adventure/willy/willy_023.png' },{ src: '/images/adventure/willy/willy_024.png', thumb: '/images/adventure/willy/willy_024.png' },{ src: '/images/adventure/willy/willy_025.png', thumb: '/images/adventure/willy/willy_025.png' },{ src: '/images/adventure/willy/willy_026.png', thumb: '/images/adventure/willy/willy_026.png' },{ src: '/images/adventure/willy/willy_027.png', thumb: '/images/adventure/willy/willy_027.png' },{ src: '/images/adventure/willy/willy_031.png', thumb: '/images/adventure/willy/willy_031.png' },{ src: '/images/adventure/willy/willy_033.png', thumb: '/images/adventure/willy/willy_033.png' },{ src: '/images/adventure/willy/willy_034.png', thumb: '/images/adventure/willy/willy_034.png' },{ src: '/images/adventure/willy/willy_035.png', thumb: '/images/adventure/willy/willy_035.png' },{ src: '/images/adventure/willy/willy_036.png', thumb: '/images/adventure/willy/willy_036.png' },{ src: '/images/adventure/willy/willy_038.png', thumb: '/images/adventure/willy/willy_038.png' },{ src: '/images/adventure/willy/willy_040.png', thumb: '/images/adventure/willy/willy_040.png' },{ src: '/images/adventure/willy/willy_042.png', thumb: '/images/adventure/willy/willy_042.png' },{ src: '/images/adventure/willy/willy_043.png', thumb: '/images/adventure/willy/willy_043.png' },{ src: '/images/adventure/willy/willy_047.png', thumb: '/images/adventure/willy/willy_047.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/1916/the-adventures-of-willy-beamish/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="DGDS" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/willy/willy_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/willy/willy_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq3/scummvm-sq3-00002.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
