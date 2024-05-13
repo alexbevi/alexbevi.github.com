@@ -60,7 +60,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 76  -%}
+{%- assign games_finished = 77  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -166,7 +166,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 86. Elvira II: The Jaws of Cerberus (Horrorsoft) - 1991
 87. Gobliiins (Coktel Vision) - 1991
 88. Heart of China (Dynamix) - 1991
-89. Hugo II, Whodunit? (Gray Design Associates) - 1991
+89. [Hugo II, Whodunit? (Gray Design Associates)]({% post_url 2024-05-10-hugo-ii-whodunit %}) - 1991
 90. Les Manley in: Lost in L.A. (Accolade) - 1991
 91. Martian Memorandum (Access Software) - 1991
 92. [Police Quest III: The Kindred (Sierra On-Line)]({% post_url 2023-12-16-police-quest-iii %}) - 1991
