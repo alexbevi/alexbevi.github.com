@@ -1,4 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-09T14:00:52-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Do Not Use Mutexes in Finalizers</title><link href="https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers/" rel="alternate" type="text/html" title="Do Not Use Mutexes in Finalizers" /><published>2024-05-09T13:27:41-04:00</published><updated>2024-05-09T14:00:07-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers/"><![CDATA[<blockquote class="prompt-tip">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-13T06:36:37-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Hugo II, Whodunit? (Gray Design Associates) - 1991</title><link href="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/" rel="alternate" type="text/html" title="Hugo II, Whodunit? (Gray Design Associates) - 1991" /><published>2024-05-10T06:51:54-04:00</published><updated>2024-05-13T06:35:50-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Hugo_II,_Whodunit%3F">Hugo II, Whodunit?</a> (named Hugo’s Mystery Adventure in the Hugo Trilogy re-release) is a parser-based adventure game designed by independent software developer David P. Gray and published as shareware by Gray Design Associates in 1991. It is the sequel to 1990’s <a href="/blog/2022/12/21/hugos-house-of-horrors/">Hugo’s House of Horrors</a>, and it was followed by Hugo III, Jungle of Doom! in 1992.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00014.png" alt="" /></p>
+
+<p>Hugo and his wife, Penelope, arrive to stay at the mansion that belongs to Hugo’s Great Uncle Horace. Penelope falls asleep in the bedroom, while Hugo accidentally finds a bookcase passage and is locked in a secret room. Penelope wakes up, only to witness Uncle Horace’s murder through the keyhole. The player controls Penelope (and later, briefly, Hugo) and must solve the murder.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00001.png" alt="" /></p>
+
+<p>This title improves slightly on the original as moving the mouse around the screen will occasionally highlight character or object names. This is a cue as to something you should type into the text parser to interact with (ex: <code class="language-plaintext highlighter-rouge">LOOK BOOKCASE</code>).</p>
+
+<p>Once you lie down and Hugo disappears, you’ll gain control of Penelope - who is the main character on this adventure.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00007.png" alt="" /></p>
+
+<p>As you work your way through the Uncle Horace’s property you’ll meet a couple NPCs that you can interact with. These interactions are extremely limited (they’re not dialogue trees) and typically don’t advance the plot - they just serve as puzzles as you typically need them to move so you can progress.</p>
+
+<p>Since I’m playing this game in ScummVM, the original text boxes have been replaced by UI modals - which IMHO look awful. Apparently a “nice to have” on the <a href="https://wiki.scummvm.org/index.php?title=Hugo/TODO">Hugo/TODO</a> page is implementing the original dialog boxes … so maybe one day.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00010.png" alt="" /></p>
+
+<p>In a couple areas you need to navigate the screen using almost pixel-perfect navigation to either keep yourself from dying, or getting into an unwinnable situation.</p>
+
+<p>The venus fly trap screen requires you to walk through a “maze” in order to get a magnifying glass. The hit boxes for these plants are massive though, so you’ll die <em>many times</em> trying to get through this.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00011.png" alt="" /></p>
+
+<p>When you get past the venus fly traps you’ll need to cross a bridge, but if you accidentally touch the “edges” of the walkable area you’ll drop your matches and they’ll get wet.</p>
+
+<p>If this happens, you won’t be able to light a stick of dynamite later in the game.</p>
+
+<p>Luckily this game is very short, so if you happen to get yourself into this situation it’s really only a matter of backtracking about 30 minutes of play time to get yourself to that point from an earlier save.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00013.png" alt="" /></p>
+
+<p>To progress through the mid-portion of the game you need to press various buttons in the shed to trigger certain events. These can’t be done until you first walk all the way to the screen where the event will occur, then walk back and press the button.</p>
+
+<p>For example, you can’t turn on the bug light to attract the bees until you’ve “been there” once.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00009.png" alt="" /></p>
+
+<p>Since you’ll be doing a lot of backtracking it is appreciated that this game has a “Turbo” mode that makes Penelope walk twice as fast.</p>
+
+<p>This is especially helpful when you have to navigate through the hedge maze (oh goody … a maze). Thankfully this isn’t all that big and is easy enough to map out, but given the limited colour palette of this game this section is a little hard on the eyes.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00018.png" alt="" /></p>
+
+<p>The maze exists to hide a couple items you’ll need to collect to proceed - which honestly sums up most of this game. A good portion of the game’s screens contain items that you’ll need to use exactly once to solve a single puzzle.</p>
+
+<p>This is fairly simplistic game design, but I can’t fault David P. Gray as he single handedly wrote a trilogy of games that he even <a href="https://www.facebook.com/notes/759580011285484/">went into technical detail about</a> for anyone that was interested.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00017.png" alt="" /></p>
+
+<p>To add some flavour there are timing-based puzzles as well. For example, if you place and light the dynamite you have a fixed amount of time to get out of the well before it explodes and kills you.</p>
+
+<p>Though there aren’t many game over scenarios, they are possible so it’s worth saving every few screens just so you don’t have to backtrack too far when you mess up.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00015.png" alt="" /></p>
+
+<p>The narrative of this game is a little disjointed, like when you step into a phone booth, call a number you just saw written in graffiti and meet Dr. Who (sort of).</p>
+
+<p>It’s all to give you a screwdriver you can use to open a safe a few screens later, but there’s no rhyme or reason for this encounter.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00021.png" alt="" /></p>
+
+<p>Once you make your way back into the mansion you’ll talk to family members who you’ll get clues from as to what happened to Uncle Horace. Finally you’ll all gather in a room with a police officer who asks you “Whodunit?!?”.</p>
+
+<p>If you guess right (that nobody murdered Horace) you get points, otherwise Cousin Harry gives you a little info and we meet back up with Hugo, who is locked in a closet.</p>
+
+<p>The solution to get out of the closet is fairly straightforward. Once you put the newspaper under the door, poke the key out of the keyhole so it falls and you pull it under the door on the newspaper, you get out and it’s game over.</p>
+
+<p><img src="/images/adventure/hugo2/scummvm-hugo2-00022.png" alt="" />
+<em>And that’s a wrap</em></p>
+
+<p>Though it improves on the previous entry in the series, Hugo 2 is extremely simplistic. The graphics are simple, the audio is PC speaker beeps and there’s typically no music (aside from a couple of screens).</p>
+
+<p>The game is very straightforward aside from a couple of slightly obtuse puzzles such as rubbing catnip on a bell, then giving the bell to the cat so he’ll ring it and distract the maid while you’re in another room.</p>
+
+<p>Hugo games really feel like they’re a variation of Sierra’s AGI games, but not nearly as robust. For a game written and developed by one guy though, it really isn’t all that bad.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Hugo II, Whodunit?</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td>Gray Design Associates</td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Gray Design Associates</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1991</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Windows</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Hugo">Hugo</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/28569"><em>How Long To Beat?</em></a></td>
+      <td>1.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="http://gamerwalkthroughs.com/hugo-2-whodunit/">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>36%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/hugo2/scummvm-hugo2-00000.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00000.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00002.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00002.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00003.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00003.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00004.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00004.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00005.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00005.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00006.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00006.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00008.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00008.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00012.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00012.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00016.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00016.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00019.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00019.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00020.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00020.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/1158/hugo-ii-whodunit/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Gray Design Associates" /><category term="Hugo" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/hugo2/scummvm-hugo2-0000a.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/hugo2/scummvm-hugo2-0000a.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Do Not Use Mutexes in Finalizers</title><link href="https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers/" rel="alternate" type="text/html" title="Do Not Use Mutexes in Finalizers" /><published>2024-05-09T13:27:41-04:00</published><updated>2024-05-09T14:00:07-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/09/do-not-use-mutexes-in-finalizers/"><![CDATA[<blockquote class="prompt-tip">
   <p>Reposted from <a href="https://comandeo.dev/2023/01/01/mutexes-in-finalizers.html">Dmitry’s blog</a>. Canonical URL points to his original post.</p>
 </blockquote>
 
@@ -1683,213 +1858,4 @@ shard01
       <p><small>Description from <a href="https://www.mobygames.com/game/584/ecoquest-the-search-for-cetus/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Harvester (DigiFX Interactive) - 1996</title><link href="https://www.alexbevi.com/blog/2024/02/23/harvester/" rel="alternate" type="text/html" title="Harvester (DigiFX Interactive) - 1996" /><published>2024-02-23T04:49:50-05:00</published><updated>2024-02-25T10:43:51-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/23/harvester</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/23/harvester/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Harvester_(video_game)">Harvester</a> is a 1996 point-and-click adventure game written and directed by Gilbert P. Austin, known for its violent content, cult following, and examination of violence. Players take on the role of Steve Mason, an eighteen-year-old man who awakens in a Midwestern town in 1953 with no memory of who he is and a vague sense he does not belong there. Over the course of the next week, he is coerced or manipulated into performing a series of seemingly mundane tasks with increasingly violent consequences at the behest of “The Order of the Harvest Moon,” a cult-like organization which seems to dominate the town and which promises to reveal the truth about Steve and his presence in Harvest.</p>
-
-<p><img src="/images/adventure/harvester/harvest_044.png" alt="" />
-<em>Investigating grisly murders is hungry work for this small town sheriff</em></p>
-
-<p>Similar to <a href="https://en.wikipedia.org/wiki/Phantasmagoria_(video_game)">Phantasmagoria</a> which came out a year earlier, Harvester is an adventure horror <a href="https://en.wikipedia.org/wiki/Full-motion_video">FMV</a> game. Having played through a few FMV titles in this series already my expectations for the quality of the acting and pre-rendered cutscenes was immediately very low.</p>
-
-<p><img src="/images/adventure/harvester/harvest_019.png" alt="" /></p>
-
-<p>You play the part of Steve Mason, who appears to have amnesia and possibly from the future. Steve is played by Kurt Kistler, who’s acting is not great, but given this is a mid-90s FMV game I would consider his performance acceptable. Kurt’s lack of acting chops is due to this<a href="https://www.facebook.com/notes/407927256880345/"> being his first acting gig</a> (he played keyboard in a band previously).</p>
-
-<p><img src="/images/adventure/harvester/harvest_010.png" alt="" /></p>
-
-<p>The story is dark and compelling right from the get-go, even if it seems thin and you’re just sort of dropped into this world without any direction. You have free reign to move around the game world, which is split into four quadrants - all of which are accessible.</p>
-
-<p>Hovering over locations will tell you what they are, and clicking on them will take you there instantly. This is preferable to long, drawn out navigation sequences though it might have been nice to have some animation on this screen so it’s not so bland.</p>
-
-<p><img src="/images/adventure/harvester/harvest_008.png" alt="" /></p>
-
-<p>Each location you visit will have characters you can interact with, and each interaction will unfold a bit more of the plot and give you more background about the characters, their relationships and the town.</p>
-
-<p>At the center of town is the Lodge, which apparently everyone wants to be a member of and seems to <em>really</em> want you to join as well.</p>
-
-<p><img src="/images/adventure/harvester/harvest_005.png" alt="" />
-<em>Mom is a stereotypical 50’s homebody</em></p>
-
-<p>The first characters you’ll meet are your mom and brother. This is where you initially learn how to interact with characters, as well as a bit more about the town of Harvest and the fact that you’re engaged and apparently getting married in a few weeks.</p>
-
-<p>These interactions take the form of typical dialogue tree selections, though there’s always an <code class="language-plaintext highlighter-rouge">OTHER</code> option where you can type anything. Other than typing out the options you can select from the tree, the only time I found this “useful” was to ask Mr. Pottsdam about the <em>“peephole”</em> in the bathroom …</p>
-
-<p><img src="/images/adventure/harvester/harvest_026.png" alt="" /></p>
-
-<p>Stephanie - your future bride - also has amnesia. What a coincidence! Similar to you she has no idea who her “family” is or how she got here, but her dad really wants the two of you to get married because your father owns the local meat processing plant and this guy apparently loves meat.</p>
-
-<p>Your initial interactions with Mr. Pottsdam mention “meat” way too often. Also, of all the voice acting in this game, Mr. Pottsdam’s has to be my favourite.</p>
-
-<p><img src="/images/adventure/harvester/harvest_030.png" alt="" />
-<em>They really lean into the gay stereotypes at the fire station</em></p>
-
-<p>The game takes place over the course of several days - typically both day and night. In order to progress through the game you’ll need to complete various tasks to trigger the transition from day to night.</p>
-
-<p>This will include talking to various characters and completing many, many fetch quests.</p>
-
-<p><img src="/images/adventure/harvester/harvest_011.png" alt="" />
-<em>This game really wants you to know it’s for a mature audience</em></p>
-
-<p>The puzzles in Harvester vary from very obvious to extremely obtuse. It’s very rare that you’ll be able to complete a puzzle by only fetching a single item. As a result, a good chunk of this game will involve hunting for items, typical inventory management tasks and attempting item combinations.</p>
-
-<p><img src="/images/adventure/harvester/harvest_046.png" alt="" />
-<em>The more beat up Steve looks, the closer to a game over you are</em></p>
-
-<p>Unlike typical point and click adventure games, Harvester allows you to use weapons as there are fights in this game. Since you can take damage, you also have a health indicator in your inventory showing how close to death you are.</p>
-
-<p>Though this is sort of an interesting mechanic, it’s not all that useful as you typically won’t know how much damage you can take until it’s too late anyway and you’ve already died.</p>
-
-<p><img src="/images/adventure/harvester/harvest_007.png" alt="" />
-<em>Get used to seeing this screen</em></p>
-
-<p>Speaking of death, you will die so very much in this game - typically by either picking the wrong conversation option, waiting too long during a timed sequence or just getting your ass kicked by a monster (though this is mostly later in the game).</p>
-
-<p>As you have access to weapons pretty much throughout the game and you can attack almost every NPC, if you kill most of them you’ll end up in jail - which is another game over scenario.</p>
-
-<p><img src="/images/adventure/harvester/harvest_000.raw1.png" alt="" />
-<em>A series of fetch quests or a simple act of murder - what would you pick?</em></p>
-
-<p>You typically have multiple ways to solve a fetch quest (which is what makes up most of the puzzles in the game). Certain scenarios allow you to either finish the quest for the person that requested it, or kill that person and just take the item.</p>
-
-<p>This can be a great way to breeze through longer sections of this game, but be careful as this won’t always work and may land you in jail.</p>
-
-<p><img src="/images/adventure/harvester/harvest_029.png" alt="" />
-<em>Your future “father in law” is a piece of shit</em></p>
-
-<p>The subject matter in this game isn’t for the faint of heart. Not only is there a lot of violence and gore, but there are allusions to child molestation and eventually a distraught mother killing herself and her daughter.</p>
-
-<p>Though it might seem a bit excessive, or just there for the “shock factor” it actually does help advance the plot and reinforce the central themes that develop Steve’s character towards the endgame.</p>
-
-<p>It’s hard to review this game without bringing up the fact that the actor playing Steve <a href="https://publicsite.dps.texas.gov/SexOffenderRegistry/Search/Rapsheet?Sid=08470942">got into a bit of trouble</a>, but I don’t think his role in this game was foreshadowing future events in any way.</p>
-
-<p><img src="/images/adventure/harvester/harvest_028.png" alt="" /></p>
-
-<p>Your ultimate goal is to gain entry into the lodge, which you can only do after performing a series of fetch quests, robberies and acts of vandalism requested by The Sergeant at Arms - who only communicates with you telepathically for some reason that’s never explained.</p>
-
-<p>As you progress through these quests your interactions with the townspeople gets weirder and weirder. You’ll find that completing the quests results in the people you were stealing from dying as a result of your actions.</p>
-
-<p>It sort of feels like desensitizing Steve to the deaths of these people is maybe the point …</p>
-
-<p><img src="/images/adventure/harvester/harvest_048.png" alt="" />
-<em>Yuppers, that key is hidden inside that guy’s head</em></p>
-
-<p>Once you get into the lodge you’ll have to navigate through three floors of puzzles and monsters. There is A LOT of combat in this area, and typically these just involve you picking one of the melee weapons at your disposal and mashing the left mouse button.</p>
-
-<p>There are some healing items scattered around that you can take if you take too much damage, but realistically this sequence of the game (that is about the last third of the game really) requires saving on every screen and reloading if you take too much damage.</p>
-
-<p><img src="/images/adventure/harvester/harvest_053.png" alt="" /></p>
-
-<p>Harvester gives you 25 save slots, and believe me you’ll need all of them for the lodge sequence. Even using a walkthrough I died a hell of a lot.</p>
-
-<p>The first floor isn’t too bad, though some of the puzzles require significant mental gymnastics to solve. Luckily when you enter the lodge all of your inventory items are cleared out so you only need to worry about using and combining the new items you find along the way.</p>
-
-<p><img src="/images/adventure/harvester/harvest_049.png" alt="" /></p>
-
-<p>As you move deeper and deeper into the lodge you find that each room (called a “Temple”) exists to teach you some sort of “lesson” (or the opposite of what you’d expect to learn). As you wind your way through these rooms up to the final confrontation it turns out you and Stephanie have been trapped in a VR simulation and you’re the only two real people in this world.</p>
-
-<p><img src="/images/adventure/harvester/harvest_055.png" alt="" />
-<em>You needed a skull and spinal cord to get into the lodge, and you need the same to get out …</em></p>
-
-<p>The ultimate goal has been to train you to be a serial killer, and your final test is to either kill Stephanie in the simulation so she dies in real life - or marry her in the sim and the two of you die in real life.</p>
-
-<p>You get to choose your own ending here, and since you are able to save the game before making this final selection you have the opportunity to experience both endgames pretty easily.</p>
-
-<p><img src="/images/adventure/harvester/harvest_056.png" alt="" /></p>
-
-<p>Honestly, I thought I was going to love this game, and for about the first half of my play through - I did. I liked the setting, I liked the characters, I found the plot was progressing well and I really wanted to know more about the lodge.</p>
-
-<p>The problem was once you get through the first half of the game it sort of seems like they ran out of content to keep the story progressing towards the conclusion. The whole “training you to be a serial killer” plot didn’t really make any sense, and though you can force yourself to see how it fits into the narrative … it’s definitely forced.</p>
-
-<p><img src="/images/adventure/harvester/harvest_043.png" alt="" />
-<em>This game goes for shock and gore whenever possible</em></p>
-
-<p>Though this game likely went under that radar for a lot of adventure gamers at the time, there were some very vocal and dedicated fans. For example, if you want to learn a bit more about the misadventures of Kurt Kistler you can check out <a href="https://youtu.be/6koKTUidgPc">“Harvester Show #10: The Pedophile We All Know”</a>.</p>
-
-<p>If you are a fan of adventure horror games and have a soft-spot for FMV titles then Harvester should be right up your alley. If that extremely specific combination of genres doesn’t tickle your fancy though, this game probably isn’t for you.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Harvester</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/DigiFX_Interactive">DigiFX Interactive</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Merit Studios, Virgin Interactive</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>August 31, 1996</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/16577"><em>How Long To Beat?</em></a></td>
-      <td>7 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://cdn.akamai.steamstatic.com/steam/apps/287020/manuals/Manual.pdf">Manual</a>, <a href="https://www.arrpeegeez.com/2023/04/harvester-walkthrough-guide.html">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>51%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/harvester/harvest_000.png', thumb: '/images/adventure/harvester/harvest_000.png' },{ src: '/images/adventure/harvester/harvest_001.raw1.png', thumb: '/images/adventure/harvester/harvest_001.raw1.png' },{ src: '/images/adventure/harvester/harvest_002.png', thumb: '/images/adventure/harvester/harvest_002.png' },{ src: '/images/adventure/harvester/harvest_002.raw1.png', thumb: '/images/adventure/harvester/harvest_002.raw1.png' },{ src: '/images/adventure/harvester/harvest_003.png', thumb: '/images/adventure/harvester/harvest_003.png' },{ src: '/images/adventure/harvester/harvest_003.raw1.png', thumb: '/images/adventure/harvester/harvest_003.raw1.png' },{ src: '/images/adventure/harvester/harvest_004.png', thumb: '/images/adventure/harvester/harvest_004.png' },{ src: '/images/adventure/harvester/harvest_006.png', thumb: '/images/adventure/harvester/harvest_006.png' },{ src: '/images/adventure/harvester/harvest_009.png', thumb: '/images/adventure/harvester/harvest_009.png' },{ src: '/images/adventure/harvester/harvest_012.png', thumb: '/images/adventure/harvester/harvest_012.png' },{ src: '/images/adventure/harvester/harvest_013.png', thumb: '/images/adventure/harvester/harvest_013.png' },{ src: '/images/adventure/harvester/harvest_014.png', thumb: '/images/adventure/harvester/harvest_014.png' },{ src: '/images/adventure/harvester/harvest_015.png', thumb: '/images/adventure/harvester/harvest_015.png' },{ src: '/images/adventure/harvester/harvest_016.png', thumb: '/images/adventure/harvester/harvest_016.png' },{ src: '/images/adventure/harvester/harvest_017.png', thumb: '/images/adventure/harvester/harvest_017.png' },{ src: '/images/adventure/harvester/harvest_018.png', thumb: '/images/adventure/harvester/harvest_018.png' },{ src: '/images/adventure/harvester/harvest_020.png', thumb: '/images/adventure/harvester/harvest_020.png' },{ src: '/images/adventure/harvester/harvest_021.png', thumb: '/images/adventure/harvester/harvest_021.png' },{ src: '/images/adventure/harvester/harvest_022.png', thumb: '/images/adventure/harvester/harvest_022.png' },{ src: '/images/adventure/harvester/harvest_023.png', thumb: '/images/adventure/harvester/harvest_023.png' },{ src: '/images/adventure/harvester/harvest_024.png', thumb: '/images/adventure/harvester/harvest_024.png' },{ src: '/images/adventure/harvester/harvest_025.png', thumb: '/images/adventure/harvester/harvest_025.png' },{ src: '/images/adventure/harvester/harvest_027.png', thumb: '/images/adventure/harvester/harvest_027.png' },{ src: '/images/adventure/harvester/harvest_031.png', thumb: '/images/adventure/harvester/harvest_031.png' },{ src: '/images/adventure/harvester/harvest_032.png', thumb: '/images/adventure/harvester/harvest_032.png' },{ src: '/images/adventure/harvester/harvest_033.png', thumb: '/images/adventure/harvester/harvest_033.png' },{ src: '/images/adventure/harvester/harvest_034.png', thumb: '/images/adventure/harvester/harvest_034.png' },{ src: '/images/adventure/harvester/harvest_035.png', thumb: '/images/adventure/harvester/harvest_035.png' },{ src: '/images/adventure/harvester/harvest_036.png', thumb: '/images/adventure/harvester/harvest_036.png' },{ src: '/images/adventure/harvester/harvest_037.png', thumb: '/images/adventure/harvester/harvest_037.png' },{ src: '/images/adventure/harvester/harvest_038.png', thumb: '/images/adventure/harvester/harvest_038.png' },{ src: '/images/adventure/harvester/harvest_039.png', thumb: '/images/adventure/harvester/harvest_039.png' },{ src: '/images/adventure/harvester/harvest_040.png', thumb: '/images/adventure/harvester/harvest_040.png' },{ src: '/images/adventure/harvester/harvest_041.png', thumb: '/images/adventure/harvester/harvest_041.png' },{ src: '/images/adventure/harvester/harvest_042.png', thumb: '/images/adventure/harvester/harvest_042.png' },{ src: '/images/adventure/harvester/harvest_045.png', thumb: '/images/adventure/harvester/harvest_045.png' },{ src: '/images/adventure/harvester/harvest_047.png', thumb: '/images/adventure/harvester/harvest_047.png' },{ src: '/images/adventure/harvester/harvest_050.png', thumb: '/images/adventure/harvester/harvest_050.png' },{ src: '/images/adventure/harvester/harvest_051.png', thumb: '/images/adventure/harvester/harvest_051.png' },{ src: '/images/adventure/harvester/harvest_052.png', thumb: '/images/adventure/harvester/harvest_052.png' },{ src: '/images/adventure/harvester/harvest_054.png', thumb: '/images/adventure/harvester/harvest_054.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="DigiFX Interactive" /><category term="Merit Studios" /><category term="Virgin Interactive" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/harvester/harvest_001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/harvester/harvest_001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
