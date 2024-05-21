@@ -1,4 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-13T06:36:37-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Hugo II, Whodunit? (Gray Design Associates) - 1991</title><link href="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/" rel="alternate" type="text/html" title="Hugo II, Whodunit? (Gray Design Associates) - 1991" /><published>2024-05-10T06:51:54-04:00</published><updated>2024-05-13T06:35:50-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-21T13:04:33-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Peeling the MongoDB Drivers Onion</title><link href="https://www.alexbevi.com/blog/2024/05/17/peeling-the-mongodb-drivers-onion/" rel="alternate" type="text/html" title="Peeling the MongoDB Drivers Onion" /><published>2024-05-17T12:45:06-04:00</published><updated>2024-05-21T11:21:34-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/17/peeling-the-mongodb-drivers-onion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/17/peeling-the-mongodb-drivers-onion/"><![CDATA[<p>The modern MongoDB driver consists of a number of components, each of which are thoroughly documented in the <a href="https://github.com/mongodb/specifications">Specifications</a> repository. Though this information is readily available and extremely helpful, what it lacks is a high level overview to tie the specs together into a cohesive picture of what a MongoDB driver is.</p>
+
+<p>Architecturally an implicit hierarchy exists within the drivers, so expressing drivers in terms of an <a href="https://en.wikipedia.org/wiki/Onion_model">onion model</a> feels appropriate.</p>
+
+<h2 id="layers-of-the-onion">Layers of the Onion</h2>
+
+<p><img src="/images/drivers-onion.png" alt="" /></p>
+
+<p>The <em>“drivers onion”</em> is meant to represent how various concepts, components and APIs can be layered atop each other to build a MongoDB driver from the ground up, or to help understand how existing drivers have been structured. Hopefully this representation of MongoDB’s drivers helps provide some clarity, as the complexity of these libraries - like the onion above - could otherwise bring you to tears.</p>
+
+<h3 id="serialization">Serialization</h3>
+
+<p>At their lowest level all MongoDB drivers will need to know how to work with <a href="https://bsonspec.org/">BSON</a>. BSON (short for “Binary JSON”) is a bin­ary-en­coded serialization of <a href="https://www.json.org/json-en.html">JSON</a>-like documents, and like JSON, it sup­ports the nesting of arrays and documents. BSON also contains extensions that al­low representation of data types that are not part of the <a href="https://datatracker.ietf.org/doc/html/rfc7159">JSON spec</a>.</p>
+
+<p><strong>Specifications:</strong> <a href="https://bsonspec.org/spec.html">BSON</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/objectid.rst">ObjectId</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/bson-decimal128/decimal128.md">Decimal128</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/uuid.rst">UUID</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/dbref.md">DBRef</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/extended-json.rst">Extended JSON</a></p>
+
+<h3 id="communication">Communication</h3>
+
+<p>Once BSON documents can be created and manipulated, the foundation for interacting with a MongoDB host process has been laid. Drivers communicate by sending <a href="https://www.mongodb.com/docs/manual/reference/command/">database commands</a> as serialized BSON documents using MongoDB’s <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/">wire protocol</a>.</p>
+
+<p>From the provided connection string and options a socket connection is established to a host, which an initial handshake verifies is in fact a valid MongoDB connection by sending a simple <a href="https://www.mongodb.com/docs/manual/reference/command/hello/"><code class="language-plaintext highlighter-rouge">hello</code></a>. Based on the response to this first command a driver can continue to establish and authenticate connections.</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/message/OP_MSG.md"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a>, <a href="https://github.com/mongodb/specifications/blob/master/source/run-command/run-command.rst">Command Execution</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/connection-string/connection-string-spec.md">Connection String</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/uri-options/uri-options.md">URI Options</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/ocsp-support/ocsp-support.rst">OCSP</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst">Initial Handshake</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/compression/OP_COMPRESSED.md">Wire Compression</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/socks5-support/socks5.rst">SOCKS5</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/initial-dns-seedlist-discovery/initial-dns-seedlist-discovery.md">Initial DNS Seedlist Discovery</a></p>
+
+<h3 id="connectivity">Connectivity</h3>
+
+<p>Now that a valid host has been found, the cluster’s topology can be discovered and monitoring connections can be established. Connection pools can then be created and populated with connections. The monitoring connections will subsequently be used for ensuring operations are routed to available hosts, or hosts that meet certain criteria (such as a configured <a href="https://www.mongodb.com/docs/upcoming/core/read-preference/">read preference</a> or acceptable latency window).</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring.rst">SDAM</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/connection-monitoring-and-pooling/connection-monitoring-and-pooling.md">CMAP</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/load-balancers/load-balancers.md">Load Balancer Support</a></p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>Establishing and monitoring connections to MongoDB ensures they’re available, but MongoDB server processes typically will require the connection to be <a href="https://www.mongodb.com/docs/manual/core/authentication/">authenticated</a> before commands will be accepted. MongoDB offers many authentication mechanisms such as <a href="https://www.mongodb.com/docs/manual/core/security-scram">SCRAM</a>, <a href="https://www.mongodb.com/docs/manual/core/security-x.509/">x.509</a>, <a href="https://www.mongodb.com/docs/manual/core/kerberos/">Kerberos</a>, <a href="https://www.mongodb.com/docs/manual/core/security-ldap/">LDAP</a>, <a href="https://www.mongodb.com/docs/manual/core/security-oidc/">OpenID Connect</a> and <a href="https://www.mongodb.com/docs/atlas/security/passwordless-authentication/">AWS IAM</a>, which MongoDB drivers support using the <em><a href="https://www.ietf.org/rfc/rfc4422.txt">Simple Authentication and Security Layer</a></em> (SASL) framework.</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/auth/auth.md">Authentication</a></p>
+
+<h3 id="availability">Availability</h3>
+
+<p>All client operations will be serialized as BSON and sent to MongoDB over a connection that will first be checked out of a connection pool. Various monitoring processes exist to ensure a driver’s internal state machine contains an accurate view of the cluster’s topology so that read and write requests can always be appropriately routed according to MongoDB’s <a href="https://www.mongodb.com/docs/manual/core/read-preference-mechanics/">server selection algorithm</a>.</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-monitoring.md">Server Monitoring</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst"><code class="language-plaintext highlighter-rouge">SRV</code> Polling for mongos Discovery</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/server-selection/server-selection.md">Server Selection</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/max-staleness/max-staleness.md">Max Staleness</a></p>
+
+<h3 id="resilience">Resilience</h3>
+
+<p>At their core, database drivers are client libraries meant to facilitate interactions between an application and the database. MongoDB’s drivers are no different in that regard, as they abstract away the underlying serialization, communication, connectivity, and availability functions required to programmatically interact with your data.</p>
+
+<p>To further enhance the developer experience while working with MongoDB, various resilience features can be added based on <a href="https://www.mongodb.com/docs/manual/reference/server-sessions/">logical sessions</a> such as <a href="https://www.mongodb.com/docs/manual/core/retryable-writes">retryable writes</a>, <a href="https://www.mongodb.com/docs/manual/core/read-isolation-consistency-recency/#std-label-causal-consistency">causal consistency</a>, and <a href="https://www.mongodb.com/docs/manual/core/transactions/">transactions</a>.</p>
+
+<p><strong>Specifications:</strong> Retryability (<a href="https://github.com/mongodb/specifications/blob/master/source/retryable-reads/retryable-reads.md">Reads</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/retryable-writes/retryable-writes.md">Writes</a>), <a href="https://github.com/mongodb/specifications/blob/master/source/client-side-operations-timeout/client-side-operations-timeout.md">CSOT</a>, Consistency (<a href="https://github.com/mongodb/specifications/blob/master/source/sessions/driver-sessions.md">Sessions</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/causal-consistency/causal-consistency.md">Causal Consistency</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/sessions/snapshot-sessions.md">Snapshot Reads</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/transactions/transactions.md">Transactions</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/transactions-convenient-api/transactions-convenient-api.rst">Convenient Transactions API</a>)</p>
+
+<h3 id="programmability">Programmability</h3>
+
+<p>Now that we can serialize commands and send them over the wire through an authenticated connection we can begin actually manipulating data. Since all database interactions are in the form of commands, if we wanted to remove a single document we might issue a <a href="https://www.mongodb.com/docs/manual/reference/command/delete"><code class="language-plaintext highlighter-rouge">delete</code> command</a> such as the following:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">db</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">(</span>
+  <span class="p">{</span>
+     <span class="na">delete</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orders</span><span class="dl">"</span><span class="p">,</span>
+     <span class="na">deletes</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="na">q</span><span class="p">:</span> <span class="p">{</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span> <span class="p">},</span> <span class="na">limit</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Though not exceedingly complex, a better developer experience can be achieved through more single-purpose APIs. This would allow the above example to be expressed as:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nf">deleteMany</span><span class="p">({</span> <span class="na">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">D</span><span class="dl">"</span> <span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To provide a cleaner and clearer developer experience, many specifications exist to describe how these APIs should be consistently presented across driver implementations, while still providing the flexibility to make APIs more idiomatic for each language.</p>
+
+<p>Advanced security features such as <a href="https://www.mongodb.com/docs/manual/core/csfle/">client-side field level encryption</a> are also defined at this layer.</p>
+
+<p><strong>Specifications:</strong> Resource Management (<a href="https://github.com/mongodb/specifications/blob/master/source/enumerate-databases.rst">Databases</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/enumerate-collections.rst">Collections</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/index-management/index-management.md">Indexes</a>), Data Management (<a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.md">CRUD</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/collation/collation.md">Collation</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/server_write_commands.rst">Write Commands</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/driver-bulk-update.rst">Bulk API</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/crud/bulk-write.md">Bulk Write</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/read-write-concern/read-write-concern.rst">R/W Concern</a>), Cursors (<a href="https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.md">Change Streams</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/find_getmore_killcursors_commands.rst"><code class="language-plaintext highlighter-rouge">find</code>/<code class="language-plaintext highlighter-rouge">getMore</code>/<code class="language-plaintext highlighter-rouge">killCursors</code></a>), <a href="https://github.com/mongodb/specifications/blob/master/source/gridfs/gridfs-spec.md">GridFS</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/versioned-api/versioned-api.rst">Stable API</a>, Security (<a href="https://github.com/mongodb/specifications/blob/master/source/client-side-encryption/client-side-encryption.md">Client Side Encryption</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/client-side-encryption/subtype6.md">BSON Binary Subtype 6</a>)</p>
+
+<h3 id="observability">Observability</h3>
+
+<p>With database commands being serialized and sent to MongoDB servers and responses being received and deserialized, our driver can be considered fully functional for most read and write operations. As MongoDB drivers abstract away most of the complexity involved with creating and maintaining the connections these commands will be sent over, providing mechanisms for introspection into a driver’s functionality can provide developers with added confidence that things are working as expected.</p>
+
+<p>The inner workings of connection pools, connection lifecycle, server monitoring, topology changes, command execution and other driver components are exposed by means of events developers can register listeners to capture. This can be an invaluable troubleshooting tool and can help facilitate monitoring the health of an application.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="p">{</span> <span class="nx">MongoClient</span><span class="p">,</span> <span class="na">BSON</span><span class="p">:</span> <span class="p">{</span> <span class="nx">EJSON</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">mongodb</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nf">debugPrint</span><span class="p">(</span><span class="nx">label</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">label</span><span class="p">}</span><span class="s2">: </span><span class="p">${</span><span class="nx">EJSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">)}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MongoClient</span><span class="p">(</span><span class="dl">"</span><span class="s2">mongodb://localhost:27017</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span> <span class="na">monitorCommands</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+ <span class="nx">client</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">commandStarted</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">debugPrint</span><span class="p">(</span><span class="dl">'</span><span class="s1">commandStarted</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">));</span>
+ <span class="nx">client</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">connectionCheckedOut</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">debugPrint</span><span class="p">(</span><span class="dl">'</span><span class="s1">connectionCheckedOut</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">));</span>
+ <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nf">connect</span><span class="p">();</span>
+ <span class="kd">const</span> <span class="nx">coll</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">db</span><span class="p">(</span><span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">).</span><span class="nf">collection</span><span class="p">(</span><span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">);</span>
+ <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">findOne</span><span class="p">();</span>
+ <span class="nx">client</span><span class="p">.</span><span class="nf">close</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nf">main</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Given the example above (using the <a href="https://www.mongodb.com/docs/drivers/node/current/">Node.js driver</a>) the specified connection events and command events would be logged as they’re emitted by the driver:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">connectionCheckedOut: {"time":{"$date":"2024-05-17T15:18:18.589Z"},"address":"localhost:27018","name":"connectionCheckedOut","connectionId":1}</code>
+<code class="language-plaintext highlighter-rouge">commandStarted: {"name":"commandStarted","address":"127.0.0.1:27018","connectionId":1,"serviceId":null,"requestId":5,"databaseName":"test","commandName":"find","command":{"find":"foo","filter":{},"limit":1,"singleBatch":true,"batchSize":1,"lsid":{"id":{"$binary":{"base64":"4B1kOPCGRUe/641MKhGT4Q==","subType":"04"}}},"$clusterTime":{"clusterTime":{"$timestamp":{"t":1715959097,"i":1}},"signature":{"hash":{"$binary":"base64":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","subType":"00"}},"keyId":0}},"$db":"test"},"serverConnectionId":140}</code></p>
+</blockquote>
+
+<p>The preferred method of observing internal behavior would be through <a href="https://github.com/mongodb/specifications/blob/master/source/logging/logging.md">standardized logging</a> once it is available in all drivers (<a href="https://jira.mongodb.org/browse/DRIVERS-1204">DRIVERS-1204</a>), however until that time only event logging is consistently available. In the future additional observability tooling such as <a href="https://opentelemetry.io/">Open Telemetry</a> support may also be introduced.</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/command-logging-and-monitoring/command-logging-and-monitoring.rst">Command Logging and Monitoring</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/server-discovery-and-monitoring/server-discovery-and-monitoring-logging-and-monitoring.md">SDAM Logging and Monitoring</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/logging/logging.md">Standardized Logging</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/connection-monitoring-and-pooling/connection-monitoring-and-pooling.md#connection-pool-logging">Connection Pool Logging</a></p>
+
+<h3 id="testability">Testability</h3>
+
+<p>Ensuring existing as well as net-new drivers can be effectively tested for correctness and performance, most specifications define a standard set of tests using <a href="https://web.archive.org/web/20230930061614/https://www.mongodb.com/blog/post/cat-herds-crook-yaml-test-specs-improve-driver-conformance">YAML tests to improve driver conformance</a>. This allows specification authors and maintainers to describe functionality once with the confidence that the tests can be executed alike by language-specific test runners across all drivers.</p>
+
+<p>Though the unified test format greatly simplifies language-specific implementations, not all tests can be represented in this fashion. In those cases the specifications may describe tests to be manually implemented as prose. By limiting the number of prose tests that each driver must implement, engineers can deliver functionality with greater confidence while also minimizing the burden of upstream verification.</p>
+
+<p><strong>Specifications:</strong> <a href="https://github.com/mongodb/specifications/blob/master/source/unified-test-format/unified-test-format.md">Unified Test Format</a>, <a href="https://github.com/mongodb/specifications/tree/master/source/atlas-data-lake-testing/tests">Atlas Data Federation Testing</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/benchmarking/benchmarking.md">Performance Benchmarking</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/bson-corpus/bson-corpus.md">BSON Corpus</a>, <a href="https://github.com/mongodb/specifications/tree/master/source/connections-survive-step-down/tests">Replication Event Resilience</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/faas-automated-testing/faas-automated-testing.md">FAAS Automated Testing</a>, <a href="https://github.com/mongodb/specifications/blob/master/source/serverless-testing/README.rst">Atlas Serverless Testing</a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Most (if not all) the information required to build a new driver or maintain existing drivers technically exists within the specifications, however without a mental mode of their composition and architecture it can be extremely challenging to know where to look.</p>
+
+<p>Peeling the <em>“drivers onion”</em> should hopefully make reasoning about them a little easier, especially with the understanding that everything can be tested to validate individual implementations are “up to spec”.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[The modern MongoDB driver consists of a number of components, each of which are thoroughly documented in the Specifications repository. Though this information is readily available and extremely helpful, what it lacks is a high level overview to tie the specs together into a cohesive picture of what a MongoDB driver is.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Hugo II, Whodunit? (Gray Design Associates) - 1991</title><link href="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/" rel="alternate" type="text/html" title="Hugo II, Whodunit? (Gray Design Associates) - 1991" /><published>2024-05-10T06:51:54-04:00</published><updated>2024-05-13T06:35:50-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1670,192 +1813,4 @@ shard01
 
 <p><img src="/images/load-balancer-01.png" alt="" /></p>
 
-<p>Don’t forget that you have a web-based stats UI configured that you can refer to 😉.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="connections" /><category term="load-balancing" /><summary type="html"><![CDATA[Overview]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">EcoQuest: The Search for Cetus (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2024/02/28/ecoquest/" rel="alternate" type="text/html" title="EcoQuest: The Search for Cetus (Sierra On-Line) - 1991" /><published>2024-02-28T06:36:42-05:00</published><updated>2024-03-05T07:35:38-05:00</updated><id>https://www.alexbevi.com/blog/2024/02/28/ecoquest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/02/28/ecoquest/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/EcoQuest:_The_Search_for_Cetus">EcoQuest: The Search for Cetus</a> is an educational adventure designed to teach about the importance of environmental ethics.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00005.png" alt="" /></p>
-
-<p>The player is cast into the role of Adam, the twelve-year-old son of the famous ecologist Noah Greene. One day, his father rescues a dolphin from an abandoned fish net. As Adam becomes more friendly with the creature, he is amazed to discover that the dolphin can talk! Adam finds out that his new friend is Delphineus, the messenger of the whale king Cetus. As a qualified scuba diver, Adam is chosen to venture into the underwater kingdom of animals known as Eluria, and help its inhabitants.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00022.png" alt="" /></p>
-
-<p>EcoQuest uses Sierra’s <a href="http://sciwiki.sierrahelp.com/index.php/Sierra_Creative_Interpreter#SCI1.1">SCI1.1</a> game engine, so the typical actions are accessible for you to cycle through (<code class="language-plaintext highlighter-rouge">MOVE</code>, <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">TALK</code>), but unlike any other Sierra title you also have a <code class="language-plaintext highlighter-rouge">RECYCLE</code> action available.</p>
-
-<p>As this is effectively an “<a href="https://en.wikipedia.org/wiki/Educational_entertainment">Edutainment</a>” title the player is meant to learn as the game progresses, and what Sierra’s trying to teach you seems to be how humans littering and polluting can effect the environment.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00008.png" alt="" />
-<em>All that pollution can’t be good for anything living in the water right?</em></p>
-
-<p>Once you meet Delphineus, figure out how to get the diving gear and make your way out into the ocean the game really begins. Delphineus fills you in on some backstory, including that Cetus - the Great Whale King - is missing.</p>
-
-<p>He’ll take you to the underwater kingdom of Eluria, but first you need to get acclimatized to the two moving around the game world. Unlike most adventure games that take place on land, you’ll be in the water for the vast majority of this game so you get around by swimming.</p>
-
-<p>This is no different from walking other than on certain screens where you can surface, you’ll also be able to dive back down underwater.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00002.png" alt="" />
-<em>You’ll use this bag a lot throughout the game</em></p>
-
-<p>As with most Sierra Online games, there is a point system that rewards you for taking various actions as you progress. In EcoQuest one of the main ways you get points is by recycling garbage.</p>
-
-<p>After picking up the garbage bag on the first screen of the game you’ll have a <code class="language-plaintext highlighter-rouge">RECYCLE</code> action available for use, which when clicked on a piece of garbage will instruct Adam to dispose of it.</p>
-
-<p>Recycling adds nothing to the game and is just busywork for the player to get more points, but I’m assuming was Sierra’s way of trying to teach kids to be mindful of the environment.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00014.png" alt="" /></p>
-
-<p>Once you reach the kingdom of Eluria the main plot points will unfold. First you’ll be introduced to the game’s main antagonist, who appears to be a giant manta ray. He just sort of swims by overhead but Delphineus lets you know this is someone to be afraid of.</p>
-
-<p>Second, you’ll learn there’s a prophecy that a child of man would come and save Eluria. How convenient seeing as that’s exactly what you are …</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00019.png" alt="" /></p>
-
-<p>The artwork in this game is excellent, and really draws you into the game world. Even though EcoQuest is more of a “beginner” adventure, it’s very approachable and has a good enough story to entice you to continue playing.</p>
-
-<p>The music and sound effects aren’t great, but aren’t terrible either. The background music samples are typically short, so if you’re on the same screen for a while trying to solve a puzzle it’s very noticeable how often the samples loop.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00017.png" alt="" />
-<em>In the CD version these interactions are fully voiced</em></p>
-
-<p>If you play the CD version of the game then everything is voice acted, and the voice acting isn’t bad. A number of the characters you’ll meet in Eluria definitely feel like they were inspired by <a href="https://en.wikipedia.org/wiki/The_Little_Mermaid_(1989_film)">Disney’s “The Little Mermaid”</a>, and the voice actors leaned into their their depictions of these characters pretty heavily.</p>
-
-<p>Though this can come across as campy, I really enjoyed it.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00020.png" alt="" /></p>
-
-<p>As far as gameplay is concerned, most of the game is just basic fetch quests and item combination puzzles. Every screen plays out about the same as you’ll have to (a) talk to someone, (b) pick up a bunch of stuff, (c) maybe recycle some garbage, (d) maybe use some items.</p>
-
-<p>Unlike other Sierra games, EcoQuest is somewhat unique as there are no unwinnable states and I’m fairly certain you also can’t die.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00003.png" alt="" />
-<em>This is the solution to one of the last puzzles in the game</em></p>
-
-<p>The item combination puzzles are a bit more difficult, but the game does a pretty good job of shoving the solution in your face - as long as you’re paying attention.</p>
-
-<p>There are no dead ends and no red herrings, so as long as you pick up everything the solution to most puzzles will be pretty obvious as it will typically involving using something or giving something to someone.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00012.png" alt="" /></p>
-
-<p>To add some variety to the gameplay there are a couple puzzles you’ll need to solve as well. The sliding tile puzzle is a pain in the ass, but if you click the <em>Help</em> button the game will automatically play itself.</p>
-
-<p>Clicking <em>Help</em> repeatedly will just keep sliding the tiles for you until the puzzle is solved, so if like me you really don’t like these types of puzzles you’ll appreciate this type of quality of life feature in the game.</p>
-
-<p>The other puzzle just involves rotating 9 sections of a column in a specific order until they lock into place. This one is pretty straightforward and can be brute forced through trial and error relatively quickly.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00026.png" alt="" /></p>
-
-<p>Near the end of the game you’ll find some radioactive waste that you’ll need to get cleaned up. This is done by floating a transmitter up to the surface to alert a salvage crew as to the location of the waste.</p>
-
-<p>The solution here is an item combination puzzle which the game taught you about on the first screen of the game. Hopefully you were paying attention …</p>
-
-<p>Once you get that cleaned up Delphineus will be captured by the manta ray and you’ll need to save him. You’ll also find Cetus, who appears to have been harpooned by a sunken fishing boat. You’ll need to save him, which will involve cutting the head of the harpoon off from inside his mouth. Good think you found a hacksaw a few screens back.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00025.png" alt="" /></p>
-
-<p>You’ll free Cetus, free Delphineus and get into a showdown with the manta ray. Why the manta ray is evil, or what it’s motivation is to torment the citizens of Eluria aren’t really explained,  but you’re going to have to deal with him to finish the game.</p>
-
-<p><img src="/images/adventure/eco1/scummvm-ecoquest-cd-00028.png" alt="" /></p>
-
-<p>Stabbing the manta ray with a lion fish spine will stun it enough for Cetus to whack it with it’s tail. I think you ultimately kill the manta ray, which seems at odds with the more pacifist messaging throughout this game.</p>
-
-<p>EcoQuest is definitely targeted at a younger player, and it does a good job of holding your hand through most of the game. The end result is that it’s really not all that much fun to play as there’s limited variety to the types of interactions you’ll have with the game world.</p>
-
-<p>The game is also incredibly short, which may also be due to the target audience.</p>
-
-<p>I’m pretty sure I played this game briefly around the time it came out and didn’t find it all that engaging or entertaining. My opinion hasn’t changed all that much now that I’ve actually completed the game, but I would recommend playing the CD version if you actually want to try this game as the voice acting definitely enhances the play experience.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>EcoQuest: The Search for Cetus</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1991</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/3052"><em>How Long To Beat?</em></a></td>
-      <td>2.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/ecoquest.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>36%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00001.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00001.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00004.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00004.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00006.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00006.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00007.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00007.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00009.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00009.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00010.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00010.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00011.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00011.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00013.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00013.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00015.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00015.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00016.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00016.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00018.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00018.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00021.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00021.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00023.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00023.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00024.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00024.png' },{ src: '/images/adventure/eco1/scummvm-ecoquest-cd-00027.png', thumb: '/images/adventure/eco1/scummvm-ecoquest-cd-00027.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/584/ecoquest-the-search-for-cetus/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/eco1/scummvm-ecoquest-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Don’t forget that you have a web-based stats UI configured that you can refer to 😉.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="connections" /><category term="load-balancing" /><summary type="html"><![CDATA[Overview]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
