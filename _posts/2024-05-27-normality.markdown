@@ -79,7 +79,7 @@ I honestly had a lot of fun with this game, though it can be frustrating at time
 
 There's a great writeup by [The Digital Antiquarian](https://www.filfre.net/2023/01/normality/) that goes into a lot more detail about this game that I'd highly recommend if you find this interesting.
 
-Since I haven't covered another title like this yet, and it presented a new take on the genre I think this one is worth checking out for fans of the genre.
+Since I haven't covered another title like this yet, and it presented a new take on the genre I think this one is worth checking out.
 
 ## Game Information
 
