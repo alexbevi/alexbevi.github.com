@@ -12,7 +12,7 @@ image:
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 76  -%}
+{%- assign games_finished = 78  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -53,6 +53,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
 1. **66%** [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
 1. **64%** [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
+1. **64%** [Normality (Gremlin Interactive)]({% post_url 2024-05-27-normality %}) - 1996
 1. **64%** [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 1. **63%** [DreamWeb (Creative Reality)]({% post_url 2023-05-18-dreamweb %}) - 1994
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
