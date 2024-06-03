@@ -58,7 +58,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 78  -%}
+{%- assign games_finished = 79  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -171,7 +171,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 93. Sherlock Holmes: Consulting Detective (ICOM Simulations) - 1991
 94. Spellcasting 201: The Sorcerer's Appliance (Legend Entertainment) - 1991
 95. Timequest (Legend Entertainment) - 1991
-96. Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line) - 1991
+96. [Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)]({% post_url 2024-06-02-space-quest-iv-roger-wilco-and-the-time-rippers %}) - 1991
 97. ~~Metal Slader Glory (HAL Laboratory) - 1991~~ (_Japanese only, though a [fan translation](https://www.romhacking.net/translations/3755/) exists_)
 98. Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991
 99. Monkey Island 2: LeChuck's Revenge (LucasArts) - 1991

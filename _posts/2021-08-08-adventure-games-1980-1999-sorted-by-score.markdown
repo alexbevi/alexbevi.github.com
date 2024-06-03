@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 78  -%}
+{%- assign games_finished = 79  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -67,6 +67,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **56%** [Frederik Pohl's Gateway (Legend Entertainment)]({% post_url 2023-11-29-gateway %}) - 1992
 1. **56%** [Loom (Lucasfilm Games)]({% post_url 2024-02-06-loom %}) - 1990
 1. **53%** [Ripper (Take-Two Interactive)]({% post_url 2023-09-27-ripper %}) - 1996
+1. **53%** [Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)]({% post_url 2024-06-02-space-quest-iv-roger-wilco-and-the-time-rippers %}) - 1991
 1. **51%** [Harvester (DigiFX Interactive)]({% post_url 2024-02-23-harvester %}) - 1996
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 1. **50%** [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
@@ -93,7 +94,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **34%** [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
-1. **31%** [The Dark  Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
+1. **31%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **31%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
 1. **29%** [Ace Ventura (7th Level)]({ post_url 2023-05-16-ace-ventura %}) - 1996
 1. **29%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
