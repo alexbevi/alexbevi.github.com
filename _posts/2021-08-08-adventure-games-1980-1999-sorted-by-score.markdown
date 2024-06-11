@@ -34,6 +34,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **86%** [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
+1. **84%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
 1. **81%** [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 1. **80%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
@@ -104,4 +105,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
-1. **xx%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995

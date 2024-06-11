@@ -131,11 +131,11 @@ Historical game preservation and ScummVM specifically are close to my heart so I
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Atmosphere (20)**|13|
-|**Story (25)**|19|
+|**Atmosphere (20)**|16|
+|**Story (25)**|21|
 |**Experience (15)**|13|
 |**Impact (10)**|9|
-||**77%**|
+||**84%**|
 
 ### Gallery
 
