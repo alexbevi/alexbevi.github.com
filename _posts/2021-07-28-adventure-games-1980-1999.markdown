@@ -58,7 +58,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 79  -%}
+{%- assign games_finished = 80  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -280,7 +280,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 202. Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995
 203. Dust: A Tale of the Wired West (Cyberflix) - 1995
 204. EVE Burst Error (C's Ware) - 1995
-205. Flight of the Amazon Queen (Interactive Binary Illusions) - 1995
+205. [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
 206. Frankenstein: Through the Eyes of the Monster (Amazing Media) - 1995
 207. Guilty (Divide By Zero) - 1995
 208. Heaven's Dawn (Art 9 Entertainment Inc.) - 1995

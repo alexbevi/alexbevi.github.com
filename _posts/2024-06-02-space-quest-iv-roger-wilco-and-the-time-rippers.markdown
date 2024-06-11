@@ -4,7 +4,7 @@ title: "Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line) - 1991
 date: 2024-06-02 21:01:46 -0400
 comments: true
 categories: ["Let's Adventure!"]
-tags: [adventure, "Gremlin Interactive", "Interplay"]
+tags: [adventure, "Sierra On-Line", "SCI"]
 image: /images/adventure/sq4/scummvm-sq4-cd-00002.png
 ---
 > This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
