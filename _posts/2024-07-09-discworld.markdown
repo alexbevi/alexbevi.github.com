@@ -42,7 +42,7 @@ Speaking of backtracking, that's about 90% of the game. You typically need to ta
 
 ![](/images/adventure/dw1/scummvm-dw-cd-00007.png)
 
-The dialogue system is reminiscent of games of this era such as [Sam & Max Hit the Road]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) where a row of icons will be presented that represent various interactions that according to the [mamual](https://archive.org/details/discworld-manual/page/n7/mode/2up) represent actions/moods such as `GREETING`, `QUESTION`, `SARCASM`and `ANGER`.
+The dialogue system is reminiscent of games of this era such as [Sam & Max Hit the Road]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) where a row of icons will be presented that represent various interactions that according to the [manual](https://archive.org/details/discworld-manual/page/n7/mode/2up) represent actions/moods such as `GREETING`, `QUESTION`, `SARCASM`and `ANGER`.
 
 ![](/images/adventure/dw1/scummvm-dw-cd-00009.png)
 
