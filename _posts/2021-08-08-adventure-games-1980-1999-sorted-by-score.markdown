@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 81  -%}
+{%- assign games_finished = 82  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -58,6 +58,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **63%** [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 1. **61%** [Snatcher (Konami)]({% post_url 2023-06-28-snatcher %}) - 1988
 1. **61%** [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
+1. **59%** [Discworld (Teeny Weeny Games/Perfect 10 Productions)]({% post_url 2024-07-09-discworld %}) - 1995
 1. **59%** [Dark Seed (Cyberdreams)]({% post_url 2023-11-20-darkseed %}) - 1992
 1. **59%** [The Adventures of Willy Beamish (Dynamix)]({% post_url 2024-02-12-the-adventures-of-willy-beamish %}) - 1991
 1. **59%** [Police Quest III: The Kindred (Sierra On-Line)]({% post_url 2023-12-16-police-quest-iii %}) - 1991
