@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-17T07:09:05-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Altered Destiny (Accolade) - 1990</title><link href="https://www.alexbevi.com/blog/2024/06/14/altered-destiny/" rel="alternate" type="text/html" title="Altered Destiny (Accolade) - 1990" /><published>2024-06-14T06:06:26-04:00</published><updated>2024-06-17T07:08:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/06/14/altered-destiny</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/06/14/altered-destiny/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-11T06:18:58-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995</title><link href="https://www.alexbevi.com/blog/2024/07/09/discworld/" rel="alternate" type="text/html" title="Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995" /><published>2024-07-09T07:06:16-04:00</published><updated>2024-07-11T06:17:54-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/09/discworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/09/discworld/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Discworld_(video_game)">Discworld</a> is a point-and-click adventure game developed by Teeny Weeny Games and Perfect 10 Productions and published by Psygnosis. It is based on <a href="https://en.wikipedia.org/wiki/Terry_Pratchett">Terry Pratchett</a>’s novels of the same name.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00011.png" alt="" /></p>
+
+<p>This adventure game puts the player in the shoes of Rincewind, a wizard whose sole purpose in life is to stay alive. He appears to be very good at it as well, because apparently the universe has decided to continuously challenge him. The game takes place in the humorous fantasy world called the Discworld, as it is actually a flat disc carried on the backs of four gigantic elephants, which themselves stand on the back of an even larger turtle.</p>
+
+<p>The story is loosely based on the <a href="https://en.wikipedia.org/wiki/Guards!_Guards!">novel “Guards! Guards!”</a>. Both in the book and the game, a dragon is summoned by a group of mysterious conspirators and now terrorizes the city state of Ankh-Morpork. Being the most expendable wizard of the Unseen University, Rincewind is given the task to get rid of the beast (only in the game though; in the book, the city’s nightwatch has to deal with the problem).<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00015.png" alt="" /></p>
+
+<p>Discworld is a pretty typical point and click adventure from the mid-90s: the game starts with a brief intro sequence, you’re introduced to the protagonist, you’re given the first (of likely many) fetch quests which you’ll need to complete and you’re on your way.</p>
+
+<p>Over the course of four acts your task is to rid the Discworld of the dragon that the secret brotherhood has summoned. As a wizard of Unseen University, the Archchancellor has decided you’re up to this task so first you’ll need to collect the various elements from around Ankh-Morpork that he needs to build a “dragon detector”.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00005.png" alt="" /></p>
+
+<p>Every time you leave an area of the game you’ll be returned to the map screen, which is how you navigate between the various game locations. There are a few more locations beyond the main map, but the majority of the game takes place here (both in the past, and in the present).</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00010.png" alt="" /></p>
+
+<p>Throughout the course of the game you’ll pick up <em>a lot</em> of items. Luckily for Rincewind you’re always accompanied by your trusty luggage - which is a treasure chest with a lot of legs. I remember vaguely reading these books when I was a kid and the traveling treasure chest standing out to me as a really interesting character, so I was really hoping it would play a big part in this game once it was introduced.</p>
+
+<p>When you find a new item you can pick up you’ll have the option of adding it to the chest or Rincewind’s inventory. The chest has unlimited storage, whereas Rincewind only has 4 “slots” that you can use.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00013.png" alt="" /></p>
+
+<p>Inventory management plays a pretty large role in this game as there are several puzzles that require Rincewind to take items with him to a location the chest can’t access. Typically it’s not obvious what you need to bring with you and the will involve trial and error, backtracking and repetition.</p>
+
+<p>Speaking of backtracking, that’s about 90% of the game. You typically need to talk to everyone you possibly can on every screen to get a sense of what fetch quest they’re going to send you on, then head off to fetch said maguffin.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00007.png" alt="" /></p>
+
+<p>The dialogue system is reminiscent of games of this era such as <a href="/blog/2023/01/23/sam-and-max-hit-the-road/">Sam &amp; Max Hit the Road</a> where a row of icons will be presented that represent various interactions that according to the <a href="https://archive.org/details/discworld-manual/page/n7/mode/2up">mamual</a> represent actions/moods such as <code class="language-plaintext highlighter-rouge">GREETING</code>, <code class="language-plaintext highlighter-rouge">QUESTION</code>, <code class="language-plaintext highlighter-rouge">SARCASM</code>and <code class="language-plaintext highlighter-rouge">ANGER</code>.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00009.png" alt="" /></p>
+
+<p>Though the gameplay itself can be a bit tedious, the character interactions and descriptions of the world you’re engaging with are fantastic. <a href="https://en.wikipedia.org/wiki/Monty_Python">Monty Python</a>’s <a href="https://en.wikipedia.org/wiki/Eric_Idle">Eric Idle</a> voices Rincewind, and really brings the character to life as a dry, witty British stereotype.</p>
+
+<p>There is ever-present <a href="https://www.youtube.com/watch?v=_dxSji16tOc&amp;list=PL9434353ADDF48CD6">background music</a> playing throughout the game, but it just sort of fades into the background. I don’t consider this a bad thing for ambient music as it means it’s essentially just doing it’s job.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00019.png" alt="" /></p>
+
+<p>In order for Rincewind to solve the mystery of who stole the Dragon Summoning book, uncover the identities of the members of the brotherhood and retrieve the various gold trinkets the dragon has requested, he’ll have to travel back in time.</p>
+
+<p>This is done through the University’s library (following a long series of fetch quests) that opens a door to L-Space. Once you’ve accessed L-Space a new series of puzzles need to be solved - many of them involving making changes in the past to impact the placement or availability of things in the present.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00020.png" alt="" /></p>
+
+<p>I really liked the mechanic, but found myself getting lost or confused or having to repeatedly go back and forth between the past and preset trying ot suss out exactly what it is I’m trying to do.</p>
+
+<p>Discworld does not hold your hand. The clues can be vague and require you to really think. I don’t believe any knowledge of the books is required to be successful, but I’m sure it couldn’t hurt.</p>
+
+<p>For example, to get the password to the thieve’s hideout you need to turn the drainpipe, hide, then listen to the pipe with a glass. If you don’t use the glass a long sequence plays out that doesn’t make it obvious you <em>didn’t</em> get the password until you try and get into the hideout.</p>
+
+<p>You then need to repeat this trying various items on the drainpipe to see if anything will happen.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00024.png" alt="" /></p>
+
+<p>Trying everything on everything (including every item on every other item) can be a requirement to progression. There are just so many items you’ll find, an the solution to many puzzles requires either a single item or an item combination puzzle to be solved first - and the solutions are typically not obvious.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00023.png" alt="" /></p>
+
+<p>This is definitely not a game for kids. There are allusions to adult themes, the writing is complex, the humour is more nuanced and you really have to pay attention to your surroundings and all dialogue to make any progress.</p>
+
+<p><img src="/images/adventure/dw1/scummvm-dw-cd-00031.png" alt="" /></p>
+
+<p>I seem to remember playing this game as a teenager and just not being able to get into it. I was a big Monty Python fan (who wasn’t in the 90’s) so Eric Idle voicing a character really appealed to me … but I just couldn’t make any progress.</p>
+
+<p>If you’re playing in ScummVM there are a <a href="https://bugs.scummvm.org/query?game=Discworld&amp;status=new&amp;status=pending&amp;order=priority">number of known bugs</a>, though the game is not really affected too badly. I did hit the <a href="https://bugs.scummvm.org/ticket/10659">Act 4 missing guard crash</a>, but that is easily avoidable by just not engaging a clearly missing background character in conversation.</p>
+
+<p>I really love Terry Pratchett’s writing style and have previously read <a href="https://en.wikipedia.org/wiki/The_Colour_of_Magic">The Colour of Magic</a>. Having now played through this game I definitely feel like firing up the eReader and diving back into the world of Ankh-Morpork.</p>
+
+<p>There are better adventure games out there that would likely be more approachable, but the story and writing of Discworld definitely stands out.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Discworld</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Perfect_Entertainment">Teeny Weeny Games/Perfect 10 Productions</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Psygnosis">Psygnosis</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Mac, PlayStation, Sega Saturn</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=Tinsel">Tinsel</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/2589"><em>How Long To Beat?</em></a></td>
+      <td>11 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthrough/full/discworld">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Atmosphere (20)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Story (25)</strong></td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><strong>Experience (15)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>59%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/dw1/scummvm-dw-cd-00001.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00001.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00002.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00002.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00003.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00003.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00004.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00004.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00006.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00006.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00008.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00008.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00012.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00012.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00014.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00014.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00016.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00016.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00017.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00017.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00018.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00018.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00021.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00021.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00022.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00022.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00025.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00025.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00026.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00026.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00027.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00027.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00028.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00028.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00029.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00029.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00030.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00030.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/92/altered-destiny/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Tinsel" /><category term="Teeny Weeny Games/Perfect 10 Productions" /><category term="Psygnosis" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dw1/scummvm-dw-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dw1/scummvm-dw-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Altered Destiny (Accolade) - 1990</title><link href="https://www.alexbevi.com/blog/2024/06/14/altered-destiny/" rel="alternate" type="text/html" title="Altered Destiny (Accolade) - 1990" /><published>2024-06-14T06:06:26-04:00</published><updated>2024-06-17T07:08:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/06/14/altered-destiny</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/06/14/altered-destiny/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1578,201 +1748,4 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>This was documented within a comment of <a href="https://github.com/Automattic/mongoose/issues/9804">this GitHub issue</a> but for the sake of visibility I wanted to capture it here.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="connections" /><category term="drivers" /><category term="monitoring" /><category term="mongoose" /><category term="node.js" /><summary type="html"><![CDATA[I previously wrote about MongoDB Driver Monitoring, but there are ODM libraries and framework integrations that are built atop the drivers that can take advantage of this functionality.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Police Quest: Open Season (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/" rel="alternate" type="text/html" title="Police Quest: Open Season (Sierra On-Line) - 1993" /><published>2024-04-25T05:18:42-04:00</published><updated>2024-04-26T07:27:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/04/25/police-quest-open-season/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Police_Quest:_Open_Season">Police Quest: Open Season</a> (also known as Police Quest IV) is a 1993 police procedural point-and-click adventure video game developed and published by Sierra On-Line that follows homicide detective John Carey as he investigates a series of brutal murders in Los Angeles.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00023.png" alt="" /></p>
-
-<p>This fourth installment in the Police Quest series abandons the story arc of the previous three games, introducing a new setting and a new protagonist. The story begins with detective John Carey finding his best friend and ex-partner, Officer Bob Hickman, murdered in an alley in the Southern part of the city. An eight-year-old boy named Bobby Washington has been murdered as well. Carey begins an investigation that leads him deep into the criminal life of the city and a hunt for a maniacal murderer.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00028.png" alt="" /></p>
-
-<p>Growing up playing Sierra games, Police Quest was at the top of my list so I have very fond memories of the series. As I started on this review journey, I found myself playing through the first three games (<a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a>, <a href="/blog/2023/02/21/police-quest-2/">Police Quest II: The Vengeance</a>, <a href="/blog/2023/12/16/police-quest-iii/">Police Quest III: The Kindred</a>) pretty early on as I was looking forward to getting reacquainted with Sonny Bonds and the city of Lytton.</p>
-
-<p>This entry in the series throws all that legacy out the window and instead tries to present a grittier, more realistic setting.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00017.png" alt="" />
-<em>The graphics are blocky and just overall look shitty</em></p>
-
-<p>What really struck me immediately is how bad this game looks. The character models are extremely chunky and looked overly compressed. Character walk cycle animations are rigid and awkward and everything in general just looks out of focus and kind of blurry.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00034.png" alt="" />
-<em>The text boxes can be extremely hard to read</em></p>
-
-<p>Whenever you interact with another character in the game you’re presented with a translucent text box that makes it extremely difficult to read the contents. Since this is an adventure game that involves talking to a lot of characters to uncover plot points and advance the story, you’ll find yourself frequently in situations that involve squinting to try and make out what’s on screen.</p>
-
-<p>All interactions are fully voice acted (including Detective Carey’s observations when you interact with the background) so you can get around the text box quality, but then you’re at the mercy of some sub-par voice acting instead. Not all voice acting is awful in this game, but it’s definitely not one of this game’s strengths.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00044.png" alt="" />
-<em>I’m sure this was meant to be an attempt at humor, but it feels forced</em></p>
-
-<p>Unlike the voice acting, the background music is … fine. Nothing really notable other than it seems they reused a Leisure Suit Larry song for the elevator music which is a nice tip of the hat to fans of the series.</p>
-
-<p>The tone of the game is a bit scattered. The subject matter is meant to be extremely serious, but they try to weave goofier elements in periodically. These attempts at comedy, mostly fell short for me and just came off as awkward and out of place.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00037.png" alt="" /></p>
-
-<p>You advance through each day of this game by going to various locations across Los Angeles, interrogating various characters, collecting evidence and recording details using your notebook. Since this is another police procedure simulation you get points for following proper protocol.</p>
-
-<p>This involves showing your badge to literally everyone you have to talk to (sometimes every single time you see them), clipping your name tag on every time you enter headquarters and filling out a form 3.14 <em>every single time you progress your investigation the tiniest bit</em>.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00022.png" alt="" />
-<em>I HATE form 3.14</em></p>
-
-<p>I know this is meant to be an “accurate simulation”, but this is just not fun game design. If you need to do this once - fine. If you need to do this every time it’s no longer a game - it’s just “work”.</p>
-
-<p>A lot of this game just feels like work. Maybe that’s an accurate depiction of police detective work in the early 90s, but it really doesn’t translate to a compelling game experience.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00041.png" alt="" />
-<em>Point and click to navigate between game areas</em></p>
-
-<p>I appreciate that you can fast travel to the various locations you need to investigate. In earlier entries in this series you would have to manually drive yourself around town, which could take forever and result in unnecessary game ending situations.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00021.png" alt="" /></p>
-
-<p>Speaking of “game ending situations”, seeing as this is a Sierra game you would expect death to be lurking around every corner - but that’s just not the case. There are maybe a handful of situations that will trigger a game over, but these are few and far between.</p>
-
-<p>What’s worse is the prompt you get when you die is just as boring as the rest of the game. I used to go out of my way to see how the game would describe my character’s death in games like Leisure Suit Larry or Space Quest because it was always funny, descriptive and entertaining.</p>
-
-<p>The plain gray box with a generic message stating I died is fitting for how boring this game is as a whole.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00032.png" alt="" />
-<em>I got stuck here for a while</em></p>
-
-<p>Open Season is not a very long game, but I found myself stuck and unable to progress at one point because a scripted event just would not trigger. After watching the news at the bar after the second day, the screen would just go blank and the game would wait forever. Eventually I found that lowering the detail and speed in the game settings before entering this sequence would allow the script to progress.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00043.png" alt="" /></p>
-
-<p>The game takes place over the course of a few days. If you don’t complete <em>everything</em>, the scripted events required to trigger the transition to the next day won’t trigger.</p>
-
-<p>I found myself in a situation where I couldn’t get Wednesday to end, which it turned out was actually a pretty common issue for a lot of gamers. The official spoiler from Sierra Help states that you need to:</p>
-
-<blockquote>
-  <p>Go to the L.A. County Morgue. You should see a news team questioning Sherry and the day will end. If this doesn’t happen, you have missed something. Did you get the newspaper clipping from the patrol car at the Impound Lot? Did you look at the clipping in your inventory? Did you go to the Bitty Kitty and question Electra and Barbie after showing them your badge? Did you show them both the shoe from Yo Money’s house? Did you question the proprietor of Ragin’ Records about the patrol car and the abandoned car? Did you give the bone from Griffith Park to the coroner?</p>
-</blockquote>
-
-<p>Turns out I didn’t show Barbie the shoe. After doing this I went back to the coroner’s office and the script triggered that had the reporter pestering the coroner’s assistant.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00045.png" alt="" /></p>
-
-<p>You’ll pick up a lot of items throughout the game, and thankfully their usage is typically pretty obvious. There are very few item combination puzzles, but the mirror-based one is a pain in the ass.</p>
-
-<p>Near the end of the game you’ll need to peer around a corner to make sure a dog isn’t there, which you do by gluing a broken side-view mirror to a drumstick. This is not very obvious, but adventure game veterans know to just try combining everything with everything so once you put the glue on the drumstick and it works it sort of “clicks” that this will be a 3 way item combo puzzle.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00013.png" alt="" /></p>
-
-<p>This is an extremely repetitive game but the shooting range sequence is a neat distraction. Unfortunately this mechanic isn’t actually used anywhere in the game. You just sort of do this to kill time.</p>
-
-<p>You do draw your gun a few times to make arrests, and there is a shotgun sequence at one point but the first person view of the shooting range doesn’t make an appearance anywhere else.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00048.png" alt="" /></p>
-
-<p>The story progresses and you eventually uncover that there’s a cross dressing man killing people for … reasons? I don’t know if this wasn’t actually explained or if I just zoned out for the last couple days worth of content in this game but I never fully understood the motivations of the killer or why it was even all that material to the story as a whole.</p>
-
-<p>You’ll ultimately find the killer then neutralize them by spraying them in the face with a home made flamethrower. Then you get a medal of valor for being awesome at your job. Way to go Detective Carey - you’re my hero.</p>
-
-<p><img src="/images/adventure/pq4/scummvm-pq4-cd-00049.png" alt="" />
-<em>The End</em></p>
-
-<p>Sierra should have left this series alone after Police Quest 3. I guess after <a href="https://en.wikipedia.org/wiki/Jim_Walls">Jim Walls</a> left to join Tsunami Media (where he made <a href="/blog/2022/03/31/blue-force/">Blue Force</a>) they wanted to keep the series alive so they brought on <a href="https://en.wikipedia.org/wiki/Daryl_Gates">Daryl F. Gates</a> to fill the void.</p>
-
-<p>That void should have remained unfilled. Gates also consulted on Sierra’s SWAT series, which I equally didn’t enjoy playing …</p>
-
-<p>I don’t recommend this game. Go back and play any of PQ 1 through 3 instead.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Police Quest: Open Season</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Revolution_Software">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>November 1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Windows, DOS, Apple Macintosh System 7</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/7197"><em>How Long To Beat?</em></a></td>
-      <td>6.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://gamerwalkthroughs.com/police-quest-4-open-season/">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>40%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/pq4/scummvm-pq4-cd-00001.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00001.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00002.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00002.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00003.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00003.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00004.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00004.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00005.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00005.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00006.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00006.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00007.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00007.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00008.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00008.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00009.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00009.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00010.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00010.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00011.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00011.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00012.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00012.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00014.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00014.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00015.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00015.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00016.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00016.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00018.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00018.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00019.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00019.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00020.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00020.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00024.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00024.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00025.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00025.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00026.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00026.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00027.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00027.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00029.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00029.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00030.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00030.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00031.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00031.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00033.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00033.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00035.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00035.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00036.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00036.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00038.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00038.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00039.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00039.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00040.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00040.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00042.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00042.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00046.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00046.png' },{ src: '/images/adventure/pq4/scummvm-pq4-cd-00047.png', thumb: '/images/adventure/pq4/scummvm-pq4-cd-00047.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/149/daryl-f-gates-police-quest-open-season/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pq4/scummvm-pq4-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pq4/scummvm-pq4-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>This was documented within a comment of <a href="https://github.com/Automattic/mongoose/issues/9804">this GitHub issue</a> but for the sake of visibility I wanted to capture it here.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="connections" /><category term="drivers" /><category term="monitoring" /><category term="mongoose" /><category term="node.js" /><summary type="html"><![CDATA[I previously wrote about MongoDB Driver Monitoring, but there are ODM libraries and framework integrations that are built atop the drivers that can take advantage of this functionality.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
