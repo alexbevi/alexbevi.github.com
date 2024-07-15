@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-12T13:12:23-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Call Stack, But Make It Async!</title><link href="https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async/" rel="alternate" type="text/html" title="Call Stack, But Make It Async!" /><published>2024-07-12T11:15:50-04:00</published><updated>2024-07-12T13:11:40-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async/"><![CDATA[<blockquote class="prompt-tip">
-  <p>Written by Neal Beeken (<a href="https://nbbeeken.github.io/">website</a>, <a href="https://github.com/nbbeeken">GitHub</a>)</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-15T14:19:50-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Call Stack, But Make It Async!</title><link href="https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async/" rel="alternate" type="text/html" title="Call Stack, But Make It Async!" /><published>2024-07-12T11:15:50-04:00</published><updated>2024-07-15T14:19:04-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/12/call-stack-but-make-it-async/"><![CDATA[<blockquote class="prompt-tip">
+  <p>Written by Neal Beeken (<a href="https://nbbeeken.github.io/">Blog</a>, <a href="https://github.com/nbbeeken">GitHub</a>)</p>
 </blockquote>
 
-<h1 id="intro">Intro</h1>
-<p>In a recent release of the MongoDB Node.js driver (<a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v6.5.0">v6.5.0</a>) the team completed the effort of getting all our asynchronous operations to report an accurate asynchronous stack trace to assist in pinpointing error origination. Here, I’ll walk you through what this feature of JavaScript is and how to obtain it at the low price of zero-cost.</p>
+<p>In a recent release of the MongoDB Node.js driver (<a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v6.5.0">v6.5.0</a>), the team completed the effort of getting all our asynchronous operations to report an accurate asynchronous stack trace to assist in pinpointing error origination. Here, I’ll walk you through what this feature of JavaScript is and how to obtain it at the low price of zero cost.</p>
 
-<h1 id="calls-and-how-to-stack-them-">Calls and how to stack them 📚</h1>
+<h2 id="calls-and-how-to-stack-them-">Calls and how to stack them 📚</h2>
 
-<p>First, what is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack">call stack</a>? A call stack is a hidden data structure that stores information about the active subroutines of a program; active subroutines being functions that have been called but have yet to complete execution and return control to the caller. The main function of the call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
+<p>First, what is a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Call_stack">call stack</a>? A call stack is a hidden data structure that stores information about the active subroutines of a program - active subroutines being functions that have been called but have yet to complete execution and return control to the caller. The main function of the call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.</p>
 
-<p>Let’s go through an example, take a program that parses a string from its arguments that is an equation like “2+2” and computes the result:</p>
+<p>Let’s go through an example. Take a program that parses a string from its arguments that is an equation like “2+2” and computes the result:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -49,8 +48,8 @@ Error: cannot get string length
     at main (file://addNumbers.mjs:4:5)
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="the-async-wrench-">The Async wrench 🔧</h2>
-<p>Everything changes when we shift to an asynchronous programming model, as the introduction of asynchronous work means we no longer have strictly dependent procedures. Essentially, async programming is about setting up tasks and adding handling that will be invoked some time later when the task is complete.</p>
+<h3 id="the-async-wrench-">The async wrench 🔧</h3>
+<p>Everything changes when we shift to an asynchronous programming model, as the introduction of asynchronous work means we no longer have strictly dependent procedures. Essentially, async programming is about setting up tasks and adding handling that will be invoked sometime later when the task is complete.</p>
 
 <p>Let’s add I/O (a read from standard in) into our program to see how this changes our call stack:</p>
 
@@ -70,7 +69,7 @@ Error: cannot get string length
     <span class="o">-&gt;</span> <span class="nf">stringLength</span><span class="p">()</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Now, main’s only job is to ask the runtime to read from stdin and invoke a function of our choice when it is done doing so. This means main is no longer an active procedure; it returns leaving it up to the runtime to keep the process running until it has input from stdin to hand back to our function <code class="language-plaintext highlighter-rouge">handleUserInput</code>.</p>
+<p>Now, main’s only job is to ask the runtime to read from stdin and invoke a function of our choice when it is done doing so. This means main is no longer an active procedure; it returns, leaving it up to the runtime to keep the process running until it has input from stdin to hand back to our function <code class="language-plaintext highlighter-rouge">handleUserInput</code>.</p>
 
 <p>Here’s what the stack trace looks like:</p>
 
@@ -104,13 +103,13 @@ Error: cannot get string length
 
 <p>No sign of <code class="language-plaintext highlighter-rouge">main</code>, only <code class="language-plaintext highlighter-rouge">handleUserInput</code>.</p>
 
-<p>This is a common hazard of asynchronous programming: you are always replacing the record of your active procedures as they are all performing task setup that completes and the callbacks they created are later invoked by the runtime.</p>
+<p>This is a common hazard of asynchronous programming: You are always replacing the record of your active procedures as they are all performing task setup that completes and the callbacks they created are later invoked by the runtime.</p>
 
-<h1 id="javascript-">JavaScript 💚</h1>
+<h2 id="javascript-">JavaScript 💚</h2>
 
 <p>Asynchronous programming has always been at the heart of JS and is one of the central selling points of using Node.js.</p>
 
-<p>In 2015, the first <a href="https://nodejs.org/en/blog/release/v4.2.0">Long Term Support version of Node.js was released</a>, and with it came a stable standard library that popularized a common pattern for handling asynchronous tasks. All asynchronous tasks would accept a callback as their last argument, with the callback taking at least two arguments: an error, and the task’s result. The pattern was that if the first argument was <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">truthy</a> (an error object) the task failed, and if it was not then the second argument would contain the result.</p>
+<p>In 2015, the first <a href="https://nodejs.org/en/blog/release/v4.2.0">Long Term Support version of Node.js was released</a>, and with it came a stable standard library that popularized a common pattern for handling asynchronous tasks. All asynchronous tasks would accept a callback as their last argument, with the callback taking at least two arguments: an error and the task’s result. The pattern was that if the first argument was <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">truthy</a> (an error object), the task failed, and if it was not, then the second argument would contain the result.</p>
 
 <p>Here’s a simplified example of a function that reads a file:</p>
 
@@ -130,16 +129,16 @@ Error: cannot get string length
 <span class="p">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The Node.js callback pattern is ubiquitous and familiar, resulting in many popular libraries such as the <a href="https://www.mongodb.com/docs/drivers/node/current/">MongoDB Node.js driver</a> adopting it as well.</p>
+<p>The Node.js callback pattern is ubiquitous and familiar, resulting in many popular libraries - such as the <a href="https://www.mongodb.com/docs/drivers/node/current/">MongoDB Node.js driver</a> - adopting it, as well.</p>
 
-<h2 id="no-throw-only-callback-">No throw, only callback 🐕</h2>
+<h3 id="no-throw-only-callback-">No throw, only callback 🐕</h3>
 
 <p><img src="/images/js-cupcake.png" alt="" />
 <em>credit: <a href="https://cupcakelogic.tumblr.com/post/124392369931/she-is-still-learning">cupcakelogic</a></em></p>
 
-<p>A challenge associated with the callback pattern is the requirement that the implementer keep in mind execution expectations manually, otherwise they can end up with a confusing order of operations.</p>
+<p>A challenge associated with the callback pattern is the requirement that the implementer keep in mind execution expectations manually. Otherwise, they can end up with a confusing order of operations.</p>
 
-<p>Typically this is something that should be abstracted to the runtime or language, which can be broken down as follows:</p>
+<p>Typically, this is something that should be abstracted to the runtime or language, which can be broken down as follows:</p>
 
 <p><strong>Error handling</strong></p>
 
@@ -163,7 +162,7 @@ Error: cannot get string length
 
 <p><strong>Runtime order</strong></p>
 
-<p>Callbacks also demand the developers ensure execution order is consistent. If a file is successfully read and the contents are returned in the callback passed to <code class="language-plaintext highlighter-rouge">readFile</code>, that callback will always run after the code that is on the line following <code class="language-plaintext highlighter-rouge">readFile</code>. However, say <code class="language-plaintext highlighter-rouge">readFile</code> is passed an invalid argument, like a number instead of a string for the path. When it invokes the callback with an invalid argument error we would still expect that code to run in the same order as the success case:</p>
+<p>Callbacks also demand the developers ensure execution order is consistent. If a file is successfully read and the contents are returned in the callback passed to <code class="language-plaintext highlighter-rouge">readFile</code>, that callback will always run after the code that is on the line following <code class="language-plaintext highlighter-rouge">readFile</code>. However, say <code class="language-plaintext highlighter-rouge">readFile</code> is passed an invalid argument, like a number instead of a string for the path. When it invokes the callback with an invalid argument error, we would still expect that code to run in the same order as the success case:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -215,11 +214,11 @@ starting to read file
 cannot read file Error: /notAPath.txt Does Not Exist
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>This is unexpected! The implementer of readFile calls the callback synchronously for an invalid type so readFile does not return until that callback completes. It is fairly easy to write callback accepting functions that inconsistently order their execution in this way.</p>
+<p>This is unexpected! The implementer of <code class="language-plaintext highlighter-rouge">readFile</code> calls the callback synchronously for an invalid type so <code class="language-plaintext highlighter-rouge">readFile</code> does not return until that callback completes. It is fairly easy to write callback-accepting functions that inconsistently order their execution in this way.</p>
 
-<h2 id="promises-">Promises 🤞</h2>
+<h3 id="promises-">Promises 🤞</h3>
 
-<p>Introducing a more structured approach: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>. A Promise is an object that handles the resolution or rejection of an async operation, mitigating the above issues and allowing for many async operations to be chained together without needing to explicitly pass a finalizer callback through to each API that would indicate when all tasks are done.</p>
+<p>Introducing a more structured approach: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a>. A promise is an object that handles the resolution or rejection of an async operation, mitigating the above issues and allowing for many async operations to be chained together without needing to explicitly pass a finalizer callback through to each API that would indicate when all tasks are done.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -269,16 +268,16 @@ cannot read file Error: /notAPath.txt Does Not Exist
  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Note how in the promise code there is one error handling case as opposed to the two in the callback case. The ability to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining">chain promises</a> allows us to treat many async operations as one, the <code class="language-plaintext highlighter-rouge">catch</code> handler would be called if either the <code class="language-plaintext highlighter-rouge">connect</code> or the <code class="language-plaintext highlighter-rouge">find</code> methods were to throw an error. This chaining is convenient, but when writing JavaScript today we do even better by using special syntax for handling promises.</p>
+<p>Note how in the promise code there is one error handling case as opposed to the two in the callback case. The ability to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining">chain promises</a> allows us to treat many async operations as one. The <code class="language-plaintext highlighter-rouge">catch</code> handler would be called if either the <code class="language-plaintext highlighter-rouge">connect</code> or the <code class="language-plaintext highlighter-rouge">find</code> methods were to throw an error. This chaining is convenient, but when writing JavaScript today, we do even better by using special syntax for handling promises.</p>
 
-<h2 id="enter-asyncawait-">Enter <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> 🔁</h2>
+<h3 id="enter-asyncawait-">Enter <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> 🔁</h3>
 
-<p>Mid-2017 JavaScript engines shipped support for <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> syntax allowing programmers to write asynchronous operations in a familiar procedural format. Using <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> allows the programmer to encode their logical asynchronous dependencies right into the syntax of the language.</p>
+<p>Mid-2017, JavaScript engines shipped support for <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> syntax, allowing programmers to write asynchronous operations in a familiar procedural format. Using <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> allows the programmer to encode their logical asynchronous dependencies right into the syntax of the language.</p>
 
 <p>Let’s return to our user input example, as we can now “await” the input which keeps <code class="language-plaintext highlighter-rouge">main</code> as the active procedure that began the task to read from standard in.</p>
 
 <blockquote class="prompt-info">
-  <p>“For <code class="language-plaintext highlighter-rouge">await</code> the suspend and resume points coincide and so we not only know where we would continue, but by coincidence, we also know where we came from.”</p>
+  <p>“For <code class="language-plaintext highlighter-rouge">await</code>, the suspend and resume points coincide and so we not only know where we would continue, but by coincidence, we also know where we came from.”</p>
 
   <p>source: <a href="https://docs.google.com/document/d/13Sy_kBIJGP0XT34V1CV3nkWya4TwYx9L3Yv45LdGB6Q/edit#heading=h.e6lcalo0cl47">Zero-cost async stack traces</a></p>
 </blockquote>
@@ -315,7 +314,7 @@ Error: cannot get string length
     at async file://addNumbers.mjs:62:1
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>When the JavaScript engine reaches the “await”, <code class="language-plaintext highlighter-rouge">main</code> is suspended. The engine is free to handle other tasks while the read is waiting for our user to type. We can now encode into the syntax of the function that it will suspend until some other task completes, and when it continues it maintains the context of everything that was in scope when it started.</p>
+<p>When the JavaScript engine reaches the “await”, <code class="language-plaintext highlighter-rouge">main</code> is suspended. The engine is free to handle other tasks while the read is waiting for our user to type. We can now encode into the syntax of the function that it will suspend until some other task completes, and when it continues, it maintains the context of everything that was in scope when it started.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -339,7 +338,7 @@ Error: cannot get string length
   <p>source: <a href="https://mathiasbynens.be/notes/async-stack-traces">Why await beats Promise#then() · Mathias Bynens</a></p>
 </blockquote>
 
-<h1 id="sample-stack-traces">Sample Stack Traces</h1>
+<h2 id="sample-stack-traces">Sample Stack Traces</h2>
 
 <p>Prior to completing the <code class="language-plaintext highlighter-rouge">async</code>/<code class="language-plaintext highlighter-rouge">await</code> conversion down to the internal network layer of the driver, our error stack would begin at the point of converting a server’s error message into a JavaScript, such as:</p>
 
@@ -414,7 +413,7 @@ Error: cannot get string length
   <li><a href="https://v8.dev/blog/modern-javascript#proper-tail-calls">ES2015, ES2016, and beyond · Tail Calls · V8</a></li>
   <li><a href="https://v8.dev/blog/fast-async">Faster async functions and promises · V8</a></li>
   <li><a href="https://mathiasbynens.be/notes/async-stack-traces">Asynchronous stack traces: why await beats Promise#then() · Mathias Bynens</a></li>
-</ul>]]></content><author><name>Neal Beeken</name></author><category term="Programming" /><category term="javascript" /><category term="node" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[Written by Neal Beeken (website, GitHub)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/nodejs-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/nodejs-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995</title><link href="https://www.alexbevi.com/blog/2024/07/09/discworld/" rel="alternate" type="text/html" title="Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995" /><published>2024-07-09T07:06:16-04:00</published><updated>2024-07-11T06:32:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/09/discworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/09/discworld/"><![CDATA[<blockquote class="prompt-info">
+</ul>]]></content><author><name>Neal Beeken</name></author><category term="Programming" /><category term="javascript" /><category term="node" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[Written by Neal Beeken (Blog, GitHub)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/nodejs-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/nodejs-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995</title><link href="https://www.alexbevi.com/blog/2024/07/09/discworld/" rel="alternate" type="text/html" title="Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995" /><published>2024-07-09T07:06:16-04:00</published><updated>2024-07-11T06:32:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/09/discworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/09/discworld/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
