@@ -9,17 +9,16 @@ image: /images/nodejs-banner.jpg
 author: neal
 ---
 
-> Written by Neal Beeken ([website](https://nbbeeken.github.io/), [GitHub](https://github.com/nbbeeken))
+> Written by Neal Beeken ([Blog](https://nbbeeken.github.io/), [GitHub](https://github.com/nbbeeken))
 {: .prompt-tip }
 
-# Intro
-In a recent release of the MongoDB Node.js driver ([v6.5.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v6.5.0)) the team completed the effort of getting all our asynchronous operations to report an accurate asynchronous stack trace to assist in pinpointing error origination. Here, I'll walk you through what this feature of JavaScript is and how to obtain it at the low price of zero-cost.
+In a recent release of the MongoDB Node.js driver ([v6.5.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v6.5.0)), the team completed the effort of getting all our asynchronous operations to report an accurate asynchronous stack trace to assist in pinpointing error origination. Here, I'll walk you through what this feature of JavaScript is and how to obtain it at the low price of zero cost.
 
-# Calls and how to stack them 📚
+## Calls and how to stack them 📚
 
-First, what is a [call stack](https://developer.mozilla.org/en-US/docs/Glossary/Call_stack)? A call stack is a hidden data structure that stores information about the active subroutines of a program; active subroutines being functions that have been called but have yet to complete execution and return control to the caller. The main function of the call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.
+First, what is a [call stack](https://developer.mozilla.org/en-US/docs/Glossary/Call_stack)? A call stack is a hidden data structure that stores information about the active subroutines of a program - active subroutines being functions that have been called but have yet to complete execution and return control to the caller. The main function of the call stack is to keep track of the point to which each active subroutine should return control when it finishes executing.
 
-Let's go through an example, take a program that parses a string from its arguments that is an equation like "2+2" and computes the result:
+Let's go through an example. Take a program that parses a string from its arguments that is an equation like "2+2" and computes the result:
 
 ```js
 main()
@@ -45,8 +44,8 @@ Error: cannot get string length
     at main (file://addNumbers.mjs:4:5)
 ```
 
-## The Async wrench 🔧
-Everything changes when we shift to an asynchronous programming model, as the introduction of asynchronous work means we no longer have strictly dependent procedures. Essentially, async programming is about setting up tasks and adding handling that will be invoked some time later when the task is complete.
+### The async wrench 🔧
+Everything changes when we shift to an asynchronous programming model, as the introduction of asynchronous work means we no longer have strictly dependent procedures. Essentially, async programming is about setting up tasks and adding handling that will be invoked sometime later when the task is complete.
 
 Let's add I/O (a read from standard in) into our program to see how this changes our call stack:
 
@@ -60,7 +59,7 @@ handleUserInput()
     -> stringLength()
 ```
 
-Now, main's only job is to ask the runtime to read from stdin and invoke a function of our choice when it is done doing so. This means main is no longer an active procedure; it returns leaving it up to the runtime to keep the process running until it has input from stdin to hand back to our function `handleUserInput`.
+Now, main's only job is to ask the runtime to read from stdin and invoke a function of our choice when it is done doing so. This means main is no longer an active procedure; it returns, leaving it up to the runtime to keep the process running until it has input from stdin to hand back to our function `handleUserInput`.
 
 Here's what the stack trace looks like:
 
@@ -82,13 +81,13 @@ Error: cannot get string length
 
 No sign of `main`, only `handleUserInput`.
 
-This is a common hazard of asynchronous programming: you are always replacing the record of your active procedures as they are all performing task setup that completes and the callbacks they created are later invoked by the runtime.
+This is a common hazard of asynchronous programming: You are always replacing the record of your active procedures as they are all performing task setup that completes and the callbacks they created are later invoked by the runtime.
 
-# JavaScript 💚
+## JavaScript 💚
 
 Asynchronous programming has always been at the heart of JS and is one of the central selling points of using Node.js.
 
-In 2015, the first [Long Term Support version of Node.js was released](https://nodejs.org/en/blog/release/v4.2.0), and with it came a stable standard library that popularized a common pattern for handling asynchronous tasks. All asynchronous tasks would accept a callback as their last argument, with the callback taking at least two arguments: an error, and the task's result. The pattern was that if the first argument was [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) (an error object) the task failed, and if it was not then the second argument would contain the result.
+In 2015, the first [Long Term Support version of Node.js was released](https://nodejs.org/en/blog/release/v4.2.0), and with it came a stable standard library that popularized a common pattern for handling asynchronous tasks. All asynchronous tasks would accept a callback as their last argument, with the callback taking at least two arguments: an error and the task's result. The pattern was that if the first argument was [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) (an error object), the task failed, and if it was not, then the second argument would contain the result.
 
 Here's a simplified example of a function that reads a file:
 
@@ -102,16 +101,16 @@ readFile('filename.txt', (error, data) => {
 })
 ```
 
-The Node.js callback pattern is ubiquitous and familiar, resulting in many popular libraries such as the [MongoDB Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) adopting it as well.
+The Node.js callback pattern is ubiquitous and familiar, resulting in many popular libraries - such as the [MongoDB Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) - adopting it, as well.
 
-## No throw, only callback 🐕
+### No throw, only callback 🐕
 
 ![](/images/js-cupcake.png)
 _credit: [cupcakelogic](https://cupcakelogic.tumblr.com/post/124392369931/she-is-still-learning)_
 
-A challenge associated with the callback pattern is the requirement that the implementer keep in mind execution expectations manually, otherwise they can end up with a confusing order of operations.
+A challenge associated with the callback pattern is the requirement that the implementer keep in mind execution expectations manually. Otherwise, they can end up with a confusing order of operations.
 
-Typically this is something that should be abstracted to the runtime or language, which can be broken down as follows:
+Typically, this is something that should be abstracted to the runtime or language, which can be broken down as follows:
 
 **Error handling**
 
@@ -129,7 +128,7 @@ try {
 
 **Runtime order**
 
-Callbacks also demand the developers ensure execution order is consistent. If a file is successfully read and the contents are returned in the callback passed to `readFile`, that callback will always run after the code that is on the line following `readFile`. However, say `readFile` is passed an invalid argument, like a number instead of a string for the path. When it invokes the callback with an invalid argument error we would still expect that code to run in the same order as the success case:
+Callbacks also demand the developers ensure execution order is consistent. If a file is successfully read and the contents are returned in the callback passed to `readFile`, that callback will always run after the code that is on the line following `readFile`. However, say `readFile` is passed an invalid argument, like a number instead of a string for the path. When it invokes the callback with an invalid argument error, we would still expect that code to run in the same order as the success case:
 
 ```js
 function readFile(filename, callback) {
@@ -164,11 +163,11 @@ starting to read file
 cannot read file Error: /notAPath.txt Does Not Exist
 ```
 
-This is unexpected! The implementer of readFile calls the callback synchronously for an invalid type so readFile does not return until that callback completes. It is fairly easy to write callback accepting functions that inconsistently order their execution in this way.
+This is unexpected! The implementer of `readFile` calls the callback synchronously for an invalid type so `readFile` does not return until that callback completes. It is fairly easy to write callback-accepting functions that inconsistently order their execution in this way.
 
-## Promises 🤞
+### Promises 🤞
 
-Introducing a more structured approach: [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A Promise is an object that handles the resolution or rejection of an async operation, mitigating the above issues and allowing for many async operations to be chained together without needing to explicitly pass a finalizer callback through to each API that would indicate when all tasks are done.
+Introducing a more structured approach: [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). A promise is an object that handles the resolution or rejection of an async operation, mitigating the above issues and allowing for many async operations to be chained together without needing to explicitly pass a finalizer callback through to each API that would indicate when all tasks are done.
 
 ```js
 // callbacks
@@ -196,15 +195,15 @@ client
  .catch(error => console.error(error));
 ```
 
-Note how in the promise code there is one error handling case as opposed to the two in the callback case. The ability to [chain promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining) allows us to treat many async operations as one, the `catch` handler would be called if either the `connect` or the `find` methods were to throw an error. This chaining is convenient, but when writing JavaScript today we do even better by using special syntax for handling promises.
+Note how in the promise code there is one error handling case as opposed to the two in the callback case. The ability to [chain promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining) allows us to treat many async operations as one. The `catch` handler would be called if either the `connect` or the `find` methods were to throw an error. This chaining is convenient, but when writing JavaScript today, we do even better by using special syntax for handling promises.
 
-## Enter `async`/`await` 🔁
+### Enter `async`/`await` 🔁
 
-Mid-2017 JavaScript engines shipped support for `async`/`await` syntax allowing programmers to write asynchronous operations in a familiar procedural format. Using `async`/`await` allows the programmer to encode their logical asynchronous dependencies right into the syntax of the language.
+Mid-2017, JavaScript engines shipped support for `async`/`await` syntax, allowing programmers to write asynchronous operations in a familiar procedural format. Using `async`/`await` allows the programmer to encode their logical asynchronous dependencies right into the syntax of the language.
 
 Let's return to our user input example, as we can now "await" the input which keeps `main` as the active procedure that began the task to read from standard in.
 
-> "For `await` the suspend and resume points coincide and so we not only know where we would continue, but by coincidence, we also know where we came from."
+> "For `await`, the suspend and resume points coincide and so we not only know where we would continue, but by coincidence, we also know where we came from."
 >
 > source: [Zero-cost async stack traces](https://docs.google.com/document/d/13Sy_kBIJGP0XT34V1CV3nkWya4TwYx9L3Yv45LdGB6Q/edit#heading=h.e6lcalo0cl47)
 {: .prompt-info }
@@ -230,7 +229,7 @@ Error: cannot get string length
     at async file://addNumbers.mjs:62:1
 ```
 
-When the JavaScript engine reaches the "await", `main` is suspended. The engine is free to handle other tasks while the read is waiting for our user to type. We can now encode into the syntax of the function that it will suspend until some other task completes, and when it continues it maintains the context of everything that was in scope when it started.
+When the JavaScript engine reaches the "await", `main` is suspended. The engine is free to handle other tasks while the read is waiting for our user to type. We can now encode into the syntax of the function that it will suspend until some other task completes, and when it continues, it maintains the context of everything that was in scope when it started.
 
 ```js
 try {
@@ -247,7 +246,7 @@ try {
 > source: [Why await beats Promise#then() · Mathias Bynens](https://mathiasbynens.be/notes/async-stack-traces)
 {: .prompt-info }
 
-# Sample Stack Traces
+## Sample Stack Traces
 
 Prior to completing the `async`/`await` conversion down to the internal network layer of the driver, our error stack would begin at the point of converting a server's error message into a JavaScript, such as:
 
