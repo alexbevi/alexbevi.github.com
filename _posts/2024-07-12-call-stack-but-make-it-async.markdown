@@ -6,10 +6,11 @@ comments: true
 categories: Programming
 tags: [javascript, node, mongodb, drivers]
 image: /images/nodejs-banner.jpg
+canonical_url: https://medium.com/@MongoDB/call-stack-but-make-it-async-f912cb895ebd
 author: neal
 ---
 
-> Written by Neal Beeken ([Blog](https://nbbeeken.github.io/), [GitHub](https://github.com/nbbeeken))
+> Written by Neal Beeken ([Blog](https://nbbeeken.github.io/), [GitHub](https://github.com/nbbeeken)) - Canonical URL is at [medium.com](https://medium.com/@MongoDB/call-stack-but-make-it-async-f912cb895ebd)
 {: .prompt-tip }
 
 In a recent release of the MongoDB Node.js driver ([v6.5.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v6.5.0)), the team completed the effort of getting all our asynchronous operations to report an accurate asynchronous stack trace to assist in pinpointing error origination. Here, I'll walk you through what this feature of JavaScript is and how to obtain it at the low price of zero cost.
