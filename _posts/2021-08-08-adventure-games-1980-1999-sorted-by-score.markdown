@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 82  -%}
+{%- assign games_finished = 83  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -92,6 +92,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **39%** [Cruise for a Corpse (Delphine Software International)]({% post_url 2023-01-12-cruise-for-a-corpse %}) - 1991
 1. **36%** [EcoQuest: The Search for Cetus (Sierra On-Line)]({% post_url 2024-02-28-ecoquest %}) - 1991
 1. **36%** [Hugo II, Whodunit? (Gray Design Associates)]({% post_url 2024-05-10-hugo-ii-whodunit %}) - 1991
+1. **36%** [Jurassic Park (Sega of America)]({% post_url 2024-07-15-jurassic-park %}) - 1993
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 1. **34%** [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
 1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
