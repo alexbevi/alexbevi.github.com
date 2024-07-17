@@ -4,7 +4,7 @@ layout: compress
 # A part of the Favicons
 ---
 
-{% assign icon_url = "/assets/favicons" | relative_url %}
+{% assign icon_url = "/assets/img/favicons" | relative_url %}
 
 {
   "name": "{{ site.title }}",
