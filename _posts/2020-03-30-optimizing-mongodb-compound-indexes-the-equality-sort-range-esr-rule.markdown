@@ -54,7 +54,7 @@ These filters will be tightly bound when seen in the `indexBounds` of an [Explai
 Note that _multiple equality predicates **do not** have to be ordered from most selective to least selective_. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, _there is exactly the same number of combinations regardless of key order_.
 
 (2) _**Sort**_ operation follows _Equality_ predicates
-Sort operations represent the entire requested sort for the operation and determine the ordering of results. For example:
+Sort fields represent the entire requested sort operation and determine the ordering of results. For example:
 
 ```js
 find().sort({ a: 1 })
