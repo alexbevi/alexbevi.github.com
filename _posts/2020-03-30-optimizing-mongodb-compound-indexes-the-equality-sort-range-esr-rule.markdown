@@ -53,8 +53,8 @@ These filters will be tightly bound when seen in the `indexBounds` of an [Explai
 
 Note that _multiple equality predicates **do not** have to be ordered from most selective to least selective_. This guidance has been provided in the past however it is erroneous due to the nature of B-Tree indexes and how in leaf pages, a B-Tree will store combinations of all field’s values. As such, _there is exactly the same number of combinations regardless of key order_.
 
-(2) _**Sort**_ predicates follow _Equality_ predicates
-Sort predicates represent the entire requested sort for the operation and determine the ordering of results. For example:
+(2) _**Sort**_ operation follows _Equality_ predicates
+Sort operations represent the entire requested sort for the operation and determine the ordering of results. For example:
 
 ```js
 find().sort({ a: 1 })
@@ -62,7 +62,7 @@ find().sort({ b: -1, a: 1 })
 aggregate([ { $sort: { b: 1 } } ])
 ```
 
-A sort predicate will be _unbounded_ as it requires the entire key range to be scanned to satisfy the sort requirements:
+The index bounds for the sort fields will be _unbounded_ (assuming the fields aren't also filtered on) as it requires the entire key range to be scanned to satisfy the sort requirements:
 
 ```js
 "indexBounds" : {
@@ -75,7 +75,7 @@ A sort predicate will be _unbounded_ as it requires the entire key range to be s
 }
 ```
 
-(3) _**Range**_ predicates follow _Equality_ and _Sort_ predicates
+(3) _**Range**_ predicates follow _Equality_ and _Sort_ fields
 
 Range predicates are filters that may scan multiple keys as they _are not_ testing for an exact match. For example:
 
