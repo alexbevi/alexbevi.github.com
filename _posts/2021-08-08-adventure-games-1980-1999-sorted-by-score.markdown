@@ -100,7 +100,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **31%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **31%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
-1. **29%** [Ace Ventura (7th Level)]({ post_url 2023-05-16-ace-ventura %}) - 1996
+1. **29%** [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
 1. **29%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **27%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992

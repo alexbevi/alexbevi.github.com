@@ -351,7 +351,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 273. Broken Sword: The Shadow of the Templars (Revolution Software) - 1996
 274. Timelapse (GTE Interactive Media) - 1996
 275. Lighthouse: The Dark Being (Sierra On-Line) - 1996
-276. [Ace Ventura (7th Level)]({ post_url 2023-05-16-ace-ventura %}) - 1996
+276. [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
 277. Blazing Dragons (The Illusions Gaming Company) - 1996
 278. Drowned God: Conspiracy of the Ages (Epic Multimedia Group) - 1996
 279. Martian Chronicles, The (Byron Preiss Multimedia Company) - 1995
