@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 83  -%}
+{%- assign games_finished = 84  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -103,6 +103,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **29%** [Ace Ventura (7th Level)]({ post_url 2023-05-16-ace-ventura %}) - 1996
 1. **29%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **27%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
+1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
 1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 1. **19%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
