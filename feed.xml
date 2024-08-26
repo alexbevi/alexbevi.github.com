@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-07T08:00:42-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Bargon Attack (Coktel Vision) - 1992</title><link href="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/" rel="alternate" type="text/html" title="Bargon Attack (Coktel Vision) - 1992" /><published>2024-08-06T06:29:18-04:00</published><updated>2024-08-07T07:34:45-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/06/bargon-attack</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-26T08:28:56-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Rendering MongoDB Driver Specifications as a Book</title><link href="https://www.alexbevi.com/blog/2024/08/26/rendering-mongodb-driver-specifications-as-a-book/" rel="alternate" type="text/html" title="Rendering MongoDB Driver Specifications as a Book" /><published>2024-08-26T07:36:01-04:00</published><updated>2024-08-26T08:27:58-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/26/rendering-mongodb-driver-specifications-as-a-book</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/26/rendering-mongodb-driver-specifications-as-a-book/"><![CDATA[<p>MongoDB’s <a href="https://github.com/mongodb/specifications">Drivers Specifications</a> have always been available on GitHub. Since the content <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">license is extremely permissive</a> there are a number of things we could do to transform that work as long as we provide proper attribution.</p>
+
+<p>Until recently, this content has always been maintained as <a href="https://docutils.sourceforge.io/rst.html">restructuredText</a> documents, however with <a href="https://jira.mongodb.org/browse/DRIVERS-2789">DRIVERS-2789</a> this content has all been converted to <a href="https://daringfireball.net/projects/markdown/">Markdown</a>. MongoDB decided to use this opportunity (via <a href="https://jira.mongodb.org/browse/DRIVERS-2881">DRIVERS-2881</a>) to <a href="https://specifications.readthedocs.io/en/latest/">publish the specifications to ReadTheDocs</a> using <a href="https://docs.readthedocs.io/en/stable/intro/getting-started-with-mkdocs.html">MkDocs</a>, however I wanted to try taking an alternate approach to see how difficult it would be to automate publication of Markdown content in book format.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Since the specifications are hosted on GitHub, I began by <a href="https://github.com/alexbevi/specifications">forking the repository to <code class="language-plaintext highlighter-rouge">alexbevi/specifications</code></a>. Instead of <code class="language-plaintext highlighter-rouge">MkDocs</code> I chose <a href="https://rust-lang.github.io/mdBook/"><code class="language-plaintext highlighter-rouge">mdBook</code></a> as the tool for rendering Markdown to HTML as creating a book was as simple as:</p>
+
+<ol>
+  <li><a href="https://rust-lang.github.io/mdBook/guide/creating.html#booktoml">Defining a <code class="language-plaintext highlighter-rouge">book.toml</code></a> with basic configuration options</li>
+  <li><a href="https://rust-lang.github.io/mdBook/guide/creating.html#summarymd">Outlining the book structure in a <code class="language-plaintext highlighter-rouge">SUMMARY.md</code></a> file</li>
+</ol>
+
+<p>I <a href="https://raw.githubusercontent.com/alexbevi/specifications/mkbook/book.toml">defined my <code class="language-plaintext highlighter-rouge">book.toml</code></a> to indicate all my Markdown files would be in the <code class="language-plaintext highlighter-rouge">source/</code> directory, <a href="https://raw.githubusercontent.com/alexbevi/specifications/mkbook/source/SUMMARY.md">created a <code class="language-plaintext highlighter-rouge">source/SUMMARY.md</code></a> file with links to all the Markdown files I wanted in my book and was basically done.</p>
+
+<p>Testing this out was as easy as running <code class="language-plaintext highlighter-rouge">mdbook serve --open</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>mdbook serve --open
+2024-08-26 07:56:39 [INFO] (mdbook::book): Book building has started
+2024-08-26 07:56:39 [WARN] (mdbook::preprocess::index): It seems that there are both "README.md" and index.md under "/Users/alex/Workspace/specifications/source".
+2024-08-26 07:56:39 [WARN] (mdbook::preprocess::index): mdbook converts "README.md" into index.html by default. It may cause
+2024-08-26 07:56:39 [WARN] (mdbook::preprocess::index): unexpected behavior if putting both files under the same directory.
+2024-08-26 07:56:39 [WARN] (mdbook::preprocess::index): To solve the warning, try to rearrange the book structure or disable
+2024-08-26 07:56:39 [WARN] (mdbook::preprocess::index): "index" preprocessor to stop the conversion.
+2024-08-26 07:56:39 [INFO] (mdbook::book): Running the html backend
+2024-08-26 07:56:43 [INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
+2024-08-26 07:56:43 [INFO] (mdbook): Opening web browser
+2024-08-26 07:56:43 [INFO] (warp::server): Server::run; addr=[::1]:3000
+2024-08-26 07:56:43 [INFO] (warp::server): listening on http://[::1]:3000
+2024-08-26 07:56:43 [INFO] (mdbook::cmd::watch::poller): Watching for changes...
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">mdBook</code> will process the <code class="language-plaintext highlighter-rouge">SUMMARY.md</code> file, generate HTML content based on the indexed Markdown files and open a preview in your default browser.</p>
+
+<h2 id="automation">Automation</h2>
+
+<p>Laying out the book and rendering it from Markdown to HTML turned out to be pretty easy, but MongoDB’s engineers continuously refine the specifications so anything we generate would go stale fairly quickly. What if we could leverage <a href="https://docs.github.com/en/actions">GitHub Actions</a> to refresh our fork of the <code class="language-plaintext highlighter-rouge">specifications</code> repository, rebuild our book and continuously publish as <a href="https://pages.github.com/">GitHub Pages</a>?</p>
+
+<p>We’ll be publishing our repository to a GitHub Pages instance (see the <a href="https://docs.github.com/en/pages/quickstart">Quickstart for GitHub Pages</a> if needed), so the first step is to ensure this has been configured. Next we’ll setup workflow that GitHub Actions can use to:</p>
+
+<ol>
+  <li>Checkout the upstream repository</li>
+  <li>Sync the upstream repository’s <code class="language-plaintext highlighter-rouge">master</code> branch with our fork’s default branch (<code class="language-plaintext highlighter-rouge">mkbook</code> in this case)</li>
+  <li>Install <code class="language-plaintext highlighter-rouge">mdbook</code> and build our book based on the latest Markdown files</li>
+  <li>Deploy the HTML contents from our build target (<code class="language-plaintext highlighter-rouge">book/</code>) to the branch GitHub pages is configured to use (<code class="language-plaintext highlighter-rouge">gh-pages</code> in this case)</li>
+</ol>
+
+<p>If you want to check out the latest version of this it’s at <a href="https://raw.githubusercontent.com/alexbevi/specifications/mkbook/.github/workflows/sync.yml"><code class="language-plaintext highlighter-rouge">.github/workflows/sync.yml</code></a>, but at the time of writing it looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+</pre></td><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Scheduled</span><span class="nv"> </span><span class="s">Upstream</span><span class="nv"> </span><span class="s">Sync'</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">schedule</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">cron</span><span class="pi">:</span>  <span class="s1">'</span><span class="s">0</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span>
+
+  <span class="na">workflow_dispatch</span><span class="pi">:</span>  <span class="c1"># click the button on Github repo!</span>
+    <span class="na">inputs</span><span class="pi">:</span>
+      <span class="na">sync_test_mode</span><span class="pi">:</span> <span class="c1"># Adds a boolean option that appears during manual workflow run for easy test mode config</span>
+        <span class="na">description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Fork</span><span class="nv"> </span><span class="s">Sync</span><span class="nv"> </span><span class="s">Test</span><span class="nv"> </span><span class="s">Mode'</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">boolean</span>
+        <span class="na">default</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">sync_latest_from_upstream</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Sync latest commits from upstream repo</span>
+
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="c1"># REQUIRED step</span>
+    <span class="c1"># Step 1: run a standard checkout action, provided by github</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout target repo</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="c1"># optional: set the branch to checkout,</span>
+        <span class="c1"># sync action checks out your 'target_sync_branch' anyway</span>
+        <span class="na">ref</span><span class="pi">:</span>  <span class="s">mkbook</span>
+        <span class="c1"># REQUIRED if your upstream repo is private (see wiki)</span>
+        <span class="c1"># persist-credentials: false</span>
+
+    <span class="c1"># REQUIRED step</span>
+    <span class="c1"># Step 2: run the sync action</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Sync upstream changes</span>
+      <span class="na">id</span><span class="pi">:</span> <span class="s">sync</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">aormsby/Fork-Sync-With-Upstream-action@v3.4.1</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">target_sync_branch</span><span class="pi">:</span> <span class="s">mkbook</span>
+        <span class="c1"># REQUIRED 'target_repo_token' exactly like this!</span>
+        <span class="na">target_repo_token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">upstream_sync_branch</span><span class="pi">:</span> <span class="s">master</span>
+        <span class="na">upstream_sync_repo</span><span class="pi">:</span> <span class="s">mongodb/specifications</span>
+        <span class="c1"># upstream_repo_access_token: $</span>
+
+        <span class="c1"># Set test_mode true during manual dispatch to run tests instead of the true action!!</span>
+        <span class="na">test_mode</span><span class="pi">:</span> <span class="s">$</span>
+
+    <span class="c1"># Step 3: Display a sample message based on the sync output var 'has_new_commits'</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">New commits found</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">steps.sync.outputs.has_new_commits == 'true'</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">echo "New commits were found to sync."</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">No new commits</span>
+      <span class="na">if</span><span class="pi">:</span> <span class="s">steps.sync.outputs.has_new_commits == 'false'</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">echo "There were no new commits."</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Show value of 'has_new_commits'</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">echo $</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install latest mdbook</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')</span>
+        <span class="s">url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"</span>
+        <span class="s">mkdir mdbook</span>
+        <span class="s">curl -sSL $url | tar -xz --directory=./mdbook</span>
+        <span class="s">echo `pwd`/mdbook &gt;&gt; $GITHUB_PATH</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build Book</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s"># This assumes your book is in the root of your repository.</span>
+        <span class="s"># Just add a `cd` here if you need to change to another directory.</span>
+        <span class="s">mdbook build</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">JamesIves/github-pages-deploy-action@4.1.7</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">branch</span><span class="pi">:</span> <span class="s">gh-pages</span> <span class="c1"># The branch the action should deploy to.</span>
+        <span class="na">folder</span><span class="pi">:</span> <span class="s">book</span> <span class="c1"># The folder the action should deploy.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Note that the above is configured to run on a <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule"><code class="language-plaintext highlighter-rouge">schedule</code></a>, so GitHub Actions will fire once a day to check if there were any updates in the upstream repository that we may want to sync.</p>
+
+<h2 id="results">Results</h2>
+
+<p>Since I wrote about <a href="/blog/2024/05/17/peeling-the-mongodb-drivers-onion/">“Peeling the MongoDB Drivers Onion”</a> I wanted this to be included in the book as well, so this was included as the <a href="https://github.com/alexbevi/specifications/blob/mkbook/source/README.md"><code class="language-plaintext highlighter-rouge">source/README.md</code></a> file. The rest of the contents of the specification repository were untouched and are just being rendered by <code class="language-plaintext highlighter-rouge">mdBook</code>.</p>
+
+<p>If you want to explore MongoDB’s Driver Specifications, you can now just click on through to <a href="https://alexbevi.com/specifications/">alexbevi.com/specifications</a> (or select “Specifications” from the menu) and explore these to your heart’s content :)</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB’s Drivers Specifications have always been available on GitHub. Since the content license is extremely permissive there are a number of things we could do to transform that work as long as we provide proper attribution.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bargon Attack (Coktel Vision) - 1992</title><link href="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/" rel="alternate" type="text/html" title="Bargon Attack (Coktel Vision) - 1992" /><published>2024-08-06T06:29:18-04:00</published><updated>2024-08-07T07:34:45-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/06/bargon-attack</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1864,179 +2080,4 @@ Error: cannot get string length
 
 <p>Most (if not all) the information required to build a new driver or maintain existing drivers technically exists within the specifications, however without a mental mode of their composition and architecture it can be extremely challenging to know where to look.</p>
 
-<p>Peeling the <em>“drivers onion”</em> should hopefully make reasoning about them a little easier, especially with the understanding that everything can be tested to validate individual implementations are “up to spec”.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[The modern MongoDB driver consists of a number of components, each of which are thoroughly documented in the Specifications repository. Though this information is readily available and extremely helpful, what it lacks is a high level overview to tie the specs together into a cohesive picture of what a MongoDB driver is.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Hugo II, Whodunit? (Gray Design Associates) - 1991</title><link href="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/" rel="alternate" type="text/html" title="Hugo II, Whodunit? (Gray Design Associates) - 1991" /><published>2024-05-10T06:51:54-04:00</published><updated>2024-05-13T06:35:50-04:00</updated><id>https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/05/10/hugo-ii-whodunit/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Hugo_II,_Whodunit%3F">Hugo II, Whodunit?</a> (named Hugo’s Mystery Adventure in the Hugo Trilogy re-release) is a parser-based adventure game designed by independent software developer David P. Gray and published as shareware by Gray Design Associates in 1991. It is the sequel to 1990’s <a href="/blog/2022/12/21/hugos-house-of-horrors/">Hugo’s House of Horrors</a>, and it was followed by Hugo III, Jungle of Doom! in 1992.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00014.png" alt="" /></p>
-
-<p>Hugo and his wife, Penelope, arrive to stay at the mansion that belongs to Hugo’s Great Uncle Horace. Penelope falls asleep in the bedroom, while Hugo accidentally finds a bookcase passage and is locked in a secret room. Penelope wakes up, only to witness Uncle Horace’s murder through the keyhole. The player controls Penelope (and later, briefly, Hugo) and must solve the murder.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00001.png" alt="" /></p>
-
-<p>This title improves slightly on the original as moving the mouse around the screen will occasionally highlight character or object names. This is a cue as to something you should type into the text parser to interact with (ex: <code class="language-plaintext highlighter-rouge">LOOK BOOKCASE</code>).</p>
-
-<p>Once you lie down and Hugo disappears, you’ll gain control of Penelope - who is the main character on this adventure.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00007.png" alt="" /></p>
-
-<p>As you work your way through the Uncle Horace’s property you’ll meet a couple NPCs that you can interact with. These interactions are extremely limited (they’re not dialogue trees) and typically don’t advance the plot - they just serve as puzzles as you typically need them to move so you can progress.</p>
-
-<p>Since I’m playing this game in ScummVM, the original text boxes have been replaced by UI modals - which IMHO look awful. Apparently a “nice to have” on the <a href="https://wiki.scummvm.org/index.php?title=Hugo/TODO">Hugo/TODO</a> page is implementing the original dialog boxes … so maybe one day.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00010.png" alt="" /></p>
-
-<p>In a couple areas you need to navigate the screen using almost pixel-perfect navigation to either keep yourself from dying, or getting into an unwinnable situation.</p>
-
-<p>The venus fly trap screen requires you to walk through a “maze” in order to get a magnifying glass. The hit boxes for these plants are massive though, so you’ll die <em>many times</em> trying to get through this.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00011.png" alt="" /></p>
-
-<p>When you get past the venus fly traps you’ll need to cross a bridge, but if you accidentally touch the “edges” of the walkable area you’ll drop your matches and they’ll get wet.</p>
-
-<p>If this happens, you won’t be able to light a stick of dynamite later in the game.</p>
-
-<p>Luckily this game is very short, so if you happen to get yourself into this situation it’s really only a matter of backtracking about 30 minutes of play time to get yourself to that point from an earlier save.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00013.png" alt="" /></p>
-
-<p>To progress through the mid-portion of the game you need to press various buttons in the shed to trigger certain events. These can’t be done until you first walk all the way to the screen where the event will occur, then walk back and press the button.</p>
-
-<p>For example, you can’t turn on the bug light to attract the bees until you’ve “been there” once.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00009.png" alt="" /></p>
-
-<p>Since you’ll be doing a lot of backtracking it is appreciated that this game has a “Turbo” mode that makes Penelope walk twice as fast.</p>
-
-<p>This is especially helpful when you have to navigate through the hedge maze (oh goody … a maze). Thankfully this isn’t all that big and is easy enough to map out, but given the limited colour palette of this game this section is a little hard on the eyes.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00018.png" alt="" /></p>
-
-<p>The maze exists to hide a couple items you’ll need to collect to proceed - which honestly sums up most of this game. A good portion of the game’s screens contain items that you’ll need to use exactly once to solve a single puzzle.</p>
-
-<p>This is fairly simplistic game design, but I can’t fault David P. Gray as he single handedly wrote a trilogy of games that he even <a href="https://www.facebook.com/notes/759580011285484/">went into technical detail about</a> for anyone that was interested.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00017.png" alt="" /></p>
-
-<p>To add some flavour there are timing-based puzzles as well. For example, if you place and light the dynamite you have a fixed amount of time to get out of the well before it explodes and kills you.</p>
-
-<p>Though there aren’t many game over scenarios, they are possible so it’s worth saving every few screens just so you don’t have to backtrack too far when you mess up.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00015.png" alt="" /></p>
-
-<p>The narrative of this game is a little disjointed, like when you step into a phone booth, call a number you just saw written in graffiti and meet Dr. Who (sort of).</p>
-
-<p>It’s all to give you a screwdriver you can use to open a safe a few screens later, but there’s no rhyme or reason for this encounter.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00021.png" alt="" /></p>
-
-<p>Once you make your way back into the mansion you’ll talk to family members who you’ll get clues from as to what happened to Uncle Horace. Finally you’ll all gather in a room with a police officer who asks you “Whodunit?!?”.</p>
-
-<p>If you guess right (that nobody murdered Horace) you get points, otherwise Cousin Harry gives you a little info and we meet back up with Hugo, who is locked in a closet.</p>
-
-<p>The solution to get out of the closet is fairly straightforward. Once you put the newspaper under the door, poke the key out of the keyhole so it falls and you pull it under the door on the newspaper, you get out and it’s game over.</p>
-
-<p><img src="/images/adventure/hugo2/scummvm-hugo2-00022.png" alt="" />
-<em>And that’s a wrap</em></p>
-
-<p>Though it improves on the previous entry in the series, Hugo 2 is extremely simplistic. The graphics are simple, the audio is PC speaker beeps and there’s typically no music (aside from a couple of screens).</p>
-
-<p>The game is very straightforward aside from a couple of slightly obtuse puzzles such as rubbing catnip on a bell, then giving the bell to the cat so he’ll ring it and distract the maid while you’re in another room.</p>
-
-<p>Hugo games really feel like they’re a variation of Sierra’s AGI games, but not nearly as robust. For a game written and developed by one guy though, it really isn’t all that bad.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Hugo II, Whodunit?</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td>Gray Design Associates</td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Gray Design Associates</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1991</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Windows</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Hugo">Hugo</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/28569"><em>How Long To Beat?</em></a></td>
-      <td>1.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="http://gamerwalkthroughs.com/hugo-2-whodunit/">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>36%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/hugo2/scummvm-hugo2-00000.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00000.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00002.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00002.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00003.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00003.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00004.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00004.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00005.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00005.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00006.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00006.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00008.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00008.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00012.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00012.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00016.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00016.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00019.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00019.png' },{ src: '/images/adventure/hugo2/scummvm-hugo2-00020.png', thumb: '/images/adventure/hugo2/scummvm-hugo2-00020.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/1158/hugo-ii-whodunit/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Gray Design Associates" /><category term="Hugo" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/hugo2/scummvm-hugo2-0000a.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/hugo2/scummvm-hugo2-0000a.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Peeling the <em>“drivers onion”</em> should hopefully make reasoning about them a little easier, especially with the understanding that everything can be tested to validate individual implementations are “up to spec”.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[The modern MongoDB driver consists of a number of components, each of which are thoroughly documented in the Specifications repository. Though this information is readily available and extremely helpful, what it lacks is a high level overview to tie the specs together into a cohesive picture of what a MongoDB driver is.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
