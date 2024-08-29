@@ -47,14 +47,14 @@ async function run() {
 run().catch(console.dir);
 ```
 
-When run using a previous version of Node, the `Buffer` length is consistently evaluated for 20K iterations, a document is inserted into a MongoDB collection then successfully retried.
+When run using a previous version of Node, the `Buffer` length is consistently evaluated for 20K iterations, a document is inserted into a MongoDB collection then successfully retrieved.
 
 ```
 Running Node 22.6.0
 Found doc {"_id":1,"message":"bébé"}
 ```
 
-When the same reproduction is run using Node v22.7.0 however, invalid UTF-8 string data can be produced, which would then be inserted into the MongoDB collection.
+When the same reproduction is run using Node v22.7.0 however, invalid UTF-8 string data can be produced, which would then be inserted into the MongoDB collection, resulting in subsequent retrieval attempts failing.
 
 ```
 Running Node 22.7.0
