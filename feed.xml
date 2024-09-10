@@ -1,4 +1,231 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-10T09:13:06-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver</title><link href="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/" rel="alternate" type="text/html" title="Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver" /><published>2024-08-29T07:18:44-04:00</published><updated>2024-08-29T07:31:37-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/"><![CDATA[<p>Within days of the <a href="https://nodejs.org/en/blog/release/v22.7.0">Node v22.7.0 release</a>, users were already reporting that UTF-8 <a href="https://github.com/nodejs/node/issues/54543">encodings were broken</a>. The issue results from the introduction of an incorrect optimization for <code class="language-plaintext highlighter-rouge">buffer.write</code> which can result in strings being encoded using ISO-8859-1 rather than UTF-8.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-10T09:16:47-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993</title><link href="https://www.alexbevi.com/blog/2024/09/10/space-quest-v/" rel="alternate" type="text/html" title="Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993" /><published>2024-09-10T06:20:32-04:00</published><updated>2024-09-10T09:15:59-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/10/space-quest-v</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/10/space-quest-v/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<blockquote class="prompt-tip">
+  <p>This is the first game that I’m reviewing since I <a href="/blog/2024/08/22/overhauling-my-scoring-criteria/">overhauled my scoring criteria</a> in August of 2024</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Space_Quest_V">Space Quest V: Roger Wilco – The Next Mutation</a> is a graphic adventure game, created by Dynamix, and released by Sierra On-Line for MS-DOS on February 5, 1993. The game is the fifth entry in the Space Quest series, and the first game to be only designed by Mark Crowe. The story, set within a spoof of the Star Trek franchise, focuses on players taking control of Roger Wilco, who achieves his dreams of becoming a star captain but winds up involved in saving the galaxy from a deadly threat posed by a man-made virus.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00012.png" alt="" /></p>
+
+<p>After traveling back and forth through time in the previous game, Roger Wilco is back in the Starfleet Academy, serving as both a cadet and a janitor. Cheating his way through the Starfleet Aptitude Test, Roger is finally given the rank of captain, his own ship (a garbage scow) and a mission: to explore strange new worlds (which no man in his right mind would explore), to seek out new life and new civilizations (which grew out of the massive amounts of trash Roger will collect on his way), to boldly go where no man has gone before. Step by step Roger will have to unveil a galaxy-wide biohazardous material dumping scheme, solve the mystery of the disappearance of a fellow Starfleet captain and his ship, and confront an agent of an old nemesis.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00024.png" alt="" /></p>
+
+<p>As I work my way through the games I’ve listed on this journey, Space Quest V was one I was more excited to replay as it has a lot of nostalgic value. I can still remember leafing through the <a href="https://www.spacequest.net/sq5/manual/sq5manual.pdf">Galactic Inquirer</a> that came with the game. At that time I would still occasionally go out grocery shopping with my parents and would see the tabloids at the check outs with headlines like <a href="https://www.ranker.com/list/funny-tabloid-headlines/nathandavidson">“Half-Man Half-Dog Baffles Doctors”</a>, so the format here was immediately appealing.</p>
+
+<p>Not really sure how well this stands up nowadays though…</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00001.png" alt="" /></p>
+
+<p>The manual gives you a couple pointers on how to get started on your adventure, including getting to your classroom and cheating on the StarCon Aptitude Test. Once you sit down and start taking the test, there is a robot monitoring everyone to make sure no one’s cheating - so clearly the goal here is to cheat.</p>
+
+<p>Roger can peer over to see the answers of the students to either side of him. If he gets caught, he’ll be ejected from the academy (into space) and it’s game over. If you copy from the wrong student you’ll get the wrong answers, so make sure you pick the smart kid to cheat off of (hint: the one with the big brain).</p>
+
+<p>When you select the right student you’ll hear the tone play that indicates your score has gone up. This is a sure fire way to confirm you’ve done something correctly that will advance the plot or direction of the game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00009.png" alt="" /></p>
+
+<p>The game is a mashup of all your favourite sci-fi properties such as Star Trek, Star Wars and Alien. Early on you’ll meet a critter on the shape that looks a lot like a <a href="https://avp.fandom.com/wiki/Facehugger">facehugger</a> from Alien. Instead of it killing you right away though, Roger thinks he looks cute, names him Spike and keeps him as a pet.</p>
+
+<p>Many story sequences are presented in this comic book panel style and it’s clear a lot of effort went into the artwork for this game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00002.png" alt="" /></p>
+
+<p>For game from 1993 you’re getting some of the best VGA graphics sprite-based artists could crank out. The character models are extremely expressive, the background artwork is detailed and there’s plenty of sight gags and hidden details to discover on each screen that immerses you in the experience.</p>
+
+<p>Space Quest games never take themselves too seriously, and Space Quest V is no exception. I really enjoy clicking the <code class="language-plaintext highlighter-rouge">LOOK</code> action on as much as I can on each screen as the feedback you get tends to be witty or funny.</p>
+
+<p>When Roger does something stupid, the sound effect they chose was Homer Simpson’s “DOH!”, which just feels weirdly appropriate for this game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00030.png" alt="" /></p>
+
+<p>There is no voice acting, and many scenes don’t have background music - just some looping background noise. When on the deck of your garbage scow the sound effects are what you’d expect to hear on the deck of the starship Enterprise.</p>
+
+<p>When you do get music in a scene it tends to help build tension or reinforce that something significant is about to happen, but it is used sparingly which can make some scenes feel a bit empty.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00025.png" alt="" /></p>
+
+<p>If you’ve played any of the Space Quest games you know that Roger Wilco is a bit of a tool, and sort of bumbles his way into situations he doesn’t belong in. For this installment in the series, he accidentally gets a perfect score on his StarCon Aptitude test and gets assigned to a starship as a captain.</p>
+
+<p>This starship is actually a garbage scow - which is appropriate seeing as you’re a janitor. You’ll have to fly to various locations to pick up garbage in space as you wait for instructions or story elements to unfold that direct you to your next location.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00008.png" alt="" /></p>
+
+<p>Initially you have 3 crew members, and you issue commands through various menus you can access from your control panel (click a coloured button to bring these up, or speak the crew members directly using the <code class="language-plaintext highlighter-rouge">COMMAND</code> icon).</p>
+
+<p>This is a bit more involved than previous games, but it ends up being fairly straightforward. You’ll need the Galactic Inquirer for the star codes to various planets (this is the copy protection), and the commands you issue are usually the same:</p>
+
+<ul>
+  <li>lay in a course</li>
+  <li>go to light speed</li>
+  <li>wait to arrive</li>
+  <li>go to regular speed</li>
+  <li>orbit planet</li>
+  <li>activate RSS</li>
+</ul>
+
+<p>This will suck up the space trash and allow you to proceed with the story.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00036.png" alt="" /></p>
+
+<p>Like all good Sierra games of this era, there are many ways to get yourself killed. The Space Quest series always tends to have the best game over screens, so it’s worth experimenting a bit to see how Roger’s untimely end can be met in various scenarios.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00014.png" alt="" /></p>
+
+<p>Also, like many Sierra games at the time, Space Quest V contains an unrelated mini-game that acts as filler. Instead of having to play poker like in <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a>, or that stupid card game in <a href="/blog/2024/03/20/codename-iceman/">Codename: ICEMAN (Sierra On-Line)</a> … this time you play something like <a href="https://en.wikipedia.org/wiki/Battleship_(game)">Battleship</a>.</p>
+
+<p>Seeing as you can <a href="https://en.wiktionary.org/wiki/savescum">savescum</a> your way to victory pretty easily, there’s not much challenge here. It is a decent distraction and can be fun for a few minutes, so I appreciate the fact that it was included.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00033.png" alt="" /></p>
+
+<p>There is some variety to the gameplay, and at one point you are teleported down to a planet at the same time as a fly and end up having your genes spliced with the insect. Playing as a fly, you have to solve a couple of puzzles to get your body back while also advancing the story.</p>
+
+<p>Being a fly allows you to crawl through a security card reader to gain access to a building that you’d typically need a card for. By crawling through the beams and observing which ones activate locking mechanisms, you’ll later be able to punch a card to recreate the access card.</p>
+
+<p>I remember really finding this puzzle clever when I originally played this game as it wasn’t overly complicated, and knowing I had a business card and a hole punch in my inventory it sort of made sense what I was going to have to do.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00028.png" alt="" /></p>
+
+<p>Not all the puzzles are fun though. When Cliffy (your chief engineer) gets himself ejected from the ship and you need to go rescue him it typically takes a few tries to navigate the awkward controls before you run out of fuel or oxygen.</p>
+
+<p>Since I play these games on max speed, turning this down about 50% actually made the sequence a lot easier to complete.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00022.png" alt="" /></p>
+
+<p>As I’m writing this review and going back over my screenshots, it seems arcade sequences are actually more prominent that I remembered. This is potentially the result of Dynamix developing the game - not Sierra.</p>
+
+<p>An interesting piece of trivia is that Dynamix originally developed the demo for Space Quest V using their <a href="https://wiki.scummvm.org/index.php/DGDS">DGDS game engine</a>, but for the final game Sierra’s <a href="https://wiki.scummvm.org/index.php/SCI">SCI engine</a> was used.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00037.png" alt="" /></p>
+
+<p>The only real gripe I had with the game was the maze at the very end. I just really dislike mazes - unless I’m playing a CRPG that is.</p>
+
+<p>Navigating this maze is just a pain in the ass, but thankfully it’s fairly short and you can burn through the entire sequence in about 10 minutes. If you happen to pop out under the elevator incorrectly and try to climb you will be crushed to death and get to enjoy one of the many death screens this game has to offer … so that’s something I guess.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00044.png" alt="" /></p>
+
+<p>Unlike most (all?) Sierra games, Space Quest V includes product placement in the form of the Sprint logo being displayed after every video call you make. I didn’t find this to be overly intrusive, but it was kind of odd for an adventure game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00043.png" alt="" /></p>
+
+<p>The nostalgia factor on this game is pretty high for me, which is definitely reflected in the higher <em>Replayability</em> and <em>Bonus / Surprise</em> categories. I love the characters and the unapologetic parody at every turn - even if the plot is kind of thin.</p>
+
+<p>I actually tried the <a href="https://archive.org/details/SpaceQuestVTheNextMutationDemo">demo</a> in DOSBox just to see what the difference was, and surprisingly it looked almost identical to the final version of the game.</p>
+
+<p>I had a lot of fun replaying Space Quest V and would highly recommend this title to anyone getting into the genre. It’s pretty accessible, easy to get into and full of great writing - and puns - lots and lots of puns.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Space Quest V: Roger Wilco – The Next Mutation</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>February 5, 1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/8867"><em>How Long To Beat?</em></a></td>
+      <td>6 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://wiw.org/~jess/sq5.html">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>61%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq5/scummvm-sq5-00003.png', thumb: '/images/adventure/sq5/scummvm-sq5-00003.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00004.png', thumb: '/images/adventure/sq5/scummvm-sq5-00004.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00005.png', thumb: '/images/adventure/sq5/scummvm-sq5-00005.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00006.png', thumb: '/images/adventure/sq5/scummvm-sq5-00006.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00007.png', thumb: '/images/adventure/sq5/scummvm-sq5-00007.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00010.png', thumb: '/images/adventure/sq5/scummvm-sq5-00010.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00011.png', thumb: '/images/adventure/sq5/scummvm-sq5-00011.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00013.png', thumb: '/images/adventure/sq5/scummvm-sq5-00013.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00015.png', thumb: '/images/adventure/sq5/scummvm-sq5-00015.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00016.png', thumb: '/images/adventure/sq5/scummvm-sq5-00016.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00017.png', thumb: '/images/adventure/sq5/scummvm-sq5-00017.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00018.png', thumb: '/images/adventure/sq5/scummvm-sq5-00018.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00019.png', thumb: '/images/adventure/sq5/scummvm-sq5-00019.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00020.png', thumb: '/images/adventure/sq5/scummvm-sq5-00020.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00021.png', thumb: '/images/adventure/sq5/scummvm-sq5-00021.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00023.png', thumb: '/images/adventure/sq5/scummvm-sq5-00023.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00026.png', thumb: '/images/adventure/sq5/scummvm-sq5-00026.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00027.png', thumb: '/images/adventure/sq5/scummvm-sq5-00027.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00029.png', thumb: '/images/adventure/sq5/scummvm-sq5-00029.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00031.png', thumb: '/images/adventure/sq5/scummvm-sq5-00031.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00032.png', thumb: '/images/adventure/sq5/scummvm-sq5-00032.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00034.png', thumb: '/images/adventure/sq5/scummvm-sq5-00034.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00035.png', thumb: '/images/adventure/sq5/scummvm-sq5-00035.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00038.png', thumb: '/images/adventure/sq5/scummvm-sq5-00038.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00039.png', thumb: '/images/adventure/sq5/scummvm-sq5-00039.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00040.png', thumb: '/images/adventure/sq5/scummvm-sq5-00040.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00041.png', thumb: '/images/adventure/sq5/scummvm-sq5-00041.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00042.png', thumb: '/images/adventure/sq5/scummvm-sq5-00042.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver</title><link href="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/" rel="alternate" type="text/html" title="Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver" /><published>2024-08-29T07:18:44-04:00</published><updated>2024-08-29T07:31:37-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/"><![CDATA[<p>Within days of the <a href="https://nodejs.org/en/blog/release/v22.7.0">Node v22.7.0 release</a>, users were already reporting that UTF-8 <a href="https://github.com/nodejs/node/issues/54543">encodings were broken</a>. The issue results from the introduction of an incorrect optimization for <code class="language-plaintext highlighter-rouge">buffer.write</code> which can result in strings being encoded using ISO-8859-1 rather than UTF-8.</p>
 
 <p>Though the use of the fast API for <code class="language-plaintext highlighter-rouge">buffer.write</code> <a href="https://github.com/nodejs/node/pull/54565">will be disabled</a> with Node v22.8.0, developers using MongoDB’s Node.js driver could experience data corruption with Node v22.7.0.</p>
 
@@ -846,234 +1073,7 @@ BSONError: Invalid UTF-8 string in BSON document
 
 <p>Since I wrote about <a href="/blog/2024/05/17/peeling-the-mongodb-drivers-onion/">“Peeling the MongoDB Drivers Onion”</a> I wanted this to be included in the book as well, so this was included as the <a href="https://github.com/alexbevi/specifications/blob/mkbook/source/README.md"><code class="language-plaintext highlighter-rouge">source/README.md</code></a> file. The rest of the contents of the specification repository were untouched and are just being rendered by <code class="language-plaintext highlighter-rouge">mdBook</code>.</p>
 
-<p>If you want to explore MongoDB’s Driver Specifications, you can now just click on through to <a href="https://alexbevi.com/specifications/">alexbevi.com/specifications</a> (or select “Specifications” from the menu) and explore these to your heart’s content :)</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB’s Drivers Specifications have always been available on GitHub. Since the content license is extremely permissive there are a number of things we could do to transform that work as long as we provide proper attribution.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993</title><link href="https://www.alexbevi.com/blog/2024/08/23/space-quest-v/" rel="alternate" type="text/html" title="Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993" /><published>2024-08-23T06:20:32-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/23/space-quest-v</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/23/space-quest-v/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<blockquote class="prompt-tip">
-  <p>This is the first game that I’m reviewing since I <a href="/blog/2024/08/22/overhauling-my-scoring-criteria/">overhauled my scoring criteria</a> in August of 2024</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Space_Quest_V">Space Quest V: Roger Wilco – The Next Mutation</a> is a graphic adventure game, created by Dynamix, and released by Sierra On-Line for MS-DOS on February 5, 1993. The game is the fifth entry in the Space Quest series, and the first game to be only designed by Mark Crowe. The story, set within a spoof of the Star Trek franchise, focuses on players taking control of Roger Wilco, who achieves his dreams of becoming a star captain but winds up involved in saving the galaxy from a deadly threat posed by a man-made virus.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00012.png" alt="" /></p>
-
-<p>After traveling back and forth through time in the previous game, Roger Wilco is back in the Starfleet Academy, serving as both a cadet and a janitor. Cheating his way through the Starfleet Aptitude Test, Roger is finally given the rank of captain, his own ship (a garbage scow) and a mission: to explore strange new worlds (which no man in his right mind would explore), to seek out new life and new civilizations (which grew out of the massive amounts of trash Roger will collect on his way), to boldly go where no man has gone before. Step by step Roger will have to unveil a galaxy-wide biohazardous material dumping scheme, solve the mystery of the disappearance of a fellow Starfleet captain and his ship, and confront an agent of an old nemesis.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00024.png" alt="" /></p>
-
-<p>As I work my way through the games I’ve listed on this journey, Space Quest V was one I was more excited to replay as it has a lot of nostalgic value. I can still remember leafing through the <a href="https://www.spacequest.net/sq5/manual/sq5manual.pdf">Galactic Inquirer</a> that came with the game. At that time I would still occasionally go out grocery shopping with my parents and would see the tabloids at the check outs with headlines like <a href="https://www.ranker.com/list/funny-tabloid-headlines/nathandavidson">“Half-Man Half-Dog Baffles Doctors”</a>, so the format here was immediately appealing.</p>
-
-<p>Not really sure how well this stands up nowadays though…</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00001.png" alt="" /></p>
-
-<p>The manual gives you a couple pointers on how to get started on your adventure, including getting to your classroom and cheating on the StarCon Aptitude Test. Once you sit down and start taking the test, there is a robot monitoring everyone to make sure no one’s cheating - so clearly the goal here is to cheat.</p>
-
-<p>Roger can peer over to see the answers of the students to either side of him. If he gets caught, he’ll be ejected from the academy (into space) and it’s game over. If you copy from the wrong student you’ll get the wrong answers, so make sure you pick the smart kid to cheat off of (hint: the one with the big brain).</p>
-
-<p>When you select the right student you’ll hear the tone play that indicates your score has gone up. This is a sure fire way to confirm you’ve done something correctly that will advance the plot or direction of the game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00009.png" alt="" /></p>
-
-<p>The game is a mashup of all your favourite sci-fi properties such as Star Trek, Star Wars and Alien. Early on you’ll meet a critter on the shape that looks a lot like a <a href="https://avp.fandom.com/wiki/Facehugger">facehugger</a> from Alien. Instead of it killing you right away though, Roger thinks he looks cute, names him Spike and keeps him as a pet.</p>
-
-<p>Many story sequences are presented in this comic book panel style and it’s clear a lot of effort went into the artwork for this game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00002.png" alt="" /></p>
-
-<p>For game from 1993 you’re getting some of the best VGA graphics sprite-based artists could crank out. The character models are extremely expressive, the background artwork is detailed and there’s plenty of sight gags and hidden details to discover on each screen that immerses you in the experience.</p>
-
-<p>Space Quest games never take themselves too seriously, and Space Quest V is no exception. I really enjoy clicking the <code class="language-plaintext highlighter-rouge">LOOK</code> action on as much as I can on each screen as the feedback you get tends to be witty or funny.</p>
-
-<p>When Roger does something stupid, the sound effect they chose was Homer Simpson’s “DOH!”, which just feels weirdly appropriate for this game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00030.png" alt="" /></p>
-
-<p>There is no voice acting, and many scenes don’t have background music - just some looping background noise. When on the deck of your garbage scow the sound effects are what you’d expect to hear on the deck of the starship Enterprise.</p>
-
-<p>When you do get music in a scene it tends to help build tension or reinforce that something significant is about to happen, but it is used sparingly which can make some scenes feel a bit empty.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00025.png" alt="" /></p>
-
-<p>If you’ve played any of the Space Quest games you know that Roger Wilco is a bit of a tool, and sort of bumbles his way into situations he doesn’t belong in. For this installment in the series, he accidentally gets a perfect score on his StarCon Aptitude test and gets assigned to a starship as a captain.</p>
-
-<p>This starship is actually a garbage scow - which is appropriate seeing as you’re a janitor. You’ll have to fly to various locations to pick up garbage in space as you wait for instructions or story elements to unfold that direct you to your next location.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00008.png" alt="" /></p>
-
-<p>Initially you have 3 crew members, and you issue commands through various menus you can access from your control panel (click a coloured button to bring these up, or speak the crew members directly using the <code class="language-plaintext highlighter-rouge">COMMAND</code> icon).</p>
-
-<p>This is a bit more involved than previous games, but it ends up being fairly straightforward. You’ll need the Galactic Inquirer for the star codes to various planets (this is the copy protection), and the commands you issue are usually the same:</p>
-
-<ul>
-  <li>lay in a course</li>
-  <li>go to light speed</li>
-  <li>wait to arrive</li>
-  <li>go to regular speed</li>
-  <li>orbit planet</li>
-  <li>activate RSS</li>
-</ul>
-
-<p>This will suck up the space trash and allow you to proceed with the story.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00036.png" alt="" /></p>
-
-<p>Like all good Sierra games of this era, there are many ways to get yourself killed. The Space Quest series always tends to have the best game over screens, so it’s worth experimenting a bit to see how Roger’s untimely end can be met in various scenarios.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00014.png" alt="" /></p>
-
-<p>Also, like many Sierra games at the time, Space Quest V contains an unrelated mini-game that acts as filler. Instead of having to play poker like in <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a>, or that stupid card game in <a href="/blog/2024/03/20/codename-iceman/">Codename: ICEMAN (Sierra On-Line)</a> … this time you play something like <a href="https://en.wikipedia.org/wiki/Battleship_(game)">Battleship</a>.</p>
-
-<p>Seeing as you can <a href="https://en.wiktionary.org/wiki/savescum">savescum</a> your way to victory pretty easily, there’s not much challenge here. It is a decent distraction and can be fun for a few minutes, so I appreciate the fact that it was included.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00033.png" alt="" /></p>
-
-<p>There is some variety to the gameplay, and at one point you are teleported down to a planet at the same time as a fly and end up having your genes spliced with the insect. Playing as a fly, you have to solve a couple of puzzles to get your body back while also advancing the story.</p>
-
-<p>Being a fly allows you to crawl through a security card reader to gain access to a building that you’d typically need a card for. By crawling through the beams and observing which ones activate locking mechanisms, you’ll later be able to punch a card to recreate the access card.</p>
-
-<p>I remember really finding this puzzle clever when I originally played this game as it wasn’t overly complicated, and knowing I had a business card and a hole punch in my inventory it sort of made sense what I was going to have to do.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00028.png" alt="" /></p>
-
-<p>Not all the puzzles are fun though. When Cliffy (your chief engineer) gets himself ejected from the ship and you need to go rescue him it typically takes a few tries to navigate the awkward controls before you run out of fuel or oxygen.</p>
-
-<p>Since I play these games on max speed, turning this down about 50% actually made the sequence a lot easier to complete.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00022.png" alt="" /></p>
-
-<p>As I’m writing this review and going back over my screenshots, it seems arcade sequences are actually more prominent that I remembered. This is potentially the result of Dynamix developing the game - not Sierra.</p>
-
-<p>An interesting piece of trivia is that Dynamix originally developed the demo for Space Quest V using their <a href="https://wiki.scummvm.org/index.php/DGDS">DGDS game engine</a>, but for the final game Sierra’s <a href="https://wiki.scummvm.org/index.php/SCI">SCI engine</a> was used.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00037.png" alt="" /></p>
-
-<p>The only real gripe I had with the game was the maze at the very end. I just really dislike mazes - unless I’m playing a CRPG that is.</p>
-
-<p>Navigating this maze is just a pain in the ass, but thankfully it’s fairly short and you can burn through the entire sequence in about 10 minutes. If you happen to pop out under the elevator incorrectly and try to climb you will be crushed to death and get to enjoy one of the many death screens this game has to offer … so that’s something I guess.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00044.png" alt="" /></p>
-
-<p>Unlike most (all?) Sierra games, Space Quest V includes product placement in the form of the Sprint logo being displayed after every video call you make. I didn’t find this to be overly intrusive, but it was kind of odd for an adventure game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00043.png" alt="" /></p>
-
-<p>The nostalgia factor on this game is pretty high for me, which is definitely reflected in the higher <em>Replayability</em> and <em>Bonus / Surprise</em> categories. I love the characters and the unapologetic parody at every turn - even if the plot is kind of thin.</p>
-
-<p>I actually tried the <a href="https://archive.org/details/SpaceQuestVTheNextMutationDemo">demo</a> in DOSBox just to see what the difference was, and surprisingly it looked almost identical to the final version of the game.</p>
-
-<p>I had a lot of fun replaying Space Quest V and would highly recommend this title to anyone getting into the genre. It’s pretty accessible, easy to get into and full of great writing - and puns - lots and lots of puns.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Space Quest V: Roger Wilco – The Next Mutation</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>February 5, 1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/8867"><em>How Long To Beat?</em></a></td>
-      <td>6 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://wiw.org/~jess/sq5.html">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (10)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>61%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq5/scummvm-sq5-00003.png', thumb: '/images/adventure/sq5/scummvm-sq5-00003.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00004.png', thumb: '/images/adventure/sq5/scummvm-sq5-00004.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00005.png', thumb: '/images/adventure/sq5/scummvm-sq5-00005.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00006.png', thumb: '/images/adventure/sq5/scummvm-sq5-00006.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00007.png', thumb: '/images/adventure/sq5/scummvm-sq5-00007.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00010.png', thumb: '/images/adventure/sq5/scummvm-sq5-00010.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00011.png', thumb: '/images/adventure/sq5/scummvm-sq5-00011.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00013.png', thumb: '/images/adventure/sq5/scummvm-sq5-00013.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00015.png', thumb: '/images/adventure/sq5/scummvm-sq5-00015.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00016.png', thumb: '/images/adventure/sq5/scummvm-sq5-00016.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00017.png', thumb: '/images/adventure/sq5/scummvm-sq5-00017.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00018.png', thumb: '/images/adventure/sq5/scummvm-sq5-00018.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00019.png', thumb: '/images/adventure/sq5/scummvm-sq5-00019.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00020.png', thumb: '/images/adventure/sq5/scummvm-sq5-00020.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00021.png', thumb: '/images/adventure/sq5/scummvm-sq5-00021.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00023.png', thumb: '/images/adventure/sq5/scummvm-sq5-00023.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00026.png', thumb: '/images/adventure/sq5/scummvm-sq5-00026.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00027.png', thumb: '/images/adventure/sq5/scummvm-sq5-00027.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00029.png', thumb: '/images/adventure/sq5/scummvm-sq5-00029.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00031.png', thumb: '/images/adventure/sq5/scummvm-sq5-00031.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00032.png', thumb: '/images/adventure/sq5/scummvm-sq5-00032.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00034.png', thumb: '/images/adventure/sq5/scummvm-sq5-00034.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00035.png', thumb: '/images/adventure/sq5/scummvm-sq5-00035.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00038.png', thumb: '/images/adventure/sq5/scummvm-sq5-00038.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00039.png', thumb: '/images/adventure/sq5/scummvm-sq5-00039.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00040.png', thumb: '/images/adventure/sq5/scummvm-sq5-00040.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00041.png', thumb: '/images/adventure/sq5/scummvm-sq5-00041.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00042.png', thumb: '/images/adventure/sq5/scummvm-sq5-00042.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Overhauling My Scoring Criteria</title><link href="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/" rel="alternate" type="text/html" title="Overhauling My Scoring Criteria" /><published>2024-08-22T05:32:09-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/"><![CDATA[<p>When I started the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series I devised a scoring system that I thought would meaningfully allow me to rate the games I was playing in a fair and balanced way:</p>
+<p>If you want to explore MongoDB’s Driver Specifications, you can now just click on through to <a href="https://alexbevi.com/specifications/">alexbevi.com/specifications</a> (or select “Specifications” from the menu) and explore these to your heart’s content :)</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB’s Drivers Specifications have always been available on GitHub. Since the content license is extremely permissive there are a number of things we could do to transform that work as long as we provide proper attribution.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Overhauling My Scoring Criteria</title><link href="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/" rel="alternate" type="text/html" title="Overhauling My Scoring Criteria" /><published>2024-08-22T05:32:09-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/"><![CDATA[<p>When I started the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series I devised a scoring system that I thought would meaningfully allow me to rate the games I was playing in a fair and balanced way:</p>
 
 <blockquote class="prompt-warning">
   <p><strong>Atmosphere</strong>: This will focus on how the game makes you feel while you’re playing it and includes inputs such as <em>Music</em>, <em>Sound Effects</em>, <em>Graphics</em>, <em>Cut Scenes</em> and overall quality.
