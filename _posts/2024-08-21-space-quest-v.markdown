@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993"
-date: 2024-08-23 06:20:32 -0400
+date: 2024-09-10 06:20:32 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Dynamix", "Sierra On-Line", SCI]
