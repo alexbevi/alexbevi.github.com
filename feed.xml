@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-29T07:32:23-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver</title><link href="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/" rel="alternate" type="text/html" title="Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver" /><published>2024-08-29T07:18:44-04:00</published><updated>2024-08-29T07:31:37-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/"><![CDATA[<p>Within days of the <a href="https://nodejs.org/en/blog/release/v22.7.0">Node v22.7.0 release</a>, users were already reporting that UTF-8 <a href="https://github.com/nodejs/node/issues/54543">encodings were broken</a>. The issue results from the introduction of an incorrect optimization for <code class="language-plaintext highlighter-rouge">buffer.write</code> which can result in strings being encoded using ISO-8859-1 rather than UTF-8.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-10T09:04:04-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver</title><link href="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/" rel="alternate" type="text/html" title="Risk of data corruption when using Node v22.7.0 and the MongoDB Node.js driver" /><published>2024-08-29T07:18:44-04:00</published><updated>2024-08-29T07:31:37-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/29/risk-of-data-corruption-when-using-node-v22-dot-7-0-and-the-mongodb-node-dot-js-driver/"><![CDATA[<p>Within days of the <a href="https://nodejs.org/en/blog/release/v22.7.0">Node v22.7.0 release</a>, users were already reporting that UTF-8 <a href="https://github.com/nodejs/node/issues/54543">encodings were broken</a>. The issue results from the introduction of an incorrect optimization for <code class="language-plaintext highlighter-rouge">buffer.write</code> which can result in strings being encoded using ISO-8859-1 rather than UTF-8.</p>
 
 <p>Though the use of the fast API for <code class="language-plaintext highlighter-rouge">buffer.write</code> <a href="https://github.com/nodejs/node/pull/54565">will be disabled</a> with Node v22.8.0, developers using MongoDB’s Node.js driver could experience data corruption with Node v22.7.0.</p>
 
@@ -846,7 +846,373 @@ BSONError: Invalid UTF-8 string in BSON document
 
 <p>Since I wrote about <a href="/blog/2024/05/17/peeling-the-mongodb-drivers-onion/">“Peeling the MongoDB Drivers Onion”</a> I wanted this to be included in the book as well, so this was included as the <a href="https://github.com/alexbevi/specifications/blob/mkbook/source/README.md"><code class="language-plaintext highlighter-rouge">source/README.md</code></a> file. The rest of the contents of the specification repository were untouched and are just being rendered by <code class="language-plaintext highlighter-rouge">mdBook</code>.</p>
 
-<p>If you want to explore MongoDB’s Driver Specifications, you can now just click on through to <a href="https://alexbevi.com/specifications/">alexbevi.com/specifications</a> (or select “Specifications” from the menu) and explore these to your heart’s content :)</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB’s Drivers Specifications have always been available on GitHub. Since the content license is extremely permissive there are a number of things we could do to transform that work as long as we provide proper attribution.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bargon Attack (Coktel Vision) - 1992</title><link href="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/" rel="alternate" type="text/html" title="Bargon Attack (Coktel Vision) - 1992" /><published>2024-08-06T06:29:18-04:00</published><updated>2024-08-07T07:34:45-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/06/bargon-attack</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/"><![CDATA[<blockquote class="prompt-info">
+<p>If you want to explore MongoDB’s Driver Specifications, you can now just click on through to <a href="https://alexbevi.com/specifications/">alexbevi.com/specifications</a> (or select “Specifications” from the menu) and explore these to your heart’s content :)</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[MongoDB’s Drivers Specifications have always been available on GitHub. Since the content license is extremely permissive there are a number of things we could do to transform that work as long as we provide proper attribution.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993</title><link href="https://www.alexbevi.com/blog/2024/08/23/space-quest-v/" rel="alternate" type="text/html" title="Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993" /><published>2024-08-23T06:20:32-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/23/space-quest-v</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/23/space-quest-v/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<blockquote class="prompt-tip">
+  <p>This is the first game that I’m reviewing since I <a href="/blog/2024/08/22/overhauling-my-scoring-criteria/">overhauled my scoring criteria</a> in August of 2024</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Space_Quest_V">Space Quest V: Roger Wilco – The Next Mutation</a> is a graphic adventure game, created by Dynamix, and released by Sierra On-Line for MS-DOS on February 5, 1993. The game is the fifth entry in the Space Quest series, and the first game to be only designed by Mark Crowe. The story, set within a spoof of the Star Trek franchise, focuses on players taking control of Roger Wilco, who achieves his dreams of becoming a star captain but winds up involved in saving the galaxy from a deadly threat posed by a man-made virus.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00012.png" alt="" /></p>
+
+<p>After traveling back and forth through time in the previous game, Roger Wilco is back in the Starfleet Academy, serving as both a cadet and a janitor. Cheating his way through the Starfleet Aptitude Test, Roger is finally given the rank of captain, his own ship (a garbage scow) and a mission: to explore strange new worlds (which no man in his right mind would explore), to seek out new life and new civilizations (which grew out of the massive amounts of trash Roger will collect on his way), to boldly go where no man has gone before. Step by step Roger will have to unveil a galaxy-wide biohazardous material dumping scheme, solve the mystery of the disappearance of a fellow Starfleet captain and his ship, and confront an agent of an old nemesis.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00024.png" alt="" /></p>
+
+<p>As I work my way through the games I’ve listed on this journey, Space Quest V was one I was more excited to replay as it has a lot of nostalgic value. I can still remember leafing through the <a href="https://www.spacequest.net/sq5/manual/sq5manual.pdf">Galactic Inquirer</a> that came with the game. At that time I would still occasionally go out grocery shopping with my parents and would see the tabloids at the check outs with headlines like <a href="https://www.ranker.com/list/funny-tabloid-headlines/nathandavidson">“Half-Man Half-Dog Baffles Doctors”</a>, so the format here was immediately appealing.</p>
+
+<p>Not really sure how well this stands up nowadays though…</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00001.png" alt="" /></p>
+
+<p>The manual gives you a couple pointers on how to get started on your adventure, including getting to your classroom and cheating on the StarCon Aptitude Test. Once you sit down and start taking the test, there is a robot monitoring everyone to make sure no one’s cheating - so clearly the goal here is to cheat.</p>
+
+<p>Roger can peer over to see the answers of the students to either side of him. If he gets caught, he’ll be ejected from the academy (into space) and it’s game over. If you copy from the wrong student you’ll get the wrong answers, so make sure you pick the smart kid to cheat off of (hint: the one with the big brain).</p>
+
+<p>When you select the right student you’ll hear the tone play that indicates your score has gone up. This is a sure fire way to confirm you’ve done something correctly that will advance the plot or direction of the game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00009.png" alt="" /></p>
+
+<p>The game is a mashup of all your favourite sci-fi properties such as Star Trek, Star Wars and Alien. Early on you’ll meet a critter on the shape that looks a lot like a <a href="https://avp.fandom.com/wiki/Facehugger">facehugger</a> from Alien. Instead of it killing you right away though, Roger thinks he looks cute, names him Spike and keeps him as a pet.</p>
+
+<p>Many story sequences are presented in this comic book panel style and it’s clear a lot of effort went into the artwork for this game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00002.png" alt="" /></p>
+
+<p>For game from 1993 you’re getting some of the best VGA graphics sprite-based artists could crank out. The character models are extremely expressive, the background artwork is detailed and there’s plenty of sight gags and hidden details to discover on each screen that immerses you in the experience.</p>
+
+<p>Space Quest games never take themselves too seriously, and Space Quest V is no exception. I really enjoy clicking the <code class="language-plaintext highlighter-rouge">LOOK</code> action on as much as I can on each screen as the feedback you get tends to be witty or funny.</p>
+
+<p>When Roger does something stupid, the sound effect they chose was Homer Simpson’s “DOH!”, which just feels weirdly appropriate for this game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00030.png" alt="" /></p>
+
+<p>There is no voice acting, and many scenes don’t have background music - just some looping background noise. When on the deck of your garbage scow the sound effects are what you’d expect to hear on the deck of the starship Enterprise.</p>
+
+<p>When you do get music in a scene it tends to help build tension or reinforce that something significant is about to happen, but it is used sparingly which can make some scenes feel a bit empty.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00025.png" alt="" /></p>
+
+<p>If you’ve played any of the Space Quest games you know that Roger Wilco is a bit of a tool, and sort of bumbles his way into situations he doesn’t belong in. For this installment in the series, he accidentally gets a perfect score on his StarCon Aptitude test and gets assigned to a starship as a captain.</p>
+
+<p>This starship is actually a garbage scow - which is appropriate seeing as you’re a janitor. You’ll have to fly to various locations to pick up garbage in space as you wait for instructions or story elements to unfold that direct you to your next location.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00008.png" alt="" /></p>
+
+<p>Initially you have 3 crew members, and you issue commands through various menus you can access from your control panel (click a coloured button to bring these up, or speak the crew members directly using the <code class="language-plaintext highlighter-rouge">COMMAND</code> icon).</p>
+
+<p>This is a bit more involved than previous games, but it ends up being fairly straightforward. You’ll need the Galactic Inquirer for the star codes to various planets (this is the copy protection), and the commands you issue are usually the same:</p>
+
+<ul>
+  <li>lay in a course</li>
+  <li>go to light speed</li>
+  <li>wait to arrive</li>
+  <li>go to regular speed</li>
+  <li>orbit planet</li>
+  <li>activate RSS</li>
+</ul>
+
+<p>This will suck up the space trash and allow you to proceed with the story.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00036.png" alt="" /></p>
+
+<p>Like all good Sierra games of this era, there are many ways to get yourself killed. The Space Quest series always tends to have the best game over screens, so it’s worth experimenting a bit to see how Roger’s untimely end can be met in various scenarios.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00014.png" alt="" /></p>
+
+<p>Also, like many Sierra games at the time, Space Quest V contains an unrelated mini-game that acts as filler. Instead of having to play poker like in <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a>, or that stupid card game in <a href="/blog/2024/03/20/codename-iceman/">Codename: ICEMAN (Sierra On-Line)</a> … this time you play something like <a href="https://en.wikipedia.org/wiki/Battleship_(game)">Battleship</a>.</p>
+
+<p>Seeing as you can <a href="https://en.wiktionary.org/wiki/savescum">savescum</a> your way to victory pretty easily, there’s not much challenge here. It is a decent distraction and can be fun for a few minutes, so I appreciate the fact that it was included.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00033.png" alt="" /></p>
+
+<p>There is some variety to the gameplay, and at one point you are teleported down to a planet at the same time as a fly and end up having your genes spliced with the insect. Playing as a fly, you have to solve a couple of puzzles to get your body back while also advancing the story.</p>
+
+<p>Being a fly allows you to crawl through a security card reader to gain access to a building that you’d typically need a card for. By crawling through the beams and observing which ones activate locking mechanisms, you’ll later be able to punch a card to recreate the access card.</p>
+
+<p>I remember really finding this puzzle clever when I originally played this game as it wasn’t overly complicated, and knowing I had a business card and a hole punch in my inventory it sort of made sense what I was going to have to do.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00028.png" alt="" /></p>
+
+<p>Not all the puzzles are fun though. When Cliffy (your chief engineer) gets himself ejected from the ship and you need to go rescue him it typically takes a few tries to navigate the awkward controls before you run out of fuel or oxygen.</p>
+
+<p>Since I play these games on max speed, turning this down about 50% actually made the sequence a lot easier to complete.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00022.png" alt="" /></p>
+
+<p>As I’m writing this review and going back over my screenshots, it seems arcade sequences are actually more prominent that I remembered. This is potentially the result of Dynamix developing the game - not Sierra.</p>
+
+<p>An interesting piece of trivia is that Dynamix originally developed the demo for Space Quest V using their <a href="https://wiki.scummvm.org/index.php/DGDS">DGDS game engine</a>, but for the final game Sierra’s <a href="https://wiki.scummvm.org/index.php/SCI">SCI engine</a> was used.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00037.png" alt="" /></p>
+
+<p>The only real gripe I had with the game was the maze at the very end. I just really dislike mazes - unless I’m playing a CRPG that is.</p>
+
+<p>Navigating this maze is just a pain in the ass, but thankfully it’s fairly short and you can burn through the entire sequence in about 10 minutes. If you happen to pop out under the elevator incorrectly and try to climb you will be crushed to death and get to enjoy one of the many death screens this game has to offer … so that’s something I guess.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00044.png" alt="" /></p>
+
+<p>Unlike most (all?) Sierra games, Space Quest V includes product placement in the form of the Sprint logo being displayed after every video call you make. I didn’t find this to be overly intrusive, but it was kind of odd for an adventure game.</p>
+
+<p><img src="/images/adventure/sq5/scummvm-sq5-00043.png" alt="" /></p>
+
+<p>The nostalgia factor on this game is pretty high for me, which is definitely reflected in the higher <em>Replayability</em> and <em>Bonus / Surprise</em> categories. I love the characters and the unapologetic parody at every turn - even if the plot is kind of thin.</p>
+
+<p>I actually tried the <a href="https://archive.org/details/SpaceQuestVTheNextMutationDemo">demo</a> in DOSBox just to see what the difference was, and surprisingly it looked almost identical to the final version of the game.</p>
+
+<p>I had a lot of fun replaying Space Quest V and would highly recommend this title to anyone getting into the genre. It’s pretty accessible, easy to get into and full of great writing - and puns - lots and lots of puns.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Space Quest V: Roger Wilco – The Next Mutation</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>February 5, 1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/8867"><em>How Long To Beat?</em></a></td>
+      <td>6 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://wiw.org/~jess/sq5.html">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>61%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq5/scummvm-sq5-00003.png', thumb: '/images/adventure/sq5/scummvm-sq5-00003.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00004.png', thumb: '/images/adventure/sq5/scummvm-sq5-00004.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00005.png', thumb: '/images/adventure/sq5/scummvm-sq5-00005.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00006.png', thumb: '/images/adventure/sq5/scummvm-sq5-00006.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00007.png', thumb: '/images/adventure/sq5/scummvm-sq5-00007.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00010.png', thumb: '/images/adventure/sq5/scummvm-sq5-00010.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00011.png', thumb: '/images/adventure/sq5/scummvm-sq5-00011.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00013.png', thumb: '/images/adventure/sq5/scummvm-sq5-00013.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00015.png', thumb: '/images/adventure/sq5/scummvm-sq5-00015.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00016.png', thumb: '/images/adventure/sq5/scummvm-sq5-00016.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00017.png', thumb: '/images/adventure/sq5/scummvm-sq5-00017.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00018.png', thumb: '/images/adventure/sq5/scummvm-sq5-00018.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00019.png', thumb: '/images/adventure/sq5/scummvm-sq5-00019.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00020.png', thumb: '/images/adventure/sq5/scummvm-sq5-00020.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00021.png', thumb: '/images/adventure/sq5/scummvm-sq5-00021.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00023.png', thumb: '/images/adventure/sq5/scummvm-sq5-00023.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00026.png', thumb: '/images/adventure/sq5/scummvm-sq5-00026.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00027.png', thumb: '/images/adventure/sq5/scummvm-sq5-00027.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00029.png', thumb: '/images/adventure/sq5/scummvm-sq5-00029.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00031.png', thumb: '/images/adventure/sq5/scummvm-sq5-00031.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00032.png', thumb: '/images/adventure/sq5/scummvm-sq5-00032.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00034.png', thumb: '/images/adventure/sq5/scummvm-sq5-00034.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00035.png', thumb: '/images/adventure/sq5/scummvm-sq5-00035.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00038.png', thumb: '/images/adventure/sq5/scummvm-sq5-00038.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00039.png', thumb: '/images/adventure/sq5/scummvm-sq5-00039.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00040.png', thumb: '/images/adventure/sq5/scummvm-sq5-00040.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00041.png', thumb: '/images/adventure/sq5/scummvm-sq5-00041.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00042.png', thumb: '/images/adventure/sq5/scummvm-sq5-00042.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Overhauling My Scoring Criteria</title><link href="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/" rel="alternate" type="text/html" title="Overhauling My Scoring Criteria" /><published>2024-08-22T05:32:09-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/22/overhauling-my-scoring-criteria/"><![CDATA[<p>When I started the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series I devised a scoring system that I thought would meaningfully allow me to rate the games I was playing in a fair and balanced way:</p>
+
+<blockquote class="prompt-warning">
+  <p><strong>Atmosphere</strong>: This will focus on how the game makes you feel while you’re playing it and includes inputs such as <em>Music</em>, <em>Sound Effects</em>, <em>Graphics</em>, <em>Cut Scenes</em> and overall quality.
+<br />Max Points: <strong>20</strong></p>
+
+  <p><strong>Story</strong>: Adventure games are very story-driven, and as such the story needs to be evaluated as a top-level criteria. Focus will be on <em>Quality</em>, <em>Immersion</em>, <em>Complexity</em>, <em>Progression and Pacing</em>.
+<br />Max Points: <strong>25</strong></p>
+
+  <p><strong>Experience</strong>: How much <em>Fun</em> was the game? Was the <em>Difficulty</em> too high/low? Were the puzzles a <em>Challenge</em> or were they repetitive and felt derivative and lazy? Was there any introduction for the player or are you dropped in blind?
+<br />Max Points: <strong>15</strong></p>
+
+  <p><strong>Impact</strong>: Did you enjoy the overall experience? Would you play this again? Would you want to know more about this world and its characters in subsequent adventures?
+<br />Max Points: <strong>10</strong></p>
+</blockquote>
+
+<p>For the first 84 games in this series, this was the rating system I used. What I learned pretty early on was that I didn’t really have a very good set of evaluation criteria, and since my score only went up to 70 and I was generating a percentage score, it wasn’t very balanced.</p>
+
+<p>Nothing’s set in stone, so now’s as good a time as any to correct this misstep and revise the scoring system for the remainder of the series.</p>
+
+<h2 id="new-scoring-system">New Scoring System</h2>
+
+<p>In an attempt to improve the overall rating system used for the series I’ve decided to expand the categories and make the total score out of 100. I’ve also included some more opinionated criteria to allow me to boost games that I personally enjoyed - even if they’re less critically acclaimed.</p>
+
+<blockquote class="prompt-info">
+  <p>[10] <strong>Graphics</strong><br />
+The overall visual experience of the game can include background art, character models, game interface, cutscenes, inventory design and basically anything that you can see while playing the game.</p>
+
+  <p>[10] <strong>Sound</strong><br />
+What do you hear? Is there ambient music or background noise? If the game is voiced are the actors giving it their all or <a href="https://grammarist.com/idiom/phone-it-in/">phoning it in</a>? Are sound effects present and enhancing the experience, or jarring/distracting.</p>
+
+  <p>[25] <strong>Plot / Progression</strong><br />
+What’s the quality of the overarching story in this game? Does it grab your attention and hold it or is it sort of “just there” as a forced reason for you to interact with this virtual world? How does the plot progress, and does everything wrap up at the end? When the game is over do you feel satisfied and want to learn more about this world and its inhabitants?</p>
+
+  <p>[15] <strong>Characters / Development</strong><br />
+Is the main character interesting and engaging? Are there other characters you interact with and are they fleshed out or just hollow NPCs there to deliver basic instructions? Do the main and supporting characters add depth to the world and gaming experience and how do they grow and evolve as the game progresses?</p>
+
+  <p>[15] <strong>Gameplay / Experience</strong><br />
+This is a game … so is it fun to play? The goal is to get from some starting point to some ending point, but was this journey worth your time? Sometimes these games can be a joy to play through and sometimes they’re a slog and focus too heavily on “filler” or elements that artificially pad out play time.</p>
+
+  <p>[10] <strong>Replayability</strong><br />
+Once the game is complete would you ever find yourself itching to play it again? Was the game fun to play or experience, or offer some variety of gameplay or character selection that could entice you back for repeated playthroughs.</p>
+
+  <p>[10] <strong>Impact / Impression</strong><br />
+Final thoughts and impressions on this game as a whole. Were you left wanting more, or were you rushing to the end to get it over with.</p>
+
+  <p>[5] <strong>Bonus / Surprise</strong><br />
+Anything unexpected or notable that’s worth calling out?</p>
+</blockquote>
+
+<h2 id="scores-for-posterity">Scores (for posterity)</h2>
+
+<p>The snapshot of the scores at the time the system was overhauled is below. As I’m going to revisit each of these scores over time, the master list - <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">sorted by score</a> - will slowly be updated.</p>
+
+<ol>
+  <li><strong>91%</strong> <a href="/blog/2024/01/20/day-of-the-tentacle/">Maniac Mansion: Day of the Tentacle (LucasArts)</a> - 1993</li>
+  <li><strong>89%</strong> <a href="/blog/2023/03/10/full-throttle/">Full Throttle (LucasArts)</a> - 1995</li>
+  <li><strong>89%</strong> <a href="/blog/2023/06/14/gabriel-knight-sins-of-the-fathers/">Gabriel Knight: Sins of the Fathers (Sierra On-Line)</a> - 1993</li>
+  <li><strong>87%</strong> <a href="/blog/2024/04/30/the-secret-of-monkey-island/">The Secret of Monkey Island (Lucasfilm Games)</a> - 1990</li>
+  <li><strong>87%</strong> <a href="/blog/2022/12/16/grim-fandango/">Grim Fandango (LucasArts)</a> - 1998</li>
+  <li><strong>86%</strong> <a href="/blog/2023/02/10/beneath-a-steel-sky/">Beneath a Steel Sky (Revolution Software)</a> - 1994</li>
+  <li><strong>86%</strong> <a href="/blog/2021/12/22/sanitarium/">Sanitarium (DreamForge Intertainment)</a> - 1998</li>
+  <li><strong>84%</strong> <a href="/blog/2023/01/23/sam-and-max-hit-the-road/">Sam &amp; Max Hit the Road (LucasArts)</a> - 1993</li>
+  <li><strong>84%</strong> <a href="/blog/2021/08/09/space-quest-the-sarien-encounter/">Space Quest: The Sarien Encounter (Sierra On-Line)</a> - 1986</li>
+  <li><strong>84%</strong> <a href="/blog/2024/06/09/flight-of-the-amazon-queen/">Flight of the Amazon Queen (Interactive Binary Illusions)</a> - 1995</li>
+  <li><strong>81%</strong> <a href="/blog/2021/08/06/kings-quest/">King’s Quest: Quest for the Crown (Sierra On-Line)</a> - 1984</li>
+  <li><strong>80%</strong> <a href="/blog/2021/08/15/princess-tomato-in-the-salad-kingdom/">Princess Tomato in the Salad Kingdom (Hudson Soft)</a> - 1984</li>
+  <li><strong>80%</strong> <a href="/blog/2021/08/16/shadowgate/">Shadowgate (ICOM Simulations)</a> - 1987</li>
+  <li><strong>79%</strong> <a href="/blog/2024/01/29/innocent-until-caught/">Innocent Until Caught (Divide By Zero)</a> - 1993</li>
+  <li><strong>77%</strong> <a href="/blog/2022/03/31/blue-force/">Blue Force (Tsunami Games)</a> - 1993</li>
+  <li><strong>76%</strong> <a href="/blog/2023/02/13/rise-of-the-dragon/">Rise of the Dragon (Dynamix)</a> - 1990</li>
+  <li><strong>73%</strong> <a href="/blog/2023/03/30/i-have-no-mouth-and-i-must-scream/">I Have No Mouth, and I Must Scream (The Dreamers Guild)</a> - 1995</li>
+  <li><strong>71%</strong> <a href="/blog/2023/02/21/police-quest-2/">Police Quest II: The Vengeance (Sierra On-Line)</a> - 1988</li>
+  <li><strong>70%</strong> <a href="/blog/2024/02/16/space-quest-iii/">Space Quest III: The Pirates of Pestulon (Sierra On-Line)</a> - 1989</li>
+  <li><strong>69%</strong> <a href="/blog/2023/02/18/manhunter-new-york/">Manhunter: New York (Evryware)</a> - 1988</li>
+  <li><strong>69%</strong> <a href="/blog/2023/07/31/tony-tough/">Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.)</a> - 1999</li>
+  <li><strong>67%</strong> <a href="/blog/2023/10/05/blade-runner/">Blade Runner (Westwood Studios)</a> - 1997</li>
+  <li><strong>67%</strong> <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel (Sierra On-Line)</a> - 1987</li>
+  <li><strong>66%</strong> <a href="/blog/2021/08/03/mystery-house/">Mystery House (On-Line Systems)</a> - 1980</li>
+  <li><strong>66%</strong> <a href="/blog/2022/12/31/nightshade/">Nightshade (Beam Software)</a> - 1992</li>
+  <li><strong>66%</strong> <a href="/blog/2023/02/24/space-quest-2/">Space Quest II: Vohaul’s Revenge (Sierra On-Line)</a> - 1987</li>
+  <li><strong>64%</strong> <a href="/blog/2022/12/19/ringworld/">Ringworld: Revenge of the Patriarch (Tsunami Games)</a> - 1992</li>
+  <li><strong>64%</strong> <a href="/blog/2024/05/27/normality/">Normality (Gremlin Interactive)</a> - 1996</li>
+  <li><strong>64%</strong> <a href="/blog/2023/02/01/leisure-suit-larry-2/">Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)</a> - 1988</li>
+  <li><strong>63%</strong> <a href="/blog/2023/05/18/dreamweb/">DreamWeb (Creative Reality)</a> - 1994</li>
+  <li><strong>63%</strong> <a href="/blog/2021/08/30/labyrinth/">Labyrinth: The Computer Game (Lucasfilm Games)</a> - 1986</li>
+  <li><strong>61%</strong> <a href="/blog/2023/06/28/snatcher/">Snatcher (Konami)</a> - 1988</li>
+  <li><strong>61%</strong> <a href="/blog/2023/04/20/countdown/">Countdown (Access Software)</a> - 1990</li>
+  <li><strong>59%</strong> <a href="/blog/2024/07/09/discworld/">Discworld (Teeny Weeny Games/Perfect 10 Productions)</a> - 1995</li>
+  <li><strong>59%</strong> <a href="/blog/2023/11/20/darkseed/">Dark Seed (Cyberdreams)</a> - 1992</li>
+  <li><strong>59%</strong> <a href="/blog/2024/02/12/the-adventures-of-willy-beamish/">The Adventures of Willy Beamish (Dynamix)</a> - 1991</li>
+  <li><strong>59%</strong> <a href="/blog/2023/12/16/police-quest-iii/">Police Quest III: The Kindred (Sierra On-Line)</a> - 1991</li>
+  <li><strong>57%</strong> <a href="/blog/2022/12/19/leisure-suit-larry/">Leisure Suit Larry in the Land of the Lounge Lizards (Sierra On-Line)</a> - 1987</li>
+  <li><strong>57%</strong> <a href="/blog/2023/01/19/mean-streets/">Mean Streets (Access Software)</a> - 1989</li>
+  <li><strong>56%</strong> <a href="/blog/2023/05/31/return-to-ringworld/">Return to Ringworld (Tsunami Games)</a> - 1994</li>
+  <li><strong>56%</strong> <a href="/blog/2023/11/24/the-legend-of-kyrandia/">The Legend of Kyrandia: Fables and Fiends (Westwood Studios)</a> - 1992</li>
+  <li><strong>56%</strong> <a href="/blog/2023/11/29/gateway/">Frederik Pohl’s Gateway (Legend Entertainment)</a> - 1992</li>
+  <li><strong>56%</strong> <a href="/blog/2024/02/06/loom/">Loom (Lucasfilm Games)</a> - 1990</li>
+  <li><strong>53%</strong> <a href="/blog/2023/09/27/ripper/">Ripper (Take-Two Interactive)</a> - 1996</li>
+  <li><strong>53%</strong> <a href="/blog/2024/06/02/space-quest-iv-roger-wilco-and-the-time-rippers/">Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)</a> - 1991</li>
+  <li><strong>51%</strong> <a href="/blog/2024/02/23/harvester/">Harvester (DigiFX Interactive)</a> - 1996</li>
+  <li><strong>51%</strong> <a href="/blog/2023/04/16/beavis-and-butthead/">Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)</a> - 1995</li>
+  <li><strong>50%</strong> <a href="/blog/2023/04/11/deja-vu/">Déjà Vu: A Nightmare Comes True (ICOM Simulations)</a> - 1985</li>
+  <li><strong>49%</strong> <a href="/blog/2023/03/03/duckman/">Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)</a> - 1997</li>
+  <li><strong>49%</strong> <a href="/blog/2023/02/15/urban-runner/">Urban Runner (Coktel Vision)</a> - 1996</li>
+  <li><strong>47%</strong> <a href="/blog/2023/01/16/hopkins-fbi/">Hopkins FBI (MP Entertainment)</a> - 1998</li>
+  <li><strong>47%</strong> <a href="/blog/2023/09/06/manhunter-san-francisco/">Manhunter 2: San Francisco (Evryware)</a> - 1989</li>
+  <li><strong>46%</strong> <a href="/blog/2024/04/16/lure-of-the-temptress/">Lure of the Temptress (Revolution Software)</a> - 1992</li>
+  <li><strong>46%</strong> <a href="/blog/2023/12/27/tass-times-in-tonetown/">Tass Times in Tonetown (Interplay Productions, Brainwave Creations)</a> - 1986</li>
+  <li><strong>46%</strong> <a href="/blog/2021/08/08/ulysses-and-the-golden-fleece/">Ulysses and the Golden Fleece (On-Line Systems)</a> - 1981</li>
+  <li><strong>44%</strong> <a href="/blog/2023/06/07/torins-passage/">Torin’s Passage (Sierra On-Line)</a> - 1995</li>
+  <li><strong>44%</strong> <a href="/blog/2023/08/09/uninvited/">Uninvited (ICOM Simulations)</a> - 1986</li>
+  <li><strong>43%</strong> <a href="/blog/2023/02/07/eternam/">Eternam (Infogrames)</a> - 1992</li>
+  <li><strong>41%</strong> <a href="/blog/2022/12/21/hugos-house-of-horrors/">Hugo’s House of Horrors (Gray Design Associates)</a> - 1990</li>
+  <li><strong>41%</strong> <a href="/blog/2023/04/25/kings-quest-ii/">King’s Quest II: Romancing the Throne (Sierra On-Line)</a> - 1985</li>
+  <li><strong>40%</strong> <a href="/blog/2023/02/15/the-crimson-crown-further-adventures-in-transylvania/">The Crimson Crown - Further Adventures in Transylvania (Penguin Software)</a> - 1985</li>
+  <li><strong>40%</strong> <a href="/blog/2024/04/25/police-quest-open-season/">Police Quest: Open Season (Sierra On-Line)</a> - 1993</li>
+  <li><strong>39%</strong> <a href="/blog/2023/05/23/companions-of-xanth/">Companions of Xanth (Legend Entertainment)</a> - 1993</li>
+  <li><strong>39%</strong> <a href="/blog/2024/03/20/codename-iceman/">Codename: ICEMAN (Sierra On-Line)</a> - 1989</li>
+  <li><strong>39%</strong> <a href="/blog/2023/01/12/cruise-for-a-corpse/">Cruise for a Corpse (Delphine Software International)</a> - 1991</li>
+  <li><strong>36%</strong> <a href="/blog/2024/02/28/ecoquest/">EcoQuest: The Search for Cetus (Sierra On-Line)</a> - 1991</li>
+  <li><strong>36%</strong> <a href="/blog/2024/05/10/hugo-ii-whodunit/">Hugo II, Whodunit? (Gray Design Associates)</a> - 1991</li>
+  <li><strong>36%</strong> <a href="/blog/2024/07/15/jurassic-park/">Jurassic Park (Sega of America)</a> - 1993</li>
+  <li><strong>34%</strong> <a href="/blog/2023/05/10/murder-on-the-mississippi/">Murder on the Mississippi (Activision)</a> - 1986</li>
+  <li><strong>34%</strong> <a href="/blog/2024/06/14/altered-destiny/">Altered Destiny (Accolade)</a> - 1990</li>
+  <li><strong>34%</strong> <a href="/blog/2023/11/14/the-black-cauldron/">The Black Cauldron (Sierra On-Line)</a> - 1986</li>
+  <li><strong>34%</strong> <a href="/blog/2023/10/07/rendezvous-with-rama/">Rendezvous with Rama (Telarium)</a> - 1984</li>
+  <li><strong>33%</strong> <a href="/blog/2021/08/24/transylvania/">Transylvania (Penguin Software)</a> - 1982</li>
+  <li><strong>31%</strong> <a href="/blog/2023/12/08/the-dark-crystal/">The Dark Crystal (On-Line Systems)</a> - 1983</li>
+  <li><strong>31%</strong> <a href="/blog/2024/03/29/the-dallas-quest/">Dallas Quest (Datasoft)</a> - 1984</li>
+  <li><strong>29%</strong> <a href="/blog/2023/05/16/ace-ventura/">Ace Ventura (7th Level)</a> - 1996</li>
+  <li><strong>29%</strong> <a href="/blog/2022/12/30/wizard-and-the-princess/">Wizard and the Princess (On-Line Systems)</a> - 1980</li>
+  <li><strong>27%</strong> <a href="/blog/2023/02/07/kabul-spy/">Kabul Spy (Sirius Software)</a> - 1982</li>
+  <li><strong>21%</strong> <a href="/blog/2024/08/06/bargon-attack/">Bargon Attack (Coktel Vision)</a> - 1992</li>
+  <li><strong>19%</strong> <a href="/blog/2023/10/26/lost-in-time/">Lost in Time (Coktel Vision)</a> - 1993</li>
+  <li><strong>19%</strong> <a href="/blog/2023/04/26/mission-asteroid/">Mission Asteroid (On-Line Systems)</a> - 1980</li>
+  <li><strong>14%</strong> <a href="/blog/2023/10/24/adventureland/">Adventureland (Adventure International)</a> - 1982</li>
+  <li><strong>13%</strong> <a href="/blog/2023/02/08/emmanuelle/">Emmanuelle (Coktel Vision)</a> - 1989</li>
+  <li><strong>11%</strong> <a href="/blog/2023/03/23/geisha/">Geisha (Coktel Vision)</a> - 1990</li>
+</ol>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="series" /><category term="adventure" /><summary type="html"><![CDATA[When I started the “Let’s Adventure!” series I devised a scoring system that I thought would meaningfully allow me to rate the games I was playing in a fair and balanced way:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bargon Attack (Coktel Vision) - 1992</title><link href="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/" rel="alternate" type="text/html" title="Bargon Attack (Coktel Vision) - 1992" /><published>2024-08-06T06:29:18-04:00</published><updated>2024-09-10T09:02:52-04:00</updated><id>https://www.alexbevi.com/blog/2024/08/06/bargon-attack</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/08/06/bargon-attack/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1989,401 +2355,4 @@ Error: cannot get string length
       <p><small>Description from <a href="https://www.mobygames.com/game/92/altered-destiny/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Accolade" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/altered/015.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/altered/015.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Flight of the Amazon Queen (Interactive Binary Illusions) - 1995</title><link href="https://www.alexbevi.com/blog/2024/06/09/flight-of-the-amazon-queen/" rel="alternate" type="text/html" title="Flight of the Amazon Queen (Interactive Binary Illusions) - 1995" /><published>2024-06-09T07:45:50-04:00</published><updated>2024-06-11T06:27:47-04:00</updated><id>https://www.alexbevi.com/blog/2024/06/09/flight-of-the-amazon-queen</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/06/09/flight-of-the-amazon-queen/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Flight_of_the_Amazon_Queen">Flight of the Amazon Queen</a> is a graphical point-and-click adventure game by Interactive Binary Illusions, originally released in 1995 for Amiga and MS-DOS.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00024.png" alt="" /></p>
-
-<p>Joe King is the hero of this point and click adventure. His plane is carrying actress Faye Russell when it crash lands in a remote jungle, and he must battle through 100 screens of adventure and puzzle. The game’s feel is influenced by hammy B-movies, and the characters are quite stereotyped and comic. As standard in point and click adventures, a set of icons at the bottom of the screen allow you to interact with visible characters and items in the main view area.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00029.png" alt="" />
-<em>I’m shocked they don’t lean into this pun more often throughout the game</em></p>
-
-<p>I’m a huge fan of LucasArts games, and after reading <a href="https://passfieldgames.blogspot.com/2015/05/making-of-flight-of-amazon-queen-20th.html">“Making of Flight of the Amazon Queen - A 20th Anniversary Retrospective”</a> it seems that so was John Passfield. So many aspects of Flight of the Amazon Queen just smack of LucasArts’ influence, and the end result is a game that could easily live alongside classics such as <a href="/blog/2024/04/30/the-secret-of-monkey-island/">The Secret of Monkey Island</a> or Indiana Jones and the Fate of Atlantis.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00032.png" alt="" /></p>
-
-<p>Ron Gilbert and Tim Schafer’s influence on this game runs extremely deep. The comedic writing style, pixel art design, verb selection and dialog tree layout all feel reminiscent of a LucasArts title, and though they didn’t use the SCUMM engine, they’re custom game engine was titled JASPAR (John And Steve’s Programmable Adventure Resource) - which sort of feels like it belongs in that universe of tools with forced acronyms.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00004.png" alt="" />
-<em>Adding that “trademark” next to “comedy breasts” just screams of Monkey Island’s influence</em></p>
-
-<p>Once the game starts you’ll find yourself locked in a hotel room that you need to escape. You’re a pilot for hire, and your next client is a famous movie star, but your rival Anderson wants to steal this job from you. To escape the hotel room you’ll need to use the various verbs represented as icons to <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">PICK UP</code> and <code class="language-plaintext highlighter-rouge">USE</code> various things.</p>
-
-<p>Most of this game involves inventory combination puzzles and fetch quests, so it’s worth examining everything on the screen to see if it’s something you can pick up, move, open/close or use.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00011.png" alt="" /></p>
-
-<p>This game is incredibly well paced, as long as you look at everything and talk to everyone. The path forward or solution to most puzzles is typically intuitive and when you need to combine items Joe will usually point you in the right direction.</p>
-
-<p>When this gets a little more confusing is later in the game where you have a very large number of items - all of which you’ll need to use at some point (and often in combination).</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00016.png" alt="" /></p>
-
-<p>The game likes to plant seeds as to the solution to puzzles through story elements. For example there is a brief sequence early in the game where you find a comic book that your mechanic Sparky is looking for. If you read the comic the hero uses alcohol to power is jetpack when it runs out of fuel so he can escape from the baddies just in the nick of time.</p>
-
-<p>Amazingly enough, near the end of the game you find a jetpack - but it doesn’t have any fuel. Trader bob has bottles of alcohol for sale (but you need to prove you’re of age so you need ID to show him).</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00018.png" alt="" /></p>
-
-<p>You’ll meet a number of characters throughout the Amazon that you’ll interact with. Most characters only really have one purpose and it’s typically (a) they’re preventing you from progressing or (b) they hold some inventory item you’ll need.</p>
-
-<p>Each character has a limited number of dialog options, so it’s worth asking everyone about everything as it helps advance the plot and lays out what that character needs from you in fairly straightforward language.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00014.png" alt="" /></p>
-
-<p>Trader Bob is the exception as you’ll need to circle back to him multiple times to get new items. I did appreciate that though there are dozens of useable items in this game, none of them appear to be <a href="https://en.wikipedia.org/wiki/Red_herring">red herrings</a>.</p>
-
-<p>If an item will need to be used more than once, it will typically remain in your inventory in a depleted state to indicate it’s still needed. In my opinion this is better than the puzzle design in other games (notably a number of Sierra titles) where you have to backtrack to get an item again to use it as the solution to another puzzle.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00012.png" alt="" /></p>
-
-<p>Instead of the typical “map screen” you’d get in other games to navigate between game areas, Flight of the Amazon Queen has a pinnacle you walk to that overlooks the forest. From here you pan back and forth and can see the various locations you can travel to.</p>
-
-<p>Technically it’s just a different take on the flat 2D map screen, but it’s also incorporated into the endgame as the location you need to launch from once you have the jetpack. Since you can’t travel back to the forest once you reach the Valley of the Mists it felt like a good way to tie the pinnacle you’ve been using for travel throughout the game into your journey towards the final encounter.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00015.png" alt="" /></p>
-
-<p>The game’s tone is extremely light and a little goofy. Joe King just feels and plays like a caricature of Indiana Jones, and they have a lot of fun with this. Every character you interact with doesn’t take themselves too seriously, and the underlying stories they’re presenting are enjoyable and keep you engaged.</p>
-
-<p>I really like imaginary gorilla that pops up a couple of times blocking your path. Just talking to the gorilla and picking one of the dialog options that results in you questioning whether or not he should even exist will cause him to vanish.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00008.png" alt="" /></p>
-
-<p>As the game progresses you’ll be presented with static cut scenes that further advance the plot. It turns out there’s a mad scientist trying to capture Amazonian women so he can test a dino ray on them that turns them into dinosaurs.</p>
-
-<p>I guess he wants to create an army of dino-humans and conquer the world … and you’re the only one that can stop him.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00037.png" alt="" /></p>
-
-<p>It’s kind of bananas that Joe King - a parody of Indiana Jones - needs to retrieve a crystal skull from the depths of the Amazon in order to activate an ancient robot, and over a decade later <a href="https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Kingdom_of_the_Crystal_Skull">Indiana Jones and the Kingdom of the Crystal Skull</a> did something sort of similar (but with aliens instead of ancient robots).</p>
-
-<p>I know there’s almost no chance these two things are related, but in my mind I’m picturing <a href="https://en.wikipedia.org/wiki/David_Koepp">David Koepp</a> (who wrote the screenplay for that movie) walking by his kid playing FOTAQ in 1995 and thinking “that crystal skull looks neat” … then carrying on with his life.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00038.png" alt="" /></p>
-
-<p>If you play the MSDOS CD version of this game you’ll be treated to some fairly good voice acting. This enhances the game experience quite a bit as though there is some looping music in the background, it’s not really notable other than “being there”.</p>
-
-<p><a href="https://www.mobygames.com/person/68041/bradley-lavelle/">Bradley Lavelle</a> who provides Joe’s voice does a fantastic job and really gives the character some depth. His delivery is a little dry and sarcastic, but suits Joe King perfectly.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-00043.png" alt="" /></p>
-
-<p>Once you’ve got the crystal skull, Dr. Frank Ironstein will unlock the Valley of the Mists where all the dinosaurs live and you’ll need to get yourself over there for the final battle. This final sequence is pretty short (compared to the rest of the game) and just sees you defeating Monster Frank (the doctor gets zapped with his own dino ray), restoring the veil of mist to the Valley of the Mists and flying off into the sunset with Princess Azura.</p>
-
-<p><img src="/images/adventure/queen/scummvm-queen-demo-00001.png" alt="" />
-<em>There’s a hidden mini-game on the CD version where you interview the game developers about the game you just played!</em></p>
-
-<p>Discovering how much you can enjoy a game is the whole reason for a retrospective series like this, and Flight of the Amazon Queen is one such title. The story is immersive, the puzzles are challenging but intuitive, the graphics are great and the writing is entertaining.</p>
-
-<p>This is definitely a game I’d recommend to anyone that may be interested in experiencing what the genre has to offer. It’s even more impressive knowing that only a handful of people worked on this game originally - and if you have the CD version of the game with the “INTERVIE” directory on it, you can play a minigame where you interview the developers of the game about the game you just played!</p>
-
-<p>Flight of the Amazon Queen was re-released as freeware in 2004, and was incorporated into ScummVM as the fifth engine (they currently have <a href="https://wiki.scummvm.org/index.php?title=Engines">A LOT of game engines</a>). You can you can go <a href="https://scummvm.org/games/#games-queen:queen">download and enjoy</a> the game right now!</p>
-
-<p>Historical game preservation and ScummVM specifically are close to my heart so I want to close out this review with the following excerpt from <a href="https://romchip.org/index.php/romchip-journal/article/view/164">“Beyond the Amiga: In Conversation with John Passfield on Flight of the Amazon Queen”</a> as it shines a light on how this all came to be:</p>
-<blockquote class="prompt-tip">
-  <p>HS: Can you tell us about the involvement of ScummVM in making the game accessible today?</p>
-
-  <p>JP: I was approached from the ScummVM people and they were interested in making a version of Amazon Queen available through their online library of playable adventure games. I was aware at this point that new generation PCs that were coming out were making it harder to play Amazon Queen. And I thought, well, I own the intellectual property, so I made it freeware with the right that you download for free, but you couldn’t sell it. And I retained copyright ownership of the game and that’s when the ScummVM people come in. They reached out and said we’d love to convert Amazon Queen to the ScummVM engine. And I was that’d be great because then it lives on forever. So, they reached out and said can we do it? I said that would be great and a month later it’s available on ScummVM.</p>
-
-  <p>HS: ScummVM does not rely on the emulation of hardware. The ScummVM team uses a different process to make games playable on contemporary computing environments. Can you explain how they do this?</p>
-
-  <p>JP: I actually reached out to ScummVM on their Discord asking them how they went about it. What they explained is ScummVM is basically a framework for graphical programs which work with 2-D, and now 3-D, particularly with OpenGL. So, they provide middleware code which is called the OSystem. Then every game engine is ported to this middleware replacing or hardware dependent things like sound, graphical output, file reading, keyboard mouse input, times, et cetera, with a call to the OSystem. First off, they did this for the LucasArts Scumm engine. For my game they created the “Queen” engine. The Queen engine uses their middleware to interpret the game files for Amazon Queen. It’s completely different pieces of code having nothing in common with Scumm or any of the other four engines they had adapted at the time. Amazon Queen was the fifth engine they made compatible. They said because Amazon Queen had very little assembly, it was mostly C code, they said it was very easy to port over. And I think they’re obviously very smart people. So that’s how it came about and that is how it works. As mentioned, I believe they’ve got support now for the LucasArts games which have 3-D graphics.</p>
-
-  <p>I just love what they’re doing because it just gives that capacity to keep the game playable. It outputs at C++ so it works for everything. When Liron, who did the re-release of Amazon Queen for iOS in 2009, approached me to ask if he could port it into iOS he used the ScummVM Queen engine version and built on top of that engine extra stuff for the iOS version. The way that arrangement worked is that I granted him a licence to sell for iOS and he gave me a royalty. He has also put it on to the PC now. ScummVM just keeps these games accessible, which is great.</p>
-</blockquote>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Flight of the Amazon Queen</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Interactive_Binary_Illusions">Interactive Binary Illusions</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Renegade_Software">Renegade Software</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Amiga, DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Queen">JASPAR</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/3594"><em>How Long To Beat?</em></a></td>
-      <td>8 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS CD via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/flightoftheamazonqueen.aspx">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>84%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/queen/scummvm-queen-00001.png', thumb: '/images/adventure/queen/scummvm-queen-00001.png' },{ src: '/images/adventure/queen/scummvm-queen-00000.png', thumb: '/images/adventure/queen/scummvm-queen-00000.png' },{ src: '/images/adventure/queen/scummvm-queen-00003.png', thumb: '/images/adventure/queen/scummvm-queen-00003.png' },{ src: '/images/adventure/queen/scummvm-queen-00005.png', thumb: '/images/adventure/queen/scummvm-queen-00005.png' },{ src: '/images/adventure/queen/scummvm-queen-00006.png', thumb: '/images/adventure/queen/scummvm-queen-00006.png' },{ src: '/images/adventure/queen/scummvm-queen-00007.png', thumb: '/images/adventure/queen/scummvm-queen-00007.png' },{ src: '/images/adventure/queen/scummvm-queen-00009.png', thumb: '/images/adventure/queen/scummvm-queen-00009.png' },{ src: '/images/adventure/queen/scummvm-queen-00010.png', thumb: '/images/adventure/queen/scummvm-queen-00010.png' },{ src: '/images/adventure/queen/scummvm-queen-00013.png', thumb: '/images/adventure/queen/scummvm-queen-00013.png' },{ src: '/images/adventure/queen/scummvm-queen-00016.png', thumb: '/images/adventure/queen/scummvm-queen-00016.png' },{ src: '/images/adventure/queen/scummvm-queen-00017.png', thumb: '/images/adventure/queen/scummvm-queen-00017.png' },{ src: '/images/adventure/queen/scummvm-queen-00019.png', thumb: '/images/adventure/queen/scummvm-queen-00019.png' },{ src: '/images/adventure/queen/scummvm-queen-00020.png', thumb: '/images/adventure/queen/scummvm-queen-00020.png' },{ src: '/images/adventure/queen/scummvm-queen-00021.png', thumb: '/images/adventure/queen/scummvm-queen-00021.png' },{ src: '/images/adventure/queen/scummvm-queen-00022.png', thumb: '/images/adventure/queen/scummvm-queen-00022.png' },{ src: '/images/adventure/queen/scummvm-queen-00023.png', thumb: '/images/adventure/queen/scummvm-queen-00023.png' },{ src: '/images/adventure/queen/scummvm-queen-00025.png', thumb: '/images/adventure/queen/scummvm-queen-00025.png' },{ src: '/images/adventure/queen/scummvm-queen-00026.png', thumb: '/images/adventure/queen/scummvm-queen-00026.png' },{ src: '/images/adventure/queen/scummvm-queen-00027.png', thumb: '/images/adventure/queen/scummvm-queen-00027.png' },{ src: '/images/adventure/queen/scummvm-queen-00028.png', thumb: '/images/adventure/queen/scummvm-queen-00028.png' },{ src: '/images/adventure/queen/scummvm-queen-00030.png', thumb: '/images/adventure/queen/scummvm-queen-00030.png' },{ src: '/images/adventure/queen/scummvm-queen-00031.png', thumb: '/images/adventure/queen/scummvm-queen-00031.png' },{ src: '/images/adventure/queen/scummvm-queen-00033.png', thumb: '/images/adventure/queen/scummvm-queen-00033.png' },{ src: '/images/adventure/queen/scummvm-queen-00034.png', thumb: '/images/adventure/queen/scummvm-queen-00034.png' },{ src: '/images/adventure/queen/scummvm-queen-00035.png', thumb: '/images/adventure/queen/scummvm-queen-00035.png' },{ src: '/images/adventure/queen/scummvm-queen-00036.png', thumb: '/images/adventure/queen/scummvm-queen-00036.png' },{ src: '/images/adventure/queen/scummvm-queen-00039.png', thumb: '/images/adventure/queen/scummvm-queen-00039.png' },{ src: '/images/adventure/queen/scummvm-queen-00040.png', thumb: '/images/adventure/queen/scummvm-queen-00040.png' },{ src: '/images/adventure/queen/scummvm-queen-00041.png', thumb: '/images/adventure/queen/scummvm-queen-00041.png' },{ src: '/images/adventure/queen/scummvm-queen-00042.png', thumb: '/images/adventure/queen/scummvm-queen-00042.png' },{ src: '/images/adventure/queen/scummvm-queen-demo-00000.png', thumb: '/images/adventure/queen/scummvm-queen-demo-00000.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/352/flight-of-the-amazon-queen/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interactive Binary Illusions" /><category term="Renegade Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/queen/scummvm-queen-00002.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/queen/scummvm-queen-00002.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2024/06/02/space-quest-iv-roger-wilco-and-the-time-rippers/" rel="alternate" type="text/html" title="Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line) - 1991" /><published>2024-06-02T21:01:46-04:00</published><updated>2024-06-11T06:07:45-04:00</updated><id>https://www.alexbevi.com/blog/2024/06/02/space-quest-iv-roger-wilco-and-the-time-rippers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/06/02/space-quest-iv-roger-wilco-and-the-time-rippers/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Space_Quest_IV">Space Quest IV: Roger Wilco and the Time Rippers</a> is a 1991 graphic adventure game by Sierra On-Line, and the fourth entry in the Space Quest series. The game was released originally on floppy disks on March 4, 1991, and later released on CD-ROM in December 1992 with full speech support; an Atari ST version was announced via Sierra Online’s magazine, Sierra News Magazine, but was later canceled. The game sees players assume the role of Roger Wilco, who is thrust into a new adventure across time and space where he must thwart the plans of an old foe that is seeking revenge against him.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00000.png" alt="" /></p>
-
-<p>Roger Wilco is relaxing at his favorite pub somewhere in time and space when heavily armed soldiers enter the room. Carrying a parting message from Roger’s old nemesis, Sludge Vohaul, they plan to get rid of the janitorial hero, execution style. That is, until a man with an over-sized hair dryer helps Roger escape through a time rip into the future. Now Roger Wilco has woken up on his home planet, some time in a meta-fictional Space Quest XII. It is a grim, dystopian future: the series has gone to ruin without its hero, and Vohaul rules supreme. Roger must find a way to avoid Vohaul’s henchmen, fulfill his destiny, and learn about a few surprises that await him in his own future.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00004.png" alt="" /></p>
-
-<p>Unlike <a href="/blog/2024/02/16/space-quest-iii/">Space Quest III</a> before it, Space Quest IV has discarded the text parser in favour of a true point-and-click interface. This time around you interact with the game world using the (likely far more familiar) verb-based icons to decide how Roger interacts with the game world.</p>
-
-<p>A couple of of these options such as <code class="language-plaintext highlighter-rouge">SMELL</code> and <code class="language-plaintext highlighter-rouge">TASTE</code> really aren’t needed, though selecting them and clicking around allows for the game to spit out some pretty funny feedback about things you really shouldn’t be doing with your surroundings.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00001.png" alt="" /></p>
-
-<p>The Space Quest series has never tried to take itself seriously, and this entry is no exception. The writing and the art style tend to be goofy, and there are a lot of “in jokes” for fans of this series as well as other Sierra Online games.</p>
-
-<p>After the intro cutscene you’re dropped into the future, which the game’s menu bar tells you is <em>Space Quest XII - Vohaul’s Revenge II</em>. As you jump through time you’ll know “when” you are as the game you’ve landed in will be displayed here.</p>
-
-<p>Once you find your way into the sewers a Star Wars parody plays out that informs you that some time in the past someone found an old Leisure Suit Larry game and uploaded it ot the Xenon super computer. This unleashed a virus (that I think contained Sludge Vohaul’s mind or something) that results in humanity being enslaved.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00017.png" alt="" /></p>
-
-<p>Vohaul is sending androids after you called “Sequel Police”, who use time pods to jump through time. You eventually steal one of these, which requires you to enter a 6 digit time code to jump between games … but where do you find these codes?</p>
-
-<p>This wasn’t immediately obvious to me, but in retrospect it sort of makes sense. When you first steal the time pod in SQXII the code onscreen is the return code for SQXII. I just got in and mashed some random codes and hit enter and the game sent me off to the next time period.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00006.png" alt="" />
-<em>I wonder if these assets were reused from a Leisure Suite Larry game 🧐</em></p>
-
-<p>You’ll wind up in <em>Space Quest X - Latex Babes of Estros</em>, which is apparently a parody of Infocom’s <a href="https://en.wikipedia.org/wiki/Leather_Goddesses_of_Phobos">Leather Goddesses of Phobos</a> (what are the odds anyone playing this game today would make that connection).</p>
-
-<p>This sequence is pretty short and straightforward and ends with you getting captured by a group of Amazonian women, saving them from a giant sea slug … then the lot of you heading out to the Galaxy Galleria mall to go on a shopping spree.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00008.png" alt="" /></p>
-
-<p>There are some throwbacks to previous games here, including a Monolith Burger location that you can get a job at putting burgers together. You’ll need to do this as you won’t have enough money (buckazoids) to buy the dress and wig you need to pass as one of the Amazons (who’s debit card you happened to pick up).</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00010.png" alt="" /></p>
-
-<p>The arcade sequence is pretty simple as you just add condiments to a burger on an assembly line. If you don’t screw up, you get 1 buckazoid per burger, but if you send 3 burgers to the finish line incorrectly you’ll be fired.</p>
-
-<p>This is not hard - but it’s tedious. The assembly line gradually speeds up so it gets more challenging, but you can adjust the game speed to slow this down as needed.</p>
-
-<p>I appreciate that the game gives you the option before you even begin to just take the money and skip the arcade sequence entirely - while still getting the money you need to progress.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00009.png" alt="" /></p>
-
-<p>As a bit of a meta joke about the game, the puzzle design and the relative difficulty of Sierra games, one of the things you’ll need to buy at the mall is a Space Quest IV hint book. This is actually required to finish the game as there are two codes you’ll need that are only found in the hint book!</p>
-
-<p>Honestly I thought this was pretty clever, and though only a couple of the hints are relevant, the other entries in the book that you reveal (with a magic pen) are typically pretty funny.</p>
-
-<p>If you were a PC gamer in the early 90’s, you may have had one of Sierra’s hint books, so the fact that one of these existed in-game as well as <a href="https://www.sierragamers.com/wp-content/uploads/2019/12/Space_Quest_4_Hint_Book.pdf">being available as a printed hint book</a> was <em>super meta</em>. It’s also funny how the printed hint book contains a clue as to how you need to use the in-game hint book to find partial coordinates for the time pod.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00015.png" alt="" /></p>
-
-<p>Eventually the Sequel Police will find you in SQX, and you’ll steal their time pod and use the code you pieced together from the gum wrapper and the hint book to jump all the way back to Space Quest I (check out <a href="/blog/2021/08/09/space-quest-the-sarien-encounter/">my review of that game</a> if you’re curious).</p>
-
-<p>Once again, make sure you write down the coordinates in the time pod as that’s what you’ll need to return to SQX later!</p>
-
-<p>The SQ1 sequence is real short, but the bikers you meet (who are in black and white) make fun of you for being rendered in all that fancy 256 color glory.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00018.png" alt="" /></p>
-
-<p>You’ll bounce around time periods a couple more times collecting items you’ll need for the final showdown with Vohaul. Like most Sierra games you’ll find yourself picking up anything that isn’t nailed down to try and solve the various in-game puzzles.</p>
-
-<p>Unlike many Sierra games though, there really aren’t that many items to find in this game. If you forget to pick up the bunny, bottle and the slime at the very beginning of the game I’m pretty sure you’ll find yourself in an unwinnable situation, but otherwise you should be able to jump between time periods if you forgot anything.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00021.png" alt="" /></p>
-
-<p>There are plenty of ways for Roger to get himself killed, but unlike the last couple games in the series I didn’t really find there to be all that much variety in the messaging you get prior to a game over.</p>
-
-<p>This doesn’t mean there aren’t <a href="https://www.youtube.com/watch?v=Raa1ZMOLJ3s">some great death sequences</a>, but the majority of the death dialog windows are just a variation of Roger lying on his stomach.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00003.png" alt="" /></p>
-
-<p>To be fair, we all remember the zombie screeching at us and then Roger dying, so it’s not like these were “bad”. My issue was more with the lack of variety compared to previous games.</p>
-
-<p>Honestly I like spending a little extra time per screen to see what interactions result in my untimely demise, but I just didn’t really find the results all that entertaining this time around.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00023.png" alt="" /></p>
-
-<p>The endgame sequence involves hacking into the main computer in Vohaul’s lair (which you use the in-game hint book to do), then deleting some subroutines (like the guard robots). If you happen to delete the SQIV “program”, the game will actually exit.</p>
-
-<p>I thought this was pretty clever, though if you aren’t prepared for it and haven’t saved … well I guess that’s on you 🤣. There’s also a Leisure Suit Larry 4 icon there, which is yet another in joke for Sierra fans as that game never existed (read <a href="https://allowe.com/games/larry/inside-stories/wheres-lsl4.html">Al Lowe’s true story of why the series jumped from LSL3 to LSL5</a>).</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00024.png" alt="" /></p>
-
-<p>The game end’s with you facing off against Sludge Vohaul, who has taken over your son’s body. Oh yeah, you have a son apparently because - you know - time travel and stuff.</p>
-
-<p>This sequence is pretty simple as you just sort of move around and throw each other to the ground, and eventually Vohaul will throw a disk that you need to retrieve an put into the super computer so you can download your son’s consciousness and upload it back to his body to finish the game.</p>
-
-<p><img src="/images/adventure/sq4/scummvm-sq4-cd-00027.png" alt="" /></p>
-
-<p>As much as I love the Space Quest series, this entry is probably one of my least favourites. Visually it’s impressive, and the writing and voice acting is excellent - but the time travel elements are actually kind of frustrating.</p>
-
-<p>First of all, I couldn’t read the keyboard in the time pod. I found myself using a screenshot that I blew up to like 400% to try and figure out which key corresponded to which symbol to try and enter the time codes. Since you have to backtrack a few times, you need to go through this rigamarole a few times as well and it just seemed excessive as a result.</p>
-
-<p>Next, I didn’t really find the story to be all that interesting. I like time travel and sci-fi stories, but this felt underdeveloped and focusing a bit more on jokes for Sierra fans than plot progression.</p>
-
-<p>Overall it’s not all that bad, but it’s also not really all that memorable.</p>
-
-<p><a href="https://www.youtube.com/@OneShortEye">OneShortEye</a>’s recent video about <a href="https://www.youtube.com/watch?v=db51SipYewo">How Speedrunners Broke Space Quest IV (again)</a> reignited my interest in this game, which ultimately resulted in this playthrough. If you’re into speed running I’d highly recommend his videos as he covers a lot of adventure games. As an aside, my site made a cameo appearance in his <a href="https://youtu.be/dSYnfLwGDRI?si=q0mHmSb9_OtgnUiG&amp;t=377">3 Obscure Easter Eggs in Sanitarium</a>, so might as well plug my <a href="/blog/2021/12/22/sanitarium/">Sanitarium review</a> 😅.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Space Quest IV: Roger Wilco and the Time Rippers</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>March 4, 1991</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Windows, Macintosh, Amiga, NEC PC-9801</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/8866"><em>How Long To Beat?</em></a></td>
-      <td>4.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://adventuredoor.net/walkthroughs/space-quest-iv-roger-wilco-time-rippers-walkthrough/">Walkthrough</a>, <a href="https://www.mocagh.org/sierra/sq4-manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>53%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq4/scummvm-sq4-cd-00005.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00005.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00007.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00007.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00011.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00011.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00012.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00012.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00013.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00013.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00014.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00014.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00016.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00016.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00019.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00019.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00020.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00020.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00022.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00022.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00025.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00025.png' },{ src: '/images/adventure/sq4/scummvm-sq4-cd-00026.png', thumb: '/images/adventure/sq4/scummvm-sq4-cd-00026.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/143/space-quest-iv-roger-wilco-and-the-time-rippers/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq4/scummvm-sq4-cd-00002.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq4/scummvm-sq4-cd-00002.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Accolade" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/altered/015.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/altered/015.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
