@@ -32,24 +32,36 @@ For a number of the older Sierra Online games there are SCI remakes that replace
 
 My criteria won't be as involved as the [CRPG Addict's GIMLET](https://crpgaddict.blogspot.com/2010/04/ranking-and-rating-crpgs.html), however I want to be consistent with how each game is being measured.
 
-When writing for Game Over we also had a fixed set of criteria (Graphics, Sound, Gameplay, Fun, Multiplayer, Overall). I want to bring something like this over to this series, however in a way that won't penalize older entries in the list due to "poorer" graphics/sound.
+When writing for Game Over we also had a fixed set of criteria (Graphics, Sound, Gameplay, Fun, Multiplayer, Overall). I want to bring something like this over to this series, however in a way that won't penalize older entries in the list too much due to "poorer" graphics/sound.
 
 The scoring we'll be using for this series will focus on the following:
 
->**Atmosphere**: This will focus on how the game makes you feel while you're playing it and includes inputs such as _Music_, _Sound Effects_, _Graphics_, _Cut Scenes_ and overall quality.
-><br>Max Points: **20**
+> [10] **Graphics**<br/>
+> The overall visual experience of the game can include background art, character models, game interface, cutscenes, inventory design and basically anything that you can see while playing the game.
 >
->**Story**: Adventure games are very story-driven, and as such the story needs to be evaluated as a top-level criteria. Focus will be on _Quality_, _Immersion_, _Complexity_, _Progression and Pacing_.
-><br>Max Points: **25**
+> [10] **Sound**<br/>
+> What do you hear? Is there ambient music or background noise? If the game is voiced are the actors giving it their all or [phoning it in](https://grammarist.com/idiom/phone-it-in/)? Are sound effects present and enhancing the experience, or jarring/distracting.
 >
->**Experience**: How much _Fun_ was the game? Was the _Difficulty_ too high/low? Were the puzzles a _Challenge_ or were they repetitive and felt derivative and lazy? Was there any introduction for the player or are you dropped in blind?
-><br>Max Points: **15**
+> [25] **Plot / Progression**<br/>
+> What's the quality of the overarching story in this game? Does it grab your attention and hold it or is it sort of "just there" as a forced reason for you to interact with this virtual world? How does the plot progress, and does everything wrap up at the end? When the game is over do you feel satisfied and want to learn more about this world and its inhabitants?
 >
->**Impact**: Did you enjoy the overall experience? Would you play this again? Would you want to know more about this world and its characters in subsequent adventures?
-><br>Max Points: **10**
+> [15] **Characters / Development**<br/>
+> Is the main character interesting and engaging? Are there other characters you interact with and are they fleshed out or just hollow NPCs there to deliver basic instructions? Do the main and supporting characters add depth to the world and gaming experience and how do they grow and evolve as the game progresses?
+>
+> [15] **Gameplay / Experience**<br/>
+> This is a game ... so is it fun to play? The goal is to get from some starting point to some ending point, but was this journey worth your time? Sometimes these games can be a joy to play through and sometimes they're a slog and focus too heavily on "filler" or elements that artificially pad out play time.
+>
+> [10] **Replayability**<br/>
+> Once the game is complete would you ever find yourself itching to play it again? Was the game fun to play or experience, or offer some variety of gameplay or character selection that could entice you back for repeated playthroughs.
+>
+> [10] **Impact / Impression**<br/>
+> Final thoughts and impressions on this game as a whole. Were you left wanting more, or were you rushing to the end to get it over with.
+>
+> [5] **Bonus / Surprise**<br/>
+> Anything unexpected or notable that's worth calling out?
 {: .prompt-info }
 
-Each game will be ranked using the above, and a percentage generated from the scores to show the overall score of the game.
+Each game will be ranked using the above, with the score represented as a percentage. Note that the first 84 games were originally scored using a different system. If you happen to be curious how this evolved, check out ["Overhauling My Scoring Criteria"]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) for more information.
 
 ## Games List
 
@@ -58,7 +70,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 84 -%}
+{%- assign games_finished = 85 -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -227,7 +239,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 149. Return of the Phantom (MicroProse) - 1993
 150. Sherlock Holmes: Consulting Detective Vol. III (ICOM Simulations) - 1993
 151. The Journeyman Project (Presto Studios) - 1993
-152. Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993
+152. [Space Quest V: Roger Wilco – The Next Mutation (Dynamix)]({% post_url 2024-08-21-space-quest-v %}) - 1993
 153. ~~Tajemnica Statuetki (Metropolis Software House) - 1993~~ (_Polish only_)
 154. Veil of Darkness (Event Horizon Software) - 1993
 155. Shadow of the Comet (Infogrames) - 1993

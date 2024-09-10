@@ -1,33 +1,64 @@
 ---
 layout: post
-title: "Let's Adventure! Reviewed Games Sorted by Score"
-date: 2021-08-08 18:47:28 -0400
+title: "Overhauling My Scoring Criteria"
+date: 2024-08-22 05:32:09 -0400
 comments: true
 categories: ["Let's Adventure!"]
 tags: [series, adventure]
 image: /images/adventure-banner.jpg
 ---
-This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
-<hr>
-{%- assign games_finished = 85  -%}
-{%- assign games_skipped  = 13  -%}
-{%- assign games_total    = 363 -%}
-```js
-{
-  "progress": {
-    "finished": {{ games_finished }},
-     "skipped": {{ games_skipped }},
-       "total": {{ games_total }}
-  },
-  "journey_completed": "{{ games_finished | plus: games_skipped | times: 100.0 | divided_by: games_total | round: 2 }}%"
-}
-```
+When I started the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series I devised a scoring system that I thought would meaningfully allow me to rate the games I was playing in a fair and balanced way:
 
-> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024
-{: .prompt-tip }
+>**Atmosphere**: This will focus on how the game makes you feel while you're playing it and includes inputs such as _Music_, _Sound Effects_, _Graphics_, _Cut Scenes_ and overall quality.
+><br>Max Points: **20**
+>
+>**Story**: Adventure games are very story-driven, and as such the story needs to be evaluated as a top-level criteria. Focus will be on _Quality_, _Immersion_, _Complexity_, _Progression and Pacing_.
+><br>Max Points: **25**
+>
+>**Experience**: How much _Fun_ was the game? Was the _Difficulty_ too high/low? Were the puzzles a _Challenge_ or were they repetitive and felt derivative and lazy? Was there any introduction for the player or are you dropped in blind?
+><br>Max Points: **15**
+>
+>**Impact**: Did you enjoy the overall experience? Would you play this again? Would you want to know more about this world and its characters in subsequent adventures?
+><br>Max Points: **10**
+{: .prompt-warning }
 
-<hr>
+For the first 84 games in this series, this was the rating system I used. What I learned pretty early on was that I didn't really have a very good set of evaluation criteria, and since my score only went up to 70 and I was generating a percentage score, it wasn't very balanced.
+
+Nothing's set in stone, so now's as good a time as any to correct this misstep and revise the scoring system for the remainder of the series.
+
+## New Scoring System
+
+In an attempt to improve the overall rating system used for the series I've decided to expand the categories and make the total score out of 100. I've also included some more opinionated criteria to allow me to boost games that I personally enjoyed - even if they're less critically acclaimed.
+
+> [10] **Graphics**<br/>
+> The overall visual experience of the game can include background art, character models, game interface, cutscenes, inventory design and basically anything that you can see while playing the game.
+>
+> [10] **Sound**<br/>
+> What do you hear? Is there ambient music or background noise? If the game is voiced are the actors giving it their all or [phoning it in](https://grammarist.com/idiom/phone-it-in/)? Are sound effects present and enhancing the experience, or jarring/distracting.
+>
+> [25] **Plot / Progression**<br/>
+> What's the quality of the overarching story in this game? Does it grab your attention and hold it or is it sort of "just there" as a forced reason for you to interact with this virtual world? How does the plot progress, and does everything wrap up at the end? When the game is over do you feel satisfied and want to learn more about this world and its inhabitants?
+>
+> [15] **Characters / Development**<br/>
+> Is the main character interesting and engaging? Are there other characters you interact with and are they fleshed out or just hollow NPCs there to deliver basic instructions? Do the main and supporting characters add depth to the world and gaming experience and how do they grow and evolve as the game progresses?
+>
+> [15] **Gameplay / Experience**<br/>
+> This is a game ... so is it fun to play? The goal is to get from some starting point to some ending point, but was this journey worth your time? Sometimes these games can be a joy to play through and sometimes they're a slog and focus too heavily on "filler" or elements that artificially pad out play time.
+>
+> [10] **Replayability**<br/>
+> Once the game is complete would you ever find yourself itching to play it again? Was the game fun to play or experience, or offer some variety of gameplay or character selection that could entice you back for repeated playthroughs.
+>
+> [10] **Impact / Impression**<br/>
+> Final thoughts and impressions on this game as a whole. Were you left wanting more, or were you rushing to the end to get it over with.
+>
+> [5] **Bonus / Surprise**<br/>
+> Anything unexpected or notable that's worth calling out?
+{: .prompt-info }
+
+## Scores (for posterity)
+
+The snapshot of the scores at the time the system was overhauled is below. As I'm going to revisit each of these scores over time, the master list - [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}) - will slowly be updated.
 
 1. **91%** [Maniac Mansion: Day of the Tentacle (LucasArts)]({% post_url 2024-01-20-day-of-the-tentacle %}) - 1993
 2. **89%** [Full Throttle (LucasArts)]({% post_url 2023-03-10-full-throttle %}) - 1995
@@ -113,4 +144,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 82. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 83. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 84. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
-85. **xx%** [Space Quest V: Roger Wilco – The Next Mutation (Dynamix)]({% post_url 2024-08-21-space-quest-v %}) - 1993

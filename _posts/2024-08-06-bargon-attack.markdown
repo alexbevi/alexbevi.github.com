@@ -3,7 +3,6 @@ layout: post
 title: "Bargon Attack (Coktel Vision) - 1992"
 date: 2024-08-06 06:29:18 -0400
 comments: true
-categories:
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Gob"]
 image: /images/adventure/bargon/scummvm-bargon-00000.png
