@@ -14,12 +14,16 @@ As MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/
 
 Cloudflare recently announced that [more NPM packages would be supported on Cloudflare Workers](https://blog.cloudflare.com/more-npm-packages-on-cloudflare-workers-combining-polyfills-and-native-code/), but for libraries that need `net.Socket` or `tls.TLSocket` access has Cloudflare added enough?
 
+> Packages that could not be imported with `nodejs_compat`, even as a dependency of another package, will now load. This includes popular packages such as [...] **`mongodb`**, [...] and many more.
+
+Based on the blog post the Node.js driver should load, but can it be used?
+
 ## Sample Application
 
 To test the latest iteration of Cloudflare Workers [compatibility flags](https://developers.cloudflare.com/workers/configuration/compatibility-dates/#setting-compatibility-flags) we'll be working with the following configuration:
 
 **`src/worker.ts`**
-```js
+```ts
 import { BSON, MongoClient } from 'mongodb';
 
 export interface Env {
