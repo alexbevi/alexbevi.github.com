@@ -121,6 +121,14 @@ What about trying to configure `wrangler` to connect to a local MongoDB instance
 [wrangler:err] MongoServerSelectionError: [unenv] net.createConnection is not implemented yet!
 ```
 
+## Alternatives?
+
+If you happen upon the article called ["Create a REST API with Cloudflare Workers and MongoDB Atlas"](https://www.mongodb.com/developer/products/atlas/cloudflare-worker-rest-api/) you may be thinking there's an alternate solution to be explored. MongoDB offered a REST-based interface to your data in Atlas via the [Atlas Data API](https://www.mongodb.com/docs/atlas/app-services/data-api/), however this product was recently deprecated and will be sunset.
+
+A custom REST-based API would be a solution to working with your MongoDB data from within Cloudflare Workers, so until the runtime is updated to better support Node.js' socket APIs, see the [Data API deprecation](https://www.mongodb.com/docs/atlas/app-services/data-api/data-api-deprecation) page for some ideas.
+
+[Neurelo seems like a good option](https://docs.neurelo.com/guides/mongodb-atlas-migrate-rest-data-apis-to-neurelo) for getting a REST-based API off the ground with little effort.
+
 ## Summary
 
 Though [module aliasing](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren't meant to work with Node.js' socket APIs. As a result, libraries such as MongoDB's Node.js driver simply won't be able to connect to anything.
