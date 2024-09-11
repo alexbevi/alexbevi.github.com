@@ -10,7 +10,7 @@ image: /images/mongodb-logo.png
 
 > MongoDB issued the alert titled ["Node.js v22.7.0 runtime defect can lead to data encoding issues"](https://www.mongodb.com/resources/products/alerts/potential-data-integrity-issues-sep-2024) on September 10, 2024
 > If you need detection or remediation scripts, you can find them there.
-{: .prompt-warn }
+{: .prompt-warning }
 
 Within days of the [Node v22.7.0 release](https://nodejs.org/en/blog/release/v22.7.0), users were already reporting that UTF-8 [encodings were broken](https://github.com/nodejs/node/issues/54543). The issue results from the introduction of an incorrect optimization for `buffer.write` which can result in strings being encoded using ISO-8859-1 rather than UTF-8.
 
