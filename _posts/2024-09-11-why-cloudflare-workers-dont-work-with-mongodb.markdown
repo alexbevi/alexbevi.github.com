@@ -18,6 +18,7 @@ Cloudflare recently announced that [more NPM packages would be supported on Clou
 Based on the blog post the Node.js driver should load, but can it be used?
 
 > Note that the fact that Workers can load, but not use the `mongodb` package was reported to Cloudflare at [https://github.com/cloudflare/workers-sdk/issues/6684](https://github.com/cloudflare/workers-sdk/issues/6684)
+>
 > The Cloudflare blog post has since been updated to remove `mongod` from the list of useable packages to avoid further confusion.
 {: .prompt-tip }
 
