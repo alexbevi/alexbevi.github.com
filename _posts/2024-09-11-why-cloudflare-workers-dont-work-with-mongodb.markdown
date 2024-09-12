@@ -7,15 +7,19 @@ categories: MongoDB
 tags: [mongodb, drivers, node, nodejs, javascript, typescript]
 image: /images/mongodb-cloudflare.png
 ---
-Cloudflare Workers have never supported raw sockets, but in May of 2023 they [announced support for a `connect()` API](https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/). The `connect()` API allows [TCP Sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) to be created within Workers, but is not a direct replacement for Node.js' [`net.Socket`](https://nodejs.org/api/net.html#class-netsocket) API.
+[Cloudflare Workers](https://workers.cloudflare.com/) is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they [announced support for a `connect()` API](https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/) which allows [TCP Sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) to be created within Workers, but is not a direct replacement for Node.js' [`net.Socket`](https://nodejs.org/api/net.html#class-netsocket) API.
 
-As MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) relies on `net.Socket` as well as [`tls.TLSSocket`](https://nodejs.org/api/tls.html#class-tlstlssocket), using the driver directly from Cloudflare Workers [has not been possible](https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708/11?u=alexbevi).
+Many NPM packages - including MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) - rely on `net.Socket` or [`tls.TLSSocket`](https://nodejs.org/api/tls.html#class-tlstlssocket) to connect to and communicate with remote systems. Using these libraries directly from Cloudflare Workers [has not been possible](https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708/11?u=alexbevi) as a result of these missing APIs.
 
-Cloudflare recently announced that [more NPM packages would be supported on Cloudflare Workers](https://blog.cloudflare.com/more-npm-packages-on-cloudflare-workers-combining-polyfills-and-native-code/), but for libraries that need `net.Socket` or `tls.TLSocket` access has Cloudflare added enough?
+Cloudflare recently announced that [more NPM packages would be supported on Cloudflare Workers](https://blog.cloudflare.com/more-npm-packages-on-cloudflare-workers-combining-polyfills-and-native-code/), but for libraries that need `net.Socket` or `tls.TLSocket` access, will they work in a Cloudflare Workers environment?
 
 > Packages that could not be imported with `nodejs_compat`, even as a dependency of another package, will now load. This includes popular packages such as [...] **`mongodb`**, [...] and many more.
 
 Based on the blog post the Node.js driver should load, but can it be used?
+
+> Note that the fact that Workers can load, but not use the `mongodb` package was reported to Cloudflare at [https://github.com/cloudflare/workers-sdk/issues/6684](https://github.com/cloudflare/workers-sdk/issues/6684)
+> The Cloudflare blog post has since been updated to remove `mongod` from the list of useable packages to avoid further confusion.
+{: .prompt-tip }
 
 ## Sample Application
 
@@ -133,9 +137,6 @@ A custom REST-based API would be a solution to working with your MongoDB data fr
 [Neurelo seems like a good option](https://docs.neurelo.com/guides/mongodb-atlas-migrate-rest-data-apis-to-neurelo) for getting a REST-based API off the ground with little effort.
 
 ## Summary
-
-> Note that the fact that Workers can load, but not use the `mongodb` package was reported to Cloudflare at [https://github.com/cloudflare/workers-sdk/issues/6684](https://github.com/cloudflare/workers-sdk/issues/6684)
-{: .prompt-info }
 
 Though [module aliasing](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren't meant to work with Node.js' socket APIs. As a result, libraries such as MongoDB's Node.js driver simply won't be able to connect to anything.
 
