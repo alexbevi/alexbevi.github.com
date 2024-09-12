@@ -7,9 +7,6 @@ categories: MongoDB
 tags: [mongodb, drivers, node, nodejs, javascript, typescript]
 image: /images/mongodb-cloudflare.png
 ---
-> This discrepancy was reported to Cloudflare at https://github.com/cloudflare/workers-sdk/issues/6684
-{: .prompt-tip }
-
 Cloudflare Workers have never supported raw sockets, but in May of 2023 they [announced support for a `connect()` API](https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/). The `connect()` API allows [TCP Sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) to be created within Workers, but is not a direct replacement for Node.js' [`net.Socket`](https://nodejs.org/api/net.html#class-netsocket) API.
 
 As MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) relies on `net.Socket` as well as [`tls.TLSSocket`](https://nodejs.org/api/tls.html#class-tlstlssocket), using the driver directly from Cloudflare Workers [has not been possible](https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708/11?u=alexbevi).
@@ -136,6 +133,9 @@ A custom REST-based API would be a solution to working with your MongoDB data fr
 [Neurelo seems like a good option](https://docs.neurelo.com/guides/mongodb-atlas-migrate-rest-data-apis-to-neurelo) for getting a REST-based API off the ground with little effort.
 
 ## Summary
+
+> Note that this discrepancy was reported to Cloudflare at https://github.com/cloudflare/workers-sdk/issues/6684
+{: .prompt-tip }
 
 Though [module aliasing](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren't meant to work with Node.js' socket APIs. As a result, libraries such as MongoDB's Node.js driver simply won't be able to connect to anything.
 
