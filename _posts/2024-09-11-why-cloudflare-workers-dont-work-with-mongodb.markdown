@@ -134,7 +134,7 @@ A custom REST-based API would be a solution to working with your MongoDB data fr
 
 ## Summary
 
-> Note that this discrepancy was reported to Cloudflare at https://github.com/cloudflare/workers-sdk/issues/6684
+> Note that this discrepancy was reported to Cloudflare at [https://github.com/cloudflare/workers-sdk/issues/6684](https://github.com/cloudflare/workers-sdk/issues/6684)
 {: .prompt-tip }
 
 Though [module aliasing](https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing) and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren't meant to work with Node.js' socket APIs. As a result, libraries such as MongoDB's Node.js driver simply won't be able to connect to anything.
