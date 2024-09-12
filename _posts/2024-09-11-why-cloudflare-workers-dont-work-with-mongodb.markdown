@@ -96,7 +96,7 @@ npm run start
 
 ## Evaluation
 
-The default connection string format when [connecting to your Atlas cluster](https://www.mongodb.com/docs/atlas/connect-to-database-deployment/#connect-to-your-cloud-cluster)is `mongodb+srv`, which is what we included initially in the `wrangler.toml` file.
+The default connection string format when [connecting to your Atlas cluster](https://www.mongodb.com/docs/atlas/connect-to-database-deployment/#connect-to-your-cloud-cluster) is `mongodb+srv`, which is what we included initially in the `wrangler.toml` file.
 
 The first time we run our test code however we're unable to resolve the [SRV connection format](https://www.mongodb.com/docs/manual/reference/connection-string/#srv-connection-format) as it appears that [`dns.resolveTxt`](https://nodejs.org/api/dns.html#dnsresolvetxthostname-callback) is not implemented:
 
