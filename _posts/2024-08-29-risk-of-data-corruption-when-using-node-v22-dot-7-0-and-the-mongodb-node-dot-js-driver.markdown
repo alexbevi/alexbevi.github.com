@@ -5,7 +5,7 @@ date: 2024-08-29 07:18:44 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, drivers, javascript, node]
-image: /images/mongodb-logo.png
+image: /images/mongodb-node.png
 ---
 
 > MongoDB issued the alert titled ["Node.js v22.7.0 runtime defect can lead to data encoding issues"](https://www.mongodb.com/resources/products/alerts/potential-data-integrity-issues-sep-2024) on September 10, 2024
