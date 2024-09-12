@@ -5,7 +5,7 @@ date: 2024-09-11 13:09:40 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, drivers, node, nodejs, javascript, typescript]
-image: /images/mongodb-logo.png
+image: /images/mongodb-cloudflare.png
 ---
 
 Cloudflare Workers have never supported raw sockets, but in May of 2023 they [announced support for a `connect()` API](https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/). The `connect()` API allows [TCP Sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) to be created within Workers, but is not a direct replacement for Node.js' [`net.Socket`](https://nodejs.org/api/net.html#class-netsocket) API.
