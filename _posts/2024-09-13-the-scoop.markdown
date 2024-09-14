@@ -94,7 +94,7 @@ Assuming you are able to solve the case though and get Inspector Smart to the ri
 
 Honestly, _The Scoop_ isn't that bad. There's some generic sound effects here and there, but no music anywhere so it's a fairly quiet adventure. There are A LOT of characters and locations to visit and engage with in a short period of time, and it's very likely you'll fail and have to restart a few times before you're able to identify the murderer.
 
-Overall it's a fairly short game, though it can feel a lot bigger than it is with all the backtracking and repetition that's required.
+Overall it's a fairly short game, though it can feel a lot bigger than it is with all the backtracking and repetition that's required. The time-based mechanic is interesting, but it can be frustrating when you're just blindly `WAIT`ing on screens to see if a character might appear or a `SEARCH` might produce a different result.
 
 I still enjoy these menu-driven games, but I get that they're not for everyone. I did enjoy the story, and the characters felt realized and meaningful to the plot - even if there were too many of them.
 
