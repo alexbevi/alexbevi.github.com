@@ -1,0 +1,158 @@
+---
+layout: post
+title: "The Scoop (Telarium) - 1986"
+date: 2024-09-13 06:42:44 -0400
+comments: true
+tags: [adventure, "Telarium", "Spinnaker Software"]
+image: /images/adventure/scoop/scoop_000.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+[The Scoop](https://en.wikipedia.org/wiki/The_Scoop_(video_game)) is a mystery adventure game published by Telarium, a subsidiary of Spinnaker Software, in 1986 for Apple II and rereleased by Spinnaker Software in 1989 for DOS. The plot is based on the collaborative detective novel of the same name, written in 1931 by Agatha Christie, Dorothy L. Sayers, E. C. Bentley, Anthony Berkeley, Freeman Wills Crofts, and Clemence Dane.
+
+![](/images/adventure/scoop/scoop_028.png)
+
+Though I read some Agatha Christie books many years ago, nothing really stuck with me other than vaguely remembering the plot of [Murder on the Orient Express](https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express). As such, I had no idea what type of game _The Scoop_ was going to be, nor did I have any familiarity with what (or who) the "London Detection Club" was.
+
+> You're a reporter for the _Daily Courier_, and you're investigating the murder of Geraldine Tracey. If you can solve the mystery in time, you'll scoop the  _Morning Star_ and win the game. But to get your scoop, it's not enough merely to figure out who you think committed the murder. Instead, you must be present when the murderer is confronted by the authorities--even if you have to arrange the confrontation yourself!
+
+I started off by giving the [game manual](https://www.mocagh.org/spinnaker/scoop-manual.pdf) a quick read, and the introductory blurb does definitely set the stage for the game. You pick you character's gender, enter the name you'd like to be referred to as and get dropped in front of the Daily Courier.
+
+![](/images/adventure/scoop/scoop_001.png)
+
+In case you didn't read the manual, your editor let's you know what you need to do once you enter the office and select `SPEAK` from the verb list.
+
+As with many adventure games of this era, you interact with the game world using various verbs. The DOS port, which was released 3 years after the Apple II version, improves the interface slightly by greying out verbs that aren't currently accessible on a given screen.
+
+![](/images/adventure/scoop/scoop_008.png)
+
+The goal of this game is to solve the murder by Saturday, which gives you 5 days of in-game time to do so. Everything you do causes time to pass, and various events will only occur at certain times of the day, on certain days or after certain actions.
+
+If you think there is an action about to occur but you need to kill some time, there's even a `WAIT` verb you can use.
+
+![](/images/adventure/scoop/scoop_002.png)
+
+To try and progress the story and identify the murderer you'll need to `TRAVEL` about the city taking taxis, trains and the bus. At each location there can be many shops, businesses or residences that you'll find people in that you can question.
+
+You'll want to ask everyone _What's on your mind?_, and take note, as this is how you'll learn about the other characters and locations you'll need to visit and speak to. You can't ask about people or visit locations until they've been mentioned in conversation, so it's pretty important to speak to everyone.
+
+Here as well though, timing is everything and you'll need to keep track of the time. Characters won't always answer questions at certain times, and they have schedules to keep so they might leave mid conversation if they're supposed to be somewhere.
+
+![](/images/adventure/scoop/scoop_003.png)
+
+When two or more people are in a room, you can `OBSERVE` their interactions to learn a bit about their relationship or gather additional clues. Unfortunately you won't always know ahead of time if multiple people will be in a room, or even if they will eventually converge somewhere.
+
+This game is all trial and error, and it's pretty easy to make it all the way to Saturday without having gathered enough evidence or made enough progress to finish the game.
+
+If this happens, you either reload an earlier save and keep grinding, or start over and try and be more efficient with you time management.
+
+![](/images/adventure/scoop/scoop_012.png)
+_Searching before midnight reveals nothing_
+
+Other than talking to everyone you meet, you'll also need to `SEARCH` every screen to see if there are any clues you can `TAKE`. As with character interactions, searching a location can produce different results at different times of day or on different days.
+
+For example, you can collect the daily paper from the _Morning Star_'s presses, but only if it's after midnight.
+
+![](/images/adventure/scoop/scoop_013.png)
+_After midnight and the day's paper is available and can be taken_
+
+You're trying to scoop another reporter - which is why the title of the game is _The Scoop_. This is why it's important to get the daily paper as it can give you clues as to how your rival's investigation is going, as well as surface locations to visit when you `EXAMINE` the paper.
+
+This is a bit tedious as any time you find something via a search, you need to take it and examine it. There's also an `INVENTORY` you can scroll through, but it doesn't really serve much of a purpose as the examine verb will also give you the same list.
+
+![](/images/adventure/scoop/scoop_018.png)
+
+Many times throughout the game you'll want to search a room, but can't as there's someone in the room and they'd catch you. If you wait long enough though, they'll eventually leave, but this can cost you a lot of time.
+
+![](/images/adventure/scoop/scoop_000.gif)
+_**Animated**: wait, then wait, then wait some more and maybe something will happen_
+
+If you exit a location and wait long enough for the occupant to leave, you may see them jump into a cab. In these situations, you can also hail a cab and try to follow them, but this won't always work. I didn't actually use this during my playthrough, but it's an interesting mechanic.
+
+Taking note of people's schedules like this is important, especially if you have to restart because you ran out of time. Knowing character schedules can help you plan your interrogations and investigation more efficiently to avoid having to wast time unnecessarily.
+
+![](/images/adventure/scoop/scoop_021.png)
+
+As your searches turn up clues, you'll be able to show them to characters you're interviewing to potentially surface further insights. Every interaction you have with a character takes up about 2 minutes of in-game time, so hammer everyone with questions can sometimes trigger their departure, which can leave you having asked the wrong questions or shown the wrong items and unable to progress.
+
+![](/images/adventure/scoop/scoop_025.png)
+_I'm pretty sure I needed that note as evidence_
+
+Showing the wrong item to the wrong person can also result in you losing that item. When this happens you'll likely have to restore or restart as this may have been a key item.
+
+![](/images/adventure/scoop/scoop_027.png)
+
+Since your goal is to get Inspector Smart to confront the murderer while you are present, you'll need to make sure you get him clues and information as you uncover them. Assuming all goes well you'll be able to get this all sorted out before noon on Saturday.
+
+If you aren't able to have the Inspector confront the murderer, your editor lets you know you've failed, the paper goes bankrupt and you're all unemployed.
+
+![](/images/adventure/scoop/scoop_031.png)
+_You solved the case. Good for you!_
+
+Assuming you are able to solve the case though and get Inspector Smart to the right place at the right time, your editor is proud of you and the game is over.
+
+Honestly, _The Scoop_ isn't that bad. There's some generic sound effects here and there, but no music anywhere so it's a fairly quiet adventure. There are A LOT of characters and locations to visit and engage with in a short period of time, and it's very likely you'll fail and have to restart a few times before you're able to identify the murderer.
+
+Overall it's a fairly short game, though it can feel a lot bigger than it is with all the backtracking and repetition that's required.
+
+I still enjoy these menu-driven games, but I get that they're not for everyone. I did enjoy the story, and the characters felt realized and meaningful to the plot - even if there were too many of them.
+
+Though I wouldn't play this again or really recommend it to anyone, I did have some fun playing through it.
+
+## Game Information
+
+|*Game*|The Scoop|
+|*Developer*|[Telarium](https://en.wikipedia.org/wiki/Telarium)|
+|*Publisher*|Telarium, [Spinnaker Software](https://en.wikipedia.org/wiki/Spinnaker_Software)|
+|*Release Date*|1986|
+|*Systems*|Apple II, DOS|
+|*Game Engine*||
+
+### My Playthrough
+
+|How Long To Beat?|2 hours|
+|*Version Played*|DOS via [DOSBox-X](https://dosbox-x.com/)|
+|*Notes*|[Walkthrough](https://gamefaqs.gamespot.com/pc/565143-the-scoop/faqs/54081), [Manual](https://www.mocagh.org/spinnaker/scoop-manual.pdf)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Graphics (10)**|4|
+|**Sound (10)**|2|
+|**Plot / Progression (25)**|16|
+|**Characters / Development (15)**|9|
+|**Gameplay / Experience (15)**|4|
+|**Replayability (10)**|4|
+|**Impact / Impression (10)**|3|
+|**Bonus / Surprise (5)**|1|
+||**43%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/scoop/scoop_004.png
+/images/adventure/scoop/scoop_005.png
+/images/adventure/scoop/scoop_006.png
+/images/adventure/scoop/scoop_007.png
+/images/adventure/scoop/scoop_009.png
+/images/adventure/scoop/scoop_010.png
+/images/adventure/scoop/scoop_011.png
+/images/adventure/scoop/scoop_014.png
+/images/adventure/scoop/scoop_015.png
+/images/adventure/scoop/scoop_016.png
+/images/adventure/scoop/scoop_017.png
+/images/adventure/scoop/scoop_019.png
+/images/adventure/scoop/scoop_020.png
+/images/adventure/scoop/scoop_022.png
+/images/adventure/scoop/scoop_023.png
+/images/adventure/scoop/scoop_024.png
+/images/adventure/scoop/scoop_026.png
+/images/adventure/scoop/scoop_029.png
+/images/adventure/scoop/scoop_030.png
+{% endgalleria %}
+
+**Footnotes**
+
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/)</small>
