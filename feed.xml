@@ -1,4 +1,199 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-12T12:49:29-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Why Cloudflare Workers Don’t Work With MongoDB</title><link href="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/" rel="alternate" type="text/html" title="Why Cloudflare Workers Don’t Work With MongoDB" /><published>2024-09-11T13:09:40-04:00</published><updated>2024-09-12T12:48:42-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><![CDATA[<p><a href="https://workers.cloudflare.com/">Cloudflare Workers</a> is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they <a href="https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/">announced support for a <code class="language-plaintext highlighter-rouge">connect()</code> API</a> which allows <a href="https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/">TCP Sockets</a> to be created within Workers, but is not a direct replacement for Node.js’ <a href="https://nodejs.org/api/net.html#class-netsocket"><code class="language-plaintext highlighter-rouge">net.Socket</code></a> API.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-09-14T15:02:18-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Scoop (Telarium) - 1986</title><link href="https://www.alexbevi.com/blog/2024/09/13/the-scoop/" rel="alternate" type="text/html" title="The Scoop (Telarium) - 1986" /><published>2024-09-13T06:42:44-04:00</published><updated>2024-09-14T15:01:35-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/13/the-scoop</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/13/the-scoop/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/The_Scoop_(video_game)">The Scoop</a> is a mystery adventure game published by Telarium, a subsidiary of Spinnaker Software, in 1986 for Apple II and rereleased by Spinnaker Software in 1989 for DOS. The plot is based on the collaborative detective novel of the same name, written in 1931 by Agatha Christie, Dorothy L. Sayers, E. C. Bentley, Anthony Berkeley, Freeman Wills Crofts, and Clemence Dane.</p>
+
+<p><img src="/images/adventure/scoop/scoop_028.png" alt="" /></p>
+
+<p>Though I read some Agatha Christie books many years ago, nothing really stuck with me other than vaguely remembering the plot of <a href="https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express">Murder on the Orient Express</a>. As such, I had no idea what type of game <em>The Scoop</em> was going to be, nor did I have any familiarity with what (or who) the “London Detection Club” was.</p>
+
+<blockquote>
+  <p>You’re a reporter for the <em>Daily Courier</em>, and you’re investigating the murder of Geraldine Tracey. If you can solve the mystery in time, you’ll scoop the  <em>Morning Star</em> and win the game. But to get your scoop, it’s not enough merely to figure out who you think committed the murder. Instead, you must be present when the murderer is confronted by the authorities–even if you have to arrange the confrontation yourself!</p>
+</blockquote>
+
+<p>I started off by giving the <a href="https://www.mocagh.org/spinnaker/scoop-manual.pdf">game manual</a> a quick read, and the introductory blurb does definitely set the stage for the game. You pick you character’s gender, enter the name you’d like to be referred to as and get dropped in front of the Daily Courier.</p>
+
+<p><img src="/images/adventure/scoop/scoop_001.png" alt="" /></p>
+
+<p>In case you didn’t read the manual, your editor let’s you know what you need to do once you enter the office and select <code class="language-plaintext highlighter-rouge">SPEAK</code> from the verb list.</p>
+
+<p>As with many adventure games of this era, you interact with the game world using various verbs. The DOS port, which was released 3 years after the Apple II version, improves the interface slightly by greying out verbs that aren’t currently accessible on a given screen.</p>
+
+<p><img src="/images/adventure/scoop/scoop_008.png" alt="" /></p>
+
+<p>The goal of this game is to solve the murder by Saturday, which gives you 5 days of in-game time to do so. Everything you do causes time to pass, and various events will only occur at certain times of the day, on certain days or after certain actions.</p>
+
+<p>If you think there is an action about to occur but you need to kill some time, there’s even a <code class="language-plaintext highlighter-rouge">WAIT</code> verb you can use.</p>
+
+<p><img src="/images/adventure/scoop/scoop_002.png" alt="" /></p>
+
+<p>To try and progress the story and identify the murderer you’ll need to <code class="language-plaintext highlighter-rouge">TRAVEL</code> about the city taking taxis, trains and the bus. At each location there can be many shops, businesses or residences that you’ll find people in that you can question.</p>
+
+<p>You’ll want to ask everyone <em>What’s on your mind?</em>, and take note, as this is how you’ll learn about the other characters and locations you’ll need to visit and speak to. You can’t ask about people or visit locations until they’ve been mentioned in conversation, so it’s pretty important to speak to everyone.</p>
+
+<p>Here as well though, timing is everything and you’ll need to keep track of the time. Characters won’t always answer questions at certain times, and they have schedules to keep so they might leave mid conversation if they’re supposed to be somewhere.</p>
+
+<p><img src="/images/adventure/scoop/scoop_003.png" alt="" /></p>
+
+<p>When two or more people are in a room, you can <code class="language-plaintext highlighter-rouge">OBSERVE</code> their interactions to learn a bit about their relationship or gather additional clues. Unfortunately you won’t always know ahead of time if multiple people will be in a room, or even if they will eventually converge somewhere.</p>
+
+<p>This game is all trial and error, and it’s pretty easy to make it all the way to Saturday without having gathered enough evidence or made enough progress to finish the game.</p>
+
+<p>If this happens, you either reload an earlier save and keep grinding, or start over and try and be more efficient with you time management.</p>
+
+<p><img src="/images/adventure/scoop/scoop_012.png" alt="" />
+<em>Searching before midnight reveals nothing</em></p>
+
+<p>Other than talking to everyone you meet, you’ll also need to <code class="language-plaintext highlighter-rouge">SEARCH</code> every screen to see if there are any clues you can <code class="language-plaintext highlighter-rouge">TAKE</code>. As with character interactions, searching a location can produce different results at different times of day or on different days.</p>
+
+<p>For example, you can collect the daily paper from the <em>Morning Star</em>’s presses, but only if it’s after midnight.</p>
+
+<p><img src="/images/adventure/scoop/scoop_013.png" alt="" />
+<em>After midnight and the day’s paper is available and can be taken</em></p>
+
+<p>You’re trying to scoop another reporter - which is why the title of the game is <em>The Scoop</em>. This is why it’s important to get the daily paper as it can give you clues as to how your rival’s investigation is going, as well as surface locations to visit when you <code class="language-plaintext highlighter-rouge">EXAMINE</code> the paper.</p>
+
+<p>This is a bit tedious as any time you find something via a search, you need to take it and examine it. There’s also an <code class="language-plaintext highlighter-rouge">INVENTORY</code> you can scroll through, but it doesn’t really serve much of a purpose as the examine verb will also give you the same list.</p>
+
+<p><img src="/images/adventure/scoop/scoop_018.png" alt="" /></p>
+
+<p>Many times throughout the game you’ll want to search a room, but can’t as there’s someone in the room and they’d catch you. If you wait long enough though, they’ll eventually leave, but this can cost you a lot of time.</p>
+
+<p><img src="/images/adventure/scoop/scoop_000.gif" alt="" />
+<em><strong>Animated</strong>: wait, then wait, then wait some more and maybe something will happen</em></p>
+
+<p>If you exit a location and wait long enough for the occupant to leave, you may see them jump into a cab. In these situations, you can also hail a cab and try to follow them, but this won’t always work. I didn’t actually use this during my playthrough, but it’s an interesting mechanic.</p>
+
+<p>Taking note of people’s schedules like this is important, especially if you have to restart because you ran out of time. Knowing character schedules can help you plan your interrogations and investigation more efficiently to avoid having to wast time unnecessarily.</p>
+
+<p><img src="/images/adventure/scoop/scoop_021.png" alt="" /></p>
+
+<p>As your searches turn up clues, you’ll be able to show them to characters you’re interviewing to potentially surface further insights. Every interaction you have with a character takes up about 2 minutes of in-game time, so hammer everyone with questions can sometimes trigger their departure, which can leave you having asked the wrong questions or shown the wrong items and unable to progress.</p>
+
+<p><img src="/images/adventure/scoop/scoop_025.png" alt="" />
+<em>I’m pretty sure I needed that note as evidence</em></p>
+
+<p>Showing the wrong item to the wrong person can also result in you losing that item. When this happens you’ll likely have to restore or restart as this may have been a key item.</p>
+
+<p><img src="/images/adventure/scoop/scoop_027.png" alt="" /></p>
+
+<p>Since your goal is to get Inspector Smart to confront the murderer while you are present, you’ll need to make sure you get him clues and information as you uncover them. Assuming all goes well you’ll be able to get this all sorted out before noon on Saturday.</p>
+
+<p>If you aren’t able to have the Inspector confront the murderer, your editor lets you know you’ve failed, the paper goes bankrupt and you’re all unemployed.</p>
+
+<p><img src="/images/adventure/scoop/scoop_031.png" alt="" />
+<em>You solved the case. Good for you!</em></p>
+
+<p>Assuming you are able to solve the case though and get Inspector Smart to the right place at the right time, your editor is proud of you and the game is over.</p>
+
+<p>Honestly, <em>The Scoop</em> isn’t that bad. There’s some generic sound effects here and there, but no music anywhere so it’s a fairly quiet adventure. There are A LOT of characters and locations to visit and engage with in a short period of time, and it’s very likely you’ll fail and have to restart a few times before you’re able to identify the murderer.</p>
+
+<p>Overall it’s a fairly short game, though it can feel a lot bigger than it is with all the backtracking and repetition that’s required.</p>
+
+<p>I still enjoy these menu-driven games, but I get that they’re not for everyone. I did enjoy the story, and the characters felt realized and meaningful to the plot - even if there were too many of them.</p>
+
+<p>Though I wouldn’t play this again or really recommend it to anyone, I did have some fun playing through it.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>The Scoop</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Telarium">Telarium</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Telarium, <a href="https://en.wikipedia.org/wiki/Spinnaker_Software">Spinnaker Software</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1986</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Apple II, DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>How Long To Beat?</td>
+      <td>2 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://gamefaqs.gamespot.com/pc/565143-the-scoop/faqs/54081">Walkthrough</a>, <a href="https://www.mocagh.org/spinnaker/scoop-manual.pdf">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (10)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>43%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/scoop/scoop_004.png', thumb: '/images/adventure/scoop/scoop_004.png' },{ src: '/images/adventure/scoop/scoop_005.png', thumb: '/images/adventure/scoop/scoop_005.png' },{ src: '/images/adventure/scoop/scoop_006.png', thumb: '/images/adventure/scoop/scoop_006.png' },{ src: '/images/adventure/scoop/scoop_007.png', thumb: '/images/adventure/scoop/scoop_007.png' },{ src: '/images/adventure/scoop/scoop_009.png', thumb: '/images/adventure/scoop/scoop_009.png' },{ src: '/images/adventure/scoop/scoop_010.png', thumb: '/images/adventure/scoop/scoop_010.png' },{ src: '/images/adventure/scoop/scoop_011.png', thumb: '/images/adventure/scoop/scoop_011.png' },{ src: '/images/adventure/scoop/scoop_014.png', thumb: '/images/adventure/scoop/scoop_014.png' },{ src: '/images/adventure/scoop/scoop_015.png', thumb: '/images/adventure/scoop/scoop_015.png' },{ src: '/images/adventure/scoop/scoop_016.png', thumb: '/images/adventure/scoop/scoop_016.png' },{ src: '/images/adventure/scoop/scoop_017.png', thumb: '/images/adventure/scoop/scoop_017.png' },{ src: '/images/adventure/scoop/scoop_019.png', thumb: '/images/adventure/scoop/scoop_019.png' },{ src: '/images/adventure/scoop/scoop_020.png', thumb: '/images/adventure/scoop/scoop_020.png' },{ src: '/images/adventure/scoop/scoop_022.png', thumb: '/images/adventure/scoop/scoop_022.png' },{ src: '/images/adventure/scoop/scoop_023.png', thumb: '/images/adventure/scoop/scoop_023.png' },{ src: '/images/adventure/scoop/scoop_024.png', thumb: '/images/adventure/scoop/scoop_024.png' },{ src: '/images/adventure/scoop/scoop_026.png', thumb: '/images/adventure/scoop/scoop_026.png' },{ src: '/images/adventure/scoop/scoop_029.png', thumb: '/images/adventure/scoop/scoop_029.png' },{ src: '/images/adventure/scoop/scoop_030.png', thumb: '/images/adventure/scoop/scoop_030.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="adventure" /><category term="Telarium" /><category term="Spinnaker Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why Cloudflare Workers Don’t Work With MongoDB</title><link href="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/" rel="alternate" type="text/html" title="Why Cloudflare Workers Don’t Work With MongoDB" /><published>2024-09-11T13:09:40-04:00</published><updated>2024-09-12T12:48:42-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><![CDATA[<p><a href="https://workers.cloudflare.com/">Cloudflare Workers</a> is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they <a href="https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/">announced support for a <code class="language-plaintext highlighter-rouge">connect()</code> API</a> which allows <a href="https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/">TCP Sockets</a> to be created within Workers, but is not a direct replacement for Node.js’ <a href="https://nodejs.org/api/net.html#class-netsocket"><code class="language-plaintext highlighter-rouge">net.Socket</code></a> API.</p>
 
 <p>Many NPM packages - including MongoDB’s <a href="https://www.mongodb.com/docs/drivers/node/current/">Node.js driver</a> - rely on <code class="language-plaintext highlighter-rouge">net.Socket</code> or <a href="https://nodejs.org/api/tls.html#class-tlstlssocket"><code class="language-plaintext highlighter-rouge">tls.TLSSocket</code></a> to connect to and communicate with remote systems. Using these libraries directly from Cloudflare Workers <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708/11?u=alexbevi">has not been possible</a> as a result of these missing APIs.</p>
 
@@ -2191,174 +2386,4 @@ Error: cannot get string length
   <li><a href="https://v8.dev/blog/modern-javascript#proper-tail-calls">ES2015, ES2016, and beyond · Tail Calls · V8</a></li>
   <li><a href="https://v8.dev/blog/fast-async">Faster async functions and promises · V8</a></li>
   <li><a href="https://mathiasbynens.be/notes/async-stack-traces">Asynchronous stack traces: why await beats Promise#then() · Mathias Bynens</a></li>
-</ul>]]></content><author><name>Neal Beeken</name></author><category term="Programming" /><category term="javascript" /><category term="node" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[Written by Neal Beeken (Blog, GitHub) - Canonical URL is at medium.com]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/nodejs-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/nodejs-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995</title><link href="https://www.alexbevi.com/blog/2024/07/09/discworld/" rel="alternate" type="text/html" title="Discworld (Teeny Weeny Games/Perfect 10 Productions) - 1995" /><published>2024-07-09T07:06:16-04:00</published><updated>2024-07-17T07:34:00-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/09/discworld</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/09/discworld/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Discworld_(video_game)">Discworld</a> is a point-and-click adventure game developed by Teeny Weeny Games and Perfect 10 Productions and published by Psygnosis. It is based on <a href="https://en.wikipedia.org/wiki/Terry_Pratchett">Terry Pratchett</a>’s novels of the same name.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00011.png" alt="" /></p>
-
-<p>This adventure game puts the player in the shoes of Rincewind, a wizard whose sole purpose in life is to stay alive. He appears to be very good at it as well, because apparently the universe has decided to continuously challenge him. The game takes place in the humorous fantasy world called the Discworld, as it is actually a flat disc carried on the backs of four gigantic elephants, which themselves stand on the back of an even larger turtle.</p>
-
-<p>The story is loosely based on the <a href="https://en.wikipedia.org/wiki/Guards!_Guards!">novel “Guards! Guards!”</a>. Both in the book and the game, a dragon is summoned by a group of mysterious conspirators and now terrorizes the city state of Ankh-Morpork. Being the most expendable wizard of the Unseen University, Rincewind is given the task to get rid of the beast (only in the game though; in the book, the city’s nightwatch has to deal with the problem).<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00015.png" alt="" /></p>
-
-<p>Discworld is a pretty typical point and click adventure from the mid-90s: the game starts with a brief intro sequence, you’re introduced to the protagonist, you’re given the first (of likely many) fetch quests which you’ll need to complete and you’re on your way.</p>
-
-<p>Over the course of four acts your task is to rid the Discworld of the dragon that the secret brotherhood has summoned. As a wizard of Unseen University, the Archchancellor has decided you’re up to this task so first you’ll need to collect the various elements from around Ankh-Morpork that he needs to build a “dragon detector”.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00005.png" alt="" /></p>
-
-<p>Every time you leave an area of the game you’ll be returned to the map screen, which is how you navigate between the various game locations. There are a few more locations beyond the main map, but the majority of the game takes place here (both in the past, and in the present).</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00010.png" alt="" /></p>
-
-<p>Throughout the course of the game you’ll pick up <em>a lot</em> of items. Luckily for Rincewind you’re always accompanied by your trusty luggage - which is a treasure chest with a lot of legs. I remember vaguely reading these books when I was a kid and the traveling treasure chest standing out to me as a really interesting character, so I was really hoping it would play a big part in this game once it was introduced.</p>
-
-<p>When you find a new item you can pick up you’ll have the option of adding it to the chest or Rincewind’s inventory. The chest has unlimited storage, whereas Rincewind only has 4 “slots” that you can use.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00013.png" alt="" /></p>
-
-<p>Inventory management plays a pretty large role in this game as there are several puzzles that require Rincewind to take items with him to a location the chest can’t access. Typically it’s not obvious what you need to bring with you and the will involve trial and error, backtracking and repetition.</p>
-
-<p>Speaking of backtracking, that’s about 90% of the game. You typically need to talk to everyone you possibly can on every screen to get a sense of what fetch quest they’re going to send you on, then head off to fetch said maguffin.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00007.png" alt="" /></p>
-
-<p>The dialogue system is reminiscent of games of this era such as <a href="/blog/2023/01/23/sam-and-max-hit-the-road/">Sam &amp; Max Hit the Road</a> where a row of icons will be presented that represent various interactions that according to the <a href="https://archive.org/details/discworld-manual/page/n7/mode/2up">manual</a> represent actions/moods such as <code class="language-plaintext highlighter-rouge">GREETING</code>, <code class="language-plaintext highlighter-rouge">QUESTION</code>, <code class="language-plaintext highlighter-rouge">SARCASM</code>and <code class="language-plaintext highlighter-rouge">ANGER</code>.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00009.png" alt="" /></p>
-
-<p>Though the gameplay itself can be a bit tedious, the character interactions and descriptions of the world you’re engaging with are fantastic. <a href="https://en.wikipedia.org/wiki/Monty_Python">Monty Python</a>’s <a href="https://en.wikipedia.org/wiki/Eric_Idle">Eric Idle</a> voices Rincewind, and really brings the character to life as a dry, witty British stereotype.</p>
-
-<p>There is ever-present <a href="https://www.youtube.com/watch?v=_dxSji16tOc&amp;list=PL9434353ADDF48CD6">background music</a> playing throughout the game, but it just sort of fades into the background. I don’t consider this a bad thing for ambient music as it means it’s essentially just doing it’s job.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00019.png" alt="" /></p>
-
-<p>In order for Rincewind to solve the mystery of who stole the Dragon Summoning book, uncover the identities of the members of the brotherhood and retrieve the various gold trinkets the dragon has requested, he’ll have to travel back in time.</p>
-
-<p>This is done through the University’s library (following a long series of fetch quests) that opens a door to L-Space. Once you’ve accessed L-Space a new series of puzzles need to be solved - many of them involving making changes in the past to impact the placement or availability of things in the present.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00020.png" alt="" /></p>
-
-<p>I really liked the mechanic, but found myself getting lost or confused or having to repeatedly go back and forth between the past and preset trying ot suss out exactly what it is I’m trying to do.</p>
-
-<p>Discworld does not hold your hand. The clues can be vague and require you to really think. I don’t believe any knowledge of the books is required to be successful, but I’m sure it couldn’t hurt.</p>
-
-<p>For example, to get the password to the thieve’s hideout you need to turn the drainpipe, hide, then listen to the pipe with a glass. If you don’t use the glass a long sequence plays out that doesn’t make it obvious you <em>didn’t</em> get the password until you try and get into the hideout.</p>
-
-<p>You then need to repeat this trying various items on the drainpipe to see if anything will happen.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00024.png" alt="" /></p>
-
-<p>Trying everything on everything (including every item on every other item) can be a requirement to progression. There are just so many items you’ll find, an the solution to many puzzles requires either a single item or an item combination puzzle to be solved first - and the solutions are typically not obvious.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00023.png" alt="" /></p>
-
-<p>This is definitely not a game for kids. There are allusions to adult themes, the writing is complex, the humour is more nuanced and you really have to pay attention to your surroundings and all dialogue to make any progress.</p>
-
-<p><img src="/images/adventure/dw1/scummvm-dw-cd-00031.png" alt="" /></p>
-
-<p>I seem to remember playing this game as a teenager and just not being able to get into it. I was a big Monty Python fan (who wasn’t in the 90’s) so Eric Idle voicing a character really appealed to me … but I just couldn’t make any progress.</p>
-
-<p>If you’re playing in ScummVM there are a <a href="https://bugs.scummvm.org/query?game=Discworld&amp;status=new&amp;status=pending&amp;order=priority">number of known bugs</a>, though the game is not really affected too badly. I did hit the <a href="https://bugs.scummvm.org/ticket/10659">Act 4 missing guard crash</a>, but that is easily avoidable by just not engaging a clearly missing background character in conversation.</p>
-
-<p>I really love Terry Pratchett’s writing style and have previously read <a href="https://en.wikipedia.org/wiki/The_Colour_of_Magic">The Colour of Magic</a>. Having now played through this game I definitely feel like firing up the eReader and diving back into the world of Ankh-Morpork.</p>
-
-<p>There are better adventure games out there that would likely be more approachable, but the story and writing of Discworld definitely stands out.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Discworld</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Perfect_Entertainment">Teeny Weeny Games/Perfect 10 Productions</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Psygnosis">Psygnosis</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1995</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Mac, PlayStation, Sega Saturn</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=Tinsel">Tinsel</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/2589"><em>How Long To Beat?</em></a></td>
-      <td>11 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://adventuregamers.com/walkthrough/full/discworld">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>59%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/dw1/scummvm-dw-cd-00001.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00001.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00002.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00002.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00003.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00003.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00004.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00004.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00006.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00006.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00008.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00008.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00012.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00012.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00014.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00014.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00016.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00016.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00017.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00017.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00018.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00018.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00021.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00021.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00022.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00022.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00025.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00025.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00026.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00026.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00027.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00027.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00028.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00028.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00029.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00029.png' },{ src: '/images/adventure/dw1/scummvm-dw-cd-00030.png', thumb: '/images/adventure/dw1/scummvm-dw-cd-00030.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/184/discworld/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Tinsel" /><category term="Teeny Weeny Games/Perfect 10 Productions" /><category term="Psygnosis" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/dw1/scummvm-dw-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/dw1/scummvm-dw-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</ul>]]></content><author><name>Neal Beeken</name></author><category term="Programming" /><category term="javascript" /><category term="node" /><category term="mongodb" /><category term="drivers" /><summary type="html"><![CDATA[Written by Neal Beeken (Blog, GitHub) - Canonical URL is at medium.com]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/nodejs-banner.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/nodejs-banner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
