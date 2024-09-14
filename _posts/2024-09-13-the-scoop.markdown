@@ -152,7 +152,3 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/scoop/scoop_029.png
 /images/adventure/scoop/scoop_030.png
 {% endgalleria %}
-
-**Footnotes**
-
-[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/)</small>
