@@ -143,4 +143,4 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 81. **19%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 82. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 83. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
-84. **11%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
+84. **7%** (was **11%**) [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
