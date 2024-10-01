@@ -9,13 +9,12 @@ tags: [rpg, genesis]
 
 ![](/images/shadowrun-gens/shadowrun.000.png)
 
-**UPDATE: 2016-09-05** - It was pointed out on [the Reddit thread](https://www.reddit.com/r/rpg_gamers/comments/4uxq5n/just_gave_up_on_shadowrun_genesis) and in the comments below that I might have used a cheat which prevented finishing the game. I didn't think I'd used one, but I think while doing research for the article i may have been testing it out :(
-
-Note that you don't really need to cheat in this game to get more Nuyen; just grind ;)
-
-Thanks to those who responded. It's worth noting that if you're going to play this game, *avoid the cheat menu* as it will bite you in the ass.
-
---------------------------------------------------------------------
+> **UPDATE: 2016-09-05** - It was pointed out on [the Reddit thread](https://www.reddit.com/r/rpg_gamers/comments/4uxq5n/just_gave_up_on_shadowrun_genesis) and in the comments below that I might have used a cheat which prevented finishing the game. I didn't think I'd used one, but I think while doing research for the article i may have been testing it out :(
+>
+> Note that you don't really need to cheat in this game to get more Nuyen; just grind ;)
+>
+> Thanks to those who responded. It's worth noting that if you're going to play this game, *avoid the cheat menu* as it will bite you in the ass.
+{: .prompt-info }
 
 As I work my way through the 8-bit and 16-bit games I grew up with, there are (and will continue to be) those that I just can't get through. [Shadowrun](https://en.wikipedia.org/wiki/Shadowrun_(1994_video_game\)) for the Sega Genesis turned out to be one of those titles.
 
@@ -113,7 +112,7 @@ If you have any recommendations for other games in this genre I should check out
 
 ## Gallery
 
-{% gallery_thumbs %}
+{% galleria %}
 /images/shadowrun-gens/shadowrun.003.png
 /images/shadowrun-gens/shadowrun.004.png
 /images/shadowrun-gens/shadowrun.005.png
@@ -134,4 +133,4 @@ If you have any recommendations for other games in this genre I should check out
 /images/shadowrun-gens/shadowrun.024.png
 /images/shadowrun-gens/shadowrun.025.png
 /images/shadowrun-gens/shadowrun.026.png
-{% endgallery_thumbs %}
+{% endgalleria %}
