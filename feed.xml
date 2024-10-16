@@ -1,4 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-01T13:01:30-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Under a Killing Moon (Access Software) - 1994</title><link href="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/" rel="alternate" type="text/html" title="Under a Killing Moon (Access Software) - 1994" /><published>2024-09-20T06:03:15-04:00</published><updated>2024-09-30T20:25:01-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-10-16T06:26:57-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995</title><link href="https://www.alexbevi.com/blog/2024/10/08/space-quest-6-the-spinal-frontier/" rel="alternate" type="text/html" title="Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995" /><published>2024-10-08T08:18:09-04:00</published><updated>2024-10-16T06:25:48-04:00</updated><id>https://www.alexbevi.com/blog/2024/10/08/space-quest-6-the-spinal-frontier</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/10/08/space-quest-6-the-spinal-frontier/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Space_Quest_6">Space Quest 6: Roger Wilco in the Spinal Frontier</a> is a point-and-click adventure game developed and published by Sierra On-Line in 1995. It is the sixth and final game in the Space Quest series, though (spoiler) the game ends on a cliffhanger that will ultimately never be resolved.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00005.png" alt="" /></p>
+
+<p>Roger Wilco, the brave interstellar janitor who has already saved the universe from many great dangers, is now in a very embarrassing position. His commanders show no respect for his courageous actions in the previous game. Instead, he is being accused of all kinds of violations against the galactic law, is deprived of all the honors he got in the previous game, and as a token of mercy, is allowed to return to his old job - cleaning closets… But those unfortunate events are just the beginning of much bigger troubles Roger will get into. Once again, the future of galaxy depends on him!<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00022.png" alt="" /></p>
+
+<p>This final entry in the series runs on the later SCI32 engine Rev 2.100.002 (aka <a href="http://sciwiki.sierrahelp.com/index.php/Sierra_SCI_Release_List#SCI2.1_.28middle.29">SCI2.1 (middle)</a>), which allowed it to use SVGA graphics with 256 colors at 640×480 resolution. Unlike other SCI games, it did not have the interface in a pull down bar at the top of the screen, but instead used a “verb bar” window along the bottom of the screen, similar to LucasArts’ SCUMM engine. The graphics style was also more cartoonish than in previous games, as well as incorporating an ample amount of 3-D rendered images.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00021.png" alt="" />
+<em>I don’t love the visual style of the human characters…</em></p>
+
+<p>I appreciated the updated visual style of the backgrounds and the UI, but honestly the closeup shots of any humanoid character just looked … off. Though there was clearly a lot of work put into the character design, I miss the pixel art of <a href="/blog/2024/09/10/space-quest-v/">Space Quest V</a>.</p>
+
+<p>An increased colour palette and next-gen SCI game engine sort of left everything looking “flat” in my opinion.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00020.png" alt="" /></p>
+
+<p>The cutscenes have not aged well, and are reminiscent of basically all 3-D rendered scenes of the early to mid 90s. I can’t really fault Sierra for this as this is just an artifact of the games of that era.</p>
+
+<p>Most cutscenes felt more like filler than substance, and were just there to eat up some time. They could occasionally become repetitive and tedious if they were triggered every time you needed to backtrack (like with the “riding the tapeworm” sequence near the end).</p>
+
+<p><img src="/images/adventure/sq6/scummvm00054.2.bmp" alt="" />
+<em>Roger is really trying to push both buttons at once - and is - but it doesn’t look like it in ScummVM</em></p>
+
+<p>While playing through the game I thought I hit some weird visual bug, but apparently it’s well known and only present in ScummVM (<a href="https://bugs.scummvm.org/ticket/9749">#9749 - SCI: SQ6: Shuttle Bay Entrance bug</a>). ScummVM’s developers have included many, many improvements to SCI engine games (including <a href="https://github.com/scummvm/scummvm/blob/master/engines/sci/engine/script_patches.cpp#L25289-L25318">script patches for SQ6</a>), however apparently the issue here is a little different.</p>
+
+<p>Sierra actually <a href="https://patents.google.com/patent/US5287446A">patented</a> their <a href="http://sciwiki.sierrahelp.com/index.php/ToDo/Pathfinding/Patent">pathfinding algorithm</a>, so the ScummVM engineers had to do their own version of it instead. This can result in some visual anomalies like in the screenshot above.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00008.png" alt="" /></p>
+
+<p>As with most Sierra adventure games, you run around picking stuff up in hopes of using it later to solve some puzzle. The inventory puzzles in this game weren’t all that challenging, and it was actually pretty clever how the fish kept ending up in your possession as you progressed.</p>
+
+<p>I assumed this was being set up as <a href="https://en.wikipedia.org/wiki/Red_herring">“red herring”</a> gag, but this fish would actually end up being the solution to the final puzzle in the game (spoiler), so several times when you were about to leave an area permanently, a character threw it to you so you’d have it again.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00012.png" alt="" /></p>
+
+<p>Overall, the voice acting is not great. I couldn’t bring myself to disable speech altogether though because <a href="https://en.wikipedia.org/wiki/Gary_Owens">Gary Owens</a> as the narrator just crushes it. If it weren’t for his dry, sarcastic delivery throughout the game I’d likely knock several more points off the <em>Sound</em> score.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00024.png" alt="" />
+<em>By far, this is my favourite scene in the game</em></p>
+
+<p>Whereas the previous game was a parody of Star Trek, Space Quest 6 is a mishmash of various science fiction properties that were popular at the time the game came out. Almost every name and location is a parody or pun - which if you’re in on the joke adds to the experience. I’m not sure how accessible the writing of the game is to a modern audience as a result.</p>
+
+<p>The overarching plot involves Roger initially being targeted for “Project Immortality”, but instead his colleague Stellar Santiago is taken (after she saves Roger’s life). He then needs to rescue her by first finding her, then being shrunk down to enter her digestive system and destroy some nanobots.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00029.png" alt="" /></p>
+
+<p>I really didn’t find the story to be all that interesting and it was mostly forgettable. The puzzles aren’t overly difficult, and typically just involve fetch quests and backtracking. The game’s locations aren’t that expansive, so searching everywhere doesn’t take all that long, and though there’s a bit of <a href="https://en.wiktionary.org/wiki/pixel_hunting">pixel-hunting</a> on certain screens, key items are typically out in the open.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00017.png" alt="" /></p>
+
+<p>Unfortunately, I didn’t find nearly as many interesting ways to die as I would have in previous games, and the message you’re prompted with is fairly generic. This was part of the fun of the Space Quest series, and I found after about an hour of playing the game I didn’t bother messing around to see how I might die as it just wasn’t proving to be all that entertaining.</p>
+
+<p>For new gamers it’s appreciated that you get a “Try Again” option, which just rewinds back to right before you made a mistake and doesn’t force you to rely on an earlier save. It’s fairly obvious most of the time though what the “right” choice is, so you likely won’t die too often.</p>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00033.png" alt="" /></p>
+
+<p>Space Quest 6 ends on a cliffhanger, but since there was never a sequel made this is effectively where the series concludes. The game doesn’t have the same feel as the previous 5 entries in the series, and this is likely due to it not actually being made by the “Two Guys from Andromeda”, but instead <a href="https://en.wikipedia.org/wiki/Josh_Mandel_(video_game_designer)">Josh Mandel</a>.</p>
+
+<p>Mandel designed the game, but left near the end of production and Scott Murphy (on of the “Two Guys”) came in to finish it off. This is likely why some of the gameplay feels uneven, which is confirmed in a 2006 interview with Josh Mandel:</p>
+
+<blockquote>
+  <p><em>“One of the inventory items cut was a comic book CD in Nigel’s room that was fully readable and had all the hints to the Datacorder puzzle. From a writing and design standpoint, it was fully finished, and I know that Barry Smith had started the artwork. I don’t understand why it was cut. But the comic book content was something I’d worked on for months, and it was something that I was uncharacteristically proud of … I think it would’ve been one of the greatest parody sequences in the SQ series. So not only was I very upset not to see it in the game, but the fact that they had to put the Datacorder hints in the manual, leading player to think it was meant to be copy protection, disturbed me greatly.”</em></p>
+</blockquote>
+
+<p><img src="/images/adventure/sq6/scummvm-sq6-00011.png" alt="" />
+<em>I guess this wasn’t meant to be copy protection</em></p>
+
+<p>The Datacorder puzzle did feel like copy protection, so I feel Josh’s frustration and am genuinely curious as to what the comic book CD experience would have been like. I guess we’ll never know, just like we’ll never know what Stellar Santiago meant when she said we were “going to like the next mission” …</p>
+
+<p>Space Quest 6 isn’t great, but it’s good enough to play through at least once. If you’re only going to play one game in the series though, I’d recommend either <a href="/blog/2024/02/16/space-quest-iii/">Space Quest III</a> or <a href="/blog/2024/09/10/space-quest-v/">Space Quest V</a>.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Space Quest 6: The Spinal Frontier</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>July 11, 1995</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Windows, Macintosh</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/8862">How Long To Beat?</a></td>
+      <td>5.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.wiw.org/~jess/sq6.html">Walkthrough</a>, <a href="https://spacequest.net/sq6/manual/">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (10)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>52%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq6/scummvm-sq6-00001.png', thumb: '/images/adventure/sq6/scummvm-sq6-00001.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00002.png', thumb: '/images/adventure/sq6/scummvm-sq6-00002.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00003.png', thumb: '/images/adventure/sq6/scummvm-sq6-00003.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00004.png', thumb: '/images/adventure/sq6/scummvm-sq6-00004.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00006.png', thumb: '/images/adventure/sq6/scummvm-sq6-00006.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00007.png', thumb: '/images/adventure/sq6/scummvm-sq6-00007.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00009.png', thumb: '/images/adventure/sq6/scummvm-sq6-00009.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00010.png', thumb: '/images/adventure/sq6/scummvm-sq6-00010.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00013.png', thumb: '/images/adventure/sq6/scummvm-sq6-00013.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00014.png', thumb: '/images/adventure/sq6/scummvm-sq6-00014.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00015.png', thumb: '/images/adventure/sq6/scummvm-sq6-00015.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00016.png', thumb: '/images/adventure/sq6/scummvm-sq6-00016.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00018.png', thumb: '/images/adventure/sq6/scummvm-sq6-00018.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00019.png', thumb: '/images/adventure/sq6/scummvm-sq6-00019.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00023.png', thumb: '/images/adventure/sq6/scummvm-sq6-00023.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00025.png', thumb: '/images/adventure/sq6/scummvm-sq6-00025.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00026.png', thumb: '/images/adventure/sq6/scummvm-sq6-00026.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00027.png', thumb: '/images/adventure/sq6/scummvm-sq6-00027.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00028.png', thumb: '/images/adventure/sq6/scummvm-sq6-00028.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00030.png', thumb: '/images/adventure/sq6/scummvm-sq6-00030.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00031.png', thumb: '/images/adventure/sq6/scummvm-sq6-00031.png' },{ src: '/images/adventure/sq6/scummvm-sq6-00032.png', thumb: '/images/adventure/sq6/scummvm-sq6-00032.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/145/space-quest-6-roger-wilco-in-the-spinal-frontier/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Under a Killing Moon (Access Software) - 1994</title><link href="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/" rel="alternate" type="text/html" title="Under a Killing Moon (Access Software) - 1994" /><published>2024-09-20T06:03:15-04:00</published><updated>2024-09-30T20:25:01-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -2038,197 +2224,4 @@ Anything unexpected or notable that’s worth calling out?</p>
       <p><small>Description from <a href="https://www.mobygames.com/game/13178/bargon-attack/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Coktel Vision" /><category term="Gob" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/bargon/scummvm-bargon-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/bargon/scummvm-bargon-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jurassic Park (Sega of America) - 1993</title><link href="https://www.alexbevi.com/blog/2024/07/15/jurassic-park/" rel="alternate" type="text/html" title="Jurassic Park (Sega of America) - 1993" /><published>2024-07-15T17:13:20-04:00</published><updated>2024-07-17T07:34:00-04:00</updated><id>https://www.alexbevi.com/blog/2024/07/15/jurassic-park</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/07/15/jurassic-park/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Jurassic_Park_(Sega_CD_video_game)">Jurassic Park</a> is a 1994 point-and-click adventure game developed and published by Sega for the Sega CD. The video game is based on the 1993 film of the same name, and includes elements from Michael Crichton’s 1990 novel Jurassic Park, which the film is based upon.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-11 19.58.58.png" alt="" /></p>
-
-<p>The story takes place after the events of the movie/book. You are sent back to Jurassic Park to retrieve dinosaur eggs from around the park and put them in an incubator. You only have 12 hours to retrieve one egg from every species of dino in the park. Unfortunately, shortly before arriving at the park, your helicopter crashes!<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-11 19.40.13.png" alt="" /></p>
-
-<p>I didn’t have any Sega systems when I was growing up, so having an opportunity to play some of these games on either the Genesis or Sega CD is not something I’m going to pass up. I don’t really know anything about the system, according to the <a href="https://en.wikipedia.org/wiki/Sega_CD#Technical_specifications">technical specs</a> I guess the Sega CD was just an expansion unit for the Genesis, so it’s not going to really improve the look or feel of these games - though it did have a CPU that ran 5 MHz faster than the Genesis 💨.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-11 19.56.37.png" alt="" /></p>
-
-<p>Once you hit <code class="language-plaintext highlighter-rouge">START</code> to begin the game, your objective is very succinctly splashed across the screen, you hear the crash and the adventure begins and you get to start trying to figure out the UI and how to interact with the game world.</p>
-
-<p>The game splits the view into 3 “strips”. The top strip shows the currently selected item/action, the direction you’re facing, how much time you have left and your health. I don’t really know what the satellite icon represented and couldn’t find anything in the <a href="https://segaretro.org/images/f/fe/Jurassicpark_mcd_us_manual.pdf">manual</a> about it either.</p>
-
-<p>The middle half of the screen is the game view, which is typically a 360 degree view of the current location. As you move the cursor left or right you can see the game screen scroll and the direction in the top strip will update accordingly.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-12 06.48.44.png" alt="" /></p>
-
-<p>Moving the cursor around the screen will give you an idea what you can interact with or where you can go. The cursor helpfully turns into a little hand if you can pick something up, an arrow if you can move in a certain direction, or a magnifying glass so you can inspect the thing you’ve hovered over.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 08.00.17.png" alt="" /></p>
-
-<p>There are quite a few items you can pick up and use, though where you can use things can be a bit unintuitive. As you move around the park there are paths blocked or doors that are inaccessible but the cursor doesn’t always give you a visually appropriate cue that there’s something you need to do - such as use an item.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 07.57.02.png" alt="" />
-<em>Keep your eyes peeled for that green <code class="language-plaintext highlighter-rouge">X</code> cursor change</em></p>
-
-<p>If you’ve got the cursor icon selected (and not an item) you may get a green <code class="language-plaintext highlighter-rouge">X</code>to show up as you sweep the cursor across the screen. This is typically an indication that you can use an item on that spot, but it’s up to you to pick the right item for the situation.</p>
-
-<p>In the case of the above screenshot of the raptor’s nest, you need to throw a rock at the boulders to cause them to cave in and scare some of the raptors to run out of the cave - allowing you to sneak in and steal their eggs.</p>
-
-<p>Speaking of rocks, make sure you pick them ALL UP! The game doesn’t tell you how many you have, but you’ll need at least 5-6 and some puzzles involve using 2 at a time.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-12 06.33.57.png" alt="" /></p>
-
-<p>The bottom strip of the screen shows your permanent items, such as the night vision goggles or the motion detector. The latter is extremely useful when you’re navigating an area with dinosaurs as it lets you know what direction they might attack you from.</p>
-
-<p>If you’ve picked up any dinosaur eggs it will also let you know. This reminder is important because the goal of the game is to get those eggs back to the incubator. If you hold onto the eggs for too long, the dinosaur inside dies.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 08.10.46.png" alt="" /></p>
-
-<p>Every time you pick up eggs you should high tail it back to the visitor center to load the eggs into the incubator. You only need to collect one sample per dinosaur, so if a few sample die along the way you still have a bit of a buffer.</p>
-
-<p>Pausing the game will also bring up a summary that lets you know how many eggs you’ve collected, along with how many samples have died.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-11 19.45.23.png" alt="" /></p>
-
-<p>Navigating through this game is pretty straightforward, and though figuring out which items to use where isn’t always intuitive, you can typically just cycle through all your items on a given action area and trial and error your way to a solution.</p>
-
-<p>Picking the wrong item will give audible feedback that you chose wrong, so it’s obvious you need to try again. The one exception I found was putting the gas in the boat.</p>
-
-<p>For this puzzle you need to fill the boat with gas, but unlike <em>every other interaction in this game</em>, you need to hold down the <code class="language-plaintext highlighter-rouge">C</code> button to <em>keep</em> filling the tank until the cursor changes indicating you can now move in that direction.</p>
-
-<p>This threw me off for a while because I would just “use” the item and expect it to work … but apparently you had to “keep using” it in this case.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-12 06.36.04.png" alt="" /></p>
-
-<p>Jurassic Park incorporates an arcade shooter style mechanic as well. You can pick up various weapons throughout the game that you can use on the dinosaurs to get them out of your way, or distract/stun them.</p>
-
-<p>When you select a weapon the cursor changes to a target and your ammo will be displayed at the top of the screen. You have <em>very</em> limited ammo, and you can only replenish your tranquilizer darts <em>once</em>.</p>
-
-<p>These arcade sequences get harder and harder as the game goes on, and you have very limited health. I’m fairly certain you can top your health up as many times as you want at the visitor center, but having to constantly backtrack to do this is a pain in the ass.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-11 20.05.52.png" alt="" /></p>
-
-<p>As you move between areas you’ll sometimes get a brief animation, which acts as a screen transition with some background music.</p>
-
-<p>The sound effects and music definitely add some ambiance, but it’s a bit weird that none of the music from the movie was included. Not sure if this was a technical limitation, an oversight or something else - but having at least one entry from the iconic soundtrack on the title screen or something would have been a welcome addition.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 17.01.54.png" alt="" /></p>
-
-<p>Right from the beginning the game lets you know you only have 12 hours to complete the task of incubating one of each dinosaur species’ eggs. If you can pull this off you’ll see a helicopter fly by and land, which you’ll have to get to - but first a group of 4 “bad guys” will try to take you out.</p>
-
-<p>This final arcade sequence is <em>really</em> hard - especially if you don’t top up your tranquilizer dart supply. I had plenty of stunner charges, but these do nothing in this scenario so going into this fight with only 15 darts was a guaranteed game over …</p>
-
-<p>I’m not really sure why these guys are trying to prevent me from getting to the helicopter, but for this sequence I was extremely grateful to be playing the game on an emulator. I was using save states pretty heavily here, and ended up using pause/frame-advance for the last enemy just to finish the game with like 1 health bar left.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 17.03.51.png" alt="" />
-<em>Once the credits roll you’ll be greeted by the same “Game Over” screen as if you’d died</em></p>
-
-<p>For an adventure game, Jurassic Park is definitely interesting. It’s sort of a cross between Myst and an arcade-style shooter. The fact that you’re on a timer adds a sense of urgency to the game, but your objectives are clear from the outset so you know what you’re trying to accomplish at all times.</p>
-
-<p>My biggest issue with the game is how unintuitive a lot of the puzzles are. Getting the raptor key by throwing rocks into the water to make the water level rise wasn’t obvious - and once I did finally try throwing a rock in there it turns out I needed at least two rocks, so I had to backtrack (or reload) to make sure I came back to the area with the right items.</p>
-
-<p>The T-Rex fight didn’t make a lot of sense either. The info disc you can watch in-game indicates you should shoot him in the cheek to stun him, so you do that a whole bunch but I don’t really know how you’d come to the conclusion you should use the gas grenades on him twice to get him to raise his head so you can dash under him into the sewers.</p>
-
-<p><img src="/images/adventure/jp/Jurassic Park 2024-07-15 17.10.00.png" alt="" />
-<em>Jump to any screen in the game using the handy debug menu</em></p>
-
-<p>While researching this game I stumbled across <a href="https://www.mobygames.com/person/63182/doug-lanford/">Doug Landford</a>’s website, where he shares <a href="https://www.opusgames.com/games/jpark/jp.html">a blog post</a> about his experience working on this game - including how you can trigger the debug menu.</p>
-
-<p>I enjoy learning about the behind the scenes experiences of the teams that build these games, as it can shed some light on how we ended up with the final product. It seems this game used <a href="https://en.wikipedia.org/wiki/QSound">QSound</a> to augment the audio, but this isn’t something I was able to experience (not sure if it’s emulated or not - but I don’t have a stereo setup anyway).</p>
-
-<p>Overall the game isn’t bad, but I can’t imagine there’s much of an audience for this. Maybe if the game had taken advantage of the <a href="https://segaretro.org/Sega_Mouse">Sega mouse</a> it might have made the arcade sequences a bit more fun, but as an “adventure game” I think you can pass it up.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Jurassic Park</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sega_of_America">Sega of America</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sega_of_America">Sega</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>December 17, 1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Sega CD</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/4896"><em>How Long To Beat?</em></a></td>
-      <td>5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>Sega CD via <a href="http://openemu.org/">OpenEmu</a> &gt; <a href="https://segaretro.org/Genesis_Plus_GX">Genesis Plus GX</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://gamefaqs.gamespot.com/genesis/563328-jurassic-park/faqs/5334">Walkthrough</a>, <a href="https://segaretro.org/images/f/fe/Jurassicpark_mcd_us_manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Atmosphere (20)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Story (25)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Experience (15)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Impact (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>36%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 19.42.56.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 19.42.56.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 19.43.51.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 19.43.51.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 19.45.18.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 19.45.18.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 19.48.18.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 19.48.18.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 20.08.51.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 20.08.51.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-11 20.09.12.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-11 20.09.12.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-12 06.42.43.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-12 06.42.43.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-14 19.56.55.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-14 19.56.55.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-14 20.01.37.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-14 20.01.37.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-14 20.17.51.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-14 20.17.51.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-14 20.25.13.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-14 20.25.13.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-14 20.28.07.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-14 20.28.07.png' },{ src: '/images/adventure/jp/Jurassic Park 2024-07-15 17.03.36.png', thumb: '/images/adventure/jp/Jurassic Park 2024-07-15 17.03.36.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/12129/jurassic-park/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sega" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/jp/Jurassic%20Park%202024-07-11%2019.39.35.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/jp/Jurassic%20Park%202024-07-11%2019.39.35.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Coktel Vision" /><category term="Gob" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/bargon/scummvm-bargon-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/bargon/scummvm-bargon-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
