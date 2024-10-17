@@ -31,7 +31,7 @@ Nothing's set in stone, so now's as good a time as any to correct this misstep a
 
 In an attempt to improve the overall rating system used for the series I've decided to expand the categories and make the total score out of 100. I've also included some more opinionated criteria to allow me to boost games that I personally enjoyed - even if they're less critically acclaimed.
 
-> [10] **Graphics**<br/>
+> [15] **Graphics**<br/>
 > The overall visual experience of the game can include background art, character models, game interface, cutscenes, inventory design and basically anything that you can see while playing the game.
 >
 > [10] **Sound**<br/>
@@ -46,7 +46,7 @@ In an attempt to improve the overall rating system used for the series I've deci
 > [15] **Gameplay / Experience**<br/>
 > This is a game ... so is it fun to play? The goal is to get from some starting point to some ending point, but was this journey worth your time? Sometimes these games can be a joy to play through and sometimes they're a slog and focus too heavily on "filler" or elements that artificially pad out play time.
 >
-> [10] **Replayability**<br/>
+> [5]  **Replayability**<br/>
 > Once the game is complete would you ever find yourself itching to play it again? Was the game fun to play or experience, or offer some variety of gameplay or character selection that could entice you back for repeated playthroughs.
 >
 > [10] **Impact / Impression**<br/>

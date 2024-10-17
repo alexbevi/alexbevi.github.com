@@ -101,15 +101,15 @@ Space Quest 6 isn't great, but it's good enough to play through at least once. I
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
-|**Graphics (10)**|6|
+|**Graphics (15)**|9|
 |**Sound (10)**|6|
 |**Plot / Progression (25)**|15|
 |**Characters / Development (15)**|8|
 |**Gameplay / Experience (15)**|9|
-|**Replayability (10)**|2|
+|**Replayability (5)**|2|
 |**Impact / Impression (10)**|5|
 |**Bonus / Surprise (5)**|1|
-||**52%**|
+||**55%**|
 
 ### Gallery
 
