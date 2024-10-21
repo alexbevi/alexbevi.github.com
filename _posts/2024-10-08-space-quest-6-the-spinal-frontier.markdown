@@ -3,7 +3,7 @@ layout: post
 title: "Space Quest 6: The Spinal Frontier (Sierra On-Line) - 1995"
 date: 2024-10-08 08:18:09 -0400
 comments: true
-categories:
+categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", SCI]
 image: /images/adventure/sq6/scummvm-sq6-00000.png
 ---

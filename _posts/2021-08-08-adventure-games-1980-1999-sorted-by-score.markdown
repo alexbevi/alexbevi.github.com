@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 88  -%}
+{%- assign games_finished = 89  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -91,6 +91,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **44%** [Uninvited (ICOM Simulations)]({% post_url 2023-08-09-uninvited %}) - 1986
 1. **43%** [Eternam (Infogrames)]({% post_url 2023-02-07-eternam %}) - 1992
 1. **43%** [The Scoop (Telarium)]({% post_url 2024-09-13-the-scoop %}) - 1986
+1. **42%** [Hook (Ocean)]({% post_url 2024-10-20-hook %}) - 1992
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 1. **41%** [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
 1. **40%** [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
