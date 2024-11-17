@@ -118,3 +118,4 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
+1. **xx%** [King's Quest III: To Heir Is Human (Sierra On-Line)]({% post_url 2024-10-25-kings-quest-iii %}) - 1986
