@@ -89,6 +89,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **44%** [Torin's Passage (Sierra On-Line)]({% post_url 2023-06-07-torins-passage %}) - 1995
 1. **44%** [Uninvited (ICOM Simulations)]({% post_url 2023-08-09-uninvited %}) - 1986
+1. **43%** [King's Quest III: To Heir Is Human (Sierra On-Line)]({% post_url 2024-10-25-kings-quest-iii %}) - 1986
 1. **43%** [Eternam (Infogrames)]({% post_url 2023-02-07-eternam %}) - 1992
 1. **43%** [The Scoop (Telarium)]({% post_url 2024-09-13-the-scoop %}) - 1986
 1. **42%** [Hook (Ocean)]({% post_url 2024-10-20-hook %}) - 1992
@@ -118,4 +119,3 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
-1. **xx%** [King's Quest III: To Heir Is Human (Sierra On-Line)]({% post_url 2024-10-25-kings-quest-iii %}) - 1986
