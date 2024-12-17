@@ -7,9 +7,9 @@ categories: [MongoDB]
 tags: [mongodb, wiredtiger, scripting]
 image: /images/mongodb-logo.png
 ---
-> UPDATED 2024-12-17
-> Starting in MongoDB 8.0, you can use the new [`autoCompact`](https://www.mongodb.com/docs/manual/reference/command/autoCompact/) command to perform background compaction. If enabled, the server attempts to keep free space within each collection and index below the specified the `freeSpaceTargetMB` value.
-{: .prompt-tip }
+
+> **December 17, 2024**: Starting in MongoDB 8.0, you can use the new [`autoCompact`](https://www.mongodb.com/docs/manual/reference/command/autoCompact/) command to perform background compaction. If enabled, the server attempts to keep free space within each collection and index below the specified the `freeSpaceTargetMB` value.
+{: .prompt-info }
 
 A common question when it comes to MongoDB and the (default) storage engine ([WiredTiger](https://docs.mongodb.com/manual/core/wiredtiger/)) is "Why is it after I removed a bunch of documents my free space didn't increase"?
 
