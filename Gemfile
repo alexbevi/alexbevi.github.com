@@ -44,3 +44,6 @@ group :development do
 end
 
 gem "liquid-c"
+gem "csv"
+gem "base64"
+gem "bigdecimal"

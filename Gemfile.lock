@@ -3,8 +3,11 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    base64 (0.2.0)
+    bigdecimal (3.1.9)
     colorator (1.1.0)
     concurrent-ruby (1.3.4)
+    csv (3.3.2)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -21,6 +24,7 @@ GEM
       faraday (~> 2.0)
     ffi (1.17.0)
     forwardable-extended (2.6.0)
+    google-protobuf (3.25.5)
     google-protobuf (3.25.5-x86_64-darwin)
     google-protobuf (3.25.5-x86_64-linux)
     html-proofer (3.19.4)
@@ -92,8 +96,12 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.6.1)
     mercenary (0.4.0)
+    mini_portile2 (2.8.8)
     net-http (0.4.1)
       uri
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
@@ -117,6 +125,10 @@ GEM
     sass-embedded (1.69.5)
       google-protobuf (~> 3.23)
       rake (>= 13.0.0)
+    sass-embedded (1.69.5-x86_64-darwin)
+      google-protobuf (~> 3.23)
+    sass-embedded (1.69.5-x86_64-linux-gnu)
+      google-protobuf (~> 3.23)
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
@@ -131,12 +143,16 @@ GEM
     yell (2.2.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-21
   x86_64-darwin-22
   x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
+  base64
+  bigdecimal
+  csv
   faraday-retry
   html-proofer (~> 3.18)
   http_parser.rb (~> 0.6.0)
