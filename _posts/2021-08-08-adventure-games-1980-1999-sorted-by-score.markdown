@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 91  -%}
+{%- assign games_finished = 92  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -82,6 +82,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **50%** [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 1. **49%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
 1. **49%** [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
+1. **48%** [Return of the Phantom (MicroProse)]({% post_url 2024-12-30-return-of-the-phantom %}) - 1993
 1. **47%** [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
 1. **47%** [Manhunter 2: San Francisco (Evryware)]({% post_url 2023-09-06-manhunter-san-francisco %}) - 1989
 1. **46%** [Lure of the Temptress (Revolution Software)]({% post_url 2024-04-16-lure-of-the-temptress %}) - 1992

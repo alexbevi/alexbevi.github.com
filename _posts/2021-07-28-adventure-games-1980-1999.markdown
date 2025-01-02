@@ -70,7 +70,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 91 -%}
+{%- assign games_finished = 92 -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -236,7 +236,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 146. [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 147. Pepper's Adventures in Time (Sierra On-Line) - 1993
 148. Putt-Putt Goes to the Moon (Humongous Entertainment) - 1993
-149. Return of the Phantom (MicroProse) - 1993
+149. [Return of the Phantom (MicroProse)]({% post_url 2024-12-30-return-of-the-phantom %}) - 1993
 150. Sherlock Holmes: Consulting Detective Vol. III (ICOM Simulations) - 1993
 151. The Journeyman Project (Presto Studios) - 1993
 152. [Space Quest V: Roger Wilco – The Next Mutation (Dynamix)]({% post_url 2024-08-21-space-quest-v %}) - 1993
