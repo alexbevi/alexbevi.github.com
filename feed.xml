@@ -1,4 +1,229 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-02T06:26:05-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-01-02T06:25:21-05:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-27T06:02:32-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-01-27T06:01:15-05:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Neuromancer_(video_game)">Neuromancer</a> is an adventure video game developed by Interplay Productions and published by Mediagenic (a brand name of Activision). It was released in 1988 for the Amiga, Apple II, Apple IIGS, Commodore 64, and MS-DOS. It was loosely based on <a href="https://en.wikipedia.org/wiki/Neuromancer">William Gibson’s 1984 novel of the same name</a> and set within both the fictional “real world” and the extensively realized and detailed world of cyberspace.</p>
+
+<p><img src="/images/adventure/neuromancer/062.png" alt="" /></p>
+
+<p>In a grimy future, you play Case, a cyberspace cowboy who finds himself broke in Chiba City. Find yourself a laptop and the right software for it so you can hack into databases around the city to regain your access to cyberspace. Buy and upgrade brain implant chips to augment your computer skills, and sell your body parts to afford new technologies. When you get to cyberspace, you’ll take on the nasty AIs that guard the most important databases. Within all this information is the bizarre secret of this world of inbred corporations.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/images/adventure/neuromancer/038.png" alt="" />
+<em>I played the Amiga version, which starts off with a <a href="https://www.youtube.com/watch?v=DT7sXsoFpZA">Paradox cracktro</a></em></p>
+
+<p>Though I haven’t re-read the source material in well over 20 years, I have very fond memories of Neuromancer. That book kicked off a lifelong love of the cyberpunk genre, so I’ve been looking forward to playing this game since I kicked off this series.</p>
+
+<p>It doesn’t seem to follow the events of the book at all, but definitely exists in the same universe. You start off in a bar, where you apparently spent the night that you owe the bartender money for.</p>
+
+<p><img src="/images/adventure/neuromancer/041.png" alt="" /></p>
+
+<p>You’ll also have a chance to explore the limited interface, which includes a PAX button. PAX is sort of like a basic bulletin board system, that you can read news on or access your banking information. Since you start with no money in hand, you’ll need to access your bank account and transfer all your money.</p>
+
+<p>From the initial PAX screen you’ll learn some link codes, and also that someone named Shin has your cyberdeck.</p>
+
+<p>Since I played a cracked version I didn’t need to refer to the <a href="https://www.c64sets.com/details_db.html?id=3227&amp;t=Neuromancer&amp;i=PAX%20verification%20code%20wheel">code wheel</a> that you’d typically need to access the PAX.</p>
+
+<p><img src="/images/adventure/neuromancer/045.png" alt="" />
+<em>Yes, that’s a door below you you’ll need to go through</em></p>
+
+<p>Navigating the game world is done using the mouse. It’s not always obvious what/where the exit to a room is, especially when there’s door at the bottom of the screen. Once you get used to keeping an eye out for these tiny slivers of doorway though it’s not too difficult to navigate the game world.</p>
+
+<p><img src="/images/adventure/neuromancer/048.png" alt="" /></p>
+
+<p>The majority of the game is spent “online”. You’ll need to first get your deck back from Shin, then find a location that has jack you can use. The most convenient location for this is the Cheap Hotel, and you’ll spend a good portion of the game here navigating various online systems, then eventually cyberspace.</p>
+
+<p>Gaining access to a system requires a link code and a password. These are scattered throughout various messages you can read online, and are fairly straightforward to find - just make sure you write them down.</p>
+
+<p><img src="/images/adventure/neuromancer/042.png" alt="" /></p>
+
+<p>Going online costs money, and the longer you spend online - the more money you’ll gradually lose. Gaining additional money in this game can be done in one of two ways. Either you find an account online you can transfer money out of (into your account), or you sell body parts.</p>
+
+<p>At the Body Shop, you can incrementally sell off your body parts for cash. The more parts you sell, the lower your HP (constitution?) will drop. You’ll need this later in the game when you need to start attacking databases and ICE, but you can buy your body parts back as you get more money to regain your HP.</p>
+
+<p><img src="/images/adventure/neuromancer/067.png" alt="" /></p>
+
+<p>You piece the plot of the game and your objectives together slowly by reading through the various messages on each system you gain access to. There aren’t really that many actions you can take on these systems other than reading through the contents, but many will have software (“softwarez”) libraries you can access.</p>
+
+<p>Your deck has limited storage, so you’ll need to be mindful of what software you’re carrying and how much space you have available. As you download better versions of your software, you can delete the older versions to make room.</p>
+
+<p><img src="/images/adventure/neuromancer/052.png" alt="" /></p>
+
+<p>There are a handful of characters and machines you can interact with as well using the conversation system. Typically these involve cycling through a pre-determined list of options you can ask them about, but some also have a free-form text field you can fill out.</p>
+
+<p>This allows you to ask about specific topics, which you’ll either learn from other characters or from the messages you read on bulletin boards.</p>
+
+<p><img src="/images/adventure/neuromancer/056.png" alt="" /></p>
+
+<p>The more time you spend online, the lower your finances will fall. Thankfully there are a couple of opportunities to infiltrate banks and transfer (steal) fairly large balances of credits to your account.</p>
+
+<p>You’ll need this money to purchase skills, upgrade your cyberdeck and buy various items. If you successfully complete these missions, remember to access your account via the PAX to download your credits so you can go shopping.</p>
+
+<p><img src="/images/adventure/neuromancer/060.png" alt="" /></p>
+
+<p>Though there aren’t that many items in the game you need to interact with, there are a couple of fetch quests you’ll need to undertake. These typically just involve going back and forth between characters and asking questions, or going online and changing some information about a character to get them arrested (so they’re not blocking a doorway).</p>
+
+<p>For this playthrough I found myself leaning on the <a href="https://www.walkthroughking.com/text/neuromancer.aspx">walkthrough</a> pretty heavily for these sequences as it wasn’t always obvious what I was supposed to do.</p>
+
+<p><img src="/images/adventure/neuromancer/068.png" alt="" /></p>
+
+<p>Once you upgrade your deck to one that can access cyberspace, you’ll be able to jack into the matrix and access various databases. Similar to the sites you have access to via the comlink systems, once you enter a database you’ll be able to read messages and download software.</p>
+
+<p>The difference though is you’ll need to defeat the ICE (<a href="http://en.wikipedia.org/wiki/Intrusion_Countermeasures_Electronics">Intrusion Countermeasure Electronics</a>) first.</p>
+
+<p><img src="/images/adventure/neuromancer/080.png" alt="" /></p>
+
+<p>Fighting ICE is done with ICE-breaking software. This software is classified loosely into 3 categories: Good, Better and Best - which you’ll learn from one of the message boards.</p>
+
+<p>The manual sort of calls out that ICE-breaking requires a lot of trial and error, and the best way to gain access to a database is to just try various combinations to see what’s effective. As a result, make sure you save before each battle - just in case.</p>
+
+<p><img src="/images/adventure/neuromancer/072.png" alt="" />
+<em>Death is not permanent - but it is expensive</em></p>
+
+<p>If you fail to break the ICE and experience brain death, you’ll respawn in the Body Shop - minus all your money. This is VERY difficult to recover from, so you’re better off to just reload a previous save and try again.</p>
+
+<p>Assuming you haven’t sold all your body parts, you could do this to gain a little extra cash, but honestly it’s not worth it … just reload.</p>
+
+<p><img src="/images/adventure/neuromancer/088.png" alt="" /></p>
+
+<p>Your objective will ultimately be to seek out and destroy all the AI in cyberspace. There are two competing AI - Greystroke and Neuromancer - that are trying to get the other to join them to dominate cyberspace. At least that’s what I think is happening …</p>
+
+<p>Each AI is hidden behind an ICE you’ll need to break, and the later in the game you get, the harder they are. One aspect of this game that I didn’t realize was that you’ll need to jack out of cyberspace periodically to recover your HP.</p>
+
+<p>After each ice confrontation if you try to access another database, it looks like your “health” is full - but it actually isn’t.</p>
+
+<p>I think it was after I’d just barely gained access to the KGB system, I moved onto the next database and found no matter what I tried, I’d die in one shot. It must have taken me a few weeks of on-and-off messing around reading other reviews and blogs (like the <a href="https://advgamer.blogspot.com/2013/07/game-32-neuromancer-oceans-one.html">Adventurer’s Guild review</a>) before I finally realized this was what you needed to do.</p>
+
+<p><img src="/images/adventure/neuromancer/092.png" alt="" /></p>
+
+<p>Defeating AIs is done with “skills”, which you buy and upgrade throughout the game. When you finally beat Neuromancer, you’ll be thrown onto a beach - which is just an illusion that it has created to trap you.</p>
+
+<p>Using some combination of skills allows you to escape, and once you do so you’ll have officially finished the game.</p>
+
+<p><img src="/images/adventure/neuromancer/094.png" alt="" /></p>
+
+<p>Overall, Neuromancer is a fun game. There are a handful of distinct gameplay mechanics that aren’t that hard to learn, but do take a while to master.</p>
+
+<p>There is occasionally background music, which isn’t bad - though I think it plays more prominently in other versions (like the C64). The Amiga version I played was mostly quiet, save for the title screen and once in a while.</p>
+
+<p>I’m fairly certain this was one of the first games I started playing for this series, but I did so using <a href="https://apple2.gs/plus/">GSPLUS</a> and had a number of issues that made the experience cumbersome. I really want to experience as many of these games on as many emulated systems as possible, so I stubbornly just kept trying to make the GSPLUS experience happen - and it wouldn’t - so I gave up on the game for a number of years.</p>
+
+<p>I’m really glad I circled back to it, as it really is a lot of fun. Though the similarities are not obvious, playing Neuromancer actually sort of reminded me a bit of <a href="https://en.wikipedia.org/wiki/Uplink_(video_game)">Uplink: Hacker Elite</a> - which I LOVE! I think it’s just the whole “cruising cyberspace and hacking” simulation portion of the game, but I found both to be equally enjoyable so figured it was worth calling out.</p>
+
+<p>There was an attempt to reverse engineer and reimplement this game for Windows called <a href="https://github.com/HenadziMatuts/Reuromancer">Reuromancer</a>, however I’m not sure how playable this engine actually is. If you have Google Translate, the <a href="https://habr.com/post/352050/">development blog</a> (which is in Russian) is a great read.</p>
+
+<p>I would highly recommend giving this game a chance. It can be extremely difficult and unforgiving, but if you like to read, the story is interesting and the gameplay is fairly accessible.</p>
+
+<p>If you’re looking for something to read instead, go grab the book!</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Neuromancer</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Interplay_Entertainment">Interplay Productions</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Mediagenic">Mediagenic</a></td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, Apple II, Apple IIgs, Commodore 64, DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/6508">How Long To Beat?</a></td>
+      <td>12 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Amiga via <a href="https://dirkwhoffmann.github.io/vAmiga/">vAmiga</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/neuromancer.aspx">Walkthrough</a>, <a href="https://mocagh.org/miscgame/neuromancer-manual.pdf">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>64%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/neuromancer/040.png', thumb: '/images/adventure/neuromancer/040.png' },{ src: '/images/adventure/neuromancer/043.png', thumb: '/images/adventure/neuromancer/043.png' },{ src: '/images/adventure/neuromancer/044.png', thumb: '/images/adventure/neuromancer/044.png' },{ src: '/images/adventure/neuromancer/046.png', thumb: '/images/adventure/neuromancer/046.png' },{ src: '/images/adventure/neuromancer/047.png', thumb: '/images/adventure/neuromancer/047.png' },{ src: '/images/adventure/neuromancer/049.png', thumb: '/images/adventure/neuromancer/049.png' },{ src: '/images/adventure/neuromancer/050.png', thumb: '/images/adventure/neuromancer/050.png' },{ src: '/images/adventure/neuromancer/051.png', thumb: '/images/adventure/neuromancer/051.png' },{ src: '/images/adventure/neuromancer/053.png', thumb: '/images/adventure/neuromancer/053.png' },{ src: '/images/adventure/neuromancer/054.png', thumb: '/images/adventure/neuromancer/054.png' },{ src: '/images/adventure/neuromancer/055.png', thumb: '/images/adventure/neuromancer/055.png' },{ src: '/images/adventure/neuromancer/057.png', thumb: '/images/adventure/neuromancer/057.png' },{ src: '/images/adventure/neuromancer/058.png', thumb: '/images/adventure/neuromancer/058.png' },{ src: '/images/adventure/neuromancer/059.png', thumb: '/images/adventure/neuromancer/059.png' },{ src: '/images/adventure/neuromancer/061.png', thumb: '/images/adventure/neuromancer/061.png' },{ src: '/images/adventure/neuromancer/063.png', thumb: '/images/adventure/neuromancer/063.png' },{ src: '/images/adventure/neuromancer/064.png', thumb: '/images/adventure/neuromancer/064.png' },{ src: '/images/adventure/neuromancer/065.png', thumb: '/images/adventure/neuromancer/065.png' },{ src: '/images/adventure/neuromancer/066.png', thumb: '/images/adventure/neuromancer/066.png' },{ src: '/images/adventure/neuromancer/069.png', thumb: '/images/adventure/neuromancer/069.png' },{ src: '/images/adventure/neuromancer/070.png', thumb: '/images/adventure/neuromancer/070.png' },{ src: '/images/adventure/neuromancer/071.png', thumb: '/images/adventure/neuromancer/071.png' },{ src: '/images/adventure/neuromancer/073.png', thumb: '/images/adventure/neuromancer/073.png' },{ src: '/images/adventure/neuromancer/074.png', thumb: '/images/adventure/neuromancer/074.png' },{ src: '/images/adventure/neuromancer/075.png', thumb: '/images/adventure/neuromancer/075.png' },{ src: '/images/adventure/neuromancer/076.png', thumb: '/images/adventure/neuromancer/076.png' },{ src: '/images/adventure/neuromancer/077.png', thumb: '/images/adventure/neuromancer/077.png' },{ src: '/images/adventure/neuromancer/078.png', thumb: '/images/adventure/neuromancer/078.png' },{ src: '/images/adventure/neuromancer/079.png', thumb: '/images/adventure/neuromancer/079.png' },{ src: '/images/adventure/neuromancer/081.png', thumb: '/images/adventure/neuromancer/081.png' },{ src: '/images/adventure/neuromancer/082.png', thumb: '/images/adventure/neuromancer/082.png' },{ src: '/images/adventure/neuromancer/083.png', thumb: '/images/adventure/neuromancer/083.png' },{ src: '/images/adventure/neuromancer/084.png', thumb: '/images/adventure/neuromancer/084.png' },{ src: '/images/adventure/neuromancer/085.png', thumb: '/images/adventure/neuromancer/085.png' },{ src: '/images/adventure/neuromancer/086.png', thumb: '/images/adventure/neuromancer/086.png' },{ src: '/images/adventure/neuromancer/087.png', thumb: '/images/adventure/neuromancer/087.png' },{ src: '/images/adventure/neuromancer/089.png', thumb: '/images/adventure/neuromancer/089.png' },{ src: '/images/adventure/neuromancer/090.png', thumb: '/images/adventure/neuromancer/090.png' },{ src: '/images/adventure/neuromancer/091.png', thumb: '/images/adventure/neuromancer/091.png' },{ src: '/images/adventure/neuromancer/093.png', thumb: '/images/adventure/neuromancer/093.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-01-27T06:01:15-05:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -213,7 +438,7 @@
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="httphttps://www.mobygames.com/game/2011/return-of-the-phantom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p><small>Description from <a href="https://www.mobygames.com/game/2011/return-of-the-phantom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Minor Hockey Budget Management and Automation</title><link href="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/" rel="alternate" type="text/html" title="Minor Hockey Budget Management and Automation" /><published>2024-12-29T08:12:07-05:00</published><updated>2024-12-29T08:41:09-05:00</updated><id>https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/"><![CDATA[<blockquote class="prompt-tip">
@@ -1902,231 +2127,4 @@
 
 <p>Though <a href="https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing">module aliasing</a> and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren’t meant to work with Node.js’ socket APIs. As a result, libraries such as MongoDB’s Node.js driver simply won’t be able to connect to anything.</p>
 
-<p>Some work <a href="https://jira.mongodb.org/browse/NODE-4785">was proposed</a> by MongoDB’s team to allow a custom transport layer to be provided, however this would still require Cloudflare Workers to support Node.js’ <a href="https://nodejs.org/api/tls.html">TLS</a> API as <a href="https://www.mongodb.com/docs/atlas/reference/faq/security/#can-i-disable-tls-on-my-deployment-">TLS cannot, for good reasons, be disabled for Atlas deployments</a>.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare Workers is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they announced support for a connect() API which allows TCP Sockets to be created within Workers, but is not a direct replacement for Node.js’ net.Socket API.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993</title><link href="https://www.alexbevi.com/blog/2024/09/10/space-quest-v/" rel="alternate" type="text/html" title="Space Quest V: Roger Wilco – The Next Mutation (Dynamix) - 1993" /><published>2024-09-10T06:20:32-04:00</published><updated>2024-09-10T09:15:59-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/10/space-quest-v</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/10/space-quest-v/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<blockquote class="prompt-tip">
-  <p>This is the first game that I’m reviewing since I <a href="/blog/2024/08/22/overhauling-my-scoring-criteria/">overhauled my scoring criteria</a> in August of 2024</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Space_Quest_V">Space Quest V: Roger Wilco – The Next Mutation</a> is a graphic adventure game, created by Dynamix, and released by Sierra On-Line for MS-DOS on February 5, 1993. The game is the fifth entry in the Space Quest series, and the first game to be only designed by Mark Crowe. The story, set within a spoof of the Star Trek franchise, focuses on players taking control of Roger Wilco, who achieves his dreams of becoming a star captain but winds up involved in saving the galaxy from a deadly threat posed by a man-made virus.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00012.png" alt="" /></p>
-
-<p>After traveling back and forth through time in the previous game, Roger Wilco is back in the Starfleet Academy, serving as both a cadet and a janitor. Cheating his way through the Starfleet Aptitude Test, Roger is finally given the rank of captain, his own ship (a garbage scow) and a mission: to explore strange new worlds (which no man in his right mind would explore), to seek out new life and new civilizations (which grew out of the massive amounts of trash Roger will collect on his way), to boldly go where no man has gone before. Step by step Roger will have to unveil a galaxy-wide biohazardous material dumping scheme, solve the mystery of the disappearance of a fellow Starfleet captain and his ship, and confront an agent of an old nemesis.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00024.png" alt="" /></p>
-
-<p>As I work my way through the games I’ve listed on this journey, Space Quest V was one I was more excited to replay as it has a lot of nostalgic value. I can still remember leafing through the <a href="https://www.spacequest.net/sq5/manual/sq5manual.pdf">Galactic Inquirer</a> that came with the game. At that time I would still occasionally go out grocery shopping with my parents and would see the tabloids at the check outs with headlines like <a href="https://www.ranker.com/list/funny-tabloid-headlines/nathandavidson">“Half-Man Half-Dog Baffles Doctors”</a>, so the format here was immediately appealing.</p>
-
-<p>Not really sure how well this stands up nowadays though…</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00001.png" alt="" /></p>
-
-<p>The manual gives you a couple pointers on how to get started on your adventure, including getting to your classroom and cheating on the StarCon Aptitude Test. Once you sit down and start taking the test, there is a robot monitoring everyone to make sure no one’s cheating - so clearly the goal here is to cheat.</p>
-
-<p>Roger can peer over to see the answers of the students to either side of him. If he gets caught, he’ll be ejected from the academy (into space) and it’s game over. If you copy from the wrong student you’ll get the wrong answers, so make sure you pick the smart kid to cheat off of (hint: the one with the big brain).</p>
-
-<p>When you select the right student you’ll hear the tone play that indicates your score has gone up. This is a sure fire way to confirm you’ve done something correctly that will advance the plot or direction of the game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00009.png" alt="" /></p>
-
-<p>The game is a mashup of all your favourite sci-fi properties such as Star Trek, Star Wars and Alien. Early on you’ll meet a critter on the shape that looks a lot like a <a href="https://avp.fandom.com/wiki/Facehugger">facehugger</a> from Alien. Instead of it killing you right away though, Roger thinks he looks cute, names him Spike and keeps him as a pet.</p>
-
-<p>Many story sequences are presented in this comic book panel style and it’s clear a lot of effort went into the artwork for this game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00002.png" alt="" /></p>
-
-<p>For game from 1993 you’re getting some of the best VGA graphics sprite-based artists could crank out. The character models are extremely expressive, the background artwork is detailed and there’s plenty of sight gags and hidden details to discover on each screen that immerses you in the experience.</p>
-
-<p>Space Quest games never take themselves too seriously, and Space Quest V is no exception. I really enjoy clicking the <code class="language-plaintext highlighter-rouge">LOOK</code> action on as much as I can on each screen as the feedback you get tends to be witty or funny.</p>
-
-<p>When Roger does something stupid, the sound effect they chose was Homer Simpson’s “DOH!”, which just feels weirdly appropriate for this game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00030.png" alt="" /></p>
-
-<p>There is no voice acting, and many scenes don’t have background music - just some looping background noise. When on the deck of your garbage scow the sound effects are what you’d expect to hear on the deck of the starship Enterprise.</p>
-
-<p>When you do get music in a scene it tends to help build tension or reinforce that something significant is about to happen, but it is used sparingly which can make some scenes feel a bit empty.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00025.png" alt="" /></p>
-
-<p>If you’ve played any of the Space Quest games you know that Roger Wilco is a bit of a tool, and sort of bumbles his way into situations he doesn’t belong in. For this installment in the series, he accidentally gets a perfect score on his StarCon Aptitude test and gets assigned to a starship as a captain.</p>
-
-<p>This starship is actually a garbage scow - which is appropriate seeing as you’re a janitor. You’ll have to fly to various locations to pick up garbage in space as you wait for instructions or story elements to unfold that direct you to your next location.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00008.png" alt="" /></p>
-
-<p>Initially you have 3 crew members, and you issue commands through various menus you can access from your control panel (click a coloured button to bring these up, or speak the crew members directly using the <code class="language-plaintext highlighter-rouge">COMMAND</code> icon).</p>
-
-<p>This is a bit more involved than previous games, but it ends up being fairly straightforward. You’ll need the Galactic Inquirer for the star codes to various planets (this is the copy protection), and the commands you issue are usually the same:</p>
-
-<ul>
-  <li>lay in a course</li>
-  <li>go to light speed</li>
-  <li>wait to arrive</li>
-  <li>go to regular speed</li>
-  <li>orbit planet</li>
-  <li>activate RSS</li>
-</ul>
-
-<p>This will suck up the space trash and allow you to proceed with the story.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00036.png" alt="" /></p>
-
-<p>Like all good Sierra games of this era, there are many ways to get yourself killed. The Space Quest series always tends to have the best game over screens, so it’s worth experimenting a bit to see how Roger’s untimely end can be met in various scenarios.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00014.png" alt="" /></p>
-
-<p>Also, like many Sierra games at the time, Space Quest V contains an unrelated mini-game that acts as filler. Instead of having to play poker like in <a href="/blog/2022/03/15/police-quest-1/">Police Quest: In Pursuit of the Death Angel</a>, or that stupid card game in <a href="/blog/2024/03/20/codename-iceman/">Codename: ICEMAN (Sierra On-Line)</a> … this time you play something like <a href="https://en.wikipedia.org/wiki/Battleship_(game)">Battleship</a>.</p>
-
-<p>Seeing as you can <a href="https://en.wiktionary.org/wiki/savescum">savescum</a> your way to victory pretty easily, there’s not much challenge here. It is a decent distraction and can be fun for a few minutes, so I appreciate the fact that it was included.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00033.png" alt="" /></p>
-
-<p>There is some variety to the gameplay, and at one point you are teleported down to a planet at the same time as a fly and end up having your genes spliced with the insect. Playing as a fly, you have to solve a couple of puzzles to get your body back while also advancing the story.</p>
-
-<p>Being a fly allows you to crawl through a security card reader to gain access to a building that you’d typically need a card for. By crawling through the beams and observing which ones activate locking mechanisms, you’ll later be able to punch a card to recreate the access card.</p>
-
-<p>I remember really finding this puzzle clever when I originally played this game as it wasn’t overly complicated, and knowing I had a business card and a hole punch in my inventory it sort of made sense what I was going to have to do.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00028.png" alt="" /></p>
-
-<p>Not all the puzzles are fun though. When Cliffy (your chief engineer) gets himself ejected from the ship and you need to go rescue him it typically takes a few tries to navigate the awkward controls before you run out of fuel or oxygen.</p>
-
-<p>Since I play these games on max speed, turning this down about 50% actually made the sequence a lot easier to complete.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00022.png" alt="" /></p>
-
-<p>As I’m writing this review and going back over my screenshots, it seems arcade sequences are actually more prominent that I remembered. This is potentially the result of Dynamix developing the game - not Sierra.</p>
-
-<p>An interesting piece of trivia is that Dynamix originally developed the demo for Space Quest V using their <a href="https://wiki.scummvm.org/index.php/DGDS">DGDS game engine</a>, but for the final game Sierra’s <a href="https://wiki.scummvm.org/index.php/SCI">SCI engine</a> was used.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00037.png" alt="" /></p>
-
-<p>The only real gripe I had with the game was the maze at the very end. I just really dislike mazes - unless I’m playing a CRPG that is.</p>
-
-<p>Navigating this maze is just a pain in the ass, but thankfully it’s fairly short and you can burn through the entire sequence in about 10 minutes. If you happen to pop out under the elevator incorrectly and try to climb you will be crushed to death and get to enjoy one of the many death screens this game has to offer … so that’s something I guess.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00044.png" alt="" /></p>
-
-<p>Unlike most (all?) Sierra games, Space Quest V includes product placement in the form of the Sprint logo being displayed after every video call you make. I didn’t find this to be overly intrusive, but it was kind of odd for an adventure game.</p>
-
-<p><img src="/images/adventure/sq5/scummvm-sq5-00043.png" alt="" /></p>
-
-<p>The nostalgia factor on this game is pretty high for me, which is definitely reflected in the higher <em>Replayability</em> and <em>Bonus / Surprise</em> categories. I love the characters and the unapologetic parody at every turn - even if the plot is kind of thin.</p>
-
-<p>I actually tried the <a href="https://archive.org/details/SpaceQuestVTheNextMutationDemo">demo</a> in DOSBox just to see what the difference was, and surprisingly it looked almost identical to the final version of the game.</p>
-
-<p>I had a lot of fun replaying Space Quest V and would highly recommend this title to anyone getting into the genre. It’s pretty accessible, easy to get into and full of great writing - and puns - lots and lots of puns.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Space Quest V: Roger Wilco – The Next Mutation</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Dynamix">Dynamix</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>February 5, 1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/8867"><em>How Long To Beat?</em></a></td>
-      <td>6 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://wiw.org/~jess/sq5.html">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (10)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>61%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/sq5/scummvm-sq5-00003.png', thumb: '/images/adventure/sq5/scummvm-sq5-00003.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00004.png', thumb: '/images/adventure/sq5/scummvm-sq5-00004.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00005.png', thumb: '/images/adventure/sq5/scummvm-sq5-00005.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00006.png', thumb: '/images/adventure/sq5/scummvm-sq5-00006.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00007.png', thumb: '/images/adventure/sq5/scummvm-sq5-00007.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00010.png', thumb: '/images/adventure/sq5/scummvm-sq5-00010.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00011.png', thumb: '/images/adventure/sq5/scummvm-sq5-00011.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00013.png', thumb: '/images/adventure/sq5/scummvm-sq5-00013.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00015.png', thumb: '/images/adventure/sq5/scummvm-sq5-00015.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00016.png', thumb: '/images/adventure/sq5/scummvm-sq5-00016.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00017.png', thumb: '/images/adventure/sq5/scummvm-sq5-00017.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00018.png', thumb: '/images/adventure/sq5/scummvm-sq5-00018.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00019.png', thumb: '/images/adventure/sq5/scummvm-sq5-00019.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00020.png', thumb: '/images/adventure/sq5/scummvm-sq5-00020.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00021.png', thumb: '/images/adventure/sq5/scummvm-sq5-00021.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00023.png', thumb: '/images/adventure/sq5/scummvm-sq5-00023.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00026.png', thumb: '/images/adventure/sq5/scummvm-sq5-00026.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00027.png', thumb: '/images/adventure/sq5/scummvm-sq5-00027.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00029.png', thumb: '/images/adventure/sq5/scummvm-sq5-00029.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00031.png', thumb: '/images/adventure/sq5/scummvm-sq5-00031.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00032.png', thumb: '/images/adventure/sq5/scummvm-sq5-00032.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00034.png', thumb: '/images/adventure/sq5/scummvm-sq5-00034.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00035.png', thumb: '/images/adventure/sq5/scummvm-sq5-00035.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00038.png', thumb: '/images/adventure/sq5/scummvm-sq5-00038.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00039.png', thumb: '/images/adventure/sq5/scummvm-sq5-00039.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00040.png', thumb: '/images/adventure/sq5/scummvm-sq5-00040.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00041.png', thumb: '/images/adventure/sq5/scummvm-sq5-00041.png' },{ src: '/images/adventure/sq5/scummvm-sq5-00042.png', thumb: '/images/adventure/sq5/scummvm-sq5-00042.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><small>Description from <a href="https://www.mobygames.com/game/144/space-quest-v-the-next-mutation/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Dynamix" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq5/scummvm-sq5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Some work <a href="https://jira.mongodb.org/browse/NODE-4785">was proposed</a> by MongoDB’s team to allow a custom transport layer to be provided, however this would still require Cloudflare Workers to support Node.js’ <a href="https://nodejs.org/api/tls.html">TLS</a> API as <a href="https://www.mongodb.com/docs/atlas/reference/faq/security/#can-i-disable-tls-on-my-deployment-">TLS cannot, for good reasons, be disabled for Atlas deployments</a>.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare Workers is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they announced support for a connect() API which allows TCP Sockets to be created within Workers, but is not a direct replacement for Node.js’ net.Socket API.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
