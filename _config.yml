@@ -187,3 +187,6 @@ jekyll-archives:
 
 feed:
   disable_in_development: true
+  categories:
+    - let-s-adventure
+    - mongodb
