@@ -16,7 +16,7 @@ Astute readers of MongoDB's Node.js driver's [`test` README](https://github.com/
 
 Digging further you'll find the [_Load Balancer Support_](https://github.com/mongodb/specifications/blob/master/source/load-balancers/load-balancers.rst) specification for MongoDB's drivers which states _"To specify to the driver to operate in load balancing mode, a connection string option of `loadBalanced=true` MUST be added to the connection string"_ ... but how do you actually make that work?
 
-In this post we're going to explore why MongoDB nodes couldn't previously be placed behind an [L4 load balancer](https://www.nginx.com/resources/glossary/layer-4-load-balancing/), and what changed in MongoDB 5.3 that may actually make this possible!
+In this post we're going to explore why MongoDB nodes couldn't previously be placed behind an [L4 load balancer](https://www.f5.com/glossary/layer-4-load-balancing), and what changed in MongoDB 5.3 that may actually make this possible!
 
 ### Replication
 
