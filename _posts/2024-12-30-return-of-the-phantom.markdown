@@ -174,4 +174,4 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 
 **Footnotes**
 
-[^1]: <small>Description from [Moby Games](httphttps://www.mobygames.com/game/2011/return-of-the-phantom/)</small>
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/2011/return-of-the-phantom/)</small>
