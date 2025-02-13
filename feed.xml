@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.0">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-29T04:55:54-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-01-27T06:01:15-05:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.0">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-02-13T06:13:24-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-02-13T06:09:50-05:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Universe_(1994_video_game)">Universe</a> is a graphic adventure game developed and published by Core Design for the Amiga, Amiga CD32 and DOS platforms in 1994. It was Core Design’s second and last effort in the adventure game genre after Curse of Enchantia, of which it was originally planned to be a sequel.</p>
+
+<p>Universe is a space opera that tells the story of Boris, a young man who has been summoned from modern Earth to another universe, where he is destined to become its long forecast savior from evil. The game received mostly positive reviews.</p>
+
+<p><img src="/images/adventure/universe/006.png" alt="" /></p>
+
+<p>You are Boris Verne, a normal guy who has been cast in a parallel universe because of your uncle’s Virtual Dimension Inducer. There you’ll have to find the fabled lost star as well as a way to defeat the Golden King… This is a classic old-style adventure game with a point &amp; click interface. It uses the Rotoscope system to manage game characters and scores really beautiful 256-colour graphic.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/universe/000.png" alt="" />
+<em>Another release from the fine folks at <a href="https://demozoo.org/productions/254430/">Prestige</a></em></p>
+
+<p>This is the first game on my list that I’ve tackled so far that was available on the <a href="https://en.wikipedia.org/wiki/Amiga_CD32">Amiga CD32</a>, so I figured it would be worth trying to play through that version if possible.</p>
+
+<p>I’ve been using <a href="https://dirkwhoffmann.github.io/vAmiga/">vAmiga</a> for my Amiga games, but I couldn’t get CD32 working (it’s possibly just not supported). I then tried <a href="https://fs-uae.net/">FS-UAE</a>, but didn’t have a kickstart ROM for it … so I ended up just watching a bit of a <a href="https://www.youtube.com/watch?v=bP0uQl4W8aQ">longplay on YouTube</a> just to get a sense of what’s different.</p>
+
+<p>Seems the only difference was CD quality audio, which comes through nicely in the videos. The sound design in this game is pretty good, so even without the CD audio the ambient background music did a great job of setting the tone for each scene in the game.</p>
+
+<p><img src="/images/adventure/universe/002.png" alt="" /></p>
+
+<p>Since the game starts off with a long intro sequence (which is also spelled out in the <a href="https://dn790003.ca.archive.org/0/items/universe-manual/Universe%20-%20Manual-DE-ENG-FR-IT.pdf">manual</a>) I sort of expected the story to take place across multiple chapters - but maybe the chapter in this case referred to the whole game and subsequent chapters would have been sequels.</p>
+
+<p><img src="/images/adventure/universe/004.png" alt="" /></p>
+
+<p>After the intro you find yourself stranded all alone in space. There’s a futuristic city behind you that you can’t reach, and if you wander off in the other direction you can fall off onto a barren planet surface you can explore.</p>
+
+<p>The game’s interface is fairly intuitive if you’ve played Point and Click Adventure games in the past, as you’ll be given a verb bar with common actions you can perform (<code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">PICK UP</code>, <code class="language-plaintext highlighter-rouge">TALK</code>, etc). There is an additional <code class="language-plaintext highlighter-rouge">OPTIONS</code> item that links to a submenu of actions such as <code class="language-plaintext highlighter-rouge">THROW</code>, <code class="language-plaintext highlighter-rouge">JUMP</code>and <code class="language-plaintext highlighter-rouge">INSERT</code>.</p>
+
+<p>You’ll find you actually use these additional actions a lot more that the primary actions, so you’ll be clicking through to the submenu fairly frequently.</p>
+
+<p>This submenu also includes an <code class="language-plaintext highlighter-rouge">INFO</code> item which goes to a third submenu where you can save/load your game or redisplay the initial scene info. This is useful if you accidentally clicked away the description when you first entered the screen.</p>
+
+<p><img src="/images/adventure/universe/010.png" alt="" /></p>
+
+<p>Once you figure out how to navigate the game world (including jumping to the spinning rock, then jumping back to the floating platform) and extend the bridge to the first town, you’ll be able to explore the game world a bit further.</p>
+
+<p>Universe is visually impressive, and most scenes are extremely detailed in all their pixel-art glory. When you’re not roaming around looking for items to pick up, you’ll engage with various alien races using a fairly straightforward conversation system.</p>
+
+<p><img src="/images/adventure/universe/009.png" alt="" /></p>
+
+<p>As you progress through the game, there are occasionally “cut scenes” that help progress the plot. Boris will have to escape the first world and head towards the Wheelworld to learn more about the tyrannical Emperor Neiamises, the secret order of the Healers and Baron Keelev.</p>
+
+<p>For adventure game fans, the story really takes center stage and makes the gameplay just a vehicle through which the story can unfold.</p>
+
+<p>This game feels like it’s going to be a massive, sweeping experience as you’re playing through it, but there’s actually not all that much you need to do.</p>
+
+<p><img src="/images/adventure/universe/013.png" alt="" /></p>
+
+<p>There are several items you’ll need to pick up as you explore, and the game does include a few item combination style puzzles as a result. Examining most items will make it fairly apparent what you’re supposed to do with them though, so you typically won’t find yourself scratching your head for too long trying to figure out what to do next.</p>
+
+<p><img src="/images/adventure/universe/038.png" alt="" /></p>
+
+<p>One of the nice touches of Universe is the fact that the cursor will change into a thumbs up or thumbs down based on the action you just performed. Given how bad the pathfinding can be on some screens, it’s very easy to issue a command and then Boris sort of just stands there until you move a little in one direction and try again.</p>
+
+<p>Since the cursor will change to indicate success or failure, if you try something and it works but nothing happens, you know you just need to try it again from a different position to progress.</p>
+
+<p><img src="/images/adventure/universe/027.png" alt="" /></p>
+
+<p>For anyone that’s played this style of game before, it’s not overly difficult - but there are couple of arcade sequences that can be a pain in the ass.</p>
+
+<p>On the Wheelworld you’ll meed a healer who’s had their hand stolen by thieves that take off on jetpacks. You’ll need to jump into your PTV and fly after them, shooting them down or running them into the sides of buildings.</p>
+
+<p>It’s very easy to die in this sequence and I must have done it a dozen or so times before I finally got through it. It wasn’t fun - it was just sort of tedious.</p>
+
+<p>I appreciate when adventure games have the self awareness to allow you to skip these sequences (like you can skip playing poker in Police Quest 1), but Universe isn’t one of those games.</p>
+
+<p><img src="/images/adventure/universe/028.png" alt="" /></p>
+
+<p>When Boris dies (and he will), the game over screen makes fun of your incompetence and will occasionally give you a clue as to what you should have done instead. You can really feel the inspiration from Sierra Online here.</p>
+
+<p><img src="/images/adventure/universe/041.png" alt="" /></p>
+
+<p>Like with any adventure game, save early and save often. Since I was playing the Amiga version, this mean having to eject the game disk, insert the save disk, save, eject and reinsert the game disk again. Modern gamers are so spoiled …</p>
+
+<p><img src="/images/adventure/universe/012.png" alt="" /></p>
+
+<p>There are a number of planets you’ll be able to explore once you have access to a PTV. Each planet you have access requires you to go through the same motions of navigating to it, descending to it, picking a quadrant to explore, then exploring.</p>
+
+<p>When you first get access to the map of the Universe it can feel a bit daunting, but most of the  available planets has very little to do or see. You’ll need to backtrack occasionally to solve fetch quests or after you’ve unlocked various story elements to open up new dialogue options with certain characters.</p>
+
+<p><img src="/images/adventure/universe/048.png" alt="" /></p>
+
+<p>Aside from running back and forth between a handful of planets, the majority of this game’s plot advances through conversations with various characters you’ll meet along the way. Boris will slowly learn more about his place in the Universe and that he’s expected to take down the Emperor.</p>
+
+<p>Character interactions occur via a branching dialogue system, which frequently will result in a game over if you pick the wrong options. Though having to reload can be frustrating, the feedback the game gives you when Boris dies is at least entertaining.</p>
+
+<p><img src="/images/adventure/universe/039.png" alt="" /></p>
+
+<p>Universe is mostly straightforward, but the final sequences ratchet up the complexity. You’ll need to figure out how to open a portal to another dimension to retrieve a power stone. Once you find the various pieces you’ll need (on multiple planets), <code class="language-plaintext highlighter-rouge">COMBINE</code> them and use them in the right place, you’ll need to solve a puzzle.</p>
+
+<p>This puzzle involves running over various stones to disable 6 lasers, but if you don’t do it fast enough, they reset and you start over. This took … forever. Once you are able to do it, you have to throw a rock at the power stone, then pick it up and run so you’re not immediately captured by a bunch of ghosts.</p>
+
+<p><img src="/images/adventure/universe/051.png" alt="" /></p>
+
+<p>With the power stone in hand and back in the right dimension, you’ll make your way into the Emperor’s palace, navigate a short maze, expose the Baron for wanting to steal the Emperor’s power, then once the Baron is vanquished, defeat the Emperor.</p>
+
+<p>Yay, you’ve saved the Universe and your uncle shows up to take you back home.</p>
+
+<p><img src="/images/adventure/universe/058.png" alt="" /></p>
+
+<p>Universe was surprisingly good. I’d never heard of this game and didn’t know what to expect, but the story and characters drew me in immediately. The game is beautiful, the sound effects and ambient music are fitting and really enhance the gaming experience.</p>
+
+<p>Having watched a couple of let’s plays of the game it seems you can burn through it in a couple hours if you know what you’re doing - but to just explore the Universe and naturally experience the game takes much longer.</p>
+
+<p>The star of this show is definitely the story, and you can feel the Star Wars influences throughout. I found myself getting caught up in the plot and looking forward to uncovering more details about the worlds I was exploring and the characters I’d meet.</p>
+
+<p>If you love this genre and are looking to experience a great Point and Click Adventure you likely wouldn’t have, give Universe a go. You won’t be disappointed (though you may occasionally be frustrated).</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Universe</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Core_Design">Core Design</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Core Design</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1994</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Amiga, Amiga CD32, DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/27306">How Long To Beat?</a></td>
+      <td>5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Amiga via <a href="https://dirkwhoffmann.github.io/vAmiga/">vAmiga</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/universe.aspx">Walkthrough</a>, <a href="https://archive.org/details/universe-manual">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>66%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/universe/003.png', thumb: '/images/adventure/universe/003.png' },{ src: '/images/adventure/universe/005.png', thumb: '/images/adventure/universe/005.png' },{ src: '/images/adventure/universe/007.png', thumb: '/images/adventure/universe/007.png' },{ src: '/images/adventure/universe/008.png', thumb: '/images/adventure/universe/008.png' },{ src: '/images/adventure/universe/011.png', thumb: '/images/adventure/universe/011.png' },{ src: '/images/adventure/universe/014.png', thumb: '/images/adventure/universe/014.png' },{ src: '/images/adventure/universe/015.png', thumb: '/images/adventure/universe/015.png' },{ src: '/images/adventure/universe/016.png', thumb: '/images/adventure/universe/016.png' },{ src: '/images/adventure/universe/017.png', thumb: '/images/adventure/universe/017.png' },{ src: '/images/adventure/universe/018.png', thumb: '/images/adventure/universe/018.png' },{ src: '/images/adventure/universe/019.png', thumb: '/images/adventure/universe/019.png' },{ src: '/images/adventure/universe/020.png', thumb: '/images/adventure/universe/020.png' },{ src: '/images/adventure/universe/021.png', thumb: '/images/adventure/universe/021.png' },{ src: '/images/adventure/universe/022.png', thumb: '/images/adventure/universe/022.png' },{ src: '/images/adventure/universe/023.png', thumb: '/images/adventure/universe/023.png' },{ src: '/images/adventure/universe/024.png', thumb: '/images/adventure/universe/024.png' },{ src: '/images/adventure/universe/025.png', thumb: '/images/adventure/universe/025.png' },{ src: '/images/adventure/universe/026.png', thumb: '/images/adventure/universe/026.png' },{ src: '/images/adventure/universe/029.png', thumb: '/images/adventure/universe/029.png' },{ src: '/images/adventure/universe/030.png', thumb: '/images/adventure/universe/030.png' },{ src: '/images/adventure/universe/031.png', thumb: '/images/adventure/universe/031.png' },{ src: '/images/adventure/universe/032.png', thumb: '/images/adventure/universe/032.png' },{ src: '/images/adventure/universe/033.png', thumb: '/images/adventure/universe/033.png' },{ src: '/images/adventure/universe/034.png', thumb: '/images/adventure/universe/034.png' },{ src: '/images/adventure/universe/035.png', thumb: '/images/adventure/universe/035.png' },{ src: '/images/adventure/universe/036.png', thumb: '/images/adventure/universe/036.png' },{ src: '/images/adventure/universe/037.png', thumb: '/images/adventure/universe/037.png' },{ src: '/images/adventure/universe/040.png', thumb: '/images/adventure/universe/040.png' },{ src: '/images/adventure/universe/042.png', thumb: '/images/adventure/universe/042.png' },{ src: '/images/adventure/universe/043.png', thumb: '/images/adventure/universe/043.png' },{ src: '/images/adventure/universe/044.png', thumb: '/images/adventure/universe/044.png' },{ src: '/images/adventure/universe/045.png', thumb: '/images/adventure/universe/045.png' },{ src: '/images/adventure/universe/046.png', thumb: '/images/adventure/universe/046.png' },{ src: '/images/adventure/universe/047.png', thumb: '/images/adventure/universe/047.png' },{ src: '/images/adventure/universe/049.png', thumb: '/images/adventure/universe/049.png' },{ src: '/images/adventure/universe/050.png', thumb: '/images/adventure/universe/050.png' },{ src: '/images/adventure/universe/052.png', thumb: '/images/adventure/universe/052.png' },{ src: '/images/adventure/universe/053.png', thumb: '/images/adventure/universe/053.png' },{ src: '/images/adventure/universe/054.png', thumb: '/images/adventure/universe/054.png' },{ src: '/images/adventure/universe/055.png', thumb: '/images/adventure/universe/055.png' },{ src: '/images/adventure/universe/056.png', thumb: '/images/adventure/universe/056.png' },{ src: '/images/adventure/universe/057.png', thumb: '/images/adventure/universe/057.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-01-27T06:01:15-05:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1932,199 +2151,4 @@
 <h3 id="gallery">Gallery</h3>
 
 <div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/scoop/scoop_004.png', thumb: '/images/adventure/scoop/scoop_004.png' },{ src: '/images/adventure/scoop/scoop_005.png', thumb: '/images/adventure/scoop/scoop_005.png' },{ src: '/images/adventure/scoop/scoop_006.png', thumb: '/images/adventure/scoop/scoop_006.png' },{ src: '/images/adventure/scoop/scoop_007.png', thumb: '/images/adventure/scoop/scoop_007.png' },{ src: '/images/adventure/scoop/scoop_009.png', thumb: '/images/adventure/scoop/scoop_009.png' },{ src: '/images/adventure/scoop/scoop_010.png', thumb: '/images/adventure/scoop/scoop_010.png' },{ src: '/images/adventure/scoop/scoop_011.png', thumb: '/images/adventure/scoop/scoop_011.png' },{ src: '/images/adventure/scoop/scoop_014.png', thumb: '/images/adventure/scoop/scoop_014.png' },{ src: '/images/adventure/scoop/scoop_015.png', thumb: '/images/adventure/scoop/scoop_015.png' },{ src: '/images/adventure/scoop/scoop_016.png', thumb: '/images/adventure/scoop/scoop_016.png' },{ src: '/images/adventure/scoop/scoop_017.png', thumb: '/images/adventure/scoop/scoop_017.png' },{ src: '/images/adventure/scoop/scoop_019.png', thumb: '/images/adventure/scoop/scoop_019.png' },{ src: '/images/adventure/scoop/scoop_020.png', thumb: '/images/adventure/scoop/scoop_020.png' },{ src: '/images/adventure/scoop/scoop_022.png', thumb: '/images/adventure/scoop/scoop_022.png' },{ src: '/images/adventure/scoop/scoop_023.png', thumb: '/images/adventure/scoop/scoop_023.png' },{ src: '/images/adventure/scoop/scoop_024.png', thumb: '/images/adventure/scoop/scoop_024.png' },{ src: '/images/adventure/scoop/scoop_026.png', thumb: '/images/adventure/scoop/scoop_026.png' },{ src: '/images/adventure/scoop/scoop_029.png', thumb: '/images/adventure/scoop/scoop_029.png' },{ src: '/images/adventure/scoop/scoop_030.png', thumb: '/images/adventure/scoop/scoop_030.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="adventure" /><category term="Telarium" /><category term="Spinnaker Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Why Cloudflare Workers Don’t Work With MongoDB</title><link href="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/" rel="alternate" type="text/html" title="Why Cloudflare Workers Don’t Work With MongoDB" /><published>2024-09-11T13:09:40-04:00</published><updated>2024-09-12T12:48:42-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><![CDATA[<p><a href="https://workers.cloudflare.com/">Cloudflare Workers</a> is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they <a href="https://blog.cloudflare.com/workers-tcp-socket-api-connect-databases/">announced support for a <code class="language-plaintext highlighter-rouge">connect()</code> API</a> which allows <a href="https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/">TCP Sockets</a> to be created within Workers, but is not a direct replacement for Node.js’ <a href="https://nodejs.org/api/net.html#class-netsocket"><code class="language-plaintext highlighter-rouge">net.Socket</code></a> API.</p>
-
-<p>Many NPM packages - including MongoDB’s <a href="https://www.mongodb.com/docs/drivers/node/current/">Node.js driver</a> - rely on <code class="language-plaintext highlighter-rouge">net.Socket</code> or <a href="https://nodejs.org/api/tls.html#class-tlstlssocket"><code class="language-plaintext highlighter-rouge">tls.TLSSocket</code></a> to connect to and communicate with remote systems. Using these libraries directly from Cloudflare Workers <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708/11?u=alexbevi">has not been possible</a> as a result of these missing APIs.</p>
-
-<p>Cloudflare recently announced that <a href="https://blog.cloudflare.com/more-npm-packages-on-cloudflare-workers-combining-polyfills-and-native-code/">more NPM packages would be supported on Cloudflare Workers</a>, but for libraries that need <code class="language-plaintext highlighter-rouge">net.Socket</code> or <code class="language-plaintext highlighter-rouge">tls.TLSocket</code> access, will they work in a Cloudflare Workers environment?</p>
-
-<blockquote>
-  <p>Packages that could not be imported with <code class="language-plaintext highlighter-rouge">nodejs_compat</code>, even as a dependency of another package, will now load. This includes popular packages such as […] <strong><code class="language-plaintext highlighter-rouge">mongodb</code></strong>, […] and many more.</p>
-</blockquote>
-
-<p>Based on the blog post the Node.js driver should load, but can it be used?</p>
-
-<blockquote class="prompt-tip">
-  <p>Note that the fact that Workers can load, but not use the <code class="language-plaintext highlighter-rouge">mongodb</code> package was reported to Cloudflare at <a href="https://github.com/cloudflare/workers-sdk/issues/6684">https://github.com/cloudflare/workers-sdk/issues/6684</a></p>
-
-  <p>The Cloudflare blog post has since been updated to remove <code class="language-plaintext highlighter-rouge">mongod</code> from the list of useable packages to avoid further confusion.</p>
-</blockquote>
-
-<h2 id="sample-application">Sample Application</h2>
-
-<p>To test the latest iteration of Cloudflare Workers <a href="https://developers.cloudflare.com/workers/configuration/compatibility-dates/#setting-compatibility-flags">compatibility flags</a> we’ll be working with the following configuration:</p>
-
-<p><strong><code class="language-plaintext highlighter-rouge">src/worker.ts</code></strong></p>
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">BSON</span><span class="p">,</span> <span class="nx">MongoClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">mongodb</span><span class="dl">'</span><span class="p">;</span>
-
-<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Env</span> <span class="p">{</span>
-  <span class="nl">MONGODB_URI</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">requestCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
-  <span class="k">async</span> <span class="nf">fetch</span><span class="p">(</span><span class="na">request</span><span class="p">:</span> <span class="nx">Request</span><span class="p">,</span> <span class="na">env</span><span class="p">:</span> <span class="nx">Env</span><span class="p">,</span> <span class="na">_ctx</span><span class="p">:</span> <span class="nx">ExecutionContext</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Response</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="nx">requestCount</span> <span class="p">}));</span>
-    <span class="nx">requestCount</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nx">client</span> <span class="o">??=</span> <span class="k">new</span> <span class="nc">MongoClient</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">MONGODB_URI</span><span class="p">,</span> <span class="p">{</span>
-      <span class="na">maxPoolSize</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">minPoolSize</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="na">serverSelectionTimeoutMS</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
-    <span class="p">});</span>
-
-    <span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">db</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">);</span>
-    <span class="kd">const</span> <span class="nx">coll</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">collection</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">);</span>
-
-    <span class="k">if </span><span class="p">((</span><span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">countDocuments</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">drop</span><span class="p">().</span><span class="k">catch</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">insertOne</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">});</span>
-
-    <span class="k">return</span> <span class="k">new</span> <span class="nc">Response</span><span class="p">(</span><span class="nx">BSON</span><span class="p">.</span><span class="nx">EJSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">findOne</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}),</span> <span class="kc">null</span><span class="p">,</span> <span class="dl">'</span><span class="s1">  </span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">relaxed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}));</span>
-  <span class="p">},</span>
-<span class="p">};</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p><strong><code class="language-plaintext highlighter-rouge">package.json</code></strong></p>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongodb-cloudflare-example"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrangler dev"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"@cloudflare/workers-types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.20240603.0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ts-node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.9.1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.0.4"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"wrangler"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.59.0"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"mongodb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.8.1"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></div></div>
-
-<p><strong><code class="language-plaintext highlighter-rouge">wrangler.toml</code></strong></p>
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="py">name</span> <span class="p">=</span> <span class="s">"mongodb-cloudflare-example"</span>
-<span class="py">main</span> <span class="p">=</span> <span class="s">"src/worker.ts"</span>
-<span class="py">compatibility_flags</span> <span class="p">=</span> <span class="p">[</span><span class="s">"nodejs_compat_v2"</span><span class="p">]</span>
-
-<span class="nn">[vars]</span>
-<span class="py">MONGODB_URI</span> <span class="p">=</span> <span class="s">"mongodb+srv://..."</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>To test the code above you would need to do the following:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>npm <span class="nb">install
-</span>npm run start
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="evaluation">Evaluation</h2>
-
-<p>The default connection string format when <a href="https://www.mongodb.com/docs/atlas/connect-to-database-deployment/#connect-to-your-cloud-cluster">connecting to your Atlas cluster</a> is <code class="language-plaintext highlighter-rouge">mongodb+srv</code>, which is what we included initially in the <code class="language-plaintext highlighter-rouge">wrangler.toml</code> file.</p>
-
-<p>The first time we run our test code however we’re unable to resolve the <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#srv-connection-format">SRV connection format</a> as it appears that <a href="https://nodejs.org/api/dns.html#dnsresolvetxthostname-callback"><code class="language-plaintext highlighter-rouge">dns.resolveTxt</code></a> is not implemented:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>⎔ Starting local server...
-{"requestCount":0}
-[wrangler:err] Error: [unenv] dns.resolveTxt is not implemented yet!
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Since Atlas allows you to also connect using the <a href="https://www.mongodb.com/docs/manual/reference/connection-string/#standard-connection-string-format">standard connection string format</a>, let’s update the <code class="language-plaintext highlighter-rouge">MONGODB_URI</code> in the <code class="language-plaintext highlighter-rouge">wrangler.toml</code> to instead be <code class="language-plaintext highlighter-rouge">mongodb://...</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>⎔ Starting local server...
-{"requestCount":0}
-[wrangler:err] MongoServerSelectionError: socket.once is not a function
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Based on the above it appears <a href="https://nodejs.org/api/events.html#eventsonceemitter-name-options"><code class="language-plaintext highlighter-rouge">events.once</code></a> is missing, which Node.js’ <code class="language-plaintext highlighter-rouge">net</code> module exposes from an <code class="language-plaintext highlighter-rouge">EventEmitter</code> import. I don’t think we’d be able to polyfill all this if that were considered the path forward 😓.</p>
-
-<p>What about trying to configure <code class="language-plaintext highlighter-rouge">wrangler</code> to connect to a local MongoDB instance (ex: <code class="language-plaintext highlighter-rouge">mongodb://localhost:27017</code>)? Well in that case it will still fail, but at least it will fail differently:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>⎔ Starting local server...
-{"requestCount":0}
-[wrangler:err] MongoServerSelectionError: [unenv] net.createConnection is not implemented yet!
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="alternatives">Alternatives?</h2>
-
-<p>If you happen upon the article called <a href="https://www.mongodb.com/developer/products/atlas/cloudflare-worker-rest-api/">“Create a REST API with Cloudflare Workers and MongoDB Atlas”</a> you may be thinking there’s an alternate solution to be explored. MongoDB offered a REST-based interface to your data in Atlas via the <a href="https://www.mongodb.com/docs/atlas/app-services/data-api/">Atlas Data API</a>, however this product was recently deprecated and will be sunset.</p>
-
-<p>A custom REST-based API would be a solution to working with your MongoDB data from within Cloudflare Workers, so until the runtime is updated to better support Node.js’ socket APIs, see the <a href="https://www.mongodb.com/docs/atlas/app-services/data-api/data-api-deprecation">Data API deprecation</a> page for some ideas.</p>
-
-<p><a href="https://docs.neurelo.com/guides/mongodb-atlas-migrate-rest-data-apis-to-neurelo">Neurelo seems like a good option</a> for getting a REST-based API off the ground with little effort.</p>
-
-<h2 id="summary">Summary</h2>
-
-<p>Though <a href="https://developers.cloudflare.com/workers/wrangler/configuration/#module-aliasing">module aliasing</a> and polyfills might be an option for some functionality, it really seems like Cloudflare Workers just aren’t meant to work with Node.js’ socket APIs. As a result, libraries such as MongoDB’s Node.js driver simply won’t be able to connect to anything.</p>
-
-<p>Some work <a href="https://jira.mongodb.org/browse/NODE-4785">was proposed</a> by MongoDB’s team to allow a custom transport layer to be provided, however this would still require Cloudflare Workers to support Node.js’ <a href="https://nodejs.org/api/tls.html">TLS</a> API as <a href="https://www.mongodb.com/docs/atlas/reference/faq/security/#can-i-disable-tls-on-my-deployment-">TLS cannot, for good reasons, be disabled for Atlas deployments</a>.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare Workers is a great platform for deploying serverless JavaScript code, but has historically never supported raw sockets. In May of 2023 they announced support for a connect() API which allows TCP Sockets to be created within Workers, but is not a direct replacement for Node.js’ net.Socket API.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/scoop/scoop_004.png', thumb: '/images/adventure/scoop/scoop_004.png' },{ src: '/images/adventure/scoop/scoop_005.png', thumb: '/images/adventure/scoop/scoop_005.png' },{ src: '/images/adventure/scoop/scoop_006.png', thumb: '/images/adventure/scoop/scoop_006.png' },{ src: '/images/adventure/scoop/scoop_007.png', thumb: '/images/adventure/scoop/scoop_007.png' },{ src: '/images/adventure/scoop/scoop_009.png', thumb: '/images/adventure/scoop/scoop_009.png' },{ src: '/images/adventure/scoop/scoop_010.png', thumb: '/images/adventure/scoop/scoop_010.png' },{ src: '/images/adventure/scoop/scoop_011.png', thumb: '/images/adventure/scoop/scoop_011.png' },{ src: '/images/adventure/scoop/scoop_014.png', thumb: '/images/adventure/scoop/scoop_014.png' },{ src: '/images/adventure/scoop/scoop_015.png', thumb: '/images/adventure/scoop/scoop_015.png' },{ src: '/images/adventure/scoop/scoop_016.png', thumb: '/images/adventure/scoop/scoop_016.png' },{ src: '/images/adventure/scoop/scoop_017.png', thumb: '/images/adventure/scoop/scoop_017.png' },{ src: '/images/adventure/scoop/scoop_019.png', thumb: '/images/adventure/scoop/scoop_019.png' },{ src: '/images/adventure/scoop/scoop_020.png', thumb: '/images/adventure/scoop/scoop_020.png' },{ src: '/images/adventure/scoop/scoop_022.png', thumb: '/images/adventure/scoop/scoop_022.png' },{ src: '/images/adventure/scoop/scoop_023.png', thumb: '/images/adventure/scoop/scoop_023.png' },{ src: '/images/adventure/scoop/scoop_024.png', thumb: '/images/adventure/scoop/scoop_024.png' },{ src: '/images/adventure/scoop/scoop_026.png', thumb: '/images/adventure/scoop/scoop_026.png' },{ src: '/images/adventure/scoop/scoop_029.png', thumb: '/images/adventure/scoop/scoop_029.png' },{ src: '/images/adventure/scoop/scoop_030.png', thumb: '/images/adventure/scoop/scoop_030.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="adventure" /><category term="Telarium" /><category term="Spinnaker Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
