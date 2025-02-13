@@ -1,0 +1,198 @@
+---
+layout: post
+title: "Universe (Core Design) - 1994"
+date: 2025-02-02 07:56:58 -0500
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "Core Design", "played:Amiga"]
+image: /images/adventure/universe/001.png
+---
+> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
+{: .prompt-info }
+
+[Universe](https://en.wikipedia.org/wiki/Universe_(1994_video_game)) is a graphic adventure game developed and published by Core Design for the Amiga, Amiga CD32 and DOS platforms in 1994. It was Core Design's second and last effort in the adventure game genre after Curse of Enchantia, of which it was originally planned to be a sequel.
+
+Universe is a space opera that tells the story of Boris, a young man who has been summoned from modern Earth to another universe, where he is destined to become its long forecast savior from evil. The game received mostly positive reviews.
+
+![](/images/adventure/universe/006.png)
+
+You are Boris Verne, a normal guy who has been cast in a parallel universe because of your uncle's Virtual Dimension Inducer. There you'll have to find the fabled lost star as well as a way to defeat the Golden King... This is a classic old-style adventure game with a point & click interface. It uses the Rotoscope system to manage game characters and scores really beautiful 256-colour graphic.[^1]
+
+![](/images/adventure/universe/000.png)
+_Another release from the fine folks at [Prestige](https://demozoo.org/productions/254430/)_
+
+This is the first game on my list that I've tackled so far that was available on the [Amiga CD32](https://en.wikipedia.org/wiki/Amiga_CD32), so I figured it would be worth trying to play through that version if possible.
+
+I've been using [vAmiga](https://dirkwhoffmann.github.io/vAmiga/) for my Amiga games, but I couldn't get CD32 working (it's possibly just not supported). I then tried [FS-UAE](https://fs-uae.net/), but didn't have a kickstart ROM for it ... so I ended up just watching a bit of a [longplay on YouTube](https://www.youtube.com/watch?v=bP0uQl4W8aQ) just to get a sense of what's different.
+
+Seems the only difference was CD quality audio, which comes through nicely in the videos. The sound design in this game is pretty good, so even without the CD audio the ambient background music did a great job of setting the tone for each scene in the game.
+
+![](/images/adventure/universe/002.png)
+
+Since the game starts off with a long intro sequence (which is also spelled out in the [manual](https://dn790003.ca.archive.org/0/items/universe-manual/Universe%20-%20Manual-DE-ENG-FR-IT.pdf)) I sort of expected the story to take place across multiple chapters - but maybe the chapter in this case referred to the whole game and subsequent chapters would have been sequels.
+
+![](/images/adventure/universe/004.png)
+
+After the intro you find yourself stranded all alone in space. There's a futuristic city behind you that you can't reach, and if you wander off in the other direction you can fall off onto a barren planet surface you can explore.
+
+The game's interface is fairly intuitive if you've played Point and Click Adventure games in the past, as you'll be given a verb bar with common actions you can perform (`LOOK`, `PICK UP`, `TALK`, etc). There is an additional `OPTIONS` item that links to a submenu of actions such as `THROW`, `JUMP`and `INSERT`.
+
+You'll find you actually use these additional actions a lot more that the primary actions, so you'll be clicking through to the submenu fairly frequently.
+
+This submenu also includes an `INFO` item which goes to a third submenu where you can save/load your game or redisplay the initial scene info. This is useful if you accidentally clicked away the description when you first entered the screen.
+
+![](/images/adventure/universe/010.png)
+
+Once you figure out how to navigate the game world (including jumping to the spinning rock, then jumping back to the floating platform) and extend the bridge to the first town, you'll be able to explore the game world a bit further.
+
+Universe is visually impressive, and most scenes are extremely detailed in all their pixel-art glory. When you're not roaming around looking for items to pick up, you'll engage with various alien races using a fairly straightforward conversation system.
+
+![](/images/adventure/universe/009.png)
+
+As you progress through the game, there are occasionally "cut scenes" that help progress the plot. Boris will have to escape the first world and head towards the Wheelworld to learn more about the tyrannical Emperor Neiamises, the secret order of the Healers and Baron Keelev.
+
+For adventure game fans, the story really takes center stage and makes the gameplay just a vehicle through which the story can unfold.
+
+This game feels like it's going to be a massive, sweeping experience as you're playing through it, but there's actually not all that much you need to do.
+
+![](/images/adventure/universe/013.png)
+
+There are several items you'll need to pick up as you explore, and the game does include a few item combination style puzzles as a result. Examining most items will make it fairly apparent what you're supposed to do with them though, so you typically won't find yourself scratching your head for too long trying to figure out what to do next.
+
+![](/images/adventure/universe/038.png)
+
+One of the nice touches of Universe is the fact that the cursor will change into a thumbs up or thumbs down based on the action you just performed. Given how bad the pathfinding can be on some screens, it's very easy to issue a command and then Boris sort of just stands there until you move a little in one direction and try again.
+
+Since the cursor will change to indicate success or failure, if you try something and it works but nothing happens, you know you just need to try it again from a different position to progress.
+
+![](/images/adventure/universe/027.png)
+
+For anyone that's played this style of game before, it's not overly difficult - but there are couple of arcade sequences that can be a pain in the ass.
+
+On the Wheelworld you'll meed a healer who's had their hand stolen by thieves that take off on jetpacks. You'll need to jump into your PTV and fly after them, shooting them down or running them into the sides of buildings.
+
+It's very easy to die in this sequence and I must have done it a dozen or so times before I finally got through it. It wasn't fun - it was just sort of tedious.
+
+I appreciate when adventure games have the self awareness to allow you to skip these sequences (like you can skip playing poker in Police Quest 1), but Universe isn't one of those games.
+
+![](/images/adventure/universe/028.png)
+
+When Boris dies (and he will), the game over screen makes fun of your incompetence and will occasionally give you a clue as to what you should have done instead. You can really feel the inspiration from Sierra Online here.
+
+![](/images/adventure/universe/041.png)
+
+Like with any adventure game, save early and save often. Since I was playing the Amiga version, this mean having to eject the game disk, insert the save disk, save, eject and reinsert the game disk again. Modern gamers are so spoiled ...
+
+![](/images/adventure/universe/012.png)
+
+There are a number of planets you'll be able to explore once you have access to a PTV. Each planet you have access requires you to go through the same motions of navigating to it, descending to it, picking a quadrant to explore, then exploring.
+
+When you first get access to the map of the Universe it can feel a bit daunting, but most of the  available planets has very little to do or see. You'll need to backtrack occasionally to solve fetch quests or after you've unlocked various story elements to open up new dialogue options with certain characters.
+
+![](/images/adventure/universe/048.png)
+
+Aside from running back and forth between a handful of planets, the majority of this game's plot advances through conversations with various characters you'll meet along the way. Boris will slowly learn more about his place in the Universe and that he's expected to take down the Emperor.
+
+Character interactions occur via a branching dialogue system, which frequently will result in a game over if you pick the wrong options. Though having to reload can be frustrating, the feedback the game gives you when Boris dies is at least entertaining.
+
+![](/images/adventure/universe/039.png)
+
+Universe is mostly straightforward, but the final sequences ratchet up the complexity. You'll need to figure out how to open a portal to another dimension to retrieve a power stone. Once you find the various pieces you'll need (on multiple planets), `COMBINE` them and use them in the right place, you'll need to solve a puzzle.
+
+This puzzle involves running over various stones to disable 6 lasers, but if you don't do it fast enough, they reset and you start over. This took ... forever. Once you are able to do it, you have to throw a rock at the power stone, then pick it up and run so you're not immediately captured by a bunch of ghosts.
+
+![](/images/adventure/universe/051.png)
+
+With the power stone in hand and back in the right dimension, you'll make your way into the Emperor's palace, navigate a short maze, expose the Baron for wanting to steal the Emperor's power, then once the Baron is vanquished, defeat the Emperor.
+
+Yay, you've saved the Universe and your uncle shows up to take you back home.
+
+![](/images/adventure/universe/058.png)
+
+Universe was surprisingly good. I'd never heard of this game and didn't know what to expect, but the story and characters drew me in immediately. The game is beautiful, the sound effects and ambient music are fitting and really enhance the gaming experience.
+
+Having watched a couple of let's plays of the game it seems you can burn through it in a couple hours if you know what you're doing - but to just explore the Universe and naturally experience the game takes much longer.
+
+The star of this show is definitely the story, and you can feel the Star Wars influences throughout. I found myself getting caught up in the plot and looking forward to uncovering more details about the worlds I was exploring and the characters I'd meet.
+
+If you love this genre and are looking to experience a great Point and Click Adventure you likely wouldn't have, give Universe a go. You won't be disappointed (though you may occasionally be frustrated).
+
+## Game Information
+
+|*Game*|Universe|
+|*Developer*|[Core Design](https://en.wikipedia.org/wiki/Core_Design)|
+|*Publisher*|Core Design|
+|*Release Date*|1994|
+|*Systems*|Amiga, Amiga CD32, DOS|
+|*Game Engine*||
+
+### My Playthrough
+
+|[How Long To Beat?](https://howlongtobeat.com/game/27306)|5 hours|
+|*Version Played*|Amiga via [vAmiga](https://dirkwhoffmann.github.io/vAmiga/)|
+|*Notes*|[Walkthrough](https://www.walkthroughking.com/text/universe.aspx), [Manual](https://archive.org/details/universe-manual)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Graphics (15)**|10|
+|**Sound (10)**|7|
+|**Plot / Progression (25)**|19|
+|**Characters / Development (15)**|10|
+|**Gameplay / Experience (15)**|10|
+|**Replayability (5)**|1|
+|**Impact / Impression (10)**|7|
+|**Bonus / Surprise (5)**|2|
+||**66%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/universe/003.png
+/images/adventure/universe/005.png
+/images/adventure/universe/007.png
+/images/adventure/universe/008.png
+/images/adventure/universe/011.png
+/images/adventure/universe/014.png
+/images/adventure/universe/015.png
+/images/adventure/universe/016.png
+/images/adventure/universe/017.png
+/images/adventure/universe/018.png
+/images/adventure/universe/019.png
+/images/adventure/universe/020.png
+/images/adventure/universe/021.png
+/images/adventure/universe/022.png
+/images/adventure/universe/023.png
+/images/adventure/universe/024.png
+/images/adventure/universe/025.png
+/images/adventure/universe/026.png
+/images/adventure/universe/029.png
+/images/adventure/universe/030.png
+/images/adventure/universe/031.png
+/images/adventure/universe/032.png
+/images/adventure/universe/033.png
+/images/adventure/universe/034.png
+/images/adventure/universe/035.png
+/images/adventure/universe/036.png
+/images/adventure/universe/037.png
+/images/adventure/universe/040.png
+/images/adventure/universe/042.png
+/images/adventure/universe/043.png
+/images/adventure/universe/044.png
+/images/adventure/universe/045.png
+/images/adventure/universe/046.png
+/images/adventure/universe/047.png
+/images/adventure/universe/049.png
+/images/adventure/universe/050.png
+/images/adventure/universe/052.png
+/images/adventure/universe/053.png
+/images/adventure/universe/054.png
+/images/adventure/universe/055.png
+/images/adventure/universe/056.png
+/images/adventure/universe/057.png
+{% endgalleria %}
+
+**Footnotes**
+
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/687/neuromancer/)</small>
