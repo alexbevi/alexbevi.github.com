@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-02-14T06:36:18-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-02-13T06:09:50-05:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-info">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T13:59:32-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-03-25T13:58:36-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+
+<ul>
+  <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
+  <li><a href="https://github.com/cloudflare/workerd/pull/3594"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3594</code></a>: implement TLSSocket and connect from node:tls</li>
+</ul>
+
+<p>Were these changes sufficient to make Cloudflare Workers and MongoDB Atlas work together? Let’s revisit the example from the previous blog post to verify:</p>
+
+<h2 id="sample-application">Sample Application</h2>
+
+<p>Once again, we’ll test the latest iteration of Cloudflare Workers by customizing the <a href="https://developers.cloudflare.com/workers/configuration/compatibility-dates/#setting-compatibility-flags">compatibility flags</a> and <a href="https://developers.cloudflare.com/workers/configuration/compatibility-dates/">compatibility date</a> in our configuration:</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">wrangler.toml</code></strong></p>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="py">name</span> <span class="p">=</span> <span class="s">"mongodb-cloudflare-example"</span>
+<span class="py">main</span> <span class="p">=</span> <span class="s">"src/worker.ts"</span>
+<span class="py">compatibility_flags</span> <span class="p">=</span> <span class="p">[</span><span class="s">"nodejs_compat_v2"</span><span class="p">]</span>
+<span class="py">compatibility_date</span> <span class="p">=</span> <span class="s">"2025-03-20"</span>
+
+<span class="nn">[vars]</span>
+<span class="py">MONGODB_URI</span> <span class="p">=</span> <span class="s">"mongodb+srv://..."</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">src/worker.ts</code></strong></p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">MongoClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">mongodb</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Env</span> <span class="p">{</span>
+  <span class="nl">MONGODB_URI</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">client</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="k">async</span> <span class="nf">fetch</span><span class="p">(</span><span class="na">request</span><span class="p">:</span> <span class="nx">Request</span><span class="p">,</span> <span class="na">env</span><span class="p">:</span> <span class="nx">Env</span><span class="p">):</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Response</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">client</span> <span class="o">??=</span> <span class="k">new</span> <span class="nc">MongoClient</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">MONGODB_URI</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">maxPoolSize</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">minPoolSize</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">serverSelectionTimeoutMS</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+    <span class="p">});</span>
+
+    <span class="kd">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">db</span><span class="p">(</span><span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">coll</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">collection</span><span class="p">(</span><span class="dl">'</span><span class="s1">test_workers</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">drop</span><span class="p">().</span><span class="k">catch</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">);</span>
+    <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">insertOne</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">()</span> <span class="p">});</span>
+
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">coll</span><span class="p">.</span><span class="nf">findOne</span><span class="p">({});</span>
+    <span class="k">return</span> <span class="nx">Response</span><span class="p">.</span><span class="nf">json</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+  <span class="p">},</span>
+<span class="p">}</span> <span class="kd">satisfies </span><span class="nx">ExportedHandler</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">package.json</code></strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongodb-cloudflare-example"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrangler dev"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"mongodb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.15.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"wrangler"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.4.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To test the code above you would need to do the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>npm <span class="nb">install
+</span>npm start
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This will launch <a href="https://developers.cloudflare.com/workers/wrangler/">Wrangler</a>, the CLI for working with Cloudflare Workers.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>Now that our worker is running locally, it should be accessible via http://localhost:8787. The worker logic we wrote in <code class="language-plaintext highlighter-rouge">wrangler.ts</code> should perform the following actions:</p>
+
+<ul>
+  <li>connect to the MongoDB cluster via the connection string configured in the <code class="language-plaintext highlighter-rouge">MONGODB_URI</code> environment variable (setup in <code class="language-plaintext highlighter-rouge">wrangler.toml</code>)</li>
+  <li>drop the <code class="language-plaintext highlighter-rouge">test_workers</code> collection in the <code class="language-plaintext highlighter-rouge">test</code> database</li>
+  <li>insert a new document in the <code class="language-plaintext highlighter-rouge">test_workers</code> collection</li>
+  <li>retrieve the inserted document from the <code class="language-plaintext highlighter-rouge">test_workers</code> collection</li>
+  <li>return a JSON representation of that document</li>
+</ul>
+
+<p>Let’s try it out and see what happens:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl localhost:8787
+<span class="o">{</span><span class="s2">"_id"</span>:<span class="s2">"67e2e4bb377816f2a78db326"</span>,<span class="s2">"a"</span>:<span class="s2">"2025-03-25T17:15:39.957Z"</span><span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>SUCCESS!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
+
+<p>I really look forward to seeing the amazing things this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-02-13T06:09:50-05:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1956,199 +2108,4 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/850/under-a-killing-moon/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Scoop (Telarium) - 1986</title><link href="https://www.alexbevi.com/blog/2024/09/13/the-scoop/" rel="alternate" type="text/html" title="The Scoop (Telarium) - 1986" /><published>2024-09-13T06:42:44-04:00</published><updated>2024-09-14T15:06:48-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/13/the-scoop</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/13/the-scoop/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/The_Scoop_(video_game)">The Scoop</a> is a mystery adventure game published by Telarium, a subsidiary of Spinnaker Software, in 1986 for Apple II and rereleased by Spinnaker Software in 1989 for DOS. The plot is based on the collaborative detective novel of the same name, written in 1931 by Agatha Christie, Dorothy L. Sayers, E. C. Bentley, Anthony Berkeley, Freeman Wills Crofts, and Clemence Dane.</p>
-
-<p><img src="/images/adventure/scoop/scoop_028.png" alt="" /></p>
-
-<p>Though I read some Agatha Christie books many years ago, nothing really stuck with me other than vaguely remembering the plot of <a href="https://en.wikipedia.org/wiki/Murder_on_the_Orient_Express">Murder on the Orient Express</a>. As such, I had no idea what type of game <em>The Scoop</em> was going to be, nor did I have any familiarity with what (or who) the “London Detection Club” was.</p>
-
-<blockquote>
-  <p>You’re a reporter for the <em>Daily Courier</em>, and you’re investigating the murder of Geraldine Tracey. If you can solve the mystery in time, you’ll scoop the  <em>Morning Star</em> and win the game. But to get your scoop, it’s not enough merely to figure out who you think committed the murder. Instead, you must be present when the murderer is confronted by the authorities–even if you have to arrange the confrontation yourself!</p>
-</blockquote>
-
-<p>I started off by giving the <a href="https://www.mocagh.org/spinnaker/scoop-manual.pdf">game manual</a> a quick read, and the introductory blurb does definitely set the stage for the game. You pick you character’s gender, enter the name you’d like to be referred to as and get dropped in front of the Daily Courier.</p>
-
-<p><img src="/images/adventure/scoop/scoop_001.png" alt="" /></p>
-
-<p>In case you didn’t read the manual, your editor let’s you know what you need to do once you enter the office and select <code class="language-plaintext highlighter-rouge">SPEAK</code> from the verb list.</p>
-
-<p>As with many adventure games of this era, you interact with the game world using various verbs. The DOS port, which was released 3 years after the Apple II version, improves the interface slightly by greying out verbs that aren’t currently accessible on a given screen.</p>
-
-<p><img src="/images/adventure/scoop/scoop_008.png" alt="" /></p>
-
-<p>The goal of this game is to solve the murder by Saturday, which gives you 5 days of in-game time to do so. Everything you do causes time to pass, and various events will only occur at certain times of the day, on certain days or after certain actions.</p>
-
-<p>If you think there is an action about to occur but you need to kill some time, there’s even a <code class="language-plaintext highlighter-rouge">WAIT</code> verb you can use.</p>
-
-<p><img src="/images/adventure/scoop/scoop_002.png" alt="" /></p>
-
-<p>To try and progress the story and identify the murderer you’ll need to <code class="language-plaintext highlighter-rouge">TRAVEL</code> about the city taking taxis, trains and the bus. At each location there can be many shops, businesses or residences that you’ll find people in that you can question.</p>
-
-<p>You’ll want to ask everyone <em>What’s on your mind?</em>, and take note, as this is how you’ll learn about the other characters and locations you’ll need to visit and speak to. You can’t ask about people or visit locations until they’ve been mentioned in conversation, so it’s pretty important to speak to everyone.</p>
-
-<p>Here as well though, timing is everything and you’ll need to keep track of the time. Characters won’t always answer questions at certain times, and they have schedules to keep so they might leave mid conversation if they’re supposed to be somewhere.</p>
-
-<p><img src="/images/adventure/scoop/scoop_003.png" alt="" /></p>
-
-<p>When two or more people are in a room, you can <code class="language-plaintext highlighter-rouge">OBSERVE</code> their interactions to learn a bit about their relationship or gather additional clues. Unfortunately you won’t always know ahead of time if multiple people will be in a room, or even if they will eventually converge somewhere.</p>
-
-<p>This game is all trial and error, and it’s pretty easy to make it all the way to Saturday without having gathered enough evidence or made enough progress to finish the game.</p>
-
-<p>If this happens, you either reload an earlier save and keep grinding, or start over and try and be more efficient with you time management.</p>
-
-<p><img src="/images/adventure/scoop/scoop_012.png" alt="" />
-<em>Searching before midnight reveals nothing</em></p>
-
-<p>Other than talking to everyone you meet, you’ll also need to <code class="language-plaintext highlighter-rouge">SEARCH</code> every screen to see if there are any clues you can <code class="language-plaintext highlighter-rouge">TAKE</code>. As with character interactions, searching a location can produce different results at different times of day or on different days.</p>
-
-<p>For example, you can collect the daily paper from the <em>Morning Star</em>’s presses, but only if it’s after midnight.</p>
-
-<p><img src="/images/adventure/scoop/scoop_013.png" alt="" />
-<em>After midnight and the day’s paper is available and can be taken</em></p>
-
-<p>You’re trying to scoop another reporter - which is why the title of the game is <em>The Scoop</em>. This is why it’s important to get the daily paper as it can give you clues as to how your rival’s investigation is going, as well as surface locations to visit when you <code class="language-plaintext highlighter-rouge">EXAMINE</code> the paper.</p>
-
-<p>This is a bit tedious as any time you find something via a search, you need to take it and examine it. There’s also an <code class="language-plaintext highlighter-rouge">INVENTORY</code> you can scroll through, but it doesn’t really serve much of a purpose as the examine verb will also give you the same list.</p>
-
-<p><img src="/images/adventure/scoop/scoop_018.png" alt="" /></p>
-
-<p>Many times throughout the game you’ll want to search a room, but can’t as there’s someone in the room and they’d catch you. If you wait long enough though, they’ll eventually leave, but this can cost you a lot of time.</p>
-
-<p><img src="/images/adventure/scoop/scoop_000.gif" alt="" />
-<em><strong>Animated</strong>: wait, then wait, then wait some more and maybe something will happen</em></p>
-
-<p>If you exit a location and wait long enough for the occupant to leave, you may see them jump into a cab. In these situations, you can also hail a cab and try to follow them, but this won’t always work. I didn’t actually use this during my playthrough, but it’s an interesting mechanic.</p>
-
-<p>Taking note of people’s schedules like this is important, especially if you have to restart because you ran out of time. Knowing character schedules can help you plan your interrogations and investigation more efficiently to avoid having to wast time unnecessarily.</p>
-
-<p><img src="/images/adventure/scoop/scoop_021.png" alt="" /></p>
-
-<p>As your searches turn up clues, you’ll be able to show them to characters you’re interviewing to potentially surface further insights. Every interaction you have with a character takes up about 2 minutes of in-game time, so hammer everyone with questions can sometimes trigger their departure, which can leave you having asked the wrong questions or shown the wrong items and unable to progress.</p>
-
-<p><img src="/images/adventure/scoop/scoop_025.png" alt="" />
-<em>I’m pretty sure I needed that note as evidence</em></p>
-
-<p>Showing the wrong item to the wrong person can also result in you losing that item. When this happens you’ll likely have to restore or restart as this may have been a key item.</p>
-
-<p><img src="/images/adventure/scoop/scoop_027.png" alt="" /></p>
-
-<p>Since your goal is to get Inspector Smart to confront the murderer while you are present, you’ll need to make sure you get him clues and information as you uncover them. Assuming all goes well you’ll be able to get this all sorted out before noon on Saturday.</p>
-
-<p>If you aren’t able to have the Inspector confront the murderer, your editor lets you know you’ve failed, the paper goes bankrupt and you’re all unemployed.</p>
-
-<p><img src="/images/adventure/scoop/scoop_031.png" alt="" />
-<em>You solved the case. Good for you!</em></p>
-
-<p>Assuming you are able to solve the case though and get Inspector Smart to the right place at the right time, your editor is proud of you and the game is over.</p>
-
-<p>Honestly, <em>The Scoop</em> isn’t that bad. There’s some generic sound effects here and there, but no music anywhere so it’s a fairly quiet adventure. There are A LOT of characters and locations to visit and engage with in a short period of time, and it’s very likely you’ll fail and have to restart a few times before you’re able to identify the murderer.</p>
-
-<p>Overall it’s a fairly short game, though it can feel a lot bigger than it is with all the backtracking and repetition that’s required. The time-based mechanic is interesting, but it can be frustrating when you’re just blindly <code class="language-plaintext highlighter-rouge">WAIT</code>ing on screens to see if a character might appear or a <code class="language-plaintext highlighter-rouge">SEARCH</code> might produce a different result.</p>
-
-<p>I still enjoy these menu-driven games, but I get that they’re not for everyone. I did enjoy the story, and the characters felt realized and meaningful to the plot - even if there were too many of them.</p>
-
-<p>Though I wouldn’t play this again or really recommend it to anyone, I did have some fun playing through it.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>The Scoop</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Telarium">Telarium</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Telarium, <a href="https://en.wikipedia.org/wiki/Spinnaker_Software">Spinnaker Software</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1986</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Apple II, DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td>How Long To Beat?</td>
-      <td>2 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://gamefaqs.gamespot.com/pc/565143-the-scoop/faqs/54081">Walkthrough</a>, <a href="https://www.mocagh.org/spinnaker/scoop-manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>43%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/scoop/scoop_004.png', thumb: '/images/adventure/scoop/scoop_004.png' },{ src: '/images/adventure/scoop/scoop_005.png', thumb: '/images/adventure/scoop/scoop_005.png' },{ src: '/images/adventure/scoop/scoop_006.png', thumb: '/images/adventure/scoop/scoop_006.png' },{ src: '/images/adventure/scoop/scoop_007.png', thumb: '/images/adventure/scoop/scoop_007.png' },{ src: '/images/adventure/scoop/scoop_009.png', thumb: '/images/adventure/scoop/scoop_009.png' },{ src: '/images/adventure/scoop/scoop_010.png', thumb: '/images/adventure/scoop/scoop_010.png' },{ src: '/images/adventure/scoop/scoop_011.png', thumb: '/images/adventure/scoop/scoop_011.png' },{ src: '/images/adventure/scoop/scoop_014.png', thumb: '/images/adventure/scoop/scoop_014.png' },{ src: '/images/adventure/scoop/scoop_015.png', thumb: '/images/adventure/scoop/scoop_015.png' },{ src: '/images/adventure/scoop/scoop_016.png', thumb: '/images/adventure/scoop/scoop_016.png' },{ src: '/images/adventure/scoop/scoop_017.png', thumb: '/images/adventure/scoop/scoop_017.png' },{ src: '/images/adventure/scoop/scoop_019.png', thumb: '/images/adventure/scoop/scoop_019.png' },{ src: '/images/adventure/scoop/scoop_020.png', thumb: '/images/adventure/scoop/scoop_020.png' },{ src: '/images/adventure/scoop/scoop_022.png', thumb: '/images/adventure/scoop/scoop_022.png' },{ src: '/images/adventure/scoop/scoop_023.png', thumb: '/images/adventure/scoop/scoop_023.png' },{ src: '/images/adventure/scoop/scoop_024.png', thumb: '/images/adventure/scoop/scoop_024.png' },{ src: '/images/adventure/scoop/scoop_026.png', thumb: '/images/adventure/scoop/scoop_026.png' },{ src: '/images/adventure/scoop/scoop_029.png', thumb: '/images/adventure/scoop/scoop_029.png' },{ src: '/images/adventure/scoop/scoop_030.png', thumb: '/images/adventure/scoop/scoop_030.png' },]});inlineGallery.openGallery();</script>]]></content><author><name></name></author><category term="adventure" /><category term="Telarium" /><category term="Spinnaker Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/scoop/scoop_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
