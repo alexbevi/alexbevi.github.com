@@ -106,6 +106,8 @@ $ curl localhost:8787
 
 SUCCESS!
 
+We were able to connect to our cluster (using [SCRAM authentication](https://www.mongodb.com/docs/drivers/node/current/fundamentals/authentication/mechanisms/)) to interact with our data via the MongoDB Node.js driver from a Worker.
+
 ## Conclusion
 
 Excitement for Cloudflare Workers support for MongoDB has been around in the [MongoDB developer forums](https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708) since May, 2023. As the Product Manager for MongoDB's JavaScript developer experience I've possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a [bug report on the `workers-sdk`](https://github.com/cloudflare/workers-sdk/issues/6684), which ultimately triggered a [discussion on the `workerd` project](https://github.com/cloudflare/workerd/discussions/2721) that may have prompted the ensuing engineering effort.
