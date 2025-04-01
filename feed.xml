@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-03-25T14:07:37-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-03-25T14:06:41-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-04-01T06:43:43-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-03-25T14:06:41-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
 
 <ul>
   <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
@@ -152,7 +152,225 @@
 
 <p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
 
-<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-02-13T06:09:50-05:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-info">
+<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-04-01T06:43:01-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-info">
+  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Leisure_Suit_Larry_III:_Passionate_Patti_in_Pursuit_of_the_Pulsating_Pectorals">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals</a> is a graphical adventure game designed by Al Lowe and published by Sierra On-Line for DOS, Atari ST and Amiga in 1989 as the third entry in their Leisure Suit Larry series.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00005.png" alt="" /></p>
+
+<p>Passionate Patti in Pursuit of the Pulsating Pectorals! is the third game in Al Lowe’s Leisure Suit Larry series. Larry Laffer has finally found the woman of his dreams, and can happily live with her together on the beautiful tropical island… until he gets thrown out of the house by his wife. His boss, who happens to be his (now ex-) father-in-law, fires him. Larry is all alone, without a woman, without a job, on an island that has long ceased to be a “tropical paradise” and is exploited by entertainers, lawyers, and alike. But never despair! Dressed in his irresistible leisure suit, Larry is about to conquer the world (or at least its female population) anew. Watch out, fairer sex, because Larry is back to his swinging self!</p>
+
+<p>The game uses the same text-based interface and the same graphical engine as the previous entry in the series. The structure of the game, however, is more similar to that of the first installment: most of the time, the player is confined to one large area which can be freely explored. Unlike the two previous Larry games, the player does not just control Larry, but also - in the second half of the game - the enigmatic and beautiful pianist Patti, helping them to reach an ending that will finally bring happiness into Larry’s life.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00004.png" alt="" /></p>
+
+<p>As with any title in the Leisure Suit Larry series, this game isn’t for kids. The subject matter is mature, the jokes are crude and the themes are sexually explicit. This doesn’t detract from the experience in any way though - this is probably what drew you to this game in the first place so you know what you’re in for.</p>
+
+<p>If you start your game by poking around the menus, one of the first options you’ll find is the expletive configuration screen. Make this anything you want - Larry won’t censor you ;)</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00006.png" alt="" /></p>
+
+<p>Once you’ve got your favourite expletive configured, you’ll start exploring the island. It made me chuckle every time this popped up in conversation, so I have to applaud the design decision they made with this mechanic.</p>
+
+<p>Your objective isn’t really clear, so you start roaming around the small island to see what’s available. I’m not sure if it’s clever or not, but the <a href="https://www.mocagh.org/sierra/lsl3-manual.pdf">game’s manual</a> is sort of required reading to get you started, but the way it’s presented also isn’t very clear.</p>
+
+<p>You’ll need to read through “Nontoonyt Tonite: Your Guide to the Island” (the game manual) as it sort of lays out your objectives, and acts as copy protection as well.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00010.png" alt="" /></p>
+
+<p>This game manual is the key to many of the game’s puzzles. Personally I think it’s relied upon too heavily, and some of the clues it contains are maybe too well hidden. For example, at one point you’ll need to make a grass skirt for a disguise, but in order to do this you need to:</p>
+
+<ul>
+  <li>find the grass</li>
+  <li>find a knife</li>
+  <li>sharpen the knife</li>
+  <li>cut the grass</li>
+  <li><code class="language-plaintext highlighter-rouge">WEAVE GRASS INTO SKIRT</code></li>
+</ul>
+
+<p>You’re sort of lead towards that last step by the inclusion of “Native Grass Weaving Lessons” in the community calendar of the manual. Maybe that’s good puzzle design - maybe it’s too obscure - you decide.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00014.png" alt="" /></p>
+
+<p>As you progress you’ll meet various women that you can interact with. Each of them typically sets you up for some larger fetch quest, which on completion results in you getting to “interact” with them further (wink wink, nudge nudge).</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00026.png" alt="" /></p>
+
+<p>Being a text parser driven game, Larry (and later Patti) interact with the game world based on what you type in. I’ve played a lot of Sierra adventure games, and though many games can be a bit rigid as to what they’re willing to accept, I really found progressing in this game to be frustrating.</p>
+
+<p>Many interactions just aren’t obvious. This might just be a lack of patience on my part, but I relied pretty heavily on the walkthrough while playing through this game.</p>
+
+<p>Most of the puzzles were obtuse, and more often than not the solutions were cryptically laid out in the game manual.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00018.png" alt="" /></p>
+
+<p>The goal of the game ends up being that Larry needs to find his way into the spa, figure out how to get into the locker and get himself pumped up.</p>
+
+<p>This will enable him to hook up with the aerobics instructor, and then eventually meet up with Passionate Patti - the namesake of this game.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00023.png" alt="" /></p>
+
+<p>Patti and Larry will spend the night together, but Patti calls out the wrong name in her sleep. This upsets Larry, so he silently slips out of bed, gets dressed and leaves.</p>
+
+<p>Apparently Patti is in love with Larry at this point and the mission for the rest of the game is to go find where he’s run off to.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00028.png" alt="" /></p>
+
+<p>The Patti portion of the game is fairly short, but immensely frustrating.</p>
+
+<p>Once you take control of her and spot Larry (through the telescope on her balcony) heading to the far end of the island, your mission is to try and catch up to him.</p>
+
+<p>Doing this involves navigating through a maze - which I continue to hate.</p>
+
+<p>The solution to this maze is - you guessed it - hidden in the game manual. The lyrics to the song that is scattered throughout the manual has capitalized letters that refer to cardinal directions.</p>
+
+<p>Stringing this together is the solution to the maze, but you can’t make it all the way through unless you remembered to pick up the bottle on wine in Patti’s room and fill it with water.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00032.png" alt="" /></p>
+
+<p>If you make it through the maze, you’ll need to figure out how to cross the chasm between two trees. Taking the hemp and weaving it into rope that you tie to a rock and throw over the chasm might make sense … but you’ll fall to your death every time you try to cross.</p>
+
+<p>You’ll need to rip a chunk of your dress to build a harness that you then tie to the rope so you can cross. Who would think to do that? Maybe it was also hidden in the manual somewhere … but I reached for the walkthrough instead.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00035.png" alt="" /></p>
+
+<p>Once Patti makes it across the chasm and finds her way to the river, there’s a minigame you’ll be forced to play through.</p>
+
+<p>You basically just have to veer left or right to avoid obstacles, but it takes a long time and isn’t really all that much fun.</p>
+
+<p>I had to lower the game speed to make it through, and thankfully you can save and load your game on the river so you don’t lose too much progress every time you die … and you will die … often.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00038.png" alt="" /></p>
+
+<p>The endgame is fairly straightforward … assuming you remembered to pick up the magic marker on the island before you made your way to the maze.</p>
+
+<p>Using the magic marker sort of “warps” you to the Sierra studios, where you walk through the sets of some other games.</p>
+
+<p>This part is actually kind of cool, and the background music represents the games you’re walking through.</p>
+
+<p>The final set you visit is Space Quest, which you need to float over to a plug and unplug to finish the game.</p>
+
+<p><img src="/images/adventure/lsl3/scummvm-lsl3-00041.png" alt="" /></p>
+
+<p>After the final scene Larry and Patti meet Roberta Williams and she decides to have them write a game for her - so that’s where the story ends.</p>
+
+<p>I personally like Al Lowe’s sense of humour, but I really didn’t enjoy this game. I appreciate that they tried to build a game around the manual that comes with the game, but it made for a very broken gaming experience.</p>
+
+<p>You have to refer back to the manual way too often, and there are too many dead ends and dead man walking scenarios that require you to backtrack or restart.</p>
+
+<p>Overall this entry in the series just wasn’t all that much fun. I am looking forward to the later entires (LSL6 and LSL7) in the series as I have much fonder memories of them.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1994</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Amiga, Atari ST</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/5270">How Long To Beat?</a></td>
+      <td>4 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="http://larrylaffer.net/lslgames/lsl3-general/lsl3-walk-thru">Walkthrough</a>, <a href="https://www.mocagh.org/sierra/lsl3-manual.pdf">Manual</a>, <a href="http://larrylaffer.net/lslgames/lsl3-general/lsl3-copyright-protection">Manual / Protection</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>42%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/lsl3/scummvm-lsl3-00001.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00001.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00002.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00002.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00003.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00003.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00007.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00007.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00008.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00008.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00009.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00009.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00011.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00011.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00012.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00012.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00013.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00013.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00015.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00015.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00016.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00016.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00017.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00017.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00019.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00019.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00020.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00020.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00021.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00021.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00022.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00022.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00024.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00024.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00025.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00025.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00027.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00027.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00029.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00029.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00030.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00030.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00031.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00031.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00033.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00033.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00034.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00034.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00036.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00036.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00037.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00037.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00039.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00039.png' },{ src: '/images/adventure/lsl3/scummvm-lsl3-00040.png', thumb: '/images/adventure/lsl3/scummvm-lsl3-00040.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/412/leisure-suit-larry-iii-passionate-patti-in-pursuit-of-the-pulsat/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-02-13T06:09:50-05:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-info">
   <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
 </blockquote>
 
@@ -1850,264 +2068,4 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/145/space-quest-6-roger-wilco-in-the-spinal-frontier/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Under a Killing Moon (Access Software) - 1994</title><link href="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/" rel="alternate" type="text/html" title="Under a Killing Moon (Access Software) - 1994" /><published>2024-09-20T06:03:15-04:00</published><updated>2024-10-21T06:55:23-04:00</updated><id>https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/09/20/under-a-killing-moon/"><![CDATA[<blockquote class="prompt-info">
-  <p>This review is part of the <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Under_a_Killing_Moon">Under a Killing Moon</a> is a 1994 point-and-click adventure interactive movie video game. It is the third installment in the Tex Murphy series of adventure games produced by Access Software.</p>
-
-<p><img src="/images/adventure/moon/tex3_050.png" alt="" /></p>
-
-<p>It is December of the year 2042. The world is still recovering from the disastrous consequences of the World War III. Radioactivity has turned many humans into mutants, and the gap between those and the “norms” (non-affected humans) is growing wider. Certain places in the world have retained the feel and the charm of the old times - among those is the Old San Francisco. There, the private investigator Tex Murphy is trying to deal with unemployment, upcoming poverty, and his melancholic mood following his divorce. After solving a simple robbery case, Tex attracts the attention of a mysterious woman who calls herself Countess Renier, and is hired by her to find a missing statuette. Things gradually begin to go wrong in this investigation, and Tex finds himself involved in a confrontation with a powerful and dangerous secret cult.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
-<p><img src="/images/adventure/moon/tex3_004.png" alt="" /></p>
-
-<p><em>Under a Killing Moon</em> is the sequel to Access Software’s previous title <em>Martian Memorandum</em>. Though I haven’t played through this one yet, I have previously covered <a href="/blog/2023/01/19/mean-streets/">Mean Streets</a> and <a href="/blog/2023/04/20/countdown/">Countdown</a> - the first being a Tex Murphy adventure.</p>
-
-<p>I’m a fan of old detective movies and the <a href="https://en.wikipedia.org/wiki/Film_noir">film noir</a> genre in general, so the introductory cut scene really hooked me right away and drew me into the dystopian future that was this game’s world.</p>
-
-<p><img src="/images/adventure/moon/tex3_006.png" alt="" /></p>
-
-<p>Right from the beginning you feel like you’re in a movie, which if you’ve watched the documentary <a href="https://www.youtube.com/watch?v=tooF40ktbdM">“The Making of Tex Murphy”</a> reinforces this further as the game developers really wanted to make movies.</p>
-
-<p>According to <a href="https://www.filfre.net/2020/07/under-a-killing-moon/">The Digital Antiquarian’s <em>Under a Killing Moon</em></a> article, Tex Murphy first appeared in <a href="https://en.wikipedia.org/wiki/Plan_10_from_Outer_Space">Plan 10 from Outer Space</a> before eventually being repurposed as the protagonist in various Access Software titles:</p>
-
-<blockquote>
-  <p>Vandegrift had recently returned to Bountiful to take a job as Access’s art director, and was more than up for Jones’s plan. The two had dreams of showing at Sundance as they wrote a script that combined <a href="https://en.wikipedia.org/wiki/The_Maltese_Falcon_(1941_film)">The Maltese Falcon</a> with <a href="https://en.wikipedia.org/wiki/Close_Encounters_of_the_Third_Kind">Close Encounters of the Third Kind</a>. Jones took the starring role of a private detective born in the wrong time, who channeled not only Humphrey Bogart but also Roy Rogers, what with his penchant for yodeling cowboy tunes. The detective-cum-cowboy’s name was Tex Murphy.</p>
-</blockquote>
-
-<p><img src="/images/adventure/moon/tex3_000.png" alt="" /></p>
-
-<p>Before diving into <em>Under a Killing Moon</em>, you first need to install and configure it. There’s something really nostalgic about the design of these DOS era configuration screens that try to make it as easy as possible to configure your sound card.</p>
-
-<p>I’m pretty sure I never had more than one device ever (at a time) so my digital sound and music devices were always the same, but in this modern age of emulation, might as well splurge and setup a faux-MT 32 for all the music this game has to offer.</p>
-
-<p><img src="/images/adventure/moon/tex3_029.png" alt="" /></p>
-
-<p>You play as Tex Murphy, who’s a down on his luck private investigator looking for his next job. The game opens with a cinematic cutscene, then drops you into Tex’s office, which you can fully explore in 3D.</p>
-
-<p>The game comes with 2 navigation modes - interactive and exploration. When you’re in exploration mode, you can move around the environment as if you’re playing DOOM. Tex can look all around using the mouse to control your field of vision, but you can also “stand” and “crouch” to see above and below things.</p>
-
-<p><img src="/images/adventure/moon/tex3_048.png" alt="" /></p>
-
-<p>A pretty big part of the game’s puzzle design revolves around this mechanic of panning and tilting the camera to see over and into things. If there’s ever a trash can in a room, it’s worth having a look into as there’s usually something in there you’ll need to <code class="language-plaintext highlighter-rouge">GET</code>.</p>
-
-<p><img src="/images/adventure/moon/tex3_049.png" alt="" /></p>
-
-<p>What you’ll often find in these trash cans are pieces of notes you’ll need to reassemble. This can be extremely time consuming to complete, but the game does at least give you instructions each time that lets you know what the goal of the puzzle is, and how to manipulate the pieces.</p>
-
-<p>Each note reassembly puzzle is slightly different, so I appreciate that it didn’t just feel like busy work, but it’s obvious the designers were proud of this mechanic and wanted to reuse it as often as possible.</p>
-
-<p><img src="/images/adventure/moon/tex3_035.png" alt="" /></p>
-
-<p>There’s more to collect in this game than just ripped up notes you need to put back together, and these are all stored in your inventory. Each item can be either examined, used or combined - and it’s worth trying all 3 of these options with literally everything you pick up.</p>
-
-<p>Examining items is a requirement as many times the item you initially picked up isn’t actually the thing you want. Examining it shows a 3D view of the item as it’s rotated, and you may discover a compartment with a key, or you’ll open it up and take something out - discarding the initial item in the process.</p>
-
-<p>Though there are several item combination puzzles, the end result is typically pretty obvious, so the various items you need to collect and combine to form the final item are also pretty obvious.</p>
-
-<p><img src="/images/adventure/moon/tex3_056.png" alt="" /></p>
-
-<p>To navigate around the world of <em>Under a Killing Moon</em>, you have access to a quick travel map. New locations are added based on conversations with characters or by examining certain inventory items.</p>
-
-<p>Many locations aren’t actually “explorable”, but simply contain a single character you can talk to. This can make the game world look a lot bigger than it is.</p>
-
-<p>Since it’s REALLY easy to miss picking up key items in this game, the map is actually extremely useful. For locations (like Chandler Ave.) where there are several places you can visit, you can actually go directly to a key location right away by selecting it from the map.</p>
-
-<p><img src="/images/adventure/moon/tex3_030.png" alt="" /></p>
-
-<p>The story progresses through interactions with a couple dozen characters you’ll meet throughout your adventure. Instead of the typical dialogue tree adventure games present you with, <em>Under a Killing Moon</em> relies on a 3 options system used to set the tone of the question you want to ask.</p>
-
-<p>Typically the option you select won’t matter, and the conversation will proceed “on rails”, but if you’re not careful with certain people you’ll miss key details if you pick the wrong options - or even get yourself killed!</p>
-
-<p><img src="/images/adventure/moon/tex3_031.png" alt="" /></p>
-
-<p>Dying in this game brings you back to the big detective in the sky, who will let you know it’s not your time yet and give you another chance.</p>
-
-<p>You may also get a clue as to how you should have proceeded. Since this section is voiced by <a href="https://en.wikipedia.org/wiki/James_Earl_Jones">James Earl Jones</a>, it’s at least a bit enjoyable hearing him reassure you that it’s not your time and you should get back out there and try again.</p>
-
-<p>Hopefully you remembered to save your game recently, as restore a previous save is the only option here - other than restarting from the beginning.</p>
-
-<p><img src="/images/adventure/moon/tex3_059.png" alt="" /></p>
-
-<p>Though saving early and often is pretty standard fare for an adventure game, it’s worth calling out <em>Under a Killing Moon</em>’s storage system.</p>
-
-<p>When you start the game, you create a player, which is what you’ll be storing your games under. You can have multiple players with their own series of saves, which I guess if you’re sharing your computer with a sibling would be useful to keep your save games separated.</p>
-
-<p>Each save automatically captures the current location, and you can even enter arbitrary notes about the save, which can also be handy.</p>
-
-<p><img src="/images/adventure/moon/tex3_055.png" alt="" /></p>
-
-<p>The story unfolds over 7 days, with each day starting with a title card. Once you solve the case of the robbery from the pawn shop and realize you may want to get back into sleuthing, you’ll need to get your fax machine fixed so you can maybe get some new cases.</p>
-
-<p>One of the locations you gain access to early on is an electronics store, which seems to always have exactly one item for sale - and that item always ends up being the thing you currently need (how convenient).</p>
-
-<p><img src="/images/adventure/moon/tex3_008.png" alt="" /></p>
-
-<p>To get into the electronics store though, you’ll need some means to buy things - like a credit card. In your office you’ll find a stack of mail by the front door, which includes an application for a credit card.</p>
-
-<p>Opening the drawers in your office will reveal a pen and an envelope, and combining those three items will create a “ready-to-mail application”, which you then just need to drop into a mailbox.</p>
-
-<p>This is how a lot of these item combination puzzles work. There aren’t really all that many items on any day that you have access to, and it’s fairly obvious how they need to be used.</p>
-
-<p><img src="/images/adventure/moon/tex3_043.png" alt="" /></p>
-
-<p>Whenever you go to the electronics shop, if there’s an item for sale, you’re going to need it - and it’s only a credit card swipe away. I’m pretty sure there’s no limit on the card, but you only need to use it a handful of times in this one store in the game where you have the power to buy anything.</p>
-
-<p>Navigating the dialogue options properly with the electronics store owner is required on one of the later days, as you’ll need him to spill some info about the security system he just installed at the Knickerbocker hotel.</p>
-
-<p>If you don’t pick the right options, he’ll end the conversation early. Since there are only 3 options available for each conversation you have, it’s worth testing all variations with all characters just in case.</p>
-
-<p><img src="/images/adventure/moon/tex3_028.png" alt="" /></p>
-
-<p>During conversations with characters, you can also ask about various keywords. Not all characters will know about a all keywords, but this is how you advance your investigation.</p>
-
-<p>You’ll also learn new keywords as you progress, and will need to backtrack to ask all characters about these to see if they can shed any light on the topic.</p>
-
-<p><em>Under a Killing Moon</em> does a great job of making this game world feel large and expansive, but there actually aren’t that many locations to visit or characters to interact with.</p>
-
-<p>The balance they strike though of forcing you to backtrack without making it feel tedious is impressive.</p>
-
-<p><img src="/images/adventure/moon/tex3_022.png" alt="" /></p>
-
-<p>Some characters you interact with are mutants, and may be disfigured. I know that earlier games go into more detail about what happened in the world for this to happen, but here they don’t really explore this very much.</p>
-
-<p>For <a href="https://texmurphy.fandom.com/wiki/Under_a_Killing_Moon">some additional context</a>:</p>
-
-<blockquote>
-  <p>Some people have developed a natural resistance against radioactivity, and thus are normal or “Norms” – everybody else are Mutants in some form. Tensions between the two groups have risen dramatically since the end of the war, and Norms and Mutants usually do not get along. […] The Law and Order Party has long since dissolved and disbanded but it still lives on in the more extremist and openly anti - mutant group The Crusade for Genetic Purity which now espouses a return to pre-WWIII society with Norms having full control of society without mutants.</p>
-</blockquote>
-
-<p>You can ask characters about the crusade, but most won’t really give you much information.</p>
-
-<p>I actually really love the backstory of this game and wish they’d leaned into world building a bit more, but I guess the expectation was you’d played through the previous games in the the series and were up to speed already.</p>
-
-<p><img src="/images/adventure/moon/tex3_052.png" alt="" /></p>
-
-<p>As the game progresses you get wrapped up in a plot to eradicate all mutants (and I think humans considered “impure”) by raining down a virus from an orbiting space station known as the Moon Child.</p>
-
-<p>Your mission then becomes to save Eva (who you learn infiltrated the CAPRICORN corporation’s cult and was sharing info via videos) from the Moon Child, blow up the station and return to Earth.</p>
-
-<p><img src="/images/adventure/moon/tex3_066.png" alt="" /></p>
-
-<p>For a game considered the “largest video game ever” (at 4 CDs), <em>Under a Killing Moon</em> is fairly straightforward to complete.</p>
-
-<p>This being an FMV game from the early 90s means you’re going to be treated to some questionable voice and character acting, but overall it’s not too bad.</p>
-
-<p>James Earl Jones’ narrative does a great job of setting the tone of the game, and the brief sequences with <a href="https://en.wikipedia.org/wiki/Margot_Kidder">Margot Kidder</a> are enjoyable.</p>
-
-<p>Navigating the game world’s 3D environment from a first person perspective made the exploration portions of the game very engaging, and since most scenes weren’t that big it didn’t feel like things were purposely hidden in weird places just to screw with you.</p>
-
-<p>You really feel like you’re part of the story as it progresses, and the characters (typically) don’t feel two dimensional. The puzzles aren’t overly complicated, and though they can be a bit repetitive, don’t become tedious.</p>
-
-<p>I had a lot of fun playing through <em>Under a Killing Moon</em>, and look forward to one day revisiting this world and its characters in <a href="https://en.wikipedia.org/wiki/The_Pandora_Directive">The Pandora Directive</a>, but given the rate at which I play through these games … that might take me a while.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Under a Killing Moon</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Access_Software">Access Software</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Access Software</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1994</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Windows</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/19399">How Long To Beat?</a></td>
-      <td>8.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://adventuregamers.com/walkthrough/full/tex-murphy-under-a-killing-moon">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (10)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (10)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>71%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/moon/tex3_002.png', thumb: '/images/adventure/moon/tex3_002.png' },{ src: '/images/adventure/moon/tex3_003.png', thumb: '/images/adventure/moon/tex3_003.png' },{ src: '/images/adventure/moon/tex3_005.png', thumb: '/images/adventure/moon/tex3_005.png' },{ src: '/images/adventure/moon/tex3_007.png', thumb: '/images/adventure/moon/tex3_007.png' },{ src: '/images/adventure/moon/tex3_009.png', thumb: '/images/adventure/moon/tex3_009.png' },{ src: '/images/adventure/moon/tex3_010.png', thumb: '/images/adventure/moon/tex3_010.png' },{ src: '/images/adventure/moon/tex3_011.png', thumb: '/images/adventure/moon/tex3_011.png' },{ src: '/images/adventure/moon/tex3_012.png', thumb: '/images/adventure/moon/tex3_012.png' },{ src: '/images/adventure/moon/tex3_013.png', thumb: '/images/adventure/moon/tex3_013.png' },{ src: '/images/adventure/moon/tex3_014.png', thumb: '/images/adventure/moon/tex3_014.png' },{ src: '/images/adventure/moon/tex3_015.png', thumb: '/images/adventure/moon/tex3_015.png' },{ src: '/images/adventure/moon/tex3_016.png', thumb: '/images/adventure/moon/tex3_016.png' },{ src: '/images/adventure/moon/tex3_017.png', thumb: '/images/adventure/moon/tex3_017.png' },{ src: '/images/adventure/moon/tex3_018.png', thumb: '/images/adventure/moon/tex3_018.png' },{ src: '/images/adventure/moon/tex3_019.png', thumb: '/images/adventure/moon/tex3_019.png' },{ src: '/images/adventure/moon/tex3_020.png', thumb: '/images/adventure/moon/tex3_020.png' },{ src: '/images/adventure/moon/tex3_021.png', thumb: '/images/adventure/moon/tex3_021.png' },{ src: '/images/adventure/moon/tex3_023.png', thumb: '/images/adventure/moon/tex3_023.png' },{ src: '/images/adventure/moon/tex3_024.png', thumb: '/images/adventure/moon/tex3_024.png' },{ src: '/images/adventure/moon/tex3_025.png', thumb: '/images/adventure/moon/tex3_025.png' },{ src: '/images/adventure/moon/tex3_026.png', thumb: '/images/adventure/moon/tex3_026.png' },{ src: '/images/adventure/moon/tex3_027.png', thumb: '/images/adventure/moon/tex3_027.png' },{ src: '/images/adventure/moon/tex3_032.png', thumb: '/images/adventure/moon/tex3_032.png' },{ src: '/images/adventure/moon/tex3_033.png', thumb: '/images/adventure/moon/tex3_033.png' },{ src: '/images/adventure/moon/tex3_034.png', thumb: '/images/adventure/moon/tex3_034.png' },{ src: '/images/adventure/moon/tex3_036.png', thumb: '/images/adventure/moon/tex3_036.png' },{ src: '/images/adventure/moon/tex3_037.png', thumb: '/images/adventure/moon/tex3_037.png' },{ src: '/images/adventure/moon/tex3_038.png', thumb: '/images/adventure/moon/tex3_038.png' },{ src: '/images/adventure/moon/tex3_039.png', thumb: '/images/adventure/moon/tex3_039.png' },{ src: '/images/adventure/moon/tex3_040.png', thumb: '/images/adventure/moon/tex3_040.png' },{ src: '/images/adventure/moon/tex3_041.png', thumb: '/images/adventure/moon/tex3_041.png' },{ src: '/images/adventure/moon/tex3_042.png', thumb: '/images/adventure/moon/tex3_042.png' },{ src: '/images/adventure/moon/tex3_044.png', thumb: '/images/adventure/moon/tex3_044.png' },{ src: '/images/adventure/moon/tex3_045.png', thumb: '/images/adventure/moon/tex3_045.png' },{ src: '/images/adventure/moon/tex3_046.png', thumb: '/images/adventure/moon/tex3_046.png' },{ src: '/images/adventure/moon/tex3_047.png', thumb: '/images/adventure/moon/tex3_047.png' },{ src: '/images/adventure/moon/tex3_051.png', thumb: '/images/adventure/moon/tex3_051.png' },{ src: '/images/adventure/moon/tex3_053.png', thumb: '/images/adventure/moon/tex3_053.png' },{ src: '/images/adventure/moon/tex3_054.png', thumb: '/images/adventure/moon/tex3_054.png' },{ src: '/images/adventure/moon/tex3_057.png', thumb: '/images/adventure/moon/tex3_057.png' },{ src: '/images/adventure/moon/tex3_058.png', thumb: '/images/adventure/moon/tex3_058.png' },{ src: '/images/adventure/moon/tex3_060.png', thumb: '/images/adventure/moon/tex3_060.png' },{ src: '/images/adventure/moon/tex3_062.png', thumb: '/images/adventure/moon/tex3_062.png' },{ src: '/images/adventure/moon/tex3_063.png', thumb: '/images/adventure/moon/tex3_063.png' },{ src: '/images/adventure/moon/tex3_064.png', thumb: '/images/adventure/moon/tex3_064.png' },{ src: '/images/adventure/moon/tex3_065.png', thumb: '/images/adventure/moon/tex3_065.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p><small>Description from <a href="https://www.mobygames.com/game/850/under-a-killing-moon/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/moon/tex3_001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="SCI" /><summary type="html"><![CDATA[This review is part of the “Let’s Adventure!” series. See all reviewed games sorted by rating here.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/sq6/scummvm-sq6-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
