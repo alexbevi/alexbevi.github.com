@@ -100,9 +100,7 @@ The endgame is fairly straightforward ... assuming you remembered to pick up the
 
 Using the magic marker sort of "warps" you to the Sierra studios, where you walk through the sets of some other games.
 
-This part is actually kind of cool, and the background music represents the games you're walking through.
-
-The final set you visit is Space Quest, which you need to float over to a plug and unplug to finish the game.
+This part is actually kind of cool, and the background music represents the games you're walking through. The final set you visit is Space Quest, which you need to float over to a plug and unplug to finish the game.
 
 ![](/images/adventure/lsl3/scummvm-lsl3-00041.png)
 
