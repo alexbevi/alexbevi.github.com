@@ -298,15 +298,15 @@ We'll also need to update our `wrangler` configuration to ensure we've setup the
 }
 ```
 
-Once our code is pushed and the Workers CI integration picks up the changes, we can test this out:
+Once our code is pushed and the Workers CI integration picks up the changes, we can test this out by passing `durable=true` to our Workers URL:
 
 ```
-$ curl https://workers-mongodb-demo.alex-fbd.workers.dev/
+$ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 {"movie":{"title":"The Room","imdb":{"rating":3.5,"votes":25673,"id":368226}},"queryTime":317}
 
 <repeat about 5 times>
 
-$ curl https://workers-mongodb-demo.alex-fbd.workers.dev/
+$ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 {"movie":{"title":"The Room","imdb":{"rating":3.5,"votes":25673,"id":368226}},"queryTime":35}
 ```
 
@@ -314,4 +314,4 @@ Well that's a heck of a lot better! Using Durable Objects we were able to get th
 
 I ran a number of tests and periodically you'd still get a cold-start spike, but most requests benefit from the reduced latency maintaining a stateful Worker via Durable Objects provides.
 
-It is worth calling out that Durable Objects come with some [limitations](https://developers.cloudflare.com/durable-objects/platform/limits/) such as a soft limit of 1,000 requests per second, but for _most_ use cases this is likely sufficient.
+It is worth calling out that Durable Objects come with some [limitations](https://developers.cloudflare.com/durable-objects/platform/limits/) such as a soft limit of 1,000 requests per second, but for _most_ use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.
