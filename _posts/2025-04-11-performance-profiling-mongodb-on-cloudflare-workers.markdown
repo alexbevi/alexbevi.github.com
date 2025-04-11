@@ -154,7 +154,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/
 {"movie":{"title":"The Room","imdb":{"rating":3.5,"votes":25673,"id":368226}},"queryTime":1901}
 ```
 
-These requests now take almost 2 seconds each.  Since Cloudflare Workers have a [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement/)feature I wanted to try that out to see if it would have any meaningful impact.
+These requests now take almost 2 seconds each.  Since Cloudflare Workers have a [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement/) feature I wanted to try that out to see if it would have any meaningful impact.
 
 ### Testing Workers and Smart Placement
 
