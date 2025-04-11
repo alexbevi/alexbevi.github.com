@@ -70,7 +70,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 94 -%}
+{%- assign games_finished = 95 -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -152,7 +152,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 62. Quest for Glory: So You Want to Be a Hero (Sierra On-Line) - 1989
 63. The Colonel's Bequest (Sierra On-Line) - 1989
 64. [Codename: ICEMAN (Sierra On-Line)]({% post_url 2024-03-20-codename-iceman %}) - 1989
-65. Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line) - 1989
+65. [Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line)]({% post_url 2025-03-14-leisure-suit-larry-iii %}) - 1989
 66. [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
 67. [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 68. Earthrise: A Guild Investigation (Matt Gruson) - 1990
