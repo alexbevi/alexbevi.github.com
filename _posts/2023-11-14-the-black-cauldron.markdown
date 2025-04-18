@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, AGI, "Sierra On-Line"]
 image: /images/adventure/bc/scummvm-bc-1-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [The Black Cauldron](https://en.wikipedia.org/wiki/The_Black_Cauldron_(video_game)) is an adventure game designed by Al Lowe of Sierra On-Line and published in 1986. The game is based on the Disney film [The Black Cauldron](https://en.wikipedia.org/wiki/The_Black_Cauldron_(film)), which was itself based on the Chronicles of Prydain novel of the same name by Lloyd Alexander. It was made shortly after the first King's Quest game, so it resembles that game in many ways. Along with The Dark Crystal it remains one of only a few adventure games by Sierra to be based on films.
 

@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Tsunami Games", TsAGE]
 image: /images/adventure/r2rw/r2rw_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Return to Ringworld](https://wiki.scummvm.org/index.php/Return_to_Ringworld) is the sequel to the previous game based on Larry Niven's "Known Space" series of novels (Ringworld). Once again this game is a point and click adventure/puzzle solving game.
 

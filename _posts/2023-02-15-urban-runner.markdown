@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Sierra On-Line", Gob]
 image: /images/adventure/urban/scummvm-urban-us-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Urban Runner](https://en.wikipedia.org/wiki/Urban_Runner) is a French produced computer game developed by Coktel Vision and published by Sierra On-line. The game is an interactive movie or visual novel spanning four CD-ROMs.
 

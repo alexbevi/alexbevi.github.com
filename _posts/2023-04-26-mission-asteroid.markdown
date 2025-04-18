@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "On-Line Systems", ADL]
 image: /images/adventure/asteroid/screenshot-2023-April-26-19-29-46.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Mission Asteroid](https://en.wikipedia.org/wiki/Mission_Asteroid) is a graphic adventure game for the Apple II written by Ken and Roberta Williams and released in 1980 by On-Line Systems. It was later ported to the Atari 8-bit family and Commodore 64.
 

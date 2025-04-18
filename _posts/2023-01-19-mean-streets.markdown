@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Access Software", "Tex Murphy"]
 image: /images/adventure/meanstreets/ms_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Mean Streets](https://en.wikipedia.org/wiki/Mean_Streets_(video_game)) is set in a dystopian cyberpunk neo-noir world is the first in the series of Tex Murphy mysteries. In 1998, Mean Streets was remade as [Tex Murphy: Overseer](https://en.wikipedia.org/wiki/Tex_Murphy:_Overseer), which I'll get to eventually :).
 

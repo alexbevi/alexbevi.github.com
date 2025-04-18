@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Nayma Software", "Prograph Research"]
 image: /images/adventure/tony/scummvm-tony-00001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 > This game is available for free from the developers at https://www.tony-tough.com/en/shop#games
 {: .prompt-tip }

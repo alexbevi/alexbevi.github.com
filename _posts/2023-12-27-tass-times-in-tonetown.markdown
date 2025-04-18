@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Interplay Productions", "Brainwave Creations", "Activision", Mindshadow]
 image: /images/adventure/tass/SCR-20231223-hfmu.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Tass Times in Tonetown](https://en.wikipedia.org/wiki/Tass_Times_in_Tonetown) is an adventure game published by Activision in 1986. It was designed by Michael Berlyn and Muffy McClung Berlyn and programmed by Rebecca Heineman of Interplay (credited as Bill Heineman) in cooperation with Brainwave Creations.
 

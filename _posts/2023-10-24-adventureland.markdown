@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Adventure International"]
 image: /images/adventure/advland/000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Adventureland](https://en.wikipedia.org/wiki/Adventureland_(video_game)) is a text adventure video game for microcomputers released by Scott Adams in 1978. The game has no plot but simply involves searching for thirteen lost artifacts in a fantasy setting. Its success led Adams to form Adventure International which went on to publish thirteen similar games in the Adventure series, each in different settings.
 

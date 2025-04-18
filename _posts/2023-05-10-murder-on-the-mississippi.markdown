@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Activision"]
 image: /images/adventure/motm/vice-screen-2023050105435383.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Murder on the Mississippi](https://en.wikipedia.org/wiki/Murder_on_the_Mississippi) is a 1986 detective adventure game developed and published by Activision for the Commodore 64, Commodore 128 and the Apple II computers, where you assume the role of Sir Charles Foxworth and must solve a murder mystery on the luxury ship "Delta Princess". The story is based loosely on the Agatha Christie novel [Death on the Nile](https://en.wikipedia.org/wiki/Death_on_the_Nile).
 

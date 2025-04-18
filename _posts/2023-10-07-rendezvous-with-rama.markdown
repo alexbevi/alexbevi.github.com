@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Telarium"]
 image: /images/adventure/rdv/rdv_002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Rendezvous with Rama](https://en.wikipedia.org/wiki/Rendezvous_with_Rama_(video_game)) is an interactive fiction game with graphics published by Telarium, a subsidiary of Spinnaker Software, in 1984. It was developed in cooperation with Arthur C. Clarke and based upon his [1973 science fiction novel Rendezvous with Rama](https://en.wikipedia.org/wiki/Rendezvous_with_Rama).
 

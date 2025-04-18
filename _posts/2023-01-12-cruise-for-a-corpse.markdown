@@ -7,9 +7,9 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "Delphine Software International", CruisE, "Erbe Software", "Interplay Entertainment", "U.S. Gold"]
 image: /images/adventure/cruise/scummvm-cruise-00000.png
 published: true
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Cruise for a Corpse](https://en.wikipedia.org/wiki/Cruise_for_a_Corpse) is designed as a murder investigation. The player assumed the role of Raoul Dusentier, a French police inspector invited to spend some time on Niklos Karaboudjan's boat. Quickly after arriving, Karaboudjan is murdered, and the investigation begins.
 

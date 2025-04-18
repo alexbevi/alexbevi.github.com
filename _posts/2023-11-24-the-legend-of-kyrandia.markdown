@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Westwood Studios", "Virgin Interactive", "Kyra"]
 image: /images/adventure/kyra1/scummvm-kyra1-cd-1-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [The Legend of Kyrandia: Fables and Fiends](https://en.wikipedia.org/wiki/The_Legend_of_Kyrandia) (or The Legend of Kyrandia: Book One) is a 2D point-and-click adventure game, and the first game in the Fables & Fiends series. It was developed by Westwood Studios and published by Virgin Games in August 1992.
 

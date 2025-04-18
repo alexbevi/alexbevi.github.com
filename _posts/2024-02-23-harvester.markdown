@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "DigiFX Interactive", "Merit Studios", "Virgin Interactive"]
 image: /images/adventure/harvester/harvest_001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Harvester](https://en.wikipedia.org/wiki/Harvester_(video_game)) is a 1996 point-and-click adventure game written and directed by Gilbert P. Austin, known for its violent content, cult following, and examination of violence. Players take on the role of Steve Mason, an eighteen-year-old man who awakens in a Midwestern town in 1953 with no memory of who he is and a vague sense he does not belong there. Over the course of the next week, he is coerced or manipulated into performing a series of seemingly mundane tasks with increasingly violent consequences at the behest of "The Order of the Harvest Moon," a cult-like organization which seems to dominate the town and which promises to reveal the truth about Steve and his presence in Harvest.
 

@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Accolade"]
 image: /images/adventure/altered/015.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Altered Destiny](https://en.wikipedia.org/wiki/Altered_Destiny) is a graphic adventure game released by Accolade in 1990 for MS-DOS compatible operating systems and in 1991 for Amiga. The game was designed by Michael Berlyn and it uses a text parser interface. It is the second adventure game from Accolade and it uses the same engine as the first one, [Les Manley in: Search for the King](https://en.wikipedia.org/wiki/Les_Manley_in:_Search_for_the_King).
 

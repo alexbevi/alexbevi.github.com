@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Hudson Soft"]
 image: /images/adventure/princess-tomato.006.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 Princess Tomato in the Salad Kingdom (_サラダの国のトマト姫, Sarada no Kuni no Tomato Hime_) is an adventure game by Hudson Soft originally released in 1984 on a number of Japanese Home Computer systems. It was eventually ported to the Famicom in 1988, then localized and released in North America in 1991 on the NES.
 

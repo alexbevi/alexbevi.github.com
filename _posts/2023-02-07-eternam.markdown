@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Infogrames"]
 image: /images/adventure/eternam/etercrk_001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Eternam](https://en.wikipedia.org/wiki/Eternam) combines futuristic elements with historical settings. The player assumes the role of officer Don Jonz of the Orion United Forces, who is starting a vacation on the planet Eternam. The planet is described as a galactic amusement centre, where different islands represent different periods of Earth's history.
 

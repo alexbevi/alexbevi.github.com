@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Gray Design Associates", "Hugo"]
 image: /images/adventure/hugo2/scummvm-hugo2-0000a.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Hugo II, Whodunit?](https://en.wikipedia.org/wiki/Hugo_II,_Whodunit%3F) (named Hugo's Mystery Adventure in the Hugo Trilogy re-release) is a parser-based adventure game designed by independent software developer David P. Gray and published as shareware by Gray Design Associates in 1991. It is the sequel to 1990's [Hugo's House of Horrors]({% post_url 2022-12-21-hugos-house-of-horrors %}), and it was followed by Hugo III, Jungle of Doom! in 1992.
 

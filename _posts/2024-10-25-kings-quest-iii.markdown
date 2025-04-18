@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", "played:DOS", AGI]
 image: /images/adventure/kq3/scummvm-kq3-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [King's Quest III: To Heir Is Human](https://en.wikipedia.org/wiki/King%27s_Quest_III) is the third installment in the King's Quest series of graphic adventure games developed and released by Sierra On-Line in 1986. The game was originally released for the Apple II and MS-DOS, and later ported to several other computer systems. It was the first title game in the series not to feature King Graham as the player character.
 

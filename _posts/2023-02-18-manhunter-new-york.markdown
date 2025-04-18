@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Evryware", "Sierra On-Line", AGI]
 image: /images/adventure/mh1/scummvm-mh1-00003.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Manhunter: New York](https://en.wikipedia.org/wiki/Manhunter:_New_York) is a post-apocalyptic adventure game designed by Barry Murry, Dave Murry and Dee Dee Murry of Evryware and published in 1988 by Sierra On-Line. Built using Sierra's AGI ([Adventure Game Interpreter](https://en.wikipedia.org/wiki/Adventure_Game_Interpreter)) engine, it stands out as it doesn't involve side-scrolling views or a text-parser to interact with the world.
 

@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Tinsel", "Teeny Weeny Games/Perfect 10 Productions", "Psygnosis"]
 image: /images/adventure/dw1/scummvm-dw-cd-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Discworld](https://en.wikipedia.org/wiki/Discworld_(video_game)) is a point-and-click adventure game developed by Teeny Weeny Games and Perfect 10 Productions and published by Psygnosis. It is based on [Terry Pratchett](https://en.wikipedia.org/wiki/Terry_Pratchett)'s novels of the same name.
 

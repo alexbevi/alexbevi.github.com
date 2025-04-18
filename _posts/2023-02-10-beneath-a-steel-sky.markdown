@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Revolution Software", "Virgin Interactive Entertainment", "Virtual Theatre"]
 image: /images/adventure/bass/title.jpg
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Beneath a Steel Sky](https://en.wikipedia.org/wiki/Beneath_a_Steel_Sky) is a 1994 cyberpunk science fiction point-and-click adventure game developed by British developer Revolution Software and published by Virgin Interactive Entertainment for MS-DOS and Amiga home computers. The game was made available as freeware ([download at GOG.com](https://www.gog.com/en/game/beneath_a_steel_sky
 )) – and with the [source code released](https://github.com/videogamepreservation/bass) – for PC platforms in 2003.

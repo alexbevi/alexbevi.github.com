@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", SCI]
 image: /images/adventure/torin/scummvm-torin-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Torin's Passage](https://en.wikipedia.org/wiki/Torin%27s_Passage) is a point-and-click adventure game developed and published by Sierra On-Line in 1995. The game was designed by Al Lowe, author of the Leisure Suit Larry series.
 

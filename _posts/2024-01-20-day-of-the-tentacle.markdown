@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "LucasArts", SCUMM]
 image: /images/adventure/dott/scummvm-tentacle-00002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Day of the Tentacle](https://en.wikipedia.org/wiki/Maniac_Mansion:_Day_of_the_Tentacle) is a 1993 graphic adventure game developed and published by LucasArts and is the sequel to the 1987 game Maniac Mansion. The plot follows Bernard Bernoulli and his friends Hoagie and Laverne as they attempt to stop the evil Purple Tentacle - a sentient, disembodied tentacle - from taking over the world.
 

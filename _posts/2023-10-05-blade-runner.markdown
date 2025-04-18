@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Westwood Studios", "Virgin Interactive Entertainment"]
 image: /images/adventure/br/scummvm-bladerunner-win-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Blade Runner](https://en.wikipedia.org/wiki/Blade_Runner_(1997_video_game)) is a point-and-click adventure game developed by Westwood Studios and published by Virgin Interactive for Microsoft Windows, released on November 14, 1997. The game is not a direct adaptation of the 1982 Ridley Scott film Blade Runner but is instead a "sidequel", telling an original story, which runs parallel to the film's plot, occasionally intersecting with it.
 

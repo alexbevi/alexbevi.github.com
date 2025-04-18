@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, AGI, "Sierra On-Line"]
 image: /images/adventure/scummvm-sq1-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 Though I'm pretty sure I played King's Quest first, Space Quest is the game that really stands out to me as being a "great game of that era". What set this title apart was the use of humour throughout the story, interactions with characters and the environment and the (countless) pitfalls and death traps. Series designers Scott Murphy and Mark Crowe (known as the "Two Guys from Andromeda" in later games) wanted to do something not set in a medieval or fantasy atmosphere, and also with the goal of creating a "fun, silly game".
 

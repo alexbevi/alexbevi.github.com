@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Take-Two Interactive"]
 image: /images/adventure/ripper/ripper_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Ripper](https://en.wikipedia.org/wiki/Ripper_(video_game)) is a 1996 interactive movie point-and-click adventure game developed and published by Take-Two Interactive for MS-DOS and Macintosh. The cast includes Christopher Walken, Paul Giamatti, Karen Allen, Burgess Meredith (in his final performance before his death the following year), David Patrick Kelly, Ossie Davis, and John Rhys-Davies. The villain of the game is chosen at random from the four main characters. A limited number of the clues and puzzles, plus a single line of dialogue in the ending, change according to the villain's identity.
 

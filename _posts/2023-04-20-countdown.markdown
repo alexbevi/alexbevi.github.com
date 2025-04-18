@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Access Software"]
 image: /images/adventure/countdown/count_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 In [Countdown](https://en.wikipedia.org/wiki/Countdown_(video_game)) you play as Mason Powers, a CIA agent who wakes up in a Turkish mental hospital, suffering from partial amnesia and accused of murdering his supervisor. Powers must escape the hospital, find out who framed him, piece together his memory, and prevent terrorists from blowing up a peace conference.
 

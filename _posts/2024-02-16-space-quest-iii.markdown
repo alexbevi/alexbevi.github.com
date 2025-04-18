@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", SCI]
 image: /images/adventure/sq3/scummvm-sq3-00002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Space Quest III: The Pirates of Pestulon](https://en.wikipedia.org/wiki/Space_Quest_III) is a 1989 graphic adventure game by Sierra On-Line, and the third game in the Space Quest series. Players assume the role of Roger Wilco, a lowly space janitor, who becomes involved in rescuing a pair of computer programmers from a sinister video game company. The game received positive reviews from critics, and contributed further to the series' commercial success for Sierra.
 

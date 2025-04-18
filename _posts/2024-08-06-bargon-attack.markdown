@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Gob"]
 image: /images/adventure/bargon/scummvm-bargon-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Bargon Attack](https://en.wikipedia.org/wiki/Bargon_Attack) is an adventure game, originally released in Spain and France in 1992. The cyberpunk game uses stylized art presented in a 2.5D format.
 

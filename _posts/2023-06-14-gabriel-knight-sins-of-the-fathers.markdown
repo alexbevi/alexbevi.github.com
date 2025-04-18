@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", SCI]
 image: /images/adventure/gk1/scummvm-gk1-cd-win-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Gabriel Knight: Sins of the Fathers](https://en.wikipedia.org/wiki/Gabriel_Knight:_Sins_of_the_Fathers) is a 1993 point-and-click adventure game, developed and published by Sierra On-Line for MS-DOS, Macintosh, and Windows, and released on December 17, 1993. The CD-ROM version features the voice talents of Tim Curry, Mark Hamill, Michael Dorn, Efrem Zimbalist, Jr., and Leah Remini. The game's story focuses on Gabriel Knight, a struggling novelist and owner of a rare book store in New Orleans, who opts to research a recent spate of murders around the city that have a connection to voodoo. In the process, he is slowly revealed to be a descendant of a German family who are involved in combatting people who use supernatural forces, and discovers a link between the killings and his family's past.
 

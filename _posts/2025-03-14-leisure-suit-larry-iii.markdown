@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", "played:DOS", SCI]
 image: /images/adventure/lsl3/scummvm-lsl3-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals](https://en.wikipedia.org/wiki/Leisure_Suit_Larry_III:_Passionate_Patti_in_Pursuit_of_the_Pulsating_Pectorals) is a graphical adventure game designed by Al Lowe and published by Sierra On-Line for DOS, Atari ST and Amiga in 1989 as the third entry in their Leisure Suit Larry series.
 

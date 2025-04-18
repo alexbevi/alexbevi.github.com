@@ -7,9 +7,9 @@ categories: ["Let's Adventure!"]
 tags: [adventure, "MP Entertainment"]
 image: /images/adventure/hopkins/scummvm-hopkins-win-00002.png
 published: true
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Hopkins FBI](https://en.wikipedia.org/wiki/Hopkins_FBI) is a 1998 adventure game from MP Entertainment, most famous for very large (at the time) amounts of gore. Players assume the role of FBI agent Hopkins, who is on the trail of a criminal mastermind named Bernie Berckson. The pursuit takes the player through a variety of locations, including the FBI headquarters in a modern fictional city, a tropical island, and a submarine base.
 

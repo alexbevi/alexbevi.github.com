@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Gremlin Ireland", "played:Amiga", "Gremlin Graphics"]
 image: /images/adventure/plan9/040.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Plan 9 from Outer Space](https://en.wikipedia.org/wiki/Plan_9_from_Outer_Space_(video_game)) is a point and click adventure game adaptation of the film of the same name. It was developed at the Irish office of Gremlin Graphics for the Amiga and Atari ST, and was released in 1992. The game was published by Gremlin in Europe and by Konami in the United States. A DOS version was also developed, though only released in the US and Europe. Two editions of the game were made available at retail; the more common version was packaged with a VHS copy of the film, while a rarer version contained only the game.
 

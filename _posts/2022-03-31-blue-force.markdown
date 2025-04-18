@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Tsunami Games", TsAGE]
 image: /images/adventure/blueforce/scummvm-blueforce-cd-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 Since I just finished playing [Police Quest 1]({% post_url 2022-03-15-police-quest-1 %}) I figured I'll stick with the "police work simulator" category and pick up [Blue Force](https://en.wikipedia.org/wiki/Blue_Force) next.
 

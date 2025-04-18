@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sega"]
 image: /images/adventure/jp/Jurassic Park 2024-07-11 19.39.35.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Jurassic Park](https://en.wikipedia.org/wiki/Jurassic_Park_(Sega_CD_video_game)) is a 1994 point-and-click adventure game developed and published by Sega for the Sega CD. The video game is based on the 1993 film of the same name, and includes elements from Michael Crichton's 1990 novel Jurassic Park, which the film is based upon.
 

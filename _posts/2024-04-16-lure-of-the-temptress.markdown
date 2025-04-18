@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Revolution Software", "Virgin Interactive Entertainment", "Virtual Theatre"]
 image: /images/adventure/lure/scummvm-lure-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Lure of the Temptress](https://en.wikipedia.org/wiki/Lure_of_the_Temptress) is a point-and-click adventure game published by Virgin Interactive Entertainment in June 1992 for Atari ST, MS-DOS, and Amiga. It was the first game developed by Revolution Software and uses their proprietary [Virtual Theatre](https://en.wikipedia.org/wiki/Virtual_Theatre) engine.
 

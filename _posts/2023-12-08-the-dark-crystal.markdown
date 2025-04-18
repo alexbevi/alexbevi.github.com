@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "On-Line Systems", "ADL"]
 image: /images/adventure/dark/scummvm-hires6-apple2-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [The Dark Crystal](https://en.wikipedia.org/wiki/The_Dark_Crystal_(video_game)) is a graphic adventure game based on Jim Henson's 1982 fantasy film, The Dark Crystal. The game was designed by Roberta Williams and was the first Hi-Res Adventure directly released under the SierraVenture label in 1983.
 

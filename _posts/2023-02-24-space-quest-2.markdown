@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", AGI]
 image: /images/adventure/sq2/scummvm-sq2-00001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Space Quest II](https://en.wikipedia.org/wiki/Space_Quest_II) is a graphic adventure game released on November 14, 1987 by Sierra On-Line. It was the sequel to [Space Quest I: The Sarien Encounter]({ post_url 2021-08-09-space-quest-the-sarien-encounter %}), again using [Sierra's AGI game engine](https://en.wikipedia.org/wiki/Adventure_Game_Interpreter).
 

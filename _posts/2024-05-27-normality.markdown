@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Gremlin Interactive", "Interplay"]
 image: /images/adventure/normality/norm_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Normality](https://en.wikipedia.org/wiki/Normality_(video_game)) is a 3D graphic adventure, released in June 1996 by Gremlin Interactive. All cut-scenes in the game are pre-rendered. The game's engine was later used in the game [Realms of the Haunting](https://www.mobygames.com/game/1418/realms-of-the-haunting/).
 

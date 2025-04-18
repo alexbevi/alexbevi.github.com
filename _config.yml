@@ -19,9 +19,7 @@ timezone: America/Toronto
 # ↓ --------------------------
 
 title: ALEX BEVILACQUA  # the main title
-
 tagline: my little corner of the interwebs # it will display as the sub-title
-
 description: >- # used by seo meta and the atom feed
   Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in
   RPG/JRPG/Adventure game reviews.
@@ -47,6 +45,12 @@ google_site_verification: google_meta_tag_verification # fill in to your verific
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
+
+series_nav:
+  lets_adventure:
+    title: "Let's Adventure! A Journey into Adventure Games (1980-1999)"
+    title_link: "{% post_url 2021-07-28-adventure-games-1980-1999 %}"
+    description: "This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href='{% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}'>here</a>."
 
 # Web Analytics Settings
 analytics:

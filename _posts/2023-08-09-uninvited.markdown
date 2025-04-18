@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "ICOM Simulations", Mindscape, Kemco]
 image: /images/adventure/uninvited/Uninvited 2023-08-08 06.13.26.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Uninvited](https://en.wikipedia.org/wiki/Uninvited_(video_game)) is a black-and-white horror-themed point-and-click adventure game. It was originally developed for the Macintosh by ICOM Simulations released in 1986 by Mindscape as part of the MacVenture series.
 

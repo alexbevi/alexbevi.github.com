@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Evryware", "Sierra On-Line"]
 image: /images/adventure/mh2/scummvm-mh2-00001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 Picking up immediately where [Manhunter: New York]({% post_url 2023-02-18-manhunter-new-york %}) left off, [Manhunter 2: San Francisco](https://en.wikipedia.org/wiki/Manhunter_2:_San_Francisco) has the player crash-landing their stolen ship in the City by the Bay after trying unsuccessfully to keep up with enigmatic serial killer Phil. Left with no alternatives, the player assumes the identity of a local Manhunter and solves more crimes for the alien Orbs while searching for Phil and working for the local human resistance.
 

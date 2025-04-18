@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "MicroProse", "played:DOS", MADS]
 image: /images/adventure/phantom/mainmenu_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Return of the Phantom](https://en.wikipedia.org/wiki/Return_of_the_Phantom) is a point-and-click graphic adventure game developed and published by MicroProse in 1993. It was produced by Matt Gruson and designed/written by future James Bond novelist Raymond Benson. It is based on the 1910 novel The [Phantom of the Opera](https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(novel)) by Gaston Leroux.
 

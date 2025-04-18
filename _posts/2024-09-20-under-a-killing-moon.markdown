@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Access Software"]
 image: /images/adventure/moon/tex3_001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Under a Killing Moon](https://en.wikipedia.org/wiki/Under_a_Killing_Moon) is a 1994 point-and-click adventure interactive movie video game. It is the third installment in the Tex Murphy series of adventure games produced by Access Software.
 

@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Interactive Binary Illusions", "Renegade Software"]
 image: /images/adventure/queen/scummvm-queen-00002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Flight of the Amazon Queen](https://en.wikipedia.org/wiki/Flight_of_the_Amazon_Queen) is a graphical point-and-click adventure game by Interactive Binary Illusions, originally released in 1995 for Amiga and MS-DOS.
 

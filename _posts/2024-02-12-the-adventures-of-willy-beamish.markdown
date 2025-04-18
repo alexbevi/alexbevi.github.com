@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Dynamix", "Sierra On-Line", DGDS]
 image: /images/adventure/willy/willy_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [The Adventures of Willy Beamish](https://en.wikipedia.org/wiki/The_Adventures_of_Willy_Beamish) is a graphic adventure game developed by Dynamix and published in 1991 by Sierra On-Line. The game pioneered the use of in-game graphics drawn to resemble classic hand-drawn cartoon animation. It was initially released for MS-DOS and the Amiga and was ported to the Sega CD in 1993.
 

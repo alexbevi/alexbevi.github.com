@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Interplay Productions", "Mediagenic", "played:Amiga"]
 image: /images/adventure/neuromancer/039.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Neuromancer](https://en.wikipedia.org/wiki/Neuromancer_(video_game)) is an adventure video game developed by Interplay Productions and published by Mediagenic (a brand name of Activision). It was released in 1988 for the Amiga, Apple II, Apple IIGS, Commodore 64, and MS-DOS. It was loosely based on [William Gibson's 1984 novel of the same name](https://en.wikipedia.org/wiki/Neuromancer) and set within both the fictional "real world" and the extensively realized and detailed world of cyberspace.
 

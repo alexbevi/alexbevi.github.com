@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra Online", GrimE]
 image: /images/adventure/grim/scummvm-grim-win-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Grim Fandango](https://en.wikipedia.org/wiki/Grim_Fandango) is a 1998 adventure game directed by Tim Schafer and developed and published by LucasArts for Microsoft Windows. It is the first adventure game by LucasArts to use 3D computer graphics overlaid on pre-rendered static backgrounds. As with other LucasArts adventure games, the player must converse with characters and examine, collect, and use objects to solve puzzles.
 

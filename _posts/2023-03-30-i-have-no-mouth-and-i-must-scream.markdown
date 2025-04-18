@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "The Dreamers Guild", "Cyberdreams", SAGA]
 image: /images/adventure/ihnm/scummvm-ihnm-00001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [I Have No Mouth, and I Must Scream](https://en.wikipedia.org/wiki/I_Have_No_Mouth,_and_I_Must_Scream_(video_game)) is a 1995 point-and-click adventure game developed by Cyberdreams and The Dreamers Guild, co-designed by Harlan Ellison, published by Cyberdreams and distributed by MGM Interactive. The game is based on Ellison's [short story of the same title](https://en.wikipedia.org/wiki/I_Have_No_Mouth,_and_I_Must_Scream). It takes place in a dystopian world where a mastermind artificial intelligence named "AM" has destroyed all of humanity except for five people, whom he has been keeping alive and torturing for the past 109 years by constructing metaphorical adventures based on each character's fatal flaws. The player interacts with the game by making decisions through ethical dilemmas that deal with issues such as insanity, rape, paranoia, and genocide.
 

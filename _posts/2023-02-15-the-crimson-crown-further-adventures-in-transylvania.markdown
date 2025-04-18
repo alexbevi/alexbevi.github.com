@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Penguin Software"]
 image: /images/adventure/crimson/Crimson_00001.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 Released in 1985 under the title [The Crimson Crown](https://en.wikipedia.org/wiki/Transylvania_(series)#The_Crimson_Crown_-_Further_Adventures_in_Transylvania), on the same platforms as its predecessor. The game tasks the player with a quest to defeat a magical vampire with the assistance of Princess Sabrina (who is now a fledgling magician) and the heir to the throne, Prince Erik.
 

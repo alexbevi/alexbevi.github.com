@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "7th Level", "Bomico Entertainment Software"]
 image: /images/adventure/ace/krnl386_002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Ace Ventura: The CD-Rom Game](https://en.wikipedia.org/wiki/Ace_Ventura:_The_CD-Rom_Game) is an adventure game released for the PC based on the animated series [Ace Ventura: Pet Detective](https://en.wikipedia.org/wiki/Ace_Ventura:_Pet_Detective_(TV_series)).
 

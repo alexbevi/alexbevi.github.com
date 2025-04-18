@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Datasoft"]
 image: /images/adventure/dallas/trs80-2.gif
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [The Dallas Quest](https://en.wikipedia.org/wiki/The_Dallas_Quest) is a graphic adventure game based on the television soap opera Dallas. The game was programmed by James Garon for the TRS-80 Color Computer and published by Tandy Corporation in 1984. It was the second game in the "Animated Adventure" series, following The Sands of Egypt, and uses the same split-screen display. Datasoft published versions for the Apple II, Atari 8-bit family, and Commodore 64 in the same year.
 

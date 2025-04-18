@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Konami"]
 image: /images/adventure/snatcher/Snatcher 2023-06-21 06.33.52.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Snatcher](https://en.wikipedia.org/wiki/Snatcher_(video_game)) is a cyberpunk graphic adventure game developed and published by Konami. It was written and designed by Hideo Kojima and first released in 1988 for the PC-8801 and MSX2 in Japan. Snatcher is set in a future East Asian metropolis where humanoid robots dubbed "Snatchers" have been discovered killing humans and replacing them in society.
 

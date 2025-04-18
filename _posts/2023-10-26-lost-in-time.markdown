@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Coktel Vision", "Sierra On-Line"]
 image: /images/adventure/lit/scummvm-lit-us-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Lost in Time](https://en.wikipedia.org/wiki/Lost_in_Time_(video_game)) is a computer adventure game developed and published by Coktel Vision in 1993. It was promoted as being "The first Interactive Adventure Film using Full Motion Video Technology" and contained four graphical elements: full motion video, hand painted and digitized backgrounds and 3D decor.
 

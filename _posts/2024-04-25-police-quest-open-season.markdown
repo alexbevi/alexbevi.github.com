@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", "SCI"]
 image: /images/adventure/pq4/scummvm-pq4-cd-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Police Quest: Open Season](https://en.wikipedia.org/wiki/Police_Quest:_Open_Season) (also known as Police Quest IV) is a 1993 police procedural point-and-click adventure video game developed and published by Sierra On-Line that follows homicide detective John Carey as he investigates a series of brutal murders in Los Angeles.
 

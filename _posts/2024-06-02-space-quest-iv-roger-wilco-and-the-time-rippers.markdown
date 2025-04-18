@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Sierra On-Line", "SCI"]
 image: /images/adventure/sq4/scummvm-sq4-cd-00002.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Space Quest IV: Roger Wilco and the Time Rippers](https://en.wikipedia.org/wiki/Space_Quest_IV) is a 1991 graphic adventure game by Sierra On-Line, and the fourth entry in the Space Quest series. The game was released originally on floppy disks on March 4, 1991, and later released on CD-ROM in December 1992 with full speech support; an Atari ST version was announced via Sierra Online's magazine, Sierra News Magazine, but was later canceled. The game sees players assume the role of Roger Wilco, who is thrust into a new adventure across time and space where he must thwart the plans of an old foe that is seeking revenge against him.
 

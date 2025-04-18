@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, AGI, "Sierra On-Line"]
 image: /images/adventure/scummvm-kq1-00000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 For a lot of us 80's kids, King's Quest is where it all began. The colours were vibrant, there was intro music and sound effects throughout the game, the story felt immersive, and oh shit, you died, time to reload .... assuming you remembered to save.
 

@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, "Legend Entertainment"]
 image: /images/adventure/xanth/xanth_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Companions of Xanth](https://en.wikipedia.org/wiki/Companions_of_Xanth) is based on Piers Anthony's [Xanth novels](https://en.wikipedia.org/wiki/Xanth) and loosely follows the plot of his 1993 novel _Demons Don't Dream_, in which a young man uses a computer game to enter and explore the world of Xanth.
 

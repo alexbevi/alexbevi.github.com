@@ -6,9 +6,9 @@ comments: true
 categories: ["Let's Adventure!"]
 tags: [adventure, ADL, "Sierra On-Line"]
 image: /images/adventure/serenia/serenia_000.png
+series: lets_adventure
 ---
-> This review is part of the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series. See all reviewed games sorted by rating [here]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
-{: .prompt-info }
+{% series_nav %}
 
 [Wizard and the Princess](https://en.wikipedia.org/wiki/Wizard_and_the_Princess) is a graphic adventure game written for the Apple II and published in 1980 by On-Line Systems. It was the second title released in the Hi-Res Adventures series after [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}). While Mystery House used monochrome drawings, Wizard and the Princess added color. Ports for the Atari 8-bit family and Commodore 64 were released in 1982 and 1984 respectively. The 1982 self-booting version for IBM PC compatibles was renamed Adventure in Serenia, and is the version I played.
 
