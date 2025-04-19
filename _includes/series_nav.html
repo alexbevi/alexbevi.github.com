@@ -1,0 +1,40 @@
+{%- comment -%}
+/_includes/series_nav.html
+
+Expected page data:
+  page.series_title          # String title of the series
+  page.series_description    # String description (HTML-safe)
+  page.series_title_link     # URL or Liquid tag to link the title
+  page.series_posts          # Array of all posts in this series (sorted)
+  page.series_index          # Integer index of current post
+  page.series_prev           # Previous post object or nil
+  page.series_next           # Next post object or nil
+{%- endcomment -%}
+
+<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;
+    {%- if page.series_title_link -%}
+      <a href="{{ page.series_title_link }}">{{ page.series_title }}</a>
+    {%- else -%}
+      {{ page.series_title }}
+    {%- endif -%}
+  </strong>
+
+  {%- if page.series_description -%}
+    <p>{{ page.series_description }}</p>
+  {%- endif -%}
+
+  <ul class="list-none space-y-1">
+    {%- if page.series_prev -%}
+      <li>← <a href="{{ page.series_prev.url }}">{{ page.series_prev.title }}</a></li>
+    {%- endif -%}
+
+    <li><strong>{{ page.title }}</strong></li>
+
+    {%- if page.series_next -%}
+      <li>→ <a href="{{ page.series_next.url }}">{{ page.series_next.title }}</a></li>
+    {%- endif -%}
+  </ul>
+
+  <p>Article {{ page.series_index }} of {{ page.series_posts | size }} in this series.</p>
+</blockquote>

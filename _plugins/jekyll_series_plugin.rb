@@ -1,17 +1,18 @@
 # _plugins/jekyll_series_plugin.rb
-# Jekyll plugin for navigating blog series using a blockquote prompt-info wrapper
-# Utilizes Jekyll::Cache API to speed up builds
+# Jekyll plugin for managing blog series navigation
+# Uses Jekyll::Cache API, and renders via a Liquid include (_includes/series_nav.html)
 # Configuration in _config.yml:
 # series_nav:
 #   my-slug:
 #     title: "Display Title"
-#     description: "This series covers the fundamentals of X, Y, and Z."
-#     title_link: "/series-overview/{{ page.series }}/"
+#     description: "Overview of this series."
+#     title_link: "/series/{{ page.series }}/"
 # Usage in post front matter:
 #   series: my-slug
-# Invoke in layout/post template:
+# Invoke in your layout:
 #   {% series_nav %}
 
+require 'jekyll'
 require 'jekyll/cache'
 require 'liquid'
 
@@ -21,16 +22,16 @@ module Jekyll
     priority :low
 
     def generate(site)
-      cache          = Jekyll::Cache.new("series_nav")
-      series_config  = site.config['series_nav'] || {}
+      cache         = Jekyll::Cache.new('series_nav')
+      series_config = site.config['series_nav'] || {}
 
-      series_map = cache.getset("series_map") do
-        Jekyll.logger.info "SeriesNav:", "Calculating series map"
+      series_map = cache.getset('series_map') do
+        Jekyll.logger.info 'SeriesNav:', "Building series map for #{site.posts.docs.size} posts"
         build_series_map(site.posts.docs, series_config)
       end
 
       site.data['series_map'] = series_map
-      Jekyll.logger.info "SeriesNav:", "Series map loaded: #{series_map.keys.size} series"
+      Jekyll.logger.info 'SeriesNav:', "Loaded series map (#{series_map.keys.size} series)"
     end
 
     private
@@ -56,15 +57,18 @@ module Jekyll
       end
 
       map.each do |slug, info|
-        sorted_posts = info['posts'].sort_by(&:date)
-        sorted_posts.each_with_index do |post, idx|
-          post.data['series_posts']       = sorted_posts
+        sorted = info['posts'].sort_by(&:date)
+        sorted.each_with_index do |post, idx|
+          post.data['series_posts']       = sorted
           post.data['series_title']       = info['title']
           post.data['series_description'] = info['description']
           post.data['series_title_link']  = info['title_link']
           post.data['series_index']       = idx + 1
+          # store prev/next for direct access in template
+          post.data['series_prev']        = (idx > 0 ? sorted[idx - 1] : nil)
+          post.data['series_next']        = (idx < sorted.size - 1 ? sorted[idx + 1] : nil)
         end
-        info['posts'] = sorted_posts
+        info['posts'] = sorted
       end
 
       map
@@ -73,69 +77,17 @@ module Jekyll
 
   class SeriesNavTag < Liquid::Tag
     def render(context)
-      site       = context.registers[:site]
-      page       = context.registers[:page]
-      data       = site.data.dig('series_map', page['series'].to_s.strip)
-      return '' unless data && data['posts']
+      page = context.registers[:page]
+      # Only include if series data available
+      return '' unless page['series_posts'] && page['series_posts'].any?
 
-      posts      = data['posts']
-      current    = posts.find { |p| p.url == page['url'] }
-      return '' unless current
-
-      # Render title_link if any Liquid present
-      title      = data['title']
-      raw_title  = title
-      if data['title_link']
-        link_template = Liquid::Template.parse(data['title_link'])
-        rendered_link = link_template.render!(context.environments.first, registers: context.registers)
-        raw_title = "<a href='#{rendered_link}'>#{title}</a>"
-      end
-
-      # Wrapper blockquote for prompt-info styling
-      html = +"<blockquote class='prompt-tip mb-6'>\n"
-      html << "  <strong>Series: #{raw_title}</strong>\n"
-
-      # Render description with Liquid processing
-      if data['description']
-        desc_template = Liquid::Template.parse(data['description'])
-        rendered_desc = desc_template.render!(context.environments.first, registers: context.registers)
-        html << "  <p>#{rendered_desc}</p>\n"
-      end
-
-      # Unordered list of posts: only prev, current, next
-      html << "  <ul>
-"
-      # determine prev and next
-      posts = data['posts']
-      idx = posts.index(current)
-      prev_post = idx > 0 ? posts[idx - 1] : nil
-      next_post = idx < posts.size - 1 ? posts[idx + 1] : nil
-      if prev_post
-        prev_name = prev_post.data['title'] || File.basename(prev_post.url)
-        html << "    <li>← <a href='#{prev_post.url}'>#{prev_name}</a></li>
-"
-      end
-      # current
-      curr_name = current.data['title'] || File.basename(current.url)
-      html << "    <li><strong>#{curr_name}</strong></li>
-"
-      if next_post
-        next_name = next_post.data['title'] || File.basename(next_post.url)
-        html << "    <li>→ <a href='#{next_post.url}'>#{next_name}</a></li>
-"
-      end
-      html << "  </ul>
-"
-      # Summary paragraph of series position of series position
-      current_index = current.data['series_index']
-      total = posts.size
-      html << "  <p>This article is ##{current_index} of #{total} in this series.</p>
-"
-      html << "</blockquote>\n"
-
-      html
+      # Render via include; relies on page.data fields set by generator
+      include_markup = "{% include series_nav.html %}"
+      template = Liquid::Template.parse(include_markup)
+      # Render using current context (ensures page and site vars are available)
+      template.render!(context.environments.first, registers: context.registers)
     rescue => e
-      Jekyll.logger.error "SeriesNavTag:", "Error rendering nav: #{e.message}"
+      Jekyll.logger.error 'SeriesNavTag:', "Error rendering include: #{e.message}"
       ''
     end
   end
