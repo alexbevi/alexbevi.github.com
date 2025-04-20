@@ -56,12 +56,12 @@ Below is the Ruby plugin code (`series_nav.rb`) that was created through this AI
 # series_nav:
 #   my-slug:
 #     title: "Display Title"
-#     description: "Overview with {{ site.title }}"
-#     title_link: "/series/{{ page.series }}/"
+#     description: {% raw %}"Overview with {{ site.title }}"{% endraw %}
+#     title_link: {% raw %}"/series/{{ page.series }}/"{% endraw %}
 # Usage in post front matter:
 #   series: my-slug
 # Invoke in your layout/post template:
-#   {% series_nav %}
+#   {% raw %}{% series_nav %}{% endraw %}
 
 require 'jekyll'
 require 'jekyll/cache'
