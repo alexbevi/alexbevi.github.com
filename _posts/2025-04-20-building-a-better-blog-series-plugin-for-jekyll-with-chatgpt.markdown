@@ -9,7 +9,7 @@ image: /images/ChatGPT Image Apr 20, 2025, 10_18_59 AM.png
 ---
 In writing my blog series, ["Let's Adventure! A Journey into Adventure Games (1980-1999)"](https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/), I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from [Justin James](https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/) and [Steven Marks](https://totaldebug.uk/posts/jekyll-post-series-links/)) provided some inspiration but didn't fully align with my use case.
 
-Initially, I tried existing plugins, but they lacked flexibility. Specifically, I needed:
+The plugin I decided I wanted to build would need to include:
 
 - Dynamic generation of navigation links based on the series' metadata.
 - Simple and intuitive integration with Jekyll's existing templating system.
