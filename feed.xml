@@ -1,4 +1,225 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-04-22T07:30:32-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-04-28T06:45:04-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li><li><strong>Pepper's Adventures in Time (Sierra On-Line) - 1993</strong></li></ul>
+
+  <p>Article 96 of 96 in this series.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Pepper%27s_Adventures_in_Time">Pepper’s Adventures in Time</a> is an educational adventure game released in 1993 by Sierra On-Line. The project was based on a concept by Sierra VP of Development/Creative Director, Bill Davis, who also designed the game’s main characters. This was intended to be the first in a series of edutainment games in which the player, as Pepper, traveled back in time to set right mixed-up situations surrounding famous individuals.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00000.png" alt="" /></p>
+
+<p>This point n’ click adventure game is actually an edutainment (entertainment leading to education) title developed by Sierra, who were also responsible for other games such as the EcoQuest and Dr. Brain series. The object of this game is to help a little girl called Pepper, solve puzzles based on history and logic, so that she can fix the mess caused by Dr. Fred’s time machine. At certain points in the game, the player is even allowed to control her pet dog, Lockjaw.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00011.png" alt="" /></p>
+
+<p>The game consists of an educational factor where the player can learn about many important facts concerning the colonial times of the United States. It is divided into Acts in which the player has to reach given goals and, apart from other, typical for adventure games things, learn about facts listed in the opening. To do it the special TRUTH icon has to be used. When the act is concluded, the player is challenged with a quiz about the things he learned. For each correct answer he receives progress points.</p>
+
+<p>Cartoonish graphics similar to the style in <a href="/blog/2024/01/20/day-of-the-tentacle/">Day of the Tentacle</a> were used in order to appeal to younger audiences.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00013.png" alt="" /></p>
+
+<p>I actually found the music in this game also reminiscent of Day of the Tentacle, however both games came out the same year so it’s possible this was just a coincidence. Unlike DOTT however, this game really isn’t all that much fun.</p>
+
+<p>As an “edutainment” game, the gameplay elements are toned down quite a bit, so there isn’t all that much you need to do - and what there is becomes extremely repetitive.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00004.png" alt="" /></p>
+
+<p>The plot seems to involve your uncle - who really hates Ben Franklin for some reason - building a time machine that he’ll use to go back and change the course of history … for reasons.</p>
+
+<p>You start the game off as Pepper, and along with her dog Lockjaw get sucked into the machine and thrown back to colonial times - but when you get there it seems things are not the way you’d expect based on the history you learned in school.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00005.png" alt="" /></p>
+
+<p>Being a Sierra SCI game you have access to the typical verb icons (<code class="language-plaintext highlighter-rouge">WALK</code>, <code class="language-plaintext highlighter-rouge">TALK</code>, <code class="language-plaintext highlighter-rouge">GET</code>, etc), along with a couple that are unique to this game (<code class="language-plaintext highlighter-rouge">TRUTH</code> and <code class="language-plaintext highlighter-rouge">QUIZ</code>). There are also portions of the game where you take control of Pepper’s dog Lockjaw, which gives you a different set of verbs.</p>
+
+<p>The Lockjaw segments do actually help break up the monotony of endless fetch quests that make up the majority of this game.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00008.png" alt="" /></p>
+
+<p>You can click the <code class="language-plaintext highlighter-rouge">TRUTH</code> icon on almost everything, and it will tell you if the thing you’re inspecting is historically accurate. This is a unique mechanic to this game that is actually sort of interesting, as a handful of these facts will be required in the quiz you have to take at the end of the chapter.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00023.png" alt="" /></p>
+
+<p>When a fact will be included in the quiz, you’ll get points for it and the text color will be different, so it at least stands out. This is helpful as there’s SO MUCH reading in this game, and so many of the facts just sort of blend together.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00021.png" alt="" /></p>
+
+<p>Each Act begins with a summary of the things to look out for (which correlate with the end of chapter quiz), as well as the objectives to complete the act.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">QUIZ</code> icon in the menu bar will display this information at any time during the chapter, which is helpful because I found I forgot the objectives very quickly.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00006.png" alt="" /></p>
+
+<p>Each quiz just corresponds to the clues you were given at the beginning of the chapter. If you found the associated facts while playing, the quiz itself is fairly straightforward.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00009.png" alt="" /></p>
+
+<p>Other than clicking the <code class="language-plaintext highlighter-rouge">TRUTH</code> icon everywhere, you’ll also be able to talk to most characters about exactly 4 topics. There is zero variety in the gameplay when you’re playing as Pepper, which really makes this game feel like a chore.</p>
+
+<p>Once you land in colonial times, after you are captured and escape from a storage shed your dog Lockjaw will be captured by the daughter of the main villain. After this, you can ask all characters about:</p>
+
+<ul>
+  <li>Ben Franklin</li>
+  <li>The Pughs (the villains)</li>
+  <li>Your Dog</li>
+  <li>Themselves</li>
+</ul>
+
+<p>That’s it. I understand this is probably more of an “entry level” game, but there’s so little to do that it just becomes repetitive and monotonous to play.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00010.png" alt="" /></p>
+
+<p>For some reason there are hippies in the past. I guess this was the result of your Uncle’s messing with time travel - but the way these characters were written it seems the game developers really didn’t like hippies …</p>
+
+<p>You typically have maybe 10 game screens to walk between, and every act involves many (MANY!) fetch quests. All you really do in this game is get something from point A and bring it to character B.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00015.png" alt="" /></p>
+
+<p>Some of the fetch quests are actually fairly involved, so I’m surprised they’d have included them in a children’s edutainment game. For example, getting everything ready for Ben Franklin to recreate his Kite/Key experiment requires you to first build a leyden jar (which is described in the <a href="https://www.sierragamers.com/wp-content/uploads/2019/12/Peppers_Adventures_In_Time_Manual.pdf">manual</a>).</p>
+
+<p>Maybe I’m just not giving 90’s kids enough credit, but this was a fairly involved (and lengthy) fetch quest.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00025.png" alt="" /></p>
+
+<p>The whole point of the game is to get your dog back from the Pugh’s, and to prove that they’ve imposed a false tax on the people of Philadelphia - which you ultimately end up doing.</p>
+
+<p>Not having grown up in the United States I’m not really sure how meaningful or relevant this content is, but I’m guessing the characters are historically important and worth incorporating into a game to make teaching kids about them more appealing.</p>
+
+<p><img src="/images/adventure/pepper/scummvm-pepper-00026.png" alt="" /></p>
+
+<p>My final impression of this game is “I just don’t get it”. None of this was fun, and advancing the plot felt like work.</p>
+
+<p>If you find this period of American history interesting though there’s quite a bit you’d be able to learn by revisiting the game and just clicking everything with the <code class="language-plaintext highlighter-rouge">TRUTH</code> icon. The writing can be clever in places, but some of the jokes and commentary don’t really seem appropriate for a younger audience - so I’m not really sure who this game was made for.</p>
+
+<p>In one scene in the mansion with Lockjaw I was able to crash ScummVM, by biting Pugh, then sniffing the powder on the desk then grabbing the key - but I couldn’t reproduce it consistently so didn’t file a bug report.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>User picked target 'pepper' (engine ID 'sci', game ID 'pepper')...
+Running Pepper's Adventures in Time (DOS/English)
+resource.000: 670d0c53622429f4b11275caf7f8d292, 5459574 bytes.
+resource.map: 72726dc81c1b4c1110c486be77369bc8, 5179 bytes.
+Patching TWISTYSG.DIR failed - resource type mismatch
+
+ERROR: [pepper-1.000 610/999 sPercyGotYou::dispose @ 0786]: [VM] Stack index 4096 out of valid range [0..4095]!
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Since this is a Sierra game, you could find yourself in game-over territory fairly frequently, but instead of just <code class="language-plaintext highlighter-rouge">RESTORE</code> and <code class="language-plaintext highlighter-rouge">RESTART</code> options, you could also <code class="language-plaintext highlighter-rouge">TRY AGAIN</code>. This made slogging through this game a bit more bearable as it took you back to right before you made the wrong choice.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Pepper’s Adventures in Time</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Windows 3.x</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/22521">How Long To Beat?</a></td>
+      <td>4 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthrough/full/peppers-adventures-in-time">Walkthrough</a>, <a href="https://www.sierragamers.com/wp-content/uploads/2019/12/Peppers_Adventures_In_Time_Manual.pdf">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>44%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/pepper/scummvm-pepper-00002.png', thumb: '/images/adventure/pepper/scummvm-pepper-00002.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00003.png', thumb: '/images/adventure/pepper/scummvm-pepper-00003.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00007.png', thumb: '/images/adventure/pepper/scummvm-pepper-00007.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00012.png', thumb: '/images/adventure/pepper/scummvm-pepper-00012.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00014.png', thumb: '/images/adventure/pepper/scummvm-pepper-00014.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00016.png', thumb: '/images/adventure/pepper/scummvm-pepper-00016.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00017.png', thumb: '/images/adventure/pepper/scummvm-pepper-00017.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00018.png', thumb: '/images/adventure/pepper/scummvm-pepper-00018.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00019.png', thumb: '/images/adventure/pepper/scummvm-pepper-00019.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00020.png', thumb: '/images/adventure/pepper/scummvm-pepper-00020.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00022.png', thumb: '/images/adventure/pepper/scummvm-pepper-00022.png' },{ src: '/images/adventure/pepper/scummvm-pepper-00024.png', thumb: '/images/adventure/pepper/scummvm-pepper-00024.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/6312/peppers-adventures-in-time/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 96 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
 
 <p>The plugin I decided I wanted to build would need to include:</p>
 
@@ -366,7 +587,7 @@ Expected page data:
 
 <p>Ultimately, the plugin significantly streamlined navigation within my blog series, enhancing both my writing workflow and the reader’s experience. This journey underscored how AI tools can complement traditional software development, enabling faster iterations, performance optimizations, and more elegant solutions.</p>
 
-<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
+<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
 
 <p>Let’s evaluate this by taking MongoDB’s simple <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/">“Find a Document”</a> tutorial and adapting it to a Workers environment.</p>
 
@@ -876,7 +1097,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>I ran a number of tests and periodically you’d still get a cold-start spike, but most requests benefit from the reduced latency maintaining a stateful Worker via Durable Objects provides.</p>
 
-<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
 
 <ul>
   <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
@@ -1030,10 +1251,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
 
-<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li><li><strong>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</strong></li></ul>
+<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li><li><strong>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</strong></li><li>→ <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li></ul>
 
-  <p>Article 95 of 95 in this series.</p>
+  <p>Article 95 of 96 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Leisure_Suit_Larry_III:_Passionate_Patti_in_Pursuit_of_the_Pulsating_Pectorals">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals</a> is a graphical adventure game designed by Al Lowe and published by Sierra On-Line for DOS, Atari ST and Amiga in 1989 as the third entry in their Leisure Suit Larry series.</p>
@@ -1248,10 +1469,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/412/leisure-suit-larry-iii-passionate-patti-in-pursuit-of-the-pulsat/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 95 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li><li><strong>Universe (Core Design) - 1994</strong></li><li>→ <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li></ul>
 
-  <p>Article 94 of 95 in this series.</p>
+  <p>Article 94 of 96 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Universe_(1994_video_game)">Universe</a> is a graphic adventure game developed and published by Core Design for the Amiga, Amiga CD32 and DOS platforms in 1994. It was Core Design’s second and last effort in the adventure game genre after Curse of Enchantia, of which it was originally planned to be a sequel.</p>
@@ -1469,10 +1690,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/30/return-of-the-phantom/">Return of the Phantom (MicroProse) - 1993</a></li><li><strong>Neuromancer (Interplay Productions) - 1988</strong></li><li>→ <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li></ul>
 
-  <p>Article 93 of 95 in this series.</p>
+  <p>Article 93 of 96 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Neuromancer_(video_game)">Neuromancer</a> is an adventure video game developed by Interplay Productions and published by Mediagenic (a brand name of Activision). It was released in 1988 for the Amiga, Apple II, Apple IIGS, Commodore 64, and MS-DOS. It was loosely based on <a href="https://en.wikipedia.org/wiki/Neuromancer">William Gibson’s 1984 novel of the same name</a> and set within both the fictional “real world” and the extensively realized and detailed world of cyberspace.</p>
@@ -1696,10 +1917,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/22/plan-9-from-outer-space/">Plan 9 from Outer Space (Gremlin Ireland) - 1992</a></li><li><strong>Return of the Phantom (MicroProse) - 1993</strong></li><li>→ <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li></ul>
 
-  <p>Article 92 of 95 in this series.</p>
+  <p>Article 92 of 96 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Return_of_the_Phantom">Return of the Phantom</a> is a point-and-click graphic adventure game developed and published by MicroProse in 1993. It was produced by Matt Gruson and designed/written by future James Bond novelist Raymond Benson. It is based on the 1910 novel The <a href="https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(novel)">Phantom of the Opera</a> by Gaston Leroux.</p>
@@ -1916,7 +2137,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/2011/return-of-the-phantom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Plan 9 from Outer Space (Gremlin Ireland) - 1992Return of the Phantom (MicroProse) - 1993→ Neuromancer (Interplay Productions) - 1988 Article 92 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Minor Hockey Budget Management and Automation</title><link href="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/" rel="alternate" type="text/html" title="Minor Hockey Budget Management and Automation" /><published>2024-12-29T08:12:07-05:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/"><![CDATA[<blockquote class="prompt-tip">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Plan 9 from Outer Space (Gremlin Ireland) - 1992Return of the Phantom (MicroProse) - 1993→ Neuromancer (Interplay Productions) - 1988 Article 92 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Minor Hockey Budget Management and Automation</title><link href="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/" rel="alternate" type="text/html" title="Minor Hockey Budget Management and Automation" /><published>2024-12-29T08:12:07-05:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/"><![CDATA[<blockquote class="prompt-tip">
   <p>Download the <a href="https://docs.google.com/spreadsheets/d/1QwTpalK0Zn5ddMlDOLlRwBrUQUW2S0BqZGddmaGb8x8/edit">Hockey Team Budget Template</a> discussed in this article</p>
 </blockquote>
 
@@ -2175,10 +2396,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>Being the team treasurer is a volunteer position that comes with a lot of responsibility. At the end of the season, you’re responsible for reconciling the team’s budget and paying parents back for any money that remains.</p>
 
-<p>Hopefully using the template I’ve provided will make it a little easier to do this. If you try it out, let me know if it worked for you. I’d love to hear if this makes managing your team’s finances easier 😃.</p>]]></content><author><name></name></author><category term="Hockey" /><category term="budget" /><category term="treasurer" /><category term="hockey" /><summary type="html"><![CDATA[Download the Hockey Team Budget Template discussed in this article]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/hockey-budget/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/hockey-budget/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Plan 9 from Outer Space (Gremlin Ireland) - 1992</title><link href="https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space/" rel="alternate" type="text/html" title="Plan 9 from Outer Space (Gremlin Ireland) - 1992" /><published>2024-12-22T20:33:08-05:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>Hopefully using the template I’ve provided will make it a little easier to do this. If you try it out, let me know if it worked for you. I’d love to hear if this makes managing your team’s finances easier 😃.</p>]]></content><author><name></name></author><category term="Hockey" /><category term="budget" /><category term="treasurer" /><category term="hockey" /><summary type="html"><![CDATA[Download the Hockey Team Budget Template discussed in this article]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/hockey-budget/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/hockey-budget/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Plan 9 from Outer Space (Gremlin Ireland) - 1992</title><link href="https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space/" rel="alternate" type="text/html" title="Plan 9 from Outer Space (Gremlin Ireland) - 1992" /><published>2024-12-22T20:33:08-05:00</published><updated>2025-04-28T06:44:14-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/22/plan-9-from-outer-space/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/10/25/kings-quest-iii/">King's Quest III: To Heir Is Human (Sierra On-Line) - 1986</a></li><li><strong>Plan 9 from Outer Space (Gremlin Ireland) - 1992</strong></li><li>→ <a href="/blog/2024/12/30/return-of-the-phantom/">Return of the Phantom (MicroProse) - 1993</a></li></ul>
 
-  <p>Article 91 of 95 in this series.</p>
+  <p>Article 91 of 96 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Plan_9_from_Outer_Space_(video_game)">Plan 9 from Outer Space</a> is a point and click adventure game adaptation of the film of the same name. It was developed at the Irish office of Gremlin Graphics for the Amiga and Atari ST, and was released in 1992. The game was published by Gremlin in Europe and by Konami in the United States. A DOS version was also developed, though only released in the US and Europe. Two editions of the game were made available at retail; the more common version was packaged with a VHS copy of the film, while a rarer version contained only the game.</p>
@@ -2365,214 +2586,4 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/1293/plan-9-from-outer-space/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Gremlin Ireland" /><category term="played:Amiga" /><category term="Gremlin Graphics" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← King's Quest III: To Heir Is Human (Sierra On-Line) - 1986Plan 9 from Outer Space (Gremlin Ireland) - 1992→ Return of the Phantom (MicroProse) - 1993 Article 91 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/plan9/040.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/plan9/040.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest III: To Heir Is Human (Sierra On-Line) - 1986</title><link href="https://www.alexbevi.com/blog/2024/10/25/kings-quest-iii/" rel="alternate" type="text/html" title="King’s Quest III: To Heir Is Human (Sierra On-Line) - 1986" /><published>2024-10-25T07:02:51-04:00</published><updated>2025-04-22T07:29:55-04:00</updated><id>https://www.alexbevi.com/blog/2024/10/25/kings-quest-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/10/25/kings-quest-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/10/20/hook/">Hook (Ocean) - 1992</a></li><li><strong>King's Quest III: To Heir Is Human (Sierra On-Line) - 1986</strong></li><li>→ <a href="/blog/2024/12/22/plan-9-from-outer-space/">Plan 9 from Outer Space (Gremlin Ireland) - 1992</a></li></ul>
-
-  <p>Article 90 of 95 in this series.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/King%27s_Quest_III">King’s Quest III: To Heir Is Human</a> is the third installment in the King’s Quest series of graphic adventure games developed and released by Sierra On-Line in 1986. The game was originally released for the Apple II and MS-DOS, and later ported to several other computer systems. It was the first title game in the series not to feature King Graham as the player character.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00018.png" alt="" /></p>
-
-<p>King Graham and Queen Valanice had two children, Alexander and Rosella, and the kingdom was once peaceful. It wasn’t long until Alexander was snatched from his crib and things started to take a turn for the worse. A three-headed dragon threatens the ever-peaceful Daventry, and requires a maiden to be sacrificed every year. Rosella is the chosen one.</p>
-
-<p>Meanwhile, in a secluded house atop a mountain in the land of Llewdor, the evil wizard called Manannan keeps a young lad named Gwydion as his slave, forcing him to do menial tasks as he prepares his spells and observes the country through his telescope. Gwydion must find a way to outsmart the wizard, escape, and eventually discover the truth about his own identity.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00001.png" alt="" /></p>
-
-<p>I’m pretty sure I was about 8 years old when I first got a copy of King’s Quest III for our 386. Since a friend of mine made me a copy of the game and I didn’t have the <a href="https://mocagh.org/sierra/kq3brcc-manual.pdf">manual</a>, I printed off a copy someone had typed up and uploaded to a local BBS.</p>
-
-<p>For me, King’s Quest III brings back memories of learning how to touch type. These old AGI games that I played as I was learning how to work with computers sort of forced me to become a better typist because hunting and pecking for letters while there’s a timer running meant I used to die a lot.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00006.png" alt="" /></p>
-
-<p>You start off in a wizard’s house on top of a hill. He’ll give you a task that you need to complete, and you’ve only got a certain amount of time to complete it in before he gets mad at you and zaps you.</p>
-
-<p>I’m pretty sure you have about 5 minutes of in-game time to do the initial task, which is actually plenty of time given how small the house is. This gives you a chance to explore a bit, interact with the world and start collecting some items.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00003.png" alt="" /></p>
-
-<p>If you’ve read the manual, you know there are a number of spells you’ll need to prepare - and these are prepared using various items you collect throughout the game. As a result, you’ll find yourself picking up pretty much everything that isn’t nailed down on ever screen you visit.</p>
-
-<p>The problem though is that when the wizard comes back to check on you, if you have any magical items in your inventory he’ll assume you’re up to no good and kill you on the spot.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00019.png" alt="" /></p>
-
-<p>When you bring up your inventory you’ll notice that some items have an asterisk at the end of their entries. This is how you differentiate magical items from normal items. If you pick up any of these items while the wizard is out, you’ll need to stash them under your bed before he gets back.</p>
-
-<p>I honestly can’t remember if I figured this out through trial and error, if someone told me about it or if I read it in a walkthrough, but it wasn’t obvious to me that this was what you needed to do. As a result, though I have fond memories of this game - I also remember it being extremely frustrating and annoying to play.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00007.png" alt="" /></p>
-
-<p>When you finish your first task for the wizard, he (eventually) will appear and tell you he’s going to go off on a journey. This ends up giving you about 30 minutes of in-game time to figure out what to do next.</p>
-
-<p>Since this wizard is a pain in your ass, you might as well try to get him out of your way first. Based on the spells you have recipes for, it seems like turning him into a cat might be your ticket to freedom.</p>
-
-<p>This spell only requires a couple ingredients (mandrake root powder, ball of cat hair, fish oil, magic wand), and you’re able to find 75% of these in the wizard’s house. Since the fish oil isn’t here, you venture down the mountain to explore the world.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00008.png" alt="" /></p>
-
-<p>The mountain path is a pain in the ass, but given this is a Sierra game released in the late 80s you sort of expect every step to potentially lead to a game over. This was just how these games were designed, and if you’d played any other titles released around that time - you knew this was coming.</p>
-
-<p>Unless you’re playing with a walkthrough it’s unlikely you’d be able to collect everything from in and around town in your first outing, so you’ll need to make the trek back up the mountain to the wizard’s house a few times - trying not to fall off the cliff each time.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00015.png" alt="" /></p>
-
-<p>If you can fall off of anything (not just the cliff), expect a game over. This game will give you many opportunities to shoot yourself in the foot, and you’ll likely muddle your way into those scenarios more often than not, so save early (and often).</p>
-
-<p>Finding the fish oil is easy enough as it’s sold at the store in town, but you don’t have any money. You’ll need to steal gold from some bandits to buy this, but first you need to find their hideout - then get in without being caught. Once you figure all this out though you can return to the wizard’s house to whip up your first spell.</p>
-
-<p>One item you’ll find early on is the magic map, which allows you to quick travel to any location you’ve previously visited. This is extremely convenient for warping from the wizard’s house down the mountain, but it doesn’t work to get you back to the house. As a result, plan to (safely) climb back up the mountain multiple times.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00024.png" alt="" />
-<em>Typing these out whisks me back to the first dozen times I played this and didn’t know what “soporific” meant</em></p>
-
-<p>With spell ingredients in hand, you find the wizard’s lair in the basement of the house, and flip to a specific page in the spell book to start preparing a spell. Having to laboriously type out the spells exactly as the manual describes is a good form of copy protection, but after the first couple spells it does become tedious.</p>
-
-<p>You’ll need to prepare multiple spells, so you’ll be back in the basement a few times throughout the first half of the game as you get everything ready to eventually leave the island.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00020.png" alt="" /></p>
-
-<p>Any tiny mistake you make during spell preparation is a game over - but at least it’s kind of funny. Gwydion will transform himself partially as a result of the failed spell, and the results are specific to the spell you were trying to prepare (my favourite is him turning half into a fly).</p>
-
-<p>If you’re able to get the first spell completed, you’ll end up with a magic cookie that when eaten will turn the consumer into a cat. If you try to give this to Manannan, it’s a magic item so he’ll just kill you. You need to hide the cookie in something else and give that to him, but if you didn’t get the porridge from the 3 bears house - you’re out of luck.</p>
-
-<p>Without the right items, you’ll have to give Manannan something else to eat from the kitchen, then wait for him to leave again and go get the porridge and wait for him to come back again. Once you feed him the magic porridge, he turns into a cat and you have free reign of the world to finish collecting magical items, mixing spells and figuring out what to do next.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00026.png" alt="" /></p>
-
-<p>If you find the oracle she’ll tell you you have a sister that’s a princess, that you’re a prince and you have to go save her. You’ll find some pirates in the bar and pay them to get access to their ship.</p>
-
-<p>They sort of kidnap you at this point, and you have to wait (and wait and wait and wait) for 15-20 minutes for the ship to progress far enough that the game will allow you to progress.</p>
-
-<p>The timer is not a welcome element to this game, so I’m glad it doesn’t make an appearance in any subsequent titles in the series.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00034.png" alt="" /></p>
-
-<p>Once you get off the pirate ship (using one of your spells and the magic map), you’ll end up in Daventry and it’s a short jaunt up to the dragon that is holding your sister captive. There’s some minor platforming here (climbing the cliff and navigating caves), but you eventually get there, cast a couple spells and escort your sister back to the castle.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00036.png" alt="" /></p>
-
-<p>Though I have fond memories of this game, it’s not really much fun. The whole experience sort of feels like work and there isn’t really much to do once you reach the pirate ship but wait. If you use the map too early, you’ll drown … so you have to wait. Waiting is too common a theme in this game.</p>
-
-<p>KQ3 does give you some quality of life improvements over the previous 2 entries in the series, but it’s not really adding much to the overall gaming experience. Most game screens don’t have any background music, so you play in silence for the majority of the game.</p>
-
-<p>The vast majority of the game involves fetching ingredients for spells, so once you’ve completed that all you really have to do is get to the dragon. Trying to get past the snow monster is a little frustrating, but that’s the only real challenge once you get off the ship.</p>
-
-<p><img src="/images/adventure/kq3/scummvm-kq3-00028.png" alt="" />
-<em>Yup, you’ve still got some waiting to do</em></p>
-
-<p>I do like this game, but it’s a bit tedious to play nowadays. There were however remakes (yes - plural) by <a href="https://infamousadventures.itch.io/kings-quest-iii-vga-remake">Infamous Adventures</a> and <a href="https://www.agdinteractive.com/games/kq3/about/overview.html">AGD Interactive</a> that drop the text parser in favour of a more traditional P&amp;C interface.</p>
-
-<p>I couldn’t get KQ3 Redux working on my Macbook (the game was released in 2011), but the Infamous Adventures release works perfectly. I would recommend trying one of these remakes if you want to experience the game today.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>King’s Quest III: To Heir Is Human</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>Sierra On-Line</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>October 1, 1986</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>DOS, Apple II, Apple IIGS, Amiga,<br />Atari ST, Mac, Tandy Color Computer 3</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=AGI">AGI</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/5030">How Long To Beat?</a></td>
-      <td>4 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://adventuregamers.com/walkthrough/full/kings-quest-iii-to-heir-is-human">Walkthrough</a>, <a href="https://mocagh.org/sierra/kq3brcc-manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (15)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (5)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>43%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kq3/scummvm-kq3-00002.png', thumb: '/images/adventure/kq3/scummvm-kq3-00002.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00004.png', thumb: '/images/adventure/kq3/scummvm-kq3-00004.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00005.png', thumb: '/images/adventure/kq3/scummvm-kq3-00005.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00009.png', thumb: '/images/adventure/kq3/scummvm-kq3-00009.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00010.png', thumb: '/images/adventure/kq3/scummvm-kq3-00010.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00011.png', thumb: '/images/adventure/kq3/scummvm-kq3-00011.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00012.png', thumb: '/images/adventure/kq3/scummvm-kq3-00012.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00013.png', thumb: '/images/adventure/kq3/scummvm-kq3-00013.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00014.png', thumb: '/images/adventure/kq3/scummvm-kq3-00014.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00016.png', thumb: '/images/adventure/kq3/scummvm-kq3-00016.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00017.png', thumb: '/images/adventure/kq3/scummvm-kq3-00017.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00021.png', thumb: '/images/adventure/kq3/scummvm-kq3-00021.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00022.png', thumb: '/images/adventure/kq3/scummvm-kq3-00022.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00025.png', thumb: '/images/adventure/kq3/scummvm-kq3-00025.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00027.png', thumb: '/images/adventure/kq3/scummvm-kq3-00027.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00029.png', thumb: '/images/adventure/kq3/scummvm-kq3-00029.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00030.png', thumb: '/images/adventure/kq3/scummvm-kq3-00030.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00031.png', thumb: '/images/adventure/kq3/scummvm-kq3-00031.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00032.png', thumb: '/images/adventure/kq3/scummvm-kq3-00032.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00033.png', thumb: '/images/adventure/kq3/scummvm-kq3-00033.png' },{ src: '/images/adventure/kq3/scummvm-kq3-00035.png', thumb: '/images/adventure/kq3/scummvm-kq3-00035.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p><small>Description from <a href="https://www.mobygames.com/game/126/kings-quest-iii-to-heir-is-human/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="AGI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Hook (Ocean) - 1992King's Quest III: To Heir Is Human (Sierra On-Line) - 1986→ Plan 9 from Outer Space (Gremlin Ireland) - 1992 Article 90 of 95 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq3/scummvm-kq3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq3/scummvm-kq3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Gremlin Ireland" /><category term="played:Amiga" /><category term="Gremlin Graphics" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← King's Quest III: To Heir Is Human (Sierra On-Line) - 1986Plan 9 from Outer Space (Gremlin Ireland) - 1992→ Return of the Phantom (MicroProse) - 1993 Article 91 of 96 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/plan9/040.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/plan9/040.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
