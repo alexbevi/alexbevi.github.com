@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 95  -%}
+{%- assign games_finished = 96  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -91,6 +91,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **46%** [Tass Times in Tonetown (Interplay Productions, Brainwave Creations)]({% post_url 2023-12-27-tass-times-in-tonetown %}) - 1986
 1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **44%** [Torin's Passage (Sierra On-Line)]({% post_url 2023-06-07-torins-passage %}) - 1995
+1. **44%** [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993
 1. **44%** [Uninvited (ICOM Simulations)]({% post_url 2023-08-09-uninvited %}) - 1986
 1. **43%** [King's Quest III: To Heir Is Human (Sierra On-Line)]({% post_url 2024-10-25-kings-quest-iii %}) - 1986
 1. **43%** [Eternam (Infogrames)]({% post_url 2023-02-07-eternam %}) - 1992
