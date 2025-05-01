@@ -61,6 +61,20 @@ Overall this game was an enjoyable adventure, though the story was pretty sparse
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (10)**|4|
+|**Sound (10)**|0|
+|**Plot / Progression (25)**|7|
+|**Characters / Development (15)**|3|
+|**Gameplay / Experience (15)**|6|
+|**Replayability (10)**|0|
+|**Impact / Impression (10)**|2|
+|**Bonus / Surprise (5)**|0|
+||**22%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|6|
 |**Story (25)**|8|
 |**Experience (15)**|5|

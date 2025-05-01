@@ -67,6 +67,20 @@ This is a very early adventure game - and an improvement to an _even EARLIER_ ad
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (10)**|4|
+|**Sound (10)**|0|
+|**Plot / Progression (25)**|2|
+|**Characters / Development (15)**|1|
+|**Gameplay / Experience (15)**|4|
+|**Replayability (10)**|0|
+|**Impact / Impression (10)**|2|
+|**Bonus / Surprise (5)**|0|
+||**13%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|4|
 |**Story (25)**|2|
 |**Experience (15)**|3|

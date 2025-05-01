@@ -49,6 +49,20 @@ Since this was the first graphical adventure game you can't really compare it to
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (10)**|4|
+|**Sound (10)**|1|
+|**Plot / Progression (25)**|6|
+|**Characters / Development (15)**|2|
+|**Gameplay / Experience (15)**|4|
+|**Replayability (10)**|1|
+|**Impact / Impression (10)**|2|
+|**Bonus / Surprise (5)**|1|
+||**21%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|15|
 |**Story (25)**|15|
 |**Experience (15)**|8|

@@ -54,7 +54,6 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **67%** [Blade Runner (Westwood Studios)]({% post_url 2023-10-05-blade-runner %}) - 1997
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 1. **66%** [Universe (Core Design)]({% post_url 2025-02-02-universe %}) - 1994
-1. **66%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
 1. **66%** [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
 1. **64%** [Neuromancer (Interplay Productions)]({% post_url 2025-01-22-neuromancer %}) - 1988
@@ -89,7 +88,6 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **47%** [Manhunter 2: San Francisco (Evryware)]({% post_url 2023-09-06-manhunter-san-francisco %}) - 1989
 1. **46%** [Lure of the Temptress (Revolution Software)]({% post_url 2024-04-16-lure-of-the-temptress %}) - 1992
 1. **46%** [Tass Times in Tonetown (Interplay Productions, Brainwave Creations)]({% post_url 2023-12-27-tass-times-in-tonetown %}) - 1986
-1. **46%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **44%** [Torin's Passage (Sierra On-Line)]({% post_url 2023-06-07-torins-passage %}) - 1995
 1. **44%** [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993
 1. **44%** [Uninvited (ICOM Simulations)]({% post_url 2023-08-09-uninvited %}) - 1986
@@ -112,16 +110,36 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **34%** [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
 1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **34%** [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
-1. **33%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
-1. **31%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **31%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
 1. **29%** [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
-1. **29%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
-1. **27%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
+1. **28%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
+1. **23%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
+1. **22%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
+1. **21%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
 1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
-1. **19%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **18%** [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992
-1. **14%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
+1. **15%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
+1. **14%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
+1. **13%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
 1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
+1. **12%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
+
+{% comment % }
+
+|**Graphics (10)**|3|
+|**Sound (10)**|0|
+|**Plot / Progression (25)**|6|
+|**Characters / Development (15)**|3|
+|**Gameplay / Experience (15)**|3|
+|**Replayability (10)**|0|
+|**Impact / Impression (10)**|0|
+|**Bonus / Surprise (5)**|0|
+||**15%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
+{% endcomment %}
