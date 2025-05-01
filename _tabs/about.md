@@ -6,7 +6,7 @@ order: 4
 
 ![](/images/headshot.png)
 
-The name's Alex, and I'm currently a Senior Product Manager on the Developer Interfaces team at [MongoDB](https://www.mongodb.com/), focusing on the Node.js and Ruby Developer Ecosystems.
+The name's Alex, and I'm currently a Lead Product Manager on the Developer Experience team at [MongoDB](https://www.mongodb.com/), focusing on the Node.js and Ruby Developer Ecosystems.
 
 I've been writing software professionally since 2000, and have had the opportunity to flex my creative muscle in a number of languages and technologies.
 
@@ -18,6 +18,7 @@ I'm also the author of a book on [Redmine Plugin Extension and Development](http
 
 As part of my current role I'm trying to do more public speaking. Here are some examples of presentations I've delivered - even if they weren't all recorded.
 
+* `2023-05-25`: MongoDB.local Toronto 2025 \| _From Local to Cloud: An Integrated Developer Tool Suite for Every Stage of Development_ ([video](https://www.youtube.com/watch?v=0rpne6tCf78&list=PL4RCxklHWZ9v_rnrq99NAWAwgXreTVbHN&index=7))
 * `2023-05-25`: Learning Bytes \| _Prisma ORM with MongoDB_ ([video](https://learn.mongodb.com/courses/prisma-orm-with-mongodb))
 * `2023-04-01`: Learning Bytes \| _Mongoose ODM with MongoDB_ ([video](https://learn.mongodb.com/learn/course/mongoose-odm-with-mongodb/learning-byte/learn))
 * `2023-01-24`: Ruby on Rails Global Summit'23 \| _Ruby on Rails and MongoDB_ ([video](https://www.youtube.com/watch?v=UCdVBOJI3Ow&list=TLPQMjQwMTIwMjMqueSlzDsFKg&t=17872s))
