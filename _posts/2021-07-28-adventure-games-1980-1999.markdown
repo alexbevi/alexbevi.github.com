@@ -106,7 +106,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 16. ~~Okhotsk ni Kiyu: Hokkaido Rensa Satsujin Jiken (Yuji Horii, Login Software) - 1984~~ (_Japanese only_)
 17. [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984 (`51%`)
 18. ~~Wingman (TamTam) - 1984~~ (_Japanese only_)
-19. [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
+19. [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984 (`47%`)
 20. [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 21. [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 22. Perry Mason: The Case of the Mandarin Murder (Telarium) - 1985

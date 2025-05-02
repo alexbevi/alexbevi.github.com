@@ -59,6 +59,20 @@ Overall this game is still very accessible and playable, even as a text parser g
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (10)**|5|
+|**Sound (10)**|4|
+|**Plot / Progression (25)**|10|
+|**Characters / Development (15)**|9|
+|**Gameplay / Experience (15)**|9|
+|**Replayability (10)**|3|
+|**Impact / Impression (10)**|6|
+|**Bonus / Surprise (5)**|1|
+||**47%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|17|
 |**Story (25)**|20|
 |**Experience (15)**|12|

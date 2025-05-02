@@ -70,7 +70,6 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
 1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **84%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
-1. **81%** [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **79%** [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
@@ -111,6 +110,7 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **49%** [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
 1. **47%** [Hopkins FBI (MP Entertainment)]({% post_url 2023-01-16-hopkins-fbi %}) - 1998
 1. **47%** [Manhunter 2: San Francisco (Evryware)]({% post_url 2023-09-06-manhunter-san-francisco %}) - 1989
+1. **47%** (was **81%**) [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 1. **46%** [Lure of the Temptress (Revolution Software)]({% post_url 2024-04-16-lure-of-the-temptress %}) - 1992
 1. **46%** [Tass Times in Tonetown (Interplay Productions, Brainwave Creations)]({% post_url 2023-12-27-tass-times-in-tonetown %}) - 1986
 1. **44%** [Torin's Passage (Sierra On-Line)]({% post_url 2023-06-07-torins-passage %}) - 1995
