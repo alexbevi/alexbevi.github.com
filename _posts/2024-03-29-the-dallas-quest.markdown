@@ -95,6 +95,20 @@ Other than the intro music and a couple segments where you have to play a bugle 
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (10)**|3|
+|**Sound (10)**|1|
+|**Plot / Progression (25)**|8|
+|**Characters / Development (15)**|3|
+|**Gameplay / Experience (15)**|3|
+|**Replayability (10)**|0|
+|**Impact / Impression (10)**|2|
+|**Bonus / Surprise (5)**|0|
+||**20%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|8|
 |**Story (25)**|9|
 |**Experience (15)**|3|

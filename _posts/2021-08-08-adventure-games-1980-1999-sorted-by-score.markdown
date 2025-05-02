@@ -40,7 +40,6 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **84%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
 1. **81%** [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
-1. **80%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **79%** [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
@@ -80,6 +79,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **53%** [Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)]({% post_url 2024-06-02-space-quest-iv-roger-wilco-and-the-time-rippers %}) - 1991
 1. **51%** [Harvester (DigiFX Interactive)]({% post_url 2024-02-23-harvester %}) - 1996
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
+1. **51%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
 1. **50%** [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 1. **49%** [Duckman: The Graphic Adventures of a Private Dick (The Illusions Gaming Company)]({% post_url 2023-03-03-duckman %}) - 1997
 1. **49%** [Urban Runner (Coktel Vision)]({% post_url 2023-02-15-urban-runner %}) - 1996
@@ -109,14 +109,14 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 1. **34%** [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
 1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
-1. **34%** [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
-1. **31%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
+1. **31%** [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
 1. **29%** [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
 1. **28%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **23%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
 1. **22%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **21%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
+1. **20%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
 1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 1. **18%** [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992
 1. **15%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981

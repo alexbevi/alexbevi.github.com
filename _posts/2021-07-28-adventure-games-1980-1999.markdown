@@ -100,11 +100,11 @@ As I work through the list I'll link the reviews below. You can also find the re
 10. [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983 (`28%`)
 11. ~~Star Arthur Legend: Planet Mephius (T&E Soft) - 1983~~ (_Japanese only_)
 12. ~~Portopia Renzoku Satsujin Jiken (Yuji Horii, Chunsoft) - 1983~~ (_Japanese only_)
-13. [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
+13. [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984 (`31%`)
 14. Below the Root (Dale Disharoon) - 1984
-15. [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
+15. [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984 (`20%`)
 16. ~~Okhotsk ni Kiyu: Hokkaido Rensa Satsujin Jiken (Yuji Horii, Login Software) - 1984~~ (_Japanese only_)
-17. [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
+17. [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984 (`51%`)
 18. ~~Wingman (TamTam) - 1984~~ (_Japanese only_)
 19. [King's Quest: Quest for the Crown (Sierra On-Line)]({% post_url 2021-08-06-kings-quest %}) - 1984
 20. [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
