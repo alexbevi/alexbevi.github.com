@@ -232,7 +232,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 142. Gobliins Quest 3 (Coktel Vision) - 1993
 143. Inca II: Nations of Immortality (Coktel Vision) - 1993
 144. [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
-145. The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993
+145. [The Legend of Kyrandia: Hand of Fate (Westwood Studios)]({% post_url 2025-07-15-the-legend-of-kyrandia-hand-of-fate %}) - 1993 (`60%`)
 146. [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 147. [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993
 148. Putt-Putt Goes to the Moon (Humongous Entertainment) - 1993

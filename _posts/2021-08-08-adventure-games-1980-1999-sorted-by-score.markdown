@@ -63,6 +63,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **61%** [Space Quest V: Roger Wilco – The Next Mutation (Dynamix)]({% post_url 2024-08-21-space-quest-v %}) - 1993
 1. **61%** [Snatcher (Konami)]({% post_url 2023-06-28-snatcher %}) - 1988
 1. **61%** [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
+1. **60%** [The Legend of Kyrandia: Hand of Fate (Westwood Studios)]({% post_url 2025-07-15-the-legend-of-kyrandia-hand-of-fate %}) - 1993
 1. **59%** [Discworld (Teeny Weeny Games/Perfect 10 Productions)]({% post_url 2024-07-09-discworld %}) - 1995
 1. **59%** [Dark Seed (Cyberdreams)]({% post_url 2023-11-20-darkseed %}) - 1992
 1. **59%** [The Adventures of Willy Beamish (Dynamix)]({% post_url 2024-02-12-the-adventures-of-willy-beamish %}) - 1991
@@ -126,16 +127,17 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **12%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
 
+
 {% comment % }
 
-|**Graphics (10)**|3|
-|**Sound (10)**|0|
-|**Plot / Progression (25)**|6|
-|**Characters / Development (15)**|3|
-|**Gameplay / Experience (15)**|3|
-|**Replayability (10)**|0|
-|**Impact / Impression (10)**|0|
-|**Bonus / Surprise (5)**|0|
+|**Graphics (10)**|x|
+|**Sound (10)**|x|
+|**Plot / Progression (25)**|x|
+|**Characters / Development (15)**|x|
+|**Gameplay / Experience (15)**|x|
+|**Replayability (10)**|x|
+|**Impact / Impression (10)**|x|
+|**Bonus / Surprise (5)**|x|
 ||**15%**|
 
 > Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
