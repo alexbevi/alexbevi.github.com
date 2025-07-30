@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-07-30T15:04:37-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-07-30T17:35:53-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">MongoDB Driver Compatibility with MongoDB Servers</title><link href="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/" rel="alternate" type="text/html" title="MongoDB Driver Compatibility with MongoDB Servers" /><published>2025-07-30T17:20:39-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/"><![CDATA[<p>MongoDB server versions <a href="https://www.mongodb.com/legal/support-policy/lifecycles">eventually reach EOL</a> - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible?</p>
+
+<p>Though good dependency management hygiene is important, it’s a time consuming process that can require extensive testing so you typically want to do it on your own terms - not because of a service upgrade.</p>
+
+<p>Let’s assume your application uses <a href="https://github.com/mongodb/node-mongodb-native/releases/tag/v5.5.0">v5.5.0</a> of the MongoDB <a href="https://mongodb-node.netlify.app/docs/drivers/node/current/">Node.js driver</a>, but your application has been humming along for some time without issue. You got an email indicating your cluster was going to be upgraded from MongoDB 6.0 to MongoDB 7.0, but based on the <a href="https://mongodb-node.netlify.app/docs/drivers/node/current/reference/compatibility/">driver compatibility table</a> that version of the driver isn’t even present!</p>
+
+<h2 id="what-compatibility-tables-actually-mean">What compatibility tables actually mean</h2>
+
+<p>MongoDB drivers are constantly being updated to add support for new features of the MongoDB server, as well as address bugs/regressions and improve performance. The compatibility tables (such as the example below) are simply a reflection of what versions of the driver have previously had their test suite run against a version of the MongoDB server.</p>
+
+<p><img src="/images/mongodb-compatibility-matrix.png" alt="" /></p>
+
+<p>The MongoDB drivers are all built from a set of <a href="https://github.com/mongodb/specifications">common specifications</a>, which are updated periodically as new MongoDB server features necessitate changes. For example, <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#atlas-search-index-management">MongoDB 7.0 introduced Atlas Search Index Management</a>, which resulted in the <a href="https://github.com/mongodb/specifications/blob/master/source/index-management/index-management.md">index management specifications</a> being updated to define APIs drivers can implement to support the new database commands required to perform this new function.</p>
+
+<p>If the version of the driver being used doesn’t contain support for MongoDB 7.0, new APIs just as <a href="https://mongodb.github.io/node-mongodb-native/6.17/classes/Collection.html#createSearchIndex"><code class="language-plaintext highlighter-rouge">Collection#createSearchIndex</code></a>wouldn’t be directly available - but if you don’t need this MongoDB 7.0 feature, your existing application using v5.5.0 of the Node.js driver would continue to function as expected.</p>
+
+<blockquote class="prompt-info">
+  <p>Since <a href="https://www.mongodb.com/docs/manual/reference/command/createSearchIndexes/"><code class="language-plaintext highlighter-rouge">createSearchIndexes</code></a>is a database command, even using a version of the driver that didn’t have convenient APIs for interacting with the feature could still be used to <a href="https://mongodb-node.netlify.app/docs/drivers/node/current/run-command/">run the database command directly</a>.</p>
+
+  <p>For example:</p>
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">commandDoc</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">createSearchIndexes</span><span class="p">:</span> <span class="dl">"</span><span class="s2">contacts</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">indexes</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">searchIndex01</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">definition</span><span class="p">:</span> <span class="p">{</span> <span class="na">mappings</span><span class="p">:</span> <span class="p">{</span> <span class="na">dynamic</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+  <span class="p">}]</span>
+<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">myDB</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="nx">commandDoc</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div>  </div>
+</blockquote>
+
+<h2 id="what-happens-if-i-dont-update-my-drivers">What happens if I don’t update my drivers</h2>
+
+<p>The most likely outcome is - <em>nothing</em>. Your application will continue to connect to your cluster, serialize and transmit database commands and receive and deserialize command responses. Even if the version of your driver is not present on the compatibility matrix, the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/">MongoDB Wire Protocol</a> the drivers use to communicate with your cluster hardly ever changes.</p>
+
+<p>As such, operationally your workload <em>should</em> continue to function as expected. Since the MongoDB server version has changed the performance profile of your workload <em>may</em> change, but this would not likely be a result of the driver remaining unchanged.</p>
+
+<p>Older drivers may not receive security updates or performance improvements - however this is true of your application’s dependencies. Plan to update your driver, but rest assured that doing so should be compatible with your application or business’ maintenance schedule.</p>
+
+<h2 id="can-my-application-actually-break-if-i-do-nothing">Can my application actually break if I do nothing</h2>
+
+<p>Yes - but for VERY specific reasons, all of which would be documented thoroughly and communicated prior to a major MongoDB server release.</p>
+
+<h4 id="wire-protocol-changes">Wire Protocol changes</h4>
+
+<p>As mentioned previously, the wire protocol is extremely stable and rarely changes, however with the release of MongoDB 6.0, all <a href="https://www.mongodb.com/docs/manual/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">legacy opcodes were removed</a>. This meant applications using drivers that had not been updated since MongoDB 3.4 (which reached EOL in 2020) would stop working as soon as their cluster was upgraded to 6.0.</p>
+
+<blockquote class="prompt-warning">
+  <p><strong>THIS IS THE ONLY WIRE PROTOCOL CHANGE OF THIS NATURE TO DATE</strong></p>
+</blockquote>
+
+<h4 id="command-removals">Command removals</h4>
+
+<p>On occasion, database commands may be replaced or removed. This will not happen prior to a deprecation period (at least one major release prior). This happened previously when <a href="https://www.mongodb.com/docs/manual/release-notes/5.0-compatibility/#removed-commands">MongoDB 5.0 removed a number of deprecated commands</a>.</p>
+
+<p>If applications happen to be using those commands directly, once the MongoDB server is upgraded to a version that removes support for them, those applications would throw errors where those commands are used - such as the following example (using <code class="language-plaintext highlighter-rouge">mongosh</code>, which is built using the Node.js driver):</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nx">test</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nf">version</span><span class="p">()</span>
+<span class="mf">4.4</span><span class="p">.</span><span class="mi">29</span>
+<span class="nx">test</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">({</span> <span class="na">resetError</span><span class="p">:</span> <span class="mi">1</span> <span class="p">})</span>
+<span class="p">{</span> <span class="nl">ok</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="nx">test</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nf">version</span><span class="p">()</span>
+<span class="mf">5.0</span><span class="p">.</span><span class="mi">31</span>
+<span class="nx">test</span><span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nf">runCommand</span><span class="p">({</span> <span class="na">resetError</span><span class="p">:</span> <span class="mi">1</span> <span class="p">})</span>
+<span class="nx">MongoServerError</span><span class="p">[</span><span class="nx">CommandNotFound</span><span class="p">]:</span> <span class="nx">no</span> <span class="nx">such</span> <span class="nx">command</span><span class="p">:</span> <span class="dl">'</span><span class="s1">resetError</span><span class="dl">'</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Each major MongoDB server release will contain both release notes and compatibility changes. Make sure to review the compatibility changes to ensure if there are any command removals, they don’t represent commands your application is using.</p>
+
+<p>See the following for reference:</p>
+
+<ul>
+  <li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0-compatibility/">MongoDB 8.0 Compatibility Changes</a></li>
+  <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0-compatibility/">MongoDB 7.0 Compatibility Changes</a></li>
+  <li><a href="https://www.mongodb.com/docs/manual/release-notes/6.0-compatibility/">MongoDB 6.0 Compatibility Changes</a></li>
+  <li><a href="https://www.mongodb.com/docs/manual/release-notes/5.0-compatibility/">MongoDB 5.0 Compatibility Changes</a></li>
+</ul>
+
+<h2 id="key-takeaways">Key Takeaways</h2>
+
+<ul>
+  <li>Not having a driver considered “compatible” doesn’t mean the application won’t continue to work</li>
+  <li>Compatibility implies “feature compatibility” - as in “new” features of the server version listed</li>
+  <li>Not upgrading your driver <em>shouldn’t</em> result in your application breaking</li>
+  <li>There are scenarios where not upgrading the driver will break your application, but these are few, far between and well documented</li>
+</ul>
+
+<p>There are multiple benefits to keeping your application’s dependencies up to date, but there can also be drawbacks. As such it’s important to test upgrades in a lower environment to ensure as many potential issues can be caught prior to applying changes in production environments.</p>
+
+<p>If you’re working with Node.js, consider tooling like <a href="https://github.com/pilotpirxie/dependency-time-machine"><code class="language-plaintext highlighter-rouge">dependency-time-machine</code></a> to help with sequential dependency update automation. Since your dependency graph is likely complex, this type of approach can help update your application incrementally in a way that may minimize interdependency compatibility issues.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[MongoDB server versions eventually reach EOL - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible?]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li><li><strong>The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</strong></li></ul>
 
   <p>Article 97 of 97 in this series.</p>
@@ -177,7 +282,7 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/871/fables-fiends-hand-of-fate/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 97 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 97 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li><li><strong>Pepper's Adventures in Time (Sierra On-Line) - 1993</strong></li><li>→ <a href="/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</a></li></ul>
 
   <p>Article 96 of 97 in this series.</p>
@@ -398,7 +503,7 @@ ERROR: [pepper-1.000 610/999 sPercyGotYou::dispose @ 0786]: [VM] Stack index 409
       <p><small>Description from <a href="https://www.mobygames.com/game/6312/peppers-adventures-in-time/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
 
 <p>The plugin I decided I wanted to build would need to include:</p>
 
@@ -766,7 +871,7 @@ Expected page data:
 
 <p>Ultimately, the plugin significantly streamlined navigation within my blog series, enhancing both my writing workflow and the reader’s experience. This journey underscored how AI tools can complement traditional software development, enabling faster iterations, performance optimizations, and more elegant solutions.</p>
 
-<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
+<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
 
 <p>Let’s evaluate this by taking MongoDB’s simple <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/">“Find a Document”</a> tutorial and adapting it to a Workers environment.</p>
 
@@ -1276,7 +1381,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>I ran a number of tests and periodically you’d still get a cold-start spike, but most requests benefit from the reduced latency maintaining a stateful Worker via Durable Objects provides.</p>
 
-<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
 
 <ul>
   <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
@@ -1430,7 +1535,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
 
-<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li><li><strong>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</strong></li><li>→ <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li></ul>
 
   <p>Article 95 of 97 in this series.</p>
@@ -1648,7 +1753,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/412/leisure-suit-larry-iii-passionate-patti-in-pursuit-of-the-pulsat/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li><li><strong>Universe (Core Design) - 1994</strong></li><li>→ <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li></ul>
 
   <p>Article 94 of 97 in this series.</p>
@@ -1869,7 +1974,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/30/return-of-the-phantom/">Return of the Phantom (MicroProse) - 1993</a></li><li><strong>Neuromancer (Interplay Productions) - 1988</strong></li><li>→ <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li></ul>
 
   <p>Article 93 of 97 in this series.</p>
@@ -2096,7 +2201,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-07-30T17:35:13-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/22/plan-9-from-outer-space/">Plan 9 from Outer Space (Gremlin Ireland) - 1992</a></li><li><strong>Return of the Phantom (MicroProse) - 1993</strong></li><li>→ <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li></ul>
 
   <p>Article 92 of 97 in this series.</p>
@@ -2316,263 +2421,4 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/2011/return-of-the-phantom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Plan 9 from Outer Space (Gremlin Ireland) - 1992Return of the Phantom (MicroProse) - 1993→ Neuromancer (Interplay Productions) - 1988 Article 92 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Minor Hockey Budget Management and Automation</title><link href="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/" rel="alternate" type="text/html" title="Minor Hockey Budget Management and Automation" /><published>2024-12-29T08:12:07-05:00</published><updated>2025-07-30T15:03:56-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/29/minor-hockey-budget-management-and-automation/"><![CDATA[<blockquote class="prompt-tip">
-  <p>Download the <a href="https://docs.google.com/spreadsheets/d/1QwTpalK0Zn5ddMlDOLlRwBrUQUW2S0BqZGddmaGb8x8/edit">Hockey Team Budget Template</a> discussed in this article</p>
-</blockquote>
-
-<p>I’ve been the treasurer for a couple minor hockey teams for the past five years, and though there are resources available to the parents that choose to assume this role on their kids’ teams, if you aren’t comfortable with accounting or working with spreadsheets the task can be daunting.</p>
-
-<p>Every minor hockey association will make some resources available, and <a href="https://www.hockeycanada.ca/en-ca/hockey-programs/mha/downloads">Hockey Canada’s MHA downloads</a> currently include a minor hockey budget sheet (<a href="https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/MHA/downloads/minor-hockey-budget-sheets-e.xls">XLS</a> and <a href="https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/MHA/downloads/minor-hockey-budget-sheets-instructions-e.pdf">instructions</a>), but again, these really aren’t designed to do anything more than summarize the team’s finances - not track or manage them.</p>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227113831.png" alt="" /></p>
-
-<p>Since team treasurers aren’t only accountable to the league and their team’s association, but also the parents it’s important to not only have accurate accounting of revenue and expenses, but also a way to provide transparency.</p>
-
-<p>The money you’re handling isn’t yours - it belongs to everyone on the team. If anyone has questions as to what’s being spent on what or how much is left it shouldn’t be hard to answer.</p>
-
-<p>To try and make this easier for future team managers and treasurers I’ve created the following <a href="https://docs.google.com/spreadsheets/d/1QwTpalK0Zn5ddMlDOLlRwBrUQUW2S0BqZGddmaGb8x8/edit">Hockey Team Budget Template</a>. Feel free to download/copy/use, and if you have any feedback or questions, shoot me a message.</p>
-
-<p>I’ll be going into some detail below as to how you can use this spreadsheet to do the following:</p>
-
-<ul>
-  <li>Setup the Team’s Budget</li>
-  <li>Manage Parent Payment Schedules</li>
-  <li>Manage Revenue and Expenses</li>
-  <li>Manage a Cash Float</li>
-  <li>Manage Bank Transactions</li>
-  <li>Account for Fundraising and Sponsorships</li>
-  <li>Revise the Team’s Budget</li>
-</ul>
-
-<p>A number of <a href="https://support.google.com/docs/topic/1361471?hl=en&amp;sjid=8589949122811119968-NC">Google Sheets formulas</a> are being used across multiple sheets to provide the automation and calculations. Feel free to inspect any and modify as you like.</p>
-
-<p>Note that all names in the examples were generated:</p>
-<ul>
-  <li>Player names: <a href="https://www.name-generator.org.uk/quick/">https://www.name-generator.org.uk/quick/</a></li>
-  <li>Business names: <a href="https://randommer.io/random-business-names">https://randommer.io/random-business-names</a></li>
-</ul>
-
-<h2 id="setup-the-teams-budget">Setup the Team’s Budget</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227130902.png" alt="" />
-<em>Figure 1: Budget</em></p>
-
-<p>As the team treasurer, the first thing you need to work out with the team manager and head coach is how much money the season is going to cost.</p>
-
-<p>Most of the information can be copied from previous seasons, but since prices are subject to change year over year you want to always estimate high. For example, if you paid $30K the previous year you may want to bump that to $34K this year (just in case). Always try to estimate a bit high, as he parents on the team have to pay for the season and it’s easier to refund extra money than it is to go back and ask for more 😉.</p>
-
-<p>Each section below will match one or more of the numbered sections in <em>Figure 1</em> above.</p>
-
-<h3 id="1-figure-out-how-much-youll-need-to-spend">(1) Figure out how much you’ll need to spend</h3>
-
-<p>Some expenses to consider when making the budget are:</p>
-
-<ul>
-  <li>Association fees</li>
-  <li>Practice/game ice fees</li>
-  <li>Jersey/Sock costs</li>
-  <li>Referee fees</li>
-  <li>Timekeeper fees</li>
-  <li>Tryout fees</li>
-  <li>Extra ice rental fees</li>
-  <li>Tournament fees</li>
-  <li>Goalie training</li>
-  <li>Extra training (on-ice or off-ice) and team building</li>
-  <li>Social budget (Christmas and end of season parties)</li>
-  <li>Player gifts</li>
-  <li>Police checks, coaches clinics, certification and training costs</li>
-  <li>Trainer supplies</li>
-  <li>Coaches apparel</li>
-</ul>
-
-<p>Not all of these are required, but can be used as a starting point.  Under the <em>Expenses</em> section of the <strong>Budget</strong> sheet, just add a new row for each line item you want to track, then copy the first line item as many times as you need</p>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227132156.png" alt="" /></p>
-
-<p>As you add new rows to the <em>Expenses</em> section, the total budget should be automatically updated on the last row of the sheet.</p>
-
-<h3 id="2-figure-out-how-much-money-youll-need-to-cover-costs">(2) Figure out how much money you’ll need to cover costs</h3>
-
-<p>Once you have your total expenses plugged in, you’ll need to make sure you collect at least that much money from the parents on the team.</p>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227155003.png" alt="" /></p>
-
-<p>For example, if your total expenses are $96,130.00 for the season, you’ll likely want to collect at least $97,000.00.</p>
-
-<p>Fundraising and sponsorships can never be guaranteed, but if the team agrees on a certain minimum threshold, plugging those values in will ensure you have enough money to cover costs.</p>
-
-<p>From the example above I expect to collect $95,000.00 from the parents directly, with another $10,000.00 from sponsorship and donations, for a total budget of <strong>$105,000.000</strong>.</p>
-
-<h3 id="3-5-updates-will-be-automatically-tracked-as-transactions-are-recorded">(3-5) Updates will be automatically tracked as transactions are recorded</h3>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227155505.png" alt="" /></p>
-
-<p>The actual amount of money we’ve collected and spent will be summarized automatically based on how we record revenue and expenses on the <strong>Transactions</strong> sheet. We will also include details for other sources of income that may be harder to track, such as:</p>
-<ul>
-  <li>Current bank balance</li>
-  <li>Cash on hand</li>
-  <li>Total value of outstanding (uncashed) cheques</li>
-</ul>
-
-<p>This gives us a snapshot of our current financials at all times throughout the season. If everything is adding up correctly, the <em>DIFF</em> field should be $0.</p>
-
-<h3 id="6-expense-category-budgets-can-be-automatically-tracked-as-well">(6) Expense category budgets can be automatically tracked as well</h3>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227155843.png" alt="" /></p>
-
-<p>We’ll need to know how much money we’ve spent in each category as the season goes on - especially if/when we go over.</p>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227161336.png" alt="" /></p>
-
-<p>Once the <em>Budget Left</em> reaches zero, you’ve met or exceeded the budget. I’ve configured <a href="https://support.google.com/docs/answer/78413?hl=en&amp;co=GENIE.Platform%3DDesktop">conditional formatting rules</a> so it stands out a bit more that you’ve dropped below 50% of your budget.</p>
-
-<h2 id="manage-parent-payment-schedules">Manage Parent Payment Schedules</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241227161737.png" alt="" />
-<em>Figure 2: Roster</em></p>
-
-<p>Most (if not all) the money for the season comes from the parents on the team, so it’s important to understand how much money that will be, and to keep up with payments.</p>
-
-<p>Once you know how much each parent will need to pay, you can work backwards from when all fees should be due to figure out a schedule.</p>
-
-<p>For our example, we’ll be collecting <strong>$6,125.00</strong> from each family. If the team was finalized in March, and we want all fees to be collected by December, a schedule such as the following might make sense:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>June 10</strong></td>
-      <td><strong>CA$800.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>July 10</strong></td>
-      <td><strong>CA$800.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Aug 10</strong></td>
-      <td><strong>CA$1,000.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Sep 10</strong></td>
-      <td><strong>CA$1,000.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Oct 10</strong></td>
-      <td><strong>CA$1,000.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Nov 10</strong></td>
-      <td><strong>CA$1,000.00</strong></td>
-    </tr>
-    <tr>
-      <td><strong>Dec 10</strong></td>
-      <td><strong>CA$525.00</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="1-5-6-7-per-player-payment-tracking">(1, 5, 6, 7) Per-player payment tracking</h3>
-
-<p>Fill out the team roster first. Only the <em>Last Name</em> is actually used elsewhere, and the values for <em>Direct Payments</em>, <em>Other Payments (Not Reimbursed)</em>, <em>Paid</em>, and <em>Reimbursements</em> will be calculated for you based on what is recorded in the <strong>Transactions</strong> sheet.</p>
-
-<p>The <em>Outstanding</em> value will begin from what you input as <em>Total (Per Player Rounded)</em> and subtract these transactions to help keep track of what each parent still owes.</p>
-
-<p>To clarify terminology:</p>
-<ul>
-  <li><em>Direct Payments</em>: E-Transfers or cash from parents that are applied directly to player fees</li>
-  <li><em>Other Payments (Not Reimbursed)</em>: Costs parents cover that can be subtracted from fees (ex: they paid for pizza for the team for a social event)</li>
-  <li><em>Reimbursements</em>: When parents have paid <em>more</em> than the expected fees, and you want to refund them the overage amount directly</li>
-</ul>
-
-<h3 id="2-3-4-total-expected-revenue-from-parent-collections">(2, 3, 4) Total expected revenue from parent collections</h3>
-
-<p>Based on what we calculated in our <strong>Budget</strong> sheet earlier, we were going to collect <strong>$95,000.00</strong> from parents, so this is imported to the <em>Total Expected (Imported)</em> field.</p>
-
-<p>We’ve only rostered 16 players this season, so we enter that value into the <em>Total Players</em> field, which we divide the total expected value from to figured out the <em>Expected Per Player</em> total.</p>
-
-<p>Once again, it’s easier to refund money at the end of the season than it is to ask for more money if unexpected costs occur, so round up the per-player value slightly to come up with the final <em>Total (Per Player Rounded)</em> value you’ll be collecting from parents.</p>
-
-<p>This final value will then be multiplied by the number of players on the team to give you the final <em>Total Expected</em> value.</p>
-
-<h2 id="manage-revenue-and-expenses">Manage Revenue and Expenses</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241228091709.png" alt="" />
-<em>Figure 3: Transactions</em></p>
-
-<p>The <strong>Transactions</strong> sheet is where day to day revenue and expenses are recorded. If everything is setup properly, just keeping this sheet updated will likely be sufficient to manage your reporting for the season.</p>
-
-<p>When you setup your <strong>Budget</strong>, each line item under <em>Expenses</em> will be available via the <em>Category</em> dropdown when you want to record a transaction now.</p>
-
-<p>Let’s walk through some examples of recording to get a feeling for how this works.</p>
-
-<p><strong>Example 1: Parent paid directly for team related expense</strong>
-<img src="/images/hockey-budget/Pasted image 20241228105045.png" alt="" /></p>
-
-<p>Here we can a <strong>Preseason: Tryout Related Expenses</strong> was recorded for <strong>$54.00</strong> by a member of the <strong>Boyle</strong> family. The <em>Paid By</em> dropdown is populated by the <em>Last Name</em> of each player on the <strong>Roster</strong> sheet.</p>
-
-<p>When you specify a family under the <em>Paid By</em> column, that payment will be deducted from that player’s fees automatically. This makes it easier to keep track of how much money that family still owes towards fees if they’re contributing in other ways.</p>
-
-<p><strong>Example 2: Parent paid their monthly dues directly</strong>
-<img src="/images/hockey-budget/Pasted image 20241228172309.png" alt="" /></p>
-
-<p>When <strong>Parent Contributions</strong> is selected, the assumption is you’re recording a direct payment towards fees. If you check off the checkbox under the <em>Cash?</em> column, it will be recorded not only as a parent contribution, but will help keep track of your cash float.</p>
-
-<p><strong>Example 3: Paying for an expense with a cheque</strong>
-<img src="/images/hockey-budget/Pasted image 20241228172543.png" alt="" /></p>
-
-<p>Most teams don’t have access to E-Transfer out of a community (or team) account, and will need to pay for things with cheques. In this case, you just enter the cheque number in the <em>Chq</em> column - and once the cheque has been cashed, click off the <em>Chq. Cashed?</em> checkbox.</p>
-
-<p>Under the <strong>Budget</strong> sheet there is a <em>Uncashed</em> section under <em>Revenue</em> where you can quickly see how much money you have outstanding in cheques that you haven’t reconciled in your bank statement yet.</p>
-
-<h2 id="manage-a-cash-float">Manage a Cash Float</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241228172904.png" alt="" />
-<em>Figure 4: Cash Float</em></p>
-
-<p>If your game officials and timekeepers are paid in cash, you’ll likely need to also manage a cash float. As money comes in from parents, some of that can be requested in cash, which when recorded in the <strong>Transactions</strong> sheet as <em>Cash?</em> will automatically be updated in the <em>Current Cash</em> field on your <strong>Cash Float</strong> sheet.</p>
-
-<p>Periodically I’ll do a count, which I record as a line item broken down by each individual denomination I have in the float. If my <em>Total</em> matches the <em>Current Cash</em> - everything’s accounted for!</p>
-
-<h2 id="manage-bank-transactions">Manage Bank Transactions</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241229071015.png" alt="" />
-<em>Figure 5: Bank Balance</em></p>
-
-<p>I like to have all my teams’ finances in one place, so I’ll copy/paste transaction records from the online banking portal to the <strong>Bank Balance</strong> sheet.</p>
-
-<p><img src="/images/hockey-budget/Pasted image 20241229071405.png" alt="" /></p>
-
-<p>The last value in the <em>Balance</em> field on this sheet is what is reflected on the <strong>Budget</strong> sheet’s <em>Bank</em> value (using the formula <code class="language-plaintext highlighter-rouge">=INDEX('Bank Balance'!D2:D,COUNTA('Bank Balance'!D2:D),1)</code>, for anyone that’s curious).</p>
-
-<p>If you’re not looking to track things this granularly, the <strong>Bank Balance</strong> sheet can be ignored and you can just periodically copy the current balance from your bank statement directly into the <em>Bank</em> value of the <strong>Budget</strong> sheet.</p>
-
-<h2 id="account-for-fundraising-and-sponsorships">Account for Fundraising and Sponsorships</h2>
-
-<p><img src="/images/hockey-budget/Pasted image 20241229071838.png" alt="" />
-<em>Figure 6: Sponsorship &amp; Fundraising</em></p>
-
-<p>Fundraising and sponsorships are a big way teams subsidize the cost of the season to take some of the financial burden off parents.</p>
-
-<p>The <strong>Sponsorship &amp; Fundraising</strong> sheet doesn’t actually feed into any further automation, but is provided as a single location to keep track of these sources of income to make it easier to account for a lump sum you’ll eventually record under the <strong>Transactions</strong> sheet.</p>
-
-<h2 id="revise-the-teams-budget">Revise the Team’s Budget</h2>
-
-<p>When you setup the budget at the beginning of the season, you won’t know exactly how much additional money you may be able to raise or how many sponsorships you’ll get. There may also be some additional costs you didn’t anticipate, or potentially forgot all about.</p>
-
-<p>As the season goes on, if you need to revise your budget, the most important thing to take into consideration is “can we afford this” - which should be a fairly easy question to answer.</p>
-
-<p>As an example, let’s say we want to pay for team pictures which will cost <strong>$850.00</strong>. Using the <strong>Budget</strong> sheet, we’d do the following:</p>
-
-<ol>
-  <li>Add a line item under <em>EXPENSES</em> to add a new entry for <em>Team Pictures</em>, with a <em>Budget</em> of <strong>$850.00</strong></li>
-  <li>Check our updated <em>TOTAL EXPENSES</em> to make sure it’s still below our <em>TOTAL REVENUE</em></li>
-</ol>
-
-<p><img src="/images/hockey-budget/Pasted image 20241229074203.png" alt="" /></p>
-
-<p>I typically <em>italicize</em> expenses that are added after the final budget has been approved so it’s easier to differentiate these items.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Being the team treasurer is a volunteer position that comes with a lot of responsibility. At the end of the season, you’re responsible for reconciling the team’s budget and paying parents back for any money that remains.</p>
-
-<p>Hopefully using the template I’ve provided will make it a little easier to do this. If you try it out, let me know if it worked for you. I’d love to hear if this makes managing your team’s finances easier 😃.</p>]]></content><author><name></name></author><category term="Hockey" /><category term="budget" /><category term="treasurer" /><category term="hockey" /><summary type="html"><![CDATA[Download the Hockey Team Budget Template discussed in this article]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/hockey-budget/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/hockey-budget/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Plan 9 from Outer Space (Gremlin Ireland) - 1992Return of the Phantom (MicroProse) - 1993→ Neuromancer (Interplay Productions) - 1988 Article 92 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
