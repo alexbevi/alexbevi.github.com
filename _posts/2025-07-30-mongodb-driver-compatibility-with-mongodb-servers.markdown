@@ -8,7 +8,7 @@ tags: [mongodb, drivers, node, nodejs, javascript, typescript]
 image: /images/mongodb-logo.png
 ---
 
-MongoDB server versions [eventually reach EOL](https://www.mongodb.com/legal/support-policy/lifecycles) - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven't upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible?
+MongoDB server versions [eventually reach EOL](https://www.mongodb.com/legal/support-policy/lifecycles) - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven't upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at [_"Will Upgrading My MongoDB Server Version Break My Application?"_]({% post_url 2023-01-13-will-upgrading-my-mongodb-server-version-break-my-application %}), but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.
 
 Though good dependency management hygiene is important, it's a time consuming process that can require extensive testing so you typically want to do it on your own terms - not because of a service upgrade.
 
