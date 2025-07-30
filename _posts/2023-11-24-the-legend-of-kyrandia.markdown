@@ -56,8 +56,8 @@ For me, the biggest challenge of this game was navigating the maze that is the c
 
 You find fireberries that you can pick up and drop to illuminate a room, but you can only move up to 3 rooms before the berries become ineffective. If you drop a berry it'll keep that room lit thereafter, but you'll need to make sure that once you run out of berries, the next room you go to contains a bush with more berries.
 
-![](https://wiki.scummvm.org/images/6/64/Kyramap2.png)
-_A map of the caves is super helpful_
+![](/images/adventure/kyra1/Kyramap2.png)
+_A map of the caves is super helpful ([source](https://wiki.scummvm.org/images/6/64/Kyramap2.png))_
 
 The ScummVM wiki helpfully shares a map of the caves, so I ended up using that to get through this section a bit quicker. Typically this type of spelunking involves getting 3 berries, going to one room, dropping a berry, saving, then going to the next room - rinse - repeat. If you run out of berries and die in the next room, reload and pick a different room.
 
