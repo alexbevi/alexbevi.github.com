@@ -32,7 +32,7 @@ To complement the great voice acting is the atmospheric soundtracke, which does 
 
 The writing is good, the story is good and the puns ... so many puns ... are pretty good - though it can start to feel a bit forced at times. I have to admit I laughed a little louder than I'd like to admit when they described "the petrified forest".
 
-Having almost every character interaction and scene description over-leverage puns actually reminded me a bit of [Eternam]({% post_url 2023-02-07-eternam %}). It's entirely possible the book (books?) that game was based on had some influence on the writers at Westwood when they were crafting the plot and dialog for this game.
+Having almost every character interaction and scene description over-leverage puns actually reminded me a bit of [Companions of Xanth]({% post_url 2023-05-23-companions-of-xanth %}). It's entirely possible the book (books?) that game was based on had some influence on the writers at Westwood when they were crafting the plot and dialog for this game.
 
 ![](/images/adventure/kyra2/scummvm-kyra2-cd-00010.png)
 
