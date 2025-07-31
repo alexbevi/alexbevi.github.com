@@ -12,7 +12,7 @@ MongoDB server versions [eventually reach EOL](https://www.mongodb.com/legal/sup
 
 Though good dependency management hygiene is important, it's a time consuming process that can require extensive testing so you typically want to do it on your own terms - not because of a service upgrade.
 
-Let's assume your application uses [v5.5.0](https://github.com/mongodb/node-mongodb-native/releases/tag/v5.5.0) of the MongoDB [Node.js driver](https://mongodb-node.netlify.app/docs/drivers/node/current/), but your application has been humming along for some time without issue. You got an email indicating your cluster was going to be upgraded from MongoDB 6.0 to MongoDB 7.0, but based on the [driver compatibility table](https://mongodb-node.netlify.app/docs/drivers/node/current/reference/compatibility/) that version of the driver isn't even present!
+Let's assume your application uses [v4.17.2](https://github.com/mongodb/node-mongodb-native/releases/tag/v4.17.2) of the MongoDB [Node.js driver](https://mongodb-node.netlify.app/docs/drivers/node/current/), but your application has been humming along for some time without issue. You got an email indicating your cluster was going to be upgraded from MongoDB 6.0 to MongoDB 7.0, but based on the [driver compatibility table](https://mongodb-node.netlify.app/docs/drivers/node/current/reference/compatibility/) that version of the driver isn't even present!
 
 ## What compatibility tables actually mean
 
@@ -22,7 +22,7 @@ MongoDB drivers are constantly being updated to add support for new features of 
 
 The MongoDB drivers are all built from a set of [common specifications](https://github.com/mongodb/specifications), which are updated periodically as new MongoDB server features necessitate changes. For example, [MongoDB 7.0 introduced Atlas Search Index Management](https://www.mongodb.com/docs/manual/release-notes/7.0/#atlas-search-index-management), which resulted in the [index management specifications](https://github.com/mongodb/specifications/blob/master/source/index-management/index-management.md) being updated to define APIs drivers can implement to support the new database commands required to perform this new function.
 
-If the version of the driver being used doesn't contain support for MongoDB 7.0, new APIs such as [`Collection#createSearchIndex`](https://mongodb.github.io/node-mongodb-native/6.17/classes/Collection.html#createSearchIndex)wouldn't be directly available - but if you don't need this MongoDB 7.0 feature, your existing application using v5.5.0 of the Node.js driver would continue to function as expected.
+If the version of the driver being used doesn't contain support for MongoDB 7.0, new APIs such as [`Collection#createSearchIndex`](https://mongodb.github.io/node-mongodb-native/6.17/classes/Collection.html#createSearchIndex)wouldn't be directly available - but if you don't need this MongoDB 7.0 feature, your existing application using v4.17.2 of the Node.js driver would continue to function as expected.
 
 > Since [`createSearchIndexes`](https://www.mongodb.com/docs/manual/reference/command/createSearchIndexes/)is a database command, even using a version of the driver that didn't have convenient APIs for interacting with the feature could still be used to [run the database command directly](https://mongodb-node.netlify.app/docs/drivers/node/current/run-command/).
 >
