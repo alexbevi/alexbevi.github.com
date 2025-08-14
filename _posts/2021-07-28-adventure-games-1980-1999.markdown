@@ -133,7 +133,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 43. Déjà Vu II: Lost in Las Vegas (ICOM Simulations) - 1988
 44. Gold Rush! (Sierra On-Line) - 1988
 45. [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
-46. [Neuromancer (Interplay Productions)]({% post_url 2025-01-22-neuromancer %}) - 1988
+46. [Neuromancer (Interplay Productions)]({% post_url 2025-01-22-neuromancer %}) - 1988 (`64%`)
 47. King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988
 48. [Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (Sierra On-Line)]({% post_url 2023-02-01-leisure-suit-larry-2 %}) - 1988
 49. Zak McKracken and the Alien Mindbenders (Lucasfilm Games) - 1988
@@ -152,7 +152,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 62. Quest for Glory: So You Want to Be a Hero (Sierra On-Line) - 1989
 63. The Colonel's Bequest (Sierra On-Line) - 1989
 64. [Codename: ICEMAN (Sierra On-Line)]({% post_url 2024-03-20-codename-iceman %}) - 1989
-65. [Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line)]({% post_url 2025-03-14-leisure-suit-larry-iii %}) - 1989
+65. [Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals (Sierra On-Line)]({% post_url 2025-03-14-leisure-suit-larry-iii %}) - 1989 (`42%`)
 66. [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
 67. [Countdown (Access Software)]({% post_url 2023-04-20-countdown %}) - 1990
 68. Earthrise: A Guild Investigation (Matt Gruson) - 1990
@@ -206,7 +206,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 116. Linus Spacehead's Cosmic Crusade/Cosmic Spacehead (Codemasters (NES version), Supersonic Software) - 1992
 117. The Lost Files of Sherlock Holmes: The Case of the Serrated Scalpel (Mythos Software, Inc.) - 1992
 118. The Palace of Deceit: The Dragon's Plight (Game Syndicate Productions (Cliff Bleszinski)) - 1992
-119. [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992
+119. [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992 (`18%`)
 120. Putt-Putt Joins the Parade (Humongous Entertainment) - 1992
 121. Sherlock Holmes: Consulting Detective Vol. II (ICOM Simulations) - 1992
 122. [Ringworld: Revenge of the Patriarch (Tsunami Games)]({% post_url 2022-12-19-ringworld %}) - 1992
@@ -234,9 +234,9 @@ As I work through the list I'll link the reviews below. You can also find the re
 144. [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
 145. [The Legend of Kyrandia: Hand of Fate (Westwood Studios)]({% post_url 2025-07-15-the-legend-of-kyrandia-hand-of-fate %}) - 1993 (`60%`)
 146. [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
-147. [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993
+147. [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993 (`44%`)
 148. Putt-Putt Goes to the Moon (Humongous Entertainment) - 1993
-149. [Return of the Phantom (MicroProse)]({% post_url 2024-12-30-return-of-the-phantom %}) - 1993
+149. [Return of the Phantom (MicroProse)]({% post_url 2024-12-30-return-of-the-phantom %}) - 1993 (`48%`)
 150. Sherlock Holmes: Consulting Detective Vol. III (ICOM Simulations) - 1993
 151. The Journeyman Project (Presto Studios) - 1993
 152. [Space Quest V: Roger Wilco – The Next Mutation (Dynamix)]({% post_url 2024-08-21-space-quest-v %}) - 1993
@@ -275,7 +275,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 185. Plague of the Moon (Rebelsoft) - 1994
 186. Superhero League of Hoboken (Legend Entertainment) - 1994
 187. [Under a Killing Moon (Access Software)]({% post_url 2024-09-20-under-a-killing-moon %}) - 1994
-188. [Universe (Core Design)]({% post_url 2025-02-02-universe %}) - 1994
+188. [Universe (Core Design)]({% post_url 2025-02-02-universe %}) - 1994 (`66%`)
 189. Dragonsphere (MicroProse) - 1994
 190. [Beneath a Steel Sky (Revolution Software)]({% post_url 2023-02-10-beneath-a-steel-sky %}) - 1994
 191. Policenauts (Konami) - 1994
