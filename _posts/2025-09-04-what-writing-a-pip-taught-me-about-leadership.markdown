@@ -36,6 +36,8 @@ Personally I spent 20 years as an engineer, then as an IC in various other roles
 
 Writing a PIP means putting hard truths into formal, legalistic language. If you’re someone who values transparency and direct feedback in conversation, the formality can feel stiff, almost unnatural. It might feel like you’re locking the employee into a binary outcome, instead of keeping the door open for coaching and growth.
 
+----
+
 Leadership isn’t just about inspiration, vision, or coaching in the good times. It’s also about having the courage to create clarity when things aren’t working, and to do so in a way that preserves dignity and fairness. Writing that PIP made me realize that while I lean naturally toward empathy, I need to build comfort with the accountability side of leadership too.
 
 What I learned is this: a PIP isn’t a punishment. It’s a framework for clarity. It’s a structured way of saying, _"Here’s where things stand. Here’s what needs to change. And here’s the support you’ll get along the way"_. Done well, it gives someone their best possible chance to succeed. And if they don’t, it ensures they were treated fairly, with transparency and respect.
