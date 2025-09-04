@@ -12,7 +12,7 @@ I sat down the other day to draft a Performance Improvement Plan (PIP). This isn
 
 ### You Value Empathy and People
 
-If writing a PIP feels uncomfortable, it may mean you naturally empathize with the individual and are concerned about the impact on their morale, career, and confidence. That’s a strength: leaders who treat PIPs as "checking a box HR processes" risk damaging trust and culture. Your discomfort shows you care about fairness and the human element, not just compliance.
+If writing a PIP feels uncomfortable, it may mean you naturally empathize with the individual and are concerned about the impact on their morale, career, and confidence. I see this as a strength: leaders who treat PIPs as "checking-a-box for HR" risk damaging trust and culture. Your discomfort shows you care about fairness and the human element, not just compliance.
 
 ### You Might Be Internalizing the Performance Gap
 
