@@ -5,10 +5,10 @@ date: 2025-09-04 13:53:11 -0400
 comments: true
 categories: Writing
 tags: [leadership, management]
-image: images/management.png
+image: /images/management.png
 ---
 
-I sat down the other day to draft a Performance Improvement Plan. This isn't something I'm doing for the first time, but it was hard the last time and it's proving to be hard again. On the surface I'm just trying to capture stakeholder/team feedback, align on expectations and translate them into goals. The problem is finding the words is hard and I'm procrastinating ... again. This discomfort told me something important about myself as a manager, and instead of circling back to the PIP (as a responsible manager would do ...) I wanted to capture some of my self reflection and share it in the event it helps others:
+I sat down the other day to draft a Performance Improvement Plan (PIP). This isn't something I'm doing for the first time, but it was hard the last time and it's proving to be hard again. On the surface I'm just trying to capture stakeholder/team feedback, align on expectations and translate them into goals. The problem is finding the words is hard and I'm procrastinating ... again. This discomfort told me something important about myself as a manager, and instead of circling back to the PIP (as a responsible manager would do ...) I wanted to capture some of my self reflection and share it in the event it helps others:
 
 ## You Value Empathy and People
 
