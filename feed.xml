@@ -1,40 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-09-09T05:26:13-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">What Writing a PIP Taught Me About Leadership</title><link href="https://www.alexbevi.com/blog/2025/09/04/what-writing-a-pip-taught-me-about-leadership/" rel="alternate" type="text/html" title="What Writing a PIP Taught Me About Leadership" /><published>2025-09-04T13:53:11-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/09/04/what-writing-a-pip-taught-me-about-leadership</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/04/what-writing-a-pip-taught-me-about-leadership/"><![CDATA[<p>I sat down the other day to draft a Performance Improvement Plan (PIP). This isn’t something I’m doing for the first time, but it was hard the last time and it’s proving to be hard again. On the surface I’m just trying to capture stakeholder/team feedback, align on expectations and translate them into goals. The problem is finding the words is hard and I’m procrastinating … again. This discomfort told me something important about myself as a manager, and instead of circling back to the PIP (as a responsible manager would do …) I wanted to capture some of my self reflection and share it in the event it helps others.</p>
-
-<h3 id="you-value-empathy-and-people">You Value Empathy and People</h3>
-
-<p>If writing a PIP feels uncomfortable, it may mean you naturally empathize with the individual and are concerned about the impact on their morale, career, and confidence. I see this as a strength: leaders who treat PIPs as “checking-a-box for HR” risk damaging trust and culture. Your discomfort shows you care about fairness and the human element, not just compliance.</p>
-
-<h3 id="you-might-be-internalizing-the-performance-gap">You Might Be Internalizing the Performance Gap</h3>
-
-<p>When it’s hard to put words on paper, sometimes it reflects feelings of:</p>
-
-<ul>
-  <li>“Am I being too harsh?”</li>
-  <li>“Did I set clear enough expectations?”</li>
-  <li>“Is this their failure, or did I fail to support them?”</li>
-</ul>
-
-<p>That self-questioning can be healthy, but it can also create hesitation. As a manager, it’s important to balance accountability (their responsibility for their work) with ownership of the environment you’ve provided (clarity, feedback, support).</p>
-
-<h3 id="you-may-prefer-coaching-to-consequences">You May Prefer Coaching to Consequences</h3>
-
-<p>Some leaders lean naturally toward developing people rather than enforcing consequences. If you find PIPs draining, it may mean your instinct is to coach, mentor, and lift people up. Again, this is a strength — but when performance doesn’t improve despite coaching, it can leave you stuck in the gray zone of hoping things get better.</p>
-
-<h3 id="youi-might-be-wrestling-with-identity-as-a-manager">You/I Might Be Wrestling With Identity as a Manager</h3>
-
-<p>Personally I spent 20 years as an engineer, then as an IC in various other roles (TSE, Product Manager) - eventually pivoting into a Product Management Lead role. People management was never my passion, but I do care about the people on my team and want to see them succeed. Wanting my direct reports to succeed is not the same as setting them up for success appropriately - aka. “doing the work of managing”. Struggling with the PIP may be part of that: it forces me into a compliance and consequence driven mode that feels at odds with the parts of leadership I enjoy (vision, empowerment, collaboration).</p>
-
-<h3 id="the-work-feels-confrontational">The Work Feels Confrontational</h3>
-
-<p>Writing a PIP means putting hard truths into formal, legalistic language. If you’re someone who values transparency and direct feedback in conversation, the formality can feel stiff, almost unnatural. It might feel like you’re locking the employee into a binary outcome, instead of keeping the door open for coaching and growth.</p>
-
-<hr />
-
-<p>Leadership isn’t just about inspiration, vision, or coaching in the good times. It’s also about having the courage to create clarity when things aren’t working, and to do so in a way that preserves dignity and fairness. Writing that PIP made me realize that while I lean naturally toward empathy, I need to build comfort with the accountability side of leadership too.</p>
-
-<p>What I learned is this: a PIP isn’t a punishment. It’s a framework for clarity. It’s a structured way of saying, <em>“Here’s where things stand. Here’s what needs to change. And here’s the support you’ll get along the way”</em>. Done well, it gives someone their best possible chance to succeed. And if they don’t, it ensures they were treated fairly, with transparency and respect.</p>
-
-<p>It’s not easy. It’s not supposed to be. But maybe the very fact that it’s hard is a sign that I’m approaching it with the right intent.</p>]]></content><author><name></name></author><category term="Writing" /><category term="leadership" /><category term="management" /><summary type="html"><![CDATA[I sat down the other day to draft a Performance Improvement Plan (PIP). This isn’t something I’m doing for the first time, but it was hard the last time and it’s proving to be hard again. On the surface I’m just trying to capture stakeholder/team feedback, align on expectations and translate them into goals. The problem is finding the words is hard and I’m procrastinating … again. This discomfort told me something important about myself as a manager, and instead of circling back to the PIP (as a responsible manager would do …) I wanted to capture some of my self reflection and share it in the event it helps others.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/management.png" /><media:content medium="image" url="https://www.alexbevi.com/images/management.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Driver Compatibility with MongoDB Servers</title><link href="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/" rel="alternate" type="text/html" title="MongoDB Driver Compatibility with MongoDB Servers" /><published>2025-07-30T17:20:39-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/"><![CDATA[<p>MongoDB server versions <a href="https://www.mongodb.com/legal/support-policy/lifecycles">eventually reach EOL</a> - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at <a href="/blog/2023/01/13/will-upgrading-my-mongodb-server-version-break-my-application/"><em>“Will Upgrading My MongoDB Server Version Break My Application?”</em></a>, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-09-09T05:28:27-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">MongoDB Driver Compatibility with MongoDB Servers</title><link href="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/" rel="alternate" type="text/html" title="MongoDB Driver Compatibility with MongoDB Servers" /><published>2025-07-30T17:20:39-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/"><![CDATA[<p>MongoDB server versions <a href="https://www.mongodb.com/legal/support-policy/lifecycles">eventually reach EOL</a> - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at <a href="/blog/2023/01/13/will-upgrading-my-mongodb-server-version-break-my-application/"><em>“Will Upgrading My MongoDB Server Version Break My Application?”</em></a>, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.</p>
 
 <p>Though good dependency management hygiene is important, it’s a time consuming process that can require extensive testing so you typically want to do it on your own terms - not because of a service upgrade.</p>
 
@@ -139,7 +103,7 @@
 
 <p>There are multiple benefits to keeping your application’s dependencies up to date, but there can also be drawbacks. As such it’s important to test upgrades in a lower environment to ensure as many potential issues can be caught prior to applying changes in production environments.</p>
 
-<p>If you’re working with Node.js, consider tooling like <a href="https://github.com/pilotpirxie/dependency-time-machine"><code class="language-plaintext highlighter-rouge">dependency-time-machine</code></a> to help with sequential dependency update automation. Since your dependency graph is likely complex, this type of approach can help update your application incrementally in a way that may minimize interdependency compatibility issues.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[MongoDB server versions eventually reach EOL - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at “Will Upgrading My MongoDB Server Version Break My Application?”, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>If you’re working with Node.js, consider tooling like <a href="https://github.com/pilotpirxie/dependency-time-machine"><code class="language-plaintext highlighter-rouge">dependency-time-machine</code></a> to help with sequential dependency update automation. Since your dependency graph is likely complex, this type of approach can help update your application incrementally in a way that may minimize interdependency compatibility issues.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[MongoDB server versions eventually reach EOL - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at “Will Upgrading My MongoDB Server Version Break My Application?”, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li><li><strong>The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</strong></li></ul>
 
   <p>Article 97 of 97 in this series.</p>
@@ -318,7 +282,7 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/871/fables-fiends-hand-of-fate/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 97 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 97 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li><li><strong>Pepper's Adventures in Time (Sierra On-Line) - 1993</strong></li><li>→ <a href="/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</a></li></ul>
 
   <p>Article 96 of 97 in this series.</p>
@@ -539,7 +503,7 @@ ERROR: [pepper-1.000 610/999 sPercyGotYou::dispose @ 0786]: [VM] Stack index 409
       <p><small>Description from <a href="https://www.mobygames.com/game/6312/peppers-adventures-in-time/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
 
 <p>The plugin I decided I wanted to build would need to include:</p>
 
@@ -907,7 +871,7 @@ Expected page data:
 
 <p>Ultimately, the plugin significantly streamlined navigation within my blog series, enhancing both my writing workflow and the reader’s experience. This journey underscored how AI tools can complement traditional software development, enabling faster iterations, performance optimizations, and more elegant solutions.</p>
 
-<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
+<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
 
 <p>Let’s evaluate this by taking MongoDB’s simple <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/">“Find a Document”</a> tutorial and adapting it to a Workers environment.</p>
 
@@ -1417,7 +1381,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>I ran a number of tests and periodically you’d still get a cold-start spike, but most requests benefit from the reduced latency maintaining a stateful Worker via Durable Objects provides.</p>
 
-<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
 
 <ul>
   <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
@@ -1571,7 +1535,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
 
-<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li><li><strong>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</strong></li><li>→ <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li></ul>
 
   <p>Article 95 of 97 in this series.</p>
@@ -1789,7 +1753,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/412/leisure-suit-larry-iii-passionate-patti-in-pursuit-of-the-pulsat/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li><li><strong>Universe (Core Design) - 1994</strong></li><li>→ <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li></ul>
 
   <p>Article 94 of 97 in this series.</p>
@@ -2010,7 +1974,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-09-09T05:25:21-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/30/return-of-the-phantom/">Return of the Phantom (MicroProse) - 1993</a></li><li><strong>Neuromancer (Interplay Productions) - 1988</strong></li><li>→ <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li></ul>
 
   <p>Article 93 of 97 in this series.</p>
@@ -2237,4 +2201,224 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Return of the Phantom (MicroProse) - 1993</title><link href="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/" rel="alternate" type="text/html" title="Return of the Phantom (MicroProse) - 1993" /><published>2024-12-30T12:15:08-05:00</published><updated>2025-09-09T05:27:53-04:00</updated><id>https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom</id><content type="html" xml:base="https://www.alexbevi.com/blog/2024/12/30/return-of-the-phantom/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/22/plan-9-from-outer-space/">Plan 9 from Outer Space (Gremlin Ireland) - 1992</a></li><li><strong>Return of the Phantom (MicroProse) - 1993</strong></li><li>→ <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li></ul>
+
+  <p>Article 92 of 97 in this series.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Return_of_the_Phantom">Return of the Phantom</a> is a point-and-click graphic adventure game developed and published by MicroProse in 1993. It was produced by Matt Gruson and designed/written by future James Bond novelist Raymond Benson. It is based on the 1910 novel The <a href="https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(novel)">Phantom of the Opera</a> by Gaston Leroux.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_017.png" alt="" /></p>
+
+<p>The game was the second graphical adventure game developed by MicroProse, following Rex Nebular and preceding Dragonsphere. It was developed using the MicroProse Adventure Development system (MADS), and made use of 256-colour graphics. A CD version featuring full voices for the characters was also released - which is the version I played.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_023.png" alt="" /></p>
+
+<p>It is the present time (1993), and many people are about to enjoy the performance of the opera “Don Juan Triumphant” at the Palais Garnier. However, that piece of art will soon become covered with the blood of innocents, as the great ceiling chandelier crushes down on the crowd.</p>
+
+<p>The player controls Raoul Montand, a detective who’s been asked for help by his old friend Monsieur Brie, the manager of the Opera. Bringing Raoul to a crime scene, he leaves him in hope he’ll find some clues and prevent this terror from happening again. Supposedly, the disaster was caused by a being known as the Phantom of the Opera, a mysterious creature who has been haunting the opera house since 1881. The detective is about to find out what secrets lie beneath the surface, looking for clues in the present time and traveling back to 1881.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/phantom/mainmenu_001.png" alt="" /></p>
+
+<p>The game’s intro sequence is extremely long, but it sets the stage appropriately. Though I’ve heard of the Phantom of the Opera and have seen it live at lest once in my life, the first thing that jumped out was how little I actually knew about the story.</p>
+
+<p>My memories seem limited to just the character in the mask and cape that lives in the basement and plays the organ … so really you could have replaced the Phantom with literally anything else and this game’s story would have had the same impact.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_006.png" alt="" /></p>
+
+<p>Once you gain control of Raoul following the intro, you walk around the opera house and can interact with a handful of characters. These sequences are the typical dialogue trees you’ll find in other adventure games, and they help advance the plot and give you clues as to what you need to do next.</p>
+
+<p>If you play the CD version of the game, these interactions are all fully voice acted - and the voice acting isn’t all that bad. Aside from a couple actors hamming it up a little, they definitely add to the experience and make interrogations more enjoyable.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_010.png" alt="" /></p>
+
+<p>Moving around the opera house is pretty straightforward, and exits are clear marked. If you can go in some direction, the cursor will change to a <code class="language-plaintext highlighter-rouge">GO</code> icon with an arrow indicating which direction you can move in.</p>
+
+<p>You also have a verb list to select from, though you’ll predominantly just be using <code class="language-plaintext highlighter-rouge">LOOK</code>, <code class="language-plaintext highlighter-rouge">TALK TO</code> and <code class="language-plaintext highlighter-rouge">TAKE</code>.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_014.png" alt="" /></p>
+
+<p>The game is split up into three parts. The first part has you roaming about the opera house and talking to people, learning about the history of the Phantom and getting used to the game. Eventually you’ll make your way up to the rafters, where you encounter the Phantom, get into a fight and he throws you off.</p>
+
+<p>You’ll hit your head, and when you wake up you’ve traveled back in time to 1881 and have a completely different Phantom of the Opera mystery to solve.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_015.png" alt="" /></p>
+
+<p>This second part of the game is just an extension of the first - but in the past. I believe you’re trying to change the events of the original Phantom of the Opera to prevent a murder in your present time.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_019.png" alt="" /></p>
+
+<p>The game then becomes a series of fetch quests and interrogations. You’ll find out that the  Phantom is leaving notes that indicate what his demands are in a private opera box that should always be locked. Madame Giry has the only key assures you the box is locked, but somehow the Phantom is able to come and go as he pleases.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_020.png" alt="" /></p>
+
+<p>Since this game takes place in an opera house, eventually you’ll get a chance to watch the opera - but first you’ll need to find some items from your time. Madame Giry seems to know you’re from a different time, and for some reason even though you’ve got a ticket to the opera she won’t unlock the door until you fetch these items.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_016.png" alt="" /></p>
+
+<p>You’ll find coloured frames in the opera, which are for changing the colour of the lighting. These wouldn’t exist in 1881 so it’s weird you can find them - but they’re here - and you need to find at least 3 of them to proceed.</p>
+
+<p>The leading lady - who looks exactly like the leading lady in the present - gets kidnapped and you’ll then need to go find her.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_024.png" alt="" /></p>
+
+<p>This game really holds your hand for the most part. Every time you need to do something to progress, the character interactions make it very clear what your next objective is. You’ll never feel lost, and if you do backtracking isn’t a major issue as there are only about a dozen or so screens to navigate.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_026.png" alt="" /></p>
+
+<p>You’ll be told to go find Jacques, who you’ll find has been murdered. Next to him is a skeleton key (how convenient), which you can use to unlock the secret door in box 5, which is how the Phantom has been coming and going undetected.</p>
+
+<p>This will lead you under the opera to the catacombs, which is a giant maze.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_028.png" alt="" /></p>
+
+<p>Though I hate mazes, the catacombs were fairly straightforward. There is nothing chasing you and I don’t think there’s any risk of dying, so I turned DOSBox to turbo and just wandered about (very quickly) until I found where I needed to go.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_030.png" alt="" /></p>
+
+<p>To escape the catacombs you’ll need to solve a couple of puzzles. This is the only place in the game where there are puzzles, so it was a nice change of pace and didn’t feel (too much) like busywork.</p>
+
+<p>The first puzzle requires you to flip 4 switches in order to unlock the door. The switches hide letters of the alphabet, but what word should you try? The Phantom’s real name is Erik, so it seemed logical that that’s what the password would be.</p>
+
+<p>If you enter the letters out of order or incorrectly, gas enters the room through a vent and kills you. Thankfully, death in this game just respawns you in the current room and you can try again.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_032.png" alt="" /></p>
+
+<p>The second puzzle is a sliding tile puzzle where you need to recreate the Phantom’s mask. Once done correctly, a trap door opens in the floor you can escape through. This is done by combining a hook and rope to make a grappling hook, which you can <code class="language-plaintext highlighter-rouge">THROW</code> to climb out.</p>
+
+<p>You don’t actually have to interact much with your inventory but I found the system worked rather well when you did. Whenever you find a new item, you’ll automatically <code class="language-plaintext highlighter-rouge">LOOK</code> at it, so if it’s a letter or note, you’ll read it.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_027.png" alt="" /></p>
+
+<p>If you select an item in your inventory, there’s a preview image of it in one view, with a set of targeted verbs specifically for that item in a second view.</p>
+
+<p>I really like this system as it allows for a larger verb list without cluttering the main interface. It also makes it obvious what you can do with an item.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_036.png" alt="" /></p>
+
+<p>The final showdown with the Phantom eventually takes place on top of the chandelier above the seats in the opera (the one that crashed down at the beginning of the game). There’s a bit of a scuffle, you get on top of the Phantom, rip off his mask and the chandelier comes crashing down.</p>
+
+<p>You then wake up back in the present.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_038.png" alt="" /></p>
+
+<p>After a brief exchange, Raoul decides to double check the book in the library to see how the Phantom died, and the ending has apparently now been changed. You’re the hero of the past, though you apparently also died in the fall along with the Phantom.</p>
+
+<p><img src="/images/adventure/phantom/mainmenu_041.png" alt="" /></p>
+
+<p>I really don’t know anything noteworthy about the source material this game is based on, and didn’t find the story all that interesting. Though there’s a time travel story here, it sort of felt out of place. The entire game basically takes place in 1881, and the events of the present really aren’t necessary.</p>
+
+<p>The game engine is quite good, and hopefully one day this will be <a href="https://wiki.scummvm.org/index.php?title=Return_of_the_Phantom">officially supported in ScummVM</a> - but for now you can play this just fine in DOSBox.</p>
+
+<p>Overall the game was fine, but I wouldn’t play it again.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Return of the Phantom</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/MicroProse">MicroProse</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>MicroProse</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=MADS">MADS</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/7763">How Long To Beat?</a></td>
+      <td>2.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://dosbox-x.com/">DOSBox-X</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.walkthroughking.com/text/returnofthephantom.aspx">Walkthrough</a>, <a href="https://www.mocagh.org/miscgame/returnphantom-manual.pdf">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>48%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/phantom/mainmenu_002.png', thumb: '/images/adventure/phantom/mainmenu_002.png' },{ src: '/images/adventure/phantom/mainmenu_003.png', thumb: '/images/adventure/phantom/mainmenu_003.png' },{ src: '/images/adventure/phantom/mainmenu_004.png', thumb: '/images/adventure/phantom/mainmenu_004.png' },{ src: '/images/adventure/phantom/mainmenu_005.png', thumb: '/images/adventure/phantom/mainmenu_005.png' },{ src: '/images/adventure/phantom/mainmenu_007.png', thumb: '/images/adventure/phantom/mainmenu_007.png' },{ src: '/images/adventure/phantom/mainmenu_008.png', thumb: '/images/adventure/phantom/mainmenu_008.png' },{ src: '/images/adventure/phantom/mainmenu_009.png', thumb: '/images/adventure/phantom/mainmenu_009.png' },{ src: '/images/adventure/phantom/mainmenu_011.png', thumb: '/images/adventure/phantom/mainmenu_011.png' },{ src: '/images/adventure/phantom/mainmenu_012.png', thumb: '/images/adventure/phantom/mainmenu_012.png' },{ src: '/images/adventure/phantom/mainmenu_013.png', thumb: '/images/adventure/phantom/mainmenu_013.png' },{ src: '/images/adventure/phantom/mainmenu_018.png', thumb: '/images/adventure/phantom/mainmenu_018.png' },{ src: '/images/adventure/phantom/mainmenu_021.png', thumb: '/images/adventure/phantom/mainmenu_021.png' },{ src: '/images/adventure/phantom/mainmenu_022.png', thumb: '/images/adventure/phantom/mainmenu_022.png' },{ src: '/images/adventure/phantom/mainmenu_025.png', thumb: '/images/adventure/phantom/mainmenu_025.png' },{ src: '/images/adventure/phantom/mainmenu_029.png', thumb: '/images/adventure/phantom/mainmenu_029.png' },{ src: '/images/adventure/phantom/mainmenu_031.png', thumb: '/images/adventure/phantom/mainmenu_031.png' },{ src: '/images/adventure/phantom/mainmenu_033.png', thumb: '/images/adventure/phantom/mainmenu_033.png' },{ src: '/images/adventure/phantom/mainmenu_034.png', thumb: '/images/adventure/phantom/mainmenu_034.png' },{ src: '/images/adventure/phantom/mainmenu_035.png', thumb: '/images/adventure/phantom/mainmenu_035.png' },{ src: '/images/adventure/phantom/mainmenu_037.png', thumb: '/images/adventure/phantom/mainmenu_037.png' },{ src: '/images/adventure/phantom/mainmenu_039.png', thumb: '/images/adventure/phantom/mainmenu_039.png' },{ src: '/images/adventure/phantom/mainmenu_040.png', thumb: '/images/adventure/phantom/mainmenu_040.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/2011/return-of-the-phantom/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="MicroProse" /><category term="played:DOS" /><category term="MADS" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Plan 9 from Outer Space (Gremlin Ireland) - 1992Return of the Phantom (MicroProse) - 1993→ Neuromancer (Interplay Productions) - 1988 Article 92 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/phantom/mainmenu_000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
