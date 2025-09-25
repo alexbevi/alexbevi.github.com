@@ -5,7 +5,7 @@ date: 2025-09-25 12:11:26 -0400
 comments: true
 categories: MongoDB
 tags: [mongodb, book]
-image: images/mongodb-book-cover.png
+image: /images/mongodb-book-cover.png
 ---
 
 If you happened to click on through to the [MongoDB Press](https://www.mongodb.com/books) page recently you may have noticed a new entry there called **"High Performances with MongoDB"**, which is now available from [Amazon](https://www.amazon.com/dp/1837022631) and [Packt Publishing](https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632).
