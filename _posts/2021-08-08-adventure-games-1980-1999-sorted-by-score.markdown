@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 96  -%}
+{%- assign games_finished = 98  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js

@@ -70,7 +70,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 96 -%}
+{%- assign games_finished = 98 -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -95,7 +95,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 5. [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981 (`15%`)
 6. [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982 (`13%`)
 7. [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982 (`14%`)
-8. Time Zone (On-Line Systems) - 1982
+8. [Time Zone (On-Line Systems)]({% post_url 2025-09-17-time-zone %}) - 1982 (`19%`)
 9. [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982 (`22%`)
 10. [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983 (`28%`)
 11. ~~Star Arthur Legend: Planet Mephius (T&E Soft) - 1983~~ (_Japanese only_)
