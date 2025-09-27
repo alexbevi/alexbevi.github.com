@@ -1,0 +1,153 @@
+---
+layout: post
+title: "Time Zone (On-Line Systems) - 1982"
+date: 2025-09-17 06:25:41 -0400
+comments: true
+categories: ["Let's Adventure!"]
+tags: [adventure, "On-Line Systems", "played:AppleII", ADL]
+image: /images/adventure/tz/scummvm-hires5-apple2-00000.png
+series: lets_adventure
+---
+{% series_nav %}
+
+[Time Zone](https://en.wikipedia.org/wiki/Time_Zone_%28video_game%29) is a multi-disk graphical adventure game written and directed by Roberta Williams for the Apple II. Developed in 1981 and released in 1982 by On-Line Systems (later Sierra Entertainment), the game was shipped with six double-sided floppy disks and contained 1,500 areas (screens) to explore along with 39 scenarios to solve. Produced at a time when most games rarely took up more than one side of a floppy, Time Zone is one of the first games of this magnitude released for home computer systems.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00031.png)
+
+Someone has chosen you to secure the Earth's future by destroying the evil ruler of the planet Neburon. He offers you the ability of time and space travel in order to do so, and has placed a time machine in your home so that you can travel to different time periods. In these periods, you will meet such famous names like Julius Caesar, Christopher Columbus, Cavemen, Robin Hood, Benjamin Franklin, and Cleopatra.
+
+Like other Hi-Res Adventures by On-Line Systems, you can switch between graphic and text modes. You are required to type a one or two word command to perform actions. The game can also be saved with a floppy disk, but with one that is specifically designed for use with the game.[^1]
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00003.png)
+
+The game starts off with you in front of your house, having just woken up from a weird dream. The only direction you can move is `NORTH`, and once doing so you find yourself in front of a time machine.
+
+After you `ENTER MACHINE`, you see a seat ... so you `SIT` and have a `LOOK`. There are dials and a display that indicate various time periods and locations that you can travel to by adjusting the values, then spurring the machine into action via a `PULL LEVER`.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00008.png)
+
+So much of the game involves repeating those steps as you travel through the various locations and time periods on a series of fetch quests.
+
+For a game from 1982, the graphics are fine, and definitely do their job of conveying what the parser describes you should be seeing. Though fairly rudimentary, this was considered pretty good for a game of this era.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00021.png)
+_This feels kind of racist_
+
+You'll meet a number of characters on your adventure. Some of them you can `TALK` to, while others are just there to kill you. The character designs are very simplistic and depict stereotypical caricatures of people from these time periods you're visiting.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00032.png)
+
+The goal the game (as outline in your dream at the very beginning) is to secure the Earth's future by destroying the evil ruler of the distant planet Neburon, which you need to find items from various time periods to be able to do.
+
+Some items from some time periods need to be used or traded in others to allow you to progress, so you'll want to `USE` everything everywhere, or try to `TRADE` various items with other characters.
+
+Typically if a character has something you may need, it's fairly obvious based on `LOOK`ing at them.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00029.png)
+
+To make things a bit more difficult, you can't take items too far back or they're lost. When this happens you typically won't know what you lost unless you checked your inventory before and after and happen to remember what was there.
+
+This is a bit cumbersome, but is a fairly important game mechanic as you will need to plan your route through time accordingly.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00023.png)
+
+If you press `ENTER` without typing any text, the text interface goes full screen, which can be useful for reviewing past commands. If you type `INVENTORY` you can see what you're holding.
+
+This is something you'll find yourself doing fairly often (unless you're following a walkthrough).
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00030.png)
+
+You can always go back to your home and drop items off to travel back and forth in time without losing anything, but you'll need to remember to do this.
+
+If you see an item you can pick up and do so, it is actually removed from the screen. If you drop an item on the screen, it'll become visible and will remain there until you come back. This form of persistence was actually pretty novel for 1982, so it definitely gets a bonus point for that.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00035.png)
+
+There's no time limit in this game, though some screens require you to wait for an event to happen, which involves executing commands without leaving the screen. This is not obvious, and honestly feels a bit like bad design.
+
+I had to resort to the walkthrough multiple times while playing this game as I'd `LOOK` or try to `TALK` a couple times, then if nothing happened I'd leave. Having to do these throwaway commands 5-6 times to trigger the next event is not intuitive at all.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00026.png)
+
+As with most Sierra games, death is around every corner, and if you don't pick the right answer the first time, you'll likely die. Thankfully you can save and reload on every screen - and you probably will have to.
+
+Playing this game in ScummVM is the best possible way to experience Time Zone as you can maintain multiple saves. I typically would save once I reached a new time zone, then before I'd interact with a character so I'd always have a short distance to travel back when I inevitably made a mistake and died.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00036.png)
+_Oh goody, a maze_
+
+Since I hate mazes, I needed to call out that the last section of the game involves navigating a maze. It's unremarkable and not all that big, but it's big enough to be a pain in the ass.
+
+At the end of that maze is a death ray that you need to blow up (I hope you found the dynamite in the trunk of the car in North America circa 2082AD). Once you do this, it's back through the maze, back to the time machine and back home to finish up your trek through time and space.
+
+![](/images/adventure/tz/scummvm-hires5-apple2-00038.png)
+
+Once you return, you get a key to the city and the game ends. Seeing as there's really no plot or character development throughout the game, an abrupt and arbitrary ending seems appropriate.
+
+There are a lot of screens to navigate and explore, but not really much variety in the gameplay. This is a very early text parser game, so interaction with the world is limited to 2-3 word commands.It is kind of funny that if you type `FUCK` into the parser the game will kick you out, but I'm sure most of us experiencing this for the first time in the 80s and 90s likely tried this at least once.
+
+Overall it's impressive how big this game feels, but it's not really all that much fun to play.
+
+## Game Information
+
+|*Game*|Time Zone|
+|*Developer*|[On-Line Systems](https://en.wikipedia.org/wiki/On-Line_Systems)|
+|*Publisher*|On-Line Systems|
+|*Release Date*|1993|
+|*Systems*|Apple II|
+|*Game Engine*|[ADL](https://wiki.scummvm.org/index.php?title=ADL)|
+
+### My Playthrough
+
+|[How Long To Beat?](https://howlongtobeat.com/game/19640)|3.5 hours|
+|*Version Played*|Apple 2 via [ScummVM](https://www.scummvm.org/)|
+|*Notes*|[Walkthrough](https://adventuregamers.com/walkthroughs/full/time-zone)|
+
+### Score
+
+See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Graphics (15)**|3|
+|**Sound (10)**|1|
+|**Plot / Progression (25)**|7|
+|**Characters / Development (15)**|3|
+|**Gameplay / Experience (15)**|2|
+|**Replayability (5)**|1|
+|**Impact / Impression (10)**|1|
+|**Bonus / Surprise (5)**|1|
+||**19%**|
+
+### Gallery
+
+{% galleria %}
+/images/adventure/tz/scummvm-hires5-apple2-00001.png
+/images/adventure/tz/scummvm-hires5-apple2-00002.png
+/images/adventure/tz/scummvm-hires5-apple2-00004.png
+/images/adventure/tz/scummvm-hires5-apple2-00005.png
+/images/adventure/tz/scummvm-hires5-apple2-00006.png
+/images/adventure/tz/scummvm-hires5-apple2-00007.png
+/images/adventure/tz/scummvm-hires5-apple2-00009.png
+/images/adventure/tz/scummvm-hires5-apple2-00010.png
+/images/adventure/tz/scummvm-hires5-apple2-00011.png
+/images/adventure/tz/scummvm-hires5-apple2-00012.png
+/images/adventure/tz/scummvm-hires5-apple2-00013.png
+/images/adventure/tz/scummvm-hires5-apple2-00014.png
+/images/adventure/tz/scummvm-hires5-apple2-00015.png
+/images/adventure/tz/scummvm-hires5-apple2-00016.png
+/images/adventure/tz/scummvm-hires5-apple2-00017.png
+/images/adventure/tz/scummvm-hires5-apple2-00018.png
+/images/adventure/tz/scummvm-hires5-apple2-00019.png
+/images/adventure/tz/scummvm-hires5-apple2-00020.png
+/images/adventure/tz/scummvm-hires5-apple2-00022.png
+/images/adventure/tz/scummvm-hires5-apple2-00024.png
+/images/adventure/tz/scummvm-hires5-apple2-00025.png
+/images/adventure/tz/scummvm-hires5-apple2-00027.png
+/images/adventure/tz/scummvm-hires5-apple2-00028.png
+/images/adventure/tz/scummvm-hires5-apple2-00033.png
+/images/adventure/tz/scummvm-hires5-apple2-00034.png
+/images/adventure/tz/scummvm-hires5-apple2-00037.png
+{% endgalleria %}
+
+**Footnotes**
+
+[^1]: <small>Description from [Moby Games](https://www.mobygames.com/game/15283/time-zone/)</small>
