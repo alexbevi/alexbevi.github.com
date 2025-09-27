@@ -119,6 +119,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
 1. **20%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
 1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
+1. **19%** [Time Zone (On-Line Systems)]({% post_url 2025-09-17-time-zone %}) - 1982
 1. **18%** [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992
 1. **15%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **14%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
