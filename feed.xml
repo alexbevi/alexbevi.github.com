@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-09-25T12:55:12-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">High Performance with MongoDB is now available!</title><link href="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/" rel="alternate" type="text/html" title="High Performance with MongoDB is now available!" /><published>2025-09-25T12:11:26-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/"><![CDATA[<p>If you happened to click on through to the <a href="https://www.mongodb.com/books">MongoDB Press</a> page recently you may have noticed a new entry there called <strong>“High Performances with MongoDB”</strong>, which is now available from <a href="https://www.amazon.com/dp/1837022631">Amazon</a> and <a href="https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632">Packt Publishing</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-09-27T08:12:04-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">High Performance with MongoDB is now available!</title><link href="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/" rel="alternate" type="text/html" title="High Performance with MongoDB is now available!" /><published>2025-09-25T12:11:26-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/"><![CDATA[<p>If you happened to click on through to the <a href="https://www.mongodb.com/books">MongoDB Press</a> page recently you may have noticed a new entry there called <strong>“High Performances with MongoDB”</strong>, which is now available from <a href="https://www.amazon.com/dp/1837022631">Amazon</a> and <a href="https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632">Packt Publishing</a>.</p>
 
 <p>This is a project I’ve been working on for most of the first half of 2025 along with <a href="https://www.linkedin.com/in/asya999/">Asya Kamsky</a> and <a href="https://www.linkedin.com/in/ghartnett/">Ger Hartnett</a>. Both Asya and Ger bring a huge depth and breadth of MongoDB knowledge and experience to the table, and it was an absolute pleasure to learn from them as we worked through our chapters.</p>
 
@@ -57,7 +57,199 @@
   <li>Operating Systems and System Resources</li>
   <li>Monitoring and Observability</li>
   <li>Debugging Performance Issues</li>
-</ol>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="book" /><summary type="html"><![CDATA[If you happened to click on through to the MongoDB Press page recently you may have noticed a new entry there called “High Performances with MongoDB”, which is now available from Amazon and Packt Publishing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-book-cover.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-book-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Driver Compatibility with MongoDB Servers</title><link href="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/" rel="alternate" type="text/html" title="MongoDB Driver Compatibility with MongoDB Servers" /><published>2025-07-30T17:20:39-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/"><![CDATA[<p>MongoDB server versions <a href="https://www.mongodb.com/legal/support-policy/lifecycles">eventually reach EOL</a> - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at <a href="/blog/2023/01/13/will-upgrading-my-mongodb-server-version-break-my-application/"><em>“Will Upgrading My MongoDB Server Version Break My Application?”</em></a>, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.</p>
+</ol>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="book" /><summary type="html"><![CDATA[If you happened to click on through to the MongoDB Press page recently you may have noticed a new entry there called “High Performances with MongoDB”, which is now available from Amazon and Packt Publishing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-book-cover.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-book-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Time Zone (On-Line Systems) - 1982</title><link href="https://www.alexbevi.com/blog/2025/09/17/time-zone/" rel="alternate" type="text/html" title="Time Zone (On-Line Systems) - 1982" /><published>2025-09-17T06:25:41-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/09/17/time-zone</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/17/time-zone/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</a></li><li><strong>Time Zone (On-Line Systems) - 1982</strong></li></ul>
+
+  <p>Article 98 of 98 in this series.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Time_Zone_%28video_game%29">Time Zone</a> is a multi-disk graphical adventure game written and directed by Roberta Williams for the Apple II. Developed in 1981 and released in 1982 by On-Line Systems (later Sierra Entertainment), the game was shipped with six double-sided floppy disks and contained 1,500 areas (screens) to explore along with 39 scenarios to solve. Produced at a time when most games rarely took up more than one side of a floppy, Time Zone is one of the first games of this magnitude released for home computer systems.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00031.png" alt="" /></p>
+
+<p>Someone has chosen you to secure the Earth’s future by destroying the evil ruler of the planet Neburon. He offers you the ability of time and space travel in order to do so, and has placed a time machine in your home so that you can travel to different time periods. In these periods, you will meet such famous names like Julius Caesar, Christopher Columbus, Cavemen, Robin Hood, Benjamin Franklin, and Cleopatra.</p>
+
+<p>Like other Hi-Res Adventures by On-Line Systems, you can switch between graphic and text modes. You are required to type a one or two word command to perform actions. The game can also be saved with a floppy disk, but with one that is specifically designed for use with the game.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00003.png" alt="" /></p>
+
+<p>The game starts off with you in front of your house, having just woken up from a weird dream. The only direction you can move is <code class="language-plaintext highlighter-rouge">NORTH</code>, and once doing so you find yourself in front of a time machine.</p>
+
+<p>After you <code class="language-plaintext highlighter-rouge">ENTER MACHINE</code>, you see a seat … so you <code class="language-plaintext highlighter-rouge">SIT</code> and have a <code class="language-plaintext highlighter-rouge">LOOK</code>. There are dials and a display that indicate various time periods and locations that you can travel to by adjusting the values, then spurring the machine into action via a <code class="language-plaintext highlighter-rouge">PULL LEVER</code>.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00008.png" alt="" /></p>
+
+<p>So much of the game involves repeating those steps as you travel through the various locations and time periods on a series of fetch quests.</p>
+
+<p>For a game from 1982, the graphics are fine, and definitely do their job of conveying what the parser describes you should be seeing. Though fairly rudimentary, this was considered pretty good for a game of this era.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00021.png" alt="" />
+<em>This feels kind of racist</em></p>
+
+<p>You’ll meet a number of characters on your adventure. Some of them you can <code class="language-plaintext highlighter-rouge">TALK</code> to, while others are just there to kill you. The character designs are very simplistic and depict stereotypical caricatures of people from these time periods you’re visiting.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00032.png" alt="" /></p>
+
+<p>The goal the game (as outline in your dream at the very beginning) is to secure the Earth’s future by destroying the evil ruler of the distant planet Neburon, which you need to find items from various time periods to be able to do.</p>
+
+<p>Some items from some time periods need to be used or traded in others to allow you to progress, so you’ll want to <code class="language-plaintext highlighter-rouge">USE</code> everything everywhere, or try to <code class="language-plaintext highlighter-rouge">TRADE</code> various items with other characters.</p>
+
+<p>Typically if a character has something you may need, it’s fairly obvious based on <code class="language-plaintext highlighter-rouge">LOOK</code>ing at them.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00029.png" alt="" /></p>
+
+<p>To make things a bit more difficult, you can’t take items too far back or they’re lost. When this happens you typically won’t know what you lost unless you checked your inventory before and after and happen to remember what was there.</p>
+
+<p>This is a bit cumbersome, but is a fairly important game mechanic as you will need to plan your route through time accordingly.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00023.png" alt="" /></p>
+
+<p>If you press <code class="language-plaintext highlighter-rouge">ENTER</code> without typing any text, the text interface goes full screen, which can be useful for reviewing past commands. If you type <code class="language-plaintext highlighter-rouge">INVENTORY</code> you can see what you’re holding.</p>
+
+<p>This is something you’ll find yourself doing fairly often (unless you’re following a walkthrough).</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00030.png" alt="" /></p>
+
+<p>You can always go back to your home and drop items off to travel back and forth in time without losing anything, but you’ll need to remember to do this.</p>
+
+<p>If you see an item you can pick up and do so, it is actually removed from the screen. If you drop an item on the screen, it’ll become visible and will remain there until you come back. This form of persistence was actually pretty novel for 1982, so it definitely gets a bonus point for that.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00035.png" alt="" /></p>
+
+<p>There’s no time limit in this game, though some screens require you to wait for an event to happen, which involves executing commands without leaving the screen. This is not obvious, and honestly feels a bit like bad design.</p>
+
+<p>I had to resort to the walkthrough multiple times while playing this game as I’d <code class="language-plaintext highlighter-rouge">LOOK</code> or try to <code class="language-plaintext highlighter-rouge">TALK</code> a couple times, then if nothing happened I’d leave. Having to do these throwaway commands 5-6 times to trigger the next event is not intuitive at all.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00026.png" alt="" /></p>
+
+<p>As with most Sierra games, death is around every corner, and if you don’t pick the right answer the first time, you’ll likely die. Thankfully you can save and reload on every screen - and you probably will have to.</p>
+
+<p>Playing this game in ScummVM is the best possible way to experience Time Zone as you can maintain multiple saves. I typically would save once I reached a new time zone, then before I’d interact with a character so I’d always have a short distance to travel back when I inevitably made a mistake and died.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00036.png" alt="" />
+<em>Oh goody, a maze</em></p>
+
+<p>Since I hate mazes, I needed to call out that the last section of the game involves navigating a maze. It’s unremarkable and not all that big, but it’s big enough to be a pain in the ass.</p>
+
+<p>At the end of that maze is a death ray that you need to blow up (I hope you found the dynamite in the trunk of the car in North America circa 2082AD). Once you do this, it’s back through the maze, back to the time machine and back home to finish up your trek through time and space.</p>
+
+<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00038.png" alt="" /></p>
+
+<p>Once you return, you get a key to the city and the game ends. Seeing as there’s really no plot or character development throughout the game, an abrupt and arbitrary ending seems appropriate.</p>
+
+<p>There are a lot of screens to navigate and explore, but not really much variety in the gameplay. This is a very early text parser game, so interaction with the world is limited to 2-3 word commands.It is kind of funny that if you type <code class="language-plaintext highlighter-rouge">FUCK</code> into the parser the game will kick you out, but I’m sure most of us experiencing this for the first time in the 80s and 90s likely tried this at least once.</p>
+
+<p>Overall it’s impressive how big this game feels, but it’s not really all that much fun to play.</p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>Time Zone</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/On-Line_Systems">On-Line Systems</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>On-Line Systems</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>1993</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>Apple II</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=ADL">ADL</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/19640">How Long To Beat?</a></td>
+      <td>3.5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>Apple 2 via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://adventuregamers.com/walkthroughs/full/time-zone">Walkthrough</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>19%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/tz/scummvm-hires5-apple2-00001.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00001.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00002.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00002.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00004.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00004.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00005.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00005.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00006.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00006.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00007.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00007.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00009.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00009.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00010.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00010.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00011.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00011.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00012.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00012.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00013.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00013.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00014.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00014.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00015.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00015.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00016.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00016.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00017.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00017.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00018.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00018.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00019.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00019.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00020.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00020.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00022.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00022.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00024.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00024.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00025.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00025.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00027.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00027.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00028.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00028.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00033.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00033.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00034.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00034.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00037.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00037.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/15283/time-zone/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="played:AppleII" /><category term="ADL" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993Time Zone (On-Line Systems) - 1982 Article 98 of 98 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/tz/scummvm-hires5-apple2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/tz/scummvm-hires5-apple2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Driver Compatibility with MongoDB Servers</title><link href="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/" rel="alternate" type="text/html" title="MongoDB Driver Compatibility with MongoDB Servers" /><published>2025-07-30T17:20:39-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/30/mongodb-driver-compatibility-with-mongodb-servers/"><![CDATA[<p>MongoDB server versions <a href="https://www.mongodb.com/legal/support-policy/lifecycles">eventually reach EOL</a> - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at <a href="/blog/2023/01/13/will-upgrading-my-mongodb-server-version-break-my-application/"><em>“Will Upgrading My MongoDB Server Version Break My Application?”</em></a>, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.</p>
 
 <p>Though good dependency management hygiene is important, it’s a time consuming process that can require extensive testing so you typically want to do it on your own terms - not because of a service upgrade.</p>
 
@@ -162,10 +354,10 @@
 
 <p>There are multiple benefits to keeping your application’s dependencies up to date, but there can also be drawbacks. As such it’s important to test upgrades in a lower environment to ensure as many potential issues can be caught prior to applying changes in production environments.</p>
 
-<p>If you’re working with Node.js, consider tooling like <a href="https://github.com/pilotpirxie/dependency-time-machine"><code class="language-plaintext highlighter-rouge">dependency-time-machine</code></a> to help with sequential dependency update automation. Since your dependency graph is likely complex, this type of approach can help update your application incrementally in a way that may minimize interdependency compatibility issues.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[MongoDB server versions eventually reach EOL - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at “Will Upgrading My MongoDB Server Version Break My Application?”, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li><li><strong>The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</strong></li></ul>
+<p>If you’re working with Node.js, consider tooling like <a href="https://github.com/pilotpirxie/dependency-time-machine"><code class="language-plaintext highlighter-rouge">dependency-time-machine</code></a> to help with sequential dependency update automation. Since your dependency graph is likely complex, this type of approach can help update your application incrementally in a way that may minimize interdependency compatibility issues.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[MongoDB server versions eventually reach EOL - as MongoDB 6.0 did on July 31, 2025. If your workload is running in MongoDB Atlas, the major version of your cluster will be automatically upgraded, but what if you haven’t upgraded your application, its dependencies or the runtime environment? Will your application break? Is it still compatible? I wrote about this previously at “Will Upgrading My MongoDB Server Version Break My Application?”, but there are still a lot of questions that pop up regarding driver compatibility so I wanted to go further.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-logo.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</title><link href="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/" rel="alternate" type="text/html" title="The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993" /><published>2025-07-15T06:06:45-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li><li><strong>The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</strong></li><li>→ <a href="/blog/2025/09/17/time-zone/">Time Zone (On-Line Systems) - 1982</a></li></ul>
 
-  <p>Article 97 of 97 in this series.</p>
+  <p>Article 97 of 98 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/The_Legend_of_Kyrandia:_Hand_of_Fate">The Legend of Kyrandia: Book Two - Hand of Fate</a> is a 2D point-and-click adventure game, developed by Westwood Studios and published by Virgin Interactive Entertainment in 1993. It is the sequel to the 1992 video game The Legend of Kyrandia, and the second game of the Fables &amp; Fiends series. The game focuses on the story of a young alchemist and magician saving the kingdom of Kyrandia from being wiped from existence.</p>
@@ -341,10 +533,10 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/871/fables-fiends-hand-of-fate/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 97 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Westwood Studios" /><category term="Virgin Interactive" /><category term="played:DOS" /><category term="Kyra" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Pepper's Adventures in Time (Sierra On-Line) - 1993The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993→ Time Zone (On-Line Systems) - 1982 Article 97 of 98 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kyra2/scummvm-kyra2-cd-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pepper’s Adventures in Time (Sierra On-Line) - 1993</title><link href="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/" rel="alternate" type="text/html" title="Pepper’s Adventures in Time (Sierra On-Line) - 1993" /><published>2025-04-24T07:29:55-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/24/peppers-adventures-in-time/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li><li><strong>Pepper's Adventures in Time (Sierra On-Line) - 1993</strong></li><li>→ <a href="/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</a></li></ul>
 
-  <p>Article 96 of 97 in this series.</p>
+  <p>Article 96 of 98 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Pepper%27s_Adventures_in_Time">Pepper’s Adventures in Time</a> is an educational adventure game released in 1993 by Sierra On-Line. The project was based on a concept by Sierra VP of Development/Creative Director, Bill Davis, who also designed the game’s main characters. This was intended to be the first in a series of edutainment games in which the player, as Pepper, traveled back in time to set right mixed-up situations surrounding famous individuals.</p>
@@ -562,7 +754,7 @@ ERROR: [pepper-1.000 610/999 sPercyGotYou::dispose @ 0786]: [VM] Stack index 409
       <p><small>Description from <a href="https://www.mobygames.com/game/6312/peppers-adventures-in-time/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989Pepper's Adventures in Time (Sierra On-Line) - 1993→ The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993 Article 96 of 98 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/pepper/scummvm-pepper-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Better Blog Series Plugin for Jekyll with ChatGPT</title><link href="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/" rel="alternate" type="text/html" title="Building a Better Blog Series Plugin for Jekyll with ChatGPT" /><published>2025-04-20T07:42:45-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/20/building-a-better-blog-series-plugin-for-jekyll-with-chatgpt/"><![CDATA[<p>In writing my blog series, <a href="https://alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure! A Journey into Adventure Games (1980-1999)”</a>, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from <a href="https://digitaldrummerj.me/blogging-on-github-part-13-creating-an-article-series/">Justin James</a> and <a href="https://totaldebug.uk/posts/jekyll-post-series-links/">Steven Marks</a>) provided some inspiration but didn’t fully align with my use case.</p>
 
 <p>The plugin I decided I wanted to build would need to include:</p>
 
@@ -930,7 +1122,7 @@ Expected page data:
 
 <p>Ultimately, the plugin significantly streamlined navigation within my blog series, enhancing both my writing workflow and the reader’s experience. This journey underscored how AI tools can complement traditional software development, enabling faster iterations, performance optimizations, and more elegant solutions.</p>
 
-<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
+<p>Feel free to adapt this solution to your own Jekyll blog!</p>]]></content><author><name></name></author><category term="Ruby" /><category term="blog" /><category term="jekyll" /><category term="ruby" /><summary type="html"><![CDATA[In writing my blog series, “Let’s Adventure! A Journey into Adventure Games (1980-1999)”, I found myself wanting a better way to handle navigation between posts. The existing Jekyll plugins and tutorials I found (such as those from Justin James and Steven Marks) provided some inspiration but didn’t fully align with my use case.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ChatGPT%20Image%20Apr%2020,%202025,%2010_18_59%20AM.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Performance Profiling MongoDB on Cloudflare Workers</title><link href="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/" rel="alternate" type="text/html" title="Performance Profiling MongoDB on Cloudflare Workers" /><published>2025-04-11T06:23:55-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/04/11/performance-profiling-mongodb-on-cloudflare-workers/"><![CDATA[<p>Cloudflare recently wrote about “<a href="https://blog.cloudflare.com/full-stack-development-on-cloudflare-workers/#node-js-compatibility">Your frontend, backend, and database — now in one Cloudflare Worker</a>”, which called out that the <code class="language-plaintext highlighter-rouge">mongodb</code> package should now work as expected. I validated that <a href="https://alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/">Cloudflare Workers and MongoDB</a> work together as well, but <em>how well</em> do they work together.</p>
 
 <p>Let’s evaluate this by taking MongoDB’s simple <a href="https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/">“Find a Document”</a> tutorial and adapting it to a Workers environment.</p>
 
@@ -1440,7 +1632,7 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>I ran a number of tests and periodically you’d still get a cold-start spike, but most requests benefit from the reduced latency maintaining a stateful Worker via Durable Objects provides.</p>
 
-<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
+<p>It is worth calling out that Durable Objects come with some <a href="https://developers.cloudflare.com/durable-objects/platform/limits/">limitations</a> such as a soft limit of 1,000 requests per second, but for <em>most</em> use cases this is likely sufficient. I encourage you to try this out on your own and see how it works for you.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Cloudflare recently wrote about “Your frontend, backend, and database — now in one Cloudflare Worker”, which called out that the mongodb package should now work as expected. I validated that Cloudflare Workers and MongoDB work together as well, but how well do they work together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare Workers and MongoDB</title><link href="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/" rel="alternate" type="text/html" title="Cloudflare Workers and MongoDB" /><published>2025-03-25T13:21:42-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/25/cloudflare-workers-and-mongodb/"><![CDATA[<p>Previously I wrote about <a href="/blog/2024/09/11/why-cloudflare-workers-dont-work-with-mongodb/"><em>Why Cloudflare Workers Don’t Work With MongoDB</em></a>, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from <a href="https://workers.cloudflare.com/">Cloudflare Workers</a>:</p>
 
 <ul>
   <li><a href="https://github.com/cloudflare/workerd/pull/3315"><code class="language-plaintext highlighter-rouge">cloudflare/workerd#3315</code></a>: add node:net module</li>
@@ -1594,10 +1786,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
 
 <p>Excitement for Cloudflare Workers support for MongoDB has been around in the <a href="https://www.mongodb.com/community/forums/t/cloudflare-workers-integration-is-now-possible/226708">MongoDB developer forums</a> since May, 2023. As the Product Manager for MongoDB’s JavaScript developer experience I’ve possibly been making more noise about this issue than most - including the initial blog post. I shared this with the Cloudflare team in a <a href="https://github.com/cloudflare/workers-sdk/issues/6684">bug report on the <code class="language-plaintext highlighter-rouge">workers-sdk</code></a>, which ultimately triggered a <a href="https://github.com/cloudflare/workerd/discussions/2721">discussion on the <code class="language-plaintext highlighter-rouge">workerd</code> project</a> that may have prompted the ensuing engineering effort.</p>
 
-<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>I really look forward to seeing the amazing opportunities this integration can unlock for MongoDB developers that want to take advantage of the power and flexibility of Cloudflare Workers!</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[Previously I wrote about Why Cloudflare Workers Don’t Work With MongoDB, but since then the Cloudflare team has done some great work to add support for the missing Node.js features MongoDB’s driver required to operate successfully from Cloudflare Workers:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</title><link href="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/" rel="alternate" type="text/html" title="Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989" /><published>2025-03-14T07:58:17-04:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/03/14/leisure-suit-larry-iii/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li><li><strong>Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</strong></li><li>→ <a href="/blog/2025/04/24/peppers-adventures-in-time/">Pepper's Adventures in Time (Sierra On-Line) - 1993</a></li></ul>
 
-  <p>Article 95 of 97 in this series.</p>
+  <p>Article 95 of 98 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Leisure_Suit_Larry_III:_Passionate_Patti_in_Pursuit_of_the_Pulsating_Pectorals">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals</a> is a graphical adventure game designed by Al Lowe and published by Sierra On-Line for DOS, Atari ST and Amiga in 1989 as the third entry in their Leisure Suit Larry series.</p>
@@ -1812,10 +2004,10 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/412/leisure-suit-larry-iii-passionate-patti-in-pursuit-of-the-pulsat/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Universe (Core Design) - 1994Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989→ Pepper's Adventures in Time (Sierra On-Line) - 1993 Article 95 of 98 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl3/scummvm-lsl3-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Universe (Core Design) - 1994</title><link href="https://www.alexbevi.com/blog/2025/02/02/universe/" rel="alternate" type="text/html" title="Universe (Core Design) - 1994" /><published>2025-02-02T07:56:58-05:00</published><updated>2025-09-27T08:11:31-04:00</updated><id>https://www.alexbevi.com/blog/2025/02/02/universe</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/02/02/universe/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/01/22/neuromancer/">Neuromancer (Interplay Productions) - 1988</a></li><li><strong>Universe (Core Design) - 1994</strong></li><li>→ <a href="/blog/2025/03/14/leisure-suit-larry-iii/">Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989</a></li></ul>
 
-  <p>Article 94 of 97 in this series.</p>
+  <p>Article 94 of 98 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Universe_(1994_video_game)">Universe</a> is a graphic adventure game developed and published by Core Design for the Amiga, Amiga CD32 and DOS platforms in 1994. It was Core Design’s second and last effort in the adventure game genre after Curse of Enchantia, of which it was originally planned to be a sequel.</p>
@@ -2033,231 +2225,4 @@ $ curl https://workers-mongodb-demo.alex-fbd.workers.dev/?durable=true
       <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Neuromancer (Interplay Productions) - 1988</title><link href="https://www.alexbevi.com/blog/2025/01/22/neuromancer/" rel="alternate" type="text/html" title="Neuromancer (Interplay Productions) - 1988" /><published>2025-01-22T05:50:53-05:00</published><updated>2025-09-25T12:54:23-04:00</updated><id>https://www.alexbevi.com/blog/2025/01/22/neuromancer</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/01/22/neuromancer/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2024/12/30/return-of-the-phantom/">Return of the Phantom (MicroProse) - 1993</a></li><li><strong>Neuromancer (Interplay Productions) - 1988</strong></li><li>→ <a href="/blog/2025/02/02/universe/">Universe (Core Design) - 1994</a></li></ul>
-
-  <p>Article 93 of 97 in this series.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Neuromancer_(video_game)">Neuromancer</a> is an adventure video game developed by Interplay Productions and published by Mediagenic (a brand name of Activision). It was released in 1988 for the Amiga, Apple II, Apple IIGS, Commodore 64, and MS-DOS. It was loosely based on <a href="https://en.wikipedia.org/wiki/Neuromancer">William Gibson’s 1984 novel of the same name</a> and set within both the fictional “real world” and the extensively realized and detailed world of cyberspace.</p>
-
-<p><img src="/images/adventure/neuromancer/062.png" alt="" /></p>
-
-<p>In a grimy future, you play Case, a cyberspace cowboy who finds himself broke in Chiba City. Find yourself a laptop and the right software for it so you can hack into databases around the city to regain your access to cyberspace. Buy and upgrade brain implant chips to augment your computer skills, and sell your body parts to afford new technologies. When you get to cyberspace, you’ll take on the nasty AIs that guard the most important databases. Within all this information is the bizarre secret of this world of inbred corporations.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
-<p><img src="/images/adventure/neuromancer/038.png" alt="" />
-<em>I played the Amiga version, which starts off with a <a href="https://www.youtube.com/watch?v=DT7sXsoFpZA">Paradox cracktro</a></em></p>
-
-<p>Though I haven’t re-read the source material in well over 20 years, I have very fond memories of Neuromancer. That book kicked off a lifelong love of the cyberpunk genre, so I’ve been looking forward to playing this game since I kicked off this series.</p>
-
-<p>It doesn’t seem to follow the events of the book at all, but definitely exists in the same universe. You start off in a bar, where you apparently spent the night that you owe the bartender money for.</p>
-
-<p><img src="/images/adventure/neuromancer/041.png" alt="" /></p>
-
-<p>You’ll also have a chance to explore the limited interface, which includes a PAX button. PAX is sort of like a basic bulletin board system, that you can read news on or access your banking information. Since you start with no money in hand, you’ll need to access your bank account and transfer all your money.</p>
-
-<p>From the initial PAX screen you’ll learn some link codes, and also that someone named Shin has your cyberdeck.</p>
-
-<p>Since I played a cracked version I didn’t need to refer to the <a href="https://www.c64sets.com/details_db.html?id=3227&amp;t=Neuromancer&amp;i=PAX%20verification%20code%20wheel">code wheel</a> that you’d typically need to access the PAX.</p>
-
-<p><img src="/images/adventure/neuromancer/045.png" alt="" />
-<em>Yes, that’s a door below you you’ll need to go through</em></p>
-
-<p>Navigating the game world is done using the mouse. It’s not always obvious what/where the exit to a room is, especially when there’s door at the bottom of the screen. Once you get used to keeping an eye out for these tiny slivers of doorway though it’s not too difficult to navigate the game world.</p>
-
-<p><img src="/images/adventure/neuromancer/048.png" alt="" /></p>
-
-<p>The majority of the game is spent “online”. You’ll need to first get your deck back from Shin, then find a location that has jack you can use. The most convenient location for this is the Cheap Hotel, and you’ll spend a good portion of the game here navigating various online systems, then eventually cyberspace.</p>
-
-<p>Gaining access to a system requires a link code and a password. These are scattered throughout various messages you can read online, and are fairly straightforward to find - just make sure you write them down.</p>
-
-<p><img src="/images/adventure/neuromancer/042.png" alt="" /></p>
-
-<p>Going online costs money, and the longer you spend online - the more money you’ll gradually lose. Gaining additional money in this game can be done in one of two ways. Either you find an account online you can transfer money out of (into your account), or you sell body parts.</p>
-
-<p>At the Body Shop, you can incrementally sell off your body parts for cash. The more parts you sell, the lower your HP (constitution?) will drop. You’ll need this later in the game when you need to start attacking databases and ICE, but you can buy your body parts back as you get more money to regain your HP.</p>
-
-<p><img src="/images/adventure/neuromancer/067.png" alt="" /></p>
-
-<p>You piece the plot of the game and your objectives together slowly by reading through the various messages on each system you gain access to. There aren’t really that many actions you can take on these systems other than reading through the contents, but many will have software (“softwarez”) libraries you can access.</p>
-
-<p>Your deck has limited storage, so you’ll need to be mindful of what software you’re carrying and how much space you have available. As you download better versions of your software, you can delete the older versions to make room.</p>
-
-<p><img src="/images/adventure/neuromancer/052.png" alt="" /></p>
-
-<p>There are a handful of characters and machines you can interact with as well using the conversation system. Typically these involve cycling through a pre-determined list of options you can ask them about, but some also have a free-form text field you can fill out.</p>
-
-<p>This allows you to ask about specific topics, which you’ll either learn from other characters or from the messages you read on bulletin boards.</p>
-
-<p><img src="/images/adventure/neuromancer/056.png" alt="" /></p>
-
-<p>The more time you spend online, the lower your finances will fall. Thankfully there are a couple of opportunities to infiltrate banks and transfer (steal) fairly large balances of credits to your account.</p>
-
-<p>You’ll need this money to purchase skills, upgrade your cyberdeck and buy various items. If you successfully complete these missions, remember to access your account via the PAX to download your credits so you can go shopping.</p>
-
-<p><img src="/images/adventure/neuromancer/060.png" alt="" /></p>
-
-<p>Though there aren’t that many items in the game you need to interact with, there are a couple of fetch quests you’ll need to undertake. These typically just involve going back and forth between characters and asking questions, or going online and changing some information about a character to get them arrested (so they’re not blocking a doorway).</p>
-
-<p>For this playthrough I found myself leaning on the <a href="https://www.walkthroughking.com/text/neuromancer.aspx">walkthrough</a> pretty heavily for these sequences as it wasn’t always obvious what I was supposed to do.</p>
-
-<p><img src="/images/adventure/neuromancer/068.png" alt="" /></p>
-
-<p>Once you upgrade your deck to one that can access cyberspace, you’ll be able to jack into the matrix and access various databases. Similar to the sites you have access to via the comlink systems, once you enter a database you’ll be able to read messages and download software.</p>
-
-<p>The difference though is you’ll need to defeat the ICE (<a href="http://en.wikipedia.org/wiki/Intrusion_Countermeasures_Electronics">Intrusion Countermeasure Electronics</a>) first.</p>
-
-<p><img src="/images/adventure/neuromancer/080.png" alt="" /></p>
-
-<p>Fighting ICE is done with ICE-breaking software. This software is classified loosely into 3 categories: Good, Better and Best - which you’ll learn from one of the message boards.</p>
-
-<p>The manual sort of calls out that ICE-breaking requires a lot of trial and error, and the best way to gain access to a database is to just try various combinations to see what’s effective. As a result, make sure you save before each battle - just in case.</p>
-
-<p><img src="/images/adventure/neuromancer/072.png" alt="" />
-<em>Death is not permanent - but it is expensive</em></p>
-
-<p>If you fail to break the ICE and experience brain death, you’ll respawn in the Body Shop - minus all your money. This is VERY difficult to recover from, so you’re better off to just reload a previous save and try again.</p>
-
-<p>Assuming you haven’t sold all your body parts, you could do this to gain a little extra cash, but honestly it’s not worth it … just reload.</p>
-
-<p><img src="/images/adventure/neuromancer/088.png" alt="" /></p>
-
-<p>Your objective will ultimately be to seek out and destroy all the AI in cyberspace. There are two competing AI - Greystroke and Neuromancer - that are trying to get the other to join them to dominate cyberspace. At least that’s what I think is happening …</p>
-
-<p>Each AI is hidden behind an ICE you’ll need to break, and the later in the game you get, the harder they are. One aspect of this game that I didn’t realize was that you’ll need to jack out of cyberspace periodically to recover your HP.</p>
-
-<p>After each ice confrontation if you try to access another database, it looks like your “health” is full - but it actually isn’t.</p>
-
-<p>I think it was after I’d just barely gained access to the KGB system, I moved onto the next database and found no matter what I tried, I’d die in one shot. It must have taken me a few weeks of on-and-off messing around reading other reviews and blogs (like the <a href="https://advgamer.blogspot.com/2013/07/game-32-neuromancer-oceans-one.html">Adventurer’s Guild review</a>) before I finally realized this was what you needed to do.</p>
-
-<p><img src="/images/adventure/neuromancer/092.png" alt="" /></p>
-
-<p>Defeating AIs is done with “skills”, which you buy and upgrade throughout the game. When you finally beat Neuromancer, you’ll be thrown onto a beach - which is just an illusion that it has created to trap you.</p>
-
-<p>Using some combination of skills allows you to escape, and once you do so you’ll have officially finished the game.</p>
-
-<p><img src="/images/adventure/neuromancer/094.png" alt="" /></p>
-
-<p>Overall, Neuromancer is a fun game. There are a handful of distinct gameplay mechanics that aren’t that hard to learn, but do take a while to master.</p>
-
-<p>There is occasionally background music, which isn’t bad - though I think it plays more prominently in other versions (like the C64). The Amiga version I played was mostly quiet, save for the title screen and once in a while.</p>
-
-<p>I’m fairly certain this was one of the first games I started playing for this series, but I did so using <a href="https://apple2.gs/plus/">GSPLUS</a> and had a number of issues that made the experience cumbersome. I really want to experience as many of these games on as many emulated systems as possible, so I stubbornly just kept trying to make the GSPLUS experience happen - and it wouldn’t - so I gave up on the game for a number of years.</p>
-
-<p>I’m really glad I circled back to it, as it really is a lot of fun. Though the similarities are not obvious, playing Neuromancer actually sort of reminded me a bit of <a href="https://en.wikipedia.org/wiki/Uplink_(video_game)">Uplink: Hacker Elite</a> - which I LOVE! I think it’s just the whole “cruising cyberspace and hacking” simulation portion of the game, but I found both to be equally enjoyable so figured it was worth calling out.</p>
-
-<p>There was an attempt to reverse engineer and reimplement this game for Windows called <a href="https://github.com/HenadziMatuts/Reuromancer">Reuromancer</a>, however I’m not sure how playable this engine actually is. If you have Google Translate, the <a href="https://habr.com/post/352050/">development blog</a> (which is in Russian) is a great read.</p>
-
-<p>I would highly recommend giving this game a chance. It can be extremely difficult and unforgiving, but if you like to read, the story is interesting and the gameplay is fairly accessible.</p>
-
-<p>If you’re looking for something to read instead, go grab the book!</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Neuromancer</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Interplay_Entertainment">Interplay Productions</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/Mediagenic">Mediagenic</a></td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Amiga, Apple II, Apple IIgs, Commodore 64, DOS</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/6508">How Long To Beat?</a></td>
-      <td>12 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>Amiga via <a href="https://dirkwhoffmann.github.io/vAmiga/">vAmiga</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://www.walkthroughking.com/text/neuromancer.aspx">Walkthrough</a>, <a href="https://mocagh.org/miscgame/neuromancer-manual.pdf">Manual</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (15)</strong></td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (5)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>64%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/neuromancer/040.png', thumb: '/images/adventure/neuromancer/040.png' },{ src: '/images/adventure/neuromancer/043.png', thumb: '/images/adventure/neuromancer/043.png' },{ src: '/images/adventure/neuromancer/044.png', thumb: '/images/adventure/neuromancer/044.png' },{ src: '/images/adventure/neuromancer/046.png', thumb: '/images/adventure/neuromancer/046.png' },{ src: '/images/adventure/neuromancer/047.png', thumb: '/images/adventure/neuromancer/047.png' },{ src: '/images/adventure/neuromancer/049.png', thumb: '/images/adventure/neuromancer/049.png' },{ src: '/images/adventure/neuromancer/050.png', thumb: '/images/adventure/neuromancer/050.png' },{ src: '/images/adventure/neuromancer/051.png', thumb: '/images/adventure/neuromancer/051.png' },{ src: '/images/adventure/neuromancer/053.png', thumb: '/images/adventure/neuromancer/053.png' },{ src: '/images/adventure/neuromancer/054.png', thumb: '/images/adventure/neuromancer/054.png' },{ src: '/images/adventure/neuromancer/055.png', thumb: '/images/adventure/neuromancer/055.png' },{ src: '/images/adventure/neuromancer/057.png', thumb: '/images/adventure/neuromancer/057.png' },{ src: '/images/adventure/neuromancer/058.png', thumb: '/images/adventure/neuromancer/058.png' },{ src: '/images/adventure/neuromancer/059.png', thumb: '/images/adventure/neuromancer/059.png' },{ src: '/images/adventure/neuromancer/061.png', thumb: '/images/adventure/neuromancer/061.png' },{ src: '/images/adventure/neuromancer/063.png', thumb: '/images/adventure/neuromancer/063.png' },{ src: '/images/adventure/neuromancer/064.png', thumb: '/images/adventure/neuromancer/064.png' },{ src: '/images/adventure/neuromancer/065.png', thumb: '/images/adventure/neuromancer/065.png' },{ src: '/images/adventure/neuromancer/066.png', thumb: '/images/adventure/neuromancer/066.png' },{ src: '/images/adventure/neuromancer/069.png', thumb: '/images/adventure/neuromancer/069.png' },{ src: '/images/adventure/neuromancer/070.png', thumb: '/images/adventure/neuromancer/070.png' },{ src: '/images/adventure/neuromancer/071.png', thumb: '/images/adventure/neuromancer/071.png' },{ src: '/images/adventure/neuromancer/073.png', thumb: '/images/adventure/neuromancer/073.png' },{ src: '/images/adventure/neuromancer/074.png', thumb: '/images/adventure/neuromancer/074.png' },{ src: '/images/adventure/neuromancer/075.png', thumb: '/images/adventure/neuromancer/075.png' },{ src: '/images/adventure/neuromancer/076.png', thumb: '/images/adventure/neuromancer/076.png' },{ src: '/images/adventure/neuromancer/077.png', thumb: '/images/adventure/neuromancer/077.png' },{ src: '/images/adventure/neuromancer/078.png', thumb: '/images/adventure/neuromancer/078.png' },{ src: '/images/adventure/neuromancer/079.png', thumb: '/images/adventure/neuromancer/079.png' },{ src: '/images/adventure/neuromancer/081.png', thumb: '/images/adventure/neuromancer/081.png' },{ src: '/images/adventure/neuromancer/082.png', thumb: '/images/adventure/neuromancer/082.png' },{ src: '/images/adventure/neuromancer/083.png', thumb: '/images/adventure/neuromancer/083.png' },{ src: '/images/adventure/neuromancer/084.png', thumb: '/images/adventure/neuromancer/084.png' },{ src: '/images/adventure/neuromancer/085.png', thumb: '/images/adventure/neuromancer/085.png' },{ src: '/images/adventure/neuromancer/086.png', thumb: '/images/adventure/neuromancer/086.png' },{ src: '/images/adventure/neuromancer/087.png', thumb: '/images/adventure/neuromancer/087.png' },{ src: '/images/adventure/neuromancer/089.png', thumb: '/images/adventure/neuromancer/089.png' },{ src: '/images/adventure/neuromancer/090.png', thumb: '/images/adventure/neuromancer/090.png' },{ src: '/images/adventure/neuromancer/091.png', thumb: '/images/adventure/neuromancer/091.png' },{ src: '/images/adventure/neuromancer/093.png', thumb: '/images/adventure/neuromancer/093.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p><small>Description from <a href="https://www.mobygames.com/game/687/neuromancer/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Interplay Productions" /><category term="Mediagenic" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Return of the Phantom (MicroProse) - 1993Neuromancer (Interplay Productions) - 1988→ Universe (Core Design) - 1994 Article 93 of 97 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/neuromancer/039.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Core Design" /><category term="played:Amiga" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Neuromancer (Interplay Productions) - 1988Universe (Core Design) - 1994→ Leisure Suit Larry III: Passionate Patti in Pursuit of the Pulsating Pectorals! (Sierra On-Line) - 1989 Article 94 of 98 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/universe/001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/universe/001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
