@@ -29,6 +29,11 @@ My chapters were those that focus on client libraries, replication, monitoring +
 > Fun fact, this is the **second** [book I've written with Packt Publishing](https://www.packtpub.com/en-us/product/redmine-plugin-extension-and-development-9781783288748), though that was [way back in 2014]({% post_url 2014-03-19-redmine-plugin-extension-and-development-published %})!
 {: .prompt-info }
 
+![](/images/asya_london.png)
+_Asya was signing books for a long line of [MongoDB London.local 2025](https://www.mongodb.com/events/mongodb-local/london) attendees_
+
+Both Asya and Ger were on hand at this year's New York and London .local events to sign copies. Unfortunately I wasn't able to attend, but if you get your hands on a copy and happen to be at a MongoDB event in Toronto, don't hesitate to seek me out and let me know what you thought!
+
 ### Book Description
 
 With data as the new competitive edge, performance has become the need of the hour. As applications handle exponentially growing data and user demand for speed and reliability rises, three industry experts distill their decades of experience to offer you guidance on designing, building, and operating databases that deliver fast, scalable, and resilient experiences.
