@@ -32,7 +32,7 @@ My chapters were those that focus on client libraries, replication, monitoring +
 ![](/images/asya_london.png)
 _Asya was signing books for a long line of [MongoDB London.local 2025](https://www.mongodb.com/events/mongodb-local/london) attendees_
 
-Both Asya and Ger were on hand at this year's New York and London .local events to sign copies. Unfortunately I wasn't able to attend, but if you get your hands on a copy and happen to be at a MongoDB event in Toronto, don't hesitate to seek me out and let me know what you thought!
+Both Asya and Ger were on hand at this year's New York and London .local events to sign copies. Unfortunately I wasn't able to attend, but if you get your hands on a copy and happen to be at a MongoDB event in Toronto, don't hesitate to seek me out for either a signature or just to share any feedback you may have.
 
 ### Book Description
 
