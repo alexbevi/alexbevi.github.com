@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Turn-based JRGP Battle Music Breakdown Sorted by Score"
+title: "Turn-based JRPG Battle Music Breakdown Sorted by Score"
 date: 2025-10-15 06:03:45 -0400
 comments: true
 categories: ["Battle Music Breakdown"]
