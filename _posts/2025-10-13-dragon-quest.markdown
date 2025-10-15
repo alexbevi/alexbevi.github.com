@@ -26,7 +26,7 @@ Dragon Quest, titled Dragon Warrior when initially localized to North America, i
 
 ## Battle Track(s)
 
-![](/images/jrpg_music/dq1/NES%20Longplay%20[185]%20Dragon%20Warrior%2038-11%20screenshot.png)
+![](/images/jrpg_music/dq1/Dragon%20Warrior%20(NES)%20Playthrough%209-3%20screenshot.png)
 
 {% jekyll_player "/mp3/dw1/14%20-%20Battle%20Theme.mp3", game: Dragon Quest, title: Battle Theme, artist: Koichi Sugiyama %}
 
@@ -45,7 +45,7 @@ This game only has 2 battle tracks - the normal battle track and the final battl
 
 ## Final Battle Track(s)
 
-![](/images/jrpg_music/dq1/NES%20Longplay%20[185]%20Dragon%20Warrior%201-38-5%20screenshot.png)
+![](/images/jrpg_music/dq1/Dragon%20Warrior%20(NES)%20Playthrough%2010-7-40%20screenshot.png)
 
 {% jekyll_player "/mp3/dw1/16%20-%20Final%20Battle%20Theme.mp3", game: Dragon Quest, title: Final Battle Theme, artist: Koichi Sugiyama %}
 
