@@ -49,10 +49,10 @@ Compute terms individually (Liquid quirk).
 
 {%- comment -%} Multiline tooltips: use \A as line-break markers and replace with &#10; {%- endcomment -%}
 {%- assign tip_final = "Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)" -%}
-{%- assign tip_bq   = "BQ = 0.45·RN + 0.30·RB + 0.25·RF (missing roles contribute 0)" -%}
-{%- assign tip_tc   = "(TC) Thematic Cohesion — Shared DNA across Normal→Boss/Special→Final." -%}
-{%- assign tip_esc  = "(ESC) Escalation — Energy/suspense rises; motif/orchestration grow." -%}
-{%- assign tip_sc   = "(SC) Suite Completeness — ≥2 battle (Normal+Boss combined) + a Final.\A0 none • 3 one battle + final • 5 ≥2 battle + final." -%}
+{%- assign tip_bq   = "BQ = 0.45·RN + 0.30·RB + 0.25·RF\(missing roles contribute 0)" -%}
+{%- assign tip_tc   = "Thematic Cohesion — Shared DNA across Normal→Boss/Special→Final." -%}
+{%- assign tip_esc  = "Escalation — Energy/suspense rises; motif/orchestration grow." -%}
+{%- assign tip_sc   = "Suite Completeness — ≥2 battle (Normal+Boss combined) + a Final.\A0 none • 3 one battle + final • 5 ≥2 battle + final." -%}
 
 {%- assign _a11y = "Final rating. BQ " | append: _bq_1dp
   | append: ". Overall " | append: _pct_rounded | append: " percent." -%}

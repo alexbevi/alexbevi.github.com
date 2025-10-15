@@ -66,7 +66,7 @@ I also score three suite-level items on a 0–5 scale:
 
 * **(TC) Thematic Cohesion (12.5%)** — Shared DNA (motif/palette/rhythm) across Normal→Boss/Special→Final.
 * **(ESC) Escalation (12.5%)** — Clear rise in energy/suspense from Normal→Boss/Special→Final; motif/orchestration grow.
-* **(SC) Suite Completeness (5%)** — Expectation met: ≥2 battle tracks (Normal+Boss combined) **and** a Final.
+* **(SC) Suite Completeness (5%)** — Expectation met: ≥2 battle tracks (Normal+Boss combined) **and** a Final.\
   *0 none • 3 one battle + final • 5 ≥2 battle + final.*
 
 For `SC` my expectation is just that there's enough of a variety to the soundtrack for there to be a bare minimum of 1 normal battle track, 1 boss track and a final battle track.
