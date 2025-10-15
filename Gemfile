@@ -13,6 +13,7 @@ group :jekyll_plugins do
   gem 'jekyll-gist'
   gem 'jekyll-last-modified-at'
   gem 'jekyll-archives'
+  gem "jekyll-include-cache"
 end
 
 group :test do
@@ -41,6 +42,9 @@ end
 group :development do
   gem "faraday-retry"
   gem "stringex"
+  gem "puma"
+  gem "foreman"
+  gem "rack"
 end
 
 gem "liquid-c"

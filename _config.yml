@@ -51,6 +51,10 @@ series_nav:
     title: "Let's Adventure! A Journey into Adventure Games (1980-1999)"
     title_link: "{% post_url 2021-07-28-adventure-games-1980-1999 %}"
     description: "This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href='{% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}'>here</a>."
+  battle_music_breakdown:
+    title: "Turn-based JRPG Battle Music Breakdown"
+    title_link: "{% post_url 2025-10-11-turn-based-jrpg-battle-music-breakdown %}"
+    description: "This review is part of the Battle Music Breakdown series."
 
 # Web Analytics Settings
 analytics:
@@ -102,6 +106,8 @@ comments:
   disqus:
     shortname: 'alexbevi' # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
+gist:
+  noscript: false
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
