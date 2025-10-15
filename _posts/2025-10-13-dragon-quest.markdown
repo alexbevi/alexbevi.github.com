@@ -20,8 +20,9 @@ Dragon Quest, titled Dragon Warrior when initially localized to North America, i
 > Links: [Moby Games](https://www.mobygames.com/game/9223/dragon-warrior/) | [RPGfan](https://www.rpgfan.com/game/dragon-quest/) | [VGMdb](https://vgmdb.net/product/983)
 {: .prompt-info }
 
-> Audio files originally from [Zophar's Domain](https://www.zophar.net/music/nintendo-nes-nsf/dragon-warrior)
-{: .prompt-tip }
+> Audio files from [Zophar's Domain](https://www.zophar.net/music/nintendo-nes-nsf/dragon-warrior) \
+> Screenshots from [Dragon Warrior (NES) Playthrough](https://www.youtube.com/watch?v=J392i9NKvvo)
+{: .prompt-warning }
 
 ## Battle Track(s)
 
