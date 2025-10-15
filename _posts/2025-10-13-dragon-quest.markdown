@@ -12,7 +12,7 @@ math: true
 {% series_nav %}
 {% jekyll_player_boot %}
 
-[Dragon Quest](https://en.wikipedia.org/wiki/Dragon_Quest_(video_game)), titled Dragon Warrior when initially localized to North America, is a 1986 role-playing video game developed by Chunsoft and published by Enix for the Nintendo Entertainment System. It was originally released in Japan in May 1986 and by Nintendo in North America in August 1989. It is the first game in the Dragon Quest video game series. Dragon Quest has been ported and remade for several video game platforms, including the MSX, MSX2, PC-9801, Super Famicom, Game Boy Color, mobile phones, and Nintendo Switch as of 2019. The player controls the hero character who is charged with saving the Kingdom of Alefgard and rescuing its princess from the evil Dragonlord. Dragon Warrior's story became the second part in a trilogy, with several spinoff anime and manga series.
+Dragon Quest, titled Dragon Warrior when initially localized to North America, is a 1986 role-playing video game developed by Chunsoft and published by Enix for the Nintendo Entertainment System. It was originally released in Japan in May 1986 and by Nintendo in North America in August 1989. It is the first game in the Dragon Quest video game series. Dragon Quest has been ported and remade for several video game platforms, including the MSX, MSX2, PC-9801, Super Famicom, Game Boy Color, mobile phones, and Nintendo Switch as of 2019. The player controls the hero character who is charged with saving the Kingdom of Alefgard and rescuing its princess from the evil Dragonlord. Dragon Warrior's story became the second part in a trilogy, with several spinoff anime and manga series. &emdash; [Wikipedia](https://en.wikipedia.org/wiki/Dragon_Quest_(video_game))
 
 > Publisher: Square Enix \
 > Release: May 27, 1986 - Nintendo Entertainment System \
@@ -54,9 +54,6 @@ This track doesn't sound "epic", but definitely feels appropriate. Again there a
 
 ## Suite Checks and Final Score
 
-{% include final_rating.html suite='Dragon Quest (NES)' rn=2.6 rf=1.9 tc=3 esc=1.2 sc=3 show_labels='true' %}
-
 The soundtrack is simplistic, but appropriate to the game. I can't really say I "enjoyed it", but it did help set the tone and mood for the game.
 
-
-
+{% include final_rating.html suite='Dragon Quest (NES)' rn=2.6 rf=1.9 tc=3 esc=1.2 sc=3 show_labels=true %}
