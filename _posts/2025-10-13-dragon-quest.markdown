@@ -18,7 +18,7 @@ Dragon Quest, titled Dragon Warrior when initially localized to North America, i
 > Release: May 27, 1986 - Nintendo Entertainment System \
 > Composer: [Koichi Sugiyama](https://en.wikipedia.org/wiki/Koichi_Sugiyama) \
 > Links: [Moby Games](https://www.mobygames.com/game/9223/dragon-warrior/) | [RPGfan](https://www.rpgfan.com/game/dragon-quest/) | [VGMdb](https://vgmdb.net/product/983)
-{: .prompt-warning }
+{: .prompt-info }
 
 > Audio files originally from [Zophar's Domain](https://www.zophar.net/music/nintendo-nes-nsf/dragon-warrior)
 {: .prompt-tip }
