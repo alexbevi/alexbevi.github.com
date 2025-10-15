@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "🎶 Dragon Quest: Battle Music Breakdown"
+title: "🎶 Dragon Quest (NES) - 1986"
 date: 2025-10-13 06:23:51 -0400
 comments: true
 categories: ["Battle Music Breakdown"]
