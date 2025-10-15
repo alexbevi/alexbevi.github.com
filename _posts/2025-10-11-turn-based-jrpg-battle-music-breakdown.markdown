@@ -50,7 +50,7 @@ Each battle track is rated on five simple, listen-first criteria on a scale of 0
 
 **Track score**: $$ (S_{\text{track}})$$ is the average of those five (0–5).
 
-## How multiple tracks are handled
+### How multiple tracks are handled
 
 Games can have several **Normal** and **Boss** tracks. Some games may have **Special** encounter tracks, which would be considered as part of the overall **Boss** score. If the **Final** battle track has multiple phases, each will be scored as a separate track. Once each track is  scored, I'll then compute a **role average**:
 
