@@ -7,6 +7,7 @@ categories: ["Battle Music Breakdown"]
 tags: [series, jrpg_music]
 image: /images/jrpg_music/banner.png
 math: true
+pin: true
 ---
 
 I've been a huge fan of traditional, turn-based Japanese role playing games since I first played [Dragon Quest]({% post_url 2016-06-23-just-finished-dragon-quest-i %}) many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.

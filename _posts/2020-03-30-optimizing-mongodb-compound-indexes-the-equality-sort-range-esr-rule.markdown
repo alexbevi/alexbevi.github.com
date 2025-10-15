@@ -5,11 +5,8 @@ comments: true
 published: true
 categories: [MongoDB, "Queries & Indexing"]
 tags: [mongodb]
-pin: true
 image: /images/mongodb-logo.png
 ---
-
-
 > **UPDATE**
 >
 > [DOCS-11790](https://jira.mongodb.org/browse/DOCS-11790) has finally been implemented and as a result the MongoDB public documentation now contains a tutorial for [The ESR (Equality, Sort, Range) Rule](https://www.mongodb.com/docs/manual/tutorial/equality-sort-range-rule)!
