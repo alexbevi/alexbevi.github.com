@@ -124,7 +124,7 @@ As I work through these I'll update the list below with links to each game's bat
 | 7th Dragon III Code: VFD                                 | 3DS             | 2015     |
 | 7th Saga                                                 | SNES            | 1993     |
 | A Witch's Tale                                           | DS              | 2009     |
-| Albert Odyssey: Legend of Eldean                         | SAT             | 1996     |
+| Albert Odyssey: Legend of Eldean                         | SATURN          | 1996     |
 | Anachronox                                               | PC              | 2001     |
 | Ar Nosurge                                               | PS3             | 2014     |
 | Ar Tonelico 2                                            | PS2             | 2007     |
@@ -324,7 +324,7 @@ As I work through these I'll update the list below with links to each game's bat
 | Opoona                                                   | Wii             | 2007     |
 | Oriental Blue: Ao no Tengai                              | GBA             | 2003     |
 | Paladin's Quest                                          | SNES            | 1992     |
-| Panzer Dragoon Saga                                      | SAT             | 1998     |
+| Panzer Dragoon Saga                                      | SATURN          | 1998     |
 | Paper Mario                                              | N64             | 2000     |
 | Paper Mario: The Thousand-Year Door                      | GC              | 2004     |
 | Persona 2: Eternal Punishment                            | PS1             | 2000     |
