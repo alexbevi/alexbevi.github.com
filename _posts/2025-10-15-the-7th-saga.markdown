@@ -1,0 +1,86 @@
+---
+layout: post
+title: "🎶 The 7th Saga (SNES) - 1993"
+date: 2025-10-15 18:47:51 -0400
+comments: true
+categories: ["Battle Music Breakdown"]
+tags: ["Enix", "Koichi Sugiyama"]
+image: /images/jrpg_music/7thsaga/boxart.jpg
+series: battle_music_breakdown
+math: true
+---
+{% series_nav %}
+{% jekyll_player_boot %}
+
+The 7th Saga is a 1993 role-playing video game developed by Produce! and published by Enix for the Super Nintendo Entertainment System. The game made innovative use of a radar system during gameplay. It featured seven playable characters of various types including humans, an elf, a dwarf, robots, a demon, and an alien. Each character has unique items and spells.  — [Wikipedia](https://en.wikipedia.org/wiki/The_7th_Saga)
+
+> Publisher: Enix \
+> Release: April 23, 1993 - Super Nintendo Entertainment System \
+> Composer: Norihiko Yamanuki \
+> Links: [Moby Games](https://www.mobygames.com/game/6583/the-7th-saga/) | [RPGfan](https://www.rpgfan.com/game/the-7th-saga/) | [VGMdb](https://vgmdb.net/product/6032)
+{: .prompt-info }
+
+> Audio files from [Zophar's Domain](https://www.zophar.net/music/nintendo-snes-spc/7th-saga-the) \
+> Screenshots from **The 7th Saga (SNES) Playthrough - NintendoComplete** ([Part 1](https://www.youtube.com/watch?v=-uJ-6lzDS-s) / [Part 2](https://www.youtube.com/watch?v=wsRokHc_XBI))
+{: .prompt-warning }
+
+As of writing this, I have yet to finish the 7th Saga. I worked on a [Just Finished](/categories/just-finished/) series for years, and this is one of those games I wanted to cover, but was never able to push through to the end. The grinding required to make progress ended up getting the best of me - but the music has always stuck in my head.
+
+## Battle Track(s)
+
+![](/images/jrpg_music/7thsaga/The 7th Saga (SNES) Playthrough [1 of 2] - NintendoComplete 5-42-52 screenshot.png)
+
+{% jekyll_player "/mp3/7thsaga/09 Battle in a World of Light.mp3", game: The 7th Saga, title: Battle in a World of Light, artist: Norihiko Yamanuki %}
+
+When playing the game, the urgency each battle conveyed through the initial alarm sound of the battle track was quite memorable. This jarring sound grabs your attention, then the battle begins and the melody starts playing. The battle track has high energy, and definitely has multiple distinct sections that loop once or twice before transitioning.
+
+{% include track_rating.html role='Normal' hook=3.9 energy=4.1 color=3.8 clarity=4.2 fit=4.2 show_labels=true %}
+
+----
+
+![](/images/jrpg_music/7thsaga/The 7th Saga (SNES) Playthrough [1 of 2] - NintendoComplete 1-18-23 screenshot.png)
+
+{% jekyll_player "/mp3/7thsaga/12 Battle in a World of Darkness.mp3", game: The 7th Saga, title: Battle in a World of Darkness, artist: Norihiko Yamanuki %}
+
+The secondary battle track was usually played in caves and dungeons (from what I can remember), and every time I hear it I think of these zombies or the big spiders that were way stronger than I expected them to be. This track has 2 or 3 sections that repeat twice before moving to the next, have a bit more of a "playful" sound, but still feel representative of a tense situation.
+
+It begins with the alarm from the first track, and sounds thematically aligned with the first track, but is definitely a new song and not just a revision of the previous one.
+
+{% include track_rating.html role='Normal' hook=3.1 energy=2.8 color=2.6 clarity=3.7 fit=3.9 show_labels=true %}
+
+----
+
+![](/images/jrpg_music/7thsaga/The 7th Saga (SNES) Playthrough [2 of 2] - NintendoComplete 4-30-11 screenshot.png)
+
+{% jekyll_player "/mp3/7thsaga/26 Battle in a World of Fading Hope.mp3", game: The 7th Saga, title: Battle in a World of Fading Hope, artist: Norihiko Yamanuki %}
+
+After you collect all the runes, Gorsia will send you back in time to the dark ages. While here the battle track changes to this new variation, which starts off with the now familiar alarm, but goes into a more upbeat melody. It honestly seems a bit out of place compared to how the previous two tracks have built off each other, though it's not "bad" and has good energy.
+
+{% include track_rating.html role='Normal' hook=3.3 energy=3.5 color=3 clarity=3.5 fit=1.1 show_labels=true %}
+
+## Boss Track(s)
+
+![alt text](/images/jrpg_music/7thsaga/The 7th Saga (SNES) Playthrough [2 of 2] - NintendoComplete 3-20-44 screenshot.png)
+
+{% jekyll_player "/mp3/7thsaga/13 Epic Confrontation.mp3", game: The 7th Saga, title: Epic Confrontation, artist: Norihiko Yamanuki %}
+
+Though this track plays in every boss battle, the fights against the various incarnations of Pison are what immediately jump to mind. The tone of this track is very different than the battle tracks, and feels much more ominous and dangerous. You really feel like the upcoming battle is going to be markedly more difficult and it pumps you up.
+
+Since these battles tend to span many, many turns, this song will loop often. That doesn't make it a bad track, but you'll notice how short it is, which affects the overall score.
+
+{% include track_rating.html role='Boss' hook=4.4 energy=4.2 color=3.9 clarity=3.7 fit=4.5 show_labels=true %}
+
+## Final Battle Track(s)
+
+![](/images/jrpg_music/7thsaga/The 7th Saga (SNES) Playthrough [2 of 2] - NintendoComplete 5-26-51 screenshot.png)
+
+It's really unfortunate that for such an epic game, there isn't an equally epic track to play during the final boss battle. The standard boss track plays out here as well, so unfortunately this category will end up scored as a zero.
+
+{% include track_rating.html role='Final' hook=0 energy=0 color=0 clarity=0 fit=0 show_labels=true %}
+
+
+## Suite Checks and Final Score
+
+Listening to each battle track in a row you can tell they're from the same score, by the same composer and they share a lot of common DNA. Each track builds on the previous one, and the growth in tension and urgency as they progress is evident. Each battle track begins with the same alarm sound, which I think is a nice touch as it makes it very clear an encounter is about to take place, and the tracks mostly fit their situations.
+
+{% include final_rating.html suite='The 7th Saga (SNES)' rn=3.4 rb=4.1 tc=4.2 esc=3.6 sc=5 show_labels=true %}

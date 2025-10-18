@@ -104,7 +104,8 @@ $$
 
 ## Scores
 
-1. **38%** [Dragon Quest (NES) - 1986]({% post_url 2025-10-13-dragon-quest %})
+1. **66%** [The 7th Saga (SNES) - 1993]({% post_url 2025-10-15-the-7th-saga %})
+2. **38%** [Dragon Quest (NES) - 1986]({% post_url 2025-10-13-dragon-quest %})
 
 
 

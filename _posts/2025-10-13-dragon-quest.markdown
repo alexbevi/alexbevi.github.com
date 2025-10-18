@@ -21,8 +21,12 @@ Dragon Quest, titled Dragon Warrior when initially localized to North America, i
 {: .prompt-info }
 
 > Audio files from [Zophar's Domain](https://www.zophar.net/music/nintendo-nes-nsf/dragon-warrior) \
-> Screenshots from [Dragon Warrior (NES) Playthrough](https://www.youtube.com/watch?v=J392i9NKvvo)
+> Screenshots from [**Dragon Warrior (NES) Playthrough**](https://www.youtube.com/watch?v=J392i9NKvvo)
 {: .prompt-warning }
+
+Dragon Warrior (which was the North American name) is a game I played many times as a kid, and even beat a few times. I was more of a Final Fantasy fan though so I don't have as much fondness or nostalgia for this title itself, but I do remember the impact the battle system and gameplay had on me.
+
+I wanted more games like this ... where "this" was JRPGs. That fondness is what is contributing to this effort to collect, listen to and rate the battle music from all these games.
 
 ## Battle Track(s)
 
