@@ -101,6 +101,20 @@ $$
 - Weights: $w_N=0.45,\; w_B=0.30,\; w_F=0.25$
 - ~75% reflects how good the battle tracks sound and function moment-to-moment; the rest rewards cohesion ($TC$), escalation ($ESC$), and meeting the expected suite ($SC$).
 
+<hr/>
+{%- assign games_finished = 2  -%}
+{%- assign games_skipped  = 0  -%}
+{%- assign games_total    = 301 -%}
+```js
+{
+  "progress": {
+    "finished": {{ games_finished }},
+     "skipped": {{ games_skipped }},
+       "total": {{ games_total }}
+  },
+  "completed": "{{ games_finished | plus: games_skipped | times: 100.0 | divided_by: games_total | round: 2 }}%"
+}
+```
 
 ## Scores
 

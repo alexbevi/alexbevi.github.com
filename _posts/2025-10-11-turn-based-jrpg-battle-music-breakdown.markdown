@@ -100,7 +100,7 @@ To kick things off I started by taking the [Traditional Turn-Based JRPGs - Game 
 
 It's very likely this is not comprehensive, and I may choose to skip games for any number of reasons - but for now this is what I'm looking to cover. For my [Let's Adventure! A Journey into Adventure Games (1980-1999)]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series I added a summary like the following, so figured it would be worth doing here as well:
 <hr/>
-{%- assign games_finished = 1  -%}
+{%- assign games_finished = 2  -%}
 {%- assign games_skipped  = 0  -%}
 {%- assign games_total    = 301 -%}
 ```js
