@@ -122,7 +122,7 @@ As I work through these I'll update the list below with links to each game's bat
 | 7th Dragon 2020                                          | PSP             | 2011     |
 | 7th Dragon 2020-II                                       | PSP             | 2013     |
 | 7th Dragon III Code: VFD                                 | 3DS             | 2015     |
-| 7th Saga                                                 | SNES            | 1993     |
+| [7th Saga]({% post_url 2025-10-15-the-7th-saga %})       | SNES            | 1993     |
 | A Witch's Tale                                           | DS              | 2009     |
 | Albert Odyssey: Legend of Eldean                         | SATURN          | 1996     |
 | Anachronox                                               | PC              | 2001     |
