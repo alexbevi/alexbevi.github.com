@@ -70,7 +70,7 @@ The games list for this journey is available via [this Google Sheet](https://doc
 As I work through the list I'll link the reviews below. You can also find the reviews (in order of publication) under the ["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page or [sorted by score]({% post_url 2021-08-08-adventure-games-1980-1999-sorted-by-score %}).
 
 <hr>
-{%- assign games_finished = 98 -%}
+{%- assign games_finished = 99 -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -145,7 +145,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 55. Future Wars (Delphine Software International) - 1989
 56. KULT: The Temple of Flying Saucers (Exxos, ERE informatique) - 1989
 57. [Manhunter 2: San Francisco (Evryware)]({% post_url 2023-09-06-manhunter-san-francisco %}) - 1989
-58. [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
+58. [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989 (`66%`)
 59. Transylvania III: Vanquish the Night (Polarware) - 1989
 60. [Space Quest III: The Pirates of Pestulon (Sierra On-Line)]({% post_url 2024-02-16-space-quest-iii %}) - 1989
 61. Indiana Jones and the Last Crusade (Lucasfilm Games) - 1989

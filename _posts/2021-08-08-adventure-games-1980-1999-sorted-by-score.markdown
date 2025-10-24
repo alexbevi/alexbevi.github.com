@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 98  -%}
+{%- assign games_finished = 99  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -52,6 +52,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **67%** [Blade Runner (Westwood Studios)]({% post_url 2023-10-05-blade-runner %}) - 1997
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
 1. **66%** [Universe (Core Design)]({% post_url 2025-02-02-universe %}) - 1994
+1. **66%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
 1. **66%** [Space Quest II: Vohaul's Revenge (Sierra On-Line)]({% post_url 2023-02-24-space-quest-2 %}) - 1987
 1. **64%** [Neuromancer (Interplay Productions)]({% post_url 2025-01-22-neuromancer %}) - 1988
