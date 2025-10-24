@@ -22,7 +22,7 @@ _Once again there are mutants to interact with_
 
 With [ScummVM recently announcing support for Martian Memorandum](https://www.scummvm.org/news/20251005), it seemed like the perfect time to pick this game up for the series. Though I enjoyed much of my experience playing [Mean Streets]({% post_url 2023-01-19-mean-streets %}), there were several mechanics I could really do without so I was pleasantly surprised to see that this game was very much an improvement in almost every way.
 
-I played through this game fully and really only found ([and reported](https://bugs.scummvm.org/ticket/16308
+I played through this game fully using `ScummVM 3.0.0git9072-g83957afe279 (Oct 20 2025 05:56:12)` and really only found ([and reported](https://bugs.scummvm.org/ticket/16308
 )) one issue that caused a crash. There are a couple of audio tracks that don't play, but if you check the console output while the game is running there are TODOs still that indicate these are known (and will likely be addressed at some point):
 ```
 User picked target 'martian' (engine ID 'access', game ID 'martian')...

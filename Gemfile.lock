@@ -28,13 +28,13 @@ GEM
     foreman (0.90.0)
       thor (~> 1.4)
     forwardable-extended (2.6.0)
-    google-protobuf (4.32.1)
+    google-protobuf (4.33.0)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.32.1-x86_64-darwin)
+    google-protobuf (4.33.0-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.32.1-x86_64-linux-gnu)
+    google-protobuf (4.33.0-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     html-proofer (3.19.4)
@@ -124,7 +124,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (6.0.2)
-    puma (7.0.4)
+    puma (7.1.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.3)
