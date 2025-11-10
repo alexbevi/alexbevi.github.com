@@ -178,7 +178,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 88. Heart of China (Dynamix) - 1991
 89. [Hugo II, Whodunit? (Gray Design Associates)]({% post_url 2024-05-10-hugo-ii-whodunit %}) - 1991
 90. Les Manley in: Lost in L.A. (Accolade) - 1991
-91. Martian Memorandum (Access Software) - 1991
+91. [Martian Memorandum (Access Software)]({% post_url 2025-10-21-martian-memorandum %}) - 1991
 92. [Police Quest III: The Kindred (Sierra On-Line)]({% post_url 2023-12-16-police-quest-iii %}) - 1991
 93. Sherlock Holmes: Consulting Detective (ICOM Simulations) - 1991
 94. Spellcasting 201: The Sorcerer's Appliance (Legend Entertainment) - 1991

@@ -51,6 +51,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **69%** [Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.)]({% post_url 2023-07-31-tony-tough %}) - 1999
 1. **67%** [Blade Runner (Westwood Studios)]({% post_url 2023-10-05-blade-runner %}) - 1997
 1. **67%** [Police Quest: In Pursuit of the Death Angel (Sierra On-Line)]({% post_url 2022-03-15-police-quest-1 %}) - 1987
+1. **66%** [Martian Memorandum (Access Software)]({% post_url 2025-10-21-martian-memorandum %}) - 1991
 1. **66%** [Universe (Core Design)]({% post_url 2025-02-02-universe %}) - 1994
 1. **66%** [Mean Streets (Access Software)]({% post_url 2023-01-19-mean-streets %}) - 1989
 1. **66%** [Nightshade (Beam Software)]({% post_url 2022-12-31-nightshade %}) - 1992
