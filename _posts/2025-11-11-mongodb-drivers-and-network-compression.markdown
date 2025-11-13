@@ -5,7 +5,7 @@ date: 2025-11-11 16:44:22 -0500
 comments: true
 categories: MongoDB
 tags: [mongodb, drivers, networking, compression]
-image: /images/mongodb-logo.png
+image: /images/mongodb-compression.png
 ---
 
 MongoDB's drivers communicate with a MongoDB process using the [Wire Protocol](https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol), which is a simple socket-based, request-response style protocol that primarily uses the [`OP_MSG`](https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg) opcode (though [prior to MongoDB 6.0](https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed) there were a number of addition [legacy opcodes](https://www.mongodb.com/docs/manual/legacy-opcodes)). Since the contents of `OP_MSG` messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: [`OP_COMPRESSED`](https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed).
