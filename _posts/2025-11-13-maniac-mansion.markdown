@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Maniac Mansion"
+title: "Maniac Mansion (Lucasfilm Games) - 1987"
 date: 2025-11-13 05:37:59 -0500
 comments: true
 tags: [adventure, "Lucasfilm Games", "played:DOS", SCUMM]
