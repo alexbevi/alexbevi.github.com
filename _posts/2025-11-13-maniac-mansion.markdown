@@ -47,9 +47,13 @@ Future games like [Day of the Tentacle]({% post_url 2024-01-20-day-of-the-tentac
 
 There are _a lot_ of items you will come across in the mansion which you can `PICK UP` and `USE`. The majority of the puzzles in this game rely on picking up the right item for the right situation. Since there are multiple kids you can play through the game with, there are even situation and character specific items that can be used.
 
-For example, only Bernard can `FIX` the phone once you have the tools. If any of the other kids pick up the tools and try this, they'll let you know this isn't possible.
+For example, only Bernard and Jeff can `FIX` the phone once you have the tools. If any of the other kids pick up the tools and try this, they'll let you know this isn't possible.
 
 It's possible to finish the game with every combination of kids, which adds massive replayability to this game. There are many different ways to solve certain puzzles, and though it's not always obvious, the puzzles typically aren't overly obtuse that you can't reason your way out of it without resorting to a walkthrough.
+
+![](/images/adventure/mm/scummvm-maniac-v2-00019.png)
+
+Though this is a LucasArts game, you _can_ actually die in it. When this happens, the kid that died will no longer be accessible and a tombstone will appear out front of the mansion. This can actually lead to the game becoming unwinnable, which is a general frustration with this title. Surprisingly there are actually a number of [ways to lose Maniac Mansion](http://www.maniacmansionfan.50webs.com/waystolose.html) beyond just losing one of the kids. This is likely an artifact of LucasArts' earliest attempt at this type of adventure game, as subsequent titles definitely made the games a lot more forgiving of player errors.
 
 ![](/images/adventure/mm/scummvm-maniac-v2-00009.png)
 _Bernard can't get past the Green Tentacle himself. Switch kids and try with someone else_
@@ -132,7 +136,6 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 /images/adventure/mm/scummvm-maniac-v2-00016.png
 /images/adventure/mm/scummvm-maniac-v2-00017.png
 /images/adventure/mm/scummvm-maniac-v2-00018.png
-/images/adventure/mm/scummvm-maniac-v2-00019.png
 /images/adventure/mm/scummvm-maniac-v2-00020.png
 /images/adventure/mm/scummvm-maniac-v2-00021.png
 /images/adventure/mm/scummvm-maniac-v2-00022.png
