@@ -3,6 +3,7 @@ layout: post
 title: "Martian Memorandum (Access Software) - 1991"
 date: 2025-10-21 17:57:52 -0400
 comments: true
+categories: ["Let's Adventure!"]
 tags: [adventure, "Access Software", "played:DOS", Access]
 image: /images/adventure/marmem/scummvm-martian-00000.png
 series: lets_adventure

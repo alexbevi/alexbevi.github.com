@@ -3,6 +3,7 @@ layout: post
 title: "Maniac Mansion (Lucasfilm Games) - 1987"
 date: 2025-11-13 05:37:59 -0500
 comments: true
+categories: ["Let's Adventure!"]
 tags: [adventure, "Lucasfilm Games", "played:DOS", SCUMM]
 image: /images/adventure/mm/scummvm-maniac-v2-00001.png
 series: lets_adventure
