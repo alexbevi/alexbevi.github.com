@@ -75,7 +75,7 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **77%** [Blue Force (Tsunami Games)]({% post_url 2022-03-31-blue-force %}) - 1993
 1. **76%** [Rise of the Dragon (Dynamix)]({% post_url 2023-02-13-rise-of-the-dragon %}) - 1990
 1. **73%** [I Have No Mouth, and I Must Scream (The Dreamers Guild)]({% post_url 2023-03-30-i-have-no-mouth-and-i-must-scream %}) - 1995
-1. **71%** [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988
+1. **45%** (was **71%**) [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988
 1. **70%** [Space Quest III: The Pirates of Pestulon (Sierra On-Line)]({% post_url 2024-02-16-space-quest-iii %}) - 1989
 1. **69%** [Manhunter: New York (Evryware)]({% post_url 2023-02-18-manhunter-new-york %}) - 1988
 1. **69%** [Tony Tough and the Night of Roasted Moths (Nayma Software, Prograph Research S.r.l.)]({% post_url 2023-07-31-tony-tough %}) - 1999
