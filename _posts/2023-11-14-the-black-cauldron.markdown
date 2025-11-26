@@ -90,6 +90,20 @@ If you're a fan of the movie, you might enjoy playing this game but as an advent
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (15)**|4|
+|**Sound (10)**|1|
+|**Plot / Progression (25)**|7|
+|**Characters / Development (15)**|6|
+|**Gameplay / Experience (15)**|3|
+|**Replayability (5)**|0|
+|**Impact / Impression (10)**|2|
+|**Bonus / Surprise (5)**|0|
+||**23%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|5|
 |**Story (25)**|11|
 |**Experience (15)**|5|

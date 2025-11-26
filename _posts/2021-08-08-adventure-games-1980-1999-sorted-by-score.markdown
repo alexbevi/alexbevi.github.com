@@ -111,23 +111,23 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **36%** [Jurassic Park (Sega of America)]({% post_url 2024-07-15-jurassic-park %}) - 1993
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 1. **34%** [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
-1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **31%** [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
 1. **29%** [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
 1. **28%** [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **23%** [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
+1. **23%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **22%** [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **21%** [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
 1. **20%** [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
-1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 1. **19%** [Time Zone (On-Line Systems)]({% post_url 2025-09-17-time-zone %}) - 1982
 1. **18%** [Plan 9 from Outer Space (Gremlin Ireland)]({% post_url 2024-12-22-plan-9-from-outer-space %}) - 1992
+1. **17%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 1. **15%** [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **14%** [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
 1. **13%** [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
-1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **12%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
+1. **8%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
 
 {% comment % }

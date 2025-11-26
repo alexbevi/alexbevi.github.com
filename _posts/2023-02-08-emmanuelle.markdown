@@ -20,7 +20,7 @@ I'm gonna be honest here ... I had no idea what was going on, what I was suppose
 ![](/images/adventure/emmanuelle/emma_001.png)
 _Copy protection is possibly the most intuitive part of this game_
 
-You start off by having to lookup a couple of colour values from a massive table. This is the game's copy protection and only lasts a few seconds, but may be the most fun part of the game :P
+You start off by having to lookup a couple of colour values from a massive table. This is the game's copy protection and only lasts a few seconds, but may be the most fun part of the game 🤣.
 
 ![](/images/adventure/emmanuelle/emma_006.png)
 _EGA nudity ... how "hot"_
@@ -45,7 +45,7 @@ _You find Emmanuelle at the airport and leave ... EXIT TO DOS_
 
 This game just makes no sense. Maybe if you've read the books this is loosely based on you'll have some idea as to where to go but from the moment you get "control", locations on the maps aren't highlighted in any way so you're guessing where to click to interact with the game world. What you're supposed to do on each screen makes no sense. Why I had to buy a toucan at one point made no sense.
 
-Nothing about this game made any sense. If it made sense to YOU, please explain in the comments below :)
+Nothing about this game made any sense. If it made sense to YOU, please explain in the comments below 😆.
 
 ### Game Information
 
@@ -64,6 +64,20 @@ Nothing about this game made any sense. If it made sense to YOU, please explain 
 ### Score
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
+
+|**Graphics (15)**|2|
+|**Sound (10)**|1|
+|**Plot / Progression (25)**|2|
+|**Characters / Development (15)**|2|
+|**Gameplay / Experience (15)**|1|
+|**Replayability (5)**|0|
+|**Impact / Impression (10)**|0|
+|**Bonus / Surprise (5)**|0|
+||**8%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
 
 |**Atmosphere (20)**|3|
 |**Story (25)**|3|

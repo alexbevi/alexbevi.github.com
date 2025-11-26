@@ -128,19 +128,19 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **36%** [Jurassic Park (Sega of America)]({% post_url 2024-07-15-jurassic-park %}) - 1993
 1. **34%** [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
 1. **34%** [Altered Destiny (Accolade)]({% post_url 2024-06-14-altered-destiny %}) - 1990
-1. **34%** [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **31%** (was **34%**) [Rendezvous with Rama (Telarium)]({% post_url 2023-10-07-rendezvous-with-rama %}) - 1984
 1. **29%** [Ace Ventura (7th Level)]({% post_url 2023-05-16-ace-ventura %}) - 1996
 1. **28%** (was **31%**) [The Dark Crystal (On-Line Systems)]({% post_url 2023-12-08-the-dark-crystal %}) - 1983
 1. **23%** (was **29%**) [Wizard and the Princess (On-Line Systems)]({% post_url 2022-12-30-wizard-and-the-princess %}) - 1980
+1. **23%** (was **34%**) [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
 1. **22%** (was **33%**) [Transylvania (Penguin Software)]({% post_url 2021-08-24-transylvania %}) - 1982
 1. **21%** (was **66%**) [Mystery House (On-Line Systems)]({% post_url 2021-08-03-mystery-house %}) - 1980
 1. **21%** [Bargon Attack (Coktel Vision)]({% post_url 2024-08-06-bargon-attack %}) - 1992
 1. **20%** (was **31%**) [Dallas Quest (Datasoft)]({% post_url 2024-03-29-the-dallas-quest %}) - 1984
-1. **19%** [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
+1. **17%** (was **19%**) [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
 1. **15%** (was **46%**) [Ulysses and the Golden Fleece (On-Line Systems)]({% post_url 2021-08-08-ulysses-and-the-golden-fleece %}) - 1981
 1. **14%** (was **27%**) [Kabul Spy (Sirius Software)]({% post_url 2023-02-07-kabul-spy %}) - 1982
 1. **13%** (was **14%**) [Adventureland (Adventure International)]({% post_url 2023-10-24-adventureland %}) - 1982
-1. **13%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **12%** (was **19%**) [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
+1. **8%** (was **13%**) [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **7%** (was **11%**) [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990

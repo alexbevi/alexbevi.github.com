@@ -84,6 +84,20 @@ I really wanted to like this game, but I really didn't. I wouldn't recommend thi
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (15)**|3|
+|**Sound (10)**|3|
+|**Plot / Progression (25)**|4|
+|**Characters / Development (15)**|3|
+|**Gameplay / Experience (15)**|3|
+|**Replayability (5)**|0|
+|**Impact / Impression (10)**|1|
+|**Bonus / Surprise (5)**|0|
+||**17%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|4|
 |**Story (25)**|5|
 |**Experience (15)**|2|

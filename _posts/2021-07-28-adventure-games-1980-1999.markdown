@@ -111,7 +111,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 21. [Déjà Vu: A Nightmare Comes True (ICOM Simulations)]({% post_url 2023-04-11-deja-vu %}) - 1985
 22. Perry Mason: The Case of the Mandarin Murder (Telarium) - 1985
 23. [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
-24. [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986
+24. [The Black Cauldron (Sierra On-Line)]({% post_url 2023-11-14-the-black-cauldron %}) - 1986 (`23%`)
 25. J.B. Harold Murder Club (Riverhillsoft) - 1986
 26. [Labyrinth: The Computer Game (Lucasfilm Games)]({% post_url 2021-08-30-labyrinth %}) - 1986
 27. [Murder on the Mississippi (Activision)]({% post_url 2023-05-10-murder-on-the-mississippi %}) - 1986
@@ -140,7 +140,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 50. [Police Quest II: The Vengeance (Sierra On-Line)]({% post_url 2023-02-21-police-quest-2 %}) - 1988 (`45%`)
 51. [Snatcher (Konami)]({% post_url 2023-06-28-snatcher %}) - 1988
 52. B.A.T. (Computer's Dream) - 1989
-53. [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
+53. [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989 (`8%`)
 54. Legend of Djel (Coktel Vision) - 1989
 55. Future Wars (Delphine Software International) - 1989
 56. KULT: The Temple of Flying Saucers (Exxos, ERE informatique) - 1989
@@ -233,7 +233,7 @@ As I work through the list I'll link the reviews below. You can also find the re
 143. Inca II: Nations of Immortality (Coktel Vision) - 1993
 144. [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
 145. [The Legend of Kyrandia: Hand of Fate (Westwood Studios)]({% post_url 2025-07-15-the-legend-of-kyrandia-hand-of-fate %}) - 1993 (`60%`)
-146. [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993
+146. [Lost in Time (Coktel Vision)]({% post_url 2023-10-26-lost-in-time %}) - 1993 (`17%`)
 147. [Pepper's Adventures in Time (Sierra On-Line)]({% post_url 2025-04-24-peppers-adventures-in-time %}) - 1993 (`44%`)
 148. Putt-Putt Goes to the Moon (Humongous Entertainment) - 1993
 149. [Return of the Phantom (MicroProse)]({% post_url 2024-12-30-return-of-the-phantom %}) - 1993 (`48%`)
