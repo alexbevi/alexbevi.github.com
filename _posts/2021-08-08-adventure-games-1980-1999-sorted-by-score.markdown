@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 100  -%}
+{%- assign games_finished = 101  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -37,7 +37,6 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **86%** [Beneath a Steel Sky (Revolution Software)]({% post_url 2023-02-10-beneath-a-steel-sky %}) - 1994
 1. **86%** [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
-1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **84%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **79%** [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
@@ -76,8 +75,10 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **56%** [Frederik Pohl's Gateway (Legend Entertainment)]({% post_url 2023-11-29-gateway %}) - 1992
 1. **56%** [Loom (Lucasfilm Games)]({% post_url 2024-02-06-loom %}) - 1990
 1. **55%** [Space Quest 6: The Spinal Frontier (Sierra On-Line)]({% post_url 2024-10-08-space-quest-6-the-spinal-frontier %}) - 1995
+1. **55%** [Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line)]({% post_url 2025-11-28-leisure-suit-larry-5 %}) - 1991
 1. **53%** [Ripper (Take-Two Interactive)]({% post_url 2023-09-27-ripper %}) - 1996
 1. **53%** [Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)]({% post_url 2024-06-02-space-quest-iv-roger-wilco-and-the-time-rippers %}) - 1991
+1. **52%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **51%** [Harvester (DigiFX Interactive)]({% post_url 2024-02-23-harvester %}) - 1996
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 1. **51%** [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984

@@ -53,6 +53,20 @@ I'd highly recommend playing through this game. If text parser games aren't your
 
 See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring) for a refresher on how we're scoring these games.
 
+|**Graphics (15)**|5|
+|**Sound (10)**|2|
+|**Plot / Progression (25)**|17|
+|**Characters / Development (15)**|9|
+|**Gameplay / Experience (15)**|9|
+|**Replayability (5)**|2|
+|**Impact / Impression (10)**|6|
+|**Bonus / Surprise (5)**|2|
+||**52%**|
+
+> Note that I [overhauled my scoring criteria]({% post_url 2024-08-22-overhauling-my-scoring-criteria %}) in August of 2024, and the score above is the revised score for this game.
+> See below for the original score based on the original scoring criteria.
+{: .prompt-info }
+
 |**Atmosphere (20)**|17|
 |**Story (25)**|21|
 |**Experience (15)**|13|

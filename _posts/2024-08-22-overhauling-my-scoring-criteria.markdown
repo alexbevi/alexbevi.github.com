@@ -68,7 +68,6 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **86%** [Beneath a Steel Sky (Revolution Software)]({% post_url 2023-02-10-beneath-a-steel-sky %}) - 1994
 1. **86%** [Sanitarium (DreamForge Intertainment)]({% post_url 2021-12-22-sanitarium %}) - 1998
 1. **84%** [Sam & Max Hit the Road (LucasArts)]({% post_url 2023-01-23-sam-and-max-hit-the-road %}) - 1993
-1. **84%** [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **84%** [Flight of the Amazon Queen (Interactive Binary Illusions)]({% post_url 2024-06-09-flight-of-the-amazon-queen %}) - 1995
 1. **80%** [Shadowgate (ICOM Simulations)]({% post_url 2021-08-16-shadowgate %}) - 1987
 1. **79%** [Innocent Until Caught (Divide By Zero)]({% post_url 2024-01-29-innocent-until-caught %}) - 1993
@@ -102,6 +101,7 @@ The snapshot of the scores at the time the system was overhauled is below. As I'
 1. **56%** [Loom (Lucasfilm Games)]({% post_url 2024-02-06-loom %}) - 1990
 1. **53%** [Ripper (Take-Two Interactive)]({% post_url 2023-09-27-ripper %}) - 1996
 1. **53%** [Space Quest IV: Roger Wilco and the Time Rippers (Sierra On-Line)]({% post_url 2024-06-02-space-quest-iv-roger-wilco-and-the-time-rippers %}) - 1991
+1. **52%** (was **84%**) [Space Quest: The Sarien Encounter (Sierra On-Line)]({% post_url 2021-08-09-space-quest-the-sarien-encounter %}) - 1986
 1. **51%** [Harvester (DigiFX Interactive)]({% post_url 2024-02-23-harvester %}) - 1996
 1. **51%** [Beavis and Butt-Head in Virtual Stupidity (Viacom New Media)]({% post_url 2023-04-16-beavis-and-butthead %}) - 1995
 1. **51%** (was **80%**) [Princess Tomato in the Salad Kingdom (Hudson Soft)]({% post_url 2021-08-15-princess-tomato-in-the-salad-kingdom %}) - 1984
