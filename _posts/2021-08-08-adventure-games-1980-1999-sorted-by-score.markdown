@@ -10,7 +10,7 @@ image: /images/adventure-banner.jpg
 This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) series, sorted by rating. See the _["Let's Adventure!"](https://www.alexbevi.com/categories/let-s-adventure/) category page_ for a list of content by date of publication.
 
 <hr>
-{%- assign games_finished = 101  -%}
+{%- assign games_finished = 102  -%}
 {%- assign games_skipped  = 13  -%}
 {%- assign games_total    = 363 -%}
 ```js
@@ -102,6 +102,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **42%** [Hook (Ocean)]({% post_url 2024-10-20-hook %}) - 1992
 1. **41%** [Hugo's House of Horrors (Gray Design Associates)]({% post_url 2022-12-21-hugos-house-of-horrors %}) - 1990
 1. **41%** [King's Quest II: Romancing the Throne (Sierra On-Line)]({% post_url 2023-04-25-kings-quest-ii %}) - 1985
+1. **40%** [King's Quest IV: The Perils of Rosella (Sierra On-Line)]({% post_url 2025-12-15-kings-quest-iv %}) - 1988
 1. **40%** [The Crimson Crown - Further Adventures in Transylvania (Penguin Software)]({% post_url 2023-02-15-the-crimson-crown-further-adventures-in-transylvania %}) - 1985
 1. **40%** [Police Quest: Open Season (Sierra On-Line)]({% post_url 2024-04-25-police-quest-open-season %}) - 1993
 1. **39%** [Companions of Xanth (Legend Entertainment)]({% post_url 2023-05-23-companions-of-xanth %}) - 1993
@@ -130,6 +131,7 @@ This page is a list of the reviewed games from the ["Let's Adventure!"]({% post_
 1. **12%** [Mission Asteroid (On-Line Systems)]({% post_url 2023-04-26-mission-asteroid %}) - 1980
 1. **8%** [Emmanuelle (Coktel Vision)]({% post_url 2023-02-08-emmanuelle %}) - 1989
 1. **7%** [Geisha (Coktel Vision)]({% post_url 2023-03-23-geisha %}) - 1990
+
 
 {% comment % }
 
