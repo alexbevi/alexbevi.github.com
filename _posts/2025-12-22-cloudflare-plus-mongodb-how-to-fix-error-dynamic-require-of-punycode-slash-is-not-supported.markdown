@@ -8,7 +8,7 @@ tags: [mongodb, drivers, node, nodejs, javascript, typescript]
 image: /images/mongodb-cloudflare.png
 ---
 
-If you've followed my [previous post]({% 2025-03-25-cloudflare-workers-and-mongodb %}) to try and connect to MongoDB from Cloudflare workers, it's possible you've come across the following issue:
+If you've followed my [previous post]({% post_url 2025-03-25-cloudflare-workers-and-mongodb %}) to try and connect to MongoDB from Cloudflare workers, it's possible you've come across the following issue:
 
 ```
 Error: Dynamic require of "punycode/" is not supported
