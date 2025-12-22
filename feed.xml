@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-12T06:10:42-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-22T11:57:15-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html"></title><link href="https://www.alexbevi.com/blog/2025/12/22/2025-12-22-cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="" /><published>2025-12-22T11:57:15-05:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/2025-12-22-cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/2025-12-22-cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Error: Dynamic require of "punycode/" is not supported
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The TL;DR is there is an issue with how <code class="language-plaintext highlighter-rouge">@cloudflare/vite-plugin</code> is <a href="https://github.com/jsdom/tr46/pull/73">processing an import with a trailing slash within the <code class="language-plaintext highlighter-rouge">tr46</code> library</a>, which is a transitive dependency of the MongoDB Node.js driver. The current solution is to patch this out until a proper fix is in place.</p>
+
+<h3 id="reproduction">Reproduction</h3>
+
+<p>Let’s begin with a new application we can use as a minimum reproduction. Chances are you’ve already got an application ready that’s hitting this issue, but if not we can verify this behavior by simply <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/">creating a new React Router app using <code class="language-plaintext highlighter-rouge">create-cloudflare</code></a> as follows, then adding the MongoDB Node.js driver as a dependency and importing it.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c"># create a new react router app</span>
+npm create cloudflare@latest <span class="nt">--</span> my-react-router-app <span class="nt">--framework</span><span class="o">=</span>react-router
+<span class="nb">cd </span>my-react-router-app
+<span class="c"># install mongodb</span>
+npm <span class="nb">install </span>mongodb <span class="nt">--save</span>
+<span class="c"># prepend an import to the workers/app.ts file</span>
+<span class="nb">printf</span> <span class="s1">'import { MongoClient } from "mongodb";\n%s'</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">cat </span>workers/app.ts<span class="si">)</span><span class="s2">"</span> <span class="o">&gt;</span> workers/app.ts
+<span class="c"># update wrangler.jsonc with compatibility flags to support SSR</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">''</span> <span class="s1">'/"compatibility_date": "2025-04-04"/a\
+  "compatibility_flags": ["nodejs_compat"],'</span> wrangler.jsonc
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>With a freshly bootstrapped application, let’s try running it to see what happens.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre>npm run dev
+<span class="o">&gt;</span> dev
+<span class="o">&gt;</span> react-router dev
+
+11:15:07 AM <span class="o">[</span>vite] <span class="o">(</span>ssr<span class="o">)</span> Re-optimizing dependencies because vite config has changed
+11:15:08 AM <span class="o">[</span>vite] <span class="o">(</span>ssr<span class="o">)</span> ✨ new dependencies optimized: mongodb
+11:15:08 AM <span class="o">[</span>vite] <span class="o">(</span>ssr<span class="o">)</span> ✨ optimized dependencies changed. reloading
+<span class="o">[</span>vite] program reload
+Error: Dynamic require of <span class="s2">"punycode/"</span> is not supported
+    at null.&lt;anonymous&gt; <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/.vite/deps_ssr/chunk-PLDDJCW6.js:11:9<span class="o">)</span>
+    at node_modules/tr46/index.js <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/tr46/index.js:3:18<span class="o">)</span>
+    at __require2 <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/.vite/deps_ssr/chunk-PLDDJCW6.js:17:50<span class="o">)</span>
+    at node_modules/whatwg-url/lib/url-state-machine.js <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/whatwg-url/lib/url-state-machine.js:2:14<span class="o">)</span>
+    at __require2 <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/.vite/deps_ssr/chunk-PLDDJCW6.js:17:50<span class="o">)</span>
+    at node_modules/whatwg-url/lib/URL-impl.js <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/whatwg-url/lib/URL-impl.js:2:13<span class="o">)</span>
+    at __require2 <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/.vite/deps_ssr/chunk-PLDDJCW6.js:17:50<span class="o">)</span>
+    at node_modules/whatwg-url/lib/URL.js <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/whatwg-url/lib/URL.js:499:14<span class="o">)</span>
+    at __require2 <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/.vite/deps_ssr/chunk-PLDDJCW6.js:17:50<span class="o">)</span>
+    at node_modules/whatwg-url/webidl2js-wrapper.js <span class="o">(</span>/Users/alex/Temp/my-react-router-app/node_modules/whatwg-url/webidl2js-wrapper.js:3:13<span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span>cause]: undefined
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Vite is complaining that the dynamic require of “punycode/” is not supported. The trailing slash following “punycode” is interesting, but we should first see where it’s being imported. We can do this by using <a href="https://docs.npmjs.com/cli/v7/commands/npm-ls"><code class="language-plaintext highlighter-rouge">npm ls</code></a> to quickly narrow down usage of <code class="language-plaintext highlighter-rouge">punycode</code> to the <code class="language-plaintext highlighter-rouge">tr46</code> library:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>npm <span class="nb">ls </span>punycode
+my-react-router-app@ /Users/alex/Temp/my-react-router-app
+└─┬ mongodb@7.0.0
+  └─┬ mongodb-connection-string-url@7.0.0
+    └─┬ whatwg-url@14.2.0
+      └─┬ tr46@5.1.1
+        └── punycode@2.3.1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Inspecting the <code class="language-plaintext highlighter-rouge">tr46</code> library at https://github.com/jsdom/tr46/blob/main/index.js shows the trailing slash on the import as well:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">punycode</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">punycode/</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// &lt;--- this is the line in question</span>
+<span class="kd">const</span> <span class="nx">regexes</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./lib/regexes.js</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">mappingTable</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./lib/mappingTable.json</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">STATUS_MAPPING</span> <span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./lib/statusMapping.js</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// ...</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I initially tried to open a PR at https://github.com/jsdom/tr46/pull/73 to sort this out, but the maintainer points out that the issue is with Vite, so we’ll need to look elsewhere for a solution.</p>
+
+<h3 id="patching">Patching</h3>
+
+<p>We’re going to solve this issue in a roundabout fashion using <a href="https://www.npmjs.com/package/patch-package"><code class="language-plaintext highlighter-rouge">patch-package</code></a> to modify the <code class="language-plaintext highlighter-rouge">punycode</code> import directly in our <code class="language-plaintext highlighter-rouge">node_packages</code> and then have a <code class="language-plaintext highlighter-rouge">postinstall</code> script that will ensure the patch is consistently applied.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c"># install patch-package</span>
+npm <span class="nb">install </span>patch-package
+<span class="c"># update package.json to run patch-package as well as cf-typegen (which is there by default)</span>
+npm pkg <span class="nb">set </span>scripts.postinstall<span class="o">=</span><span class="s2">"patch-package &amp;&amp; npm run cf-typegen"</span>
+<span class="c"># update node_modules/tr46/index.js to remove the trailing slash from the import</span>
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">''</span> <span class="s1">'s/require("punycode\/")/require("punycode")/g'</span> node_modules/tr46/index.js
+<span class="c"># create a patch for the tr46 package based on the above change</span>
+npx patch-package tr46
+<span class="c"># reinstall and apply patches</span>
+npm <span class="nb">install</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>That should do it! When we run <code class="language-plaintext highlighter-rouge">npm install</code> it will also run the <code class="language-plaintext highlighter-rouge">postinstall</code>, which will apply the patch we just created.</p>
+
+<h3 id="summary">Summary</h3>
+
+<p>Though patching transient dependencies to work around an issue like this is not ideal, it does offer a path forward for anyone hitting this specific error. To summarize what we did to address the issue:</p>
+
+<ol>
+  <li>Install the <code class="language-plaintext highlighter-rouge">patch-package</code> library (<code class="language-plaintext highlighter-rouge">npm install patch-package</code>)</li>
+  <li>Update your <code class="language-plaintext highlighter-rouge">package.json</code>’s <code class="language-plaintext highlighter-rouge">scripts.postinstall</code> to prepend a <code class="language-plaintext highlighter-rouge">patch-package</code> script to any <code class="language-plaintext highlighter-rouge">postinstall</code> scripts that may already be present</li>
+  <li>Modify <code class="language-plaintext highlighter-rouge">node_modules/tr46/index.js</code> to remove the trailing <code class="language-plaintext highlighter-rouge">/</code> from <code class="language-plaintext highlighter-rouge">require("punycode/")</code></li>
+  <li>Create the patch by running <code class="language-plaintext highlighter-rouge">npx patch-package tr46</code></li>
+  <li>Ensure the patch is applied by running <code class="language-plaintext highlighter-rouge">npm install</code></li>
+</ol>
+
+<p>Hopefully we can get this sorted out more cleanly, but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li><li><strong>Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</strong></li></ul>
 
   <p>Article 101 of 101 in this series.</p>
@@ -190,7 +348,7 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/408/leisure-suit-larry-5-passionate-patti-does-a-little-undercover-w/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 101 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 101 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/21/martian-memorandum/">Martian Memorandum (Access Software) - 1991</a></li><li><strong>Maniac Mansion (Lucasfilm Games) - 1987</strong></li><li>→ <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li></ul>
 
   <p>Article 100 of 101 in this series.</p>
@@ -532,7 +690,7 @@
       <p><small>Description from <a href="https://www.mobygames.com/game/714/maniac-mansion/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
 
 <p>All official <a href="https://www.mongodb.com/docs/drivers/">MongoDB drivers</a> allow you to enable and configure <a href="https://www.mongodb.com/docs/manual/reference/connection-string-options/#compression-options">compression options</a> via the connection string. To use any of the available compressors, they’d need to first be <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors">enabled for each <code class="language-plaintext highlighter-rouge">mongod</code> or <code class="language-plaintext highlighter-rouge">mongos</code> instance through the <code class="language-plaintext highlighter-rouge">net.compression.compressors</code> option</a>, however all compressors are currently enabled by default, so you’d really only need to modify this to remove support for a given compressor.</p>
 
@@ -812,7 +970,7 @@ compressed (snappy): rx: 3807095, tx: 3797837
       <p><small>Per the <a href="https://github.com/mongodb/specifications/blob/master/source/compression/OP_COMPRESSED.md#messages-not-allowed-to-be-compressed">Wire Compression specification</a>, some commands should not be compressed. These include <code class="language-plaintext highlighter-rouge">hello</code>/<code class="language-plaintext highlighter-rouge">ismaster</code>, <code class="language-plaintext highlighter-rouge">saslStart</code>, <code class="language-plaintext highlighter-rouge">saslContinue</code>, <code class="language-plaintext highlighter-rouge">getnonce</code>, <code class="language-plaintext highlighter-rouge">authenticate</code>, <code class="language-plaintext highlighter-rouge">createUser</code>, <code class="language-plaintext highlighter-rouge">updateUser</code>, <code class="language-plaintext highlighter-rouge">copydbSaslStart</code>, <code class="language-plaintext highlighter-rouge">copydbgetnonce</code> and <code class="language-plaintext highlighter-rouge">copydb</code>.</small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/09/17/time-zone/">Time Zone (On-Line Systems) - 1982</a></li><li><strong>Martian Memorandum (Access Software) - 1991</strong></li><li>→ <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li></ul>
 
   <p>Article 99 of 101 in this series.</p>
@@ -1048,7 +1206,7 @@ comments/1azvg20/another_frustrating_level_from_childhood/">Turbo Tunnel from Ba
       <p><small>Plot synopsis from <a href="https://texmurphy.fandom.com/wiki/Martian_Memorandum">Fandom</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/13/dragon-quest/">🎶 Dragon Quest (NES) - 1986</a></li><li><strong>🎶 The 7th Saga (SNES) - 1993</strong></li></ul>
 
   <p>Article 2 of 2 in this series.</p>
@@ -1636,7 +1794,7 @@ Screenshots from <strong>The 7th Saga (SNES) Playthrough - NintendoComplete</str
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>66%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
 
 <h2 id="scoring-methodology">Scoring Methodology</h2>
 
@@ -1774,7 +1932,7 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
 <ol>
   <li><strong>66%</strong> <a href="/blog/2025/10/15/the-7th-saga/">The 7th Saga (SNES) - 1993</a></li>
   <li><strong>38%</strong> <a href="/blog/2025/10/13/dragon-quest/">Dragon Quest (NES) - 1986</a></li>
-</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 Dragon Quest (NES) - 1986</title><link href="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/" rel="alternate" type="text/html" title="🎶 Dragon Quest (NES) - 1986" /><published>2025-10-13T06:23:51-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/13/dragon-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 Dragon Quest (NES) - 1986</title><link href="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/" rel="alternate" type="text/html" title="🎶 Dragon Quest (NES) - 1986" /><published>2025-10-13T06:23:51-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/13/dragon-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li><strong>🎶 Dragon Quest (NES) - 1986</strong></li><li>→ <a href="/blog/2025/10/15/the-7th-saga/">🎶 The 7th Saga (SNES) - 1993</a></li></ul>
 
   <p>Article 1 of 2 in this series.</p>
@@ -2142,7 +2300,7 @@ Screenshots from <a href="https://www.youtube.com/watch?v=J392i9NKvvo"><strong>D
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>38%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Square Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.🎶 Dragon Quest (NES) - 1986→ 🎶 The 7th Saga (SNES) - 1993 Article 1 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown</title><link href="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown" /><published>2025-10-11T21:06:53-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/"><![CDATA[<p>I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played <a href="/blog/2016/07/27/just-finished-dragon-quest-i/">Dragon Quest</a> many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.</p>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Square Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.🎶 Dragon Quest (NES) - 1986→ 🎶 The 7th Saga (SNES) - 1993 Article 1 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown</title><link href="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown" /><published>2025-10-11T21:06:53-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/"><![CDATA[<p>I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played <a href="/blog/2016/07/27/just-finished-dragon-quest-i/">Dragon Quest</a> many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.</p>
 
 <p>These games all tended to have great intros, overworld themes, dungeon and town themes and varied battle tracks. The latter has always stuck in my head the most, likely since you spent so much time getting into random battles to level your characters up so you’d be presented with the same songs over and over again. When you found your way to a boss and the song changed to something slightly more intense it really got your heart pumping.</p>
 
@@ -3791,7 +3949,7 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
       <td>2006</td>
     </tr>
   </tbody>
-</table>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played Dragon Quest many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">High Performance with MongoDB is now available!</title><link href="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/" rel="alternate" type="text/html" title="High Performance with MongoDB is now available!" /><published>2025-09-25T12:11:26-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/"><![CDATA[<p>If you happened to click on through to the <a href="https://www.mongodb.com/books">MongoDB Press</a> page recently you may have noticed a new entry there called <strong>“High Performances with MongoDB”</strong>, which is now available from <a href="https://www.amazon.com/dp/1837022631">Amazon</a> and <a href="https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632">Packt Publishing</a>.</p>
+</table>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played Dragon Quest many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">High Performance with MongoDB is now available!</title><link href="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/" rel="alternate" type="text/html" title="High Performance with MongoDB is now available!" /><published>2025-09-25T12:11:26-04:00</published><updated>2025-12-22T11:56:39-05:00</updated><id>https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/"><![CDATA[<p>If you happened to click on through to the <a href="https://www.mongodb.com/books">MongoDB Press</a> page recently you may have noticed a new entry there called <strong>“High Performances with MongoDB”</strong>, which is now available from <a href="https://www.amazon.com/dp/1837022631">Amazon</a> and <a href="https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632">Packt Publishing</a>.</p>
 
 <p>This is a project I’ve been working on for most of the first half of 2025 along with <a href="https://www.linkedin.com/in/asya999/">Asya Kamsky</a> and <a href="https://www.linkedin.com/in/ghartnett/">Ger Hartnett</a>. Both Asya and Ger bring a huge depth and breadth of MongoDB knowledge and experience to the table, and it was an absolute pleasure to learn from them as we worked through our chapters.</p>
 
@@ -3855,196 +4013,4 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
   <li>Operating Systems and System Resources</li>
   <li>Monitoring and Observability</li>
   <li>Debugging Performance Issues</li>
-</ol>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="book" /><summary type="html"><![CDATA[If you happened to click on through to the MongoDB Press page recently you may have noticed a new entry there called “High Performances with MongoDB”, which is now available from Amazon and Packt Publishing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-book-cover.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-book-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Time Zone (On-Line Systems) - 1982</title><link href="https://www.alexbevi.com/blog/2025/09/17/time-zone/" rel="alternate" type="text/html" title="Time Zone (On-Line Systems) - 1982" /><published>2025-09-17T06:25:41-04:00</published><updated>2025-12-12T06:10:01-05:00</updated><id>https://www.alexbevi.com/blog/2025/09/17/time-zone</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/17/time-zone/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/07/15/the-legend-of-kyrandia-hand-of-fate/">The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993</a></li><li><strong>Time Zone (On-Line Systems) - 1982</strong></li><li>→ <a href="/blog/2025/10/21/martian-memorandum/">Martian Memorandum (Access Software) - 1991</a></li></ul>
-
-  <p>Article 98 of 101 in this series.</p>
-</blockquote>
-
-<p><a href="https://en.wikipedia.org/wiki/Time_Zone_%28video_game%29">Time Zone</a> is a multi-disk graphical adventure game written and directed by Roberta Williams for the Apple II. Developed in 1981 and released in 1982 by On-Line Systems (later Sierra Entertainment), the game was shipped with six double-sided floppy disks and contained 1,500 areas (screens) to explore along with 39 scenarios to solve. Produced at a time when most games rarely took up more than one side of a floppy, Time Zone is one of the first games of this magnitude released for home computer systems.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00031.png" alt="" /></p>
-
-<p>Someone has chosen you to secure the Earth’s future by destroying the evil ruler of the planet Neburon. He offers you the ability of time and space travel in order to do so, and has placed a time machine in your home so that you can travel to different time periods. In these periods, you will meet such famous names like Julius Caesar, Christopher Columbus, Cavemen, Robin Hood, Benjamin Franklin, and Cleopatra.</p>
-
-<p>Like other Hi-Res Adventures by On-Line Systems, you can switch between graphic and text modes. You are required to type a one or two word command to perform actions. The game can also be saved with a floppy disk, but with one that is specifically designed for use with the game.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00003.png" alt="" /></p>
-
-<p>The game starts off with you in front of your house, having just woken up from a weird dream. The only direction you can move is <code class="language-plaintext highlighter-rouge">NORTH</code>, and once doing so you find yourself in front of a time machine.</p>
-
-<p>After you <code class="language-plaintext highlighter-rouge">ENTER MACHINE</code>, you see a seat … so you <code class="language-plaintext highlighter-rouge">SIT</code> and have a <code class="language-plaintext highlighter-rouge">LOOK</code>. There are dials and a display that indicate various time periods and locations that you can travel to by adjusting the values, then spurring the machine into action via a <code class="language-plaintext highlighter-rouge">PULL LEVER</code>.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00008.png" alt="" /></p>
-
-<p>So much of the game involves repeating those steps as you travel through the various locations and time periods on a series of fetch quests.</p>
-
-<p>For a game from 1982, the graphics are fine, and definitely do their job of conveying what the parser describes you should be seeing. Though fairly rudimentary, this was considered pretty good for a game of this era.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00021.png" alt="" />
-<em>This feels kind of racist</em></p>
-
-<p>You’ll meet a number of characters on your adventure. Some of them you can <code class="language-plaintext highlighter-rouge">TALK</code> to, while others are just there to kill you. The character designs are very simplistic and depict stereotypical caricatures of people from these time periods you’re visiting.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00032.png" alt="" /></p>
-
-<p>The goal the game (as outline in your dream at the very beginning) is to secure the Earth’s future by destroying the evil ruler of the distant planet Neburon, which you need to find items from various time periods to be able to do.</p>
-
-<p>Some items from some time periods need to be used or traded in others to allow you to progress, so you’ll want to <code class="language-plaintext highlighter-rouge">USE</code> everything everywhere, or try to <code class="language-plaintext highlighter-rouge">TRADE</code> various items with other characters.</p>
-
-<p>Typically if a character has something you may need, it’s fairly obvious based on <code class="language-plaintext highlighter-rouge">LOOK</code>ing at them.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00029.png" alt="" /></p>
-
-<p>To make things a bit more difficult, you can’t take items too far back or they’re lost. When this happens you typically won’t know what you lost unless you checked your inventory before and after and happen to remember what was there.</p>
-
-<p>This is a bit cumbersome, but is a fairly important game mechanic as you will need to plan your route through time accordingly.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00023.png" alt="" /></p>
-
-<p>If you press <code class="language-plaintext highlighter-rouge">ENTER</code> without typing any text, the text interface goes full screen, which can be useful for reviewing past commands. If you type <code class="language-plaintext highlighter-rouge">INVENTORY</code> you can see what you’re holding.</p>
-
-<p>This is something you’ll find yourself doing fairly often (unless you’re following a walkthrough).</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00030.png" alt="" /></p>
-
-<p>You can always go back to your home and drop items off to travel back and forth in time without losing anything, but you’ll need to remember to do this.</p>
-
-<p>If you see an item you can pick up and do so, it is actually removed from the screen. If you drop an item on the screen, it’ll become visible and will remain there until you come back. This form of persistence was actually pretty novel for 1982, so it definitely gets a bonus point for that.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00035.png" alt="" /></p>
-
-<p>There’s no time limit in this game, though some screens require you to wait for an event to happen, which involves executing commands without leaving the screen. This is not obvious, and honestly feels a bit like bad design.</p>
-
-<p>I had to resort to the walkthrough multiple times while playing this game as I’d <code class="language-plaintext highlighter-rouge">LOOK</code> or try to <code class="language-plaintext highlighter-rouge">TALK</code> a couple times, then if nothing happened I’d leave. Having to do these throwaway commands 5-6 times to trigger the next event is not intuitive at all.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00026.png" alt="" /></p>
-
-<p>As with most Sierra games, death is around every corner, and if you don’t pick the right answer the first time, you’ll likely die. Thankfully you can save and reload on every screen - and you probably will have to.</p>
-
-<p>Playing this game in ScummVM is the best possible way to experience Time Zone as you can maintain multiple saves. I typically would save once I reached a new time zone, then before I’d interact with a character so I’d always have a short distance to travel back when I inevitably made a mistake and died.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00036.png" alt="" />
-<em>Oh goody, a maze</em></p>
-
-<p>Since I hate mazes, I needed to call out that the last section of the game involves navigating a maze. It’s unremarkable and not all that big, but it’s big enough to be a pain in the ass.</p>
-
-<p>At the end of that maze is a death ray that you need to blow up (I hope you found the dynamite in the trunk of the car in North America circa 2082AD). Once you do this, it’s back through the maze, back to the time machine and back home to finish up your trek through time and space.</p>
-
-<p><img src="/images/adventure/tz/scummvm-hires5-apple2-00038.png" alt="" /></p>
-
-<p>Once you return, you get a key to the city and the game ends. Seeing as there’s really no plot or character development throughout the game, an abrupt and arbitrary ending seems appropriate.</p>
-
-<p>There are a lot of screens to navigate and explore, but not really much variety in the gameplay. This is a very early text parser game, so interaction with the world is limited to 2-3 word commands.It is kind of funny that if you type <code class="language-plaintext highlighter-rouge">FUCK</code> into the parser the game will kick you out, but I’m sure most of us experiencing this for the first time in the 80s and 90s likely tried this at least once.</p>
-
-<p>Overall it’s impressive how big this game feels, but it’s not really all that much fun to play.</p>
-
-<h2 id="game-information">Game Information</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td><em>Game</em></td>
-      <td>Time Zone</td>
-    </tr>
-    <tr>
-      <td><em>Developer</em></td>
-      <td><a href="https://en.wikipedia.org/wiki/On-Line_Systems">On-Line Systems</a></td>
-    </tr>
-    <tr>
-      <td><em>Publisher</em></td>
-      <td>On-Line Systems</td>
-    </tr>
-    <tr>
-      <td><em>Release Date</em></td>
-      <td>1993</td>
-    </tr>
-    <tr>
-      <td><em>Systems</em></td>
-      <td>Apple II</td>
-    </tr>
-    <tr>
-      <td><em>Game Engine</em></td>
-      <td><a href="https://wiki.scummvm.org/index.php?title=ADL">ADL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="my-playthrough">My Playthrough</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td><a href="https://howlongtobeat.com/game/19640">How Long To Beat?</a></td>
-      <td>3.5 hours</td>
-    </tr>
-    <tr>
-      <td><em>Version Played</em></td>
-      <td>Apple 2 via <a href="https://www.scummvm.org/">ScummVM</a></td>
-    </tr>
-    <tr>
-      <td><em>Notes</em></td>
-      <td><a href="https://adventuregamers.com/walkthroughs/full/time-zone">Walkthrough</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="score">Score</h3>
-
-<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Graphics (15)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><strong>Sound (10)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><strong>Plot / Progression (25)</strong></td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td><strong>Characters / Development (15)</strong></td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><strong>Gameplay / Experience (15)</strong></td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><strong>Replayability (5)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><strong>Impact / Impression (10)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><strong>Bonus / Surprise (5)</strong></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>19%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="gallery">Gallery</h3>
-
-<div id="inline-gallery-container" class="inline-gallery-container"></div>
-<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/tz/scummvm-hires5-apple2-00001.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00001.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00002.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00002.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00004.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00004.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00005.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00005.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00006.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00006.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00007.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00007.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00009.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00009.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00010.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00010.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00011.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00011.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00012.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00012.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00013.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00013.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00014.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00014.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00015.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00015.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00016.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00016.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00017.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00017.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00018.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00018.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00019.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00019.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00020.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00020.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00022.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00022.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00024.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00024.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00025.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00025.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00027.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00027.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00028.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00028.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00033.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00033.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00034.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00034.png' },{ src: '/images/adventure/tz/scummvm-hires5-apple2-00037.png', thumb: '/images/adventure/tz/scummvm-hires5-apple2-00037.png' },]});inlineGallery.openGallery();</script>
-
-<p><strong>Footnotes</strong></p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p><small>Description from <a href="https://www.mobygames.com/game/15283/time-zone/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="On-Line Systems" /><category term="played:AppleII" /><category term="ADL" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← The Legend of Kyrandia: Hand of Fate (Westwood Studios) - 1993Time Zone (On-Line Systems) - 1982→ Martian Memorandum (Access Software) - 1991 Article 98 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/tz/scummvm-hires5-apple2-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/tz/scummvm-hires5-apple2-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</ol>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="book" /><summary type="html"><![CDATA[If you happened to click on through to the MongoDB Press page recently you may have noticed a new entry there called “High Performances with MongoDB”, which is now available from Amazon and Packt Publishing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-book-cover.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-book-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
