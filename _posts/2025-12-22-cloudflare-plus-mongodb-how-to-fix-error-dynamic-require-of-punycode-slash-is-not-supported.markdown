@@ -83,7 +83,7 @@ const { STATUS_MAPPING } = require("./lib/statusMapping.js");
 // ...
 ```
 
-I initially tried to open a PR at https://github.com/jsdom/tr46/pull/73 to sort this out, but the maintainer points out that the issue is with Vite, so we'll need to look elsewhere for a solution.
+I initially tried to open a PR at [https://github.com/jsdom/tr46/pull/73](https://github.com/jsdom/tr46/pull/73) to sort this out, but the maintainer points out that the issue is with Vite, so we'll need to look elsewhere for a solution.
 
 ### Patching
 
