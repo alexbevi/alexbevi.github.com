@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cloudflare + MongoDB: How to fix 'Error: Dynamic require of "punycode/" is not supported'"
+title: "Cloudflare + MongoDB: How to fix 'Error: Dynamic require of \"punycode/\" is not supported'"
 date: 2025-12-22 10:54:11 -0500
 comments: true
 categories: MongoDB
