@@ -83,7 +83,7 @@ const { STATUS_MAPPING } = require("./lib/statusMapping.js");
 // ...
 ```
 
-I initially tried to open a PR at [https://github.com/jsdom/tr46/pull/73](https://github.com/jsdom/tr46/pull/73) to sort this out, but the maintainer points out that the issue is with Vite, so we'll need to look elsewhere for a solution.
+I initially tried to open a PR at [https://github.com/jsdom/tr46/pull/73](https://github.com/jsdom/tr46/pull/73) to sort this out, but the maintainer points out that the issue is with Vite, so we'll need to look elsewhere for a solution. This change (introduced in commit [`fef6e95`](https://github.com/jsdom/tr46/commit/fef6e95243caaa0e46a1aa42fa21af6caef11e51)) was likely done to address `punycode` deprecation warnings such as that described in [https://github.com/jsdom/tr46/issues/63](https://github.com/jsdom/tr46/issues/63). For more info on those deprecations see ["Solving the \"Punycode Module is Deprecated\" Issue in Node.js"](https://medium.com/@asimabas96/solving-the-punycode-module-is-deprecated-issue-in-node-js-93437637948a).
 
 ### Patching
 
