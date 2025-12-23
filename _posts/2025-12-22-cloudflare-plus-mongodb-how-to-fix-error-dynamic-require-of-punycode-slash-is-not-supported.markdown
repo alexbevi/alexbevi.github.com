@@ -71,7 +71,7 @@ my-react-router-app@ /Users/alex/Temp/my-react-router-app
         └── punycode@2.3.1
 ```
 
-Inspecting the `tr46` library at https://github.com/jsdom/tr46/blob/main/index.js shows the trailing slash on the import as well:
+Inspecting the `tr46` library at [https://github.com/jsdom/tr46/blob/main/index.js](https://github.com/jsdom/tr46/blob/main/index.js) shows the trailing slash on the import as well:
 
 ```js
 "use strict";
