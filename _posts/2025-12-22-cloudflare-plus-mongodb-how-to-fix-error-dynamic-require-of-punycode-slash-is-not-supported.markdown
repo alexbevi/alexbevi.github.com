@@ -114,4 +114,4 @@ Though patching transient dependencies to work around an issue like this is not 
 4. Create the patch by running `npx patch-package tr46`
 5. Ensure the patch is applied by running `npm install`
 
-Hopefully we can get this sorted out more cleanly, but in the meantime feel free to use this approach if you find it suitable.
+Hopefully we can get this sorted out more cleanly (reported as [https://github.com/cloudflare/workers-sdk/issues/11751](https://github.com/cloudflare/workers-sdk/issues/11751)), but in the meantime feel free to use this approach if you find it suitable.
