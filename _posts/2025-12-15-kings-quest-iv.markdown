@@ -122,7 +122,7 @@ See [here](https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#s
 |**Replayability (5)**|1|
 |**Impact / Impression (10)**|3|
 |**Bonus / Surprise (5)**|2|
-||**44%**|
+||**48%**|
 
 ### Gallery
 
