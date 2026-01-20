@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-12-23T09:03:39-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-01-20T05:08:44-05:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>Error: Dynamic require of "punycode/" is not supported
@@ -156,10 +156,199 @@ npm <span class="nb">install</span>
   <li>Ensure the patch is applied by running <code class="language-plaintext highlighter-rouge">npm install</code></li>
 </ol>
 
-<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li><li><strong>Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</strong></li></ul>
+<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</title><link href="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/" rel="alternate" type="text/html" title="King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988" /><published>2025-12-15T20:48:52-05:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li><li><strong>King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</strong></li></ul>
 
-  <p>Article 101 of 101 in this series.</p>
+  <p>Article 102 of 102 in this series.</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/King%27s_Quest_IV">King’s Quest IV: The Perils of Rosella</a> is a graphic adventure game developed by Sierra On-Line for the MS-DOS, Amiga, Apple II, Apple IIGS, and Atari ST computers and released in 1988. The player takes on the role of Princess Rosella, daughter of King Graham of Daventry (King’s Quest I and King’s Quest II) and the twin sister of Gwydion/Alexander (King’s Quest III), who must save her father and a good fairy and destroy an evil witch. Critically acclaimed, it was one of the first games for IBM PC compatibles to support a sound card.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00006.png" alt="" /></p>
+
+<p>King Graham and Queen Valanice were glad to have their children back. Graham thinks that it is time to pass onto them his old adventurers’ hat. When he throws it across the room, he suffers a heart attack and collapses on the floor, and he is carried off to bed. The only way that Graham’s health can be restored is by retrieving the magic fruit in the faraway land of Tamir. A beautiful fairy called Genesta offers Rosella the chance to be transported to the land, and find the fruit. But once she gets transported, she cannot be sent back unless she helps the fairy regain her talisman that was stolen by the evil witch, Lolotte.</p>
+
+<p>King’s Quest IV: The Perils of Rosella is the first game in the series to have a female protagonist. Rosella will meet characters that will either help or hinder her. The player moves Rosella around with arrow keys, and have her perform actions by typing commands. Unlike the previous King’s Quest games, which used the AGI engine, this installment uses the new SCI engine with more detailed graphics; the most visible effect is that the game is paused while the player is typing, giving unlimited time to complete even the longest commands. An AGI version of the game, however, was released as well.</p>
+
+<p>Gameplay-wise, the game is similar to the first two installments of the series, with a large interconnected world open for exploration and no time limit imposed. The game is the first in the series to have a day and night cycle; certain actions can be performed only during a specific time.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00000.png" alt="" /></p>
+
+<p>Before Rosella’s adventure can begin, you’ll need to contend with some good ol’ fashioned copy protection. I’m sure there’s a way to bypass this via ScummVM (maybe using the debug menu), but it’s really not hard to find a scanned copy of the <a href="https://archive.org/details/Kings_Quest_4_-_Manual">manual</a> nowadays.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00029.png" alt="" /></p>
+
+<p>After the intro plays, you’re dropped onto the shores of Tamir and are off on your adventure. Being the first Sierra game to be made with their new <a href="https://en.wikipedia.org/wiki/Sierra_Creative_Interpreter">Sierra Creative Interpreter (SCI)</a> game engine, the graphics popped at a stunning 320x200 resolution (unlike the preceding AGI engine’s 160x200). Interestingly enough, King’s Quest IV was actually released in AGI at the same time, likely to ensure gamers hungry for this title with older computers could still play it (see <a href="https://www.sierrachest.com/index.php?a=games&amp;id=4&amp;fld=making">Making of KQ4: SCI vs. AGI</a>).</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00008.png" alt="" /></p>
+
+<p>King’s Quest IV takes place over a 24 hour period, and has a distinct day/night cycle. You can check the current in-game time in the haunted mansion at any point, but that’s about it. There are also certain puzzles you’ll only have a fixed amount of time to solve, and failing to do so can result in a game over.</p>
+
+<p>Having played this game before I knew there was some element of timing to be aware of, but it’s less of an issue as the randomness of various events and character appearances.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00011.png" alt="" />
+<em>Various characters randomly appear on certain screens, and if they’re missing, you have to come back and try again</em></p>
+
+<p>As you explore Tamir you’ll run into a handful of creatures and characters on various screens that you’ll need to interact with. Most of these interactions occur randomly, so you may not realize there’s a character you need to talk to (or give something to) if you don’t happen to wander back and forth between screens multiple times.</p>
+
+<p>You’ll likely stumble on everything naturally though as this game is one giant series of fetch quests, and the game world is actually quite small so you’ll visit most screens multiple times.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00033.png" alt="" />
+<em>There are a lot of items to collect during this game</em></p>
+
+<p>Tamir is a fairy tale inspired world, so the characters and creatures you meet will mostly be recognizable and not require much introduction. The downside is if you aren’t already familiar with the lore of the characters, it won’t be obvious what you need to do to progress - and the game doesn’t really give you many clues in these situations.</p>
+
+<p>When you go to the Seven Dwarves tree house, it will be messy and trying to <code class="language-plaintext highlighter-rouge">LOOK</code> around either room will tell you that as well, but if you don’t know the story of Snow White you may not think to <code class="language-plaintext highlighter-rouge">CLEAN HOUSE</code>.</p>
+
+<p>The same goes for the the golden ball and the frog. If you don’t know the story of the Frog Prince, why would you drop the golden ball in the pond as a way to lure the frog that happens to be wearing a crown?</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00030.png" alt="" /></p>
+
+<p>When you find your way to the base of the cliffs, you’ll be picked up by some flying henchmen (flying monkeys from the Wizard of Oz?) and you’ll meet Lolotte. She’s the one with the talisman you need, but before you can get close enough to her to do anything you need to prove you’re not a spy … by going on a series of fetch quests.</p>
+
+<p>Lolotte wants the Goose that lays golden eggs, Pandora’s Box and a Unicorn. She’ll assign you these tasks one at a time, and once you get whatever she asked for and bring it back, she sends you back out for the next.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00018.png" alt="" /></p>
+
+<p>After retrieving all 3 she’ll tell you her son Igor is in love with you so your reward will be to marry him in the morning (lucky you). She’ll lock you in a room in the tower, but Igor will slip a key under the door so you can escape.</p>
+
+<p>If you can slip by the guards and make it to Lolotte’s room, a quick shot in the heart from Cupid’s arrow should put an end to her reign, and you can grab the talisman for Genesta, make your way back to her island and close out this adventure.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00027.png" alt="" /></p>
+
+<p>The main issue I have with King’s Quest IV is that there are too many dead man walking situations you find yourself in. If you don’t find the bridle on the little island after escaping the whale, there’s no way to ever get back to it. When trying to retrieve the trinkets for the ghosts, the shovel can be used exactly 5 times (which is the number of ghosts you have to talk to to advance) before it breaks.</p>
+
+<p>Also, once you have Cupid’s bow make sure you don’t shoot it more than once as you only have 2 arrows …</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00017.png" alt="" /></p>
+
+<p>To save King Graham you’re supposed to find the magic fruit, which involves getting behind the waterfall (you’ll need to <code class="language-plaintext highlighter-rouge">WEAR CROWN</code> you got from the frog prince), get past a troll in the dark cave who appears randomly on each screen, not fall in the chasm in the dark then <code class="language-plaintext highlighter-rouge">JUMP</code> your way across a swamp without falling to your death.</p>
+
+<p>This whole sequence can actually be missed/skipped, but if you do the game will end with you making it back home and King Graham passing away. I actually go this ending the first time because I went through the trouble of getting the fruit, then ate it right before saving Genesta (oops).</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00031.png" alt="" /></p>
+
+<p>Graphically this game is a step up from <a href="/blog/2024/10/25/kings-quest-iii/">King’s Quest III: To Heir Is Human</a>, and the music is also not bad. I had to go back and replay some sections as I accidentally had the sound turned off and thought there was no music for most of the game.</p>
+
+<p>It’s also not an overly difficult game if you’re familiar with the fairy tales and fables being referenced throughout - though navigating stairs is extremely treacherous. Make sure you save periodically as you climb any stairwell, as you will fall to your death more than once.</p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00037.png" alt="" />
+<em>The End … but only if you remembered to pick up the magic fruit</em></p>
+
+<p><img src="/images/adventure/kq4/scummvm-kq4sci-00038.png" alt="" /></p>
+
+<h2 id="game-information">Game Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><em>Game</em></td>
+      <td>King’s Quest IV: The Perils of Rosella</td>
+    </tr>
+    <tr>
+      <td><em>Developer</em></td>
+      <td><a href="https://en.wikipedia.org/wiki/Sierra_Entertainment">Sierra On-Line</a></td>
+    </tr>
+    <tr>
+      <td><em>Publisher</em></td>
+      <td>Sierra On-Line</td>
+    </tr>
+    <tr>
+      <td><em>Release Date</em></td>
+      <td>September 1988</td>
+    </tr>
+    <tr>
+      <td><em>Systems</em></td>
+      <td>DOS, Amiga, Apple IIGS, Atari ST</td>
+    </tr>
+    <tr>
+      <td><em>Game Engine</em></td>
+      <td><a href="https://wiki.scummvm.org/index.php?title=AGI">AGI</a> or <a href="https://wiki.scummvm.org/index.php?title=SCI">SCI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="my-playthrough">My Playthrough</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="https://howlongtobeat.com/game/5031">How Long To Beat?</a></td>
+      <td>5 hours</td>
+    </tr>
+    <tr>
+      <td><em>Version Played</em></td>
+      <td>DOS via <a href="https://www.scummvm.org/">ScummVM</a></td>
+    </tr>
+    <tr>
+      <td><em>Notes</em></td>
+      <td><a href="https://www.sierraplanet.net/kqgames/kings-quest-iv/kings-quest-4-walkthrough/">Walkthrough</a>, <a href="https://archive.org/details/Kings_Quest_4_-_Manual">Manual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="score">Score</h3>
+
+<p>See <a href="https://www.alexbevi.com/blog/2021/07/28/adventure-games-1980-1999/#scoring">here</a> for a refresher on how we’re scoring these games.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Graphics (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Sound (10)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Plot / Progression (25)</strong></td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><strong>Characters / Development (15)</strong></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><strong>Gameplay / Experience (15)</strong></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><strong>Replayability (5)</strong></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>Impact / Impression (10)</strong></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><strong>Bonus / Surprise (5)</strong></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>44%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gallery">Gallery</h3>
+
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+<script type="module">import lightGallery from "https://cdn.skypack.dev/lightgallery@2.4.0";import lgZoom from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/zoom";import lgThumbnail from "https://cdn.skypack.dev/lightgallery@2.4.0/plugins/thumbnail";const $lgContainer = document.getElementById("inline-gallery-container");const inlineGallery = lightGallery($lgContainer, {  container: $lgContainer,  licenseKey: "C2D2C2BD-16BC4564-A4EAE653-401CB884",  dynamic: true,  hash: false,  closable: false,  showMaximizeIcon: true,  slideDelay: 10,  plugins: [lgZoom, lgThumbnail],  dynamicEl: [{ src: '/images/adventure/kq4/scummvm-kq4sci-00002.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00002.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00003.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00003.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00004.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00004.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00005.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00005.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00007.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00007.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00009.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00009.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00010.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00010.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00012.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00012.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00013.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00013.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00014.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00014.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00015.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00015.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00016.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00016.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00019.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00019.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00020.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00020.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00021.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00021.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00022.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00022.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00023.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00023.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00024.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00024.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00025.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00025.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00026.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00026.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00028.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00028.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00032.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00032.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00034.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00034.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00035.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00035.png' },{ src: '/images/adventure/kq4/scummvm-kq4sci-00036.png', thumb: '/images/adventure/kq4/scummvm-kq4sci-00036.png' },]});inlineGallery.openGallery();</script>
+
+<p><strong>Footnotes</strong></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p><small>Description from <a href="https://www.mobygames.com/game/129/kings-quest-iv-the-perils-of-rosella/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 102 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li><li><strong>Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</strong></li><li>→ <a href="/blog/2025/12/15/kings-quest-iv/">King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</a></li></ul>
+
+  <p>Article 101 of 102 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Leisure_Suit_Larry_5:_Passionate_Patti_Does_a_Little_Undercover_Work">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work</a> is a graphical adventure game developed and published by Sierra On-Line for the Amiga, DOS and Macintosh computers in 1991. It is the fourth entry in their Leisure Suit Larry series and the first Larry title to have 256-color graphics and a fully icon-based interface. Being an (in)direct sequel to 1989’s Leisure Suit Larry 3, its title is misleading, as there is no Leisure Suit Larry 4.</p>
@@ -348,10 +537,10 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/408/leisure-suit-larry-5-passionate-patti-does-a-little-undercover-w/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 101 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991→ King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 101 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/21/martian-memorandum/">Martian Memorandum (Access Software) - 1991</a></li><li><strong>Maniac Mansion (Lucasfilm Games) - 1987</strong></li><li>→ <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li></ul>
 
-  <p>Article 100 of 101 in this series.</p>
+  <p>Article 100 of 102 in this series.</p>
 </blockquote>
 
 <script id="jekyll-winamp-boot">(function(){
@@ -690,7 +879,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/714/maniac-mansion/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
 
 <p>All official <a href="https://www.mongodb.com/docs/drivers/">MongoDB drivers</a> allow you to enable and configure <a href="https://www.mongodb.com/docs/manual/reference/connection-string-options/#compression-options">compression options</a> via the connection string. To use any of the available compressors, they’d need to first be <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors">enabled for each <code class="language-plaintext highlighter-rouge">mongod</code> or <code class="language-plaintext highlighter-rouge">mongos</code> instance through the <code class="language-plaintext highlighter-rouge">net.compression.compressors</code> option</a>, however all compressors are currently enabled by default, so you’d really only need to modify this to remove support for a given compressor.</p>
 
@@ -970,10 +1159,10 @@ compressed (snappy): rx: 3807095, tx: 3797837
       <p><small>Per the <a href="https://github.com/mongodb/specifications/blob/master/source/compression/OP_COMPRESSED.md#messages-not-allowed-to-be-compressed">Wire Compression specification</a>, some commands should not be compressed. These include <code class="language-plaintext highlighter-rouge">hello</code>/<code class="language-plaintext highlighter-rouge">ismaster</code>, <code class="language-plaintext highlighter-rouge">saslStart</code>, <code class="language-plaintext highlighter-rouge">saslContinue</code>, <code class="language-plaintext highlighter-rouge">getnonce</code>, <code class="language-plaintext highlighter-rouge">authenticate</code>, <code class="language-plaintext highlighter-rouge">createUser</code>, <code class="language-plaintext highlighter-rouge">updateUser</code>, <code class="language-plaintext highlighter-rouge">copydbSaslStart</code>, <code class="language-plaintext highlighter-rouge">copydbgetnonce</code> and <code class="language-plaintext highlighter-rouge">copydb</code>.</small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/09/17/time-zone/">Time Zone (On-Line Systems) - 1982</a></li><li><strong>Martian Memorandum (Access Software) - 1991</strong></li><li>→ <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li></ul>
 
-  <p>Article 99 of 101 in this series.</p>
+  <p>Article 99 of 102 in this series.</p>
 </blockquote>
 
 <p><a href="https://en.wikipedia.org/wiki/Martian_Memorandum">Martian Memorandum</a> is a dystopian cyberpunk/noir graphic adventure game that was originally released in 1991 for MS-DOS. It was developed and published by Access Software. The game is the second in the series of Tex Murphy mysteries; its immediate sequel is Under a Killing Moon. The game is set in 2039, several years after Mean Streets.</p>
@@ -1206,7 +1395,7 @@ comments/1azvg20/another_frustrating_level_from_childhood/">Turbo Tunnel from Ba
       <p><small>Plot synopsis from <a href="https://texmurphy.fandom.com/wiki/Martian_Memorandum">Fandom</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 101 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/13/dragon-quest/">🎶 Dragon Quest (NES) - 1986</a></li><li><strong>🎶 The 7th Saga (SNES) - 1993</strong></li></ul>
 
   <p>Article 2 of 2 in this series.</p>
@@ -1794,7 +1983,7 @@ Screenshots from <strong>The 7th Saga (SNES) Playthrough - NintendoComplete</str
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>66%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
 
 <h2 id="scoring-methodology">Scoring Methodology</h2>
 
@@ -1932,7 +2121,7 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
 <ol>
   <li><strong>66%</strong> <a href="/blog/2025/10/15/the-7th-saga/">The 7th Saga (SNES) - 1993</a></li>
   <li><strong>38%</strong> <a href="/blog/2025/10/13/dragon-quest/">Dragon Quest (NES) - 1986</a></li>
-</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 Dragon Quest (NES) - 1986</title><link href="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/" rel="alternate" type="text/html" title="🎶 Dragon Quest (NES) - 1986" /><published>2025-10-13T06:23:51-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/13/dragon-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 Dragon Quest (NES) - 1986</title><link href="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/" rel="alternate" type="text/html" title="🎶 Dragon Quest (NES) - 1986" /><published>2025-10-13T06:23:51-04:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/13/dragon-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li><strong>🎶 Dragon Quest (NES) - 1986</strong></li><li>→ <a href="/blog/2025/10/15/the-7th-saga/">🎶 The 7th Saga (SNES) - 1993</a></li></ul>
 
   <p>Article 1 of 2 in this series.</p>
@@ -2300,7 +2489,7 @@ Screenshots from <a href="https://www.youtube.com/watch?v=J392i9NKvvo"><strong>D
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>38%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Square Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.🎶 Dragon Quest (NES) - 1986→ 🎶 The 7th Saga (SNES) - 1993 Article 1 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown</title><link href="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown" /><published>2025-10-11T21:06:53-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/"><![CDATA[<p>I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played <a href="/blog/2016/07/27/just-finished-dragon-quest-i/">Dragon Quest</a> many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.</p>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Square Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.🎶 Dragon Quest (NES) - 1986→ 🎶 The 7th Saga (SNES) - 1993 Article 1 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown</title><link href="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown" /><published>2025-10-11T21:06:53-04:00</published><updated>2026-01-20T05:07:44-05:00</updated><id>https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/"><![CDATA[<p>I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played <a href="/blog/2016/07/27/just-finished-dragon-quest-i/">Dragon Quest</a> many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.</p>
 
 <p>These games all tended to have great intros, overworld themes, dungeon and town themes and varied battle tracks. The latter has always stuck in my head the most, likely since you spent so much time getting into random battles to level your characters up so you’d be presented with the same songs over and over again. When you found your way to a boss and the song changed to something slightly more intense it really got your heart pumping.</p>
 
@@ -3949,68 +4138,4 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
       <td>2006</td>
     </tr>
   </tbody>
-</table>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played Dragon Quest many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">High Performance with MongoDB is now available!</title><link href="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/" rel="alternate" type="text/html" title="High Performance with MongoDB is now available!" /><published>2025-09-25T12:11:26-04:00</published><updated>2025-12-23T09:03:05-05:00</updated><id>https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/09/25/high-performance-with-mongodb-is-now-available/"><![CDATA[<p>If you happened to click on through to the <a href="https://www.mongodb.com/books">MongoDB Press</a> page recently you may have noticed a new entry there called <strong>“High Performances with MongoDB”</strong>, which is now available from <a href="https://www.amazon.com/dp/1837022631">Amazon</a> and <a href="https://www.packtpub.com/en-us/product/high-performance-with-mongodb-9781837022632">Packt Publishing</a>.</p>
-
-<p>This is a project I’ve been working on for most of the first half of 2025 along with <a href="https://www.linkedin.com/in/asya999/">Asya Kamsky</a> and <a href="https://www.linkedin.com/in/ghartnett/">Ger Hartnett</a>. Both Asya and Ger bring a huge depth and breadth of MongoDB knowledge and experience to the table, and it was an absolute pleasure to learn from them as we worked through our chapters.</p>
-
-<blockquote class="prompt-tip">
-  <p><strong>Asya Kamsky</strong></p>
-
-  <p>Principal KnowItAll at MongoDB, where she has worked since 2012. Before discovering MongoDB, she spent nearly two decades coaxing relational databases into doing what they were never designed to do at a series of startups, most of which no one remembers. Asya has an extensive background in software development, databases, and telling people what they’re doing wrong.</p>
-</blockquote>
-
-<blockquote class="prompt-tip">
-  <p><strong>Ger Hartnett</strong></p>
-
-  <p>Lead Engineer on MongoDB’s product performance team, where he loves working on fascinating optimization and scaling challenges. Before MongoDB, he founded a startup that built a project communication platform (that had scaling issues). Prior to that, he architected and tuned embedded software at Intel, where he co-authored a book. Even before that, he developed systems at companies including Tellabs, Digital, and Motorola.</p>
-</blockquote>
-
-<p>This book is for developers, database administrators, system architects, and DevOps engineers focused on performance optimization of MongoDB. Whether you’re building high-throughput applications, managing deployments in production, or scaling distributed systems, you’ll gain actionable insights.</p>
-
-<p>My chapters were those that focus on client libraries, replication, monitoring + observability and connection management as these have been subjects I’m particularity passionate about at MongoDB and wanted to help developers navigate successfully. If you grab a copy, once you’ve had a chance to give it a read don’t hesitate to let me know what you thought!</p>
-
-<blockquote class="prompt-info">
-  <p>Fun fact, this is the <strong>second</strong> <a href="https://www.packtpub.com/en-us/product/redmine-plugin-extension-and-development-9781783288748">book I’ve written with Packt Publishing</a>, though that was <a href="/blog/2014/03/19/redmine-plugin-extension-and-development-published/">way back in 2014</a>!</p>
-</blockquote>
-
-<p><img src="/images/asya_london.png" alt="" />
-<em>Asya was signing books for a long line of <a href="https://www.mongodb.com/events/mongodb-local/london">MongoDB London.local 2025</a> attendees</em></p>
-
-<p>Both Asya and Ger were on hand at this year’s New York and London .local events to sign copies. Unfortunately I wasn’t able to attend, but if you get your hands on a copy and happen to be at a MongoDB event in Toronto, don’t hesitate to seek me out to share any feedback you may have. I’d also be happy to sign your book 😃</p>
-
-<h3 id="book-description">Book Description</h3>
-
-<p>With data as the new competitive edge, performance has become the need of the hour. As applications handle exponentially growing data and user demand for speed and reliability rises, three industry experts distill their decades of experience to offer you guidance on designing, building, and operating databases that deliver fast, scalable, and resilient experiences.</p>
-
-<p>MongoDB’s document model and distributed architecture provide powerful tools for modern applications, but unlocking their full potential requires a deep understanding of architecture, operational patterns, and tuning best practices. This MongoDB book takes a hands-on approach to diagnosing common performance issues and applying proven optimization strategies from schema design and indexing to storage engine tuning and resource management.</p>
-
-<p>Whether you’re optimizing a single replica set or scaling a sharded cluster, this book provides the tools to maximize deployment performance. Its modular chapters let you explore query optimization, connection management, and monitoring or follow a complete learning path to build a rock-solid performance foundation. With real-world case studies, code examples, and proven best practices, you’ll be ready to troubleshoot bottlenecks, scale efficiently, and keep MongoDB running at peak performance in even the most demanding production environments.</p>
-
-<h3 id="what-you-will-learn">What you will learn</h3>
-<ul>
-  <li>Diagnose and resolve common performance bottlenecks in deployments</li>
-  <li>Design schemas and indexes that maximize throughput and efficiency</li>
-  <li>Tune the WiredTiger storage engine and manage system resources for peak performance</li>
-  <li>Leverage sharding and replication to scale and ensure uptime</li>
-  <li>Monitor, debug, and maintain deployments proactively to prevent issues</li>
-  <li>Improve application responsiveness through client driver configuration</li>
-</ul>
-
-<h3 id="table-of-contents">Table of Contents</h3>
-<ol>
-  <li>Systems and MongoDB Architecture</li>
-  <li>Schema Design for Performance</li>
-  <li>Indexes</li>
-  <li>Aggregations</li>
-  <li>Replication</li>
-  <li>Sharding</li>
-  <li>Storage Engines</li>
-  <li>Change Streams</li>
-  <li>Transactions</li>
-  <li>Client Libraries</li>
-  <li>Managing Connections and Network Performance</li>
-  <li>Advanced Query and Indexing Concepts</li>
-  <li>Operating Systems and System Resources</li>
-  <li>Monitoring and Observability</li>
-  <li>Debugging Performance Issues</li>
-</ol>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="book" /><summary type="html"><![CDATA[If you happened to click on through to the MongoDB Press page recently you may have noticed a new entry there called “High Performances with MongoDB”, which is now available from Amazon and Packt Publishing.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-book-cover.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-book-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</table>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[I’ve been a huge fan of traditional, turn-based Japanese role playing games since I first played Dragon Quest many, many years ago. I started getting back into these 8/16-bit JRPGs when I decided I wanted to do a series of game reviews for that genre, but that effort sort of petered out. During this time though there was something about the grind in these JRPGs that really appealed to me, but the main hook - even on the Nintendo Entertainment System - was the music.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
