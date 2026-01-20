@@ -83,10 +83,17 @@ It's also not an overly difficult game if you're familiar with the fairy tales a
 ![](/images/adventure/kq4/scummvm-kq4sci-00037.png)
 _The End ... but only if you remembered to pick up the magic fruit_
 
+I did have fun with this game, but it's definitely not one of my favourites in the King's Quest series. From what I can remember, the other game that sort of revolves around Rosella (King's Quest VII) is also fairly weak, but I guess we'll cross that bridge when we get there.
 
+Sierra did a decent job for one of their last parser-driven games, but for a more modern take on this game I'd suggest you instead grab a copy of [King's Quest IV: The Perils of Rosella Retold](https://www.adventuregamestudio.co.uk/play/game/2533/) which remixes the game with [Adventure Game Studio](https://www.adventuregamestudio.co.uk/) for a more modern point-and-click experience.
 
 ![](/images/adventure/kq4/scummvm-kq4sci-00038.png)
 
+If you complete the game with a perfect score, you'll be given a secret code that was part of a contest at the time the game was released. I tried to track down more details, but according to [this reddit post](https://www.reddit.com/r/gamegrumps/comments/diedjf/comment/f3w57ww/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) the prize was a trip to England, which a couple from NYC ended up winning.
+
+I tried to find more details about that contents but really couldn't (let me know if you have a better source of info).
+
+I'm sure this game has its fans, but I wouldn't count myself amongst them. I did enjoy this article on ["The Making of King's Quest IV"](https://wiki.sierrahelp.com/images/c/cd/KQ4%28TheMakingOf%29.pdf) though, so figure I'll share that here as I wrap this up.
 
 ## Game Information
 
