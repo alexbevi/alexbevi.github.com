@@ -20,7 +20,8 @@ image: /images/mongodb-logo.png
 > Credit to this [Stack Overflow question](https://stackoverflow.com/questions/79873598/mongodb-atlas-srv-connection-fails-with-querysrv-econnrefused-after-switching-no)
 {: .prompt-tip }
 
-> **Updated: February 11, 2026** \
+> **Updated: February 11, 2026**
+> 
 > [dns: fix Windows SRV ECONNREFUSED regression by correcting c-ares fallback detection #61453](https://github.com/nodejs/node/pull/61453) has been merged and will be available in Node.js v25.6.1, as well as backported to Node.js v24
 {: .prompt-tip }
 
