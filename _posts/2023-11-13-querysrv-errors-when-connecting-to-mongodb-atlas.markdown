@@ -13,13 +13,16 @@ image: /images/mongodb-logo.png
 > Error: querySrv ECONNREFUSED _mongodb._tcp.<cluster>.mongodb.net
 >    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)
 > ```    
-> If you're seeing this error on Node.js v22+ and you're on a Windows system, the issue may be due to Node not always using the Windows system DNS resolver. In this case you need to force DNS servers explicitly **before connecting to MongoDB** as follows:
+> If you're seeing this error on Node.js v24 and you're on a Windows system, the issue may be due to Node not always using the Windows system DNS resolver. In this case you need to force DNS servers explicitly **before connecting to MongoDB** as follows:
 > ```js
 > require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 > ```
 > Credit to this [Stack Overflow question](https://stackoverflow.com/questions/79873598/mongodb-atlas-srv-connection-fails-with-querysrv-econnrefused-after-switching-no)
 {: .prompt-tip }
 
+> **Updated: February 11, 2026**
+> [dns: fix Windows SRV ECONNREFUSED regression by correcting c-ares fallback detection #61453](https://github.com/nodejs/node/pull/61453) has been merged and will be available in Node.js v25.6.1, as well as backported to Node.js v24
+{: .prompt-tip }
 
 If your application us
 es MongoDB's [Node.js driver](https://www.mongodb.com/docs/drivers/node/current/) or [Mongoose ODM](https://mongoosejs.com/), occasionally you may observe errors such as `querySrv ECONNREFUSED _mongodb._tcp.cluster0.abcde.mongodb.net` or `Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.abcde.mongodb.net` being thrown. The MongoDB Atlas documentation outlines several methods to [troubleshoot connection issues](https://www.mongodb.com/docs/atlas/troubleshoot-connection/), including how to handle ["Connection Refused using SRV Connection String"](https://www.mongodb.com/docs/atlas/troubleshoot-connection/#connection-refused-using-srv-connection-string) scenarios, but why does this happen in the first place?
