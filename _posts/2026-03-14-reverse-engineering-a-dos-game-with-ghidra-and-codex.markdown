@@ -39,7 +39,7 @@ What I'm looking for on a first pass is:
 
 Since I didn't see any of these, I tried to decompress the executable in DOSBox using [`UNP.EXE`](https://bencastricum.nl/unp/). This didn't do anything as compression wasn't what was obfuscating the strings, but what I could see looked like memory management details - which lead me to believe the game was using a [DOS extender](https://en.wikipedia.org/wiki/DOS_extender) like `DOS/4GW`.
 
-![](images/ghidra1/ghidra-exe-extended.png)
+![](/images/ghidra1/ghidra-exe-extended.png)
 
 `DOS/4GW` was the Watcom-packaged subset of Tenberry’s `DOS/4G`: a [32-bit DOS extender customized for the Watcom toolchain](https://openwatcom.org/ftp/manuals/current/pguide.pdf). Its job was to let a DOS program run in 386 protected mode with a flat, zero-based memory model, so developers could stop fighting 16-bit segmented memory and work with much larger address spaces. Just as importantly for games, `DOS/4GW` still mapped the first megabyte of physical memory into a shared linear address space, which meant code could still reach things like video RAM and BIOS data when needed.
 
@@ -49,7 +49,7 @@ To be able to make any meaningful progress, we need Ghidra to be able to analyze
 
 You can find a copy of the bind utility (`SB.EXE`) with the open source [DOS32A](https://web.archive.org/web/20210726190857/https://dos32a.narechk.net/index_en.html) DOS extender. Once downloaded, you can use this directly via [DOSBox](https://www.dosbox.com/) to unbind the EXE.
 
-![](images/ghidra1/dosbox-sb32a.png)
+![](/images/ghidra1/dosbox-sb32a.png)
 
 When running this against `HARVEST.EXE` it will produce a `HARVEST.LE`, which is the linear executable. Once we have this the next logical step would be to try and load it in Ghidra, but doing this doesn't quite work as Ghidra thinks the LE file is raw data.
 
@@ -57,13 +57,13 @@ When running this against `HARVEST.EXE` it will produce a `HARVEST.LE`, which is
 
 To successfully start analyzing `HARVEST.LE`, we'll first need to install the [Ultimate Ghidra Loader for the LX/LE executable file format](https://github.com/yetmorecode/ghidra-lx-loader) extension. 
 
-![](images/ghidra1/ghidra-import-le.png)
+![](/images/ghidra1/ghidra-import-le.png)
 
 After doing this and restarting Ghidra, the LE EXE format should be properly detected, and we can load this and begin our analysis. Since the goal is to develop a working [ScummVM game engine](https://wiki.scummvm.org/index.php/Engines), we'll be working on a [`harvester` branch of a ScummVM fork](https://github.com/alexbevi/scummvm/tree/harvester).
 
 ## Working with Ghidra via MCP
 
-![](images/ghidra1/ghidra-decompile-le.png)
+![](/images/ghidra1/ghidra-decompile-le.png)
 
 The `HARVEST.LE` executable has now been analyzed and we have a much more informative listing of defined strings to anchor our reverse engineering efforts on. Since we'll be using Codex directly via Visual Studio Code, the next step is to setup Ghidra and [Ghidra MCP](https://github.com/bethington/ghidra-mcp).
 
@@ -77,7 +77,7 @@ This is fairly straightforward:
     MCP. Download GhidraMCP from https://github.com/bethington/ghidra-mcp and install 
     it. Verify this is working once complete.
     ```
-![](images/ghidra1/vscode-01.png)
+![](/images/ghidra1/vscode-01.png)
 
 With GhidraMCP installed and working, we can dig into our initial reverse engineering attempt. I started off by developing an [`AGENTS.md`](https://gist.github.com/alexbevi/07560b7e82dd73527f4fc59ce1ed9972) I could use specifically for this initiative.
 
@@ -92,7 +92,7 @@ meaningful name.
 
 The `AGENTS.md` file outlines operating parameters such as keeping track of our findings in an `ARCHITECTURE.md` file and ongoing progress in a `TRACKER.md` file. As we progress with subsequent prompts, more of the linear executable in Ghidra will be decompiled, making it easier to work with as a source of truth for our re-implementation efforts.
 
-![](images/ghidra1/ghidra-naming.png)
+![](/images/ghidra1/ghidra-naming.png)
 
 Using Ghidra via the Ghidra MCP bridge makes it very easy to incrementally analyze the game executable and start piecing together how it works.
 
@@ -109,7 +109,7 @@ Once we've made sufficient progress unwinding some of the original main game loo
 
 I was actually pleasantly surprised with how easy it was to make progress using this configuration, as targeted prompts more often than not produced positive, actionable results. Within a day of starting this project I was able to get the intro videos playing, the first scene to render and the background music and sound effects working.
 
-![](images/ghidra1/scummvm-early.png)
+![](/images/ghidra1/scummvm-early.png)
 
 Plenty more to do (such as fixing the palette), the main thing to highlight here is that understanding assembly language doesn't need to be a barrier to undertaking these types of reverse engineering initiatives anymore.
 
