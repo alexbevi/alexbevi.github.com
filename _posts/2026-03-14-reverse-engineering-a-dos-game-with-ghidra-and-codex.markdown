@@ -113,16 +113,6 @@ I was actually pleasantly surprised with how easy it was to make progress using 
 
 Plenty more to do (such as fixing the palette), the main thing to highlight here is that understanding assembly language doesn't need to be a barrier to undertaking these types of reverse engineering initiatives anymore.
 
-
-
-
-
-
-
-
-
-
-
-
+<!-- 
 https://github.com/david-offord/harvester-bm-converter/tree/master
-https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/
+https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/ -->
