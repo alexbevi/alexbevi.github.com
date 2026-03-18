@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-17T08:41:44-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Reverse Engineering a DOS Game with Ghidra and Codex</title><link href="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/" rel="alternate" type="text/html" title="Reverse Engineering a DOS Game with Ghidra and Codex" /><published>2026-03-14T06:13:05-04:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/"><![CDATA[<p>As part of my series called <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was <a href="/blog/2024/02/23/harvester/">Harvester</a>, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-18T07:40:42-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Reverse Engineering Harvester with Ghidra and Codex - Part 2</title><link href="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/" rel="alternate" type="text/html" title="Reverse Engineering Harvester with Ghidra and Codex - Part 2" /><published>2026-03-17T19:22:34-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/"><![CDATA[<p>According to the <a href="https://harvester.telepedia.net/wiki/Manual">Harvester manual</a>, your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we’re using a Ghidra disassembly and Codex to build out our ScummVM engine, let’s have a look at how easy adding this functionality can be.</p>
+
+<p><img src="/images/ghidra2/SCR-20260318-gkwu.png" alt="" /></p>
+
+<p>First let’s confirm that our implementation doesn’t support this functionality just yet. This is easy enough to do as we’ve already started working on the inventory system, so clicking on Steve should bring up the expected view - missing photo and all.</p>
+
+<p><img src="/images/ghidra2/SCR-20260317-quvr.png" alt="" /></p>
+
+<p>Comparing this with the original via DOSBox (left) and our current engine (right), we not only can clearly see what the expected outcome should be. The prompt we’re going to use is as follows:</p>
+
+<blockquote>
+  <p>when you click on the inventory view, Steve has his health tracked in the photo in the bottom left. Check back in Ghidra to trace health management, and if there are any unnamed functions or data structures that apply, rename them once you have high confidence. Implement these changes engine-side and commit changes when ready.</p>
+</blockquote>
+
+<p><img src="/images/ghidra2/SCR-20260317-qwys.png" alt="" /></p>
+
+<p>Just like magic, after about 13 minutes of processing Codex will revisit our existing disassembly in Ghidra, clarify any gaps there first, carry that logic back to Visual Studio Code and propose engine changes to implement the requested functionality.</p>
+
+<p><img src="/images/ghidra2/SCR-20260317-qvjx.png" alt="" /></p>
+
+<p>The first pass is honestly pretty impressive, as other than a visual anomaly in the form or a black box seemingly being rendered out of place, the health indicator is working already!</p>
+
+<p>Since we’re taking side-by-side screenshots of a reference implementation (the original running in DOSBox) to compare our re-implementation with, we can actually attach that screenshot as context to steer our next prompt:</p>
+
+<blockquote>
+  <p>you can see from the attached screenshot of dosbox (left) and our engine (right) that the health indicator photo is correctly placed, but there’s a black box under it that appears to be either an incorrect transparency or a misrotated container element. Revist Ghidra for inventory and health drawing and determine how to fix this</p>
+</blockquote>
+
+<p><img src="/images/ghidra2/SCR-20260317-qxoa.png" alt="" /></p>
+
+<p>Codex is making a number of tool calls, so I’ve got <a href="https://www.rtk-ai.app/"><code class="language-plaintext highlighter-rouge">rtk</code></a> installed to compress some of the output to extend my context window slightly. It only takes a couple minutes, but the model is able to determine the cause of the issue based on the state of our reversed engineered executable in Ghidra.</p>
+
+<p><img src="/images/ghidra2/SCR-20260317-qxzk.png" alt="" /></p>
+
+<p>Having invested the time to map out the data structures and function calls in Ghidra really makes it a lot more efficient to work with it to reimplement game logic, and the Ghidra MCP bridge allows us to keep doing this quickly and effectively in Visual Studio Code.</p>
+
+<p><img src="/images/ghidra2/SCR-20260317-qyip.png" alt="" /></p>
+
+<p>What this practically translates to is a fairly good implementation (see full <a href="https://github.com/alexbevi/scummvm/commit/df15ab715792ba0a26f12430ac489619f9be2857">commit</a>).</p>
+
+<p>Ten years ago while I was still muddling my way through <a href="/blog/2015/04/08/asylum-engine-update/"><code class="language-plaintext highlighter-rouge">asylum</code> engine updates</a> in IDA Pro, making this type of progress would have taken me weeks. Now, in about 30 minutes I can achieve exponentially more!</p>]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[According to the Harvester manual, your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we’re using a Ghidra disassembly and Codex to build out our ScummVM engine, let’s have a look at how easy adding this functionality can be.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Reverse Engineering a DOS Game with Ghidra and Codex</title><link href="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/" rel="alternate" type="text/html" title="Reverse Engineering a DOS Game with Ghidra and Codex" /><published>2026-03-14T06:13:05-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/"><![CDATA[<p>As part of my series called <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was <a href="/blog/2024/02/23/harvester/">Harvester</a>, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.</p>
 
 <p><img src="/images/adventure/harvester/harvest_012.png" alt="" /></p>
 
@@ -120,7 +160,7 @@ meaningful name.
 
 <!-- 
 https://github.com/david-offord/harvester-bm-converter/tree/master
-https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/ -->]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[As part of my series called “Let’s Adventure!” I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was Harvester, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
+https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/ -->]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[As part of my series called “Let’s Adventure!” I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was Harvester, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>Error: Dynamic require of "punycode/" is not supported
@@ -278,7 +318,7 @@ npm <span class="nb">install</span>
   <li>Ensure the patch is applied by running <code class="language-plaintext highlighter-rouge">npm install</code></li>
 </ol>
 
-<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</title><link href="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/" rel="alternate" type="text/html" title="King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988" /><published>2025-12-15T20:48:52-05:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</title><link href="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/" rel="alternate" type="text/html" title="King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988" /><published>2025-12-15T20:48:52-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li><li><strong>King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</strong></li></ul>
 
   <p>Article 102 of 102 in this series.</p>
@@ -477,7 +517,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/129/kings-quest-iv-the-perils-of-rosella/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 102 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 102 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li><li><strong>Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</strong></li><li>→ <a href="/blog/2025/12/15/kings-quest-iv/">King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</a></li></ul>
 
   <p>Article 101 of 102 in this series.</p>
@@ -669,7 +709,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/408/leisure-suit-larry-5-passionate-patti-does-a-little-undercover-w/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991→ King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 101 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991→ King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 101 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/21/martian-memorandum/">Martian Memorandum (Access Software) - 1991</a></li><li><strong>Maniac Mansion (Lucasfilm Games) - 1987</strong></li><li>→ <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li></ul>
 
   <p>Article 100 of 102 in this series.</p>
@@ -1011,7 +1051,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/714/maniac-mansion/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
 
 <p>All official <a href="https://www.mongodb.com/docs/drivers/">MongoDB drivers</a> allow you to enable and configure <a href="https://www.mongodb.com/docs/manual/reference/connection-string-options/#compression-options">compression options</a> via the connection string. To use any of the available compressors, they’d need to first be <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors">enabled for each <code class="language-plaintext highlighter-rouge">mongod</code> or <code class="language-plaintext highlighter-rouge">mongos</code> instance through the <code class="language-plaintext highlighter-rouge">net.compression.compressors</code> option</a>, however all compressors are currently enabled by default, so you’d really only need to modify this to remove support for a given compressor.</p>
 
@@ -1291,7 +1331,7 @@ compressed (snappy): rx: 3807095, tx: 3797837
       <p><small>Per the <a href="https://github.com/mongodb/specifications/blob/master/source/compression/OP_COMPRESSED.md#messages-not-allowed-to-be-compressed">Wire Compression specification</a>, some commands should not be compressed. These include <code class="language-plaintext highlighter-rouge">hello</code>/<code class="language-plaintext highlighter-rouge">ismaster</code>, <code class="language-plaintext highlighter-rouge">saslStart</code>, <code class="language-plaintext highlighter-rouge">saslContinue</code>, <code class="language-plaintext highlighter-rouge">getnonce</code>, <code class="language-plaintext highlighter-rouge">authenticate</code>, <code class="language-plaintext highlighter-rouge">createUser</code>, <code class="language-plaintext highlighter-rouge">updateUser</code>, <code class="language-plaintext highlighter-rouge">copydbSaslStart</code>, <code class="language-plaintext highlighter-rouge">copydbgetnonce</code> and <code class="language-plaintext highlighter-rouge">copydb</code>.</small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/09/17/time-zone/">Time Zone (On-Line Systems) - 1982</a></li><li><strong>Martian Memorandum (Access Software) - 1991</strong></li><li>→ <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li></ul>
 
   <p>Article 99 of 102 in this series.</p>
@@ -1527,7 +1567,7 @@ comments/1azvg20/another_frustrating_level_from_childhood/">Turbo Tunnel from Ba
       <p><small>Plot synopsis from <a href="https://texmurphy.fandom.com/wiki/Martian_Memorandum">Fandom</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/13/dragon-quest/">🎶 Dragon Quest (NES) - 1986</a></li><li><strong>🎶 The 7th Saga (SNES) - 1993</strong></li></ul>
 
   <p>Article 2 of 2 in this series.</p>
@@ -2115,7 +2155,7 @@ Screenshots from <strong>The 7th Saga (SNES) Playthrough - NintendoComplete</str
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>66%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
 
 <h2 id="scoring-methodology">Scoring Methodology</h2>
 
@@ -2253,372 +2293,4 @@ $(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.0
 <ol>
   <li><strong>66%</strong> <a href="/blog/2025/10/15/the-7th-saga/">The 7th Saga (SNES) - 1993</a></li>
   <li><strong>38%</strong> <a href="/blog/2025/10/13/dragon-quest/">Dragon Quest (NES) - 1986</a></li>
-</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 Dragon Quest (NES) - 1986</title><link href="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/" rel="alternate" type="text/html" title="🎶 Dragon Quest (NES) - 1986" /><published>2025-10-13T06:23:51-04:00</published><updated>2026-03-17T08:41:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/13/dragon-quest</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/13/dragon-quest/"><![CDATA[<blockquote class="prompt-tip mb-6">
-  <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li><strong>🎶 Dragon Quest (NES) - 1986</strong></li><li>→ <a href="/blog/2025/10/15/the-7th-saga/">🎶 The 7th Saga (SNES) - 1993</a></li></ul>
-
-  <p>Article 1 of 2 in this series.</p>
-</blockquote>
-
-<script id="jekyll-winamp-boot">(function(){
-  if (window.JWAMP && window.JWAMP.__booted) return;
-
-  if (!document.getElementById('jekyll-winamp-styles')) {
-    var style = document.createElement('style');
-    style.id = 'jekyll-winamp-styles';
-    style.appendChild(document.createTextNode(".jwamp { --bg:#1b1b1b; --panel:#2a2a2a; --edge:#0d0d0d; --hi:#00ffc8; --lo:#0ef; --accent:#7fff00; --text:#e6f7f0; --muted:#a8d8cc;\n         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace;\n         width: 100%; max-width: none; background: var(--bg); color: var(--text);\n         border: 2px solid #111; box-shadow: inset 0 0 0 1px #333, 0 2px 10px rgba(0,0,0,.4);\n         padding: 8px; border-radius: 6px; user-select: none; }\n.jwamp * { box-sizing: border-box; }\n.jwamp .sr-only { position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }\n\n/* Compact header removed; we go straight to the info + controls */\n.jwamp-display { background: #001f1a; border:1px solid #003c33; padding:6px 8px; margin-bottom:6px;\n                 color: var(--hi); text-shadow: 0 0 4px rgba(0,255,200,.6); }\n.jwamp-track { display:flex; gap:8px; line-height:1.25; font-size: 13px; flex-wrap: wrap; }\n.jwamp-label { color: var(--muted); min-width: 52px; text-transform: uppercase; font-weight:600; }\n\n.jwamp-controls {\n  display: grid;\n  grid-template-columns: auto auto 1fr auto auto;\n  gap: 8px;\n  align-items: center;\n  background: var(--panel);\n  border:1px solid var(--edge);\n  padding:6px 8px;\n  margin-bottom:6px;\n}\n.jwamp-btn { background: #222; color: var(--text); border:1px solid #000; padding:4px 10px; border-radius:4px; cursor:pointer;\n             box-shadow: inset 0 0 0 1px #3a3a3a; font-weight:700; }\n.jwamp-btn:focus { outline: 2px solid var(--lo); outline-offset: 2px; }\n.jwamp-play { min-width: 40px; }\n.jwamp-stop { min-width: 36px; }\n\n.jwamp-time { min-width: 90px; text-align:center; font-variant-numeric: tabular-nums; color: var(--accent); }\n.jwamp-volume input[type=range] { width: 120px; }\n.jwamp-download { justify-self: end; text-decoration:none; background:#154a40; padding:4px 10px; border-radius:4px; border:1px solid #0c2e28; color: #c6ffe9; }\n\n.jwamp-progress { position: relative; height: 12px; background: #0b2a24; border:1px solid #08332b; cursor: pointer; border-radius: 3px; width: 100%; }\n.jwamp-bar { position:absolute; top:0; left:0; height:100%; width:0%; background: linear-gradient(90deg, #00ffc8, #0ef); }\n.jwamp-knob { position:absolute; top:-3px; height:18px; width:6px; background:#e6f7f0; box-shadow: 0 0 6px rgba(0,255,200,.8); transform: translateX(-50%); left:0%; border-radius:1px; }\n\n.jwamp-error { margin-top:6px; color:#ffb3b3; }\n\n@media (max-width: 520px) {\n  .jwamp-controls { grid-template-columns: auto auto 1fr; }\n  .jwamp-volume { display: none; }\n  .jwamp-download { grid-column: 1 / -1; justify-self: end; }\n}\n"));
-    document.head.appendChild(style);
-  }
-
-  function fmt(t){ if(!isFinite(t)||t<0)t=0; var m=Math.floor(t/60), s=Math.floor(t%60); return m+":"+String(s).padStart(2,'0'); }
-
-  function initOne(root){
-    if (!root || root.__jwampReady) return;
-    root.__jwampReady = true;
-
-    var audio   = root.querySelector('audio');
-    var playBtn = root.querySelector('.jwamp-play');
-    var stopBtn = root.querySelector('.jwamp-stop');
-    var vol     = root.querySelector('#' + root.id + '-vol');
-    var curEl   = root.querySelector('#' + root.id + '-current');
-    var durEl   = root.querySelector('#' + root.id + '-duration');
-    var prog    = root.querySelector('#' + root.id + '-progress');
-    var bar     = root.querySelector('#' + root.id + '-bar');
-    var knob    = root.querySelector('#' + root.id + '-knob');
-    var errEl   = root.querySelector('#' + root.id + '-error');
-
-    function updateProgress(){
-      var pct = (audio.currentTime / (audio.duration || 1)) * 100;
-      bar.style.width = pct + "%"; knob.style.left = pct + "%";
-      curEl.textContent = fmt(audio.currentTime);
-      prog.setAttribute('aria-valuenow', String(Math.round(pct)));
-    }
-
-    audio.addEventListener('loadedmetadata', function(){ durEl.textContent = fmt(audio.duration); updateProgress(); });
-    audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('ended', function(){ playBtn.textContent = '▶'; });
-
-    audio.addEventListener('error', function(){
-      var code = (audio.error && audio.error.code) || 0;
-      errEl.style.display = 'block';
-      errEl.textContent = 'Could not load audio (error code ' + code + '). Host may block embedding. Prefer same-origin MP3.';
-    });
-
-    playBtn.addEventListener('click', function(){ if(audio.paused){ audio.play(); playBtn.textContent='⏸'; } else { audio.pause(); playBtn.textContent='▶'; } });
-    stopBtn.addEventListener('click', function(){ audio.pause(); audio.currentTime=0; playBtn.textContent='▶'; updateProgress(); });
-
-    if (vol) {
-      vol.addEventListener('input', function(){ audio.volume = parseFloat(this.value); });
-      audio.volume = parseFloat(vol.value || "0.8");
-    }
-
-    function setFromClientX(clientX){
-      var rect = prog.getBoundingClientRect();
-      var x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-      var pct = x / rect.width;
-      audio.currentTime = pct * (audio.duration || 0);
-    }
-
-    prog.addEventListener('click', function(e){ setFromClientX(e.clientX); });
-    prog.addEventListener('mousedown', function(e){
-      function move(ev){ setFromClientX(ev.clientX); }
-      function up(){ document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); }
-      document.addEventListener('mousemove', move);
-      document.addEventListener('mouseup', up);
-    });
-
-    root.tabIndex = 0;
-    root.addEventListener('keydown', function(e){
-      if (e.code === 'Space') { e.preventDefault(); playBtn.click(); }
-      else if (e.code === 'ArrowRight') { audio.currentTime = Math.min((audio.currentTime||0)+5, audio.duration||Infinity); }
-      else if (e.code === 'ArrowLeft') { audio.currentTime = Math.max((audio.currentTime||0)-5, 0); }
-      else if (e.code === 'ArrowUp') { if (vol) { audio.volume = Math.min(audio.volume + 0.05, 1); vol.value = audio.volume.toFixed(2); } }
-      else if (e.code === 'ArrowDown') { if (vol) { audio.volume = Math.max(audio.volume - 0.05, 0); vol.value = audio.volume.toFixed(2); } }
-    });
-
-    prog.addEventListener('keydown', function(e){
-      var step = (audio.duration || 0) * 0.02;
-      if (e.code === 'ArrowRight' || e.code === 'ArrowUp') { audio.currentTime = Math.min((audio.currentTime||0)+step, audio.duration||Infinity); e.preventDefault(); }
-      if (e.code === 'ArrowLeft'  || e.code === 'ArrowDown') { audio.currentTime = Math.max((audio.currentTime||0)-step, 0); e.preventDefault(); }
-      if (e.code === 'Home') { audio.currentTime = 0; e.preventDefault(); }
-      if (e.code === 'End')  { audio.currentTime = audio.duration || 0; e.preventDefault(); }
-    });
-  }
-
-  function initQueued(){
-    (window.JWAMPQ || []).forEach(function(selOrEl){
-      var el = typeof selOrEl === 'string' ? document.querySelector(selOrEl) : selOrEl;
-      if (el) initOne(el);
-    });
-    window.JWAMPQ = [];
-    document.querySelectorAll('.jwamp[data-jwamp]').forEach(initOne);
-  }
-
-  window.JWAMP = { __booted: true, initOne: initOne, initAll: initQueued };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initQueued);
-  } else {
-    initQueued();
-  }
-
-  var mo = new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      m.addedNodes && m.addedNodes.forEach(function(n){
-        if (n.nodeType === 1 && n.matches && n.matches('.jwamp[data-jwamp]')) initOne(n);
-        if (n.querySelectorAll) n.querySelectorAll('.jwamp[data-jwamp]').forEach(initOne);
-      });
-    });
-  });
-  mo.observe(document.documentElement, { childList: true, subtree: true });
-})();
-</script>
-
-<p>Dragon Quest, titled Dragon Warrior when initially localized to North America, is a 1986 role-playing video game developed by Chunsoft and published by Enix for the Nintendo Entertainment System. It was originally released in Japan in May 1986 and by Nintendo in North America in August 1989. It is the first game in the Dragon Quest video game series. Dragon Quest has been ported and remade for several video game platforms, including the MSX, MSX2, PC-9801, Super Famicom, Game Boy Color, mobile phones, and Nintendo Switch as of 2019. The player controls the hero character who is charged with saving the Kingdom of Alefgard and rescuing its princess from the evil Dragonlord. Dragon Warrior’s story became the second part in a trilogy, with several spinoff anime and manga series. — <a href="https://en.wikipedia.org/wiki/Dragon_Quest_(video_game)">Wikipedia</a></p>
-
-<blockquote class="prompt-info">
-  <p>Publisher: Square Enix <br />
-Release: May 27, 1986 - Nintendo Entertainment System <br />
-Composer: <a href="https://en.wikipedia.org/wiki/Koichi_Sugiyama">Koichi Sugiyama</a> <br />
-Links: <a href="https://www.mobygames.com/game/9223/dragon-warrior/">Moby Games</a> | <a href="https://www.rpgfan.com/game/dragon-quest/">RPGfan</a> | <a href="https://vgmdb.net/product/983">VGMdb</a></p>
-</blockquote>
-
-<blockquote class="prompt-warning">
-  <p>Audio files from <a href="https://www.zophar.net/music/nintendo-nes-nsf/dragon-warrior">Zophar’s Domain</a> <br />
-Screenshots from <a href="https://www.youtube.com/watch?v=J392i9NKvvo"><strong>Dragon Warrior (NES) Playthrough</strong></a></p>
-</blockquote>
-
-<p>Dragon Warrior (which was the North American name) is a game I played many times as a kid, and even beat a few times. I was more of a Final Fantasy fan though so I don’t have as much fondness or nostalgia for this title itself, but I do remember the impact the battle system and gameplay had on me.</p>
-
-<p>I wanted more games like this … where “this” was JRPGs. That fondness is what is contributing to this effort to collect, listen to and rate the battle music from all these games.</p>
-
-<h2 id="battle-tracks">Battle Track(s)</h2>
-
-<p><img src="/images/jrpg_music/dq1/Dragon%20Warrior%20(NES)%20Playthrough%209-3%20screenshot.png" alt="" /></p>
-
-<div class="jwamp" id="jekyll-winamp-3f80e5c8" role="region" aria-label="Audio player: Battle Theme" data-jwamp="">
-  <audio id="jekyll-winamp-3f80e5c8-audio" src="/mp3/dw1/14%20-%20Battle%20Theme.mp3" type="audio/mpeg" preload="metadata" crossorigin="anonymous"></audio>
-
-  <div class="jwamp-display">
-    <div class="jwamp-track"><span class="jwamp-label">Title:</span> <span class="jwamp-value" id="jekyll-winamp-3f80e5c8-meta-title">Battle Theme</span></div>
-    <div class="jwamp-track"><span class="jwamp-label">Game:</span> <span class="jwamp-value" id="jekyll-winamp-3f80e5c8-meta-game">Dragon Quest</span></div>
-    <div class="jwamp-track"><span class="jwamp-label">Artist:</span> <span class="jwamp-value" id="#{@id}-meta-artist">Koichi Sugiyama</span></div>
-    
-    <div class="jwamp-error" id="jekyll-winamp-3f80e5c8-error" style="display:none;"></div>
-  </div>
-
-  <div class="jwamp-controls">
-    <button class="jwamp-btn jwamp-play" id="jekyll-winamp-3f80e5c8-play" aria-label="Play/Pause" title="Play/Pause (Space)">▶</button>
-    <button class="jwamp-btn jwamp-stop" id="jekyll-winamp-3f80e5c8-stop" aria-label="Stop" title="Stop">■</button>
-    <div class="jwamp-time" aria-live="polite">
-      <span id="jekyll-winamp-3f80e5c8-current">0:00</span> / <span id="jekyll-winamp-3f80e5c8-duration">0:00</span>
-    </div>
-    <div class="jwamp-volume">
-      <label for="jekyll-winamp-3f80e5c8-vol" class="sr-only">Volume</label>
-      <input type="range" id="jekyll-winamp-3f80e5c8-vol" min="0" max="1" step="0.01" value="0.8" aria-label="Volume" />
-    </div>
-    <a class="jwamp-download" href="/mp3/dw1/14%20-%20Battle%20Theme.mp3" download="" title="Download source file" rel="noopener" target="_blank">⬇ Download</a>
-  </div>
-
-  <div class="jwamp-progress" id="jekyll-winamp-3f80e5c8-progress" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-    <div class="jwamp-bar" id="jekyll-winamp-3f80e5c8-bar"></div>
-    <div class="jwamp-knob" id="jekyll-winamp-3f80e5c8-knob" aria-hidden="true"></div>
-  </div>
-
-  <noscript>
-    <p><em>JavaScript is required for the custom player. You can still <a href="/mp3/dw1/14%20-%20Battle%20Theme.mp3" download="">download the MP3</a>.</em></p>
-  </noscript>
-</div>
-<script>(window.JWAMPQ=window.JWAMPQ||[]).push('#jekyll-winamp-3f80e5c8');</script>
-
-<p>This battle track is about as basic as it comes, with 2 distinct sections before a loop. For the types of fights you face in this game it’s situationally appropriate, though the overall track is fairly short.</p>
-
-<p>For such an early generation NES title, it uses the <a href="https://www.nesdev.org/wiki/APU">APU</a> well, though there isn’t much variety in the instrumentation.</p>
-
-<div class="trk-row" role="group" aria-label="Track rating for . Hook 3, Energy 2.3, Color 2, Clarity 2.4, Fit 3.2. Average 2.6">
-  <!-- Music + sword icon -->
-  <div class="trk-icon" aria-hidden="true">
-    <!-- Musical notes icon (based on freesvg.org/img/musical-notes.png) -->
-<!-- RPG Battle Music: staff + sword + magic blasts + beamed notes -->
-<!-- Musical notes (simplified) -->
-<svg class="trk-icon-svg" viewBox="0 0 353 413" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
-  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M253.084,7.255c14.601,14.299,22.646,33.409,41.014,44.169
-    c14.282,8.366,35.335,8.5,44.169,22.084c5.939,9.133,7.419,27.392,0,35.756c-5.068-35.817-35.035-32.236-57.841-49.428
-    c-5.958-6.66-11.919-13.321-17.878-19.981c4.557,41.711,9.115,83.435,13.671,125.146c2.243,12.553,8.561,32.938,4.207,46.273
-    c-4.949,15.16-21.632,26.625-37.859,30.498c-30.948,7.385-66.418-20.607-55.737-51.531c11.528-33.374,57.613-34.349,83.08-14.723
-    C264.303,119.437,258.693,63.337,253.084,7.255z M91.131,16.72c18.335,0.109,23.3,7.739,29.446,19.981
-    c24.146,48.092-3.925,92.918-25.239,125.146c3.855,16.124,7.712,32.252,11.568,48.376c83.31-2.216,86.255,108.859,28.394,127.249
-    c20.391,66.648-69.765,92.072-88.338,46.272c0.701-3.504,1.402-7.011,2.104-10.516c6.455-4.587,11.014-5.638,19.981-3.155
-    c3.118,4.554,4.93,6.783,5.258,14.724c-3.031,5.075-6.147,5.788-2.103,9.464c34.421,22.119,59.37-18.465,51.531-51.53
-    C53.013,354.385-7.3,304.607,16.464,229.152c12.56-39.879,41.575-60.509,63.099-90.441C69.406,100.691,53.458,37.627,91.131,16.72z
-     M94.286,27.236c-27.187,17.962-17.569,72.817-9.465,105.165c0.351-0.701,0.702-1.402,1.052-2.104
-    c15.737-12.747,50.499-82.22,15.774-100.958C99.194,28.639,96.739,27.938,94.286,27.236z M86.925,171.312
-    c-17.209,23.01-38.111,44.916-47.324,75.719c-12.567,42.011,11.587,79.395,41.014,87.287c14.073,3.774,29.021-1.189,41.014-3.155
-    c0-1.402,0-2.804,0-4.207c-7.36-35.051-14.724-70.113-22.084-105.165c-24.299,5.054-45.932,43.274-32.601,74.667
-    c5.608,7.711,11.218,15.425,16.826,23.136c-1.402,0-2.805,0-4.206,0c-31.384-15.551-30.442-66.646-9.465-92.544
-    c6.799-8.395,18.998-9.923,27.343-16.826C94.635,200.104,93.974,177.967,86.925,171.312z M109.009,219.688
-    c8.412,34.701,16.827,69.412,25.239,104.113C172.229,297.401,164.674,221.407,109.009,219.688z M331.958,276.477
-    c-0.188,25.195-21.731,102.605-35.756,112.526c-8.288,5.863-32.662,13.989-43.118,4.206c-3.886-2.521-4.219-3.958-4.207-10.516
-    c6.199-14.664,30.017-25.876,49.428-16.827c3.337-18.992,16.644-43.981,12.62-62.047c-0.351,0-0.702,0-1.052,0
-    c-7.049,0.944-63.298,9.471-64.15,10.517c-13.705,27.973-22.646,121.783-77.821,84.132c0-3.505,0-7.011,0-10.517
-    c8.457-12.669,24.219-19.98,45.22-16.826c1.588-11.785,18.99-73.682,25.24-77.822c11.615-5.578,29.193,0.255,43.118-2.103
-    C301.044,287.886,312.064,277.23,331.958,276.477z M316.183,286.993c-15.666,10.852-43.111,10.694-66.253,13.671
-    c-0.351,1.402-0.701,2.805-1.052,4.207c0.701,0,1.402,0,2.104,0c17.538,7.495,54.068-5.281,65.202-11.568
-    C316.183,291.2,316.183,289.096,316.183,286.993z" />
-</svg>
-
-  </div>
-
-  <div class="trk-left">
-    
-<span class="trk-role">Normal</span></div><div class="trk-chips" aria-hidden="true">
-    <span class="trk-chip" data-tip="Hook &amp; Identity — Is there a memorable idea you can hum?&#10;0: none • 3: clear hook • 5: unforgettable, with small variations.">H: 3</span>
-    <span class="trk-chip" data-tip="Energy &amp; Drive — Does the groove push turns along without clutter?&#10;0: sluggish • 3: steady • 5: propulsive yet controlled.">E: 2.3</span>
-    <span class="trk-chip" data-tip="Color &amp; Suspense — Do you feel mood shifts and push→release moments?&#10;0: flat • 3: some ebb/flow • 5: gripping builds and payoffs.">C: 2</span>
-    <span class="trk-chip" data-tip="Clarity &amp; Loop — Clean mix, readable parts, invisible loop, low fatigue.&#10;0: muddy/annoying • 3: fine for a few loops • 5: polished, long, fresh.">L: 2.4</span>
-    <span class="trk-chip" data-tip="Situational Fit — Does it match encounter stakes and turn-based cadence/UI tempo?&#10;0: mismatch • 3: broadly fits • 5: feels designed for the moment.">S: 3.2</span>
-  </div><div class="trk-score trk-tip" data-tip="Track score is the average of the five criteria (0–5).">
-    <span>2.6</span>
-  </div>
-</div>
-
-<h2 id="boss-tracks">Boss Track(s)</h2>
-
-<blockquote>
-  <p><em>The first Dragon Quest soundtrack, as we all should know, only had eight songs: opening, castle, town, field, battle, dungeon, final battle, and ending. These eight themes have been expanded and built upon in every subsequent DQ title, but they are the foundation for Sugiyama’s career.</em> <br />
-<a href="https://www.rpgfan.com/music-review/symphonic-suite-dragon-quest-i/">Patrick Gann, RPGFan - 2008</a></p>
-</blockquote>
-
-<p>This game only has 2 battle tracks - the normal battle track and the final battle track. As such we’ll have to score this category with a zero.</p>
-
-<h2 id="final-battle-tracks">Final Battle Track(s)</h2>
-
-<p><img src="/images/jrpg_music/dq1/Dragon%20Warrior%20(NES)%20Playthrough%2010-7-40%20screenshot.png" alt="" /></p>
-
-<div class="jwamp" id="jekyll-winamp-99759b50" role="region" aria-label="Audio player: Final Battle Theme" data-jwamp="">
-  <audio id="jekyll-winamp-99759b50-audio" src="/mp3/dw1/16%20-%20Final%20Battle%20Theme.mp3" type="audio/mpeg" preload="metadata" crossorigin="anonymous"></audio>
-
-  <div class="jwamp-display">
-    <div class="jwamp-track"><span class="jwamp-label">Title:</span> <span class="jwamp-value" id="jekyll-winamp-99759b50-meta-title">Final Battle Theme</span></div>
-    <div class="jwamp-track"><span class="jwamp-label">Game:</span> <span class="jwamp-value" id="jekyll-winamp-99759b50-meta-game">Dragon Quest</span></div>
-    <div class="jwamp-track"><span class="jwamp-label">Artist:</span> <span class="jwamp-value" id="#{@id}-meta-artist">Koichi Sugiyama</span></div>
-    
-    <div class="jwamp-error" id="jekyll-winamp-99759b50-error" style="display:none;"></div>
-  </div>
-
-  <div class="jwamp-controls">
-    <button class="jwamp-btn jwamp-play" id="jekyll-winamp-99759b50-play" aria-label="Play/Pause" title="Play/Pause (Space)">▶</button>
-    <button class="jwamp-btn jwamp-stop" id="jekyll-winamp-99759b50-stop" aria-label="Stop" title="Stop">■</button>
-    <div class="jwamp-time" aria-live="polite">
-      <span id="jekyll-winamp-99759b50-current">0:00</span> / <span id="jekyll-winamp-99759b50-duration">0:00</span>
-    </div>
-    <div class="jwamp-volume">
-      <label for="jekyll-winamp-99759b50-vol" class="sr-only">Volume</label>
-      <input type="range" id="jekyll-winamp-99759b50-vol" min="0" max="1" step="0.01" value="0.8" aria-label="Volume" />
-    </div>
-    <a class="jwamp-download" href="/mp3/dw1/16%20-%20Final%20Battle%20Theme.mp3" download="" title="Download source file" rel="noopener" target="_blank">⬇ Download</a>
-  </div>
-
-  <div class="jwamp-progress" id="jekyll-winamp-99759b50-progress" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-    <div class="jwamp-bar" id="jekyll-winamp-99759b50-bar"></div>
-    <div class="jwamp-knob" id="jekyll-winamp-99759b50-knob" aria-hidden="true"></div>
-  </div>
-
-  <noscript>
-    <p><em>JavaScript is required for the custom player. You can still <a href="/mp3/dw1/16%20-%20Final%20Battle%20Theme.mp3" download="">download the MP3</a>.</em></p>
-  </noscript>
-</div>
-<script>(window.JWAMPQ=window.JWAMPQ||[]).push('#jekyll-winamp-99759b50');</script>
-
-<p>This track doesn’t sound “epic”, but definitely feels appropriate. Again there are maybe short movements before it loops, but for what it is - it’s fine. This doesn’t seem to capture the intensity of a final battle, but it is definitely unique to the overall soundtrack so it gets credit for being a distinct track.</p>
-
-<div class="trk-row" role="group" aria-label="Track rating for . Hook 2.2, Energy 1.9, Color 2.1, Clarity 1.7, Fit 1.4. Average 1.9">
-  <!-- Music + sword icon -->
-  <div class="trk-icon" aria-hidden="true">
-    <!-- Musical notes icon (based on freesvg.org/img/musical-notes.png) -->
-<!-- RPG Battle Music: staff + sword + magic blasts + beamed notes -->
-<!-- Musical notes (simplified) -->
-<svg class="trk-icon-svg" viewBox="0 0 353 413" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
-  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M253.084,7.255c14.601,14.299,22.646,33.409,41.014,44.169
-    c14.282,8.366,35.335,8.5,44.169,22.084c5.939,9.133,7.419,27.392,0,35.756c-5.068-35.817-35.035-32.236-57.841-49.428
-    c-5.958-6.66-11.919-13.321-17.878-19.981c4.557,41.711,9.115,83.435,13.671,125.146c2.243,12.553,8.561,32.938,4.207,46.273
-    c-4.949,15.16-21.632,26.625-37.859,30.498c-30.948,7.385-66.418-20.607-55.737-51.531c11.528-33.374,57.613-34.349,83.08-14.723
-    C264.303,119.437,258.693,63.337,253.084,7.255z M91.131,16.72c18.335,0.109,23.3,7.739,29.446,19.981
-    c24.146,48.092-3.925,92.918-25.239,125.146c3.855,16.124,7.712,32.252,11.568,48.376c83.31-2.216,86.255,108.859,28.394,127.249
-    c20.391,66.648-69.765,92.072-88.338,46.272c0.701-3.504,1.402-7.011,2.104-10.516c6.455-4.587,11.014-5.638,19.981-3.155
-    c3.118,4.554,4.93,6.783,5.258,14.724c-3.031,5.075-6.147,5.788-2.103,9.464c34.421,22.119,59.37-18.465,51.531-51.53
-    C53.013,354.385-7.3,304.607,16.464,229.152c12.56-39.879,41.575-60.509,63.099-90.441C69.406,100.691,53.458,37.627,91.131,16.72z
-     M94.286,27.236c-27.187,17.962-17.569,72.817-9.465,105.165c0.351-0.701,0.702-1.402,1.052-2.104
-    c15.737-12.747,50.499-82.22,15.774-100.958C99.194,28.639,96.739,27.938,94.286,27.236z M86.925,171.312
-    c-17.209,23.01-38.111,44.916-47.324,75.719c-12.567,42.011,11.587,79.395,41.014,87.287c14.073,3.774,29.021-1.189,41.014-3.155
-    c0-1.402,0-2.804,0-4.207c-7.36-35.051-14.724-70.113-22.084-105.165c-24.299,5.054-45.932,43.274-32.601,74.667
-    c5.608,7.711,11.218,15.425,16.826,23.136c-1.402,0-2.805,0-4.206,0c-31.384-15.551-30.442-66.646-9.465-92.544
-    c6.799-8.395,18.998-9.923,27.343-16.826C94.635,200.104,93.974,177.967,86.925,171.312z M109.009,219.688
-    c8.412,34.701,16.827,69.412,25.239,104.113C172.229,297.401,164.674,221.407,109.009,219.688z M331.958,276.477
-    c-0.188,25.195-21.731,102.605-35.756,112.526c-8.288,5.863-32.662,13.989-43.118,4.206c-3.886-2.521-4.219-3.958-4.207-10.516
-    c6.199-14.664,30.017-25.876,49.428-16.827c3.337-18.992,16.644-43.981,12.62-62.047c-0.351,0-0.702,0-1.052,0
-    c-7.049,0.944-63.298,9.471-64.15,10.517c-13.705,27.973-22.646,121.783-77.821,84.132c0-3.505,0-7.011,0-10.517
-    c8.457-12.669,24.219-19.98,45.22-16.826c1.588-11.785,18.99-73.682,25.24-77.822c11.615-5.578,29.193,0.255,43.118-2.103
-    C301.044,287.886,312.064,277.23,331.958,276.477z M316.183,286.993c-15.666,10.852-43.111,10.694-66.253,13.671
-    c-0.351,1.402-0.701,2.805-1.052,4.207c0.701,0,1.402,0,2.104,0c17.538,7.495,54.068-5.281,65.202-11.568
-    C316.183,291.2,316.183,289.096,316.183,286.993z" />
-</svg>
-
-  </div>
-
-  <div class="trk-left">
-    
-<span class="trk-role">Final</span></div><div class="trk-chips" aria-hidden="true">
-    <span class="trk-chip" data-tip="Hook &amp; Identity — Is there a memorable idea you can hum?&#10;0: none • 3: clear hook • 5: unforgettable, with small variations.">H: 2.2</span>
-    <span class="trk-chip" data-tip="Energy &amp; Drive — Does the groove push turns along without clutter?&#10;0: sluggish • 3: steady • 5: propulsive yet controlled.">E: 1.9</span>
-    <span class="trk-chip" data-tip="Color &amp; Suspense — Do you feel mood shifts and push→release moments?&#10;0: flat • 3: some ebb/flow • 5: gripping builds and payoffs.">C: 2.1</span>
-    <span class="trk-chip" data-tip="Clarity &amp; Loop — Clean mix, readable parts, invisible loop, low fatigue.&#10;0: muddy/annoying • 3: fine for a few loops • 5: polished, long, fresh.">L: 1.7</span>
-    <span class="trk-chip" data-tip="Situational Fit — Does it match encounter stakes and turn-based cadence/UI tempo?&#10;0: mismatch • 3: broadly fits • 5: feels designed for the moment.">S: 1.4</span>
-  </div><div class="trk-score trk-tip" data-tip="Track score is the average of the five criteria (0–5).">
-    <span>1.9</span>
-  </div>
-</div>
-
-<h2 id="suite-checks-and-final-score">Suite Checks and Final Score</h2>
-
-<p>The soundtrack is simplistic, but appropriate to the game. I can’t really say I “enjoyed it”, but it did help set the tone and mood for the game.</p>
-
-<div class="trk-row final-row" role="group" aria-label="Final rating. BQ 1.6. Overall 38 percent.">
-  <div class="trk-icon" aria-hidden="true">
-    <svg class="trk-icon-svg" viewBox="0 0 353 413" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
-      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M253.084,7.255c14.601,14.299,22.646,33.409,41.014,44.169
-        c14.282,8.366,35.335,8.5,44.169,22.084c5.939,9.133,7.419,27.392,0,35.756c-5.068-35.817-35.035-32.236-57.841-49.428
-        c-5.958-6.66-11.919-13.321-17.878-19.981c4.557,41.711,9.115,83.435,13.671,125.146c2.243,12.553,8.561,32.938,4.207,46.273
-        c-4.949,15.16-21.632,26.625-37.859,30.498c-30.948,7.385-66.418-20.607-55.737-51.531c11.528-33.374,57.613-34.349,83.08-14.723
-        C264.303,119.437,258.693,63.337,253.084,7.255z M91.131,16.72c18.335,0.109,23.3,7.739,29.446,19.981
-        c24.146,48.092-3.925,92.918-25.239,125.146c3.855,16.124,7.712,32.252,11.568,48.376c83.31-2.216,86.255,108.859,28.394,127.249
-        c20.391,66.648-69.765,92.072-88.338,46.272c0.701-3.504,1.402-7.011,2.104-10.516c6.455-4.587,11.014-5.638,19.981-3.155
-        c3.118,4.554,4.93,6.783,5.258,14.724c-3.031,5.075-6.147,5.788-2.103,9.464c34.421,22.119,59.37-18.465,51.531-51.53
-        C53.013,354.385-7.3,304.607,16.464,229.152c12.56-39.879,41.575-60.509,63.099-90.441C69.406,100.691,53.458,37.627,91.131,16.72z
-        M94.286,27.236c-27.187,17.962-17.569,72.817-9.465,105.165c0.351-0.701,0.702-1.402,1.052-2.104
-        c15.737-12.747,50.499-82.22,15.774-100.958C99.194,28.639,96.739,27.938,94.286,27.236z M86.925,171.312
-        c-17.209,23.01-38.111,44.916-47.324,75.719c-12.567,42.011,11.587,79.395,41.014,87.287c14.073,3.774,29.021-1.189,41.014-3.155
-        c0-1.402,0-2.804,0-4.207c-7.36-35.051-14.724-70.113-22.084-105.165c-24.299,5.054-45.932,43.274-32.601,74.667
-        c5.608,7.711,11.218,15.425,16.826,23.136c-1.402,0-2.805,0-4.206,0c-31.384-15.551-30.442-66.646-9.465-92.544
-        c6.799-8.395,18.998-9.923,27.343-16.826C94.635,200.104,93.974,177.967,86.925,171.312z M109.009,219.688
-        c8.412,34.701,16.827,69.412,25.239,104.113C172.229,297.401,164.674,221.407,109.009,219.688z M331.958,276.477
-        c-0.188,25.195-21.731,102.605-35.756,112.526c-8.288,5.863-32.662,13.989-43.118,4.206c-3.886-2.521-4.219-3.958-4.207-10.516
-        c6.199-14.664,30.017-25.876,49.428-16.827c3.337-18.992,16.644-43.981,12.62-62.047c-0.351,0-0.702,0-1.052,0
-        c-7.049,0.944-63.298,9.471-64.15,10.517c-13.705,27.973-22.646,121.783-77.821,84.132c0-3.505,0-7.011,0-10.517
-        c8.457-12.669,24.219-19.98,45.22-16.826c1.588-11.785,18.99-73.682,25.24-77.822c11.615-5.578,29.193,0.255,43.118-2.103
-        C301.044,287.886,312.064,277.23,331.958,276.477z M316.183,286.993c-15.666,10.852-43.111,10.694-66.253,13.671
-        c-0.351,1.402-0.701,2.805-1.052,4.207c0.701,0,1.402,0,2.104,0c17.538,7.495,54.068-5.281,65.202-11.568
-        C316.183,291.2,316.183,289.096,316.183,286.993z" />
-    </svg>
-  </div>
-
-  <div class="trk-left">
-    <span class="trk-title final-title">Final Rating — Dragon Quest (NES)</span>
-  </div><div class="trk-chips" aria-hidden="true">
-      <span class="trk-chip" data-tip="BQ = 0.45·RN + 0.30·RB + 0.25·RF&#10;(missing roles contribute 0)">BQ: 1.6</span>
-      <span class="trk-chip" data-tip="Thematic Cohesion — Shared DNA across Normal→Boss/Special→Final.">TC: 3</span>
-      <span class="trk-chip" data-tip="Escalation — Energy/suspense rises; motif/orchestration grow.">ESC: 1.2</span>
-      <span class="trk-chip" data-tip="Suite Completeness — ≥2 battle (Normal+Boss combined) + a Final.&#10;0 none • 3 one battle + final • 5 ≥2 battle + final.">SC: 3</span>
-    </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
-    <span>38%</span>
-  </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Square Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.🎶 Dragon Quest (NES) - 1986→ 🎶 The 7th Saga (SNES) - 1993 Article 1 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/dq1/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
