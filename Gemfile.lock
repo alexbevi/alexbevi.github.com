@@ -5,7 +5,7 @@ GEM
     addressable (2.8.9)
       public_suffix (>= 2.0.2, < 8.0)
     afm (1.0.0)
-    async (2.38.0)
+    async (2.38.1)
       console (~> 1.29)
       fiber-annotation
       io-event (~> 1.11)
@@ -106,7 +106,7 @@ GEM
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-theme-chirpy (7.4.1)
+    jekyll-theme-chirpy (7.5.0)
       jekyll (~> 4.3)
       jekyll-archives (~> 2.2)
       jekyll-include-cache (~> 0.2)
