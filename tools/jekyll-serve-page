@@ -1,0 +1,284 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "date"
+require "digest/sha1"
+require "fileutils"
+require "find"
+require "optparse"
+require "pathname"
+require "set"
+require "yaml"
+
+class JekyllServePage
+  ESSENTIAL_ENTRIES = %w[_config.yml _data _includes _plugins _tabs assets index.html].freeze
+  LINK_PATTERN = /\{%-?\s*link\s+([^\s%]+).*?%-?\}/.freeze
+  STATIC_PATTERN = %r{(?:(?<=["'(])|(?<=\s)|^)(/(?:images|mp3)/[^\s"'()<>{}]+)}.freeze
+  FRONT_MATTER = /\A---\s*\n(.*?)\n---\s*\n/m.freeze
+  POST_BASENAME = /\A(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})-(?<slug>.+)\z/.freeze
+
+  def self.run(argv)
+    new(argv).run
+  end
+
+  def initialize(argv)
+    split = argv.index("--")
+    script_args = split ? argv[0...split] : argv.dup
+    @jekyll_args = split ? argv[(split + 1)..] : []
+
+    @options = {
+      host: "127.0.0.1",
+      mode: :serve,
+      port: 4000
+    }
+
+    parse_options!(script_args)
+
+    target = script_args.shift
+    abort @parser.to_s unless target
+
+    @repo_root = Pathname(__dir__).dirname.realpath
+    @target = Pathname(target).expand_path
+
+    unless @target.file?
+      abort "Target file not found: #{target}"
+    end
+
+    unless @target.to_s.start_with?(@repo_root.to_s + File::SEPARATOR)
+      abort "Target file must live under #{@repo_root}"
+    end
+
+    @relative_target = @target.relative_path_from(@repo_root)
+    workspace_name = [
+      @target.basename(".#{@target.extname.delete_prefix('.')}").to_s,
+      Digest::SHA1.hexdigest(@relative_target.to_s)[0, 8]
+    ].join("-")
+    @workspace = @repo_root.join(".jekyll-serve-page", workspace_name)
+    @source_root = @workspace.join("source")
+    @destination_root = @workspace.join("site")
+    @override_config = @workspace.join("single-page.yml")
+  end
+
+  def run
+    prepare_workspace
+    write_override_config
+
+    warn "single-page source: #{@source_root}"
+    warn "single-page url: http://#{@options[:host]}:#{@options[:port]}#{target_url}" if target_url
+    warn "restart after adding new linked files or images outside the current temp source"
+
+    exec(*command)
+  end
+
+  private
+
+  def parse_options!(argv)
+    @parser = OptionParser.new do |opts|
+      opts.banner = "Usage: tools/jekyll-serve-page [options] PATH_TO_MARKDOWN [-- extra jekyll args]"
+      opts.on("--build", "Run a one-shot build instead of a watcher") { @options[:mode] = :build }
+      opts.on("-H", "--host HOST", "Bind host for `jekyll serve` (default: 127.0.0.1)") do |value|
+        @options[:host] = value
+      end
+      opts.on("-p", "--port PORT", Integer, "Port for `jekyll serve` (default: 4000)") do |value|
+        @options[:port] = value
+      end
+    end
+
+    @parser.parse!(argv)
+  end
+
+  def prepare_workspace
+    FileUtils.rm_rf(@workspace)
+    FileUtils.mkdir_p(@source_root)
+    FileUtils.mkdir_p(@destination_root)
+
+    ESSENTIAL_ENTRIES.each do |entry|
+      source = @repo_root.join(entry)
+      next unless source.exist?
+
+      include_path(entry)
+    end
+
+    include_path(@relative_target.to_s)
+    linked_paths.each { |path| include_path(path) }
+    static_paths.each { |path| include_path(path) }
+  end
+
+  def include_path(relative_path)
+    source = @repo_root.join(relative_path)
+    return unless source.exist?
+
+    destination = @source_root.join(relative_path)
+    if source.directory?
+      hardlink_tree(source, destination)
+    else
+      hardlink_file(source, destination)
+    end
+  end
+
+  def hardlink_tree(source, destination)
+    Find.find(source.to_s) do |path|
+      next if path == source.to_s
+
+      relative = Pathname(path).relative_path_from(source)
+      target = destination.join(relative)
+
+      if File.directory?(path)
+        FileUtils.mkdir_p(target)
+      elsif File.symlink?(path)
+        FileUtils.mkdir_p(target.dirname)
+        FileUtils.rm_f(target)
+        File.symlink(File.readlink(path), target)
+      else
+        hardlink_file(path, target)
+      end
+    end
+  end
+
+  def hardlink_file(source, destination)
+    FileUtils.mkdir_p(destination.dirname)
+    FileUtils.rm_f(destination)
+    File.link(source, destination)
+  rescue Errno::EXDEV, Errno::EEXIST, NotImplementedError
+    FileUtils.cp(source, destination)
+  end
+
+  def target_text
+    @target_text ||= File.read(@target)
+  end
+
+  def linked_paths
+    @linked_paths ||= begin
+      target_text.scan(LINK_PATTERN).flatten.each_with_object(Set.new) do |path, memo|
+        normalized = path.to_s.strip.delete_prefix("/").gsub(/\A['"]|['"]\z/, "")
+        memo << normalized unless normalized.empty?
+      end
+    end
+  end
+
+  def static_paths
+    @static_paths ||= begin
+      paths = target_text.scan(STATIC_PATTERN).flatten.each_with_object(Set.new) do |path, memo|
+        memo << path.delete_prefix("/")
+      end
+
+      avatar = site_config["avatar"].to_s.strip
+      paths << avatar.sub(%r{\A\./}, "") if avatar.start_with?("./")
+      paths << avatar.delete_prefix("/") if avatar.start_with?("/")
+      paths
+    end
+  end
+
+  def site_config
+    @site_config ||= YAML.safe_load(File.read(@repo_root.join("_config.yml")), aliases: true) || {}
+  end
+
+  def write_override_config
+    FileUtils.mkdir_p(@override_config.dirname)
+    @override_config.write(
+      {
+        "future" => true,
+        "jekyll-archives" => { "enabled" => [] },
+        "single_page_dev" => true,
+        "single_page_dev_repo_root" => @repo_root.to_s
+      }.to_yaml
+    )
+  end
+
+  def command
+    base = [
+      "bundle",
+      "exec",
+      "jekyll",
+      @options[:mode].to_s,
+      "--config",
+      [@source_root.join("_config.yml"), @override_config].join(","),
+      "--source",
+      @source_root.to_s,
+      "--destination",
+      @destination_root.to_s
+    ]
+
+    if @options[:mode] == :serve
+      base.concat(
+        [
+          "--host",
+          @options[:host],
+          "--port",
+          @options[:port].to_s,
+          "--incremental",
+          "--force_polling"
+        ]
+      )
+    end
+
+    base << "--drafts" if @relative_target.each_filename.first == "_drafts"
+    base.concat(@jekyll_args)
+    base
+  end
+
+  def target_url
+    return @target_url if defined?(@target_url)
+    return @target_url = nil unless %w[_posts _drafts].include?(@relative_target.each_filename.first)
+
+    basename = @target.basename.sub_ext("").to_s
+    match = basename.match(POST_BASENAME)
+    return @target_url = nil unless match
+
+    front_matter = parse_front_matter(@target)
+    return @target_url = front_matter["permalink"] if front_matter["permalink"]
+
+    template = site_config["permalink"].to_s
+    slug = (front_matter["slug"] || match[:slug]).to_s
+    categories = Array(front_matter["categories"]).join("/")
+
+    @target_url = expand_permalink(
+      template,
+      "categories" => categories.empty? ? nil : slugify_path(categories),
+      "day" => match[:day],
+      "i_day" => match[:day].to_i.to_s,
+      "i_month" => match[:month].to_i.to_s,
+      "month" => match[:month],
+      "output_ext" => "",
+      "short_year" => match[:year][-2, 2],
+      "slug" => slug,
+      "title" => slug,
+      "year" => match[:year]
+    )
+  end
+
+  def parse_front_matter(path)
+    match = File.read(path).match(FRONT_MATTER)
+    return {} unless match
+
+    YAML.safe_load(match[1], permitted_classes: [Date, Time], aliases: true) || {}
+  rescue StandardError
+    {}
+  end
+
+  def expand_permalink(template, values)
+    url = template.dup
+
+    values.each do |key, value|
+      token = ":#{key}"
+      if value.nil? || value.empty?
+        url.gsub!(%r{/#{Regexp.escape(token)}}, "")
+        url.gsub!(token, "")
+      else
+        url.gsub!(token, value)
+      end
+    end
+
+    url = "/#{url}" unless url.start_with?("/")
+    url = url.squeeze("/")
+    url.end_with?("/") ? url : "#{url}/"
+  end
+
+  def slugify_path(value)
+    value.split("/").map do |segment|
+      segment.downcase.strip.gsub(/[^a-z0-9]+/, "-").gsub(/\A-+|-+\z/, "")
+    end.join("/")
+  end
+end
+
+JekyllServePage.run(ARGV)
