@@ -6,7 +6,9 @@ comments: true
 categories: Programming
 tags: [programming, reverse-engineering, scummvm, ghidra]
 image: /images/ghidra1/harvester_reverse_engineering_banner_1200x600.png
+series: reverse_engineering_harvester
 ---
+{% series_nav %}
 
 As part of my series called ["Let's Adventure!"]({% post_url 2021-07-28-adventure-games-1980-1999 %}) I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I'd missed or never heard of. One of those games was [Harvester]({% post_url 2024-02-23-harvester %}), which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.
 

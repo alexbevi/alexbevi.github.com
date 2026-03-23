@@ -6,7 +6,9 @@ comments: true
 categories: Programming
 tags: [programming, reverse-engineering, scummvm, ghidra]
 image: /images/ghidra1/harvester_reverse_engineering_banner_1200x600.png 
+series: reverse_engineering_harvester
 ---
+{% series_nav %}
 
 According to the [Harvester manual](https://harvester.telepedia.net/wiki/Manual), your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we're using a Ghidra disassembly and Codex to build out our ScummVM engine, let's have a look at how easy adding this functionality can be.
 

@@ -55,6 +55,10 @@ series_nav:
     title: "Turn-based JRPG Battle Music Breakdown"
     title_link: "{% post_url 2025-10-11-turn-based-jrpg-battle-music-breakdown %}"
     description: "This review is part of the Battle Music Breakdown series. See all games sorted by score <a href='{% post_url 2025-10-15-turn-based-jrgp-battle-music-breakdown-sorted-by-score %}'>here</a>."
+reverse_engineering_harvester:
+    title: "Reverse Engineering Harvester"
+    title_link: "{% post_url 2026-03-14-reverse-engineering-a-dos-game-with-ghidra-and-codex %}"
+    description: "This review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM."
 
 # Web Analytics Settings
 analytics:
