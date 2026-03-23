@@ -1,4 +1,1657 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-18T07:40:42-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Reverse Engineering Harvester with Ghidra and Codex - Part 2</title><link href="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/" rel="alternate" type="text/html" title="Reverse Engineering Harvester with Ghidra and Codex - Part 2" /><published>2026-03-17T19:22:34-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/"><![CDATA[<p>According to the <a href="https://harvester.telepedia.net/wiki/Manual">Harvester manual</a>, your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we’re using a Ghidra disassembly and Codex to build out our ScummVM engine, let’s have a look at how easy adding this functionality can be.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://www.alexbevi.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.alexbevi.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-03-23T07:31:38-04:00</updated><id>https://www.alexbevi.com/feed.xml</id><title type="html">ALEX BEVILACQUA</title><subtitle>Programming, MongoDB, Ruby and anything else I find interesting. Sometimes dabble in RPG/JRPG/Adventure game reviews.</subtitle><entry><title type="html">Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats</title><link href="https://www.alexbevi.com/blog/2026/03/23/reverse-engineering-harvester-with-ghidra-and-codex-part-3-file-formats/" rel="alternate" type="text/html" title="Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats" /><published>2026-03-23T06:18:10-04:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/23/reverse-engineering-harvester-with-ghidra-and-codex-part-3-file-formats</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/23/reverse-engineering-harvester-with-ghidra-and-codex-part-3-file-formats/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/">Reverse Engineering Harvester</a></strong><p>This review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/">Reverse Engineering Harvester with Ghidra and Codex - Part 2</a></li><li><strong>Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats</strong></li></ul>
+
+  <p>Article 3 of 3 in this series.</p>
+</blockquote>
+
+<style>
+.content pre, .content pre code {
+white-space: pre-wrap !important;
+word-break: break-word !important;
+overflow-wrap: break-word !important;
+overflow-x: hidden !important;
+}
+
+.highlight {
+overflow-x: visible !important;
+}
+</style>
+
+<h1 id="file-formats">File Formats</h1>
+
+<p>This document tracks file-format facts that are confirmed by the current Harvester reverse-engineering work. It is intentionally conservative: if a field or behavior is not supported by code or verified runtime notes, it is left out.</p>
+
+<p>The sections below combine three sources of evidence: the current ScummVM Harvester engine code, named native functions and data types in Ghidra, and spot-checks against extracted sample files from the Harvester CD image. Unknown or only partially understood fields stay marked as such.</p>
+
+<h2 id="dat-xfile-archive-payload"><code class="language-plaintext highlighter-rouge">DAT</code> (XFILE archive payload)</h2>
+
+<p>Harvester’s <code class="language-plaintext highlighter-rouge">.DAT</code> files act as payload containers for the game’s numbered XFILE resource sets. The important wrinkle is that the <code class="language-plaintext highlighter-rouge">.DAT</code> file is not the whole format by itself: the loader depends on a sidecar <code class="language-plaintext highlighter-rouge">INDEX.00N</code> file for the directory. In other words, the <code class="language-plaintext highlighter-rouge">.DAT</code> holds the bytes, while the <code class="language-plaintext highlighter-rouge">INDEX.00N</code> records tell the engine where each member starts, how large it is, and whether it must be unpacked after reading.</p>
+
+<p>At confirmed cold start, the original game mounts these pairs in this order:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Set</th>
+      <th>Index file</th>
+      <th>Data file</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">INDEX.001</code></td>
+      <td><code class="language-plaintext highlighter-rouge">HARVEST.DAT</code></td>
+      <td>First archive-backed set mounted during startup. Confirmed startup art and UI assets are loaded through this set.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">INDEX.002</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SOUND.DAT</code></td>
+      <td>Second numbered set mounted during startup.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">INDEX.003</code></td>
+      <td><code class="language-plaintext highlighter-rouge">HARVEST2.DAT</code></td>
+      <td>Third numbered set mounted during startup.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="summary">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Archive payload file used by the XFILE resource layer</td>
+    </tr>
+    <tr>
+      <td>Companion metadata</td>
+      <td>Required sidecar <code class="language-plaintext highlighter-rouge">INDEX.00N</code> directory file</td>
+    </tr>
+    <tr>
+      <td>Archive-wide header in <code class="language-plaintext highlighter-rouge">.DAT</code></td>
+      <td>No confirmed archive-wide header or in-file directory has been required by the current loader</td>
+    </tr>
+    <tr>
+      <td>Addressing model</td>
+      <td>Members are looked up by path in <code class="language-plaintext highlighter-rouge">INDEX.00N</code>, then read from absolute offsets in the <code class="language-plaintext highlighter-rouge">.DAT</code></td>
+    </tr>
+    <tr>
+      <td>Path syntax in game code</td>
+      <td>Archive-backed lookups use <code class="language-plaintext highlighter-rouge">&lt;set-number&gt;:\path\to\file.ext</code></td>
+    </tr>
+    <tr>
+      <td>Endianness</td>
+      <td>Mixed in the sidecar index: signature is checked as big-endian <code class="language-plaintext highlighter-rouge">XFLE</code>; numeric fields are little-endian 32-bit values</td>
+    </tr>
+    <tr>
+      <td>Compression</td>
+      <td>Optional per-entry packing; unpacked entries are read directly, packed entries are expanded after read</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dat-payload-layout"><code class="language-plaintext highlighter-rouge">.DAT</code> payload layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td>variable</td>
+      <td>Raw member data addressed by the sidecar index. The current loader treats the file as a byte reservoir and does not require a confirmed global header before opening entries.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is sparse compared with many archive formats, but that sparseness is itself useful for a blog post: the format’s structure is directory-driven rather than self-describing. All meaningful per-file metadata currently comes from the matching <code class="language-plaintext highlighter-rouge">INDEX.00N</code> file.</p>
+
+<h3 id="index00n-directory-record-layout"><code class="language-plaintext highlighter-rouge">INDEX.00N</code> directory record layout</h3>
+
+<p>Each confirmed sidecar index is read as a flat array of <code class="language-plaintext highlighter-rouge">0x94</code>-byte records:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>ASCII</td>
+      <td><code class="language-plaintext highlighter-rouge">signature</code></td>
+      <td><code class="language-plaintext highlighter-rouge">XFLE</code> magic. The loader rejects records whose first four bytes do not match this tag.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x80</code></td>
+      <td>char[128]</td>
+      <td><code class="language-plaintext highlighter-rouge">path</code></td>
+      <td>NUL-terminated resource path string. This is the logical member name used for later lookups.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x84</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">archive_offset</code></td>
+      <td>Absolute offset of the member data inside the companion <code class="language-plaintext highlighter-rouge">.DAT</code> file.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x88</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">stored_size</code></td>
+      <td>Number of bytes stored in the <code class="language-plaintext highlighter-rouge">.DAT</code> for this member.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x8c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">packed_flag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> means the member is stored verbatim. Any nonzero value takes the packed-entry decode path. The current loader does not distinguish between different nonzero flag values.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x90</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">unpacked_size</code></td>
+      <td>Expected output size after decode for packed entries.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="packed-entry-stream">Packed entry stream</h3>
+
+<p>When <code class="language-plaintext highlighter-rouge">packed_flag != 0</code>, the loader reads <code class="language-plaintext highlighter-rouge">stored_size</code> bytes from the <code class="language-plaintext highlighter-rouge">.DAT</code> and expands them into an <code class="language-plaintext highlighter-rouge">unpacked_size</code> output buffer using a simple control-byte stream:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Control byte range</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code> to <code class="language-plaintext highlighter-rouge">0x80</code></td>
+      <td>Copy the next <code class="language-plaintext highlighter-rouge">control</code> bytes literally into the output stream.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x81</code> to <code class="language-plaintext highlighter-rouge">0xff</code></td>
+      <td>Read one byte and repeat it <code class="language-plaintext highlighter-rouge">control - 0x80</code> times.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The decode loop stops once either the compressed input is exhausted or the output buffer reaches <code class="language-plaintext highlighter-rouge">unpacked_size</code>. Entries that fail to produce exactly <code class="language-plaintext highlighter-rouge">unpacked_size</code> bytes are treated as invalid.</p>
+
+<h3 id="path-handling-notes">Path handling notes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Behavior</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Separators</td>
+      <td>Resource paths are normalized from DOS-style backslashes to forward slashes during lookup.</td>
+    </tr>
+    <tr>
+      <td>Prefix stripping</td>
+      <td>Leading <code class="language-plaintext highlighter-rouge">./</code>, leading <code class="language-plaintext highlighter-rouge">/</code>, and <code class="language-plaintext highlighter-rouge">&lt;digit&gt;:/</code> prefixes are stripped during normalization.</td>
+    </tr>
+    <tr>
+      <td>Case handling</td>
+      <td>Archive member lookups are case-insensitive in the current implementation.</td>
+    </tr>
+    <tr>
+      <td>Loose files vs archive paths</td>
+      <td>Bare relative paths are handled separately by the direct-file path builder; <code class="language-plaintext highlighter-rouge">&lt;digit&gt;:\...</code> paths select an archive set instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="practical-interpretation">Practical interpretation</h3>
+
+<p>For extraction or tooling work, the current evidence supports treating Harvester’s <code class="language-plaintext highlighter-rouge">.DAT</code> archives as a two-file format:</p>
+
+<ol>
+  <li>Read the matching <code class="language-plaintext highlighter-rouge">INDEX.00N</code> file as a sequence of <code class="language-plaintext highlighter-rouge">0x94</code>-byte <code class="language-plaintext highlighter-rouge">XFLE</code> records.</li>
+  <li>Use each record’s <code class="language-plaintext highlighter-rouge">archive_offset</code> and <code class="language-plaintext highlighter-rouge">stored_size</code> to slice bytes from the companion <code class="language-plaintext highlighter-rouge">.DAT</code>.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">packed_flag</code> is zero, the slice is the final file.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">packed_flag</code> is nonzero, expand the slice with the literal/repeat decoder above until <code class="language-plaintext highlighter-rouge">unpacked_size</code> bytes are produced.</li>
+</ol>
+
+<p>That model is enough to explain the startup resource mounts already confirmed in the reverse-engineering notes, and it matches the current ScummVM-side archive loader.</p>
+
+<h2 id="rcs-quick-tip-text-lists"><code class="language-plaintext highlighter-rouge">RCS</code> (Quick-tip text lists)</h2>
+
+<p>The only confirmed <code class="language-plaintext highlighter-rouge">.RCS</code> use so far is <code class="language-plaintext highlighter-rouge">ADJHEAD.RCS</code>, the quick-tips file shown by the startup/options overlay. Both native <code class="language-plaintext highlighter-rouge">run_quick_tips_screen</code> and the ScummVM <code class="language-plaintext highlighter-rouge">Flow::loadQuickTips</code> path treat it as plain text rather than as a binary container.</p>
+
+<h3 id="summary-1">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Plaintext list of quick-tip strings</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumer</td>
+      <td>Startup quick-tips overlay and options-menu quick-tips screen</td>
+    </tr>
+    <tr>
+      <td>Encoding</td>
+      <td>Plain ASCII text in the sampled file</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Delimiters</td>
+      <td>CR/LF line endings in the sampled file; loaders split on <code class="language-plaintext highlighter-rouge">\n</code> and ignore <code class="language-plaintext highlighter-rouge">\r</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset / unit</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00..EOF</code></td>
+      <td>variable</td>
+      <td>Sequence of text lines. Each non-empty trimmed line becomes one quick-tip string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>The sampled <code class="language-plaintext highlighter-rouge">ADJHEAD.RCS</code> begins directly with readable text: <code class="language-plaintext highlighter-rouge">Double click the left mouse button...</code>.</li>
+  <li>The native quick-tips path advances through the file with <code class="language-plaintext highlighter-rouge">read_line_from_file_stream</code>, wraps back to the start on EOF, and chooses a random starting point the first time it runs.</li>
+  <li>This is a good example of Harvester’s resource pipeline staying pragmatic: not every gameplay-facing asset is wrapped in a custom binary format.</li>
+</ul>
+
+<h2 id="dialogrsp-dialogue-response-and-keyword-text"><code class="language-plaintext highlighter-rouge">DIALOG.RSP</code> (Dialogue response and keyword text)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">DIALOG.RSP</code> is a plaintext line table used by the dialogue UI. It does not appear to contain ids, offsets, or a binary header; the engine indexes it by zero-based line number and then uses the line text directly.</p>
+
+<h3 id="summary-2">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Plaintext dialogue response / keyword string table</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td><code class="language-plaintext highlighter-rouge">load_dialogue_response_line</code>, response menu, keyword menu</td>
+    </tr>
+    <tr>
+      <td>Encoding</td>
+      <td>Plain ASCII text in the sampled file</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Addressing model</td>
+      <td>Zero-based line index</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout-1">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unit</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Line <code class="language-plaintext highlighter-rouge">n</code></td>
+      <td>One response, keyword label, or menu text string</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/</code> within a line</td>
+      <td>In response/keyword UI contexts, splits one source line into multiple visible menu items</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-1">Notes</h3>
+
+<ul>
+  <li>The native loader reads a requested zero-based line, strips the trailing CR/LF, and returns the shared text buffer directly.</li>
+  <li><code class="language-plaintext highlighter-rouge">run_dialogue_response_menu</code> and <code class="language-plaintext highlighter-rouge">run_dialogue_keyword_menu</code> split visible options on <code class="language-plaintext highlighter-rouge">/</code>; there is no confirmed hidden topic-id layer behind those labels.</li>
+  <li><code class="language-plaintext highlighter-rouge">load_dialogue_index</code> also pulls zero-based line <code class="language-plaintext highlighter-rouge">13</code> from <code class="language-plaintext highlighter-rouge">DIALOG.RSP</code> to seed the default keyword topic; in the sampled file that line is <code class="language-plaintext highlighter-rouge">BYE</code> (one-based line 14).</li>
+  <li>As a narrative point for a blog post, <code class="language-plaintext highlighter-rouge">DIALOG.RSP</code> shows Harvester leaning on designer-editable text tables even inside a fairly custom dialogue stack.</li>
+</ul>
+
+<h2 id="dialogueidx-subtitle-index"><code class="language-plaintext highlighter-rouge">DIALOGUE.IDX</code> (Subtitle index)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">DIALOGUE.IDX</code> is an XOR-obfuscated text file that maps voice sample ids to subtitle strings. The native <code class="language-plaintext highlighter-rouge">load_dialogue_index</code> path and the ScummVM <code class="language-plaintext highlighter-rouge">Text::loadDialogueIndex</code> reimplementation both decode it with XOR <code class="language-plaintext highlighter-rouge">0xAA</code> while leaving CR/LF intact.</p>
+
+<h3 id="summary-3">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Voice-id to subtitle-text index</td>
+    </tr>
+    <tr>
+      <td>Encoding on disk</td>
+      <td>ASCII text obfuscated with XOR <code class="language-plaintext highlighter-rouge">0xAA</code> on every byte except CR/LF</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Confirmed delimiters</td>
+      <td><code class="language-plaintext highlighter-rouge">NUL</code>, <code class="language-plaintext highlighter-rouge">LF</code>, <code class="language-plaintext highlighter-rouge">CR</code>, and form-feed (<code class="language-plaintext highlighter-rouge">0x0c</code>)</td>
+    </tr>
+    <tr>
+      <td>Key native type</td>
+      <td><code class="language-plaintext highlighter-rouge">DialogueIndexEntry { wav_id, text_offset, text_length }</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="decoded-stream-layout">Decoded stream layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sequence element</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ASCII decimal token</td>
+      <td><code class="language-plaintext highlighter-rouge">wav_id</code> for one spoken line</td>
+    </tr>
+    <tr>
+      <td>Delimiter run</td>
+      <td>One or more of <code class="language-plaintext highlighter-rouge">NUL</code>, <code class="language-plaintext highlighter-rouge">LF</code>, <code class="language-plaintext highlighter-rouge">CR</code>, <code class="language-plaintext highlighter-rouge">FF</code></td>
+    </tr>
+    <tr>
+      <td>ASCII text token</td>
+      <td>Subtitle text for that voice id</td>
+    </tr>
+    <tr>
+      <td>Delimiter run</td>
+      <td>Ends the subtitle record and starts the next id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="derived-index-entry">Derived index entry</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">wav_id</code></td>
+      <td>Positive decimal voice/sample id</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">text_offset</code></td>
+      <td>Byte offset of the decoded subtitle text inside the decoded blob</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">text_length</code></td>
+      <td>Subtitle length, clamped to <code class="language-plaintext highlighter-rouge">0x19a</code> bytes by the native loader</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-2">Notes</h3>
+
+<ul>
+  <li>After XOR decode, the sampled file starts with a simple alternating pattern: <code class="language-plaintext highlighter-rouge">1</code>, <code class="language-plaintext highlighter-rouge">"junk init"</code>, <code class="language-plaintext highlighter-rouge">7</code>, <code class="language-plaintext highlighter-rouge">"Yes?"</code>, <code class="language-plaintext highlighter-rouge">11</code>, <code class="language-plaintext highlighter-rouge">"I need some help..."</code>, and so on.</li>
+  <li>The native loader builds a 3000-entry in-memory table and keeps the decoded text blob around so <code class="language-plaintext highlighter-rouge">play_dialogue_line</code> can seek back into it cheaply.</li>
+  <li>Architecturally, this splits dialogue cleanly in two: <code class="language-plaintext highlighter-rouge">DIALOGUE.IDX</code> carries spoken-line subtitles keyed by numeric wav ids, while <code class="language-plaintext highlighter-rouge">DIALOG.RSP</code> carries menu-facing response text.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="sh">'</span><span class="s">import sys,pathlib,signal; signal.signal(signal.SIGPIPE, signal.SIG_DFL); d=pathlib.Path(sys.argv[1]).read_bytes(); sys.stdout.buffer.write(bytes(b if b in (10,13) else b ^ 0xAA for b in d))</span><span class="sh">'</span> <span class="n">DIALOGUE</span><span class="p">.</span><span class="n">IDX</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10</span>
+<span class="mi">1</span>
+<span class="sh">"</span><span class="s">junk init</span><span class="sh">"</span>
+<span class="mi">7</span>
+<span class="sh">"</span><span class="s">Yes?</span><span class="sh">"</span>
+<span class="mi">11</span>
+<span class="sh">"</span><span class="s">I need some help... Mister...?</span><span class="sh">"</span>
+<span class="mi">15</span>
+<span class="sh">"</span><span class="s">Postmaster Boyle.  What can I do you for today?</span><span class="sh">"</span>
+<span class="mi">25</span>
+<span class="sh">"</span><span class="s">Sorry, youngster, we</span><span class="sh">'</span><span class="s">re out of applications right now.</span><span class="sh">"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="scr-townworld-startup-script"><code class="language-plaintext highlighter-rouge">SCR</code> (Town/world startup script)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">HARVEST.SCR</code> is the central world-definition and startup-script file. It is XOR-obfuscated text, not bytecode. The native <code class="language-plaintext highlighter-rouge">load_xor_obfuscated_town_script</code> path and the ScummVM <code class="language-plaintext highlighter-rouge">Script::decode</code> path both XOR each non-CR/LF byte with <code class="language-plaintext highlighter-rouge">0xAA</code>, then parse whitespace-separated records with quoted strings preserved.</p>
+
+<h3 id="summary-4">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>World database, startup configuration script, and command graph</td>
+    </tr>
+    <tr>
+      <td>Encoding on disk</td>
+      <td>ASCII text obfuscated with XOR <code class="language-plaintext highlighter-rouge">0xAA</code> on every byte except CR/LF</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Comment syntax</td>
+      <td>Lines whose first non-space character is <code class="language-plaintext highlighter-rouge">{</code> are skipped</td>
+    </tr>
+    <tr>
+      <td>Tokenization</td>
+      <td>Whitespace-delimited tokens with quoted strings kept intact</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="confirmed-record-forms">Confirmed record forms</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tag</th>
+      <th>Leading numeric fields</th>
+      <th>Fields after the tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ENTRANCE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x y z</code></td>
+      <td><code class="language-plaintext highlighter-rouge">direction roomName entranceName</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAP_ENTRANCE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mapX mapY initialPanelIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">entryName</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAP_LOCATION</code></td>
+      <td><code class="language-plaintext highlighter-rouge">minX minY maxX maxY panelIndex labelX labelY</code></td>
+      <td><code class="language-plaintext highlighter-rouge">labelText destinationEntranceName</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ROOM</code></td>
+      <td><code class="language-plaintext highlighter-rouge">minZ maxZ maxZScreenY minZScreenY fullScaleZ maxZScalePercent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">roomName musicPath reservedString38 reservedString3c reservedString40 palettePath dimmable onEnterCommand onExitCommand</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OBJECT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">initialX initialY boundsX2 boundsY2 initialZ zExtent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">initialOwnerOrRoom objectName spritePath altSpritePath reservedString40 inventoryTextKey reservedXFlag identTextKey operatable visible actionTag interactionLabel</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ANIM</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x y z frameDelay</code></td>
+      <td><code class="language-plaintext highlighter-rouge">roomName resourcePath animName active visible looping backward pingPong remove</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NPC</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x y z frameDelay</code></td>
+      <td><code class="language-plaintext highlighter-rouge">roomName modelPath npcName monsterfyTargetName active visible onDeathActionTag audioPath entityInitArg</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MONSTER</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x y z ...</code></td>
+      <td>Sample data and native analysis confirm sound-trigger timing columns for attack, hit, footstep, and death. The intermediate string columns at offsets <code class="language-plaintext highlighter-rouge">0x38</code>, <code class="language-plaintext highlighter-rouge">0x3c</code>, <code class="language-plaintext highlighter-rouge">0x44</code>, and <code class="language-plaintext highlighter-rouge">0x48</code> remain reserved in current data and have no recovered read-side consumers.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">REGION</code></td>
+      <td><code class="language-plaintext highlighter-rouge">left top right bottom minZ maxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">regionName direction roomName actionTag startEnabled cursorEnabled</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FLAG</code></td>
+      <td>none</td>
+      <td><code class="language-plaintext highlighter-rouge">name value</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">COMMAND</code></td>
+      <td>none</td>
+      <td><code class="language-plaintext highlighter-rouge">triggerTag opcodeName arg1 arg2 arg3 [arg4]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TEXT</code></td>
+      <td>none</td>
+      <td><code class="language-plaintext highlighter-rouge">key boxName value</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HEAD</code></td>
+      <td>none</td>
+      <td><code class="language-plaintext highlighter-rouge">headId portraitPath</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">USEITEM</code></td>
+      <td>none</td>
+      <td><code class="language-plaintext highlighter-rouge">itemName ownerOrRoom targetName actionTag</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-3">Notes</h3>
+
+<ul>
+  <li>The sampled file starts with readable structural records immediately after XOR decode, for example <code class="language-plaintext highlighter-rouge">ENTRANCE</code>, <code class="language-plaintext highlighter-rouge">OBJECT</code>, and later <code class="language-plaintext highlighter-rouge">ROOM</code>, <code class="language-plaintext highlighter-rouge">TEXT</code>, <code class="language-plaintext highlighter-rouge">HEAD</code>, and <code class="language-plaintext highlighter-rouge">COMMAND</code>.</li>
+  <li>Paths embedded in script records are not uniform: archive-backed resources use <code class="language-plaintext highlighter-rouge">1:\...</code>, <code class="language-plaintext highlighter-rouge">2:\...</code>, <code class="language-plaintext highlighter-rouge">3:\...</code>, while some direct-file assets are bare relative paths such as <code class="language-plaintext highlighter-rouge">dialogue.idx</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">GOFLIC</code> and <code class="language-plaintext highlighter-rouge">GODEATHFLIC</code> are especially revealing command names. In the sampled script, those opcodes point to <code class="language-plaintext highlighter-rouge">.FST</code> paths, which suggests the script vocabulary preserved older naming while the shipping runtime movie path used FST files.</li>
+  <li>As a blog-post narrative, <code class="language-plaintext highlighter-rouge">HARVEST.SCR</code> is the clearest proof that Harvester’s resource architecture is data-driven at the top level: rooms, objects, dialogue portraits, commands, music, palettes, and cutscene triggers all converge here.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>python3 <span class="nt">-c</span> <span class="s1">'import sys,pathlib,signal; signal.signal(signal.SIGPIPE, signal.SIG_DFL); d=pathlib.Path(sys.argv[1]).read_bytes(); sys.stdout.buffer.write(bytes(b if b in (10,13) else b ^ 0xAA for b in d))'</span> HARVEST.SCR | <span class="nb">head</span> <span class="nt">-n</span> 10
+<span class="o">{</span>// HARVESTER <span class="o">(</span>c<span class="o">)</span> 1995-96 Scripting Language
+<span class="o">{</span>// Town
+        0   0   0   ENTRANCE <span class="s2">"BACK"</span> <span class="s2">"TOWN_2_LODGE"</span> <span class="s2">"SERGEANT_2_LODGE"</span>
+        0   0   0   ENTRANCE <span class="s2">"FRONT"</span> <span class="s2">""</span> <span class="s2">"SAVE_GAME"</span>
+        492 67  554 96   0  1 OBJECT <span class="s2">"INVENTORY"</span> <span class="s2">"INV_EXIT"</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">"X"</span> <span class="s2">"F"</span> <span class="s2">"T"</span> <span class="s2">""</span> <span class="s2">"Inventory"</span>
+        299 0   0   0    2  1 OBJECT <span class="s2">"NULL_ID"</span>          <span class="s2">"EXIT_BM"</span>  <span class="s2">"1:</span><span class="se">\G</span><span class="s2">RAPHIC</span><span class="se">\O</span><span class="s2">THER</span><span class="se">\E</span><span class="s2">XITSIGN.BM"</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span>  <span class="s2">""</span> <span class="s2">"F"</span> <span class="s2">"T"</span> <span class="s2">""</span> <span class="s2">"exit"</span>
+        299 0   375 61   0  1 OBJECT <span class="s2">"NULL_ID"</span>          <span class="s2">"EXIT_HS"</span>  <span class="s2">""</span>                             <span class="s2">""</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">"X"</span> <span class="s2">""</span> <span class="s2">"T"</span> <span class="s2">"T"</span> <span class="s2">""</span> <span class="s2">"exit"</span>
+
+<span class="o">{</span>// inventory health indicator
+     72 314 0   0  <span class="nt">-12</span>  1 OBJECT <span class="s2">"INVENTORY"</span> <span class="s2">"INV_STAT1"</span> <span class="s2">"1:</span><span class="se">\g</span><span class="s2">raphic</span><span class="se">\o</span><span class="s2">ther</span><span class="se">\h</span><span class="s2">ead-a1.bm"</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">"INV_STAT_ST"</span> <span class="s2">""</span> <span class="s2">""</span> <span class="s2">"F"</span> <span class="s2">"F"</span> <span class="s2">""</span> <span class="s2">"Health_Indicator"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="bm-static-indexed-bitmap"><code class="language-plaintext highlighter-rouge">BM</code> (Static indexed bitmap)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.BM</code> is Harvester’s simplest custom image format: a small fixed header followed by raw 8-bit indexed pixels. It is used for UI panels, portraits, inventory art, help screens, and other non-animated images.</p>
+
+<h3 id="summary-5">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Raw 8-bit indexed bitmap</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td><code class="language-plaintext highlighter-rouge">spawn_bitmap_entity_from_resource</code>, <code class="language-plaintext highlighter-rouge">reload_bitmap_entity_pixels_from_resource</code>, menu/help/dialogue overlay loaders</td>
+    </tr>
+    <tr>
+      <td>Compression</td>
+      <td>None confirmed</td>
+    </tr>
+    <tr>
+      <td>Pixel format</td>
+      <td>1 byte per pixel, palette-indexed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout-2">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">width</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">height</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Unused/reserved in current analysis. Both native and ScummVM loaders ignore it; sampled <code class="language-plaintext highlighter-rouge">MOUSHELP.BM</code> stores zero here.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">width * height</code></td>
+      <td>bytes</td>
+      <td>Raw indexed pixel payload, row-major</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-4">Notes</h3>
+
+<ul>
+  <li>The native binary reuses the same <code class="language-plaintext highlighter-rouge">RawBitmap</code>/<code class="language-plaintext highlighter-rouge">BitmapBuffer</code> shape in memory: <code class="language-plaintext highlighter-rouge">{ width, height, pixels }</code>.</li>
+  <li>The format itself does not encode transparency, but many callers render it with palette index <code class="language-plaintext highlighter-rouge">0</code> treated as transparent.</li>
+  <li>Compared with many later adventure engines, this is an aggressively direct format: no chunking, no palette sidecar inside the file, and no per-row metadata.</li>
+</ul>
+
+<h2 id="pal-standalone-palette"><code class="language-plaintext highlighter-rouge">PAL</code> (Standalone palette)</h2>
+
+<p>Harvester’s <code class="language-plaintext highlighter-rouge">.PAL</code> files are raw palette payloads with no header. The native palette upload helpers and ScummVM <code class="language-plaintext highlighter-rouge">Art::loadPalette</code> both treat them as 256 RGB triplets.</p>
+
+<h3 id="summary-6">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Standalone 256-color palette resource</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td>Room setup, menus, help screens, wait overlay, town map</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Payload size</td>
+      <td>768 bytes (<code class="language-plaintext highlighter-rouge">256 * 3</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout-3">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset / range</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x000..0x2ff</code></td>
+      <td>768 bytes</td>
+      <td>256 consecutive <code class="language-plaintext highlighter-rouge">(R, G, B)</code> triplets stored as 8-bit channel values</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-5">Notes</h3>
+
+<ul>
+  <li>Native <code class="language-plaintext highlighter-rouge">upload_palette_to_vga</code> forces palette index <code class="language-plaintext highlighter-rouge">0</code> to black at upload time, applies brightness scaling, and then shifts the stored 8-bit channels down to VGA’s <code class="language-plaintext highlighter-rouge">0..63</code> DAC range.</li>
+  <li>The sampled <code class="language-plaintext highlighter-rouge">INVHELP.PAL</code> contains full-range byte values up to <code class="language-plaintext highlighter-rouge">0xff</code>, which matches the native analysis that <code class="language-plaintext highlighter-rouge">.PAL</code> is stored as 8-bit RGB, not pre-divided 6-bit VGA values.</li>
+  <li>This makes <code class="language-plaintext highlighter-rouge">.PAL</code> a nice contrast with FST’s embedded movie palettes, which are stored in 6-bit VGA form inside each frame payload.</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>TRY IT OUT!</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>python3 <span class="nt">-m</span> pip <span class="nb">install </span>pillow
+python3 <span class="nt">-c</span> <span class="s1">'from PIL import Image; import sys,struct; d=open(sys.argv[1],"rb").read(); w,h=struct.unpack_from("&lt;II",d,0); i=Image.frombytes("P",(w,h),d[12:12+w*h]); p=open(sys.argv[2],"rb").read()[:768] if len(sys.argv)&gt;2 else bytes(c for n in range(256) for c in (n,n,n)); i.putpalette(p); i.show()'</span> /path/to/<span class="k">*</span>.BM <span class="o">[</span>/path/to/<span class="k">*</span>.PAL]
+</pre></td></tr></tbody></table></code></pre></div>  </div>
+
+  <p><code class="language-plaintext highlighter-rouge">python3 -c '...' GRAPHIC/OTHER/INVHELP.BM</code> <br />
+<img src="/images/ghidra3/bm-nopal.png" alt="" /> <br />
+<code class="language-plaintext highlighter-rouge">python3 -c '...' GRAPHIC/OTHER/INVHELP.BM GRAPHIC/PAL/INVHELP.PAL</code> <br />
+<img src="/images/ghidra3/bm-pal.png" alt="" /></p>
+</blockquote>
+
+<h2 id="cft-bitmap-font"><code class="language-plaintext highlighter-rouge">CFT</code> (Bitmap font)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.CFT</code> packages a bitmap font as a fixed metrics header plus one raw 8-bit atlas image. The native <code class="language-plaintext highlighter-rouge">load_font_resource</code> and the ScummVM <code class="language-plaintext highlighter-rouge">Text::loadFont</code> / <code class="language-plaintext highlighter-rouge">HarvesterCftFont</code> code agree on the basic structure.</p>
+
+<h3 id="summary-7">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Bitmap font resource with metrics tables and atlas</td>
+    </tr>
+    <tr>
+      <td>Glyph count</td>
+      <td>256 slots</td>
+    </tr>
+    <tr>
+      <td>Rendering model</td>
+      <td>Each glyph is a horizontal slice out of one shared atlas bitmap</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td>Menu text, room labels, dialogue, save/load UI, text-entry widgets</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout-4">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x000</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x40</code></td>
+      <td>char[64]</td>
+      <td>NUL-terminated font name (<code class="language-plaintext highlighter-rouge">HARVFONT</code> in the sampled file)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x040</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Font height</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x042</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x200</code></td>
+      <td>uint16le[256]</td>
+      <td>Glyph start-X table</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x242</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x200</code></td>
+      <td>uint16le[256]</td>
+      <td>Glyph width table</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x442</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Space width</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x444</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>unknown</td>
+      <td>Unused/reserved in current analysis</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x448</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Atlas width</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x44c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Atlas height</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x450</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>unknown</td>
+      <td>Unused/reserved in current analysis; sampled <code class="language-plaintext highlighter-rouge">HARVFONT.CFT</code> stores zero here</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x454</code></td>
+      <td><code class="language-plaintext highlighter-rouge">atlasWidth * atlasHeight</code></td>
+      <td>bytes</td>
+      <td>Raw atlas pixels, row-major, 8-bit indexed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-6">Notes</h3>
+
+<ul>
+  <li>The renderer derives each glyph by slicing <code class="language-plaintext highlighter-rouge">width</code> pixels from <code class="language-plaintext highlighter-rouge">x</code> inside the shared atlas. There is no per-glyph bitmap chunking.</li>
+  <li><code class="language-plaintext highlighter-rouge">drawHeight</code> is effectively <code class="language-plaintext highlighter-rouge">atlasHeight - 1</code> in the current font renderer, which matches the native behavior of treating the last row as non-drawing padding.</li>
+  <li>The font renderer treats both <code class="language-plaintext highlighter-rouge">' '</code> and <code class="language-plaintext highlighter-rouge">'_'</code> as space-width characters. That ties neatly back to the script/text resources, where underscore-heavy identifiers and UI labels coexist with visible text.</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>TRY IT OUT!</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>python3 <span class="nt">-c</span> <span class="s1">'from PIL import Image; import sys,struct; d=open(sys.argv[1],"rb").read(); aw,ah=struct.unpack_from("&lt;II",d,0x448); h=max(1,min(struct.unpack_from("&lt;H",d,0x40)[0] or ah-1,ah-1)); sw=struct.unpack_from("&lt;H",d,0x442)[0] or 1; s=[struct.unpack_from("&lt;H",d,0x42+i*2)[0] for i in range(256)]; w=[struct.unpack_from("&lt;H",d,0x242+i*2)[0] for i in range(256)]; a=Image.frombytes("L",(aw,ah),d[0x454:0x454+aw*ah]); t=sys.argv[2]; W=sum(sw if ord(c)&gt;255 or c in " _" or w[ord(c)]&lt;=0 else w[ord(c)] for c in t); i=Image.new("L",(max(1,W),h),0); x=0; exec("for c in t:\n o=ord(c)\n gw=sw if o&gt;255 or c in \" _\" or w[o]&lt;=0 or s[o]&gt;=aw else w[o]\n if gw and o&lt;=255 and c not in \" _\" and w[o]&gt;0 and s[o]&lt;aw: i.paste(255,(x,0,x+gw,h),a.crop((s[o],0,s[o]+gw,h)))\n x+=gw"); i.resize((max(1,i.width*4),max(1,i.height*4)),Image.NEAREST).show()'</span> <span class="s2">"GRAPHIC/FONT/HARVFNT2.CFT"</span> <span class="s2">"Hello World"</span>
+</pre></td></tr></tbody></table></code></pre></div>  </div>
+  <p><img src="/images/ghidra3/hello-cft.png" alt="" /></p>
+</blockquote>
+
+<h2 id="abm-animated-bitmap--sprite-strip"><code class="language-plaintext highlighter-rouge">ABM</code> (Animated bitmap / sprite strip)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.ABM</code> is Harvester’s main custom sprite/animation format. It backs cursor art, actor sprites, room animations, combat entities, and wait-overlay animation frames.</p>
+
+<h3 id="summary-8">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Multi-frame indexed animation resource</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td><code class="language-plaintext highlighter-rouge">attach_abm_resource_to_entity</code>, <code class="language-plaintext highlighter-rouge">spawn_abm_entity_from_resource</code>, startup art loaders, room animation runtime</td>
+    </tr>
+    <tr>
+      <td>Pixel format</td>
+      <td>8-bit indexed pixels</td>
+    </tr>
+    <tr>
+      <td>Compression</td>
+      <td>Optional per-frame RLE-like stream</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-header">File header</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">frame_count</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Native runtime uses this value to size the temporary decoded-frame buffer before adding <code class="language-plaintext highlighter-rouge">0x10</code> bytes of slack. The current ScummVM loader does not otherwise interpret it. Sampled <code class="language-plaintext highlighter-rouge">BLOOD.ABM</code> stores <code class="language-plaintext highlighter-rouge">0x888</code> here.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td>variable</td>
+      <td>sequence</td>
+      <td>First frame record begins here</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="per-frame-record">Per-frame record</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset within frame</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>int32le</td>
+      <td><code class="language-plaintext highlighter-rouge">x_offset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>int32le</td>
+      <td><code class="language-plaintext highlighter-rouge">y_offset</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">width</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">height</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td><code class="language-plaintext highlighter-rouge">compressed_flag</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x11</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">encoded_size</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x15</code></td>
+      <td><code class="language-plaintext highlighter-rouge">encoded_size</code></td>
+      <td>bytes</td>
+      <td>Encoded or raw pixel payload for this frame</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="compressed-frame-stream">Compressed frame stream</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Control byte form</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00..0x7f</code></td>
+      <td>Copy the next <code class="language-plaintext highlighter-rouge">control</code> bytes literally</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x80..0xff</code></td>
+      <td>Read one byte and repeat it <code class="language-plaintext highlighter-rouge">control &amp; 0x7f</code> times</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-7">Notes</h3>
+
+<ul>
+  <li>Each frame decodes to exactly <code class="language-plaintext highlighter-rouge">width * height</code> bytes of indexed pixels.</li>
+  <li>The sampled <code class="language-plaintext highlighter-rouge">BLOOD.ABM</code> starts with 5 frames; its first frame is offset <code class="language-plaintext highlighter-rouge">(4, 0)</code>, size <code class="language-plaintext highlighter-rouge">38 x 50</code>, and marked compressed.</li>
+  <li>ABM is central to Harvester’s scene graph. The same format scales from tiny cursor sprites up to actor and monster visual state banks, which makes it a strong candidate for a blog-post “one format, many subsystems” section.</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>Try it out!</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>python3 <span class="nt">-c</span> <span class="s1">$'from PIL import Image</span><span class="se">\n</span><span class="s1">import sys,struct,tempfile,pathlib,webbrowser</span><span class="se">\n\n</span><span class="s1">def dec(s,n):</span><span class="se">\n</span><span class="s1"> i=0; o=bytearray()</span><span class="se">\n</span><span class="s1"> while i&lt;len(s) and len(o)&lt;n:</span><span class="se">\n</span><span class="s1">  k=s[i]; i+=1</span><span class="se">\n</span><span class="s1">  if k&lt;128:</span><span class="se">\n</span><span class="s1">   c=min(k,len(s)-i,n-len(o)); o+=s[i:i+c]; i+=c</span><span class="se">\n</span><span class="s1">  elif i&lt;len(s):</span><span class="se">\n</span><span class="s1">   o.extend([s[i]]*min(k&amp;127,n-len(o))); i+=1</span><span class="se">\n</span><span class="s1"> return bytes(o)</span><span class="se">\n\n</span><span class="s1">d=open(sys.argv[1],"rb").read()</span><span class="se">\n</span><span class="s1">pal=open(sys.argv[2],"rb").read()[:768] if len(sys.argv)&gt;2 else bytes(c for n in range(256) for c in (n,n,n))</span><span class="se">\n</span><span class="s1">fc=struct.unpack_from("&lt;I",d,0)[0]; off=8; F=[]; minx=miny=10**9; maxx=maxy=-10**9</span><span class="se">\n</span><span class="s1">for _ in range(fc):</span><span class="se">\n</span><span class="s1"> x,y,w,h=struct.unpack_from("&lt;iiii",d,off); c=d[off+16]; n=struct.unpack_from("&lt;I",d,off+17)[0]; s=d[off+25:off+25+n]; off+=25+n; p=s[:w*h] if not c else dec(s,w*h); F.append((x,y,w,h,p)); minx=min(minx,x); miny=min(miny,y); maxx=max(maxx,x+w); maxy=max(maxy,y+h)</span><span class="se">\n</span><span class="s1">minx=min(0,minx); miny=min(0,miny); W=maxx-minx; H=maxy-miny; G=[]</span><span class="se">\n</span><span class="s1">for x,y,w,h,p in F:</span><span class="se">\n</span><span class="s1"> src=Image.frombytes("P",(w,h),p); src.putpalette(pal); m=src.point(lambda v:0 if v==0 else 255,"L"); fr=Image.new("RGBA",(W,H),(0,0,0,0)); fr.paste(src.convert("RGBA"),(x-minx,y-miny),m); G.append(fr)</span><span class="se">\n</span><span class="s1">f=tempfile.NamedTemporaryFile(suffix=".gif",delete=False).name; G[0].save(f,save_all=True,append_images=G[1:],duration=100,loop=0,disposal=2,transparency=0); webbrowser.open(pathlib.Path(f).as_uri())'</span> /path/to/.ABM <span class="o">[</span>/path/to/.PAL]
+</pre></td></tr></tbody></table></code></pre></div>  </div>
+  <p>For example:  <br />
+<code class="language-plaintext highlighter-rouge">python3 -c $'...' "GRAPHIC/ROOMANIM/CLOAK.ABM"</code> <br />
+<img src="/images/ghidra3/cloak-nopal.gif" alt="" /> <br />
+<code class="language-plaintext highlighter-rouge">python3 -c $'...' "GRAPHIC/ROOMANIM/CLOAK.ABM" "GRAPHIC/PAL/INVHELP.PAL"</code> <br />
+<img src="/images/ghidra3/cloak-pal.gif" alt="" /></p>
+</blockquote>
+
+<h2 id="cmp-fcmp-compressed-audio"><code class="language-plaintext highlighter-rouge">CMP</code> (FCMP-compressed audio)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.CMP</code> is Harvester’s custom compressed audio wrapper. The sampled files begin with <code class="language-plaintext highlighter-rouge">FCMP</code>, and the native <code class="language-plaintext highlighter-rouge">load_sound_sample</code> / <code class="language-plaintext highlighter-rouge">load_dialogue_voice_sample</code> code plus the ScummVM <code class="language-plaintext highlighter-rouge">decodeHarvesterFcmp</code> path all treat that payload as IMA-ADPCM-like compressed audio.</p>
+
+<h3 id="summary-9">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Compressed audio for music, dialogue voice, and sound effects</td>
+    </tr>
+    <tr>
+      <td>Confirmed magic</td>
+      <td><code class="language-plaintext highlighter-rouge">FCMP</code></td>
+    </tr>
+    <tr>
+      <td>Confirmed codec</td>
+      <td>IMA-ADPCM-style nibble stream using the standard step/index tables recovered in the binary</td>
+    </tr>
+    <tr>
+      <td>Supported output depths</td>
+      <td>8-bit and 16-bit PCM</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-layout-5">File layout</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>ASCII</td>
+      <td><code class="language-plaintext highlighter-rouge">FCMP</code> magic</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Compressed payload size</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Sample rate in Hz</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Output bits per sample (<code class="language-plaintext highlighter-rouge">8</code> or <code class="language-plaintext highlighter-rouge">16</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0e</code></td>
+      <td>variable</td>
+      <td>bytes</td>
+      <td>ADPCM payload</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-8">Notes</h3>
+
+<ul>
+  <li>Sampled <code class="language-plaintext highlighter-rouge">MENACE.CMP</code> starts with <code class="language-plaintext highlighter-rouge">FCMP</code>, a payload size of <code class="language-plaintext highlighter-rouge">0x0db48b</code>, sample rate <code class="language-plaintext highlighter-rouge">22050</code>, and <code class="language-plaintext highlighter-rouge">16</code> bits per sample.</li>
+  <li>The loader family is tolerant: some call paths accept either <code class="language-plaintext highlighter-rouge">FCMP</code> or raw <code class="language-plaintext highlighter-rouge">WAVE</code> data. The <code class="language-plaintext highlighter-rouge">.CMP</code> extension itself points to the compressed path, but the runtime checks the actual file signature before decoding.</li>
+  <li>From an architectural perspective, this is the audio-side equivalent of Harvester’s XFILE abstraction: one wrapper format reused across music, speech, and effects.</li>
+</ul>
+
+<h2 id="fst-cutscene--streamed-animation"><code class="language-plaintext highlighter-rouge">FST</code> (Cutscene / streamed animation)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">.FST</code> is Harvester’s custom streamed movie format. It combines a file header, a compact per-frame index table, block-coded video payloads, optional per-frame palettes, and per-frame audio chunks.</p>
+
+<h3 id="summary-10">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Cutscene / transition movie format</td>
+    </tr>
+    <tr>
+      <td>Confirmed magic</td>
+      <td><code class="language-plaintext highlighter-rouge">FST2</code> (<code class="language-plaintext highlighter-rouge">0x32545346</code> on disk, little-endian)</td>
+    </tr>
+    <tr>
+      <td>Video model</td>
+      <td>8-bit indexed frames decoded in <code class="language-plaintext highlighter-rouge">4 x 4</code> blocks</td>
+    </tr>
+    <tr>
+      <td>Audio model</td>
+      <td>Per-frame audio chunks described by the frame index table</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumers</td>
+      <td><code class="language-plaintext highlighter-rouge">run_fst_sequence_player</code>, <code class="language-plaintext highlighter-rouge">play_fst_sequence</code>, startup intro path, scripted room transitions</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="file-header-1">File header</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>ASCII</td>
+      <td><code class="language-plaintext highlighter-rouge">FST2</code> magic</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Frame width</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Frame height</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">max_frame_size</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">frame_count</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x14</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">frame_rate</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x18</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">sample_rate</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x1c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">bits_per_sample</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x20</code></td>
+      <td><code class="language-plaintext highlighter-rouge">frame_count * 6</code></td>
+      <td>array</td>
+      <td><code class="language-plaintext highlighter-rouge">FstFrameIndexEntry[frame_count]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="frame-index-entry">Frame index entry</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset within entry</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td><code class="language-plaintext highlighter-rouge">video_size</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td><code class="language-plaintext highlighter-rouge">audio_size</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="video-payload-for-one-frame">Video payload for one frame</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sequence element</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uint16 bit_count</code></td>
+      <td>Number of bits in the control bitstream</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">((bit_count &gt;&gt; 3) + 1)</code> bytes</td>
+      <td>Packed control-bit stream</td>
+    </tr>
+    <tr>
+      <td>Optional <code class="language-plaintext highlighter-rouge">256 * 3</code> bytes</td>
+      <td>Present only when the first control bit is set; this is a VGA-style 6-bit palette block, not a <code class="language-plaintext highlighter-rouge">.PAL</code> resource block</td>
+    </tr>
+    <tr>
+      <td>Block payload stream</td>
+      <td>One record per changed <code class="language-plaintext highlighter-rouge">4 x 4</code> tile across the frame</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="block-coding">Block coding</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Control bits / payload</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Changed-bit <code class="language-plaintext highlighter-rouge">0</code></td>
+      <td>Leave the existing <code class="language-plaintext highlighter-rouge">4 x 4</code> block unchanged</td>
+    </tr>
+    <tr>
+      <td>Changed-bit <code class="language-plaintext highlighter-rouge">1</code>, mode-bit <code class="language-plaintext highlighter-rouge">0</code>, 16-byte payload</td>
+      <td>Literal <code class="language-plaintext highlighter-rouge">4 x 4</code> pixel block</td>
+    </tr>
+    <tr>
+      <td>Changed-bit <code class="language-plaintext highlighter-rouge">1</code>, mode-bit <code class="language-plaintext highlighter-rouge">1</code>, 4-byte payload</td>
+      <td>Two colors plus a 16-bit mask describing a <code class="language-plaintext highlighter-rouge">4 x 4</code> block</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-9">Notes</h3>
+
+<ul>
+  <li>Sampled <code class="language-plaintext highlighter-rouge">VIRGLOGO.FST</code> is <code class="language-plaintext highlighter-rouge">320 x 200</code>, stores <code class="language-plaintext highlighter-rouge">131</code> frames, plays at <code class="language-plaintext highlighter-rouge">15</code> fps, and carries <code class="language-plaintext highlighter-rouge">22050 Hz</code> / <code class="language-plaintext highlighter-rouge">16-bit</code> audio.</li>
+  <li>The native and ScummVM players both treat FST as a streaming format: read one frame, queue its audio, decode its video, and advance without loading the whole movie at once.</li>
+  <li><code class="language-plaintext highlighter-rouge">HARVEST.SCR</code> uses <code class="language-plaintext highlighter-rouge">GOFLIC</code>/<code class="language-plaintext highlighter-rouge">GODEATHFLIC</code> opcodes to trigger <code class="language-plaintext highlighter-rouge">.FST</code> files. That mismatch between opcode names and file extension is a strong architectural clue that FST replaced or wrapped an older movie concept without rewriting the script vocabulary.</li>
+  <li>The censorship path also shows how self-contained the format is: FST can carry its own palette updates frame-by-frame, while the player temporarily swaps in an external <code class="language-plaintext highlighter-rouge">CENSORED.PCX</code> overlay when gore is disabled.</li>
+</ul>
+
+<h2 id="pcx-standard-indexed-still-image"><code class="language-plaintext highlighter-rouge">PCX</code> (Standard indexed still image)</h2>
+
+<p>Harvester does use standard <code class="language-plaintext highlighter-rouge">.PCX</code> files in at least one confirmed place: the censorship overlay shown during certain FST sequences when gore is disabled.</p>
+
+<h3 id="summary-11">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Standard 8-bit indexed PCX still image</td>
+    </tr>
+    <tr>
+      <td>Confirmed consumer</td>
+      <td>Native <code class="language-plaintext highlighter-rouge">load_pcx_bitmap</code>; ScummVM FST censorship overlay loader</td>
+    </tr>
+    <tr>
+      <td>Encoding</td>
+      <td>PCX RLE</td>
+    </tr>
+    <tr>
+      <td>Palette</td>
+      <td>Trailing 256-color palette block when present</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="confirmed-header-fields">Confirmed header fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Manufacturer (<code class="language-plaintext highlighter-rouge">0x0a</code> in sampled <code class="language-plaintext highlighter-rouge">CENSORED.PCX</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Version (<code class="language-plaintext highlighter-rouge">0x05</code> in the sample)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Encoding (<code class="language-plaintext highlighter-rouge">0x01</code> = RLE)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x03</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Bits per pixel per plane (<code class="language-plaintext highlighter-rouge">0x08</code> in the sample)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td><code class="language-plaintext highlighter-rouge">xMin</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x06</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td><code class="language-plaintext highlighter-rouge">yMin</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td><code class="language-plaintext highlighter-rouge">xMax</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0a</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td><code class="language-plaintext highlighter-rouge">yMax</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x41</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Color planes (<code class="language-plaintext highlighter-rouge">0x01</code> in the sample)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x42</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Bytes per line (<code class="language-plaintext highlighter-rouge">320</code> in the sample)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x80</code></td>
+      <td>variable</td>
+      <td>bytes</td>
+      <td>RLE-compressed image data</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EOF - 769</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x01</code></td>
+      <td>byte</td>
+      <td>Standard palette marker <code class="language-plaintext highlighter-rouge">0x0c</code> in the sampled file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EOF - 768</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x300</code></td>
+      <td>bytes</td>
+      <td>256-color palette block when present</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-10">Notes</h3>
+
+<ul>
+  <li>Sampled <code class="language-plaintext highlighter-rouge">CENSORED.PCX</code> is a textbook single-plane <code class="language-plaintext highlighter-rouge">320 x 200</code> PCX, which is why the ScummVM port can use the generic PCX decoder for it.</li>
+  <li>The native loader contains two Harvester-specific wrinkles: it trims the optional <code class="language-plaintext highlighter-rouge">0x0c</code> palette marker by jumping straight to the last <code class="language-plaintext highlighter-rouge">0x300</code> bytes, and when the logical width from <code class="language-plaintext highlighter-rouge">xMax</code> is one pixel smaller than <code class="language-plaintext highlighter-rouge">bytesPerLine</code>, it trims the padded stride byte after decode.</li>
+  <li>This is another useful contrast point for a blog post: Harvester mostly ships custom image formats (<code class="language-plaintext highlighter-rouge">BM</code>, <code class="language-plaintext highlighter-rouge">ABM</code>, <code class="language-plaintext highlighter-rouge">FST</code>), but it still keeps a standards-based escape hatch where that was convenient.</li>
+</ul>
+
+<h2 id="flc-standard-autodesk-flic-animation"><code class="language-plaintext highlighter-rouge">FLC</code> (Standard Autodesk FLIC animation)</h2>
+
+<p>Harvester does ship <code class="language-plaintext highlighter-rouge">.FLC</code> files, and the sampled files match the standard Autodesk FLIC/FLC header rather than a Harvester-specific wrapper. The current Harvester engine work has not yet recovered the exact native Harvester-side call path that consumes them, so this section stays limited to what is directly supported by sample bytes, binary strings, and the generic ScummVM FLIC decoder.</p>
+
+<h3 id="summary-12">Summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Format role</td>
+      <td>Standard 8-bit FLIC/FLC animation files bundled with Harvester</td>
+    </tr>
+    <tr>
+      <td>Evidence</td>
+      <td>Sample files such as <code class="language-plaintext highlighter-rouge">GRAPHIC/ROOMANIM/HARVPNTR.FLC</code> and <code class="language-plaintext highlighter-rouge">GRAPHIC/FST/CHESMOV1.FLC</code>; native strings <code class="language-plaintext highlighter-rouge">Could not load flic.</code> and <code class="language-plaintext highlighter-rouge">flic.cpp</code>; hardcoded <code class="language-plaintext highlighter-rouge">.flc</code> paths in the binary</td>
+    </tr>
+    <tr>
+      <td>Harvester-specific loader status</td>
+      <td>Not yet fully recovered in current Harvester analysis</td>
+    </tr>
+    <tr>
+      <td>Decoder in repo</td>
+      <td>Generic ScummVM <code class="language-plaintext highlighter-rouge">video/flic_decoder.cpp</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="confirmed-standard-header-fields">Confirmed standard header fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offset</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x00</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>File size</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Magic <code class="language-plaintext highlighter-rouge">0xaf12</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x06</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Frame count</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x08</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Width</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0a</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Height</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Color depth (<code class="language-plaintext highlighter-rouge">8</code> in the sampled file)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x0e</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x02</code></td>
+      <td>uint16le</td>
+      <td>Flags</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Frame delay in milliseconds</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x50</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Offset of frame 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x54</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0x04</code></td>
+      <td>uint32le</td>
+      <td>Offset of frame 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0x80</code></td>
+      <td>variable</td>
+      <td>bytes</td>
+      <td>First frame/chunk stream begins here in the generic decoder</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes-11">Notes</h3>
+
+<ul>
+  <li>Sampled <code class="language-plaintext highlighter-rouge">HARVPNTR.FLC</code> starts with a valid FLC header: size <code class="language-plaintext highlighter-rouge">0x214a</code>, magic <code class="language-plaintext highlighter-rouge">0xaf12</code>, <code class="language-plaintext highlighter-rouge">10</code> frames, <code class="language-plaintext highlighter-rouge">26 x 26</code>, and <code class="language-plaintext highlighter-rouge">8</code>-bit color.</li>
+  <li>The decoded <code class="language-plaintext highlighter-rouge">HARVEST.SCR</code> sample does not reference <code class="language-plaintext highlighter-rouge">.FLC</code> files directly; its <code class="language-plaintext highlighter-rouge">GOFLIC</code> opcodes currently point to <code class="language-plaintext highlighter-rouge">.FST</code> files instead. That suggests <code class="language-plaintext highlighter-rouge">.FLC</code> belongs to a parallel or older asset path rather than the main shipping story-transition pipeline. This last point is an inference from the sampled script and should stay provisional.</li>
+  <li>Taken together, the resource set shows three animation strata: lightweight sprite ABMs, streamed FST movies, and a residual standard FLC layer. That is a strong narrative hook for explaining how mixed-tool resource pipelines often survive into shipped games.</li>
+</ul>
+
+<blockquote class="prompt-tip">
+  <p>TRY IT OUT</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>ffplay <span class="nt">-loop</span> <span class="nt">-1</span> <span class="s2">"GRAPHIC/ROOMANIM/HARVPNTR.FLC"</span>
+ffmpeg <span class="nt">-i</span> <span class="s2">"GRAPHIC/ROOMANIM/HARVPNTR.FLC"</span> out.gif
+</pre></td></tr></tbody></table></code></pre></div>  </div>
+  <p><img src="/images/ghidra3/flc.gif" alt="" /></p>
+</blockquote>]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[Series:&nbsp;Reverse Engineering HarvesterThis review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.← Reverse Engineering Harvester with Ghidra and Codex - Part 2Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats Article 3 of 3 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Reverse Engineering Harvester with Ghidra and Codex - Part 2</title><link href="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/" rel="alternate" type="text/html" title="Reverse Engineering Harvester with Ghidra and Codex - Part 2" /><published>2026-03-17T19:22:34-04:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/">Reverse Engineering Harvester</a></strong><p>This review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/">Reverse Engineering a DOS Game with Ghidra and Codex</a></li><li><strong>Reverse Engineering Harvester with Ghidra and Codex - Part 2</strong></li><li>→ <a href="/blog/2026/03/23/reverse-engineering-harvester-with-ghidra-and-codex-part-3-file-formats/">Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats</a></li></ul>
+
+  <p>Article 2 of 3 in this series.</p>
+</blockquote>
+
+<p>According to the <a href="https://harvester.telepedia.net/wiki/Manual">Harvester manual</a>, your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we’re using a Ghidra disassembly and Codex to build out our ScummVM engine, let’s have a look at how easy adding this functionality can be.</p>
 
 <p><img src="/images/ghidra2/SCR-20260318-gkwu.png" alt="" /></p>
 
@@ -38,7 +1691,13 @@
 
 <p>What this practically translates to is a fairly good implementation (see full <a href="https://github.com/alexbevi/scummvm/commit/df15ab715792ba0a26f12430ac489619f9be2857">commit</a>).</p>
 
-<p>Ten years ago while I was still muddling my way through <a href="/blog/2015/04/08/asylum-engine-update/"><code class="language-plaintext highlighter-rouge">asylum</code> engine updates</a> in IDA Pro, making this type of progress would have taken me weeks. Now, in about 30 minutes I can achieve exponentially more!</p>]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[According to the Harvester manual, your health is represented by a picture of Steve in the inventory that gets bloodier the more damage you take. Since we’re using a Ghidra disassembly and Codex to build out our ScummVM engine, let’s have a look at how easy adding this functionality can be.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Reverse Engineering a DOS Game with Ghidra and Codex</title><link href="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/" rel="alternate" type="text/html" title="Reverse Engineering a DOS Game with Ghidra and Codex" /><published>2026-03-14T06:13:05-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/"><![CDATA[<p>As part of my series called <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was <a href="/blog/2024/02/23/harvester/">Harvester</a>, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.</p>
+<p>Ten years ago while I was still muddling my way through <a href="/blog/2015/04/08/asylum-engine-update/"><code class="language-plaintext highlighter-rouge">asylum</code> engine updates</a> in IDA Pro, making this type of progress would have taken me weeks. Now, in about 30 minutes I can achieve exponentially more!</p>]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[Series:&nbsp;Reverse Engineering HarvesterThis review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.← Reverse Engineering a DOS Game with Ghidra and CodexReverse Engineering Harvester with Ghidra and Codex - Part 2→ Reverse Engineering Harvester with Ghidra and Codex - Part 3: File Formats Article 2 of 3 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Reverse Engineering a DOS Game with Ghidra and Codex</title><link href="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/" rel="alternate" type="text/html" title="Reverse Engineering a DOS Game with Ghidra and Codex" /><published>2026-03-14T06:13:05-04:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex</id><content type="html" xml:base="https://www.alexbevi.com/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/"><![CDATA[<blockquote class="prompt-tip mb-6">
+  <strong>Series:&nbsp;<a href="/blog/2026/03/14/reverse-engineering-a-dos-game-with-ghidra-and-codex/">Reverse Engineering Harvester</a></strong><p>This review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.</p><ul class="list-none space-y-1"><li><strong>Reverse Engineering a DOS Game with Ghidra and Codex</strong></li><li>→ <a href="/blog/2026/03/17/reverse-engineering-harvester-with-ghidra-and-codex-part-2/">Reverse Engineering Harvester with Ghidra and Codex - Part 2</a></li></ul>
+
+  <p>Article 1 of 3 in this series.</p>
+</blockquote>
+
+<p>As part of my series called <a href="/blog/2021/07/28/adventure-games-1980-1999/">“Let’s Adventure!”</a> I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was <a href="/blog/2024/02/23/harvester/">Harvester</a>, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.</p>
 
 <p><img src="/images/adventure/harvester/harvest_012.png" alt="" /></p>
 
@@ -160,7 +1819,7 @@ meaningful name.
 
 <!-- 
 https://github.com/david-offord/harvester-bm-converter/tree/master
-https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/ -->]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[As part of my series called “Let’s Adventure!” I had a chance to revisit a lot of classic adventure games I loved growing up, but also experience some I’d missed or never heard of. One of those games was Harvester, which was just the right mix of weird characters and settings with a bizarre plot tieing everything together.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
+https://www.polygon.com/fmv-harvester-brilliantly-and-brutally-critiques-censorship/ -->]]></content><author><name></name></author><category term="Programming" /><category term="programming" /><category term="reverse-engineering" /><category term="scummvm" /><category term="ghidra" /><summary type="html"><![CDATA[Series:&nbsp;Reverse Engineering HarvesterThis review is part of the Reverse Engineering Harvester series, where I document my journey of reverse engineering the 1996 DOS game Harvester to re-implement its game engine in ScummVM.Reverse Engineering a DOS Game with Ghidra and Codex→ Reverse Engineering Harvester with Ghidra and Codex - Part 2 Article 1 of 3 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" /><media:content medium="image" url="https://www.alexbevi.com/images/ghidra1/harvester_reverse_engineering_banner_1200x600.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’</title><link href="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/" rel="alternate" type="text/html" title="Cloudflare + MongoDB: How to fix ‘Error: Dynamic require of “punycode/” is not supported’" /><published>2025-12-22T10:54:11-05:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/22/cloudflare-plus-mongodb-how-to-fix-error-dynamic-require-of-punycode-slash-is-not-supported/"><![CDATA[<p>If you’ve followed my <a href="/blog/2025/03/25/cloudflare-workers-and-mongodb/">previous post</a> to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>Error: Dynamic require of "punycode/" is not supported
@@ -318,7 +1977,7 @@ npm <span class="nb">install</span>
   <li>Ensure the patch is applied by running <code class="language-plaintext highlighter-rouge">npm install</code></li>
 </ol>
 
-<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</title><link href="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/" rel="alternate" type="text/html" title="King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988" /><published>2025-12-15T20:48:52-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/"><![CDATA[<blockquote class="prompt-tip mb-6">
+<p>Hopefully we can get this sorted out more cleanly (reported as <a href="https://github.com/cloudflare/workers-sdk/issues/11751">https://github.com/cloudflare/workers-sdk/issues/11751</a>), but in the meantime feel free to use this approach if you find it suitable.</p>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="node" /><category term="nodejs" /><category term="javascript" /><category term="typescript" /><summary type="html"><![CDATA[If you’ve followed my previous post to try and connect to MongoDB from Cloudflare workers, it’s possible you’ve come across the following issue:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-cloudflare.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</title><link href="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/" rel="alternate" type="text/html" title="King’s Quest IV: The Perils of Rosella (Sierra On-Line) - 1988" /><published>2025-12-15T20:48:52-05:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/12/15/kings-quest-iv/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li><li><strong>King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</strong></li></ul>
 
   <p>Article 102 of 102 in this series.</p>
@@ -517,7 +2176,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/129/kings-quest-iv-the-perils-of-rosella/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 102 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 102 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/kq4/scummvm-kq4sci-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</title><link href="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/" rel="alternate" type="text/html" title="Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991" /><published>2025-11-28T06:40:43-05:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/28/leisure-suit-larry-5/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li><li><strong>Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</strong></li><li>→ <a href="/blog/2025/12/15/kings-quest-iv/">King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988</a></li></ul>
 
   <p>Article 101 of 102 in this series.</p>
@@ -709,7 +2368,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/408/leisure-suit-larry-5-passionate-patti-does-a-little-undercover-w/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991→ King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 101 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Sierra On-Line" /><category term="played:DOS" /><category term="SCI" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Maniac Mansion (Lucasfilm Games) - 1987Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991→ King's Quest IV: The Perils of Rosella (Sierra On-Line) - 1988 Article 101 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/lsl5/scummvm-lsl5-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Maniac Mansion (Lucasfilm Games) - 1987</title><link href="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/" rel="alternate" type="text/html" title="Maniac Mansion (Lucasfilm Games) - 1987" /><published>2025-11-13T05:37:59-05:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/13/maniac-mansion</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/13/maniac-mansion/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/21/martian-memorandum/">Martian Memorandum (Access Software) - 1991</a></li><li><strong>Maniac Mansion (Lucasfilm Games) - 1987</strong></li><li>→ <a href="/blog/2025/11/28/leisure-suit-larry-5/">Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991</a></li></ul>
 
   <p>Article 100 of 102 in this series.</p>
@@ -1051,7 +2710,7 @@ npm <span class="nb">install</span>
       <p><small>Description from <a href="https://www.mobygames.com/game/714/maniac-mansion/">Moby Games</a></small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Lucasfilm Games" /><category term="played:DOS" /><category term="SCUMM" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Martian Memorandum (Access Software) - 1991Maniac Mansion (Lucasfilm Games) - 1987→ Leisure Suit Larry 5: Passionate Patti Does a Little Undercover Work (Sierra On-Line) - 1991 Article 100 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/mm/scummvm-maniac-v2-00001.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MongoDB Drivers and Network Compression</title><link href="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/" rel="alternate" type="text/html" title="MongoDB Drivers and Network Compression" /><published>2025-11-11T16:44:22-05:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/11/11/mongodb-drivers-and-network-compression/"><![CDATA[<p>MongoDB’s drivers communicate with a MongoDB process using the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol">Wire Protocol</a>, which is a simple socket-based, request-response style protocol that primarily uses the <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_msg"><code class="language-plaintext highlighter-rouge">OP_MSG</code></a> opcode (though <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#std-label-legacy-op-codes-removed">prior to MongoDB 6.0</a> there were a number of additional <a href="https://www.mongodb.com/docs/manual/legacy-opcodes">legacy opcodes</a>). Since the contents of <code class="language-plaintext highlighter-rouge">OP_MSG</code> messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#op_compressed"><code class="language-plaintext highlighter-rouge">OP_COMPRESSED</code></a>.</p>
 
 <p>All official <a href="https://www.mongodb.com/docs/drivers/">MongoDB drivers</a> allow you to enable and configure <a href="https://www.mongodb.com/docs/manual/reference/connection-string-options/#compression-options">compression options</a> via the connection string. To use any of the available compressors, they’d need to first be <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors">enabled for each <code class="language-plaintext highlighter-rouge">mongod</code> or <code class="language-plaintext highlighter-rouge">mongos</code> instance through the <code class="language-plaintext highlighter-rouge">net.compression.compressors</code> option</a>, however all compressors are currently enabled by default, so you’d really only need to modify this to remove support for a given compressor.</p>
 
@@ -1331,7 +2990,7 @@ compressed (snappy): rx: 3807095, tx: 3797837
       <p><small>Per the <a href="https://github.com/mongodb/specifications/blob/master/source/compression/OP_COMPRESSED.md#messages-not-allowed-to-be-compressed">Wire Compression specification</a>, some commands should not be compressed. These include <code class="language-plaintext highlighter-rouge">hello</code>/<code class="language-plaintext highlighter-rouge">ismaster</code>, <code class="language-plaintext highlighter-rouge">saslStart</code>, <code class="language-plaintext highlighter-rouge">saslContinue</code>, <code class="language-plaintext highlighter-rouge">getnonce</code>, <code class="language-plaintext highlighter-rouge">authenticate</code>, <code class="language-plaintext highlighter-rouge">createUser</code>, <code class="language-plaintext highlighter-rouge">updateUser</code>, <code class="language-plaintext highlighter-rouge">copydbSaslStart</code>, <code class="language-plaintext highlighter-rouge">copydbgetnonce</code> and <code class="language-plaintext highlighter-rouge">copydb</code>.</small> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="MongoDB" /><category term="mongodb" /><category term="drivers" /><category term="networking" /><category term="compression" /><summary type="html"><![CDATA[MongoDB’s drivers communicate with a MongoDB process using the Wire Protocol, which is a simple socket-based, request-response style protocol that primarily uses the OP_MSG opcode (though prior to MongoDB 6.0 there were a number of additional legacy opcodes). Since the contents of OP_MSG messages was uncompressed, starting with MongoDB 3.4 a new opcode was introduced that would enable the Wire Protocol to support compressed messages as well: OP_COMPRESSED.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/mongodb-compression.png" /><media:content medium="image" url="https://www.alexbevi.com/images/mongodb-compression.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Martian Memorandum (Access Software) - 1991</title><link href="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/" rel="alternate" type="text/html" title="Martian Memorandum (Access Software) - 1991" /><published>2025-10-21T17:57:52-04:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/21/martian-memorandum</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/21/martian-memorandum/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2021/07/28/adventure-games-1980-1999/">Let's Adventure! A Journey into Adventure Games (1980-1999)</a></strong><p>This review is part of the Let's Adventure! series. See all reviewed games sorted by rating <a href="/blog/2021/08/08/adventure-games-1980-1999-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/09/17/time-zone/">Time Zone (On-Line Systems) - 1982</a></li><li><strong>Martian Memorandum (Access Software) - 1991</strong></li><li>→ <a href="/blog/2025/11/13/maniac-mansion/">Maniac Mansion (Lucasfilm Games) - 1987</a></li></ul>
 
   <p>Article 99 of 102 in this series.</p>
@@ -1567,7 +3226,7 @@ comments/1azvg20/another_frustrating_level_from_childhood/">Turbo Tunnel from Ba
       <p><small>Plot synopsis from <a href="https://texmurphy.fandom.com/wiki/Martian_Memorandum">Fandom</a></small> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
+</div>]]></content><author><name></name></author><category term="Let&apos;s Adventure!" /><category term="adventure" /><category term="Access Software" /><category term="played:DOS" /><category term="Access" /><summary type="html"><![CDATA[Series:&nbsp;Let's Adventure! A Journey into Adventure Games (1980-1999)This review is part of the Let's Adventure! series. See all reviewed games sorted by rating here.← Time Zone (On-Line Systems) - 1982Martian Memorandum (Access Software) - 1991→ Maniac Mansion (Lucasfilm Games) - 1987 Article 99 of 102 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" /><media:content medium="image" url="https://www.alexbevi.com/images/adventure/marmem/scummvm-martian-00000.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🎶 The 7th Saga (SNES) - 1993</title><link href="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/" rel="alternate" type="text/html" title="🎶 The 7th Saga (SNES) - 1993" /><published>2025-10-15T18:47:51-04:00</published><updated>2026-03-23T07:31:02-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/the-7th-saga</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/the-7th-saga/"><![CDATA[<blockquote class="prompt-tip mb-6">
   <strong>Series:&nbsp;<a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">Turn-based JRPG Battle Music Breakdown</a></strong><p>This review is part of the Battle Music Breakdown series. See all games sorted by score <a href="/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/">here</a>.</p><ul class="list-none space-y-1"><li>← <a href="/blog/2025/10/13/dragon-quest/">🎶 Dragon Quest (NES) - 1986</a></li><li><strong>🎶 The 7th Saga (SNES) - 1993</strong></li></ul>
 
   <p>Article 2 of 2 in this series.</p>
@@ -2155,142 +3814,4 @@ Screenshots from <strong>The 7th Saga (SNES) Playthrough - NintendoComplete</str
     </div><div class="trk-score final-score trk-tip" data-tip="Final (/100) = 20 × (0.75·BQ + 0.125·TC + 0.125·ESC + 0.05·SC)">
     <span>66%</span>
   </div>
-</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turn-based JRPG Battle Music Breakdown Sorted by Score</title><link href="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/" rel="alternate" type="text/html" title="Turn-based JRPG Battle Music Breakdown Sorted by Score" /><published>2025-10-15T06:03:45-04:00</published><updated>2026-03-18T07:39:54-04:00</updated><id>https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score</id><content type="html" xml:base="https://www.alexbevi.com/blog/2025/10/15/turn-based-jrgp-battle-music-breakdown-sorted-by-score/"><![CDATA[<p>This page is a list of the battle music scores from the <a href="/blog/2025/10/11/turn-based-jrpg-battle-music-breakdown/">“Turn-based JRPG Battle Music Breakdown”</a> series, sorted by rating. See the <em><a href="https://www.alexbevi.com/categories/battle-music-breakdown/">“Battle Music Breakdown”</a> category page</em> for a list of content by date of publication.</p>
-
-<h2 id="scoring-methodology">Scoring Methodology</h2>
-
-<p>What I’m going to do is listen to the various battle themes from as a number of turn-based JRPGs and score them as consistently as possible. Since not all games have the same number of songs, and the quality can vary greatly based on what the sound chips of each system were capable of, the scores will largely be based on my opinion of what I think sounds good and why.</p>
-
-<h3 id="what-i-score-per-track">What I score (per track)</h3>
-
-<p>Each battle track is rated on five simple, listen-first criteria on a scale of 0–5:</p>
-
-<ol>
-  <li>
-    <p><strong>Hook &amp; Identity</strong> — Is there a memorable idea you can hum?<br />
-<em>0: none • 3: clear hook • 5: unforgettable, with small variations.</em></p>
-  </li>
-  <li>
-    <p><strong>Energy &amp; Drive</strong> — Does the groove push turns along without clutter?<br />
-<em>0: sluggish • 3: steady • 5: propulsive yet controlled.</em></p>
-  </li>
-  <li>
-    <p><strong>Color &amp; Suspense</strong> — Do you feel mood shifts and push→release moments?<br />
-<em>0: flat • 3: some ebb/flow • 5: gripping builds and payoffs.</em></p>
-  </li>
-  <li>
-    <p><strong>Clarity &amp; Loop</strong> — Clean mix, readable parts, invisible loop, low fatigue.<br />
-<em>0: muddy/annoying • 3: fine for a few loops • 5: polished, long, fresh.</em></p>
-  </li>
-  <li>
-    <p><strong>Situational Fit</strong> — Does it match encounter stakes and turn-based cadence/UI tempo?<br />
-<em>0: mismatch • 3: broadly fits • 5: feels designed for the moment.</em></p>
-  </li>
-</ol>
-
-<p><strong>Track score</strong>: \((S_{\text{track}})\) is the average of those five (0–5).</p>
-
-<h3 id="how-multiple-tracks-are-handled">How multiple tracks are handled</h3>
-
-<p>Games can have several <strong>Normal</strong> and <strong>Boss</strong> tracks. Some games may have <strong>Special</strong> encounter tracks, which would be considered as part of the overall <strong>Boss</strong> score. If the <strong>Final</strong> battle track has multiple phases, each will be scored as a separate track. Once each track is  scored, I’ll then compute a <strong>role average</strong>:</p>
-
-<ul>
-  <li>$(R_{\text{Normal}} = \text{mean of all Normal } S_{\text{track}})$</li>
-  <li>$(R_{\text{Boss/Special}} = \text{mean of all Boss/Special } S_{\text{track}})$</li>
-  <li>$(R_{\text{Final}} = \text{mean of all Final } S_{\text{track}})$</li>
-</ul>
-
-<blockquote>
-  <p>This doesn’t penalize games with fewer tracks; quality matters more than quantity.</p>
-</blockquote>
-
-<h3 id="suite-checks-game-level">Suite checks (game-level)</h3>
-
-<p>I also score three suite-level items on a 0–5 scale:</p>
-
-<ul>
-  <li><strong>(TC) Thematic Cohesion (12.5%)</strong> — Shared DNA (motif/palette/rhythm) across Normal→Boss/Special→Final.</li>
-  <li><strong>(ESC) Escalation (12.5%)</strong> — Clear rise in energy/suspense from Normal→Boss/Special→Final; motif/orchestration grow.</li>
-  <li><strong>(SC) Suite Completeness (5%)</strong> — Expectation met: ≥2 battle tracks (Normal+Boss combined) <strong>and</strong> a Final.<br />
-<em>0 none • 3 one battle + final • 5 ≥2 battle + final.</em></li>
-</ul>
-
-<p>For <code class="language-plaintext highlighter-rouge">SC</code> my expectation is just that there’s enough of a variety to the soundtrack for there to be a bare minimum of 1 normal battle track, 1 boss track and a final battle track.</p>
-
-<h3 id="from-tracks-to-a-single-game-score">From tracks to a single game score</h3>
-
-<p>First, combine roles into a <strong>Battle Quality (BQ)</strong> score (0–5) using encounter weights:</p>
-
-<ul>
-  <li>Weights: Normal <strong>0.45</strong>, Boss <strong>0.30</strong>, Final <strong>0.25</strong>.</li>
-  <li>$( \text{BQ} = \dfrac{0.45 R_N + 0.30 R_B + 0.25 R_F}{\text{sum of weights for roles present}} )$</li>
-</ul>
-
-<p>Then convert to a 100-point scale:</p>
-
-<ul>
-  <li><strong>Final Score (/100)</strong>
-$(= 20 \times \big(0.75 \cdot \text{BQ} + 0.125 \cdot TC + 0.125 \cdot ESC + 0.05 \cdot SC\big))$</li>
-</ul>
-
-<blockquote>
-  <p>Intuition for weights: ~75% reflects how good the <strong>battle tracks</strong> sound and function moment-to-moment; the rest rewards <strong>cohesion</strong>, <strong>escalation</strong>, and <strong>meeting the expected suite</strong>.</p>
-</blockquote>
-
-<h3 id="consistency-notes">Consistency notes</h3>
-
-<ul>
-  <li>I normalize playback loudness so volume doesn’t bias “energy.”</li>
-  <li>I use <strong>in-game versions</strong> (arranges mentioned separately).</li>
-  <li>Older hardware isn’t penalized for fidelity; clarity and function are judged <strong>within constraints</strong>.</li>
-  <li>When a Final has phases, I score each phase and average them into $(R_{\text{Final}})$.</li>
-</ul>
-
-<h2 id="scoring-formula">Scoring Formula</h2>
-
-<p>The methodology above can be distilled into the following formula:</p>
-
-\[\text{Final} \;=\;
-20\left[
-0.75\cdot
-\frac{\displaystyle \sum_{r\in\{N,B,F\}} w_r\,\mathbf{1}_{|T_r|&gt;0}\!\left(\frac{1}{|T_r|}\sum_{t\in T_r}\frac{\mathrm{Hook}_t+\mathrm{Energy}_t+\mathrm{Color}_t+\mathrm{Clarity}_t+\mathrm{Fit}_t}{5}\right)}
-{\displaystyle \sum_{r\in\{N,B,F\}} w_r\,\mathbf{1}_{|T_r|&gt;0}}
-\;+\;0.125\,TC \;+\;0.125\,ESC \;+\;0.05\,SC
-\right]\]
-
-<p><strong>Where</strong></p>
-
-<ul>
-  <li>$r \in {N,B,F}$ are roles: Normal ($N$), Boss (incl. Special; $B$), Final ($F$)</li>
-  <li>$T_r$ is the set of tracks for role $r$ and $|T_r|$ is the count</li>
-  <li>$\mathbf{1}_{|T_r|&gt;0}$ is an indicator (1 if the role has ≥1 track, else 0) so the $BQ$ denominator uses only roles that exist.</li>
-  <li>Track score: $S_t=\dfrac{\mathrm{Hook}_t+\mathrm{Energy}_t+\mathrm{Color}_t+\mathrm{Clarity}_t+\mathrm{Fit}_t}{5}$</li>
-  <li>Weights: $w_N=0.45,\; w_B=0.30,\; w_F=0.25$</li>
-  <li>~75% reflects how good the battle tracks sound and function moment-to-moment; the rest rewards cohesion ($TC$), escalation ($ESC$), and meeting the expected suite ($SC$).</li>
-</ul>
-
-<hr />
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">progress</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">finished</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-     <span class="dl">"</span><span class="s2">skipped</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">total</span><span class="dl">"</span><span class="p">:</span> <span class="mi">301</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">completed</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.66%</span><span class="dl">"</span>
-<span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<h2 id="scores">Scores</h2>
-
-<ol>
-  <li><strong>66%</strong> <a href="/blog/2025/10/15/the-7th-saga/">The 7th Saga (SNES) - 1993</a></li>
-  <li><strong>38%</strong> <a href="/blog/2025/10/13/dragon-quest/">Dragon Quest (NES) - 1986</a></li>
-</ol>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="series" /><category term="jrpg_music" /><summary type="html"><![CDATA[This page is a list of the battle music scores from the “Turn-based JRPG Battle Music Breakdown” series, sorted by rating. See the “Battle Music Breakdown” category page for a list of content by date of publication.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/banner.png" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/banner.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><category term="Battle Music Breakdown" /><category term="Enix" /><category term="Koichi Sugiyama" /><summary type="html"><![CDATA[Series:&nbsp;Turn-based JRPG Battle Music BreakdownThis review is part of the Battle Music Breakdown series. See all games sorted by score here.← 🎶 Dragon Quest (NES) - 1986🎶 The 7th Saga (SNES) - 1993 Article 2 of 2 in this series.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" /><media:content medium="image" url="https://www.alexbevi.com/images/jrpg_music/7thsaga/boxart.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
