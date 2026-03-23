@@ -58,7 +58,7 @@ At confirmed cold start, the original game mounts these pairs in this order:
 | --- | --- | --- |
 | `0x00` | variable | Raw member data addressed by the sidecar index. The current loader treats the file as a byte reservoir and does not require a confirmed global header before opening entries. |
 
-This is sparse compared with many archive formats, but that sparseness is itself useful for a blog post: the format's structure is directory-driven rather than self-describing. All meaningful per-file metadata currently comes from the matching `INDEX.00N` file.
+This is sparse compared with many archive formats. The format's structure is directory-driven rather than self-describing. All meaningful per-file metadata currently comes from the matching `INDEX.00N` file.
 
 ### `INDEX.00N` directory record layout
 
@@ -156,7 +156,7 @@ The only confirmed `.RCS` use so far is `ADJHEAD.RCS`, the quick-tips file shown
 - The native loader reads a requested zero-based line, strips the trailing CR/LF, and returns the shared text buffer directly.
 - `run_dialogue_response_menu` and `run_dialogue_keyword_menu` split visible options on `/`; there is no confirmed hidden topic-id layer behind those labels.
 - `load_dialogue_index` also pulls zero-based line `13` from `DIALOG.RSP` to seed the default keyword topic; in the sampled file that line is `BYE` (one-based line 14).
-- As a narrative point for a blog post, `DIALOG.RSP` shows Harvester leaning on designer-editable text tables even inside a fairly custom dialogue stack.
+- `DIALOG.RSP` shows Harvester leaning on designer-editable text tables even inside a fairly custom dialogue stack.
 
 ## `DIALOGUE.IDX` (Subtitle index)
 
@@ -248,7 +248,7 @@ python3 -c 'import sys,pathlib,signal; signal.signal(signal.SIGPIPE, signal.SIG_
 - The sampled file starts with readable structural records immediately after XOR decode, for example `ENTRANCE`, `OBJECT`, and later `ROOM`, `TEXT`, `HEAD`, and `COMMAND`.
 - Paths embedded in script records are not uniform: archive-backed resources use `1:\...`, `2:\...`, `3:\...`, while some direct-file assets are bare relative paths such as `dialogue.idx`.
 - `GOFLIC` and `GODEATHFLIC` are especially revealing command names. In the sampled script, those opcodes point to `.FST` paths, which suggests the script vocabulary preserved older naming while the shipping runtime movie path used FST files.
-- As a blog-post narrative, `HARVEST.SCR` is the clearest proof that Harvester's resource architecture is data-driven at the top level: rooms, objects, dialogue portraits, commands, music, palettes, and cutscene triggers all converge here.
+- `HARVEST.SCR` shows that Harvester's resource architecture is data-driven at the top level: rooms, objects, dialogue portraits, commands, music, palettes, and cutscene triggers all converge here.
 
 ```bash
 python3 -c 'import sys,pathlib,signal; signal.signal(signal.SIGPIPE, signal.SIG_DFL); d=pathlib.Path(sys.argv[1]).read_bytes(); sys.stdout.buffer.write(bytes(b if b in (10,13) else b ^ 0xAA for b in d))' HARVEST.SCR | head -n 10
@@ -414,7 +414,6 @@ Harvester's `.PAL` files are raw palette payloads with no header. The native pal
 
 - Each frame decodes to exactly `width * height` bytes of indexed pixels.
 - The sampled `BLOOD.ABM` starts with 5 frames; its first frame is offset `(4, 0)`, size `38 x 50`, and marked compressed.
-- ABM is central to Harvester's scene graph. The same format scales from tiny cursor sprites up to actor and monster visual state banks, which makes it a strong candidate for a blog-post "one format, many subsystems" section.
 
 > Try it out!
 > ```bash
@@ -550,7 +549,6 @@ Harvester does use standard `.PCX` files in at least one confirmed place: the ce
 
 - Sampled `CENSORED.PCX` is a textbook single-plane `320 x 200` PCX, which is why the ScummVM port can use the generic PCX decoder for it.
 - The native loader contains two Harvester-specific wrinkles: it trims the optional `0x0c` palette marker by jumping straight to the last `0x300` bytes, and when the logical width from `xMax` is one pixel smaller than `bytesPerLine`, it trims the padded stride byte after decode.
-- This is another useful contrast point for a blog post: Harvester mostly ships custom image formats (`BM`, `ABM`, `FST`), but it still keeps a standards-based escape hatch where that was convenient.
 
 ## `FLC` (Standard Autodesk FLIC animation)
 
