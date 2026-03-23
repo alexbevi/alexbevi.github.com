@@ -426,7 +426,9 @@ Harvester's `.PAL` files are raw palette payloads with no header. The native pal
 > ![](/images/ghidra3/cloak-pal.gif)
 {:.prompt-tip}
 
-## `CMP` (FCMP-compressed audio)
+## `CMP` (FutureVision compressed audio)
+
+See [FutureVision audio formats](https://wiki.multimedia.cx/index.php/FutureVision_audio_formats) as well.
 
 `.CMP` is Harvester's custom compressed audio wrapper. The sampled files begin with `FCMP`, and the native `load_sound_sample` / `load_dialogue_voice_sample` code plus the ScummVM `decodeHarvesterFcmp` path all treat that payload as IMA-ADPCM-like compressed audio.
 
