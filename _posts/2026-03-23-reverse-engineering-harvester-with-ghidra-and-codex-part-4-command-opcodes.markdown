@@ -23,8 +23,6 @@ overflow-x: visible !important;
 }
 </style>
 
-# Harvester Opcodes
-
 Harvester's startup / world script is not bytecode. It is XOR-obfuscated text, and opcode dispatch happens through `COMMAND` records in `HARVEST.SCR`:
 
 ```text
