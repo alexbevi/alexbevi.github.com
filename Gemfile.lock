@@ -100,17 +100,20 @@ GEM
     jekyll-last-modified-at (1.3.2)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-theme-chirpy (7.5.0)
+    jekyll-theme-chirpy (7.0.1)
       jekyll (~> 4.3)
       jekyll-archives (~> 2.2)
       jekyll-include-cache (~> 0.2)
       jekyll-paginate (~> 1.1)
+      jekyll-redirect-from (~> 0.16)
       jekyll-seo-tag (~> 2.8)
       jekyll-sitemap (~> 1.4)
     jekyll-watch (2.2.1)
@@ -144,6 +147,7 @@ GEM
     octokit (4.25.1)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
+    ostruct (0.6.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     pdf-reader (2.15.1)
@@ -212,6 +216,7 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-theme-chirpy (~> 7)
   liquid-c
+  ostruct
   puma
   rack
   stringex
