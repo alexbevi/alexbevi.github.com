@@ -3,7 +3,7 @@ layout: post
 title: "Persistent multi-agent conversations with the OpenAI Agents SDK and MongoDB"
 date: 2026-04-27 12:50:00 -0400
 comments: true
-categories: MongoDB
+categories: AI
 tags: [mongodb, ai, python]
 image: /images/mongodb-ai.png
 ---
