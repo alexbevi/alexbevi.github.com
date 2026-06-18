@@ -5,7 +5,7 @@ date: 2026-06-18 15:14:48 -0400
 comments: true
 categories: AI
 tags: [ai, frameworks]
-image: images/maf-post.webp
+image: /images/maf-post.webp
 ---
 
 Microsoft's agent framework story is really a story about two teams solving different problems, a community fork born from disagreement, and a packaging hazard that will silently break your code if you're not paying attention. If you've been watching this space — or just trying to pick a framework for a new project — here's the full arc.
