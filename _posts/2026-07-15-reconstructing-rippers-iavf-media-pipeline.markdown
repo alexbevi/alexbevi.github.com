@@ -5,7 +5,7 @@ date: 2026-07-15 17:44:27 -0400
 comments: true
 categories: Programming
 tags: [programming, reverse-engineering, scummvm, ghidra, video]
-image: /images/ghidra-ripper/ripper-iavf-banner.png
+image: /images/ripper/ripper-banner.png
 ---
 
 While building a ScummVM engine for Ripper, one of the first milestones was playing the introductory movies. The game ships files named `PROINT.AVI` and `PROLOG1.AVI`, so the obvious starting assumption was that they were ordinary AVI containers.
@@ -18,9 +18,9 @@ The extension describes the role of the file, not its format. What looks like a 
 
 Getting these files to play correctly required more than identifying a codec. I had to recover the container's packet language, determine which clock controlled presentation timing, reconstruct standard Smacker streams from fragmented payloads, and reproduce display operations that occurred between segments.
 
-The result is an engine-local demultiplexer that translates the [IAVF format](https://wiki.multimedia.cx/index.php/IAVF) into services ScummVM already provides.
+The result is an engine-local demultiplexer that translates the [IAVF format](https://wiki.multimedia.cx/index.php/IAVF) into services ScummVM already provides. The engine's [media format detector](https://github.com/alexbevi/scummvm/blob/ripper/engines/ripper/media/plan.cpp) now makes the initial routing decision from the stream signature, distinguishing `IAVF2.00` from `SMK2` and `SMK4` without trusting the filename extension.
 
-![](/images/ripper/SCR-20260715-saou.png)
+![An IAVF presentation playing through the RIPPER engine in ScummVM](/images/ripper/SCR-20260715-saou.png)
 
 ## Prior work provided the map
 
@@ -56,7 +56,7 @@ The decompiled function is large because it supports more than one presentation 
 
 That was an important constraint on the re-implementation. The goal was not to declare that every IAVF command had been understood. It was to isolate the commands exercised by the files needed for the current game path and give those commands the narrowest meanings supported by the executable and the assets.
 
-![](/images/ripper/SCR-20260715-sshk.png)
+![The packetized media playback function open in Ghidra](/images/ripper/SCR-20260715-sshk.png)
 
 ## IAVF is a packet program
 
@@ -79,10 +79,10 @@ For the Smacker-backed files currently handled by the engine, the useful subset 
 | --- | --- |
 | `0x66` | Append an audio chunk to the presentation timeline |
 | `0x67` | Wait on a tagged position in the managed-audio timeline |
-| `0x68` | Clear the active display page before the next segment |
+| `0x68` | Clear the active display page at a presentation boundary |
 | `0x6a` | Begin a video segment and establish its position and setup data |
 | `0x6c` | Load the next compressed custom-packet frame state |
-| `0x70` | End the presentation |
+| `0x70` | Stop packet dispatch; managed audio may continue |
 | `0x75` | Prebuffer the packet stream and arm managed-audio control |
 | `0x77` | Render the custom packet loaded by `0x6c` |
 | `0x78` | Queue a reusable Smacker setup payload by key |
@@ -112,7 +112,7 @@ The startup movies use mono, 16-bit PCM. Their video data is more interesting be
 
 The executable contains additional branches for FLIC setup at `0x69`, custom packet loading at `0x6b`, and FLIC frame decoding at `0x76`. None of the 475 files in this data set uses those commands. They are confirmed capabilities of the original player, but not yet justified implementation targets for the ScummVM engine.
 
-There is also data after the logical end of many files. All 475 files in the corpus contain `0x70`, which stops the original dispatch loop. In 425 files it is followed by a `0x79` record and a variable-sized payload; the other 50 end immediately. Ghidra confirms that `0x79` is never dispatched because playback has already stopped. In every observed trailer, `arg1` is the remaining payload size and `arg2` is `arg1 - arg0`, but the payload's purpose remains unknown.
+There is also data after the logical end of many files. All 475 files in the corpus contain `0x70`, which stops the original dispatch loop. In 425 files it is followed by a `0x79` record and a variable-sized payload; the other 50 end immediately. Ghidra confirms that `0x79` is never dispatched because packet processing has already stopped. In every observed trailer, `arg1` is the remaining payload size and `arg2` is `arg1 - arg0`, but the payload's purpose remains unknown.
 
 ## Rebuilding Smacker instead of replacing it
 
@@ -149,7 +149,7 @@ compressed frame 1
 compressed frame N
 ```
 
-That reconstructed stream is placed in a `Common::MemoryReadStream` and handed directly to `Video::SmackerDecoder`.
+That reconstructed stream is placed in a `Common::MemoryReadStream` and handed through the RIPPER media player to `Video::SmackerDecoder`.
 
 Conceptually, the adapter is small:
 
@@ -183,12 +183,9 @@ The engine now retains the compressed payload as pending state when it encounter
 
 This distinction does not change the pixels produced by the current assets, but it restores an important property of the packet language: decoding state may be prepared before the command that makes it visible.
 
-The implementation can be found in the [`ripper` branch](https://github.com/alexbevi/scummvm/blob/ripper/engines/ripper/media.cpp).
+The current implementation separates [IAVF parsing and Smacker reconstruction](https://github.com/alexbevi/scummvm/blob/ripper/engines/ripper/iavf.cpp) from [presentation, input, display, and timing](https://github.com/alexbevi/scummvm/blob/ripper/engines/ripper/media/video.cpp).
 
-<!-- MEDIA PLACEHOLDER: Diagram showing one IAVF file being split into an
-audio timeline and multiple Smacker segments, followed by reconstruction into
-ordinary Smacker streams consumed by ScummVM. Within a frame, label the 0x67
-audio gate, 0x6c packet load, and 0x77 render as separate steps. -->
+![IAVF media pipeline splitting packetized audio and video into a PCM timeline and reconstructed Smacker streams for ScummVM](/images/ripper/iavf-pipeline-diagram.png)
 
 ## The video frame rate was the wrong clock
 
@@ -260,6 +257,12 @@ If audio could not be started, the engine falls back to a system timer using the
 
 This fixed a class of errors that could not be solved by adjusting the Smacker frame rate. The video segments did not own independent clocks. They were visual events attached to positions in one continuous audio timeline.
 
+### The final packet is not the end of playback
+
+A later scene exposed one more timing boundary. Opcode `0x70` exits the packet dispatch loop, but the original player continues polling `GetManagedAudioTriggerActiveDescriptor` until the final managed-audio descriptor completes. `KA_BOOK.AVI`, for example, has several seconds of audio after its last custom-video frame.
+
+The ScummVM implementation therefore retains the terminal decoded frame while the remaining PCM plays. Escape and Space remain active during that wait. Only after the audio tail completes, or the player skips it, does the presentation release its media state. In other words, `0x70` marks the end of the packet program, not necessarily the end of the visible and audible presentation.
+
 High-verbosity logging made the result measurable:
 
 ```text
@@ -272,21 +275,19 @@ Ripper: Smacker 'PROINT.AVI#7'
 
 Per-frame diagnostics are intentionally kept out of normal debug levels, but they were useful while establishing the clock relationship.
 
-<!-- MEDIA PLACEHOLDER: Short screen recording of PROINT.AVI playing with
-synchronized audio. If possible, show a side-by-side or before/after example of
-the earlier timing drift. -->
-
 ## One file can contain several movies
 
 `PROINT.AVI` is not one Smacker stream. It contains 16 segments. `PROLOG1.AVI` contains two.
 
-Segments can have different dimensions and positions. Presentations no larger than 320×200 are displayed at a 2:1 scale, matching the behavior selected by:
+Segments can have different dimensions and positions. The scale decision is made separately for each embedded Smacker branch, matching the behavior selected by:
 
 ```text
 InitializeMediaPresentationDisplayModeCallback @ 0x163a8
 ```
 
-The scaled result is then centered using the effective output dimensions. This allows a 320×200 segment to occupy the full width of the 640-pixel presentation surface while preserving its original aspect ratio.
+`PreparePacketizedMediaPlaybackBranchSetup` invokes that callback for every branch. A branch smaller than 321×201 receives a 2:1 display descriptor, and its effective scaled extents are centered. This allows a 320×200 segment to occupy the full 640×400 presentation surface while preserving its original aspect ratio.
+
+This distinction matters for `PROLOG2.AVI`: its IAVF canvas declares 640×400, but its embedded Smacker branches are 320×200 and must still be doubled. Full-sized branches switch to the full display context rather than inheriting the scene viewport's 50-pixel vertical origin.
 
 The segment boundaries also explain another visible defect from the early implementation. A smaller segment could be drawn over a larger preceding segment while leaving old pixels around its edges.
 
@@ -317,7 +318,7 @@ The reimplementation records the display boundary on the following segment:
 segment.clearDisplayBefore = pendingDisplayClear;
 ```
 
-Before presenting that segment, it clears the ScummVM surface and submits the update.
+Before presenting that segment, it clears the ScummVM surface and submits the update. If `0x68` is followed by `0x70` instead of another segment, the engine records a final display clear and applies it after the presentation and any managed-audio tail complete.
 
 Palette handling required similar care. RIPPER has another Smacker path that preserves palette ranges used by the toolbar and other interface elements. IAVF does not use that same path. The original packet renderer installs the packet's active palette directly, so applying the interface patch universally would modify the introductory movies incorrectly.
 
@@ -333,17 +334,13 @@ Reconstructed IAVF segment:
 
 The distinction is based on two separate original call paths, not on a general preference about how palettes should behave.
 
-<!-- MEDIA PLACEHOLDER: Before/after screenshots showing stale pixels between
-two differently sized PROINT.AVI segments. A palette-corruption example would
-also work well here. -->
-
 ## Returning control to the scene
 
 Playing the movie was not the final boundary.
 
-Some IAVF presentations are launched from scene scripts. The original `RunMediaPresentation` wrapper preserves the logical display state while the packetized presentation temporarily owns the screen. When playback ends, it restores the previous page, submits a full display update, restores the palette, and reactivates selection presentation.
+Some IAVF presentations are launched from scene scripts. On the keyboard-controlled path, the original `RunMediaPresentation` wrapper preserves the logical display state while the packetized presentation temporarily owns the screen. When playback ends, it restores the previous page, submits a full display update, restores the palette, and reactivates selection presentation.
 
-ScummVM has one active framebuffer rather than the original display-page arrangement. The engine therefore snapshots both indexed pixels and all 256 palette entries before script-controlled IAVF playback.
+ScummVM has one active framebuffer rather than the original display-page arrangement. The engine therefore snapshots both indexed pixels and all 256 palette entries before keyboard-controlled IAVF playback.
 
 After the movie finishes, it restores them together:
 
@@ -360,6 +357,16 @@ Restoring only the pixels is insufficient because the same byte values can repre
 
 This became especially important once dialogue response videos and other scripted presentations began returning directly to interactive scenes. The transition had to restore the scene the player left, not retain the last frame or palette from the movie.
 
+That restoration is a property of the presentation route, not a universal IAVF rule. An uncontrolled presentation intentionally leaves its final page visible. The Virtual Herald path depends on this behavior: after `VH_1.AVI` completes, the game enters its interface frame using the movie's retained display rather than restoring the black pre-roll page.
+
+## Controls and explicit extensions
+
+The original controlled-presentation callback recognizes Escape and Space. Escape stops the whole presentation, Space pauses or resumes both video and managed audio, and mouse buttons do not skip the packetized path.
+
+To make initial debugging and play-testing easier, I added Right Arrow handling as an explicit convenience for segmented IAVF files. It leaves the current Smacker branch, seeks the shared PCM stream to the next branch's first absolute audio offset, and rebases that branch's frame gates to the restarted mixer clock. Right Arrow on the final or only branch reports successful completion so the surrounding script still performs its normal played-state update. 
+
+Escape also needs a deliberate translation at the engine boundary. ScummVM rebuilds and presents the terminal Smacker frame before returning through the normal completion path, ensuring later script commands still run and delta-coded surface or palette state is complete. Retail stops the presentation instead of visibly decoding forward, so this is completion behavior rather than a claim of literal input fidelity.
+
 ## Keeping the implementation narrow
 
 There were several opportunities to solve a local problem in the wrong layer:
@@ -373,12 +380,20 @@ There were several opportunities to solve a local problem in the wrong layer:
 The current design avoids those shortcuts.
 
 ```text
-RIPPER MediaPlayer
+Media format detector
+    identifies IAVF2.00, SMK2, and SMK4 by signature
+    preserves the stream position before dispatch
+
+IAVF adapter
     parses IAVF descriptors
-    rebuilds Smacker streams
     constructs the PCM timeline
+    records segment and frame-gate boundaries
+    rebuilds Smacker streams
+
+RIPPER MediaPlayer
     maps audio offsets to frame deadlines
-    applies RIPPER display rules
+    applies placement, input, palette, and display rules
+    restores or retains the final display for the active route
 
 ScummVM services
     decode Smacker frames
@@ -388,6 +403,8 @@ ScummVM services
 ```
 
 This boundary keeps the proprietary behavior auditable against `RIPPER.EXE` while leaving shared ScummVM components game-agnostic.
+
+Each route now expresses its decoder policy through a `SmackerPlaybackPlan`, grouping placement, input, timeline, palette, frame range, looping, callbacks, and rendering. The player emits one stable trace of that plan before playback, and controlled IAVF routes use the engine's shared `IndexedDisplaySnapshot` service for pixels and palette state. These are structural changes rather than new IAVF semantics, but they make later refactoring easier to compare with the original call paths.
 
 It also leaves room for future work. Ghidra shows FLIC and other custom packet branches in `RunPacketizedMediaPlaybackCore`, but the complete scan of this retail data set found no IAVF file that exercises them. The current engine does not claim to implement every branch merely because it exists in the executable. Those paths should be added when an asset or reachable scene supplies enough data to verify them.
 
@@ -403,9 +420,10 @@ Reconstructing IAVF produced several broader lessons for the RIPPER engine:
 6. The correct clock may live outside the video stream.
 7. Display clears and palette changes are part of media semantics.
 8. Framebuffer state and palette state must be restored together.
-9. Shared codecs should remain shared; game-specific scheduling belongs in the engine.
+9. The end of packet dispatch may precede the end of the presentation timeline.
+10. Shared codecs should remain shared; game-specific scheduling belongs in the engine.
 
-The startup presentations now play through ScummVM using the original packet ordering, reconstructed Smacker segments, a continuous PCM timeline, audio-master frame scheduling, segment display boundaries, and the appropriate palette behavior.
+The same pipeline now supports startup movies and later scene, dialogue, WAC, inventory, and puzzle presentations. It preserves the original packet ordering, reconstructed Smacker segments, continuous PCM timeline, audio-master frame scheduling, segment display boundaries, and route-specific palette and display behavior.
 
 Prior work established the essential breakthrough: RIPPER's misleadingly named `.AVI` files are command streams around standard Smacker and PCM data. Reconstructing the original player in Ghidra supplied the remaining piece: how those commands schedule, synchronize, reset, and restore playback inside the game.
 
