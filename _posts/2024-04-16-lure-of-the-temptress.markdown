@@ -100,7 +100,7 @@ Lure of the Temptress is [free to download from ScummVM](https://scummvm.org/gam
 
 |*Game*|Lure of the Temptress|
 |*Developer*|[Revolution Software](https://en.wikipedia.org/wiki/Revolution_Software)|
-|*Publisher*|[Virgin Interactive Entertainment](Virgin Interactive Entertainment)|
+|*Publisher*|[Virgin Interactive Entertainment](https://en.wikipedia.org/wiki/Virgin_Interactive)|
 |*Release Date*|June 1992|
 |*Systems*|DOS, Amiga, Atari ST|
 |*Game Engine*|[Virtual Theatre](https://wiki.scummvm.org/index.php?title=Lure)|

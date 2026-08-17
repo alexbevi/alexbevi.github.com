@@ -6,7 +6,7 @@ comments: true
 categories: [Anime]
 ---
 
-I finally got around to adding an [Anime](/anime) section to this blog where I can track my Plex library.
+I finally got around to adding an [Anime](/categories/anime/) section to this blog where I can track my Plex library.
 
 Since this is the first post, I figure I'll just list of what I've worked my way through in the past six months or so and what's currently on deck.
 
