@@ -4,7 +4,7 @@ title: "MongoDB as the Brain of Modern AI Applications"
 date: 2026-04-15 16:42:15 -0400
 comments: true
 categories: AI
-tags: [mongodb, AI, memory, agents]
+tags: [mongodb, ai, memory, agents]
 image: /images/mongodb-brain-banner.png
 ---
 
