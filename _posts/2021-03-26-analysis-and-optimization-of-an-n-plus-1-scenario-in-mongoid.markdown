@@ -175,4 +175,4 @@ From the [`mongo`](https://docs.mongodb.com/manual/mongo/) or [`mongosh`](https:
 ```
 
 <hr>
-<small><a name="fn1">1</a>: As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster's `FTDC` (see ["What is MongoDB FTDC (aka. diagnostic.data)"]({% post_url 2020-01-26-what-is-mongodb-ftdc-aka-diagnostic-dot-data %}) for more info) and visualize time series performance telemetry, which were used to generate the following charts.</small>
+<small><span id="fn1">1</span>: As a MongoDB Technical Services engineer I have access to tools we can use to parse the cluster's `FTDC` (see ["What is MongoDB FTDC (aka. diagnostic.data)"]({% post_url 2020-01-26-what-is-mongodb-ftdc-aka-diagnostic-dot-data %}) for more info) and visualize time series performance telemetry, which were used to generate the following charts.</small>

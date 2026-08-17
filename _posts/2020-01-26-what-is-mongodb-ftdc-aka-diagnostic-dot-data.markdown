@@ -134,7 +134,7 @@ bsondump --quiet $METRICS | less
 
 ![](/images/ftdc-001.png)
 
-`bsondump` will default to emitting JSON, so we can interact with this using the [`jq`]() utility. For example, if we only want to review the _Metadata Document_ this could be done as follows:
+`bsondump` will default to emitting JSON, so we can interact with this using the [`jq`](https://jqlang.org/) utility. For example, if we only want to review the _Metadata Document_ this could be done as follows:
 
 ```bash
 # bsondump < 4.0
