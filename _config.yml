@@ -107,6 +107,12 @@ social_preview_image: /images/avatar.png
 # boolean type, the global switch for TOC in posts.
 toc: true
 
+actions:
+  edit_post:
+    enabled: true
+    url: "https://github.com/alexbevi/alexbevi.github.com/edit/main"
+    static_url: false
+
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
   provider: 'disqus' # [disqus | utterances | giscus]
