@@ -198,11 +198,9 @@ DEPENDENCIES
   foreman
   html-proofer (~> 5)
   http_parser.rb (~> 0.6.0)
-  jekyll-archives
   jekyll-gist
-  jekyll-include-cache
   jekyll-last-modified-at
-  jekyll-theme-chirpy (~> 7)
+  jekyll-theme-chirpy (~> 7.6)
   liquid-c
   ostruct
   puma
