@@ -17,10 +17,12 @@ layout: compress
     {
       "src": "{{ favicon_path }}/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    }],
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
   "start_url": "{{ '/index.html' | relative_url }}",
   "theme_color": "#2a1e6b",
   "background_color": "#ffffff",
-  "display": "fullscreen"
+  "display": "standalone"
 }
