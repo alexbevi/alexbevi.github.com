@@ -101,6 +101,9 @@ cdn:
 # the avatar on sidebar, support local or CORS resources
 avatar: ./images/avatar.png
 
+# The site-wide social preview image used when a page does not define one.
+social_preview_image: /images/avatar.png
+
 # boolean type, the global switch for TOC in posts.
 toc: true
 
