@@ -9,7 +9,6 @@ gem "jekyll-theme-chirpy", "~> 7"
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed"
   gem 'jekyll-gist'
   gem 'jekyll-last-modified-at'
   gem 'jekyll-archives'
